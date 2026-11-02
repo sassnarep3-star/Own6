@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sources and verification · NBA research dashboard</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><a href="index.html">NBA research dashboard</a></div>
+  <nav><a href="index.html" class="">Home</a><a href="executive-summary.html" class="">Executive summary</a><a href="games.html" class="">Games</a><a href="strategies.html" class="">Strategies</a><a href="methodology.html" class="">Methodology</a><a href="legal-kr.html" class="">Korea law</a><a href="nba-policy.html" class="">NBA policy</a><a href="flagged.html" class="">Flagged for review</a><a href="sources.html" class="active">Sources</a></nav>
+</header>
+<div class="notice">Research only. Nothing on this site is betting advice. Korean law may apply. See <a href="legal-kr.html">Korea law</a> and <a href="flagged.html">Flagged for review</a>.</div>
+<main>
+<h1>Sources and verification</h1>
+
+<p class="muted">Official sources (S1–S4) are the only ones used to fill verified values. Secondary sources (R1–R5) only identify what to check, and are never used to fill a value.</p>
+<div class="table-wrap"><input class="filter" type="search" placeholder="Filter rows…" data-target="source-table" aria-label="Filter table"><div class="scroll"><table id="source-table"><thead><tr><th>ID</th><th>Source</th><th>Used for</th><th>Verification</th><th>Link</th><th>Status</th></tr></thead><tbody><tr><td>S1</td><td>Korea Ministry of Government Legislation — 국민체육진흥법 (law.go.kr)</td><td>Arts. 2, 24, 26, 30, 47–49, 51, 53–54</td><td>Verified text; in force 2026-09-03</td><td><a href="https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B5%AD%EB%AF%BC%EC%B2%B4%EC%9C%A1%EC%A7%84%ED%9D%A5%EB%B2%95" target="_blank" rel="noopener">www.law.go.kr ↗</a></td><td>Verified</td></tr><tr><td>S2</td><td>NBA — Schedule (nba.com)</td><td>Nov 2, 2026 slate (15 games)</td><td>Verified for Nov 2 only</td><td><a href="https://www.nba.com/schedule" target="_blank" rel="noopener">www.nba.com ↗</a></td><td>Verified</td></tr><tr><td>S3</td><td>NBA — Official release, prediction-market framework (Oct 26, 2026)</td><td>Framework; restrictions mentioned but not listed</td><td>Verified text</td><td><a href="https://www.nba.com/news/nba-establishes-integrity-framework-and-commercial-partnerships-for-prediction-markets" target="_blank" rel="noopener">www.nba.com ↗</a></td><td>Verified</td></tr><tr><td>S4</td><td>NBA — Official gaming partners and operators (July 9, 2026)</td><td>Partner list; no South Korea entry</td><td>Verified</td><td><a href="https://www.nba.com/nbabet/official-nba-gaming-partners-and-operators-2" target="_blank" rel="noopener">www.nba.com ↗</a></td><td>Verified</td></tr><tr><td>R1</td><td>Sports Business Journal (Oct 16, 2026) — secondary</td><td>Reported prop restrictions</td><td>Unverified (press)</td><td><a href="https://www.sportsbusinessjournal.com/Articles/2026/10/16/new-nba-season-brings-a-change-to-rules-and-processes-as-a-crucial-predictions-decision-looms/" target="_blank" rel="noopener">www.sportsbusinessjournal.com ↗</a></td><td>Unverified</td></tr><tr><td>R2</td><td>TSN (Oct 16, 2026) — secondary</td><td>Reported memo to sportsbooks</td><td>Unverified (press)</td><td><a href="https://www.tsn.ca/nba/article/nba-tells-sportsbooks-to-stop-certain-bets-restrict-parlays-n1-50196498/" target="_blank" rel="noopener">www.tsn.ca ↗</a></td><td>Unverified</td></tr><tr><td>R3</td><td>Betting.net (Oct 19, 2026) — secondary</td><td>Reported restrictions</td><td>Unverified (press)</td><td><a href="https://www.betting.net/news/legal/nba-tells-sportsbooks-to-halt-certain-bets/" target="_blank" rel="noopener">www.betting.net ↗</a></td><td>Unverified</td></tr><tr><td>R4</td><td>Yahoo Sports (ESPN reporting) — secondary</td><td>Reported first-of and parlay bans</td><td>Unverified (press)</td><td><a href="https://sports.yahoo.com/articles/nba-sportsbooks-agree-ban-several-194209257.html" target="_blank" rel="noopener">sports.yahoo.com ↗</a></td><td>Unverified</td></tr><tr><td>R5</td><td>mk.co.kr (Mar 27, 2025) — secondary</td><td>Legal commentary quoting a lawyer on overseas betting</td><td>Unverified (press)</td><td><a href="https://www.mk.co.kr/en/society/11275855" target="_blank" rel="noopener">www.mk.co.kr ↗</a></td><td>Unverified</td></tr></tbody></table></div></div>
+<h2>Verification record</h2>
+<ul>
+  <li>Each official page was read with the fetch tool on 2026-11-02. Bash access was limited to GitHub, npm, and PyPI, so the NBA and law.go.kr pages were read through the fetch tool.</li>
+  <li>Korean statute text is quoted from the official page. English summaries are the compiler's translation.</li>
+  <li>The coordination log is in <a href="https://github.com/sassnarep3-star/Own6/blob/main/COORDINATION.md" target="_blank" rel="noopener">COORDINATION.md</a>.</li>
+</ul>
+
+</main>
+<footer>
+  Repo: <a href="https://github.com/sassnarep3-star/Own6">sassnarep3-star/Own6</a> · Built from data/*.json by scripts/build_site.py · Every table row links to its source.
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Executive summary · NBA research dashboard</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><a href="index.html">NBA research dashboard</a></div>
+  <nav><a href="index.html" class="">Home</a><a href="executive-summary.html" class="active">Executive summary</a><a href="games.html" class="">Games</a><a href="strategies.html" class="">Strategies</a><a href="methodology.html" class="">Methodology</a><a href="legal-kr.html" class="">Korea law</a><a href="nba-policy.html" class="">NBA policy</a><a href="flagged.html" class="">Flagged for review</a><a href="sources.html" class="">Sources</a></nav>
+</header>
+<div class="notice">Research only. Nothing on this site is betting advice. Korean law may apply. See <a href="legal-kr.html">Korea law</a> and <a href="flagged.html">Flagged for review</a>.</div>
+<main>
+<h1>Executive summary</h1>
+
+<div class="callout">
+<strong>Bottom line.</strong> No betting strategy is validated, no correlation value is computed, and the leaderboard is empty. The blocker is data and law, not effort. A verified odds source does not exist in this repo yet, and Korean counsel has not reviewed the legal exposure.
+</div>
+<h2>What is verified</h2>
+<ul>
+  <li><strong>15 NBA games</strong> for Monday, November 2, 2026, with official nba.com game links (<a href="https://www.nba.com/schedule" target="_blank" rel="noopener">schedule</a>). Only this one day is imported.</li>
+  <li><strong>13 Korean statute rows</strong> from 국민체육진흥법 (<a href="https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B5%AD%EB%AF%BC%EC%B2%B4%EC%9C%A1%EC%A7%84%ED%9D%A5%EB%B2%95" target="_blank" rel="noopener">law.go.kr</a>, in force 2026-09-03). Art. 26 bans “similar acts” (유사행위), and Arts. 47–49 set the penalties.</li>
+  <li><strong>NBA official release</strong> (Oct 26, 2026) on the prediction-market framework (<a href="https://www.nba.com/news/nba-establishes-integrity-framework-and-commercial-partnerships-for-prediction-markets" target="_blank" rel="noopener">nba.com</a>). It says partner markets follow the league's “latest sports betting restrictions” but does not list them.</li>
+  <li><strong>NBA official partner list</strong> (July 9, 2026, <a href="https://www.nba.com/nbabet/official-nba-gaming-partners-and-operators-2" target="_blank" rel="noopener">nba.com</a>). No South Korea entry appears.</li>
+</ul>
+<h2>What is not verified</h2>
+<ul>
+  <li><strong>Specific NBA prop restrictions</strong> (under props on bench players, “first of” props, same-player under parlays) appear only in press reports. They are marked unverified on the <a href="nba-policy.html">NBA policy</a> page.</li>
+  <li><strong>Odds and results.</strong> Odds columns are blank for every game. No team or player stats were imported.</li>
+  <li><strong>Correlation values.</strong> None computed. The table is empty because there is no verified dataset.</li>
+</ul>
+<h2>Key findings</h2>
+<ol>
+  <li><strong>Legal exposure is the main risk.</strong> Under Art. 26(2), designing or providing a betting-type system, providing game information for it, or promoting or brokering it is prohibited, and so is paying benefits to winners of similar issuance under Art. 26(1). Penalties run up to 7 years (Art. 47). Bettors can also be punished (Art. 48(3)). Originating NBA lines and running a reward leaderboard for Korean users is the highest-risk combination. This is a reading of the text, not a legal opinion (flag F01).</li>
+  <li><strong>The gates are designed, not passed.</strong> 8 validation gates are defined; 0 have passed. Luck cannot be removed from the equation. The gates only reduce the chance of confusing luck with skill (see <a href="methodology.html">Methodology</a>).</li>
+  <li><strong>The NBA's restrictions are real but not yet primary-sourced.</strong> The official release confirms restrictions exist. The specific bans need the NBA's own memo to be confirmed (flag F03).</li>
+  <li><strong>Repo state.</strong> The repo was a one-line README. This work adds data, a site, and coordination records. Irregularities are listed on <a href="flagged.html">Flagged for review</a>.</li>
+</ol>
+<h2>Decisions needed from the owner</h2>
+<ol>
+  <li>Get a written opinion from Korean counsel on Art. 26 before any public output or reward scheme (G1).</li>
+  <li>Choose a verified odds and results source with documented terms, or accept that strategy work stays empty (G2).</li>
+  <li>Decide whether the site stays research-only. Current design: no betting recommendations, no rewards configured.</li>
+</ol>
+<p class="muted">Built from data/*.json on 2026-11-02. Every claim above links to a verified source on the relevant page or to the <a href="sources.html">Sources</a> page.</p>
+
+</main>
+<footer>
+  Repo: <a href="https://github.com/sassnarep3-star/Own6">sassnarep3-star/Own6</a> · Built from data/*.json by scripts/build_site.py · Every table row links to its source.
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>
