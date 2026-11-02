@@ -1,0 +1,16 @@
+event_id,date,away_team,home_team,favorite,market_spread,market_total,open_total,spread_open,fav_ml_open,fav_ml_current,dog_ml_open,dog_ml_current,over_odds,under_odds,provider,source_url
+401909907,2026-11-02,OKC,CLE,CLE,-4.5,229.5,226.5,-4.5,-185,-179,154,150,-110,-110,DraftKings,https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909907/competitions/401909907/odds
+401909908,2026-11-02,DET,CHA,DET,-6.5,210.5,208.5,-4.5,-180,-237,150,196,-110,-110,DraftKings,https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909908/competitions/401909908/odds
+401909909,2026-11-02,ATL,IND,ATL,-10.5,229.5,234.5,-7.5,-298,-423,240,331,-113,-107,DraftKings,https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909909/competitions/401909909/odds
+401909910,2026-11-02,BKN,NY,NY,-14.5,219.5,222.5,-14.5,-850,-1040,575,670,-107,-113,DraftKings,https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909910/competitions/401909910/odds
+401909911,2026-11-02,WSH,ORL,ORL,-2.5,224.5,226.5,-1.5,-120,-155,100,131,-112,-108,DraftKings,https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909911/competitions/401909911/odds
+401909912,2026-11-02,CHI,PHI,PHI,-10.5,239.5,239.5,-11.5,-650,-522,470,396,-105,-115,DraftKings,https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909912/competitions/401909912/odds
+401909913,2026-11-02,SAC,DAL,DAL,-8.5,231.5,234.5,-9.5,-395,-344,310,276,-110,-110,DraftKings,https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909913/competitions/401909913/odds
+401909914,2026-11-02,NO,MEM,MEM,-5.5,232.5,235.5,-6.5,-250,-203,205,169,-106,-114,DraftKings,https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909914/competitions/401909914/odds
+401909915,2026-11-02,MIL,MIN,MIN,-10.5,230.5,233.5,-10.5,-345,-406,275,319,-112,-108,DraftKings,https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909915/competitions/401909915/odds
+401909916,2026-11-02,BOS,HOU,HOU,-5.5,216.5,218.5,-5.5,-185,-197,154,164,-105,-115,DraftKings,https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909916/competitions/401909916/odds
+401909917,2026-11-02,UTA,SA,SA,-16.5,229.5,229.5,-15.5,-800,-1180,550,740,-106,-115,DraftKings,https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909917/competitions/401909917/odds
+401909918,2026-11-02,POR,DEN,DEN,-4.5,231.5,231.5,-4.5,-162,-174,136,146,-107,-113,DraftKings,https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909918/competitions/401909918/odds
+401909919,2026-11-02,PHX,GS,GS,-3.5,227.5,227.5,-4.5,-180,-149,150,125,-110,-110,DraftKings,https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909919/competitions/401909919/odds
+401909920,2026-11-02,TOR,LAC,TOR,-4.5,219.5,220.5,-5.5,-198,-180,164,151,-110,-110,DraftKings,https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909920/competitions/401909920/odds
+401909921,2026-11-02,MIA,LAL,LAL,-2.5,236.5,239.5,-1.5,-120,-135,100,114,-110,-110,DraftKings,https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909921/competitions/401909921/odds
