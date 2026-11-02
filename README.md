@@ -1,17 +1,32 @@
-# Own6 — NBA line-origination research
+# Own6 — NBA Lines Research Lab
 
-Verified NBA data → line-origination model → gated strategy leaderboard → published dashboard.
+A research-first project for originating NBA spreads, totals, win probabilities, player props and parlays. **Nothing in this repository demonstrates a profitable edge.** No player projections, prices, empirical correlations or backtest returns are asserted without evidence.
 
-**Start here:** [EXECUTIVE_SUMMARY.md](EXECUTIVE_SUMMARY.md) · **Site:** [docs/index.html](docs/index.html)
+## Executive summary
+Estimate outcome distributions independently, convert them to fair probabilities, and compare against timestamped executable market prices after vig and execution costs. Skill must survive time-ordered out-of-sample testing, calibration checks, uncertainty bounds, multiple-testing controls and market benchmarks. Parlays and player-prop combinations require joint probabilities; multiplying marginal probabilities assumes independence and is not a default.
 
-| Area | Entry points |
-|---|---|
-| Data (every row sourced) | [data/](data/) — standings, ratings, 92 results, 15-game market lines, props, flags |
-| Research | [research/strategies.md](research/strategies.md) · [research/validation.md](research/validation.md) · [research/correlation.md](research/correlation.md) |
-| Verification | `python3 scripts/verify_data.py` → [verification/](verification/) |
-| Model | `python3 scripts/model.py` → walk-forward backtest + tonight's Own6 lines |
-| Site build / link check | `python3 scripts/build_site.py` · `python3 scripts/linkcheck.py` |
-| Coordination | [COORDINATION.md](COORDINATION.md) |
+Leaderboard rewards should be based on audited, preregistered, out-of-sample forecasts with uncertainty-aware eligibility—not raw win rate. Require adequate samples, proper scoring/calibration, market-relative results, drawdown reporting, and robust performance across periods. No historical data or sportsbook quotes are included here; measured advantage and correlation fields remain blank/unverified.
 
-Research/paper only — no real wagers. Official sources: NBA.com (standings, ratings, results),
-ESPN (schedule, DraftKings lines feed, player logs) with per-row links in every CSV.
+## Live site contents
+GitHub Pages publishes the organized site from [`docs/`](docs/index.html): dashboard/calculator, strategy catalog, validation gates, correlation methodology, leaderboard design, sources registry and Flagged for Review. See [`EXECUTIVE_SUMMARY.md`](EXECUTIVE_SUMMARY.md).
+
+The Python package in `src/own6/` contains transparent modeling utilities, with tests in `tests/`. Inputs and model assumptions are not official NBA facts; do not interpret illustrative estimates as verified lines or betting advice.
+
+## Sources and evidence boundaries
+Official NBA sources used for metric definitions: [NBA Stats Glossary](https://www.nba.com/stats/help/glossary) and [NBA Inside the Game Stat Glossary](https://www.nba.com/news/inside-the-game-stat-glossary). These sources do **not** verify predictive value, odds, correlation estimates or profitability. Unconfirmed values must remain blank and be flagged.
+
+## Source-linked verified dashboard
+
+A separate, source-checked section lives in [`docs/verified/`](docs/verified/index.html): the verified NBA schedule rows (Nov 2, 2026), Korean statute rows (국민체육진흥법), NBA official policy vs. unverified press reports, validation gates, and a Flagged for Review page. Data is in `data/*.json`; build with `python3 scripts/build_site.py` and check with `python3 scripts/check_site.py`.
+
+## Research sub-site (session `arena/325834c9-own6`)
+
+A second, independently verified research line lives in [`docs/own6/`](docs/own6/index.html):
+92 official game results with per-row nba.com links (213/213 recomputation checks pass), a
+walk-forward line-origination model with honest gate outcomes (**G1 not met — no edge claimed**),
+measured parlay/prop correlations, a pre-registered strategy leaderboard with paper rewards, and a
+Flagged-for-Review page. Research docs: [`EXECUTIVE_SUMMARY.md`](EXECUTIVE_SUMMARY.md) (session
+section), [`research/`](research/strategies.md), [`verification/`](verification/verification_report.csv).
+Build/check: `python3 scripts/build_site_own6.py` · `python3 scripts/linkcheck.py` ·
+`python3 scripts/verify_data.py` · `python3 scripts/model.py`. DraftKings lines arrive via the
+ESPN feed (secondary source, labeled as such); research/paper only — no real wagers.

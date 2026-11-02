@@ -10,7 +10,7 @@ Exits non-zero on any failure.
 import os, re, sys, urllib.parse
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DOCS = os.path.join(ROOT, "docs")
+DOCS = os.path.join(ROOT, "docs", "own6")
 
 ALLOWED_HOSTS = {
     "www.nba.com", "nba.com", "cdn.nba.com", "pr.nba.com", "stats.nba.com",

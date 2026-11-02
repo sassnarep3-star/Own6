@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard · NBA research dashboard</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><a href="index.html">NBA research dashboard</a></div>
+  <nav><a href="index.html" class="active">Home</a><a href="executive-summary.html" class="">Executive summary</a><a href="games.html" class="">Games</a><a href="strategies.html" class="">Strategies</a><a href="methodology.html" class="">Methodology</a><a href="legal-kr.html" class="">Korea law</a><a href="nba-policy.html" class="">NBA policy</a><a href="flagged.html" class="">Flagged for review</a><a href="sources.html" class="">Sources</a></nav>
+</header>
+<div class="notice">Research only. Nothing on this site is betting advice. Korean law may apply. See <a href="legal-kr.html">Korea law</a> and <a href="flagged.html">Flagged for review</a>.</div>
+<main>
+<h1>Dashboard</h1>
+
+<p class="lede">A verified, source-linked base for NBA research. Each entry has an official link, or it is marked unverified and left blank.</p>
+<div class="cards"><a class="card" href="games.html"><div class="card-label">Games imported</div><div class="card-value">15</div><div class="card-note">Nov 2, 2026 slate, all verified on nba.com</div></a><a class="card" href="legal-kr.html"><div class="card-label">Korean law rows</div><div class="card-value">13/13</div><div class="card-note">verified against law.go.kr</div></a><a class="card" href="nba-policy.html"><div class="card-label">NBA policy items</div><div class="card-value">2 verified · 5 unverified</div><div class="card-note">official text vs press reports</div></a><a class="card" href="strategies.html"><div class="card-label">Validated strategies</div><div class="card-value">0</div><div class="card-note">0 of 8 gates passed</div></a><a class="card" href="flagged.html"><div class="card-label">Flagged for review</div><div class="card-value">16</div><div class="card-note">5 high severity</div></a></div>
+<h2>Start here</h2>
+<ul class="links">
+  <li><a href="executive-summary.html">Executive summary</a>: what is verified, what is not, and the decisions needed.</li>
+  <li><a href="flagged.html">Flagged for review</a>: legal, data, and repo items for the owner.</li>
+  <li><a href="methodology.html">Methodology</a>: the validation gates and correlation rules.</li>
+</ul>
+<h2>Browse by category</h2>
+<ul class="links">
+  <li><a href="games.html">Games</a> (schedule and odds fields)</li>
+  <li><a href="strategies.html">Strategies</a> (leaderboard, empty until gates pass)</li>
+  <li><a href="legal-kr.html">Korea law</a> (국민체육진흥법 betting articles)</li>
+  <li><a href="nba-policy.html">NBA policy</a> (official vs reported restrictions)</li>
+  <li><a href="sources.html">Sources</a> (every source and verification record)</li>
+</ul>
+<p class="muted">Last built from data files. Retrieved 2026-11-02.</p>
+
+</main>
+<footer>
+  Repo: <a href="https://github.com/sassnarep3-star/Own6">sassnarep3-star/Own6</a> · Built from data/*.json by scripts/build_site.py · Every table row links to its source.
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>

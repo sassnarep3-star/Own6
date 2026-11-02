@@ -1,48 +1,9 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1"><title>Strategies · Own6</title>
-<style>
-:root{--bg:#0b1020;--card:#121a33;--line:#243056;--txt:#e8edfb;--mut:#93a0c4;--acc:#5b8cff;--ok:#28c76f;--bad:#ff5d5d;--warn:#f7b731}
-*{box-sizing:border-box}body{margin:0;font:15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--txt)}
-header{background:linear-gradient(90deg,#10193a,#16224d);border-bottom:1px solid var(--line);padding:18px 26px}
-header h1{margin:0;font-size:22px}header p{margin:4px 0 0;color:var(--mut);font-size:13px}
-nav{padding:10px 26px;background:#0e1530;border-bottom:1px solid var(--line);display:flex;gap:14px;flex-wrap:wrap}
-nav a{color:var(--acc);text-decoration:none;font-size:14px}nav a:hover{text-decoration:underline}
-main{padding:22px 26px;max-width:1280px;margin:0 auto}
-h2{font-size:19px;margin:26px 0 8px}h3{font-size:16px;margin:18px 0 6px;color:#c6d0f5}
-p,li{color:#cfd8f7;font-size:14px}.mut{color:var(--mut);font-size:13px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:14px 0}
-.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}
-.card .k{font-size:26px;font-weight:700}.card .l{color:var(--mut);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
-.tw{overflow:auto;background:var(--card);border:1px solid var(--line);border-radius:10px;margin:10px 0}
-table.data{border-collapse:collapse;width:100%;font-size:13px}
-table.data th{background:#18224a;color:#aebbf0;text-align:left;padding:9px 10px;position:sticky;top:0}
-table.data td{padding:8px 10px;border-top:1px solid var(--line);vertical-align:top}
-table.data tr:nth-child(even) td{background:#141d3c}
-a{color:var(--acc)}
-.badge{display:inline-block;padding:1px 8px;border-radius:99px;font-size:12px;font-weight:600}
-.badge.ok{background:#0f3c25;color:#5ff0a0}.badge.bad{background:#4a1420;color:#ff8f8f}.badge.warn{background:#453411;color:#ffd479}
-.note{background:#101a38;border-left:3px solid var(--acc);padding:10px 14px;border-radius:6px;margin:10px 0}
-footer{color:var(--mut);font-size:12px;padding:20px 26px;border-top:1px solid var(--line);margin-top:30px}
-</style></head><body>
-<header><h1>Own6 — NBA line-origination research</h1>
-<p>Official-source verified data · walk-forward model · gated strategy leaderboard · paper research only (no real wagers)</p></header>
-<nav><a href="index.html">Dashboard</a><a href="data.html">Data</a><a href="lines.html">Lines & Props</a><a href="strategies.html" style=font-weight:700>Strategies</a><a href="validation.html">Validation</a><a href="correlation.html">Correlation</a><a href="flagged.html">Flagged for Review</a></nav><main>
-<h2>Strategies — pre-registered catalog &amp; leaderboard</h2>
-<p>Full specs, bet rules and gate math: <a href="../research/strategies.md">research/strategies.md</a>.
-Every strategy and its thresholds were written down before results were examined (protocol:
-<a href="validation.html">validation</a>). Rewards are paper units — research bankroll, no real wagers.</p>
-<div class="tw"><table class="data"><thead><tr><th>ID</th><th>Strategy</th><th>Category</th><th>Gates passed</th><th>Score</th><th>Status</th><th>Key evidence</th><th>Deploy rule</th><th>Spec</th></tr></thead><tbody><tr><td>S-6</td><td>Cross-game 2-leg parlay</td><td>Parlays</td><td>G3, G4</td><td>4</td><td><span class="badge warn">TRACKING</span></td><td>cross-game r=+0.105 (n=357) measured</td><td>legs inherit S-1's failed G1 → no allocation yet</td><td><a href="../research/strategies.md" target="_blank" rel="noopener">spec</a></td></tr><tr><td>S-1</td><td>Rating-margin singles</td><td>Singles</td><td>G3, G4</td><td>3</td><td><span class="badge warn">TRACKING</span></td><td>G1 FAIL (CI crosses zero); G2/G6 partial @ n=82</td><td>paper lean only; ≥3% edge rule pre-registered</td><td><a href="../research/strategies.md" target="_blank" rel="noopener">spec</a></td></tr><tr><td>S-3</td><td>Rest-adjusted singles</td><td>Singles</td><td>G3, G4</td><td>3</td><td><span class="badge bad">NOT DEPLOYED</span></td><td>G2 failed: own-sample rest r=−0.016 (null)</td><td>literature effect too small for this sample</td><td><a href="../research/validation.md" target="_blank" rel="noopener">citations</a></td></tr><tr><td>S-4</td><td>Player-prop single</td><td>Player props</td><td>G4</td><td>2</td><td><span class="badge warn">TRACKING</span></td><td>Mitchell 22.5 vs official 22.7 Oct avg</td><td>vig eats the 0.2 lean; SGA blank+flagged</td><td><a href="lines.html" target="_blank" rel="noopener">props</a></td></tr><tr><td>S-5</td><td>Same-game teammate combo</td><td>Combos</td><td>G4</td><td>2</td><td><span class="badge bad">NOT DEPLOYED</span></td><td>G3 partial (r=−0.422, n=6); G6 unmet</td><td>needs n≥60 (G6)</td><td><a href="../research/correlation.md" target="_blank" rel="noopener">r</a></td></tr><tr><td>S-7</td><td>Open→close line-move</td><td>Singles</td><td>G4</td><td>2</td><td><span class="badge warn">TRACKING</span></td><td>open+current captured for 15 games</td><td>settlement tonight → G5 seed</td><td><a href="lines.html" target="_blank" rel="noopener">moves</a></td></tr><tr><td>S-2</td><td>Model totals</td><td>Singles</td><td>G4</td><td>1</td><td><span class="badge bad">NOT DEPLOYED</span></td><td>G2 failed: MAE 16.45 vs 16.80 baseline (tie)</td><td>no deployable edge</td><td><a href="../research/strategies.md" target="_blank" rel="noopener">spec</a></td></tr></tbody></table></div>
-<h3>Reward table (monthly)</h3>
-<div class="tw"><table class="data"><thead><tr><th>Rank</th><th>Reward</th></tr></thead><tbody><tr><td><span class="badge bad">1st</span></td><td>+20 paper units + top leaderboard slot</td><td><a href="../research/strategies.md" target="_blank" rel="noopener">rules</a></td></tr><tr><td><span class="badge bad">2nd</span></td><td>+10 paper units</td><td><a href="../research/strategies.md" target="_blank" rel="noopener">rules</a></td></tr><tr><td><span class="badge bad">3rd</span></td><td>+5 paper units</td><td><a href="../research/strategies.md" target="_blank" rel="noopener">rules</a></td></tr></tbody></table></div>
-<h3>Ranking score</h3>
-<p>score = 2×gates fully passed − gates failed (untested = neither; partial passes don't count).
-Current order: <b>S-6 (4)</b> · S-1, S-3 (3) · S-4, S-5, S-7 (2) · S-2 (1), ties broken by
-status tier. Bankroll starts 100 units; ≤1 unit/night while TRACKING; ≤5 units/night only when
-VALIDATED (none).</p>
-<div class="note"><b>No strategy is validated.</b> The leaderboard ranks <i>evidence</i>, not profit:
-the top score today is 4/6 — driven by measured correlation structure and protocol compliance,
-not by a demonstrated edge (G1 failed, G5 blocked).</div></main>
-<footer>Data cut 2026-11-02 · NBA.com + ESPN official feeds (DraftKings lines, NBA co-official sports betting partner —
-<a href="https://pr.nba.com/draftkings-and-fanduel-become-co-official-sports-betting-partners-of-the-nba/" target="_blank" rel="noopener">NBA press release</a>)
-· every table row carries a source link · unconfirmable values are blank and flagged · 21+/gambling-problem resources:
-1-800-GAMBLER</footer></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Strategies — Own6</title><link rel="stylesheet" href="assets/style.css"></head><body><nav><span class="brand">OWN6</span><a href="index.html">Dashboard</a><a href="strategies.html">Strategies</a><a href="validation.html">Validation Gates</a><a href="correlations.html">Correlations</a><a href="leaderboard.html">Leaderboard</a><a href="sources.html">Sources</a><a href="flagged.html">⚑ Flagged for Review</a><a href="verified/">✓ Verified data</a><a href="review/">✓ Independent review</a></nav><main><h1>Strategies — Hypotheses, Not Proven Edges</h1><p class="mut">Status for every family: <span class="flag">UNVALIDATED</span> until it passes all gates. No win-rate, ROI, or hit-rate is published — none has been verified from official data.</p>
+<table><tr><th>ID</th><th>Family / market</th><th>Signal (testable)</th><th>Inputs &amp; official source</th><th>Key risk</th><th>Status</th></tr>
+<tr><td>S-A</td><td>Single bet — spread &amp; total</td><td>Own fair line deviates from market line by &gt; threshold set from fitted margin SD</td><td>PACE, OffRtg, DefRtg — <a href="https://www.nba.com/stats/help/glossary">NBA Glossary</a> / <a href="https://www.nba.com/stats/overview">NBA Stats</a></td><td>Market already prices efficiency</td><td class="flag">Unvalidated — results blank</td></tr>
+<tr><td>S-B</td><td>Single bet — totals</td><td>Pace-blend extremes: expected possessions vs market total implied pace</td><td>PACE definition — <a href="https://www.nba.com/stats/help/glossary">NBA Glossary</a></td><td>Rotation / minutes changes</td><td class="flag">Unvalidated — results blank</td></tr>
+<tr><td>S-C</td><td>Player prop (single)</td><td>Shrunk per-minute rate × projected minutes vs prop line; bet only if P(over) edge &gt; threshold</td><td>Player stats <a href="https://www.nba.com/stats/overview">NBA Stats</a> · availability <a href="https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-02_01_45PM.pdf">Official Injury Report (dated PDF)</a></td><td>Minutes volatility, blowouts</td><td class="flag">Unvalidated — results blank</td></tr>
+<tr><td>S-D</td><td>Parlay / same-game combo</td><td>Copula joint probability &gt; book-implied joint probability (never independence by default)</td><td>Residual pairs from <a href="https://www.nba.com/stats/overview">NBA Stats</a> box scores</td><td>Books adjust for correlation; limits</td><td class="flag">Unvalidated — results blank</td></tr>
+<tr><td>S-E</td><td>Meta-strategy (all markets)</td><td>Only log/place prices that historically beat the close (CLV-first selection)</td><td>Bet ledger (self-logged) + closing lines from licensed books; NBA partners <a href="https://www.nba.com/news/draftkings-fanduel-become-nbas-co-official-sports-betting-partners">NBA.com</a></td><td>Requires large honest ledger</td><td class="flag">Unvalidated — results blank</td></tr>
+<tr><td>S-F</td><td>Prop combos (2+ players)</td><td>Usage-share constraint: teammates' counting stats compete for finite possessions</td><td>Usage/possession definitions — <a href="https://www.nba.com/stats/help/glossary">NBA Glossary</a></td><td>Negative correlation mis-estimated</td><td class="flag">Unvalidated — results blank</td></tr></table>
+<div class="card"><h3>How a strategy graduates</h3><p>Hypothesis → pre-registered rules → walk-forward test → <a href="validation.html">Gates G1–G8</a> → leaderboard eligibility (n≥200). Changing rules after seeing results restarts the clock and is logged (Gate G8).</p></div></main><footer>Research & analytics only — not betting advice. Bet only where legal. Every table row links its official source; unconfirmed values are blank &amp; flagged.</footer></body></html>

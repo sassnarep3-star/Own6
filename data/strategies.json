@@ -1,0 +1,10 @@
+{
+  "meta": {
+    "title": "Strategy registry and leaderboard (research only)",
+    "status": "Empty by design. No strategy has passed the gates in methodology.json.",
+    "reward_policy": "No rewards are configured. Any reward scheme depends on the legal review in gate G1.",
+    "retrieved": "2026-11-02"
+  },
+  "columns": ["rank", "strategy_id", "bet_type", "markets", "sample_size", "roi", "clv", "gates_passed", "source_dataset", "verified"],
+  "rows": []
+}

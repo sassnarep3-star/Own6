@@ -1,378 +1,319 @@
 #!/usr/bin/env python3
-"""Static site generator for the Own6 research dashboard (docs/).
+"""Build the static GitHub Pages site in docs/ from data/*.json (stdlib only).
 
-Reads verified CSVs and emits HTML pages where every table row carries at least
-one source link (official URL from the data, or the repo data file for computed
-rows whose inputs are official-source rows).
+Run:  python3 scripts/build_site.py
+Every table is generated from the JSON files, so the site and data cannot drift apart.
 """
-import csv, html, os, datetime
+import html
+import json
+import pathlib
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA = os.path.join(ROOT, "data")
-DOCS = os.path.join(ROOT, "docs")
-os.makedirs(DOCS, exist_ok=True)
+ROOT = pathlib.Path(__file__).resolve().parent.parent
+DATA = ROOT / "data"
+DOCS = ROOT / "docs" / "verified"  # isolated from other sessions' docs/ output
+REPO = "https://github.com/sassnarep3-star/Own6"
+SITE = "https://sassnarep3-star.github.io/Own6/"
 
-def rows(name):
-    with open(os.path.join(DATA, name), newline="") as f:
-        return list(csv.DictReader(f))
+NAV = [
+    ("index.html", "Home"),
+    ("executive-summary.html", "Executive summary"),
+    ("games.html", "Games"),
+    ("strategies.html", "Strategies"),
+    ("methodology.html", "Methodology"),
+    ("legal-kr.html", "Korea law"),
+    ("nba-policy.html", "NBA policy"),
+    ("flagged.html", "Flagged for review"),
+    ("sources.html", "Sources"),
+]
 
-def esc(x):
-    return html.escape(str(x if x is not None else ""))
 
-def link(url, label=None):
+def load(name):
+    return json.loads((DATA / name).read_text(encoding="utf-8"))
+
+
+def esc(v):
+    return html.escape("" if v is None else str(v))
+
+
+def badge(verified):
+    if verified:
+        return '<span class="badge ok">Verified</span>'
+    return '<span class="badge warn">Unverified</span>'
+
+
+def link(url, text=None):
     if not url:
-        return ""
-    return f'<a href="{esc(url)}" target="_blank" rel="noopener">{esc(label or url)}</a>'
+        return '<span class="blank">—</span>'
+    label = text or url.replace("https://", "").split("/")[0]
+    return f'<a href="{esc(url)}" target="_blank" rel="noopener">{esc(label)} ↗</a>'
 
-def table(headers, body_rows, cls="data"):
-    th = "".join(f"<th>{h}</th>" for h in headers)
-    trs = []
+
+def table(headers, body_rows, table_id):
+    """body_rows is a list of lists of pre-escaped HTML cell strings."""
+    head = "".join(f"<th>{esc(h)}</th>" for h in headers)
+    rows = []
     for r in body_rows:
         cells = "".join(f"<td>{c}</td>" for c in r)
-        trs.append(f"<tr>{cells}</tr>")
-    return f'<div class="tw"><table class="{cls}"><thead><tr>{th}</tr></thead><tbody>{"".join(trs)}</tbody></table></div>'
+        rows.append(f"<tr>{cells}</tr>")
+    return (
+        f'<div class="table-wrap"><input class="filter" type="search" '
+        f'placeholder="Filter rows…" data-target="{table_id}" aria-label="Filter table">'
+        f'<div class="scroll"><table id="{table_id}"><thead><tr>{head}</tr></thead>'
+        f'<tbody>{"".join(rows)}</tbody></table></div></div>'
+    )
 
-def badge(text):
-    t = str(text).lower()
-    cls = "ok" if t in ("pass", "validated", "done") else ("warn" if t in ("tracking", "needs review") else "bad")
-    return f'<span class="badge {cls}">{esc(text)}</span>'
 
-STYLES = """
-:root{--bg:#0b1020;--card:#121a33;--line:#243056;--txt:#e8edfb;--mut:#93a0c4;--acc:#5b8cff;--ok:#28c76f;--bad:#ff5d5d;--warn:#f7b731}
-*{box-sizing:border-box}body{margin:0;font:15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--txt)}
-header{background:linear-gradient(90deg,#10193a,#16224d);border-bottom:1px solid var(--line);padding:18px 26px}
-header h1{margin:0;font-size:22px}header p{margin:4px 0 0;color:var(--mut);font-size:13px}
-nav{padding:10px 26px;background:#0e1530;border-bottom:1px solid var(--line);display:flex;gap:14px;flex-wrap:wrap}
-nav a{color:var(--acc);text-decoration:none;font-size:14px}nav a:hover{text-decoration:underline}
-main{padding:22px 26px;max-width:1280px;margin:0 auto}
-h2{font-size:19px;margin:26px 0 8px}h3{font-size:16px;margin:18px 0 6px;color:#c6d0f5}
-p,li{color:#cfd8f7;font-size:14px}.mut{color:var(--mut);font-size:13px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:14px 0}
-.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}
-.card .k{font-size:26px;font-weight:700}.card .l{color:var(--mut);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
-.tw{overflow:auto;background:var(--card);border:1px solid var(--line);border-radius:10px;margin:10px 0}
-table.data{border-collapse:collapse;width:100%;font-size:13px}
-table.data th{background:#18224a;color:#aebbf0;text-align:left;padding:9px 10px;position:sticky;top:0}
-table.data td{padding:8px 10px;border-top:1px solid var(--line);vertical-align:top}
-table.data tr:nth-child(even) td{background:#141d3c}
-a{color:var(--acc)}
-.badge{display:inline-block;padding:1px 8px;border-radius:99px;font-size:12px;font-weight:600}
-.badge.ok{background:#0f3c25;color:#5ff0a0}.badge.bad{background:#4a1420;color:#ff8f8f}.badge.warn{background:#453411;color:#ffd479}
-.note{background:#101a38;border-left:3px solid var(--acc);padding:10px 14px;border-radius:6px;margin:10px 0}
-footer{color:var(--mut);font-size:12px;padding:20px 26px;border-top:1px solid var(--line);margin-top:30px}
+def page(filename, title, body, active):
+    nav = "".join(
+        f'<a href="{href}" class="{"active" if href == active else ""}">{esc(label)}</a>'
+        for href, label in NAV
+    )
+    html_text = f"""<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{esc(title)} · NBA research dashboard</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><a href="index.html">NBA research dashboard</a></div>
+  <nav>{nav}</nav>
+</header>
+<div class="notice">Research only. Nothing on this site is betting advice. Korean law may apply. See <a href="legal-kr.html">Korea law</a> and <a href="flagged.html">Flagged for review</a>.</div>
+<main>
+<h1>{esc(title)}</h1>
+{body}
+</main>
+<footer>
+  Repo: <a href="{REPO}">sassnarep3-star/Own6</a> · Built from data/*.json by scripts/build_site.py · Every table row links to its source.
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>
 """
+    (DOCS / filename).write_text(html_text, encoding="utf-8")
 
-def page(title, body, active):
-    navs = [("index.html","Dashboard"),("data.html","Data"),("lines.html","Lines & Props"),
-            ("strategies.html","Strategies"),("validation.html","Validation"),
-            ("correlation.html","Correlation"),("flagged.html","Flagged for Review")]
-    nav_html = "".join(
-        f'<a href="{h}"{" style=font-weight:700" if h==active else ""}>{t}</a>' for h, t in navs)
-    return f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)} · Own6</title>
-<style>{STYLES}</style></head><body>
-<header><h1>Own6 — NBA line-origination research</h1>
-<p>Official-source verified data · walk-forward model · gated strategy leaderboard · paper research only (no real wagers)</p></header>
-<nav>{nav_html}</nav><main>{body}</main>
-<footer>Data cut 2026-11-02 · NBA.com + ESPN official feeds (DraftKings lines, NBA co-official sports betting partner —
-<a href="https://pr.nba.com/draftkings-and-fanduel-become-co-official-sports-betting-partners-of-the-nba/" target="_blank" rel="noopener">NBA press release</a>)
-· every table row carries a source link · unconfirmable values are blank and flagged · 21+/gambling-problem resources:
-1-800-GAMBLER</footer></body></html>"""
 
-# ---------- data ----------
-standings = rows("standings_2026-27.csv")
-ratings = rows("team_ratings_2026-27.csv")
-games = rows("games_results_2026-27.csv")
-market = rows("market_lines_2026-11-02.csv")
-our = rows("our_lines_2026-11-02.csv")
-props = rows("player_props_2026-11-02.csv")
-flags = rows("flagged_items.csv")
-corrs = rows("correlation_findings.csv")
-our_by_ev = {r["event_id"]: r for r in our}
+def card(label, value, note, href):
+    return (f'<a class="card" href="{href}"><div class="card-label">{esc(label)}</div>'
+            f'<div class="card-value">{esc(value)}</div><div class="card-note">{esc(note)}</div></a>')
 
-# ---------- index ----------
-def kpi(k, l, sub=""):
-    s = f'<div class="mut">{esc(sub)}</div>' if sub else ""
-    return f'<div class="card"><div class="l">{esc(l)}</div><div class="k">{k}</div>{s}</div>'
 
-slate_rows = []
-for m in market:
-    o = our_by_ev.get(m["event_id"], {})
-    matchup = f'{m["away_team"]} @ {m["home_team"]}'
-    mk = f'{esc(m["favorite"])} {esc(m["market_spread"])} · O/U {esc(m["market_total"])}'
-    mdl = f'{esc(o.get("model_favorite",""))} {esc(o.get("our_spread",""))} · O/U {esc(o.get("our_total",""))}'
-    edge = o.get("model_edge_vs_market_fair","")
-    edge_s = f'{float(edge)*100:+.1f}%' if edge not in ("", None) else ""
-    src = link(m["source_url"], "DK/ESPN")
-    slate_rows.append([esc(matchup), mk, mdl, edge_s, badge(o.get("model_vs_market_fav","")), src])
+def main():
+    games = load("games.json")
+    legal = load("legal_kr.json")
+    policy = load("nba_policy.json")
+    meth = load("methodology.json")
+    strat = load("strategies.json")
+    flags = load("flags.json")
 
-lb_rows = [
-    ["S-6","Cross-game 2-leg parlay","2/6","4",badge("TRACKING"),link("../research/strategies.md","spec")],
-    ["S-1","Rating-margin singles","2/6","3",badge("TRACKING"),link("../research/strategies.md","spec")],
-    ["S-3","Rest-adjusted singles","2/6","3",badge("NOT DEPLOYED"),link("../research/strategies.md","spec")],
-    ["S-4","Player-prop single","1/6","2",badge("TRACKING"),link("../research/strategies.md","spec")],
-    ["S-5","Same-game teammate combo","1/6","2",badge("NOT DEPLOYED"),link("../research/strategies.md","spec")],
-    ["S-7","Open→close line-move","1/6","2",badge("TRACKING"),link("../research/strategies.md","spec")],
-    ["S-2","Model totals","1/6","1",badge("NOT DEPLOYED"),link("../research/strategies.md","spec")],
-]
-gates_rows = [
-    ["G1 Calibration (log-loss CI>0)",badge("FAIL"),'[−0.013, +0.073]',link("../verification/backtest_metrics.csv","metrics")],
-    ["G2 Discrimination ≥55% / n≥100",badge("PARTIAL"),"59.8% @ n=82",link("../verification/backtest_metrics.csv","metrics")],
-    ["G3 Leg correlations measured",badge("PASS"),"r ∈ {0.200, 0.105, −0.422, −0.016}",link("../research/correlation.md","correlation.md")],
-    ["G4 Multiple-testing log",badge("PASS"),"N=1 trials logged",link("../research/validation.md","validation.md")],
-    ["G5 Closing-line value ≥0",badge("BLOCKED"),"no historical odds in sources (flagged)",link("flagged.html","flagged")],
-    ["G6 Sample ≥100 graded",badge("PARTIAL"),"82 graded",link("../verification/backtest_metrics.csv","metrics")],
-]
-body = f"""
-<h2>Dashboard — 2026-11-02</h2>
-<div class="cards">
-{kpi(len(games),"Official game results","Oct 20 – Nov 1, per-row nba.com links")}
-{kpi("213/213","Verification checks","records recompute exactly from results")}
-{kpi(len(market),"Tonight's market lines","DraftKings via ESPN, open+current")}
-{kpi("0","Validated strategies","no edge claimed — gates honest")}
-{kpi(len(flags),"Flagged items","non-blocking, see Flagged page")}
-</div>
-<div class="note"><b>Status:</b> model v0.1 backtests better than coin-flip and home baselines on
-point estimates, but <b>G1 calibration gate is not met</b> (bootstrap CI crosses zero). All strategies
-are TRACKING or NOT DEPLOYED. S-2/S-3/S-5 failed outright and are not deployed.</div>
+    n_games = len(games["rows"])
+    n_legal = len(legal["rows"])
+    legal_verified = sum(1 for r in legal["rows"] if r["verified"])
+    pol_verified = sum(1 for r in policy["rows"] if r["verified"])
+    pol_unverified = len(policy["rows"]) - pol_verified
+    n_gates = len(meth["gates"])
+    gates_passed = sum(1 for g in meth["gates"] if g["current_result"].startswith("PASS"))
+    n_strat = len(strat["rows"])
+    n_flags = len(flags["rows"])
+    high_flags = sum(1 for f in flags["rows"] if f["severity"] == "High")
 
-<h2>Leaderboard snapshot (paper rewards: 20/10/5 units)</h2>
-{table(["ID","Strategy","Gates passed","Score","Status","Spec"], lb_rows)}
-
-<h2>Tonight's slate — market vs Own6 model</h2>
-{table(["Matchup","DraftKings (ESPN feed)","Own6 model v0.1","Edge vs fair","Favs","Source"], slate_rows)}
-<p class="mut">Edge = model P(model favourite) − de-vigged market P(favourite); positive = model
-thinks the side is underpriced. S-1 requires ≥3% plus gate G1 before any paper allocation — G1 currently fails,
-so these are leans only.</p>
-
-<h2>Validation gates</h2>
-{table(["Gate","Status","Result","Evidence"], gates_rows)}
-
+    # ---------- Home ----------
+    cards = "".join([
+        card("Games imported", f"{n_games}", "Nov 2, 2026 slate, all verified on nba.com", "games.html"),
+        card("Korean law rows", f"{legal_verified}/{n_legal}", "verified against law.go.kr", "legal-kr.html"),
+        card("NBA policy items", f"{pol_verified} verified · {pol_unverified} unverified", "official text vs press reports", "nba-policy.html"),
+        card("Validated strategies", f"{n_strat}", f"{gates_passed} of {n_gates} gates passed", "strategies.html"),
+        card("Flagged for review", f"{n_flags}", f"{high_flags} high severity", "flagged.html"),
+    ])
+    home_body = f"""
+<p class="lede">A verified, source-linked base for NBA research. Each entry has an official link, or it is marked unverified and left blank.</p>
+<div class="cards">{cards}</div>
 <h2>Start here</h2>
-<ul>
-<li><a href="data.html">Data</a> — standings, ratings, all 92 results (every row sourced)</li>
-<li><a href="lines.html">Lines &amp; Props</a> — 15-game market/model table + verified player props</li>
-<li><a href="strategies.html">Strategies</a> — pre-registered catalog, leaderboard, rewards</li>
-<li><a href="validation.html">Validation</a> — gates, backtest, luck-removal protocol, citations</li>
-<li><a href="correlation.html">Correlation</a> — measured dependence for parlays/combos</li>
-<li><a href="flagged.html">Flagged for Review</a> — irregularities, blanks, blocked checks</li>
-<li>Repo docs: <a href="../EXECUTIVE_SUMMARY.md">EXECUTIVE_SUMMARY.md</a> · <a href="../COORDINATION.md">COORDINATION.md</a></li>
-</ul>"""
-open(os.path.join(DOCS, "index.html"), "w").write(page("Dashboard", body, "index.html"))
-
-# ---------- data ----------
-st_e = [[esc(r["rank"]), f'{esc(r["team"])} ({esc(r["team_abbr"])})', esc(r["w"]), esc(r["l"]),
-         esc(r["win_pct"]), esc(r["gb"]), esc(r["streak"]), link(r["source_url"], "nba.com")]
-        for r in standings if r["conference"] == "East"]
-st_w = [[esc(r["rank"]), f'{esc(r["team"])} ({esc(r["team_abbr"])})', esc(r["w"]), esc(r["l"]),
-         esc(r["win_pct"]), esc(r["gb"]), esc(r["streak"]), link(r["source_url"], "nba.com")]
-        for r in standings if r["conference"] == "West"]
-rt = [[f'{esc(r["team"])} ({esc(r["team_abbr"])})', esc(r["gp"]), esc(r["off_rtg"]), esc(r["def_rtg"]),
-       esc(r["net_rtg"]), esc(r["pace"]), esc(r["ts_pct"]), link(r["source_url"], "nba.com advanced")]
-      for r in sorted(ratings, key=lambda x: float(x["net_rtg"]), reverse=True)]
-gm = [[esc(r["date"]), f'{esc(r["away_team"])} {esc(r["away_score"])} @ {esc(r["home_team"])} {esc(r["home_score"])}',
-       esc(r["ot"] or "—"), link(r["source_url"], "nba.com game")]
-      for r in games]
-body = f"""
-<h2>Data — all rows official-sourced</h2>
-<p>Verification: <code>python3 scripts/verify_data.py</code> → <a href="../verification/verification_report.csv">verification_report.csv</a>
-(213/213 pass: every team's W-L recomputed from the results file matches the official standings page exactly).</p>
-<h3>Standings — East (NBA.com)</h3>
-{table(["#","Team","W","L","Win%","GB","Streak","Source"], st_e)}
-<h3>Standings — West (NBA.com)</h3>
-{table(["#","Team","W","L","Win%","GB","Streak","Source"], st_w)}
-<h3>Team advanced ratings (NBA.com stats)</h3>
-{table(["Team","GP","OffRtg","DefRtg","NetRtg","Pace","TS%","Source"], rt)}
-<p class="mut">Sorted by NetRtg. Small samples (4–7 games) — shrinkage dominates the model's use of these values.</p>
-<h3>Game results, 2026-10-20 → 2026-11-01 (n=92)</h3>
-{table(["Date","Score","OT","Source"], gm)}"""
-open(os.path.join(DOCS, "data.html"), "w").write(page("Data", body, "data.html"))
-
-# ---------- lines & props ----------
-ln = []
-for m in market:
-    o = our_by_ev.get(m["event_id"], {})
-    ln.append([
-        esc(m["date"]), f'{esc(m["away_team"])} @ {esc(m["home_team"])}',
-        f'{esc(m["favorite"])} {esc(m["market_spread"])}',
-        f'{esc(o.get("our_spread",""))} ({esc(o.get("model_favorite",""))})',
-        esc(m["market_total"]), esc(o.get("our_total","")),
-        f'{esc(m["fav_ml_current"])} / {esc(m["dog_ml_current"])}',
-        f'{esc(m["spread_open"])} → {esc(m["market_spread"])}',
-        esc(o.get("model_edge_vs_market_fair","")),
-        link(m["source_url"], "odds feed")])
-pr = []
-for p in props:
-    pr.append([f'{esc(p["athlete"])} ({esc(p["team"])})', esc(p["market"]),
-               esc(p["line_open"]), esc(p["line_current"]),
-               esc(p["american_quotes_current_rowA_rowB"]), esc(p["last_updated"]),
-               link(p["source_url"], "prop feed")])
-body = f"""
-<h2>Lines — 2026-11-02 slate</h2>
-<p>Market = DraftKings as published in ESPN's official odds feed (DraftKings is an NBA co-official
-sports betting partner — <a href="https://pr.nba.com/draftkings-and-fanduel-become-co-official-sports-betting-partners-of-the-nba/" target="_blank" rel="noopener">NBA announcement</a>).
-Own6 columns come from <code>scripts/model.py</code> over official results/ratings; each row's
-market cell links the official per-event odds JSON (open + current, single consistent snapshot).</p>
-{table(["Date","Matchup","DK spread","Own6 spread (fav)","DK total","Own6 total","DK ML fav/dog","Spread move","Model edge","Source"], ln)}
-<div class="note">Favourite agreement 13/15. Model disagreements: <b>WSH@ORL</b> (model WSH +2.3) and
-<b>POR@DEN</b> (model POR +2.3) — leans only; S-1 blocked by gate G1. Model totals diverge most on
-CHI@PHI (−11.6) and BOS@HOU (+11.8); totals strategy S-2 failed its MAE gate.</div>
-
-<h3>Player props — verified subset (event 401909907, OKC @ CLE)</h3>
-{table(["Athlete","Market","Line (open)","Line (current)","Quotes rowA/rowB","Last updated","Source"], pr)}
-<div class="note">Identities resolved against official ESPN athlete/roster endpoints. Six feed athlete IDs
-could not be resolved and are <a href="flagged.html">withheld and flagged</a> (no inference rule).
-Quote sides are unlabeled in the feed → dual quotes published, sides not assigned. SGA projection left
-blank (season PPG not collected).</div>"""
-open(os.path.join(DOCS, "lines.html"), "w").write(page("Lines & Props", body, "lines.html"))
-
-# ---------- strategies ----------
-st_rows = [
- ["S-6","Cross-game 2-leg parlay","Parlays","G3, G4","4",badge("TRACKING"),
-  "cross-game r=+0.105 (n=357) measured", "legs inherit S-1's failed G1 → no allocation yet", link("../research/strategies.md","spec")],
- ["S-1","Rating-margin singles","Singles","G3, G4","3",badge("TRACKING"),
-  "G1 FAIL (CI crosses zero); G2/G6 partial @ n=82", "paper lean only; ≥3% edge rule pre-registered", link("../research/strategies.md","spec")],
- ["S-3","Rest-adjusted singles","Singles","G3, G4","3",badge("NOT DEPLOYED"),
-  "G2 failed: own-sample rest r=−0.016 (null)", "literature effect too small for this sample", link("../research/validation.md","citations")],
- ["S-4","Player-prop single","Player props","G4","2",badge("TRACKING"),
-  "Mitchell 22.5 vs official 22.7 Oct avg", "vig eats the 0.2 lean; SGA blank+flagged", link("lines.html","props")],
- ["S-5","Same-game teammate combo","Combos","G4","2",badge("NOT DEPLOYED"),
-  "G3 partial (r=−0.422, n=6); G6 unmet", "needs n≥60 (G6)", link("../research/correlation.md","r")],
- ["S-7","Open→close line-move","Singles","G4","2",badge("TRACKING"),
-  "open+current captured for 15 games", "settlement tonight → G5 seed", link("lines.html","moves")],
- ["S-2","Model totals","Singles","G4","1",badge("NOT DEPLOYED"),
-  "G2 failed: MAE 16.45 vs 16.80 baseline (tie)", "no deployable edge", link("../research/strategies.md","spec")],
-]
-rewards = [["1st","+20 paper units + top leaderboard slot"],["2nd","+10 paper units"],["3rd","+5 paper units"]]
-body = f"""
-<h2>Strategies — pre-registered catalog &amp; leaderboard</h2>
-<p>Full specs, bet rules and gate math: <a href="../research/strategies.md">research/strategies.md</a>.
-Every strategy and its thresholds were written down before results were examined (protocol:
-<a href="validation.html">validation</a>). Rewards are paper units — research bankroll, no real wagers.</p>
-{table(["ID","Strategy","Category","Gates passed","Score","Status","Key evidence","Deploy rule","Spec"], st_rows)}
-<h3>Reward table (monthly)</h3>
-{table(["Rank","Reward"], [[badge(r[0]), esc(r[1]), link("../research/strategies.md","rules")] for r in rewards])}
-<h3>Ranking score</h3>
-<p>score = 2×gates fully passed − gates failed (untested = neither; partial passes don't count).
-Current order: <b>S-6 (4)</b> · S-1, S-3 (3) · S-4, S-5, S-7 (2) · S-2 (1), ties broken by
-status tier. Bankroll starts 100 units; ≤1 unit/night while TRACKING; ≤5 units/night only when
-VALIDATED (none).</p>
-<div class="note"><b>No strategy is validated.</b> The leaderboard ranks <i>evidence</i>, not profit:
-the top score today is 4/6 — driven by measured correlation structure and protocol compliance,
-not by a demonstrated edge (G1 failed, G5 blocked).</div>"""
-open(os.path.join(DOCS, "strategies.html"), "w").write(page("Strategies", body, "strategies.html"))
-
-# ---------- validation ----------
-gate_tbl = [
- ["G1 Calibration","log-loss improvement vs expanding home-win baseline, 95% bootstrap CI > 0",badge("FAIL"),
-  "mean +0.0312, CI [−0.0130, +0.0733]", link("../verification/backtest_metrics.csv","metrics")],
- ["G2 Discrimination","sign accuracy ≥55% over ≥100 graded games",badge("PARTIAL"),
-  "59.8% at n=82 (threshold needs n≥100)", link("../verification/backtest_metrics.csv","metrics")],
- ["G3 Correlation structure","measure every leg's pairwise r; joint pricing required",badge("PASS"),
-  "4 correlations measured + published", link("correlation.html","correlation")],
- ["G4 Multiple-testing","log all trials; thresholds deflate with N (DSR framing)",badge("PASS"),
-  "N=1 (model v0.1) logged here", link("https://www.researchgate.net/publication/286121118_The_Deflated_Sharpe_RatioCorrecting_for_Selection_Bias_BacktestOverfitting_and_Non-Normality","Bailey–LdP 2014")],
- ["G5 Closing-line value","mean CLV ≥ 0 over ≥100 bets",badge("BLOCKED"),
-  "historical closing odds unavailable from official sources — flagged; tracking opens 2026-11-02", link("flagged.html","flag")],
- ["G6 Sample size","≥100 graded events to reach VALIDATED",badge("PARTIAL"),
-  "82 graded backtest games", link("../data/backtest_walkforward.csv","game rows")],
-]
-met = [
- ["Log-loss — model","0.6747",badge("best"),link("../data/backtest_walkforward.csv","rows")],
- ["Log-loss — coin baseline","0.6932","baseline p=0.5",link("../data/backtest_walkforward.csv","rows")],
- ["Log-loss — expanding home-win baseline","0.7059","baseline",link("../data/backtest_walkforward.csv","rows")],
- ["Brier — model / coin","0.6654 / 0.6946","lower better",link("../verification/backtest_metrics.csv","metrics")],
- ["Straight-up accuracy (model fav)","59.8%","gate ≥55%",link("../verification/backtest_metrics.csv","metrics")],
- ["r(predicted, actual margin)","0.210","walk-forward",link("../verification/backtest_metrics.csv","metrics")],
- ["Totals MAE / baseline","16.45 / 16.80","tie → S-2 not deployed",link("../verification/backtest_metrics.csv","metrics")],
- ["Estimated HCA / margin σ","1.64 pts / 16.48 pts","expanding, official results",link("../verification/backtest_metrics.csv","metrics")],
- ["Home win rate 2026-27","52.2% (48–44)","small sample vs ~59% norm",link("../data/games_results_2026-27.csv","results")],
-]
-body = f"""
-<h2>Validation gates &amp; backtest</h2>
-<div class="note"><b>Headline:</b> model v0.1 beats both baselines on point estimates, but the
-calibration gate (G1) fails because the 95% CI crosses zero. Honest status: no validated edge,
-strategies TRACKING/NOT DEPLOYED only.</div>
-{table(["Gate","Pre-registered requirement","Status","Result","Evidence"], gate_tbl)}
-<h3>Backtest metrics (walk-forward, 82 graded games, warmup 10)</h3>
-{table(["Metric","Value","Note","Source"], met)}
-<h3>Luck-removal protocol</h3>
-<ul>
-<li>Walk-forward grading (prior games only) — no look-ahead; code: <code>scripts/model.py</code></li>
-<li>Shrinkage k=8 (strength) / k=4 (scoring) toward league average — early-season noise damped</li>
-<li>Pre-registration: gates &amp; strategy rules written before results (this page + strategies.md)</li>
-<li>Baseline comparisons (coin / expanding home-win / expanding mean) — raw accuracy never trusted</li>
-<li>10,000-resample paired bootstrap (seed 42) on log-loss difference; CI crossing zero = fail</li>
-<li>Multiple-testing log for DSR-style deflation (currently N=1)</li>
+<ul class="links">
+  <li><a href="executive-summary.html">Executive summary</a>: what is verified, what is not, and the decisions needed.</li>
+  <li><a href="flagged.html">Flagged for review</a>: legal, data, and repo items for the owner.</li>
+  <li><a href="methodology.html">Methodology</a>: the validation gates and correlation rules.</li>
 </ul>
-<h3>Methodology citations</h3>
-<ul>
-<li>Bailey &amp; López de Prado (2014), <i>Deflated Sharpe Ratio</i>, JPM 40(5):94–107 —
-<a href="https://www.researchgate.net/publication/286121118_The_Deflated_Sharpe_RatioCorrecting_for_Selection_Bias_BacktestOverfitting_and_Non-Normality" target="_blank" rel="noopener">record</a> ·
-<a href="https://quantresearch.org/Publications.htm" target="_blank" rel="noopener">author list</a></li>
-<li>Closing-line accuracy — Harvard DASH thesis (MLB 1977–2018):
-<a href="https://dash.harvard.edu/bitstreams/24950429-b1b7-4372-a029-1b68de1872e3/download" target="_blank" rel="noopener">PDF</a></li>
-<li>NFL betting-line performance —
-<a href="https://www.researchgate.net/publication/233427163_The_Performance_of_Betting_Lines_for_Predicting_the_Outcome_of_NFL_Games" target="_blank" rel="noopener">Szalkowski &amp; Nelson</a></li>
-<li>ML sports-betting systematic review (2024) —
-<a href="https://arxiv.org/html/2410.21484v1" target="_blank" rel="noopener">arXiv:2410.21484</a></li>
-<li>Pythagorean expectation / margin→wins —
-<a href="https://nbaanalytic.com/articles/pythagorean-expectation-nba-standings.html" target="_blank" rel="noopener">NBAAnalytic</a></li>
-<li>Rest effects — Entine (Wharton):
-<a href="https://faculty.wharton.upenn.edu/wp-content/uploads/2012/04/Nba.pdf" target="_blank" rel="noopener">PDF</a> ·
-Small (NESSIS 2007): <a href="https://www.nessis.org/nessis07/Dylan_Small.pdf" target="_blank" rel="noopener">PDF</a> ·
-<a href="https://nbaanalytic.com/articles/rest-back-to-backs-load-management.html" target="_blank" rel="noopener">NBAAnalytic B2B split</a></li>
-<li>DraftKings = NBA co-official sports betting partner —
-<a href="https://pr.nba.com/draftkings-and-fanduel-become-co-official-sports-betting-partners-of-the-nba/" target="_blank" rel="noopener">NBA press release (2021)</a></li>
-</ul>"""
-open(os.path.join(DOCS, "validation.html"), "w").write(page("Validation", body, "validation.html"))
+<h2>Browse by category</h2>
+<ul class="links">
+  <li><a href="games.html">Games</a> (schedule and odds fields)</li>
+  <li><a href="strategies.html">Strategies</a> (leaderboard, empty until gates pass)</li>
+  <li><a href="legal-kr.html">Korea law</a> (국민체육진흥법 betting articles)</li>
+  <li><a href="nba-policy.html">NBA policy</a> (official vs reported restrictions)</li>
+  <li><a href="sources.html">Sources</a> (every source and verification record)</li>
+</ul>
+<p class="muted">Last built from data files. Retrieved 2026-11-02.</p>
+"""
+    page("index.html", "Dashboard", home_body, "index.html")
 
-# ---------- correlation ----------
-cr = []
-for c in corrs:
-    src = c["source_file"]
-    if src.startswith("http"):
-        sl = link(src, "source")
-    else:
-        sl = link("../" + src if not src.startswith(".") else src, src.split("/")[-1])
-    cr.append([esc(c["pair"]), esc(c["interpretation"]), esc(c["n"]), esc(c["pearson_r"]), sl])
-body = f"""
-<h2>Correlation findings</h2>
-<p>Computed from official game rows and ESPN player logs — reproduction data:
-<a href="../data/correlation_findings.csv">correlation_findings.csv</a>. Full narrative:
-<a href="../research/correlation.md">research/correlation.md</a>.</p>
-{table(["Pair","Interpretation","n","Pearson r","Source"], cr)}
-<h3>What it means for parlays &amp; combos</h3>
+    # ---------- Executive summary ----------
+    summary_body = f"""
+<div class="callout">
+<strong>Bottom line.</strong> No betting strategy is validated, no correlation value is computed, and the leaderboard is empty. The blocker is data and law, not effort. A verified odds source does not exist in this repo yet, and Korean counsel has not reviewed the legal exposure.
+</div>
+<h2>What is verified</h2>
 <ul>
-<li><b>Same-game legs</b> (team totals): r=+0.200 — pace couples them; joint P(both over) exceeds
-the independence product. Pricing must use a joint model.</li>
-<li><b>Cross-game legs</b>: r=+0.105 (n=357) — weak but non-zero; strict independence slightly
-overstates joint win probability for favorite legs.</li>
-<li><b>Teammate props</b>: r=−0.422 at n=6 — usage-sharing direction, insufficient sample;
-strategy S-5 stays NOT DEPLOYED until n≥60.</li>
-<li><b>Rest signal</b>: r=−0.016 (n=76) — null in this sample; S-3 not deployed despite
-literature support for a small effect.</li>
-</ul>"""
-open(os.path.join(DOCS, "correlation.html"), "w").write(page("Correlation", body, "correlation.html"))
-
-# ---------- flagged ----------
-fl = [[esc(f["item"]), esc(f["category"]), esc(f["detail"]), badge(f["status"]),
-       link(f["source_url"] if f["source_url"].startswith("http") else "../" + f["source_url"], "source")]
-      for f in flags]
-body = f"""
-<h2>Flagged for Review</h2>
-<p>Irregularities, blanks and blocked checks. Per project rules these are published, never
-silently reconciled, and <b>do not block</b> merge/deploy. Status: <b>needs review</b>.</p>
-{table(["Item","Category","Detail","Status","Source"], fl)}
-<h3>Rules applied</h3>
+  <li><strong>{n_games} NBA games</strong> for Monday, November 2, 2026, with official nba.com game links (<a href="https://www.nba.com/schedule" target="_blank" rel="noopener">schedule</a>). Only this one day is imported.</li>
+  <li><strong>{legal_verified} Korean statute rows</strong> from 국민체육진흥법 (<a href="https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B5%AD%EB%AF%BC%EC%B2%B4%EC%9C%A1%EC%A7%84%ED%9D%A5%EB%B2%95" target="_blank" rel="noopener">law.go.kr</a>, in force 2026-09-03). Art. 26 bans “similar acts” (유사행위), and Arts. 47–49 set the penalties.</li>
+  <li><strong>NBA official release</strong> (Oct 26, 2026) on the prediction-market framework (<a href="https://www.nba.com/news/nba-establishes-integrity-framework-and-commercial-partnerships-for-prediction-markets" target="_blank" rel="noopener">nba.com</a>). It says partner markets follow the league's “latest sports betting restrictions” but does not list them.</li>
+  <li><strong>NBA official partner list</strong> (July 9, 2026, <a href="https://www.nba.com/nbabet/official-nba-gaming-partners-and-operators-2" target="_blank" rel="noopener">nba.com</a>). No South Korea entry appears.</li>
+</ul>
+<h2>What is not verified</h2>
 <ul>
-<li>Unconfirmable values stay <b>blank</b> and are flagged (e.g., unresolved prop athlete IDs are
-withheld from the props table entirely; SGA projection blank).</li>
-<li>Official-source conflicts (IND–BKN recap slug vs card) are recorded with both readings; the
-authoritative game card value is used for standings-consistency checks, discrepancy flagged.</li>
-<li>Failed gates are findings, not secrets: G1 FAIL is itself a flagged row in
-<a href="validation.html">Validation</a>.</li>
-</ul>"""
-open(os.path.join(DOCS, "flagged.html"), "w").write(page("Flagged for Review", body, "flagged.html"))
+  <li><strong>Specific NBA prop restrictions</strong> (under props on bench players, “first of” props, same-player under parlays) appear only in press reports. They are marked unverified on the <a href="nba-policy.html">NBA policy</a> page.</li>
+  <li><strong>Odds and results.</strong> Odds columns are blank for every game. No team or player stats were imported.</li>
+  <li><strong>Correlation values.</strong> None computed. The table is empty because there is no verified dataset.</li>
+</ul>
+<h2>Key findings</h2>
+<ol>
+  <li><strong>Legal exposure is the main risk.</strong> Under Art. 26(2), designing or providing a betting-type system, providing game information for it, or promoting or brokering it is prohibited, and so is paying benefits to winners of similar issuance under Art. 26(1). Penalties run up to 7 years (Art. 47). Bettors can also be punished (Art. 48(3)). Originating NBA lines and running a reward leaderboard for Korean users is the highest-risk combination. This is a reading of the text, not a legal opinion (flag F01).</li>
+  <li><strong>The gates are designed, not passed.</strong> {n_gates} validation gates are defined; {gates_passed} have passed. Luck cannot be removed from the equation. The gates only reduce the chance of confusing luck with skill (see <a href="methodology.html">Methodology</a>).</li>
+  <li><strong>The NBA's restrictions are real but not yet primary-sourced.</strong> The official release confirms restrictions exist. The specific bans need the NBA's own memo to be confirmed (flag F03).</li>
+  <li><strong>Repo state.</strong> The repo was a one-line README. This work adds data, a site, and coordination records. Irregularities are listed on <a href="flagged.html">Flagged for review</a>.</li>
+</ol>
+<h2>Decisions needed from the owner</h2>
+<ol>
+  <li>Get a written opinion from Korean counsel on Art. 26 before any public output or reward scheme (G1).</li>
+  <li>Choose a verified odds and results source with documented terms, or accept that strategy work stays empty (G2).</li>
+  <li>Decide whether the site stays research-only. Current design: no betting recommendations, no rewards configured.</li>
+</ol>
+<p class="muted">Built from data/*.json on 2026-11-02. Every claim above links to a verified source on the relevant page or to the <a href="sources.html">Sources</a> page.</p>
+"""
+    page("executive-summary.html", "Executive summary", summary_body, "executive-summary.html")
 
-print("built:", sorted(os.listdir(DOCS)))
+    # ---------- Games ----------
+    g_cols = ["Game ID", "Date", "Tip (ET)", "Away", "Home", "Venue", "City", "Status", "Odds home", "Odds away", "Source", "Verified"]
+    g_rows = []
+    for r in games["rows"]:
+        g_rows.append([
+            esc(r["game_id"]), esc(r["date"]), esc(r["tip_time_et"]), esc(r["away_team"]), esc(r["home_team"]),
+            esc(r["venue"]), esc(r["city"]), esc(r["status"]),
+            '<span class="blank">blank · unverified</span>', '<span class="blank">blank · unverified</span>',
+            link(r["source_url"], "nba.com"), badge(r["verified"]),
+        ])
+    games_body = f"""
+<p class="muted">{esc(games['meta']['coverage'])}</p>
+<p class="muted">{esc(games['meta']['odds_note'])}</p>
+{table(g_cols, g_rows, "games-table")}
+<p class="muted">Source: <a href="{games['meta']['primary_source']}" target="_blank" rel="noopener">nba.com/schedule</a>, retrieved {esc(games['meta']['retrieved'])}. Times are as published (ET).</p>
+"""
+    page("games.html", "Games — 2026-27 schedule", games_body, "games.html")
+
+    # ---------- Strategies ----------
+    strat_head = ["Rank", "Strategy", "Bet type", "Markets", "Sample size", "ROI", "CLV", "Gates passed", "Source dataset", "Verified"]
+    strat_body_rows = [[esc(x) for x in row] for row in []]
+    gate_rows = []
+    for g in meth["gates"]:
+        gate_rows.append([esc(g["id"]), esc(g["name"]), esc(g["rule"]), esc(g["current_result"]), esc(g["why"])])
+    strategies_body = f"""
+<div class="callout">
+<strong>Leaderboard status:</strong> {n_strat} strategies have passed the gates, so the leaderboard is empty. {esc(strat['meta']['reward_policy'])}
+</div>
+<h2>Leaderboard</h2>
+{table(strat_head, strat_body_rows, "strategy-table")}
+<p class="muted">Rows appear here only when every gate in the table below is marked PASS with a source dataset and a verified record.</p>
+<h2>Gate status</h2>
+{table(["ID", "Gate", "Rule", "Current result", "Why"], gate_rows, "gate-table")}
+"""
+    page("strategies.html", "Strategies — leaderboard and gates", strategies_body, "strategies.html")
+
+    # ---------- Methodology ----------
+    corr = meth["correlation_table"]
+    corr_head = ["Leg A", "Leg B", "Sample size", "Correlation", "Source dataset", "Verified"]
+    corr_empty = table(corr_head, [], "corr-table")
+    method_body = f"""
+<p class="muted">{esc(meth['meta']['note'])}</p>
+<h2>Validation gates</h2>
+{table(["ID", "Gate", "Rule", "Current result", "Why"], gate_rows, "gate-table-2")}
+<h2>Luck control</h2>
+<div class="callout">{esc(meth['luck_control_note'])}</div>
+<h2>Correlation values</h2>
+<p><strong>Status:</strong> {esc(corr['status'])}. {esc(corr['rule'])}</p>
+{corr_empty}
+"""
+    page("methodology.html", "Methodology — gates and correlation", method_body, "methodology.html")
+
+    # ---------- Korea law ----------
+    l_cols = ["Article", "Topic", "Korean text (excerpt)", "English summary (compiler)", "Penalty", "Source", "Verified"]
+    l_rows = []
+    for r in legal["rows"]:
+        l_rows.append([
+            esc(r["article"]), esc(r["topic"]), esc(r["korean_text_excerpt"]), esc(r["english_summary_compiler"]),
+            esc(r["penalty"]) if r["penalty"] else '<span class="blank">—</span>',
+            link(r["source_url"], "law.go.kr"), badge(r["verified"]),
+        ])
+    legal_body = f"""
+<div class="callout">{esc(legal['meta']['legal_disclaimer'])}</div>
+<p class="muted">{esc(legal['meta']['in_force'])}. {esc(legal['meta']['translation_note'])}</p>
+{table(l_cols, l_rows, "legal-table")}
+"""
+    page("legal-kr.html", "Korea law — 국민체육진흥법 betting provisions", legal_body, "legal-kr.html")
+
+    # ---------- NBA policy ----------
+    p_cols = ["Item", "Official statement (verified)", "Official source", "Reported by press (unverified)", "Press source", "Status"]
+    p_rows = []
+    for r in policy["rows"]:
+        status = '<span class="badge ok">Verified</span>' if r["verified"] else '<span class="badge warn">Unverified</span>'
+        p_rows.append([
+            esc(r["item"]),
+            esc(r["official_statement_verified"]) if r["official_statement_verified"] else '<span class="blank">blank · unverified</span>',
+            link(r["official_source_url"], "nba.com") if r["official_source_url"] else '<span class="blank">—</span>',
+            esc(r["secondary_reports_unverified"]),
+            link(r["secondary_source_url"]) if r["secondary_source_url"] else '<span class="blank">—</span>',
+            status,
+        ])
+    policy_body = f"""
+<p class="muted">{esc(policy['meta']['rule'])}</p>
+{table(p_cols, p_rows, "policy-table")}
+"""
+    page("nba-policy.html", "NBA policy — official vs reported", policy_body, "nba-policy.html")
+
+    # ---------- Flagged ----------
+    f_cols = ["ID", "Category", "Severity", "Item", "Detail", "Source", "Action requested"]
+    f_rows = []
+    for r in flags["rows"]:
+        sev = esc(r["severity"])
+        f_rows.append([
+            esc(r["id"]), esc(r["category"]), f'<span class="sev {sev.lower()}">{sev}</span>',
+            esc(r["item"]), esc(r["detail"]), link(r["source_url"]), esc(r["action_requested"]),
+        ])
+    flagged_body = f"""
+<div class="callout">
+<strong>Flagged for Review.</strong> These items do not block the merge. They are published here with source links so the owner can review them and request changes.
+</div>
+{table(f_cols, f_rows, "flag-table")}
+"""
+    page("flagged.html", "Flagged for review", flagged_body, "flagged.html")
+
+    # ---------- Sources ----------
+    src_rows = [
+        ["S1", "Korea Ministry of Government Legislation — 국민체육진흥법 (law.go.kr)", "Arts. 2, 24, 26, 30, 47–49, 51, 53–54", "Verified text; in force 2026-09-03", "https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B5%AD%EB%AF%BC%EC%B2%B4%EC%9C%A1%EC%A7%84%ED%9D%A5%EB%B2%95", "Verified"],
+        ["S2", "NBA — Schedule (nba.com)", "Nov 2, 2026 slate (15 games)", "Verified for Nov 2 only", "https://www.nba.com/schedule", "Verified"],
+        ["S3", "NBA — Official release, prediction-market framework (Oct 26, 2026)", "Framework; restrictions mentioned but not listed", "Verified text", "https://www.nba.com/news/nba-establishes-integrity-framework-and-commercial-partnerships-for-prediction-markets", "Verified"],
+        ["S4", "NBA — Official gaming partners and operators (July 9, 2026)", "Partner list; no South Korea entry", "Verified", "https://www.nba.com/nbabet/official-nba-gaming-partners-and-operators-2", "Verified"],
+        ["R1", "Sports Business Journal (Oct 16, 2026) — secondary", "Reported prop restrictions", "Unverified (press)", "https://www.sportsbusinessjournal.com/Articles/2026/10/16/new-nba-season-brings-a-change-to-rules-and-processes-as-a-crucial-predictions-decision-looms/", "Unverified"],
+        ["R2", "TSN (Oct 16, 2026) — secondary", "Reported memo to sportsbooks", "Unverified (press)", "https://www.tsn.ca/nba/article/nba-tells-sportsbooks-to-stop-certain-bets-restrict-parlays-n1-50196498/", "Unverified"],
+        ["R3", "Betting.net (Oct 19, 2026) — secondary", "Reported restrictions", "Unverified (press)", "https://www.betting.net/news/legal/nba-tells-sportsbooks-to-halt-certain-bets/", "Unverified"],
+        ["R4", "Yahoo Sports (ESPN reporting) — secondary", "Reported first-of and parlay bans", "Unverified (press)", "https://sports.yahoo.com/articles/nba-sportsbooks-agree-ban-several-194209257.html", "Unverified"],
+        ["R5", "mk.co.kr (Mar 27, 2025) — secondary", "Legal commentary quoting a lawyer on overseas betting", "Unverified (press)", "https://www.mk.co.kr/en/society/11275855", "Unverified"],
+    ]
+    sources_body = f"""
+<p class="muted">Official sources (S1–S4) are the only ones used to fill verified values. Secondary sources (R1–R5) only identify what to check, and are never used to fill a value.</p>
+{table(["ID", "Source", "Used for", "Verification", "Link", "Status"], [[esc(c) if i != 4 else link(c) for i, c in enumerate(r)] for r in src_rows], "source-table")}
+<h2>Verification record</h2>
+<ul>
+  <li>Each official page was read with the fetch tool on 2026-11-02. Bash access was limited to GitHub, npm, and PyPI, so the NBA and law.go.kr pages were read through the fetch tool.</li>
+  <li>Korean statute text is quoted from the official page. English summaries are the compiler's translation.</li>
+  <li>The coordination log is in <a href="{REPO}/blob/main/COORDINATION.md" target="_blank" rel="noopener">COORDINATION.md</a>.</li>
+</ul>
+"""
+    page("sources.html", "Sources and verification", sources_body, "sources.html")
+
+    print("built", len(list(DOCS.glob("*.html"))), "pages")
+
+
+if __name__ == "__main__":
+    main()
