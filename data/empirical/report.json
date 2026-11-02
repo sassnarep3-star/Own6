@@ -1,0 +1,765 @@
+{
+  "config": {
+    "alpha": 0.05,
+    "bootstrap_iterations": 10000,
+    "bootstrap_seed": 20261102,
+    "family_size": 6,
+    "min_bets": 200,
+    "min_events": 200,
+    "min_nonpush": 200,
+    "minimum_expected_value": 0.02,
+    "minimum_model_edge": 0.02,
+    "ranking_metric": "Lower bound of event-clustered holdout ROI; only all-gate qualifiers are ranked.",
+    "reward_policy": "Non-monetary research priority only; no payouts, stakes, or betting recommendations.",
+    "split_order": [
+      "train",
+      "validation",
+      "holdout"
+    ],
+    "stake_units": 1.0,
+    "version": "1.0.0"
+  },
+  "config_sha256": "b090dc8e9d2205de975aa3e5efc3d283995be5d09c89f7a40ee55953dda5bd27",
+  "correlations": [
+    {
+      "ci_high": null,
+      "ci_low": null,
+      "estimate": null,
+      "id": "C-01",
+      "leg_a": "Player A points-over residual",
+      "leg_b": "Player B points-over residual",
+      "method": "Pearson phi on paired binary residual hits; event-bootstrap interval; training folds only.",
+      "n": null,
+      "reason": "No authorized paired training residuals are available. Do not infer independence.",
+      "scope": "Same game, two players",
+      "source_dataset": "Authorized residual file required; observations.csv holds binary outcomes only.",
+      "source_url": "https://www.nba.com/termsofuse#nba-statistics",
+      "status": "unverified"
+    },
+    {
+      "ci_high": null,
+      "ci_low": null,
+      "estimate": null,
+      "id": "C-02",
+      "leg_a": "Player points residual",
+      "leg_b": "Same player assists residual",
+      "method": "Pearson correlation of paired continuous residual outcomes; event-bootstrap interval.",
+      "n": null,
+      "reason": "No authorized paired training residuals are available. Do not infer independence.",
+      "scope": "Same player, same game",
+      "source_dataset": "Authorized residual file required; observations.csv holds binary outcomes only.",
+      "source_url": "https://www.nba.com/termsofuse#nba-statistics",
+      "status": "unverified"
+    },
+    {
+      "ci_high": null,
+      "ci_low": null,
+      "estimate": null,
+      "id": "C-03",
+      "leg_a": "Team-total residual",
+      "leg_b": "Game-total residual",
+      "method": "Paired residual correlation; mechanical overlap disclosed; not a causal estimate.",
+      "n": null,
+      "reason": "No authorized paired training residuals are available. Do not infer independence.",
+      "scope": "Same game",
+      "source_dataset": "Authorized residual file required; observations.csv holds binary outcomes only.",
+      "source_url": "https://www.nba.com/termsofuse#nba-statistics",
+      "status": "unverified"
+    },
+    {
+      "ci_high": null,
+      "ci_low": null,
+      "estimate": null,
+      "id": "C-04",
+      "leg_a": "Home margin residual",
+      "leg_b": "Starter minutes residual",
+      "method": "Paired residual correlation; blowout/rotation confounding disclosed.",
+      "n": null,
+      "reason": "No authorized paired training residuals are available. Do not infer independence.",
+      "scope": "Same game",
+      "source_dataset": "Authorized residual file required; observations.csv holds binary outcomes only.",
+      "source_url": "https://www.nba.com/termsofuse#nba-statistics",
+      "status": "unverified"
+    },
+    {
+      "ci_high": null,
+      "ci_low": null,
+      "estimate": null,
+      "id": "C-05",
+      "leg_a": "Game A favorite win indicator",
+      "leg_b": "Game B favorite win indicator",
+      "method": "Slate-clustered residual dependence; zero is not assumed.",
+      "n": null,
+      "reason": "No authorized paired training residuals are available. Do not infer independence.",
+      "scope": "Different games, same slate",
+      "source_dataset": "Authorized residual file required; observations.csv holds binary outcomes only.",
+      "source_url": "https://www.nba.com/termsofuse#nba-statistics",
+      "status": "unverified"
+    },
+    {
+      "ci_high": null,
+      "ci_low": null,
+      "estimate": null,
+      "id": "C-06",
+      "leg_a": "Player points residual",
+      "leg_b": "Same player rebounds residual",
+      "method": "Paired residual correlation with minutes/pace exposure disclosed.",
+      "n": null,
+      "reason": "No authorized paired training residuals are available. Do not infer independence.",
+      "scope": "Same player, same game",
+      "source_dataset": "Authorized residual file required; observations.csv holds binary outcomes only.",
+      "source_url": "https://www.nba.com/termsofuse#nba-statistics",
+      "status": "unverified"
+    }
+  ],
+  "external_evidence": {
+    "dependence_verified": false,
+    "ledger_audited": false,
+    "preregistered": false,
+    "provenance_verified": false,
+    "rights_verified": false,
+    "walk_forward_verified": false
+  },
+  "leaderboard": [],
+  "n_observations": 0,
+  "n_qualified": 0,
+  "status": "not_run",
+  "strategies": [
+    {
+      "category": "Single bet",
+      "gates": [
+        {
+          "id": "G01",
+          "name": "Rights and market permission",
+          "reason": "No independently reviewed gambling-use/data rights and market permission.",
+          "source_url": "https://www.nba.com/termsofuse#nba-statistics",
+          "status": "blocked"
+        },
+        {
+          "id": "G02",
+          "name": "Field-level provenance",
+          "reason": "Structural source checks are not an independent provenance audit.",
+          "source_url": "https://www.nba.com/termsofuse#nba-statistics",
+          "status": "blocked"
+        },
+        {
+          "id": "G03",
+          "name": "Chronological walk-forward",
+          "reason": "No independent audit of feature availability, fit windows and untouched holdout.",
+          "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+          "status": "blocked"
+        },
+        {
+          "id": "G04",
+          "name": "Effective sample size",
+          "reason": "No authorized holdout observations are available.",
+          "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+          "status": "not_run"
+        },
+        {
+          "id": "G05",
+          "name": "Market-relative predictive quality",
+          "reason": "No authorized holdout observations are available.",
+          "source_url": "https://scikit-learn.org/stable/modules/calibration.html",
+          "status": "not_run"
+        },
+        {
+          "id": "G06",
+          "name": "Post-vig profitability",
+          "reason": "No authorized holdout observations are available.",
+          "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+          "status": "not_run"
+        },
+        {
+          "id": "G07",
+          "name": "Closing-line value",
+          "reason": "No authorized holdout observations are available.",
+          "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+          "status": "not_run"
+        },
+        {
+          "id": "G08",
+          "name": "Luck and multiple testing",
+          "reason": "No authorized holdout observations are available.",
+          "source_url": "https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm",
+          "status": "not_run"
+        },
+        {
+          "id": "G09",
+          "name": "Joint dependence",
+          "reason": "Combo joint evidence is missing; singles still use event-clustered uncertainty.",
+          "source_url": "https://www.nba.com/termsofuse#nba-statistics",
+          "status": "blocked"
+        },
+        {
+          "id": "G10",
+          "name": "Frozen, auditable ledger",
+          "reason": "Independent append-only timestamp/ledger audit, preregistration and one frozen model version are required.",
+          "source_url": "https://github.com/sassnarep3-star/Own6/blob/main/research/empirical/DATA_CONTRACT.md",
+          "status": "blocked"
+        }
+      ],
+      "id": "L1",
+      "market": "moneyline",
+      "metrics": {
+        "breakeven_mean": null,
+        "brier_edge_lower": null,
+        "brier_market": null,
+        "brier_model": null,
+        "calibration": [],
+        "clv_lower": null,
+        "clv_mean": null,
+        "clv_upper": null,
+        "events": null,
+        "logloss_edge_lower": null,
+        "logloss_market": null,
+        "logloss_model": null,
+        "losses": null,
+        "max_drawdown_units": null,
+        "model_versions": null,
+        "n": null,
+        "p_adjusted": null,
+        "p_raw": null,
+        "pushes": null,
+        "roi": null,
+        "roi_lower": null,
+        "roi_upper": null,
+        "win_rate": null,
+        "wins": null
+      },
+      "name": "Efficiency moneyline",
+      "qualified": false,
+      "source_url": "https://www.nba.com/stats/help/glossary"
+    },
+    {
+      "category": "Single bet",
+      "gates": [
+        {
+          "id": "G01",
+          "name": "Rights and market permission",
+          "reason": "No independently reviewed gambling-use/data rights and market permission.",
+          "source_url": "https://www.nba.com/termsofuse#nba-statistics",
+          "status": "blocked"
+        },
+        {
+          "id": "G02",
+          "name": "Field-level provenance",
+          "reason": "Structural source checks are not an independent provenance audit.",
+          "source_url": "https://www.nba.com/termsofuse#nba-statistics",
+          "status": "blocked"
+        },
+        {
+          "id": "G03",
+          "name": "Chronological walk-forward",
+          "reason": "No independent audit of feature availability, fit windows and untouched holdout.",
+          "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+          "status": "blocked"
+        },
+        {
+          "id": "G04",
+          "name": "Effective sample size",
+          "reason": "No authorized holdout observations are available.",
+          "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+          "status": "not_run"
+        },
+        {
+          "id": "G05",
+          "name": "Market-relative predictive quality",
+          "reason": "No authorized holdout observations are available.",
+          "source_url": "https://scikit-learn.org/stable/modules/calibration.html",
+          "status": "not_run"
+        },
+        {
+          "id": "G06",
+          "name": "Post-vig profitability",
+          "reason": "No authorized holdout observations are available.",
+          "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+          "status": "not_run"
+        },
+        {
+          "id": "G07",
+          "name": "Closing-line value",
+          "reason": "No authorized holdout observations are available.",
+          "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+          "status": "not_run"
+        },
+        {
+          "id": "G08",
+          "name": "Luck and multiple testing",
+          "reason": "No authorized holdout observations are available.",
+          "source_url": "https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm",
+          "status": "not_run"
+        },
+        {
+          "id": "G09",
+          "name": "Joint dependence",
+          "reason": "Combo joint evidence is missing; singles still use event-clustered uncertainty.",
+          "source_url": "https://www.nba.com/termsofuse#nba-statistics",
+          "status": "blocked"
+        },
+        {
+          "id": "G10",
+          "name": "Frozen, auditable ledger",
+          "reason": "Independent append-only timestamp/ledger audit, preregistration and one frozen model version are required.",
+          "source_url": "https://github.com/sassnarep3-star/Own6/blob/main/research/empirical/DATA_CONTRACT.md",
+          "status": "blocked"
+        }
+      ],
+      "id": "L2",
+      "market": "spread",
+      "metrics": {
+        "breakeven_mean": null,
+        "brier_edge_lower": null,
+        "brier_market": null,
+        "brier_model": null,
+        "calibration": [],
+        "clv_lower": null,
+        "clv_mean": null,
+        "clv_upper": null,
+        "events": null,
+        "logloss_edge_lower": null,
+        "logloss_market": null,
+        "logloss_model": null,
+        "losses": null,
+        "max_drawdown_units": null,
+        "model_versions": null,
+        "n": null,
+        "p_adjusted": null,
+        "p_raw": null,
+        "pushes": null,
+        "roi": null,
+        "roi_lower": null,
+        "roi_upper": null,
+        "win_rate": null,
+        "wins": null
+      },
+      "name": "Margin-residual spread",
+      "qualified": false,
+      "source_url": "https://www.nba.com/stats/help/glossary"
+    },
+    {
+      "category": "Single bet",
+      "gates": [
+        {
+          "id": "G01",
+          "name": "Rights and market permission",
+          "reason": "No independently reviewed gambling-use/data rights and market permission.",
+          "source_url": "https://www.nba.com/termsofuse#nba-statistics",
+          "status": "blocked"
+        },
+        {
+          "id": "G02",
+          "name": "Field-level provenance",
+          "reason": "Structural source checks are not an independent provenance audit.",
+          "source_url": "https://www.nba.com/termsofuse#nba-statistics",
+          "status": "blocked"
+        },
+        {
+          "id": "G03",
+          "name": "Chronological walk-forward",
+          "reason": "No independent audit of feature availability, fit windows and untouched holdout.",
+          "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+          "status": "blocked"
+        },
+        {
+          "id": "G04",
+          "name": "Effective sample size",
+          "reason": "No authorized holdout observations are available.",
+          "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+          "status": "not_run"
+        },
+        {
+          "id": "G05",
+          "name": "Market-relative predictive quality",
+          "reason": "No authorized holdout observations are available.",
+          "source_url": "https://scikit-learn.org/stable/modules/calibration.html",
+          "status": "not_run"
+        },
+        {
+          "id": "G06",
+          "name": "Post-vig profitability",
+          "reason": "No authorized holdout observations are available.",
+          "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+          "status": "not_run"
+        },
+        {
+          "id": "G07",
+          "name": "Closing-line value",
+          "reason": "No authorized holdout observations are available.",
+          "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+          "status": "not_run"
+        },
+        {
+          "id": "G08",
+          "name": "Luck and multiple testing",
+          "reason": "No authorized holdout observations are available.",
+          "source_url": "https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm",
+          "status": "not_run"
+        },
+        {
+          "id": "G09",
+          "name": "Joint dependence",
+          "reason": "Combo joint evidence is missing; singles still use event-clustered uncertainty.",
+          "source_url": "https://www.nba.com/termsofuse#nba-statistics",
+          "status": "blocked"
+        },
+        {
+          "id": "G10",
+          "name": "Frozen, auditable ledger",
+          "reason": "Independent append-only timestamp/ledger audit, preregistration and one frozen model version are required.",
+          "source_url": "https://github.com/sassnarep3-star/Own6/blob/main/research/empirical/DATA_CONTRACT.md",
+          "status": "blocked"
+        }
+      ],
+      "id": "L3",
+      "market": "total",
+      "metrics": {
+        "breakeven_mean": null,
+        "brier_edge_lower": null,
+        "brier_market": null,
+        "brier_model": null,
+        "calibration": [],
+        "clv_lower": null,
+        "clv_mean": null,
+        "clv_upper": null,
+        "events": null,
+        "logloss_edge_lower": null,
+        "logloss_market": null,
+        "logloss_model": null,
+        "losses": null,
+        "max_drawdown_units": null,
+        "model_versions": null,
+        "n": null,
+        "p_adjusted": null,
+        "p_raw": null,
+        "pushes": null,
+        "roi": null,
+        "roi_lower": null,
+        "roi_upper": null,
+        "win_rate": null,
+        "wins": null
+      },
+      "name": "Pace-efficiency total",
+      "qualified": false,
+      "source_url": "https://www.nba.com/stats/help/glossary"
+    },
+    {
+      "category": "Player prop",
+      "gates": [
+        {
+          "id": "G01",
+          "name": "Rights and market permission",
+          "reason": "No independently reviewed gambling-use/data rights and market permission.",
+          "source_url": "https://www.nba.com/termsofuse#nba-statistics",
+          "status": "blocked"
+        },
+        {
+          "id": "G02",
+          "name": "Field-level provenance",
+          "reason": "Structural source checks are not an independent provenance audit.",
+          "source_url": "https://www.nba.com/termsofuse#nba-statistics",
+          "status": "blocked"
+        },
+        {
+          "id": "G03",
+          "name": "Chronological walk-forward",
+          "reason": "No independent audit of feature availability, fit windows and untouched holdout.",
+          "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+          "status": "blocked"
+        },
+        {
+          "id": "G04",
+          "name": "Effective sample size",
+          "reason": "No authorized holdout observations are available.",
+          "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+          "status": "not_run"
+        },
+        {
+          "id": "G05",
+          "name": "Market-relative predictive quality",
+          "reason": "No authorized holdout observations are available.",
+          "source_url": "https://scikit-learn.org/stable/modules/calibration.html",
+          "status": "not_run"
+        },
+        {
+          "id": "G06",
+          "name": "Post-vig profitability",
+          "reason": "No authorized holdout observations are available.",
+          "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+          "status": "not_run"
+        },
+        {
+          "id": "G07",
+          "name": "Closing-line value",
+          "reason": "No authorized holdout observations are available.",
+          "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+          "status": "not_run"
+        },
+        {
+          "id": "G08",
+          "name": "Luck and multiple testing",
+          "reason": "No authorized holdout observations are available.",
+          "source_url": "https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm",
+          "status": "not_run"
+        },
+        {
+          "id": "G09",
+          "name": "Joint dependence",
+          "reason": "Combo joint evidence is missing; singles still use event-clustered uncertainty.",
+          "source_url": "https://www.nba.com/termsofuse#nba-statistics",
+          "status": "blocked"
+        },
+        {
+          "id": "G10",
+          "name": "Frozen, auditable ledger",
+          "reason": "Independent append-only timestamp/ledger audit, preregistration and one frozen model version are required.",
+          "source_url": "https://github.com/sassnarep3-star/Own6/blob/main/research/empirical/DATA_CONTRACT.md",
+          "status": "blocked"
+        }
+      ],
+      "id": "P1",
+      "market": "player_prop",
+      "metrics": {
+        "breakeven_mean": null,
+        "brier_edge_lower": null,
+        "brier_market": null,
+        "brier_model": null,
+        "calibration": [],
+        "clv_lower": null,
+        "clv_mean": null,
+        "clv_upper": null,
+        "events": null,
+        "logloss_edge_lower": null,
+        "logloss_market": null,
+        "logloss_model": null,
+        "losses": null,
+        "max_drawdown_units": null,
+        "model_versions": null,
+        "n": null,
+        "p_adjusted": null,
+        "p_raw": null,
+        "pushes": null,
+        "roi": null,
+        "roi_lower": null,
+        "roi_upper": null,
+        "win_rate": null,
+        "wins": null
+      },
+      "name": "Shrunk player-points rate",
+      "qualified": false,
+      "source_url": "https://www.nba.com/stats/help/glossary"
+    },
+    {
+      "category": "Prop combo",
+      "gates": [
+        {
+          "id": "G01",
+          "name": "Rights and market permission",
+          "reason": "No independently reviewed gambling-use/data rights and market permission.",
+          "source_url": "https://www.nba.com/termsofuse#nba-statistics",
+          "status": "blocked"
+        },
+        {
+          "id": "G02",
+          "name": "Field-level provenance",
+          "reason": "Structural source checks are not an independent provenance audit.",
+          "source_url": "https://www.nba.com/termsofuse#nba-statistics",
+          "status": "blocked"
+        },
+        {
+          "id": "G03",
+          "name": "Chronological walk-forward",
+          "reason": "No independent audit of feature availability, fit windows and untouched holdout.",
+          "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+          "status": "blocked"
+        },
+        {
+          "id": "G04",
+          "name": "Effective sample size",
+          "reason": "No authorized holdout observations are available.",
+          "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+          "status": "not_run"
+        },
+        {
+          "id": "G05",
+          "name": "Market-relative predictive quality",
+          "reason": "No authorized holdout observations are available.",
+          "source_url": "https://scikit-learn.org/stable/modules/calibration.html",
+          "status": "not_run"
+        },
+        {
+          "id": "G06",
+          "name": "Post-vig profitability",
+          "reason": "No authorized holdout observations are available.",
+          "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+          "status": "not_run"
+        },
+        {
+          "id": "G07",
+          "name": "Closing-line value",
+          "reason": "No authorized holdout observations are available.",
+          "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+          "status": "not_run"
+        },
+        {
+          "id": "G08",
+          "name": "Luck and multiple testing",
+          "reason": "No authorized holdout observations are available.",
+          "source_url": "https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm",
+          "status": "not_run"
+        },
+        {
+          "id": "G09",
+          "name": "Joint dependence",
+          "reason": "Combo joint evidence is missing; singles still use event-clustered uncertainty.",
+          "source_url": "https://www.nba.com/termsofuse#nba-statistics",
+          "status": "blocked"
+        },
+        {
+          "id": "G10",
+          "name": "Frozen, auditable ledger",
+          "reason": "Independent append-only timestamp/ledger audit, preregistration and one frozen model version are required.",
+          "source_url": "https://github.com/sassnarep3-star/Own6/blob/main/research/empirical/DATA_CONTRACT.md",
+          "status": "blocked"
+        }
+      ],
+      "id": "C1",
+      "market": "prop_combo",
+      "metrics": {
+        "breakeven_mean": null,
+        "brier_edge_lower": null,
+        "brier_market": null,
+        "brier_model": null,
+        "calibration": [],
+        "clv_lower": null,
+        "clv_mean": null,
+        "clv_upper": null,
+        "events": null,
+        "logloss_edge_lower": null,
+        "logloss_market": null,
+        "logloss_model": null,
+        "losses": null,
+        "max_drawdown_units": null,
+        "model_versions": null,
+        "n": null,
+        "p_adjusted": null,
+        "p_raw": null,
+        "pushes": null,
+        "roi": null,
+        "roi_lower": null,
+        "roi_upper": null,
+        "win_rate": null,
+        "wins": null
+      },
+      "name": "Two-player same-game overs",
+      "qualified": false,
+      "source_url": "https://www.nba.com/stats/help/glossary"
+    },
+    {
+      "category": "Parlay",
+      "gates": [
+        {
+          "id": "G01",
+          "name": "Rights and market permission",
+          "reason": "No independently reviewed gambling-use/data rights and market permission.",
+          "source_url": "https://www.nba.com/termsofuse#nba-statistics",
+          "status": "blocked"
+        },
+        {
+          "id": "G02",
+          "name": "Field-level provenance",
+          "reason": "Structural source checks are not an independent provenance audit.",
+          "source_url": "https://www.nba.com/termsofuse#nba-statistics",
+          "status": "blocked"
+        },
+        {
+          "id": "G03",
+          "name": "Chronological walk-forward",
+          "reason": "No independent audit of feature availability, fit windows and untouched holdout.",
+          "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+          "status": "blocked"
+        },
+        {
+          "id": "G04",
+          "name": "Effective sample size",
+          "reason": "No authorized holdout observations are available.",
+          "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+          "status": "not_run"
+        },
+        {
+          "id": "G05",
+          "name": "Market-relative predictive quality",
+          "reason": "No authorized holdout observations are available.",
+          "source_url": "https://scikit-learn.org/stable/modules/calibration.html",
+          "status": "not_run"
+        },
+        {
+          "id": "G06",
+          "name": "Post-vig profitability",
+          "reason": "No authorized holdout observations are available.",
+          "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+          "status": "not_run"
+        },
+        {
+          "id": "G07",
+          "name": "Closing-line value",
+          "reason": "No authorized holdout observations are available.",
+          "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+          "status": "not_run"
+        },
+        {
+          "id": "G08",
+          "name": "Luck and multiple testing",
+          "reason": "No authorized holdout observations are available.",
+          "source_url": "https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm",
+          "status": "not_run"
+        },
+        {
+          "id": "G09",
+          "name": "Joint dependence",
+          "reason": "Combo joint evidence is missing; singles still use event-clustered uncertainty.",
+          "source_url": "https://www.nba.com/termsofuse#nba-statistics",
+          "status": "blocked"
+        },
+        {
+          "id": "G10",
+          "name": "Frozen, auditable ledger",
+          "reason": "Independent append-only timestamp/ledger audit, preregistration and one frozen model version are required.",
+          "source_url": "https://github.com/sassnarep3-star/Own6/blob/main/research/empirical/DATA_CONTRACT.md",
+          "status": "blocked"
+        }
+      ],
+      "id": "X1",
+      "market": "parlay",
+      "metrics": {
+        "breakeven_mean": null,
+        "brier_edge_lower": null,
+        "brier_market": null,
+        "brier_model": null,
+        "calibration": [],
+        "clv_lower": null,
+        "clv_mean": null,
+        "clv_upper": null,
+        "events": null,
+        "logloss_edge_lower": null,
+        "logloss_market": null,
+        "logloss_model": null,
+        "losses": null,
+        "max_drawdown_units": null,
+        "model_versions": null,
+        "n": null,
+        "p_adjusted": null,
+        "p_raw": null,
+        "pushes": null,
+        "roi": null,
+        "roi_lower": null,
+        "roi_upper": null,
+        "win_rate": null,
+        "wins": null
+      },
+      "name": "Two-game moneyline parlay",
+      "qualified": false,
+      "source_url": "https://www.nba.com/stats/help/glossary"
+    }
+  ]
+}

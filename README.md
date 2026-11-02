@@ -30,3 +30,9 @@ section), [`research/`](research/strategies.md), [`verification/`](verification/
 Build/check: `python3 scripts/build_site_own6.py` · `python3 scripts/linkcheck.py` ·
 `python3 scripts/verify_data.py` · `python3 scripts/model.py`. DraftKings lines arrive via the
 ESPN feed (secondary source, labeled as such); research/paper only — no real wagers.
+
+## Empirical fail-closed lab
+
+An isolated empirical extension lives in [`docs/lab/`](docs/lab/overview.html). It adds a strict data contract, six frozen strategy candidates, ten validation gates, event-clustered uncertainty, and a leaderboard that ranks only all-gate qualifiers by the lower bound of holdout ROI. With the bundled empty ledger it runs automatically and reports `not_run` — no synthetic or fabricated returns are published. Sources and scope limits are in [`research/EXECUTIVE_SUMMARY.md`](research/EXECUTIVE_SUMMARY.md), [`research/METHODOLOGY.md`](research/METHODOLOGY.md), and [`research/REPO_AUDIT.md`](research/REPO_AUDIT.md). Build and check with `python3 scripts/run_lab.py`, `python3 scripts/build_lab.py`, and `python3 scripts/check_lab.py`.
+
+**No authorized NBA gambling-use data feed is configured.** NBA.com Terms §9 restricts NBA Statistics from being used in connection with any gambling activity, and §1 restricts public reuse. The NBA Stats FAQ says statistics are not available for download. The lab therefore does not scrape, republish, or invent NBA statistics, odds, correlations, or returns. No betting advice is provided.

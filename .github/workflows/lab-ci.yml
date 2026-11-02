@@ -1,0 +1,49 @@
+name: Lab CI
+
+on:
+  push:
+    branches: [arena/5dfdc6d5-own6]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lab:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install pinned dependencies
+        run: python -m pip install -r requirements-empirical.txt
+
+      - name: Audit upstream evidence
+        run: python scripts/audit_sources.py
+
+      - name: Run fail-closed empirical lab
+        run: python scripts/run_lab.py
+
+      - name: Build empirical dashboard
+        run: python scripts/build_lab.py
+
+      - name: Check lab data, report, and site
+        run: python scripts/check_lab.py
+
+      - name: Run tests
+        run: python -m pytest -q tests/
+
+      - name: Verify no fabricated data in report
+        run: python - <<'PY'
+import json, sys
+r = json.load(open('data/empirical/report.json'))
+assert r['status'] == 'not_run', 'empty ledger must report not_run'
+assert r['n_observations'] == 0, 'empty ledger must have zero observations'
+assert r['n_qualified'] == 0, 'empty ledger must have zero qualified strategies'
+assert r['leaderboard'] == [], 'empty ledger must have empty leaderboard'
+print('OK: fail-closed default preserved')
+PY

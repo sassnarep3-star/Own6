@@ -1,0 +1,9 @@
+{
+  "note": "Optional independent-audit evidence. Every key defaults to false. Set them only after an independent audit provides documented evidence; the empty file is the deterministic fail-closed default.",
+  "rights_verified": false,
+  "provenance_verified": false,
+  "walk_forward_verified": false,
+  "ledger_audited": false,
+  "preregistered": false,
+  "dependence_verified": false
+}
