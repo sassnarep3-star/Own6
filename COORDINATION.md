@@ -94,5 +94,6 @@ See the "Flagged for Review" page on the site (`docs/flagged.html`) for the full
 - Shared-navigation edits made by this integration: one link added to `docs/index.html` (`verified/`), and one README section pointing to `docs/verified/`.
 - Combined-site link check: 16 HTML files under `docs/` (7 original + 9 verified), 0 broken internal links. `scripts/check_site.py` passes.
 - PR: https://github.com/sassnarep3-star/Own6/pull/6
-- Merge result: _pending (see below)_
-- Pages deploy: _pending (see below)_
+- Merge result: PR #6 merged with a merge commit (`5d845f1`) at 2026-11-02T21:00:58Z. Mergeability was checked immediately before the merge.
+- Pages deploy: Pages build for `5d845f1` reached status `built` at 2026-11-02T21:02:06Z. Live check: https://sassnarep3-star.github.io/Own6/docs/verified/ and .../flagged.html both returned content; https://sassnarep3-star.github.io/Own6/ returned the other session's dashboard.
+- Follow-up: a small correction PR to F10/F11 (see its own record below).
