@@ -96,7 +96,65 @@ See the "Flagged for Review" page on the site (`docs/flagged.html`) for the full
 - PR: https://github.com/sassnarep3-star/Own6/pull/6
 - Merge result: PR #6 merged with a merge commit (`5d845f1`) at 2026-11-02T21:00:58Z. Mergeability was checked immediately before the merge.
 - Pages deploy: Pages build for `5d845f1` reached status `built` at 2026-11-02T21:02:06Z. Live check: https://sassnarep3-star.github.io/Own6/docs/verified/ and .../flagged.html both returned content; https://sassnarep3-star.github.io/Own6/ returned the other session's dashboard.
-- Follow-up: a small correction PR to F10/F11 (see its own record below).
+- Follow-up correction PR: #7 (https://github.com/sassnarep3-star/Own6/pull/7). Merged with a merge commit (`79ce064`). The Pages build for `79ce064` reached `built`. It corrected F10 and F11 in `data/flags.json`. F11 wrongly said this session changed the Pages source to `/docs`; the source is still legacy `main:/`.
+- Final record PR: #8 (this file update only). Its merge result is in the final report to the owner, because it cannot record its own merge.
+
+---
+
+## Session handoff — `arena/a28a2ee1-own6` (2026-11-02)
+
+| Task disposition | Status | Owner | Files integrated |
+|---|---|---|---|
+| Duplicate NBA research/site request reviewed against the already-merged integration on `main`; no duplicate site or data files added | done / handed off | `arena/a28a2ee1-own6` | `COORDINATION.md` only |
+
+### Coordination and conflict resolution
+
+- At session start this checkout was at `c5d6e4c` and contained only `README.md`; no task board was present. The scope claim was committed and pushed as `3d5f254` on the Arena-managed branch.
+- Before the implementation push, `origin/main` had advanced to `6493a7a` with completed PRs and an extensive coordination board/site integration by other sessions. The attempted rebase encountered an add/add conflict in `COORDINATION.md`.
+- Resolution: kept the complete upstream `COORDINATION.md` and added this isolated handoff note; no other session files were removed or modified. A locally drafted, unpushed root-level site was not integrated because the already-merged work owns the Pages/index/navigation and a second root site would duplicate or conflict with it.
+- This session's claim is closed as a handoff to the completed integration already recorded above. The upstream Pages configuration, publication result, and prior PR records remain authoritative.
+
+### Independent source review and findings
+
+- NBA.com [Terms of Use](https://www.nba.com/termsofuse), read directly on 2026-11-02: §1 restricts reuse/linking of Basketball Content absent permission; §9 states NBA Statistics may not be used in connection with gambling activity, including legal gambling activity. This is a material rights issue for an NBA betting-lines project. No legal opinion or NBA authorization was obtained.
+- NIST/SEMATECH [confidence-limits handbook page](https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm), read directly on 2026-11-02: supports general uncertainty-interval reporting, not a sports-betting method or strategy endorsement.
+- GitHub [Pages documentation](https://docs.github.com/en/pages) and the [repository Pages API](https://api.github.com/repos/sassnarep3-star/Own6) confirmed in this session that publishing was configured as legacy `main` root at that time. The newer upstream coordination entries record the later Pages status/builds.
+- No NBA stats, market odds, historical results, empirical correlation values, or strategy performance were independently available in this checkout; none were inferred or added. Direct links to NBA statistical pages were deliberately not added after reviewing the NBA Terms of Use §1 language.
+
+### Verification performed before handoff
+
+- Opened and read NBA Terms of Use sections 1 and 9; fetched the NIST confidence-interval page and GitHub Pages documentation/API.
+- For a non-integrated local static-site draft, `python3 scripts/check_site.py` passed: all local links resolved and all table body rows had official-site source links; all eight draft pages returned HTTP 200 from a local server; `git diff --check` passed.
+- After resolving the conflict by preserving upstream files, the upstream `python3 scripts/check_site.py` passed (`OK: data rules pass; 9 pages, no broken internal links, all external links https`). `pytest` is not installed; all five bare test functions in `tests/test_engine.py` passed when invoked directly with the Python standard library.
+- These checks do not supersede the upstream merged site verification/deployment records above.
+
+### Irregularities for the integration owner
+
+- NBA.com Terms of Use §9 is a blocker to using NBA Statistics in gambling-related model development; §1 creates a separate concern about linking directly to NBA Basketball Content. Obtain written authorization and qualified legal review before any such use.
+- No permitted odds archive, licensed historical dataset, power analysis, or prospective results were verified in this session. Correlation and skill/performance values must remain blank/unverified absent such evidence.
+- No further action was taken on upstream pages or source tables because their integration scope was already marked done and merged.
+
+### Request to the existing integration owner — legal-link review
+
+| Request | Status | Owner / scope requested |
+|---|---|---|
+| A28-REQ-01: Review and, if needed, publish the NBA Terms of Use §1 link/reuse issue on the existing Flagged for Review page | in progress | Existing Pages integration owner; `docs/verified/sources.html`, `docs/verified/flagged.html`, `docs/sources.html`, and source tables only. This session did not edit those owned files. |
+
+The merged site’s source registry contains direct hyperlinks to NBA.com schedule, news, and gaming-partner content (and the coordination source register also references NBA statistics pages). NBA.com Terms of Use §1 defines Basketball Content broadly and says content from the Services may not be linked to or otherwise used without written permission, except as provided in the Terms. This is a possible conflict for a gambling-related research site even when the pages are cited as sources. Please have the integration owner/counsel determine applicability; if permission is not established, flag this on the site and consider retaining only an official Terms-of-Use link until resolved. This session does not determine the legal result.
+
+Source reviewed: [NBA.com Terms of Use](https://www.nba.com/termsofuse), §§1 and 9, opened directly on 2026-11-02. No NBA source-page link or project page was changed by this session because those files are outside its scope.
+
+### Close-out for session `arena/a28a2ee1-own6`
+
+- Coordination-only follow-up PR: [#9](https://github.com/sassnarep3-star/Own6/pull/9).
+- Merge result: PR #9 merged on 2026-11-02T21:07:38Z with merge commit `77a28cccea34e0764f6d45ff3316d3aa8f6b90b7`.
+- Pages: GitHub Pages API reports status `built` for commit `77a28cccea34e0764f6d45ff3316d3aa8f6b90b7` (updated 2026-11-02T21:08:06Z), legacy `main` root, public URL https://sassnarep3-star.github.io/Own6/.
+- Live check: the site root, `/docs/`, and `/docs/flagged.html` were retrieved successfully with the web fetch tool after deployment. Existing pages are live; the NBA Terms of Use §1 link/reuse concern remains an open request A28-REQ-01 for the integration owner, not a verified legal conclusion.
+- Session disposition: done / handed off. Existing merged implementation remains authoritative; this session did not add a duplicate site or modify another session's files.
+
+
+---
+
 ## Session `arena/a6ccf588-own6` — independent integration / line-by-line verification pass
 
 **Session ID:** `arena/a6ccf588-own6` · **Branch:** `arena/a6ccf588-own6` (Arena-fixed; the brief's `session-<id>/<task>` branch rule is superseded by the workspace rule — irregularity I-1).
@@ -130,3 +188,8 @@ See the "Flagged for Review" page on the site (`docs/flagged.html`) for the full
 - Repairs applied (idempotent script `tools/integration_repairs.py`): false "cannot fetch NBA.com" claim corrected; broken FAQ URL replaced; S8/leaderboard/G5–G8/F4/F7 rows given official links; `../COORDINATION.md` replaced with the official GitHub blob; calculator's undefined `Math.erf` replaced with an erf approximation (validated in Node: erf(1)=0.842701, cdf(1.96)=0.975002); consistent nav to `verified/` and `review/`.
 - New deliverables (this session's scope only): `docs/review/**` (Overview, Executive summary, Verification log, Repo review, Flagged for Review), `audit/**`, `tools/**`, `.github/workflows/verify.yml`, corrected `data/sources.csv` and `EXECUTIVE_SUMMARY.md`.
 - Irregularities: I-1…I-23 published on `docs/flagged.html` and `docs/review/flagged.html` with official source links. 29 advisory rows in `docs/verified/**` (owned by session 05e359b8) lack official source links; **request logged here, not edited**: please add official links or label those rows explicitly as compiler methodology; see I-18. I-21: this board currently states the Pages source is `main /docs`, but the GitHub Pages API reports `main:/`.
+
+### Merge reconciliation #2 (PRs #8–#10) and request A28-REQ-01
+- 2026-11-02: `main` advanced again (PRs #8, #9, #10). COORDINATION.md conflict resolved by keeping every other session's text verbatim and appending this session's section; nothing discarded. No other file conflicted.
+- Session `arena/a28a2ee1-own6` logged request **A28-REQ-01**: review NBA.com Terms of Use §§1 and 9 for a gambling-related research site and publish the concern on Flagged for Review. Acting as integration owner, this session retrieved https://www.nba.com/termsofuse directly (chunks 0/3/4) and verified: §1 "No Basketball Content from the Services may be reproduced … linked to, or otherwise used except as provided in these Terms of Use without the written permission of the Operator"; §9 "the NBA Statistics may not be used in connection with any gambling activity (including legal gambling activity)" and "may only be used, displayed, or published for legitimate news reporting or private, non-commercial purposes".
+- Published as flag **I-24** on `docs/flagged.html` and `docs/review/flagged.html` with the official Terms of Use link, recorded as V25/S23 in the verification registry, and noted in `EXECUTIVE_SUMMARY.md`. This is a **flagged legal concern for qualified review, not a legal conclusion**; no NBA Statistics values are ingested by this project (all model inputs remain blank/unverified). A28-REQ-01 is therefore answered: published, needs review, does not block the site.
