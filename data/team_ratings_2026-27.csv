@@ -1,0 +1,31 @@
+team,team_abbr,gp,w,l,off_rtg,def_rtg,net_rtg,pace,efg_pct,ts_pct,reb_pct,tov_pct,source_url
+Houston Rockets,HOU,7,6,1,121.2,108.9,12.3,99.50,56.6,61.2,53.4,15.4,https://www.nba.com/stats/teams/advanced
+Memphis Grizzlies,MEM,6,6,0,118.8,104.1,14.7,101.92,55.8,59.8,54.1,15.7,https://www.nba.com/stats/teams/advanced
+Philadelphia 76ers,PHI,7,6,1,108.6,104.9,3.7,100.07,50.8,54.8,47.7,12.7,https://www.nba.com/stats/teams/advanced
+Boston Celtics,BOS,6,5,1,117.7,107.6,10.1,99.44,55.0,59.2,48.1,15.2,https://www.nba.com/stats/teams/advanced
+Detroit Pistons,DET,6,5,1,111.3,103.2,8.1,98.67,53.1,56.8,49.2,15.9,https://www.nba.com/stats/teams/advanced
+Los Angeles Lakers,LAL,7,5,2,119.9,113.9,6.1,100.64,60.0,64.3,47.8,18.7,https://www.nba.com/stats/teams/advanced
+Cleveland Cavaliers,CLE,6,4,2,115.8,111.5,4.3,102.47,55.3,59.0,50.9,14.4,https://www.nba.com/stats/teams/advanced
+Dallas Mavericks,DAL,6,4,2,114.1,111.3,2.9,100.33,56.9,59.4,48.6,17.1,https://www.nba.com/stats/teams/advanced
+Golden State Warriors,GSW,7,4,3,117.2,114.9,2.4,100.21,55.3,59.5,51.6,16.9,https://www.nba.com/stats/teams/advanced
+Minnesota Timberwolves,MIN,7,4,3,116.0,105.0,11.1,101.98,55.7,57.7,53.1,15.3,https://www.nba.com/stats/teams/advanced
+Oklahoma City Thunder,OKC,6,4,2,108.7,109.4,-0.7,97.92,49.4,53.8,49.3,15.0,https://www.nba.com/stats/teams/advanced
+Portland Trail Blazers,POR,5,4,1,118.0,107.9,10.1,101.70,56.2,59.9,54.6,14.9,https://www.nba.com/stats/teams/advanced
+San Antonio Spurs,SAS,6,4,2,115.2,108.5,6.7,99.93,53.3,56.8,50.8,13.4,https://www.nba.com/stats/teams/advanced
+Atlanta Hawks,ATL,7,3,4,112.4,111.4,1.0,103.50,52.7,55.8,48.3,14.1,https://www.nba.com/stats/teams/advanced
+Charlotte Hornets,CHA,7,3,4,101.3,109.6,-8.2,97.07,48.3,51.8,53.1,19.3,https://www.nba.com/stats/teams/advanced
+Denver Nuggets,DEN,5,3,2,112.4,114.1,-1.6,99.13,54.7,58.9,49.1,16.4,https://www.nba.com/stats/teams/advanced
+Toronto Raptors,TOR,6,3,3,115.1,107.3,7.8,102.75,51.0,55.1,50.6,14.0,https://www.nba.com/stats/teams/advanced
+Washington Wizards,WAS,6,3,3,110.5,109.3,1.2,100.17,52.2,57.7,47.2,14.8,https://www.nba.com/stats/teams/advanced
+Indiana Pacers,IND,7,2,5,111.0,114.4,-3.5,101.86,53.8,57.2,47.3,15.0,https://www.nba.com/stats/teams/advanced
+Miami Heat,MIA,6,2,4,113.6,117.2,-3.6,103.92,54.5,57.6,49.8,14.4,https://www.nba.com/stats/teams/advanced
+New Orleans Pelicans,NOP,6,2,4,112.0,110.3,1.7,105.01,55.1,60.0,51.1,17.5,https://www.nba.com/stats/teams/advanced
+New York Knicks,NYK,6,2,4,109.6,110.6,-1.1,97.50,49.5,53.1,53.6,15.9,https://www.nba.com/stats/teams/advanced
+Orlando Magic,ORL,6,2,4,108.6,116.9,-8.3,99.50,53.4,57.6,47.2,17.3,https://www.nba.com/stats/teams/advanced
+Brooklyn Nets,BKN,6,1,5,105.0,112.6,-7.6,101.24,50.7,55.5,51.3,18.4,https://www.nba.com/stats/teams/advanced
+Chicago Bulls,CHI,6,1,5,105.9,121.6,-15.7,106.75,48.2,53.7,48.6,16.5,https://www.nba.com/stats/teams/advanced
+LA Clippers,LAC,6,1,5,105.6,112.3,-6.7,101.08,52.9,57.3,50.1,20.8,https://www.nba.com/stats/teams/advanced
+Milwaukee Bucks,MIL,6,1,5,106.6,119.4,-12.8,105.83,52.0,54.7,50.6,15.7,https://www.nba.com/stats/teams/advanced
+Phoenix Suns,PHX,4,1,3,114.3,125.8,-11.5,98.50,54.4,57.3,44.8,15.6,https://www.nba.com/stats/teams/advanced
+Utah Jazz,UTA,6,1,5,105.3,115.4,-10.0,101.32,51.0,55.5,51.0,17.1,https://www.nba.com/stats/teams/advanced
+Sacramento Kings,SAC,6,0,6,104.8,122.6,-17.8,104.50,50.9,54.6,46.4,16.0,https://www.nba.com/stats/teams/advanced
