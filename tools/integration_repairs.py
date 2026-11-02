@@ -173,6 +173,8 @@ sub("flagged.html", '<td><a href="https://official.nba.com/">official.nba.com</a
     f'<td>{anchor(INJ, "NBA Official injury report (stable landing page)")}</td>', "F6 official link")
 sub("flagged.html", '<td><a href="../COORDINATION.md">COORDINATION.md</a></td>',
     f'<td>{anchor(GHCOORD, "COORDINATION.md (official GitHub blob)")}</td>', "F7 official link")
+sub("flagged.html", "Brief suggested session-&lt;id&gt; branches; Arena fixes this session to arena/463d936f-own6",
+    "Brief suggested session-&lt;id&gt; branches; Arena fixes each session to its own arena/* branch", "F7 branch wording")
 
 extra_flags = [
     ("I-3", "Incorrect “sandbox cannot fetch NBA.com” claim", "Direct retrieval of NBA.com succeeded", "Corrected; see verification log", GL, "NBA Stats Glossary"),
@@ -189,7 +191,7 @@ extra_flags = [
 ]
 flag_html = "".join(
     f'<tr><td>{fid}</td><td>{html.escape(item)}</td><td>{html.escape(why)}</td>'
-    f'<td>{html.escape(verify)}</td><td>{anchor(url, label)}</td><td class="warn">needs review</td></tr>'
+    f'<td>{html.escape(verify)}</td><td>{anchor(url, label)}</td></tr>'
     for fid, item, why, verify, url, label in extra_flags
 )
 fl = read("flagged.html")
