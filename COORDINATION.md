@@ -249,3 +249,88 @@ Source reviewed: [NBA.com Terms of Use](https://www.nba.com/termsofuse), §§1 a
 - Pages: GitHub Pages API reports status `built` for commit `77a28cccea34e0764f6d45ff3316d3aa8f6b90b7` (updated 2026-11-02T21:08:06Z), legacy `main` root, public URL https://sassnarep3-star.github.io/Own6/.
 - Live check: the site root, `/docs/`, and `/docs/flagged.html` were retrieved successfully with the web fetch tool after deployment. Existing pages are live; the NBA Terms of Use §1 link/reuse concern remains an open request A28-REQ-01 for the integration owner, not a verified legal conclusion.
 - Session disposition: done / handed off. Existing merged implementation remains authoritative; this session did not add a duplicate site or modify another session's files.
+
+---
+
+## Integration re-verification record — session `arena/71464040-own6` (task 13)
+
+Date: 2026-11-02. Branch: `arena/71464040-own6`. Method: every published row and source link
+re-fetched live from its official host with the agent's web fetch tool (the sandbox shell cannot
+reach those hosts; the earlier "indexed" confirmations were upgraded to live fetches where noted).
+
+### Line-by-line verification performed
+
+- **Schedule (`data/games.json`, 15 rows):** all 15 rows matched row-by-row against a live fetch of
+  https://www.nba.com/schedule — "Week 3 (Nov 2 - Nov 8)", "Monday, November 2", "15 Games";
+  game IDs 0022600158–0022600172, tip times (7:00–10:00 PM ET), matchups, venues and cities all
+  exact. Odds columns blank in the data ✓ (rule-compliant).
+- **Korean statute (`data/legal_kr.json`, 13 rows):** header "시행 2026. 9. 3. [법률 제21742호,
+  2026. 6. 2., 일부개정]" ✓; Art. 2(12) definition ✓; Art. 24(1),(3) ✓; Art. 26(1),(2)1–3
+  (유사행위) verbatim ✓; Art. 30(2)3 ✓; penalties exact — Art. 47 "7년 … 7천만원" + item 2
+  = 제26조제1항 ✓; Art. 48 "5년 … 5천만원" + item 3 ✓; Art. 49 "3년 … 3천만원" + item 1 ✓;
+  Art. 51(1) forfeiture ✓; Arts. 53–54 ✓. Source: https://www.law.go.kr/법령/국민체육진흥법 (live).
+- **NBA policy (`data/nba_policy.json`, 7 rows):** the 2 verified rows checked verbatim against the
+  official release of Oct 26, 2026 (Kalshi/Polymarket Preferred Exchanges, CFTC MOU, "limitations on
+  permissible markets … information-sharing obligations", "market restrictions aligned with the
+  NBA's latest sports betting restrictions") and the official partners page of July 9, 2026
+  (DraftKings/FanDuel domestic; Australia, Greece & Cyprus, France, Germany, Mexico, Philippines,
+  Serbia, Spain, Uruguay; no South Korea entry) ✓. The 5 press-only rows correctly carry blank
+  official fields + `unverified` status ✓.
+- **Source registry S1–S7 (`data/sources.csv`, `docs/sources.html`):** all seven re-fetched live
+  2026-11-02 — S1 stats hub ✓; S2 glossary PACE = "possessions per 48 minutes", OffRtg = "points
+  scored per 100 possessions" (100*((Points)/(POSS))), DEFRTG = "points allowed per 100 possessions"
+  (matches `src/own6/lines.py` docstrings) ✓; S3 FAQ "Our stats are not available for download …" ✓
+  (URL corrected — see F14); S4 official.nba.com ✓; S5 injury PDF parses, header "Injury Report:
+  11/02/26 01:45 PM" with the Nov 2 matchups ✓; S6 official release Nov 4, 2021 "co-official sports
+  betting partners" ✓; S7 sklearn 1.9.1 §1.16 Probability calibration ✓. S8 remains UNVERIFIED-BLANK ✓.
+- **Strategy/leaderboard/methodology data:** `strategies.json` rows = 0 (empty by design) ✓;
+  `methodology.json` labeled compiler methodology, gates open/FAIL, no sourced-fact claims ✓;
+  no ROI/odds/correlation/backtest value exists anywhere on the site ✓.
+- **Terms of Use (request A28-REQ-01):** fetched https://www.nba.com/termsofuse live; §1 and §9
+  verified verbatim including §9(iv) gambling prohibition. Published as flag F16 (verified sub-site)
+  and F8 (original page) plus caution notes on both Sources pages. A28-REQ-01 status: **done —
+  published for review; no legal conclusion asserted.**
+- **Code/tests:** `python3 -m pytest tests/ -q` → **5 passed** (README claim verified); engine math
+  reviewed (American-odds conversion, breakeven 110/210 ≈ 52.38% arithmetic ✓, copula Cholesky,
+  percentile bootstrap, Bonferroni — all internally consistent; modeling choices, not NBA facts);
+  `examples/demo_synthetic.py` runs and is labeled synthetic ✓; `scripts/check_site.py` → **OK: 9
+  pages, no broken internal links, all external links https** ✓.
+
+### Live site checks (GitHub Pages, legacy main:/)
+
+- https://sassnarep3-star.github.io/Own6/ → redirects to `docs/` dashboard ✓ (confirmed after the
+  latest build bb4c1b2; an earlier fetch during the rapid-merge window served a stale README index —
+  flagged as F15, resolved by the next build).
+- `docs/verified/` sub-site serves: dashboard, games, legal-kr, nba-policy, methodology, sources,
+  strategies, executive-summary, flagged ✓.
+- Pages API: status `built` for bb4c1b2; builds 6059b06→bb4c1b2 succeeded except one transient
+  `Page build failed` on 4fa10e5 (recorded in F15).
+
+### Fixes applied by this session (verification-fix scope)
+
+1. S3 registry URL `cdn.nba.com/stats/help/faq` (AccessDenied) → canonical
+   `www.nba.com/stats/help/faq` in `data/sources.csv` + `docs/sources.html`; statuses upgraded
+   verified-indexed → verified-live with fetch evidence (F14).
+2. Flags F08/F09 corrected (README no longer a one-line placeholder; .gitignore now exists via PR #3;
+   LICENSE still missing) (F13 note: README state re-checked live).
+3. New flags published: **F13** G1–G8 label collision between `docs/validation.html` and
+   `docs/verified/methodology.html`; **F14** S3 URL fix; **F15** transient stale root deploy;
+   **F16** NBA ToU §§1/9 (High) — closes A28-REQ-01.
+4. Cross-link added between the two Flagged registries (`docs/flagged.html` F1–F7/F8 ⇄
+   `docs/verified/flagged.html` F01–F16); ToU caution notes added to both Sources pages.
+5. `EXECUTIVE_SUMMARY.md` updated: post-verification status (what is verified vs still blank),
+   Korea legal gate G1 open blocking rewards configuration, live URLs, check results.
+
+### Irregularities summary (all published, none blocking)
+
+F01–F16 on the Flagged pages (Korea-law exposure ×2, NBA-policy press-only rows, no verified odds,
+schedule-only coverage, no imported ratings, branch-rule deviation, stale F08/F09 corrected, ToU
+§9(iv)/§1, gate-label collision, S3 URL, stale root deploy) · process: PR #1 merged 4 s after
+creation before verification (this pass supplies it) · PR #2 closed unmerged (branch preserved) ·
+tracked `__pycache__` removed via PR #3 · two G1–G8 numbering schemes coexist · two flag registries
+coexist (cross-linked).
+
+### PR record
+
+- Follow-up PR (this record + fixes): to be opened from `arena/71464040-own6` immediately after this
+  commit; merge result and PR link will be appended below per the brief.

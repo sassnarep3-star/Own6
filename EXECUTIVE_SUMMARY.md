@@ -28,8 +28,14 @@ Game-total↔team-total, player PTS↔team total (usage share), PTS↔AST for pr
 - NBA Stats states stats are **not available for CSV download** [S3] — plan for manual/exported inputs via the site's own tools; do not scrape in violation of terms.
 - Only bet where legal, with licensed books; NBA's co-official partners are DraftKings/FanDuel [S6]. This project is analytics/research, not betting advice. No bet is recommended anywhere in it.
 
+## Status after integration re-verification (2026-11-02)
+- **Verified data now on the site:** 15 NBA games for the Mon Nov 2, 2026 slate (every row matched live against https://www.nba.com/schedule, game IDs 0022600158–0022600172); 13 rows of 국민체육진흥법 text (Arts. 2, 24, 26, 30, 47–49, 51, 53–54 quoted verbatim from law.go.kr, penalties exact); 2 official NBA policy rows (Oct 26, 2026 prediction-market release; Jul 9, 2026 partner list — DraftKings/FanDuel domestic, no Korea entry) with 5 press-only rows left unverified; source registry S1–S7 re-fetched live from official hosts (S3 URL corrected — old `cdn.` link was AccessDenied).
+- **Still blank by rule:** all odds, closing lines, fitted parameters, correlation values, backtests, win rates, ROI. Leaderboard is empty; strategy registry is empty. Flags F01–F15 on the Flagged for Review pages.
+- **Rewards/leaderboard gate:** `data/methodology.json` G1 (Korean legal review) is **open/FAIL** — under 국민체육진흥법 Art. 26, reward leaderboards and public line publication need written Korean counsel review before being exposed to Korean users. The leaderboard ships as scoring design only; no rewards are configured.
+- **Checks:** `pytest` = 5 passed; `scripts/check_site.py` = 9 pages, no broken internal links; live root redirects to `docs/` and `docs/verified/` serves (both confirmed by live fetch after the latest Pages build).
+
 ## Irregularities flagged
-Repo itself: none (empty). Content: **all current numeric NBA values, odds, fitted parameters, correlations, and backtests are intentionally blank/unverified** (sandbox cannot fetch NBA.com directly; no official bulk download exists). Full list: `docs/flagged.html`. They do not block launch per brief.
+Repo itself: none at start (empty). Content: **odds, fitted parameters, correlations, and backtests remain intentionally blank/unverified**; full list with sources: `docs/flagged.html` (F1–F7) and `docs/verified/flagged.html` (F01–F15, incl. F13 gate-label collision between the two G1–G8 sets, F14 S3 URL fix, F15 transient stale root deploy). They do not block launch per brief.
 
 ## Deliverables
-GitHub Pages dashboard (`docs/`): Landing · Strategies · Validation Gates · Correlations · Leaderboard · Sources · Flagged for Review. Python engine + tests + synthetic-only demo (`examples/demo_synthetic.py`, clearly labelled, not NBA data).
+GitHub Pages dashboard (`docs/`): Landing · Strategies · Validation Gates · Correlations · Leaderboard · Sources · Flagged for Review — plus the source-checked sub-site (`docs/verified/`): Dashboard · Games · Strategies · Korea law · NBA policy · Methodology · Executive summary · Sources · Flagged. Python engine + tests + synthetic-only demo (`examples/demo_synthetic.py`, clearly labelled, not NBA data). Live: https://sassnarep3-star.github.io/Own6/
