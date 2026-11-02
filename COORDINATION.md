@@ -14,7 +14,7 @@ Date opened: 2026-11-02
 | 6 | Leaderboard scoring design | in progress | arena-463d936f-own6 | docs/leaderboard.html, src/own6/leaderboard.py |
 | 7 | GitHub Pages site (landing + subpages, tables w/ source per row) | in progress | arena-463d936f-own6 | docs/*.html, docs/assets/ |
 | 8 | Flagged for Review page | in progress | arena-463d936f-own6 | docs/flagged.html |
-| 9 | Final integration, link check, PR to main, merge, Pages deploy | unclaimed | — | — (same session will claim at integration) |
+| 9 | Final integration, link check, PR to main, merge, Pages deploy | in progress | arena-463d936f-own6 | docs/, .github/ |
 
 ## Rules (from brief)
 - Every table row: official-source link. Unconfirmable value => blank + flagged, never inferred.
