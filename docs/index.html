@@ -1,0 +1,67 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Dashboard · Own6</title>
+<style>
+:root{--bg:#0b1020;--card:#121a33;--line:#243056;--txt:#e8edfb;--mut:#93a0c4;--acc:#5b8cff;--ok:#28c76f;--bad:#ff5d5d;--warn:#f7b731}
+*{box-sizing:border-box}body{margin:0;font:15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--txt)}
+header{background:linear-gradient(90deg,#10193a,#16224d);border-bottom:1px solid var(--line);padding:18px 26px}
+header h1{margin:0;font-size:22px}header p{margin:4px 0 0;color:var(--mut);font-size:13px}
+nav{padding:10px 26px;background:#0e1530;border-bottom:1px solid var(--line);display:flex;gap:14px;flex-wrap:wrap}
+nav a{color:var(--acc);text-decoration:none;font-size:14px}nav a:hover{text-decoration:underline}
+main{padding:22px 26px;max-width:1280px;margin:0 auto}
+h2{font-size:19px;margin:26px 0 8px}h3{font-size:16px;margin:18px 0 6px;color:#c6d0f5}
+p,li{color:#cfd8f7;font-size:14px}.mut{color:var(--mut);font-size:13px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:14px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}
+.card .k{font-size:26px;font-weight:700}.card .l{color:var(--mut);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.tw{overflow:auto;background:var(--card);border:1px solid var(--line);border-radius:10px;margin:10px 0}
+table.data{border-collapse:collapse;width:100%;font-size:13px}
+table.data th{background:#18224a;color:#aebbf0;text-align:left;padding:9px 10px;position:sticky;top:0}
+table.data td{padding:8px 10px;border-top:1px solid var(--line);vertical-align:top}
+table.data tr:nth-child(even) td{background:#141d3c}
+a{color:var(--acc)}
+.badge{display:inline-block;padding:1px 8px;border-radius:99px;font-size:12px;font-weight:600}
+.badge.ok{background:#0f3c25;color:#5ff0a0}.badge.bad{background:#4a1420;color:#ff8f8f}.badge.warn{background:#453411;color:#ffd479}
+.note{background:#101a38;border-left:3px solid var(--acc);padding:10px 14px;border-radius:6px;margin:10px 0}
+footer{color:var(--mut);font-size:12px;padding:20px 26px;border-top:1px solid var(--line);margin-top:30px}
+</style></head><body>
+<header><h1>Own6 — NBA line-origination research</h1>
+<p>Official-source verified data · walk-forward model · gated strategy leaderboard · paper research only (no real wagers)</p></header>
+<nav><a href="index.html" style=font-weight:700>Dashboard</a><a href="data.html">Data</a><a href="lines.html">Lines & Props</a><a href="strategies.html">Strategies</a><a href="validation.html">Validation</a><a href="correlation.html">Correlation</a><a href="flagged.html">Flagged for Review</a></nav><main>
+<h2>Dashboard — 2026-11-02</h2>
+<div class="cards">
+<div class="card"><div class="l">Official game results</div><div class="k">92</div><div class="mut">Oct 20 – Nov 1, per-row nba.com links</div></div>
+<div class="card"><div class="l">Verification checks</div><div class="k">213/213</div><div class="mut">records recompute exactly from results</div></div>
+<div class="card"><div class="l">Tonight&#x27;s market lines</div><div class="k">15</div><div class="mut">DraftKings via ESPN, open+current</div></div>
+<div class="card"><div class="l">Validated strategies</div><div class="k">0</div><div class="mut">no edge claimed — gates honest</div></div>
+<div class="card"><div class="l">Flagged items</div><div class="k">7</div><div class="mut">non-blocking, see Flagged page</div></div>
+</div>
+<div class="note"><b>Status:</b> model v0.1 backtests better than coin-flip and home baselines on
+point estimates, but <b>G1 calibration gate is not met</b> (bootstrap CI crosses zero). All strategies
+are TRACKING or NOT DEPLOYED. S-2/S-3/S-5 failed outright and are not deployed.</div>
+
+<h2>Leaderboard snapshot (paper rewards: 20/10/5 units)</h2>
+<div class="tw"><table class="data"><thead><tr><th>ID</th><th>Strategy</th><th>Gates passed</th><th>Score</th><th>Status</th><th>Spec</th></tr></thead><tbody><tr><td>S-6</td><td>Cross-game 2-leg parlay</td><td>2/6</td><td>4</td><td><span class="badge warn">TRACKING</span></td><td><a href="../research/strategies.md" target="_blank" rel="noopener">spec</a></td></tr><tr><td>S-1</td><td>Rating-margin singles</td><td>2/6</td><td>3</td><td><span class="badge warn">TRACKING</span></td><td><a href="../research/strategies.md" target="_blank" rel="noopener">spec</a></td></tr><tr><td>S-3</td><td>Rest-adjusted singles</td><td>2/6</td><td>3</td><td><span class="badge bad">NOT DEPLOYED</span></td><td><a href="../research/strategies.md" target="_blank" rel="noopener">spec</a></td></tr><tr><td>S-4</td><td>Player-prop single</td><td>1/6</td><td>2</td><td><span class="badge warn">TRACKING</span></td><td><a href="../research/strategies.md" target="_blank" rel="noopener">spec</a></td></tr><tr><td>S-5</td><td>Same-game teammate combo</td><td>1/6</td><td>2</td><td><span class="badge bad">NOT DEPLOYED</span></td><td><a href="../research/strategies.md" target="_blank" rel="noopener">spec</a></td></tr><tr><td>S-7</td><td>Open→close line-move</td><td>1/6</td><td>2</td><td><span class="badge warn">TRACKING</span></td><td><a href="../research/strategies.md" target="_blank" rel="noopener">spec</a></td></tr><tr><td>S-2</td><td>Model totals</td><td>1/6</td><td>1</td><td><span class="badge bad">NOT DEPLOYED</span></td><td><a href="../research/strategies.md" target="_blank" rel="noopener">spec</a></td></tr></tbody></table></div>
+
+<h2>Tonight's slate — market vs Own6 model</h2>
+<div class="tw"><table class="data"><thead><tr><th>Matchup</th><th>DraftKings (ESPN feed)</th><th>Own6 model v0.1</th><th>Edge vs fair</th><th>Favs</th><th>Source</th></tr></thead><tbody><tr><td>OKC @ CLE</td><td>CLE -4.5 · O/U 229.5</td><td>CLE -5.1 · O/U 226.3</td><td>-10.8%</td><td><span class="badge bad">same</span></td><td><a href="https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909907/competitions/401909907/odds" target="_blank" rel="noopener">DK/ESPN</a></td></tr><tr><td>DET @ CHA</td><td>DET -6.5 · O/U 210.5</td><td>DET 6.3 · O/U 215.7</td><td>-17.4%</td><td><span class="badge bad">same</span></td><td><a href="https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909908/competitions/401909908/odds" target="_blank" rel="noopener">DK/ESPN</a></td></tr><tr><td>ATL @ IND</td><td>ATL -10.5 · O/U 229.5</td><td>ATL 0.9 · O/U 229.7</td><td>-41.1%</td><td><span class="badge bad">same</span></td><td><a href="https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909909/competitions/401909909/odds" target="_blank" rel="noopener">DK/ESPN</a></td></tr><tr><td>BKN @ NY</td><td>NY -14.5 · O/U 219.5</td><td>NY -4.8 · O/U 226.8</td><td>-37.1%</td><td><span class="badge bad">same</span></td><td><a href="https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909910/competitions/401909910/odds" target="_blank" rel="noopener">DK/ESPN</a></td></tr><tr><td>WSH @ ORL</td><td>ORL -2.5 · O/U 224.5</td><td>WSH 2.3 · O/U 226.9</td><td>+22.6%</td><td><span class="badge bad">different</span></td><td><a href="https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909911/competitions/401909911/odds" target="_blank" rel="noopener">DK/ESPN</a></td></tr><tr><td>CHI @ PHI</td><td>PHI -10.5 · O/U 239.5</td><td>PHI -9.9 · O/U 227.9</td><td>-22.7%</td><td><span class="badge bad">same</span></td><td><a href="https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909912/competitions/401909912/odds" target="_blank" rel="noopener">DK/ESPN</a></td></tr><tr><td>SAC @ DAL</td><td>DAL -8.5 · O/U 231.5</td><td>DAL -10.7 · O/U 230.4</td><td>-16.3%</td><td><span class="badge bad">same</span></td><td><a href="https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909913/competitions/401909913/odds" target="_blank" rel="noopener">DK/ESPN</a></td></tr><tr><td>NO @ MEM</td><td>MEM -5.5 · O/U 232.5</td><td>MEM -8.1 · O/U 227.8</td><td>-8.6%</td><td><span class="badge bad">same</span></td><td><a href="https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909914/competitions/401909914/odds" target="_blank" rel="noopener">DK/ESPN</a></td></tr><tr><td>MIL @ MIN</td><td>MIN -10.5 · O/U 230.5</td><td>MIN -13.5 · O/U 231.6</td><td>-13.4%</td><td><span class="badge bad">same</span></td><td><a href="https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909915/competitions/401909915/odds" target="_blank" rel="noopener">DK/ESPN</a></td></tr><tr><td>BOS @ HOU</td><td>HOU -5.5 · O/U 216.5</td><td>HOU -4.3 · O/U 228.3</td><td>-16.1%</td><td><span class="badge bad">same</span></td><td><a href="https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909916/competitions/401909916/odds" target="_blank" rel="noopener">DK/ESPN</a></td></tr><tr><td>UTA @ SA</td><td>SA -16.5 · O/U 229.5</td><td>SA -6.2 · O/U 227.9</td><td>-34.2%</td><td><span class="badge bad">same</span></td><td><a href="https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909917/competitions/401909917/odds" target="_blank" rel="noopener">DK/ESPN</a></td></tr><tr><td>POR @ DEN</td><td>DEN -4.5 · O/U 231.5</td><td>POR 2.3 · O/U 228.8</td><td>+27.3%</td><td><span class="badge bad">different</span></td><td><a href="https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909918/competitions/401909918/odds" target="_blank" rel="noopener">DK/ESPN</a></td></tr><tr><td>PHX @ GS</td><td>GS -3.5 · O/U 227.5</td><td>GS -5.5 · O/U 230.1</td><td>-2.0%</td><td><span class="badge bad">same</span></td><td><a href="https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909919/competitions/401909919/odds" target="_blank" rel="noopener">DK/ESPN</a></td></tr><tr><td>TOR @ LAC</td><td>TOR -4.5 · O/U 219.5</td><td>TOR 5.5 · O/U 225.9</td><td>-10.0%</td><td><span class="badge bad">same</span></td><td><a href="https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909920/competitions/401909920/odds" target="_blank" rel="noopener">DK/ESPN</a></td></tr><tr><td>MIA @ LAL</td><td>LAL -2.5 · O/U 236.5</td><td>LAL -5.6 · O/U 233.9</td><td>+2.6%</td><td><span class="badge bad">same</span></td><td><a href="https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909921/competitions/401909921/odds" target="_blank" rel="noopener">DK/ESPN</a></td></tr></tbody></table></div>
+<p class="mut">Edge = model P(model favourite) − de-vigged market P(favourite); positive = model
+thinks the side is underpriced. S-1 requires ≥3% plus gate G1 before any paper allocation — G1 currently fails,
+so these are leans only.</p>
+
+<h2>Validation gates</h2>
+<div class="tw"><table class="data"><thead><tr><th>Gate</th><th>Status</th><th>Result</th><th>Evidence</th></tr></thead><tbody><tr><td>G1 Calibration (log-loss CI>0)</td><td><span class="badge bad">FAIL</span></td><td>[−0.013, +0.073]</td><td><a href="../verification/backtest_metrics.csv" target="_blank" rel="noopener">metrics</a></td></tr><tr><td>G2 Discrimination ≥55% / n≥100</td><td><span class="badge bad">PARTIAL</span></td><td>59.8% @ n=82</td><td><a href="../verification/backtest_metrics.csv" target="_blank" rel="noopener">metrics</a></td></tr><tr><td>G3 Leg correlations measured</td><td><span class="badge ok">PASS</span></td><td>r ∈ {0.200, 0.105, −0.422, −0.016}</td><td><a href="../research/correlation.md" target="_blank" rel="noopener">correlation.md</a></td></tr><tr><td>G4 Multiple-testing log</td><td><span class="badge ok">PASS</span></td><td>N=1 trials logged</td><td><a href="../research/validation.md" target="_blank" rel="noopener">validation.md</a></td></tr><tr><td>G5 Closing-line value ≥0</td><td><span class="badge bad">BLOCKED</span></td><td>no historical odds in sources (flagged)</td><td><a href="flagged.html" target="_blank" rel="noopener">flagged</a></td></tr><tr><td>G6 Sample ≥100 graded</td><td><span class="badge bad">PARTIAL</span></td><td>82 graded</td><td><a href="../verification/backtest_metrics.csv" target="_blank" rel="noopener">metrics</a></td></tr></tbody></table></div>
+
+<h2>Start here</h2>
+<ul>
+<li><a href="data.html">Data</a> — standings, ratings, all 92 results (every row sourced)</li>
+<li><a href="lines.html">Lines &amp; Props</a> — 15-game market/model table + verified player props</li>
+<li><a href="strategies.html">Strategies</a> — pre-registered catalog, leaderboard, rewards</li>
+<li><a href="validation.html">Validation</a> — gates, backtest, luck-removal protocol, citations</li>
+<li><a href="correlation.html">Correlation</a> — measured dependence for parlays/combos</li>
+<li><a href="flagged.html">Flagged for Review</a> — irregularities, blanks, blocked checks</li>
+<li>Repo docs: <a href="../EXECUTIVE_SUMMARY.md">EXECUTIVE_SUMMARY.md</a> · <a href="../COORDINATION.md">COORDINATION.md</a></li>
+</ul></main>
+<footer>Data cut 2026-11-02 · NBA.com + ESPN official feeds (DraftKings lines, NBA co-official sports betting partner —
+<a href="https://pr.nba.com/draftkings-and-fanduel-become-co-official-sports-betting-partners-of-the-nba/" target="_blank" rel="noopener">NBA press release</a>)
+· every table row carries a source link · unconfirmable values are blank and flagged · 21+/gambling-problem resources:
+1-800-GAMBLER</footer></body></html>
