@@ -13,7 +13,7 @@ games_model_beats_homebase,52,of 82,data/backtest_walkforward.csv
 gate_logloss_beats_homebase,FAIL,95% CI strictly > 0 required,verification/verification_report.csv
 gate_sign_accuracy_vs_coin,PASS,pre-registered threshold 0.55,verification/verification_report.csv
 final_HCA_est,1.64,"expanding empirical, points",data/backtest_walkforward.csv
-final_sigma_est,16.48,"expanding empirical, points",data/backtest_walkforward.csv
-home_win_rate_2026_27,0.5217,48-44,data/games_results_2026-27.csv
 totals_MAE_our_model,16.451,"points, vs actual totals",data/backtest_walkforward.csv
 totals_bias_our_model,1.098,"points, model minus actual (>0 = over-predicts)",data/backtest_walkforward.csv
+final_sigma_est,16.48,"expanding empirical, points",data/backtest_walkforward.csv
+home_win_rate_2026_27,0.5217,48-44,data/games_results_2026-27.csv

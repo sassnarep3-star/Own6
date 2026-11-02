@@ -164,6 +164,14 @@ metrics = [
     ("gate_logloss_beats_homebase", "PASS" if lo > 0 else "FAIL", "95% CI strictly > 0 required", "verification/verification_report.csv"),
     ("gate_sign_accuracy_vs_coin", "PASS" if acc > 0.55 else "NOT MET", "pre-registered threshold 0.55", "verification/verification_report.csv"),
     ("final_HCA_est", round(HCA, 2), "expanding empirical, points", "data/backtest_walkforward.csv"),
+    ("totals_MAE_our_model", round(statistics.mean(
+        abs(r["our_total"] - (int(next(g for g in games if g["game_id"] == r["game_id"])["home_score"])
+            + int(next(g for g in games if g["game_id"] == r["game_id"])["away_score"])))
+        for r in rows_bt), 3), "points, vs actual totals", "data/backtest_walkforward.csv"),
+    ("totals_bias_our_model", round(statistics.mean(
+        r["our_total"] - (int(next(g for g in games if g["game_id"] == r["game_id"])["home_score"])
+            + int(next(g for g in games if g["game_id"] == r["game_id"])["away_score"]))
+        for r in rows_bt), 3), "points, model minus actual (>0 = over-predicts)", "data/backtest_walkforward.csv"),
     ("final_sigma_est", round(SIG, 2), "expanding empirical, points", "data/backtest_walkforward.csv"),
     ("home_win_rate_2026_27", round(home_wins / len(home_margins), 4), f"{home_wins}-{len(home_margins)-home_wins}", "data/games_results_2026-27.csv"),
 ]
