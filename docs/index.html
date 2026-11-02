@@ -1,0 +1,22 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Own6 — Originate Your Own NBA Lines</title><link rel="stylesheet" href="assets/style.css"></head><body><nav><span class="brand">OWN6</span><a href="index.html">Dashboard</a><a href="strategies.html">Strategies</a><a href="validation.html">Validation Gates</a><a href="correlations.html">Correlations</a><a href="leaderboard.html">Leaderboard</a><a href="sources.html">Sources</a><a href="flagged.html">⚑ Flagged for Review</a><a href="verified/">✓ Verified data (source-linked)</a></nav>
+<main><h1>🏀 Originate Your Own NBA Lines</h1><p class="mut">Build your own spread, total & win probability from official NBA efficiency stats — then force every strategy through validation gates that strip out luck before it can top the leaderboard.</p>
+<div class="grid">
+<div class="card"><h3>🎯 Own Lines</h3><p>Pace × OffRtg/DefRtg matchup model (official NBA definitions). Home-court & margin SD are fitted from your data — never assumed.</p><a href="strategies.html">Strategies →</a></div>
+<div class="card"><h3>🔗 Correlations</h3><p>Gaussian-copula parlay pricing. Independence is a labelled special case, not a default.</p><a href="correlations.html">Correlations →</a></div>
+<div class="card"><h3>✅ Validation Gates</h3><p>Walk-forward, calibration, CLV, binomial luck test, bootstrap CI. Fail one gate = unranked.</p><a href="validation.html">Gates G1–G8 →</a></div>
+<div class="card"><h3>🏆 Leaderboard</h3><p>Ranked by lower confidence bound of ROI. A 20-bet heater is ineligible, not champion.</p><a href="leaderboard.html">Leaderboard →</a></div>
+</div>
+<h2>Own-Line Calculator <span class="mut">(illustrative inputs — enter official stats from NBA.com)</span></h2>
+<div class="card"><div class="grid">
+<div><label>Home Pace</label><input id="hp" type="number" step="0.1" placeholder="from NBA Stats"><label>Home OffRtg</label><input id="ho" type="number" step="0.1"><label>Home DefRtg</label><input id="hd" type="number" step="0.1"></div>
+<div><label>Away Pace</label><input id="ap" type="number" step="0.1"><label>Away OffRtg</label><input id="ao" type="number" step="0.1"><label>Away DefRtg</label><input id="ad" type="number" step="0.1"></div>
+<div><label>League OffRtg</label><input id="lg" type="number" step="0.1"><label>Home-adv pts (fitted)</label><input id="ha" type="number" step="0.1" value="0"><label>Margin SD (fitted)</label><input id="sd" type="number" step="0.1"></div>
+</div><p><button onclick="calc()">Generate My Line</button></p><p id="out" class="ok"></p>
+<p class="mut">Definitions: <a href="https://www.nba.com/stats/help/glossary">NBA Stats Glossary</a> · Stats: <a href="https://www.nba.com/stats/overview">NBA.com/Stats</a>. No default ratings are pre-filled — unconfirmed values stay blank by project rule.</p></div>
+<h2>Executive summary</h2><div class="card"><p>Full summary in the repo (<code>EXECUTIVE_SUMMARY.md</code>): 5 strategy families as <b>hypotheses</b> (none claimed as proven edges), 8 validation gates, correlation map, leaderboard that rewards the lower confidence bound. <span class="flag">All current NBA numeric values, odds, fitted parameters, correlations & backtest results are intentionally blank/unverified</span> — listed on the Flagged page.</p></div>
+</main><footer>Research & analytics only — not betting advice. Bet only where legal with licensed operators. Every table row links its official source; unconfirmed values are blank & flagged.</footer><script>
+function cdf(z){return .5*(1+Math.erf(z/Math.SQRT2))}
+function calc(){const v=id=>parseFloat(document.getElementById(id).value);const pace=(v('hp')+v('ap'))/2;if([pace,v('ho'),v('hd'),v('ao'),v('ad'),v('lg'),v('sd')].some(isNaN)){out.textContent='Fill every field from official NBA Stats — no values are guessed for you.';return}
+let h=pace*(v('ho')/100)*(v('ad')/100)/(v('lg')/100)+v('ha')/2,a=pace*(v('ao')/100)*(v('hd')/100)/(v('lg')/100)-v('ha')/2,m=h-a;
+out.textContent=`Fair spread (home): ${(-m).toFixed(1)} · Fair total: ${(h+a).toFixed(1)} · Home win prob: ${(100*cdf(m/v('sd'))).toFixed(1)}% · Exp pts ${h.toFixed(1)}–${a.toFixed(1)}`;}
+</script></body></html>

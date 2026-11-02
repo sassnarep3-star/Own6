@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "title": "NBA official betting and prediction-market policy — what is confirmed and what is not",
+    "retrieved": "2026-11-02",
+    "rule": "Official value columns are only filled when read from an official NBA page. Anything from a secondary outlet is marked unverified with the official value left blank."
+  },
+  "columns": ["item", "official_statement_verified", "official_source_url", "secondary_reports_unverified", "secondary_source_url", "status", "verified"],
+  "rows": [
+    {
+      "item": "Official prediction-market framework (Kalshi and Polymarket as Preferred Exchanges; CFTC MOU; integrity obligations)",
+      "official_statement_verified": "Release dated Oct 26, 2026 says the agreements include 'limitations on permissible markets, affirmative prohibitions on trading NBA event contracts by league and team personnel, and information-sharing obligations', and that partner markets include 'market restrictions aligned with the NBA's latest sports betting restrictions'.",
+      "official_source_url": "https://www.nba.com/news/nba-establishes-integrity-framework-and-commercial-partnerships-for-prediction-markets",
+      "secondary_reports_unverified": "",
+      "secondary_source_url": "",
+      "status": "verified",
+      "verified": true
+    },
+    {
+      "item": "Official NBA gaming partners and operators list (dated July 9, 2026)",
+      "official_statement_verified": "Domestic official gaming partners: DraftKings, FanDuel. The list covers US, Canadian and international partners by country (Australia, Brazil, Greece & Cyprus, France, Germany, Mexico, Philippines, Serbia, Spain, Uruguay). No South Korea entry appears on the list.",
+      "official_source_url": "https://www.nba.com/nbabet/official-nba-gaming-partners-and-operators-2",
+      "secondary_reports_unverified": "",
+      "secondary_source_url": "",
+      "status": "verified",
+      "verified": true
+    },
+    {
+      "item": "Restriction: sportsbooks may not offer 'under' props on players expected to log fewer than 12 minutes per game",
+      "official_statement_verified": "",
+      "official_source_url": "",
+      "secondary_reports_unverified": "Reported as a 2026-27 restriction on under bets for bench players expected to play under 12 minutes per game.",
+      "secondary_source_url": "https://www.sportsbusinessjournal.com/Articles/2026/10/16/new-nba-season-brings-a-change-to-rules-and-processes-as-a-crucial-predictions-decision-looms/",
+      "status": "unverified",
+      "verified": false
+    },
+    {
+      "item": "Restriction: no 'first of' props (opening tip winner; first shot, rebound, assist, steal, or block) and no bets against those outcomes",
+      "official_statement_verified": "",
+      "official_source_url": "",
+      "secondary_reports_unverified": "Reported as banned, including the opening-tip winner and whether a specific player gets the first shot, rebound, assist, or steal.",
+      "secondary_source_url": "https://sports.yahoo.com/articles/nba-sportsbooks-agree-ban-several-194209257.html",
+      "status": "unverified",
+      "verified": false
+    },
+    {
+      "item": "Restriction: no parlays combining 'under' props for the same player",
+      "official_statement_verified": "",
+      "official_source_url": "",
+      "secondary_reports_unverified": "Reported as a ban on parlays that group under props on a single player's statistics.",
+      "secondary_source_url": "https://www.betting.net/news/legal/nba-tells-sportsbooks-to-halt-certain-bets/",
+      "status": "unverified",
+      "verified": false
+    },
+    {
+      "item": "Restriction: 'alternate under' customization and 'low likelihood, high payout' parlays",
+      "official_statement_verified": "",
+      "official_source_url": "",
+      "secondary_reports_unverified": "Reported as banning customized alternate-under numbers and parlaying single-player unders the league calls 'low likelihood, high payout'.",
+      "secondary_source_url": "https://www.sportsbusinessjournal.com/Articles/2026/10/16/new-nba-season-brings-a-change-to-rules-and-processes-as-a-crucial-predictions-decision-looms/",
+      "status": "unverified",
+      "verified": false
+    },
+    {
+      "item": "The NBA memo to sportsbooks and the league memo to teams (primary documents)",
+      "official_statement_verified": "",
+      "official_source_url": "",
+      "secondary_reports_unverified": "Reported by ESPN, TSN, and others as having been sent to partners. The primary text was not found on an official NBA page.",
+      "secondary_source_url": "https://www.tsn.ca/nba/article/nba-tells-sportsbooks-to-stop-certain-bets-restrict-parlays-n1-50196498/",
+      "status": "unverified",
+      "verified": false
+    }
+  ]
+}
