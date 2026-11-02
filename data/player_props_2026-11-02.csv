@@ -1,0 +1,8 @@
+athlete,athlete_id,team,market,line_open,line_current,american_quotes_current_rowA_rowB,last_updated,source_url
+Shai Gilgeous-Alexander,4278073,OKC,Total Points,29.5,30.5,-109 / -117,2026-11-02T20:25Z,https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909907/competitions/401909907/odds/100/propBets
+Isaiah Hartenstein,4222252,OKC,Total Points,10.5,10.5,-138 / -117,2026-11-02T10:22Z,https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909907/competitions/401909907/odds/100/propBets
+Donovan Mitchell,3908809,CLE,Total Points,23.5,22.5,-114 / -112,2026-11-02T03:53Z,https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909907/competitions/401909907/odds/100/propBets
+James Harden,3992,CLE,Total Points,18.5,17.5,-118 / -108,2026-11-02T15:57Z,https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909907/competitions/401909907/odds/100/propBets
+Jarrett Allen,4066328,CLE,Total Points,12.5,12.5,-112 / -114,2026-11-02T03:53Z,https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909907/competitions/401909907/odds/100/propBets
+Sam Merrill,4066757,CLE,Total Points,9.5,9.5,-104 / -122,2026-11-02T10:12Z,https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909907/competitions/401909907/odds/100/propBets
+Kenrich Williams,3133626,OKC,Total Points,7.5,7.5,-122 / -104,2026-11-02T03:54Z,https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909907/competitions/401909907/odds/100/propBets

@@ -18,3 +18,15 @@ Official NBA sources used for metric definitions: [NBA Stats Glossary](https://w
 ## Source-linked verified dashboard
 
 A separate, source-checked section lives in [`docs/verified/`](docs/verified/index.html): the verified NBA schedule rows (Nov 2, 2026), Korean statute rows (국민체육진흥법), NBA official policy vs. unverified press reports, validation gates, and a Flagged for Review page. Data is in `data/*.json`; build with `python3 scripts/build_site.py` and check with `python3 scripts/check_site.py`.
+
+## Research sub-site (session `arena/325834c9-own6`)
+
+A second, independently verified research line lives in [`docs/own6/`](docs/own6/index.html):
+92 official game results with per-row nba.com links (213/213 recomputation checks pass), a
+walk-forward line-origination model with honest gate outcomes (**G1 not met — no edge claimed**),
+measured parlay/prop correlations, a pre-registered strategy leaderboard with paper rewards, and a
+Flagged-for-Review page. Research docs: [`EXECUTIVE_SUMMARY.md`](EXECUTIVE_SUMMARY.md) (session
+section), [`research/`](research/strategies.md), [`verification/`](verification/verification_report.csv).
+Build/check: `python3 scripts/build_site_own6.py` · `python3 scripts/linkcheck.py` ·
+`python3 scripts/verify_data.py` · `python3 scripts/model.py`. DraftKings lines arrive via the
+ESPN feed (secondary source, labeled as such); research/paper only — no real wagers.

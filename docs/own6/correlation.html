@@ -1,0 +1,49 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Correlation · Own6</title>
+<style>
+:root{--bg:#0b1020;--card:#121a33;--line:#243056;--txt:#e8edfb;--mut:#93a0c4;--acc:#5b8cff;--ok:#28c76f;--bad:#ff5d5d;--warn:#f7b731}
+*{box-sizing:border-box}body{margin:0;font:15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--txt)}
+header{background:linear-gradient(90deg,#10193a,#16224d);border-bottom:1px solid var(--line);padding:18px 26px}
+header h1{margin:0;font-size:22px}header p{margin:4px 0 0;color:var(--mut);font-size:13px}
+nav{padding:10px 26px;background:#0e1530;border-bottom:1px solid var(--line);display:flex;gap:14px;flex-wrap:wrap}
+nav a{color:var(--acc);text-decoration:none;font-size:14px}nav a:hover{text-decoration:underline}
+main{padding:22px 26px;max-width:1280px;margin:0 auto}
+h2{font-size:19px;margin:26px 0 8px}h3{font-size:16px;margin:18px 0 6px;color:#c6d0f5}
+p,li{color:#cfd8f7;font-size:14px}.mut{color:var(--mut);font-size:13px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:14px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}
+.card .k{font-size:26px;font-weight:700}.card .l{color:var(--mut);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.tw{overflow:auto;background:var(--card);border:1px solid var(--line);border-radius:10px;margin:10px 0}
+table.data{border-collapse:collapse;width:100%;font-size:13px}
+table.data th{background:#18224a;color:#aebbf0;text-align:left;padding:9px 10px;position:sticky;top:0}
+table.data td{padding:8px 10px;border-top:1px solid var(--line);vertical-align:top}
+table.data tr:nth-child(even) td{background:#141d3c}
+a{color:var(--acc)}
+.badge{display:inline-block;padding:1px 8px;border-radius:99px;font-size:12px;font-weight:600}
+.badge.ok{background:#0f3c25;color:#5ff0a0}.badge.bad{background:#4a1420;color:#ff8f8f}.badge.warn{background:#453411;color:#ffd479}
+.note{background:#101a38;border-left:3px solid var(--acc);padding:10px 14px;border-radius:6px;margin:10px 0}
+footer{color:var(--mut);font-size:12px;padding:20px 26px;border-top:1px solid var(--line);margin-top:30px}
+</style></head><body>
+<header><h1>Own6 — NBA line-origination research</h1>
+<p>Official-source verified data · walk-forward model · gated strategy leaderboard · paper research only (no real wagers)</p></header>
+<nav><a href="index.html">Dashboard</a><a href="data.html">Data</a><a href="lines.html">Lines & Props</a><a href="strategies.html">Strategies</a><a href="validation.html">Validation</a><a href="correlation.html" style=font-weight:700>Correlation</a><a href="flagged.html">Flagged for Review</a></nav><main>
+<h2>Correlation findings</h2>
+<p>Computed from official game rows and ESPN player logs — reproduction data:
+<a href="../../data/correlation_findings.csv">correlation_findings.csv</a>. Full narrative:
+<a href="../../research/correlation.md">research/correlation.md</a>.</p>
+<div class="tw"><table class="data"><thead><tr><th>Pair</th><th>Interpretation</th><th>n</th><th>Pearson r</th><th>Source</th></tr></thead><tbody><tr><td>home_score_vs_away_score</td><td>same-game team totals (parlay legs on team pts)</td><td>92</td><td>0.2004</td><td><a href="../../data/games_results_2026-27.csv" target="_blank" rel="noopener">games_results_2026-27.csv</a></td></tr><tr><td>rest_diff_vs_home_margin</td><td>rest differential vs margin</td><td>76</td><td>-0.0162</td><td><a href="../../data/games_results_2026-27.csv" target="_blank" rel="noopener">games_results_2026-27.csv</a></td></tr><tr><td>teammate_PTS_Mitchell_Allen</td><td>same-game teammate scoring (prop combo legs), 2026-27 only</td><td>6</td><td>-0.4222</td><td><a href="https://www.espn.com/nba/player/gamelog/_/id/3908809 + /id/4066328" target="_blank" rel="noopener">source</a></td></tr><tr><td>same_date_game_margins</td><td>cross-game dependence for parlay legs (pooled same-date pairs)</td><td>357</td><td>0.1052</td><td><a href="../../data/games_results_2026-27.csv" target="_blank" rel="noopener">games_results_2026-27.csv</a></td></tr></tbody></table></div>
+<h3>What it means for parlays &amp; combos</h3>
+<ul>
+<li><b>Same-game legs</b> (team totals): r=+0.200 — pace couples them; joint P(both over) exceeds
+the independence product. Pricing must use a joint model.</li>
+<li><b>Cross-game legs</b>: r=+0.105 (n=357) — weak but non-zero; strict independence slightly
+overstates joint win probability for favorite legs.</li>
+<li><b>Teammate props</b>: r=−0.422 at n=6 — usage-sharing direction, insufficient sample;
+strategy S-5 stays NOT DEPLOYED until n≥60.</li>
+<li><b>Rest signal</b>: r=−0.016 (n=76) — null in this sample; S-3 not deployed despite
+literature support for a small effect.</li>
+</ul></main>
+<footer>Data cut 2026-11-02 · NBA.com + ESPN official feeds (DraftKings lines, NBA co-official sports betting partner —
+<a href="https://pr.nba.com/draftkings-and-fanduel-become-co-official-sports-betting-partners-of-the-nba/" target="_blank" rel="noopener">NBA press release</a>)
+· every table row carries a source link · unconfirmable values are blank and flagged · 21+/gambling-problem resources: 1-800-GAMBLER · NBA Terms of Use §9 use concern is a published
+flagged item on this sub-site's Flagged page (needs qualified review, non-blocking)</footer></body></html>

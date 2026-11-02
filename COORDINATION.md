@@ -410,3 +410,73 @@ coexist (cross-linked).
 - **Irregularities:** F1–F7 and I-1…I-24 published on `docs/flagged.html` and `docs/review/flagged.html` with official links; they do not block the site. 29 advisory rows in `docs/verified/**` (session `05e359b8` scope) lack official links — request I-18 logged, not edited. I-24 (NBA.com Terms of Use §§1/9) answers request A28-REQ-01; it is a flagged concern for qualified legal review, not a legal conclusion.
 - **Coordination note:** `git pull --rebase` was attempted before early pushes but is incompatible with the merge-based sync of concurrent `main` history on this branch (it tried to linearize other sessions' merge commits). Both rebase attempts were aborted cleanly and no other session's work was discarded; subsequent pushes used `git fetch` + `git merge --ff-only` + `git push`. Logged as I-17.
 - **Status:** task 10 `done`; flagged items `needs review` (published, non-blocking).
+
+---
+
+## Session `arena/325834c9-own6` — data collection, line origination model, gated strategies, own6 sub-site
+
+**Session ID:** `325834c9` · **Branch:** `arena/325834c9-own6` (Arena-fixed; same branch-rule deviation as other sessions).
+**Claim:** all tasks T1–T10 claimed at session start with per-task file scopes (committed+pushed, commit `356570f`); this section is appended at integration — no other session's files were overwritten.
+
+### Task board (session 325834c9)
+
+| Task | Status | Files |
+|---|---|---|
+| T1 Coordination board (this session's board, now merged here) | done | `COORDINATION.md` |
+| T2 Official NBA data collection | done | `data/standings_2026-27.csv`, `data/team_ratings_2026-27.csv`, `data/games_results_2026-27.csv`, `data/market_lines_2026-11-02.csv`, `data/player_props_2026-11-02.csv`, `scripts/verify_data.py` |
+| T3 Strategy research (singles/parlays/props) | done | `research/strategies.md` |
+| T4 Validation gates + de-luck methodology | done | `research/validation.md` |
+| T5 Correlation analysis | done | `research/correlation.md`, `data/correlation_findings.csv` |
+| T6 Own-line model + market comparison | done | `scripts/model.py`, `data/our_lines_2026-11-02.csv` |
+| T7 Executive summary | done | `EXECUTIVE_SUMMARY.md` (appended section) |
+| T8 Site (own6 sub-site) | done | `docs/own6/**`, `scripts/build_site_own6.py` |
+| T9 Link/verification checker | done | `scripts/linkcheck.py`, `verification/` |
+| T10 Integration: PR → merge → Pages → record | in progress | this section |
+
+Status legend as above (`needs review` = published on Flagged pages, non-blocking).
+
+### Response to handoff request (session 71464040, task 13)
+
+- **`verification/verification_report.csv` line-by-line:** produced by `scripts/verify_data.py`.
+  Method: (1) recompute every team's W-L from the 92 official nba.com game-card rows in
+  `data/games_results_2026-27.csv` and compare against the official standings transcription in
+  `data/standings_2026-27.csv` — **213/213 checks PASS** (0 mismatches); (2) cross-check
+  ratings W/L vs standings; (3) assert every CSV row carries a source URL. Re-run command:
+  `python3 scripts/verify_data.py`.
+- **Odds source disclosure (ESPN feed ≠ NBA-official):** honored — all market-line rows on the
+  own6 sub-site are labeled "DraftKings lines republished via the ESPN odds feed (secondary
+  source)"; DraftKings' NBA co-official partnership is linked from the NBA's own press release
+  (pr.nba.com). Also flagged as its own row in `data/flagged_items.csv`.
+
+### Integration verification (pre-merge, 2026-11-02)
+
+| Check | Command | Result |
+|---|---|---|
+| Data line-by-line | `python3 scripts/verify_data.py` | **PASS 213/213** |
+| Model idempotent rerun | `python3 scripts/model.py` | PASS — backtest n=82, log-loss 0.6747 vs 0.6932/0.7059; **G1 FAIL (CI crosses 0) reported honestly** |
+| own6 sub-site build | `python3 scripts/build_site_own6.py` | PASS — 7 pages → `docs/own6/` |
+| own6 link/row check | `python3 scripts/linkcheck.py` | **PASS** — all internal links resolve, external hosts allowlisted, every data row sourced |
+| Combined-site check | `python3 scripts/check_site.py` | run at integration (result recorded in PR) |
+| Flagged items | `data/flagged_items.csv` → `docs/own6/flagged.html` | 9 items, all `needs review`, non-blocking (incl. NBA ToU §9 ingestion concern + ESPN secondary labeling) |
+
+### Conflict resolution log (this integration)
+
+- MERGE CONFLICT (add/add) vs `main` (PRs #1–#14 by sessions 463d936f, d100a9d1, a28a2ee1,
+  05e359b8, a6ccf588, 71464040) in `COORDINATION.md`, `EXECUTIVE_SUMMARY.md`, `README.md`,
+  `docs/{index,flagged,strategies,validation}.html`, `scripts/build_site.py`.
+  Resolution (per the convention established by sessions 05e359b8/a28a2ee1 — nothing discarded):
+  - Their root versions kept verbatim; this session's site relocated to **`docs/own6/`**
+    (builder: `scripts/build_site_own6.py`; checker: `scripts/linkcheck.py`).
+  - `COORDINATION.md` / `EXECUTIVE_SUMMARY.md` / `README.md`: their content kept, this session's
+    sections appended.
+  - One surgical nav link added to their `docs/index.html` → `own6/`.
+- No other session's files modified beyond that nav link + README/exec appended sections.
+
+### Data ingested (official sources, per-row links in every CSV)
+
+- NBA.com standings, NBA.com team advanced stats, NBA.com game cards (92 results, Oct 20–Nov 1).
+- ESPN schedule pages + ESPN odds core feed (DraftKings lines, open+current, 15 games 2026-11-02)
+  + ESPN player gamelogs/rosters/athletes (prop identity resolution).
+- Rights concern: NBA ToU §9 (project flags I-24/F16) applies because this session ingests NBA
+  statistics → published as a flagged row on `docs/own6/flagged.html` (needs review, non-blocking).
+

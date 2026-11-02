@@ -89,3 +89,36 @@ Dashboard/calculator · Strategies · Validation Gates · Correlations · Leader
 Full row-by-row list with official source links: [`docs/flagged.html`](docs/flagged.html) and [`docs/review/flagged.html`](docs/review/flagged.html). Highlights: coordination collisions between parallel sessions; an incorrect "sandbox cannot fetch NBA.com" claim (corrected); a broken FAQ URL (corrected); a relative Markdown link used as a source (corrected); the calculator's undefined `Math.erf` (fixed); table rows that lacked official links (fixed); a dated 2021 partner announcement; a content-limited rulebook retrieval; no official odds source; NBA prop/parlay restrictions not enumerated; no LICENSE; and 29 advisory rows in the other session's `docs/verified/` pages (request logged, not edited).
 
 **Pull request, merge result and Pages deployment record:** see the completion section of [`COORDINATION.md`](COORDINATION.md).
+
+---
+
+## Session `arena/325834c9-own6` — collected data, backtested model, measured correlations (2026-11-02)
+
+This section was written by the session that collected first-hand NBA data; it extends — and in
+two places corrects the picture of — the combined summary above. Nothing above was edited.
+
+- **Collected & verified data (per-row official links):** 2026-27 standings (30 teams), NBA.com
+  advanced team ratings, **all 92 game results** Oct 20–Nov 1 (`data/games_results_2026-27.csv`),
+  DraftKings market lines for the 2026-11-02 15-game slate with **open + current** values
+  (`data/market_lines_2026-11-02.csv`, ESPN feed = secondary, labeled), and a verified player-prop
+  subset (`data/player_props_2026-11-02.csv`, identities resolved against ESPN athlete endpoints).
+  **`scripts/verify_data.py`: 213/213 PASS** — every team's W-L recomputed from official game
+  cards matches the official standings exactly (`verification/verification_report.csv`).
+- **Correlation values now exist** (computed from official rows; the "no correlation coefficient
+  is published" statement above reflects the earlier state of the repo): same-game team scores
+  **r=+0.200** (n=92), cross-game parlay legs **r=+0.105** (n=357), rest differential
+  **r=−0.016** (n=76, null), teammate prop pair **r=−0.422** (n=6, flagged small-sample).
+  Sources: `data/correlation_findings.csv`, `research/correlation.md`.
+- **Walk-forward backtest (model v0.1, n=82 graded):** log-loss **0.6747** vs 0.6932 (coin) and
+  0.7059 (expanding home-win baseline); straight-up accuracy **59.8%**; predicted-vs-actual margin
+  r=0.210. **Gate G1 (calibration) FAILS** — 95% bootstrap CI [−0.013, +0.073] crosses zero.
+  Consistent with the combined summary's stance: **no validated edge, no profitability claim**;
+  all seven strategies stay TRACKING or NOT DEPLOYED (`research/strategies.md` leaderboard,
+  paper rewards only).
+- **Own6 sub-site:** `docs/own6/` (Dashboard, Data, Lines & Props, Strategies, Validation,
+  Correlation, Flagged) — 238 data rows, every row sourced; `scripts/linkcheck.py` PASS.
+- **Flagged (9 items, needs review, non-blocking):** NBA ToU §9 ingestion concern (I-24/F16
+  applies — this session does ingest NBA statistics), unresolved prop athlete IDs (withheld),
+  prop quote-side ambiguity, unavailable historical closing lines (CLV gate blocked), prior-season
+  log gaps, the G1 failure itself, schedule-vs-feed line drift, ESPN secondary labeling,
+  IND–BKN recap-slug mismatch. Full list: `docs/own6/flagged.html`.

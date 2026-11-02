@@ -1,0 +1,69 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Validation · Own6</title>
+<style>
+:root{--bg:#0b1020;--card:#121a33;--line:#243056;--txt:#e8edfb;--mut:#93a0c4;--acc:#5b8cff;--ok:#28c76f;--bad:#ff5d5d;--warn:#f7b731}
+*{box-sizing:border-box}body{margin:0;font:15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--txt)}
+header{background:linear-gradient(90deg,#10193a,#16224d);border-bottom:1px solid var(--line);padding:18px 26px}
+header h1{margin:0;font-size:22px}header p{margin:4px 0 0;color:var(--mut);font-size:13px}
+nav{padding:10px 26px;background:#0e1530;border-bottom:1px solid var(--line);display:flex;gap:14px;flex-wrap:wrap}
+nav a{color:var(--acc);text-decoration:none;font-size:14px}nav a:hover{text-decoration:underline}
+main{padding:22px 26px;max-width:1280px;margin:0 auto}
+h2{font-size:19px;margin:26px 0 8px}h3{font-size:16px;margin:18px 0 6px;color:#c6d0f5}
+p,li{color:#cfd8f7;font-size:14px}.mut{color:var(--mut);font-size:13px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:14px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px}
+.card .k{font-size:26px;font-weight:700}.card .l{color:var(--mut);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+.tw{overflow:auto;background:var(--card);border:1px solid var(--line);border-radius:10px;margin:10px 0}
+table.data{border-collapse:collapse;width:100%;font-size:13px}
+table.data th{background:#18224a;color:#aebbf0;text-align:left;padding:9px 10px;position:sticky;top:0}
+table.data td{padding:8px 10px;border-top:1px solid var(--line);vertical-align:top}
+table.data tr:nth-child(even) td{background:#141d3c}
+a{color:var(--acc)}
+.badge{display:inline-block;padding:1px 8px;border-radius:99px;font-size:12px;font-weight:600}
+.badge.ok{background:#0f3c25;color:#5ff0a0}.badge.bad{background:#4a1420;color:#ff8f8f}.badge.warn{background:#453411;color:#ffd479}
+.note{background:#101a38;border-left:3px solid var(--acc);padding:10px 14px;border-radius:6px;margin:10px 0}
+footer{color:var(--mut);font-size:12px;padding:20px 26px;border-top:1px solid var(--line);margin-top:30px}
+</style></head><body>
+<header><h1>Own6 — NBA line-origination research</h1>
+<p>Official-source verified data · walk-forward model · gated strategy leaderboard · paper research only (no real wagers)</p></header>
+<nav><a href="index.html">Dashboard</a><a href="data.html">Data</a><a href="lines.html">Lines & Props</a><a href="strategies.html">Strategies</a><a href="validation.html" style=font-weight:700>Validation</a><a href="correlation.html">Correlation</a><a href="flagged.html">Flagged for Review</a></nav><main>
+<h2>Validation gates &amp; backtest</h2>
+<div class="note"><b>Headline:</b> model v0.1 beats both baselines on point estimates, but the
+calibration gate (G1) fails because the 95% CI crosses zero. Honest status: no validated edge,
+strategies TRACKING/NOT DEPLOYED only.</div>
+<div class="tw"><table class="data"><thead><tr><th>Gate</th><th>Pre-registered requirement</th><th>Status</th><th>Result</th><th>Evidence</th></tr></thead><tbody><tr><td>G1 Calibration</td><td>log-loss improvement vs expanding home-win baseline, 95% bootstrap CI > 0</td><td><span class="badge bad">FAIL</span></td><td>mean +0.0312, CI [−0.0130, +0.0733]</td><td><a href="../../verification/backtest_metrics.csv" target="_blank" rel="noopener">metrics</a></td></tr><tr><td>G2 Discrimination</td><td>sign accuracy ≥55% over ≥100 graded games</td><td><span class="badge bad">PARTIAL</span></td><td>59.8% at n=82 (threshold needs n≥100)</td><td><a href="../../verification/backtest_metrics.csv" target="_blank" rel="noopener">metrics</a></td></tr><tr><td>G3 Correlation structure</td><td>measure every leg's pairwise r; joint pricing required</td><td><span class="badge ok">PASS</span></td><td>4 correlations measured + published</td><td><a href="correlation.html" target="_blank" rel="noopener">correlation</a></td></tr><tr><td>G4 Multiple-testing</td><td>log all trials; thresholds deflate with N (DSR framing)</td><td><span class="badge ok">PASS</span></td><td>N=1 (model v0.1) logged here</td><td><a href="https://www.researchgate.net/publication/286121118_The_Deflated_Sharpe_RatioCorrecting_for_Selection_Bias_BacktestOverfitting_and_Non-Normality" target="_blank" rel="noopener">Bailey–LdP 2014</a></td></tr><tr><td>G5 Closing-line value</td><td>mean CLV ≥ 0 over ≥100 bets</td><td><span class="badge bad">BLOCKED</span></td><td>historical closing odds unavailable from official sources — flagged; tracking opens 2026-11-02</td><td><a href="flagged.html" target="_blank" rel="noopener">flag</a></td></tr><tr><td>G6 Sample size</td><td>≥100 graded events to reach VALIDATED</td><td><span class="badge bad">PARTIAL</span></td><td>82 graded backtest games</td><td><a href="../../data/backtest_walkforward.csv" target="_blank" rel="noopener">game rows</a></td></tr></tbody></table></div>
+<h3>Backtest metrics (walk-forward, 82 graded games, warmup 10)</h3>
+<div class="tw"><table class="data"><thead><tr><th>Metric</th><th>Value</th><th>Note</th><th>Source</th></tr></thead><tbody><tr><td>Log-loss — model</td><td>0.6747</td><td><span class="badge bad">best</span></td><td><a href="../../data/backtest_walkforward.csv" target="_blank" rel="noopener">rows</a></td></tr><tr><td>Log-loss — coin baseline</td><td>0.6932</td><td>baseline p=0.5</td><td><a href="../../data/backtest_walkforward.csv" target="_blank" rel="noopener">rows</a></td></tr><tr><td>Log-loss — expanding home-win baseline</td><td>0.7059</td><td>baseline</td><td><a href="../../data/backtest_walkforward.csv" target="_blank" rel="noopener">rows</a></td></tr><tr><td>Brier — model / coin</td><td>0.6654 / 0.6946</td><td>lower better</td><td><a href="../../verification/backtest_metrics.csv" target="_blank" rel="noopener">metrics</a></td></tr><tr><td>Straight-up accuracy (model fav)</td><td>59.8%</td><td>gate ≥55%</td><td><a href="../../verification/backtest_metrics.csv" target="_blank" rel="noopener">metrics</a></td></tr><tr><td>r(predicted, actual margin)</td><td>0.210</td><td>walk-forward</td><td><a href="../../verification/backtest_metrics.csv" target="_blank" rel="noopener">metrics</a></td></tr><tr><td>Totals MAE / baseline</td><td>16.45 / 16.80</td><td>tie → S-2 not deployed</td><td><a href="../../verification/backtest_metrics.csv" target="_blank" rel="noopener">metrics</a></td></tr><tr><td>Estimated HCA / margin σ</td><td>1.64 pts / 16.48 pts</td><td>expanding, official results</td><td><a href="../../verification/backtest_metrics.csv" target="_blank" rel="noopener">metrics</a></td></tr><tr><td>Home win rate 2026-27</td><td>52.2% (48–44)</td><td>small sample vs ~59% norm</td><td><a href="../../data/games_results_2026-27.csv" target="_blank" rel="noopener">results</a></td></tr></tbody></table></div>
+<h3>Luck-removal protocol</h3>
+<ul>
+<li>Walk-forward grading (prior games only) — no look-ahead; code: <code>scripts/model.py</code></li>
+<li>Shrinkage k=8 (strength) / k=4 (scoring) toward league average — early-season noise damped</li>
+<li>Pre-registration: gates &amp; strategy rules written before results (this page + strategies.md)</li>
+<li>Baseline comparisons (coin / expanding home-win / expanding mean) — raw accuracy never trusted</li>
+<li>10,000-resample paired bootstrap (seed 42) on log-loss difference; CI crossing zero = fail</li>
+<li>Multiple-testing log for DSR-style deflation (currently N=1)</li>
+</ul>
+<h3>Methodology citations</h3>
+<ul>
+<li>Bailey &amp; López de Prado (2014), <i>Deflated Sharpe Ratio</i>, JPM 40(5):94–107 —
+<a href="https://www.researchgate.net/publication/286121118_The_Deflated_Sharpe_RatioCorrecting_for_Selection_Bias_BacktestOverfitting_and_Non-Normality" target="_blank" rel="noopener">record</a> ·
+<a href="https://quantresearch.org/Publications.htm" target="_blank" rel="noopener">author list</a></li>
+<li>Closing-line accuracy — Harvard DASH thesis (MLB 1977–2018):
+<a href="https://dash.harvard.edu/bitstreams/24950429-b1b7-4372-a029-1b68de1872e3/download" target="_blank" rel="noopener">PDF</a></li>
+<li>NFL betting-line performance —
+<a href="https://www.researchgate.net/publication/233427163_The_Performance_of_Betting_Lines_for_Predicting_the_Outcome_of_NFL_Games" target="_blank" rel="noopener">Szalkowski &amp; Nelson</a></li>
+<li>ML sports-betting systematic review (2024) —
+<a href="https://arxiv.org/html/2410.21484v1" target="_blank" rel="noopener">arXiv:2410.21484</a></li>
+<li>Pythagorean expectation / margin→wins —
+<a href="https://nbaanalytic.com/articles/pythagorean-expectation-nba-standings.html" target="_blank" rel="noopener">NBAAnalytic</a></li>
+<li>Rest effects — Entine (Wharton):
+<a href="https://faculty.wharton.upenn.edu/wp-content/uploads/2012/04/Nba.pdf" target="_blank" rel="noopener">PDF</a> ·
+Small (NESSIS 2007): <a href="https://www.nessis.org/nessis07/Dylan_Small.pdf" target="_blank" rel="noopener">PDF</a> ·
+<a href="https://nbaanalytic.com/articles/rest-back-to-backs-load-management.html" target="_blank" rel="noopener">NBAAnalytic B2B split</a></li>
+<li>DraftKings = NBA co-official sports betting partner —
+<a href="https://pr.nba.com/draftkings-and-fanduel-become-co-official-sports-betting-partners-of-the-nba/" target="_blank" rel="noopener">NBA press release (2021)</a></li>
+</ul></main>
+<footer>Data cut 2026-11-02 · NBA.com + ESPN official feeds (DraftKings lines, NBA co-official sports betting partner —
+<a href="https://pr.nba.com/draftkings-and-fanduel-become-co-official-sports-betting-partners-of-the-nba/" target="_blank" rel="noopener">NBA press release</a>)
+· every table row carries a source link · unconfirmable values are blank and flagged · 21+/gambling-problem resources: 1-800-GAMBLER · NBA Terms of Use §9 use concern is a published
+flagged item on this sub-site's Flagged page (needs qualified review, non-blocking)</footer></body></html>
