@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Methodology — gates and correlation · NBA research dashboard</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><a href="index.html">NBA research dashboard</a></div>
+  <nav><a href="index.html" class="">Home</a><a href="executive-summary.html" class="">Executive summary</a><a href="games.html" class="">Games</a><a href="strategies.html" class="">Strategies</a><a href="methodology.html" class="active">Methodology</a><a href="legal-kr.html" class="">Korea law</a><a href="nba-policy.html" class="">NBA policy</a><a href="flagged.html" class="">Flagged for review</a><a href="sources.html" class="">Sources</a></nav>
+</header>
+<div class="notice">Research only. Nothing on this site is betting advice. Korean law may apply. See <a href="legal-kr.html">Korea law</a> and <a href="flagged.html">Flagged for review</a>.</div>
+<main>
+<h1>Methodology — gates and correlation</h1>
+
+<p class="muted">This is the compiler&#x27;s own methodology. It is NOT a sourced fact. No gate has been run on real data, and no correlation value has been computed, because no verified odds or results dataset is available (see Flagged for Review).</p>
+<h2>Validation gates</h2>
+<div class="table-wrap"><input class="filter" type="search" placeholder="Filter rows…" data-target="gate-table-2" aria-label="Filter table"><div class="scroll"><table id="gate-table-2"><thead><tr><th>ID</th><th>Gate</th><th>Rule</th><th>Current result</th><th>Why</th></tr></thead><tbody><tr><td>G1</td><td>Legal review</td><td>Korean counsel must confirm in writing that the product and any public output do not fall under 국민체육진흥법 Art. 26 (see legal_kr.json) before anything is published for Korean users.</td><td>FAIL (open)</td><td>Art. 26(2) prohibits designing or providing systems and game information for similar betting, and promoting or brokering it.</td></tr><tr><td>G2</td><td>Data provenance</td><td>Odds and results must come from a named, documented source. Every row must link to that source.</td><td>FAIL (no verified odds or results source)</td><td>nba.com shows odds but the provider and values were not confirmed, so none were imported.</td></tr><tr><td>G3</td><td>Integrity screen</td><td>Drop any market the NBA restricts. Restriction status must be confirmed from an official NBA primary source, not from press reports.</td><td>FAIL (restrictions are not yet confirmed from official primary text)</td><td>See nba_policy.json rows marked unverified.</td></tr><tr><td>G4</td><td>Out-of-sample test</td><td>Parameters are fit on earlier dates only. Results are scored on later dates the model never saw. No look-ahead.</td><td>Not run</td><td>No data.</td></tr><tr><td>G5</td><td>Sample size</td><td>Require a minimum number of settled out-of-sample bets set in advance and written into this file before testing begins.</td><td>Not run</td><td>No data. Threshold not yet set.</td></tr><tr><td>G6</td><td>Closing-line benchmark</td><td>Measure average difference from the closing price (CLV). Report it alongside results.</td><td>Not run</td><td>No closing-line data.</td></tr><tr><td>G7</td><td>Significance with multiple-testing correction</td><td>Test the one-sided p-value and correct for every strategy tried, not just the one being reported (for example Holm or Bonferroni). Report confidence intervals for ROI.</td><td>Not run</td><td>No data.</td></tr><tr><td>G8</td><td>Correlation and parlay independence</td><td>Before combining legs into a parlay or multi-leg bet, estimate the pairwise correlation of outcomes using only training-period data. Correlated legs are adjusted or excluded. Pairs are not treated as independent by default.</td><td>Not run</td><td>No data.</td></tr></tbody></table></div></div>
+<h2>Luck control</h2>
+<div class="callout">No method removes variance. The gates above only reduce the chance of mistaking luck for skill. A strategy that passes can still lose money. Results need a long run to separate skill from luck.</div>
+<h2>Correlation values</h2>
+<p><strong>Status:</strong> Not computed. Pairwise correlations are estimated only from training-period data. Values are left blank until a verified dataset exists.</p>
+<div class="table-wrap"><input class="filter" type="search" placeholder="Filter rows…" data-target="corr-table" aria-label="Filter table"><div class="scroll"><table id="corr-table"><thead><tr><th>Leg A</th><th>Leg B</th><th>Sample size</th><th>Correlation</th><th>Source dataset</th><th>Verified</th></tr></thead><tbody></tbody></table></div></div>
+
+</main>
+<footer>
+  Repo: <a href="https://github.com/sassnarep3-star/Own6">sassnarep3-star/Own6</a> · Built from data/*.json by scripts/build_site.py · Every table row links to its source.
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>

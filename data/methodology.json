@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "title": "Validation gates and correlation method",
+    "note": "This is the compiler's own methodology. It is NOT a sourced fact. No gate has been run on real data, and no correlation value has been computed, because no verified odds or results dataset is available (see Flagged for Review)."
+  },
+  "gates": [
+    {"id": "G1", "name": "Legal review", "rule": "Korean counsel must confirm in writing that the product and any public output do not fall under 국민체육진흥법 Art. 26 (see legal_kr.json) before anything is published for Korean users.", "current_result": "FAIL (open)", "why": "Art. 26(2) prohibits designing or providing systems and game information for similar betting, and promoting or brokering it."},
+    {"id": "G2", "name": "Data provenance", "rule": "Odds and results must come from a named, documented source. Every row must link to that source.", "current_result": "FAIL (no verified odds or results source)", "why": "nba.com shows odds but the provider and values were not confirmed, so none were imported."},
+    {"id": "G3", "name": "Integrity screen", "rule": "Drop any market the NBA restricts. Restriction status must be confirmed from an official NBA primary source, not from press reports.", "current_result": "FAIL (restrictions are not yet confirmed from official primary text)", "why": "See nba_policy.json rows marked unverified."},
+    {"id": "G4", "name": "Out-of-sample test", "rule": "Parameters are fit on earlier dates only. Results are scored on later dates the model never saw. No look-ahead.", "current_result": "Not run", "why": "No data."},
+    {"id": "G5", "name": "Sample size", "rule": "Require a minimum number of settled out-of-sample bets set in advance and written into this file before testing begins.", "current_result": "Not run", "why": "No data. Threshold not yet set."},
+    {"id": "G6", "name": "Closing-line benchmark", "rule": "Measure average difference from the closing price (CLV). Report it alongside results.", "current_result": "Not run", "why": "No closing-line data."},
+    {"id": "G7", "name": "Significance with multiple-testing correction", "rule": "Test the one-sided p-value and correct for every strategy tried, not just the one being reported (for example Holm or Bonferroni). Report confidence intervals for ROI.", "current_result": "Not run", "why": "No data."},
+    {"id": "G8", "name": "Correlation and parlay independence", "rule": "Before combining legs into a parlay or multi-leg bet, estimate the pairwise correlation of outcomes using only training-period data. Correlated legs are adjusted or excluded. Pairs are not treated as independent by default.", "current_result": "Not run", "why": "No data."}
+  ],
+  "luck_control_note": "No method removes variance. The gates above only reduce the chance of mistaking luck for skill. A strategy that passes can still lose money. Results need a long run to separate skill from luck.",
+  "correlation_table": {
+    "status": "Not computed",
+    "rule": "Pairwise correlations are estimated only from training-period data. Values are left blank until a verified dataset exists.",
+    "columns": ["leg_a", "leg_b", "sample_size", "correlation", "source_dataset", "verified"],
+    "rows": []
+  }
+}
