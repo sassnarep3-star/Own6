@@ -1,35 +1,84 @@
 # Executive Summary — Own6: Originate Your Own NBA Lines
 
-**Date:** 2026-11-02 · **Repo state audited:** greenfield (only `README.md` = "# Own6"). Everything below was built this session. **No NBA statistic, odd, or backtest result is asserted anywhere in this project unless linked to an official source — see `data/sources.csv`. Values that could not be confirmed are blank and listed on the Flagged for Review page, by design.**
+**Date:** 2026-11-02 (UTC) · **Status:** combined `main` after integration of parallel sessions' work (PRs #1–#7) and the independent verification pass by `arena/a6ccf588-own6`.
+**Evidence rule:** no NBA statistic, price, correlation, ROI or backtest result is asserted unless it is quoted from an official source with a link. Unconfirmable values are blank and published on the Flagged for Review page. Nothing is inferred or filled in. Every official URL used was retrieved **directly** from its official host on 2026-11-02 (not from search snippets); the line-by-line record is in [`data/verification_log.csv`](data/verification_log.csv) and [`audit/VERIFICATION.md`](audit/VERIFICATION.md).
 
 ## Objective
-Build *your own* NBA lines (spread, total, win probability), player-prop projections, and correlated parlay prices; treat strategy development as a leaderboard competition that rewards **skill, not luck**; require every strategy to pass explicit validation gates before it can be ranked or staked.
 
-## The system (code in `src/own6/`, 5 tests passing)
-1. **Own lines (`lines.py`)** — Expected points from official NBA definitions only: PACE (possessions/48), OffRtg & DefRtg (pts/100 poss) per the NBA Stats Glossary [S2]. Multiplicative matchup model → fair spread, fair total, win probability. Home-court advantage and margin SD are **fitted from your own game log** (`fit_from_games`), never hard-coded from memory.
-2. **Props (`props.py`)** — Projection = projected minutes × shrunk per-minute rate (shrinkage toward season mean). Minutes/rates must come from NBA Stats [S1] and availability from the Official Injury Report [S5].
-3. **Parlays & correlation (`parlay.py`)** — Gaussian-copula joint probability with Pearson correlations **estimated from paired residuals (n always reported)**. Independence is shown only as a labelled special case; positively correlated legs (e.g., pace-up game → multiple overs) are systematically mispriced by independence multiplication.
-4. **Validation gates (`validation.py`)** — G1 walk-forward only · G2 n≥200 · G3 calibration beats market baseline (Brier/log-loss, methodology [S7]) · G4 positive CLV with t≥2 · G5 binomial luck test, Bonferroni-corrected across *all* strategies tried · G6 bootstrap 95% ROI CI lower bound >0 · G7 correlation honesty · G8 pre-game timestamped ledger, no deletions.
-5. **Leaderboard (`leaderboard.py`)** — Score is built on the **lower confidence bound of ROI** + CLV + calibration edge. A 20-bet heater is ineligible, not champion. This is how luck is removed: ranking rewards the worst plausible skill estimate, not the best observed outcome.
+Originate your own NBA lines (spread, total, win probability), player-prop projections and correlated parlay/SGP prices. Treat strategy development as a leaderboard competition that rewards **skill, not luck**: every strategy must pass explicit validation gates before it can be ranked, and the ranking must reward the worst plausible skill estimate rather than the best observed outcome.
 
-## Strategy families researched (hypotheses, NOT proven edges — each must pass G1–G8)
-| Family | Signal hypothesis | Main risk |
+## The system
+
+| Component | What it does | Official basis |
 |---|---|---|
-| S-A Spread/total vs own line | Own pace/efficiency line deviates from market by > fitted margin SD threshold | Market already prices efficiency; injuries late |
-| S-B Pace-mismatch totals | Pace blend extremes regress less in market total | Minutes/rotation changes |
-| S-C Prop shrinkage | Recent-form props overreact; shrunk rate beats market line | Minutes volatility, blowouts |
-| S-D Correlated SGP | Positive-correlation combos underpriced vs copula joint prob | Book correlation adjustments, limits |
-| S-E CLV-first meta | Only take prices that systematically beat close | Needs large honest ledger |
+| Own lines (`src/own6/lines.py`) | PACE × OffRtg/DefRtg multiplicative matchup → fair spread, total, home win probability; home advantage and margin SD fitted from a game log, never hard-coded | [NBA Stats Glossary](https://www.nba.com/stats/help/glossary) — PACE = "possessions per 48 minutes", OffRtg = "points scored per 100 possessions", NetRtg = `OFFRTG - DEFRTG` |
+| Player props (`src/own6/props.py`) | Projected minutes × shrunk per-minute rate; normal-approximation P(over) with continuity correction | [NBA Stats overview](https://www.nba.com/stats/overview); [NBA Official injury report](https://official.nba.com/nba-injury-report-2026-27-season/) |
+| Parlays / prop combos (`src/own6/parlay.py`) | Gaussian-copula joint probability using Pearson ρ estimated from paired residuals with `n` reported; independence only as a labelled special case | [SciPy pearsonr](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html) |
+| Validation gates (`src/own6/validation.py`) | G1 walk-forward · G2 n≥200 · G3 Brier/log-loss vs market · G4 CLV t≥2 · G5 exact binomial + Bonferroni across all strategies tried · G6 bootstrap 95% ROI CI lower bound > 0 · G7 correlation honesty · G8 immutable pre-game ledger | [scikit-learn cross-validation](https://scikit-learn.org/stable/modules/cross_validation.html), [scikit-learn calibration](https://scikit-learn.org/stable/modules/calibration.html), [Brier score](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.brier_score_loss.html), [NIST binomial](https://www.itl.nist.gov/div898/handbook/eda/section3/eda366i.htm), [Bonferroni](https://www.statsmodels.org/stable/generated/statsmodels.stats.multitest.multipletests.html), [SciPy bootstrap](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bootstrap.html) |
+| Leaderboard (`src/own6/leaderboard.py`) | Score = lower confidence bound of ROI + CLV + calibration edge; small-sample heaters ineligible | [SciPy bootstrap](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bootstrap.html) |
 
-## Correlation — what must be measured (not assumed)
-Game-total↔team-total, player PTS↔team total (usage share), PTS↔AST for primary creators, starter minutes↔blowout margin (negative late), pace↔all counting overs. Every correlation used in pricing must be computed from residual pairs with `n` disclosed (`parlay.pearson`). **No correlation value is published in this repo yet — flagged unverified until computed from an official-data export.**
+**Tests:** 5/5 pass via [`tools/run_tests.py`](tools/run_tests.py) (stdlib runner; `pytest` is not installed in this sandbox). The demo in `examples/demo_synthetic.py` uses synthetic numbers only and is explicitly labelled "NOT NBA data".
 
-## Data & legality notes
-- NBA Stats states stats are **not available for CSV download** [S3] — plan for manual/exported inputs via the site's own tools; do not scrape in violation of terms.
-- Only bet where legal, with licensed books; NBA's co-official partners are DraftKings/FanDuel [S6]. This project is analytics/research, not betting advice. No bet is recommended anywhere in it.
+## Strategy families (hypotheses, NOT proven edges — each must pass G1–G8)
 
-## Irregularities flagged
-Repo itself: none (empty). Content: **all current numeric NBA values, odds, fitted parameters, correlations, and backtests are intentionally blank/unverified** (sandbox cannot fetch NBA.com directly; no official bulk download exists). Full list: `docs/flagged.html`. They do not block launch per brief.
+| Family | Market | Signal hypothesis | Official inputs |
+|---|---|---|---|
+| S-A | Single bet — spread/total | Own fair line deviates from market by a threshold derived from fitted margin SD | [NBA Stats Glossary](https://www.nba.com/stats/help/glossary) |
+| S-B | Single bet — totals | Pace-blend extremes vs market-implied pace | [NBA Stats Glossary](https://www.nba.com/stats/help/glossary) |
+| S-C | Player prop | Recent-form props overreact; shrunk per-minute rate beats the market line | [NBA Stats overview](https://www.nba.com/stats/overview), [injury report](https://official.nba.com/nba-injury-report-2026-27-season/) |
+| S-D | Parlay / same-game combo | Positive correlation makes independence multiplication misprice joint probability | [SciPy pearsonr](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html) |
+| S-E | Meta (all markets) | Only take prices that systematically beat the close (CLV-first) | [NBA official operators list](https://www.nba.com/nbabet/official-nba-gaming-partners-and-operators-2) |
+| S-F | Player-prop combos | Teammates' counting stats compete for finite possessions (USG% constraint) | [NBA Stats Glossary](https://www.nba.com/stats/help/glossary) |
 
-## Deliverables
-GitHub Pages dashboard (`docs/`): Landing · Strategies · Validation Gates · Correlations · Leaderboard · Sources · Flagged for Review. Python engine + tests + synthetic-only demo (`examples/demo_synthetic.py`, clearly labelled, not NBA data).
+None has been validated. No win rate, ROI, CLV or hit rate is published.
+
+## Correlation values
+
+**No correlation coefficient is published.** Determining ρ requires paired residual histories computed from official box scores; none exists in this repository. The measurement plan, with every value cell blank and flagged, is on [Correlations](docs/correlations.html). Correlation methodology is the Pearson coefficient ([SciPy](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html)); the copula joint probability is a project implementation, not an official NBA statistic.
+
+## Removing luck
+
+1. **Walk-forward only** — no parameter fitted on data after the bet date ([hold-out rationale](https://scikit-learn.org/stable/modules/cross_validation.html)).
+2. **Sample size** — n ≥ 200 settled bets per strategy (disclosed project policy).
+3. **Calibration** — Brier and log-loss must beat a market baseline on the same games ([scikit-learn](https://scikit-learn.org/stable/modules/calibration.html)).
+4. **Closing-line value** — mean CLV > 0 with t ≥ 2, i.e. beating the market, not just outcomes.
+5. **Multiple testing** — exact binomial p vs breakeven, Bonferroni-corrected across *all* strategies ever tried ([NIST](https://www.itl.nist.gov/div898/handbook/eda/section3/eda366i.htm), [statsmodels](https://www.statsmodels.org/stable/generated/statsmodels.stats.multitest.multipletests.html)).
+6. **Uncertainty** — 95% bootstrap ROI CI lower bound > 0 ([SciPy](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bootstrap.html)).
+7. **Correlation honesty** — joint probabilities from measured ρ, `n` disclosed; never silent independence.
+8. **Ledger integrity** — pre-game timestamped logging, no deletions.
+9. **Ranking** — lower confidence bound of ROI, so a short heater cannot win.
+
+## Verified official facts (quoted, not inferred)
+
+- [NBA Stats FAQ](https://www.nba.com/stats/help/faq): "Our stats are not available for download for either academic or personal use. They are for viewing and enjoying on NBA.com/Stats"; advanced stats go back to 1996-97, base stats to 1946-47; advanced stats update 10–15 minutes after games.
+- [NBA Official injury report](https://official.nba.com/nba-injury-report-2026-27-season/): teams must designate participation status by 5 p.m. local time the day before a game; reports are updated continually.
+- [NBA NBABet](https://www.nba.com/nbabet/official-nba-gaming-partners-and-operators-2): official gaming partners/operators list dated **July 9, 2026**. The [Nov 4, 2021 announcement](https://www.nba.com/news/draftkings-fanduel-become-nbas-co-official-sports-betting-partners) is historical, not a current-status source.
+- [NBA official release, Oct 26, 2026](https://www.nba.com/news/nba-establishes-integrity-framework-and-commercial-partnerships-for-prediction-markets): an integrity framework with "limitations on permissible markets" and restrictions "aligned with the NBA's latest sports betting restrictions" — **the specific restrictions are not enumerated on that page**, so they remain blank/unverified. Press reports are not official sources.
+- [NBA.com schedule](https://www.nba.com/schedule): Week 3 (Nov 2–Nov 8), Monday November 2, 15 games — date-specific, re-retrieve on the date of use.
+- [NBA Stats overview](https://www.nba.com/stats/overview): "Yesterday's Leaders" dated 11/01/2026 with points/rebounds/assists leader tables.
+
+## Data, legality and deployment notes
+
+- No official bulk CSV download exists; inputs must be exported from official NBA pages with a retrieval date, and used consistently with the site's terms.
+- Only bet where legal with licensed operators; this repository is research/analytics, not betting advice, and recommends no bet.
+- **Flagged legal/rights concern (I-24, needs review):** the [NBA.com Terms of Use](https://www.nba.com/termsofuse) §1 states "No Basketball Content from the Services may be … linked to, or otherwise used except as provided in these Terms of Use without the written permission of the Operator"; §9 states "the NBA Statistics may not be used in connection with any gambling activity (including legal gambling activity)" and that statistics "may only be used, displayed, or published for legitimate news reporting or private, non-commercial purposes". This project ingests **no NBA Statistics values** (all model inputs are blank/unverified) and links official pages only as citations, but applicability to a gambling-related research site is undetermined. Obtain written permission / qualified legal review before using NBA Statistics in betting models or republishing NBA content. This is a flagged concern, not a legal conclusion, and does not block publication (request A28-REQ-01 from session `arena/a28a2ee1-own6`).
+- Korean-law exposure is flagged separately in the [verified data section](docs/verified/legal-kr.html); no legal conclusion is asserted here.
+- GitHub Pages is configured as a **legacy `main:/` publishing source** with a root `index.html` redirect to `docs/`; an API attempt to switch the source to `/docs` returned HTTP 403 ("Resource not accessible by integration"). Publishing-source options are documented by [GitHub Docs](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). The live URL is <https://sassnarep3-star.github.io/Own6/>.
+- The repository has **no LICENSE file** ([GitHub API](https://api.github.com/repos/sassnarep3-star/Own6) reports `license: null`).
+
+## Site map (all tables link official sources)
+
+Dashboard/calculator · Strategies · Validation Gates · Correlations · Leaderboard · Sources · Flagged for Review (all under `docs/`), plus the source-linked [verified data section](docs/verified/index.html) and this session's [independent review section](docs/review/index.html): Overview, Executive summary, Verification log, Repo review, Flagged for Review.
+
+## Verification performed in this pass
+
+- 24 official sources retrieved directly; exact evidence quotes in `data/verification_log.csv` and on the [Verification Log](docs/review/verification.html) page.
+- Automated gate [`tools/check_site.py`](tools/check_site.py): every data row on maintained pages has a directly verified official source link; no broken internal links; no undefined `Math.erf()`; every `data/sources.csv` URL is in the verification log. Result: **12 strict pages, 0 errors** ([report](audit/link_check_report.md)).
+- Site generator drift check: `python3 tools/build_review.py --check`. Engine tests: 5/5 pass.
+- Advisory findings on pages owned by other sessions (rows without official links) are logged as coordination requests in [`COORDINATION.md`](COORDINATION.md) and published on the Flagged for Review page; this session does not edit another session's files.
+
+## Irregularities flagged (do not block publication)
+
+Full row-by-row list with official source links: [`docs/flagged.html`](docs/flagged.html) and [`docs/review/flagged.html`](docs/review/flagged.html). Highlights: coordination collisions between parallel sessions; an incorrect "sandbox cannot fetch NBA.com" claim (corrected); a broken FAQ URL (corrected); a relative Markdown link used as a source (corrected); the calculator's undefined `Math.erf` (fixed); table rows that lacked official links (fixed); a dated 2021 partner announcement; a content-limited rulebook retrieval; no official odds source; NBA prop/parlay restrictions not enumerated; no LICENSE; and 29 advisory rows in the other session's `docs/verified/` pages (request logged, not edited).
+
+**Pull request, merge result and Pages deployment record:** see the completion section of [`COORDINATION.md`](COORDINATION.md).
