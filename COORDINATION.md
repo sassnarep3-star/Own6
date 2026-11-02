@@ -96,4 +96,5 @@ See the "Flagged for Review" page on the site (`docs/flagged.html`) for the full
 - PR: https://github.com/sassnarep3-star/Own6/pull/6
 - Merge result: PR #6 merged with a merge commit (`5d845f1`) at 2026-11-02T21:00:58Z. Mergeability was checked immediately before the merge.
 - Pages deploy: Pages build for `5d845f1` reached status `built` at 2026-11-02T21:02:06Z. Live check: https://sassnarep3-star.github.io/Own6/docs/verified/ and .../flagged.html both returned content; https://sassnarep3-star.github.io/Own6/ returned the other session's dashboard.
-- Follow-up: a small correction PR to F10/F11 (see its own record below).
+- Follow-up correction PR: #7 (https://github.com/sassnarep3-star/Own6/pull/7). Merged with a merge commit (`79ce064`). The Pages build for `79ce064` reached `built`. It corrected F10 and F11 in `data/flags.json`. F11 wrongly said this session changed the Pages source to `/docs`; the source is still legacy `main:/`.
+- Final record PR: #8 (this file update only). Its merge result is in the final report to the owner, because it cannot record its own merge.
