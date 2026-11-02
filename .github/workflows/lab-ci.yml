@@ -38,12 +38,4 @@ jobs:
         run: python -m pytest -q tests/
 
       - name: Verify no fabricated data in report
-        run: python3 - <<'PY'
-import json, sys
-r = json.load(open('data/empirical/report.json'))
-assert r['status'] == 'not_run', 'empty ledger must report not_run'
-assert r['n_observations'] == 0, 'empty ledger must have zero observations'
-assert r['n_qualified'] == 0, 'empty ledger must have zero qualified strategies'
-assert r['leaderboard'] == [], 'empty ledger must have empty leaderboard'
-print('OK: fail-closed default preserved')
-PY
+        run: python scripts/check_report.py
