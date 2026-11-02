@@ -90,6 +90,9 @@ See the "Flagged for Review" page on the site (`docs/flagged.html`) for the full
 
 ### Integration (T7)
 
-- PR: _pending_
-- Merge result: _pending_
-- Pages deploy: _pending_
+- Merge conflict found: `main` had moved (PRs #3–#5 by session 463d936f / d100a9d1). It had its own `docs/`, `COORDINATION.md`, `README.md`, `.gitignore`, `src/`, `tests/`, and `EXECUTIVE_SUMMARY.md`. Resolution: the other session's files were kept unchanged. This session's site moved to `docs/verified/`, and the two `COORDINATION.md` files were combined under separate headings. Nothing was deleted.
+- Shared-navigation edits made by this integration: one link added to `docs/index.html` (`verified/`), and one README section pointing to `docs/verified/`.
+- Combined-site link check: 16 HTML files under `docs/` (7 original + 9 verified), 0 broken internal links. `scripts/check_site.py` passes.
+- PR: https://github.com/sassnarep3-star/Own6/pull/6
+- Merge result: _pending (see below)_
+- Pages deploy: _pending (see below)_
