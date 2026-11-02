@@ -22,6 +22,9 @@ def esc(x):
 def link(url, label=None):
     if not url:
         return ""
+    # repo documents (.csv/.md) do not serve on GitHub Pages (HTTP 500) -> GitHub blob URLs
+    if url.startswith("../../"):
+        url = "https://github.com/sassnarep3-star/Own6/blob/main/" + url[6:]
     return f'<a href="{esc(url)}" target="_blank" rel="noopener">{esc(label or url)}</a>'
 
 def table(headers, body_rows, cls="data"):
@@ -156,7 +159,7 @@ so these are leans only.</p>
 <li><a href="validation.html">Validation</a> — gates, backtest, luck-removal protocol, citations</li>
 <li><a href="correlation.html">Correlation</a> — measured dependence for parlays/combos</li>
 <li><a href="flagged.html">Flagged for Review</a> — irregularities, blanks, blocked checks</li>
-<li>Repo docs: <a href="../../EXECUTIVE_SUMMARY.md">EXECUTIVE_SUMMARY.md</a> · <a href="../../COORDINATION.md">COORDINATION.md</a></li>
+<li>Repo docs: <a href="https://github.com/sassnarep3-star/Own6/blob/main/EXECUTIVE_SUMMARY.md">EXECUTIVE_SUMMARY.md</a> · <a href="https://github.com/sassnarep3-star/Own6/blob/main/COORDINATION.md">COORDINATION.md</a></li>
 </ul>"""
 open(os.path.join(DOCS, "index.html"), "w").write(page("Dashboard", body, "index.html"))
 

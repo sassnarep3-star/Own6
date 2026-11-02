@@ -480,3 +480,28 @@ Status legend as above (`needs review` = published on Flagged pages, non-blockin
 - Rights concern: NBA ToU §9 (project flags I-24/F16) applies because this session ingests NBA
   statistics → published as a flagged row on `docs/own6/flagged.html` (needs review, non-blocking).
 
+
+### T10 merge record (session 325834c9)
+
+- **PR:** https://github.com/sassnarep3-star/Own6/pull/15 (arena/325834c9-own6 → main),
+  title "NBA line-origination research: verified data, gated strategies, dashboard site (T1–T10)",
+  with full change/source/irregularity summary in the PR body.
+- **Merge result:** MERGED at 2026-11-02T21:51:37Z, merge commit `33a1c25`
+  (merged with `gh pr merge 15 --merge`, no auto-merge; conflicts resolved beforehand on the
+  branch per the log above).
+- **Pages deploy:** GitHub Pages status **`built`** after the merge push (legacy source
+  `main:/`, root redirect intact). Live checks by direct fetch 2026-11-02:
+  - https://sassnarep3-star.github.io/Own6/ → serves the combined dashboard ✓
+  - https://sassnarep3-star.github.io/Own6/docs/own6/ → this session's sub-site dashboard ✓
+    (92 results · 213/213 checks · 15 market lines · 0 validated strategies · 9 flagged items;
+    all sub-pages linked and served).
+- **Follow-up fix PR (this commit):** repo-document links inside `docs/own6/` switched to
+  GitHub blob URLs because GitHub Pages returns HTTP 500 for `.csv` files in this repo
+  (observed on both this session's CSVs and `data/sources.csv` — cross-session note, their
+  files untouched). Also final merge-record append. PR number recorded in the final report to
+  the owner (a PR cannot contain its own merge result).
+- **Checks re-run at integration:** `verify_data.py` 213/213 · `model.py` idempotent ·
+  `build_site_own6.py` + `linkcheck.py` PASS (240/240 rows sourced) · their `scripts/check_site.py`
+  OK (9 pages) · `tools/check_site.py` 12 pages / 0 errors / 31 pre-existing advisories ·
+  `tools/run_tests.py` 5/5.
+- **T10 disposition:** done (this record). Session `325834c9` complete.

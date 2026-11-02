@@ -19,7 +19,7 @@ ALLOWED_HOSTS = {
     # methodology citations (non-data, editorial references)
     "www.researchgate.net", "quantresearch.org", "dash.harvard.edu",
     "arxiv.org", "www.nessis.org", "faculty.wharton.upenn.edu", "nbaanalytic.com",
-    "www.athletepath.com",
+    "www.athletepath.com", "github.com",
 }
 
 errors, stats = [], dict(pages=0, links=0, rows=0, row_links=0)
