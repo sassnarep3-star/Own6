@@ -1,0 +1,53 @@
+name: Deploy static site to GitHub Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate local links and required pages
+        run: |
+          python3 - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+          class Links(HTMLParser):
+              def __init__(self): super().__init__(); self.hrefs=[]
+              def handle_starttag(self, tag, attrs):
+                  if tag in ('a','link'):
+                      d=dict(attrs)
+                      if d.get('href'): self.hrefs.append(d['href'].split('#')[0].split('?')[0])
+          root=Path('.')
+          pages=[root/'index.html', *sorted((root/'docs').glob('*.html'))]
+          missing=[]
+          for page in pages:
+              parser=Links(); parser.feed(page.read_text())
+              for href in parser.hrefs:
+                  if not href or '://' in href or href.startswith(('mailto:','tel:','javascript:')): continue
+                  target=(page.parent/href).resolve()
+                  if not target.exists(): missing.append(f'{page}: {href}')
+          if missing: raise SystemExit('Broken local links:\n'+'\n'.join(missing))
+          print(f'Validated {len(pages)} HTML pages and local links.')
+          PY
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
