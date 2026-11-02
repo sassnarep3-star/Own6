@@ -178,7 +178,7 @@ gm = [[esc(r["date"]), f'{esc(r["away_team"])} {esc(r["away_score"])} @ {esc(r["
       for r in games]
 body = f"""
 <h2>Data — all rows official-sourced</h2>
-<p>Verification: <code>python3 scripts/verify_data.py</code> → <a href="../../verification/verification_report.csv">verification_report.csv</a>
+<p>Verification: <code>python3 scripts/verify_data.py</code> → <a href="https://github.com/sassnarep3-star/Own6/blob/main/verification/verification_report.csv">verification_report.csv</a>
 (213/213 pass: every team's W-L recomputed from the results file matches the official standings page exactly).</p>
 <h3>Standings — East (NBA.com)</h3>
 {table(["#","Team","W","L","Win%","GB","Streak","Source"], st_e)}
@@ -251,7 +251,7 @@ st_rows = [
 rewards = [["1st","+20 paper units + top leaderboard slot"],["2nd","+10 paper units"],["3rd","+5 paper units"]]
 body = f"""
 <h2>Strategies — pre-registered catalog &amp; leaderboard</h2>
-<p>Full specs, bet rules and gate math: <a href="../../research/strategies.md">research/strategies.md</a>.
+<p>Full specs, bet rules and gate math: <a href="https://github.com/sassnarep3-star/Own6/blob/main/research/strategies.md">research/strategies.md</a>.
 Every strategy and its thresholds were written down before results were examined (protocol:
 <a href="validation.html">validation</a>). Rewards are paper units — research bankroll, no real wagers.</p>
 {table(["ID","Strategy","Category","Gates passed","Score","Status","Key evidence","Deploy rule","Spec"], st_rows)}
@@ -344,8 +344,8 @@ for c in corrs:
 body = f"""
 <h2>Correlation findings</h2>
 <p>Computed from official game rows and ESPN player logs — reproduction data:
-<a href="../../data/correlation_findings.csv">correlation_findings.csv</a>. Full narrative:
-<a href="../../research/correlation.md">research/correlation.md</a>.</p>
+<a href="https://github.com/sassnarep3-star/Own6/blob/main/data/correlation_findings.csv">correlation_findings.csv</a>. Full narrative:
+<a href="https://github.com/sassnarep3-star/Own6/blob/main/research/correlation.md">research/correlation.md</a>.</p>
 {table(["Pair","Interpretation","n","Pearson r","Source"], cr)}
 <h3>What it means for parlays &amp; combos</h3>
 <ul>
