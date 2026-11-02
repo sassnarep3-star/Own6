@@ -46,6 +46,10 @@ data/flags.json,F09,partly_resolved,Upstream now has .gitignore; a LICENSE file 
 data/flags.json,F10,historical_confirmed,Commit metadata is publicly visible; no address is reproduced in this audit and no history was rewritten.,https://github.com/sassnarep3-star/Own6/commit/c5d6e4c4b3b7ed486d48b0bf4d9d0cbce89ef49d,2026-11-02
 data/flags.json,F11,configuration_confirmed,GitHub Pages API reported legacy main-root publication. No competing publisher is introduced.,https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site,2026-11-02
 data/flags.json,F12,disclosure_confirmed,"Upstream explicitly labels English summaries as compiler translations, not official translations.",https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B5%AD%EB%AF%BC%EC%B2%B4%EC%9C%A1%EC%A7%84%ED%9D%A5%EB%B2%95,2026-11-02
+data/flags.json,F13,needs_review,Flag added by another session; not independently reviewed in this audit.,https://github.com/sassnarep3-star/Own6/blob/77a28cccea34e0764f6d45ff3316d3aa8f6b90b7/data/flags.json,2026-11-02
+data/flags.json,F14,needs_review,Flag added by another session; not independently reviewed in this audit.,https://github.com/sassnarep3-star/Own6/blob/77a28cccea34e0764f6d45ff3316d3aa8f6b90b7/data/flags.json,2026-11-02
+data/flags.json,F15,needs_review,Flag added by another session; not independently reviewed in this audit.,https://github.com/sassnarep3-star/Own6/blob/77a28cccea34e0764f6d45ff3316d3aa8f6b90b7/data/flags.json,2026-11-02
+data/flags.json,F16,needs_review,Flag added by another session; not independently reviewed in this audit.,https://github.com/sassnarep3-star/Own6/blob/77a28cccea34e0764f6d45ff3316d3aa8f6b90b7/data/flags.json,2026-11-02
 data/sources.csv,S1,needs_review,Stats overview was not directly re-read in this session; indexed is not the same as verified.,https://www.nba.com/stats/overview,2026-11-02
 data/sources.csv,S2,verified_direct,Glossary definitions read directly; no performance claim is supported.,https://www.nba.com/stats/help/glossary,2026-11-02
 data/sources.csv,S3,verified_canonical,The FAQ was read at www.nba.com/stats/help/faq; the upstream CDN URL is a different locator for the reviewed FAQ content.,https://www.nba.com/stats/help/faq,2026-11-02
@@ -54,6 +58,21 @@ data/sources.csv,S5,unverified_fetch_failed,The dated injury-report PDF could no
 data/sources.csv,S6,verified_direct,"The November 4, 2021 official partnership release was read directly; use the newer list for current partners.",https://www.nba.com/news/draftkings-fanduel-become-nbas-co-official-sports-betting-partners,2026-11-02
 data/sources.csv,S7,verified_direct,Official scikit-learn calibration documentation read directly; Brier alone is not a calibration-only test.,https://scikit-learn.org/stable/modules/calibration.html,2026-11-02
 data/sources.csv,S8,blank_confirmed,"No numeric ratings, odds or backtest results are supplied by this row.",https://www.nba.com/termsofuse#nba-statistics,2026-11-02
+data/sources.csv,S9,needs_review,Source added by another session; not independently reviewed in this audit.,https://www.nba.com/termsofuse,2026-11-02
+data/sources.csv,S10,needs_review,Source added by another session; not independently reviewed in this audit.,https://www.nba.com/termsofuse,2026-11-02
+data/sources.csv,S11,needs_review,Source added by another session; not independently reviewed in this audit.,https://www.nba.com/termsofuse,2026-11-02
+data/sources.csv,S12,needs_review,Source added by another session; not independently reviewed in this audit.,https://www.nba.com/termsofuse,2026-11-02
+data/sources.csv,S13,needs_review,Source added by another session; not independently reviewed in this audit.,https://www.nba.com/termsofuse,2026-11-02
+data/sources.csv,S14,needs_review,Source added by another session; not independently reviewed in this audit.,https://www.nba.com/termsofuse,2026-11-02
+data/sources.csv,S15,needs_review,Source added by another session; not independently reviewed in this audit.,https://www.nba.com/termsofuse,2026-11-02
+data/sources.csv,S16,needs_review,Source added by another session; not independently reviewed in this audit.,https://www.nba.com/termsofuse,2026-11-02
+data/sources.csv,S17,needs_review,Source added by another session; not independently reviewed in this audit.,https://www.nba.com/termsofuse,2026-11-02
+data/sources.csv,S18,needs_review,Source added by another session; not independently reviewed in this audit.,https://www.nba.com/termsofuse,2026-11-02
+data/sources.csv,S19,needs_review,Source added by another session; not independently reviewed in this audit.,https://www.nba.com/termsofuse,2026-11-02
+data/sources.csv,S20,needs_review,Source added by another session; not independently reviewed in this audit.,https://www.nba.com/termsofuse,2026-11-02
+data/sources.csv,S21,needs_review,Source added by another session; not independently reviewed in this audit.,https://www.nba.com/termsofuse,2026-11-02
+data/sources.csv,S22,needs_review,Source added by another session; not independently reviewed in this audit.,https://www.nba.com/termsofuse,2026-11-02
+data/sources.csv,S23,needs_review,Source added by another session; not independently reviewed in this audit.,https://www.nba.com/termsofuse,2026-11-02
 data/methodology.json,G1,proposal_not_empirical_result,"Compiler-defined gate, not an official NBA rule or a passed test. The new lab evaluates its own expanded gates fail-closed; no real-data performance is asserted.",https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B5%AD%EB%AF%BC%EC%B2%B4%EC%9C%A1%EC%A7%84%ED%9D%A5%EB%B2%95,2026-11-02
 data/methodology.json,G2,proposal_not_empirical_result,"Compiler-defined gate, not an official NBA rule or a passed test. The new lab evaluates its own expanded gates fail-closed; no real-data performance is asserted.",https://www.nba.com/termsofuse#nba-statistics,2026-11-02
 data/methodology.json,G3,proposal_not_empirical_result,"Compiler-defined gate, not an official NBA rule or a passed test. The new lab evaluates its own expanded gates fail-closed; no real-data performance is asserted.",https://www.nba.com/termsofuse#nba-statistics,2026-11-02

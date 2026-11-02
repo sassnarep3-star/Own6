@@ -76,7 +76,10 @@ def source_audit() -> list[dict]:
         "F12": ("disclosure_confirmed", "Upstream explicitly labels English summaries as compiler translations, not official translations.", LAW),
     }
     for r in load("data/flags.json")["rows"]:
-        status, note, url = flag_review[r["id"]]
+        if r["id"] in flag_review:
+            status, note, url = flag_review[r["id"]]
+        else:
+            status, note, url = "needs_review", "Flag added by another session; not independently reviewed in this audit.", blob("data/flags.json")
         add("data/flags.json", r["id"], status, note, url)
     source_review = {
         "S1": ("needs_review", "Stats overview was not directly re-read in this session; indexed is not the same as verified.", f"{NBA}/stats/overview"),
@@ -90,7 +93,10 @@ def source_audit() -> list[dict]:
     }
     with (ROOT / "data/sources.csv").open(newline="", encoding="utf-8") as handle:
         for r in csv.DictReader(handle):
-            status, note, url = source_review[r["id"]]
+            if r["id"] in source_review:
+                status, note, url = source_review[r["id"]]
+            else:
+                status, note, url = "needs_review", "Source added by another session; not independently reviewed in this audit.", f"{NBA}/termsofuse"
             add("data/sources.csv", r["id"], status, note, url)
     for r in load("data/methodology.json")["gates"]:
         url = LAW if r["id"] == "G1" else f"{NBA}/termsofuse#nba-statistics" if r["id"] in {"G2", "G3"} else NIST
