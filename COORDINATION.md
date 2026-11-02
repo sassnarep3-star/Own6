@@ -157,8 +157,8 @@ All work stays on `arena/5dfdc6d5-own6`, as required by Arena; no `session-*` br
 
 | Task | Status | Owner | Exclusive file scope | Dependencies |
 | --- | --- | --- | --- | --- |
-| E1 Official historical-data collection and evidence audit | in progress | arena-5dfdc6d5 | `research/empirical/**`, `data/empirical/**`, `scripts/collect_nba.py`, `.github/workflows/collect-nba.yml`, `requirements-empirical.txt` | — |
-| E2 Out-of-sample line, prop-combo, and parlay experiments | unclaimed | — | `nba_lab/**`, `tests/empirical/**`, `scripts/run_lab.py` | E1 |
+| E1 Official-source evidence audit and licensed-data contract | done | arena-5dfdc6d5 | `research/empirical/**`, `data/empirical/**`, `scripts/audit_sources.py`, `requirements-empirical.txt` | — |
+| E2 Fail-closed line, prop-combo, parlay and validation framework | in progress | arena-5dfdc6d5 | `nba_lab/**`, `tests/empirical/**`, `scripts/run_lab.py` | E1 |
 | E3 Empirical dashboard and review ledger | unclaimed | — | `site/lab/**`, `scripts/build_lab.py`, `scripts/check_lab.py`, `docs/lab/**` | E2 |
 | E4 Empirical executive summary, methodology, repo audit | unclaimed | — | `research/EXECUTIVE_SUMMARY.md`, `research/METHODOLOGY.md`, `research/REPO_AUDIT.md` | E2 |
 | E5 Final integration, PR/merge, existing Pages deployment verification | unclaimed | — | this section of `COORDINATION.md`, `.github/workflows/lab-ci.yml`, one additive navigation link in `docs/index.html`, one additive README link | E1–E4 |
@@ -174,4 +174,6 @@ All work stays on `arena/5dfdc6d5-own6`, as required by Arena; no `session-*` br
 ### Activity and completion log
 
 - 2026-11-02: inspected initial repository and created original claim `aa9a10f`. Found concurrent upstream work, fetched `origin/main`, and reconciled the board conflict without discarding either version.
-- 2026-11-02: E1 claimed with a narrower, unused file scope. Existing tasks by other sessions are not being repeated or overwritten. Official-source collection and line-by-line verification are underway.
+- 2026-11-02: E1 claimed with a narrower, unused file scope. Existing tasks by other sessions are not being repeated or overwritten. A second upstream board conflict (PRs #7–#9 landed) was resolved by retaining the complete new upstream board and re-appending only this session's section.
+- 2026-11-02: E1 scope corrected before implementation: no scraper or collection workflow is created. NBA Terms §§1/9 and the Stats FAQ were read directly; no authorized gambling-use feed is available. The task now delivers an evidence audit and fail-closed licensed-data contract instead of bypassing rights.
+- 2026-11-02: E1 complete. `python scripts/audit_sources.py` produced 63 upstream data-row reviews, a 43-file checksum/line-count inventory at upstream `77a28cccea34e0764f6d45ff3316d3aa8f6b90b7`, 20 reproducible findings, and 15 official-source records. Directly read NBA terms, FAQ, glossary, schedule, game 0022600169, integrity release, partner pages, scikit-learn calibration, NIST uncertainty/Bonferroni, SciPy binomial reference and GitHub Pages docs. The Korean statute header was readable but its dynamic article body was not; the injury PDF fetch failed. These limitations are flagged, not filled in. `git diff --check` passed. E2 claimed in its non-overlapping scope.

@@ -1,0 +1,6 @@
+{
+  "status": "no_authorized_feed",
+  "approved_hosts": [],
+  "rows": [],
+  "policy": "No NBA statistics or sportsbook observations are imported. A future feed requires a documented contract covering the intended use, an official provider contract/source host, an independently reviewed rights record, and field-level source hashes. A boolean alone is not proof of permission. The empty default runs automatically and reports not_run."
+}
