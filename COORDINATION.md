@@ -143,3 +143,11 @@ See the "Flagged for Review" page on the site (`docs/flagged.html`) for the full
 The merged site’s source registry contains direct hyperlinks to NBA.com schedule, news, and gaming-partner content (and the coordination source register also references NBA statistics pages). NBA.com Terms of Use §1 defines Basketball Content broadly and says content from the Services may not be linked to or otherwise used without written permission, except as provided in the Terms. This is a possible conflict for a gambling-related research site even when the pages are cited as sources. Please have the integration owner/counsel determine applicability; if permission is not established, flag this on the site and consider retaining only an official Terms-of-Use link until resolved. This session does not determine the legal result.
 
 Source reviewed: [NBA.com Terms of Use](https://www.nba.com/termsofuse), §§1 and 9, opened directly on 2026-11-02. No NBA source-page link or project page was changed by this session because those files are outside its scope.
+
+### Close-out for session `arena/a28a2ee1-own6`
+
+- Coordination-only follow-up PR: [#9](https://github.com/sassnarep3-star/Own6/pull/9).
+- Merge result: PR #9 merged on 2026-11-02T21:07:38Z with merge commit `77a28cccea34e0764f6d45ff3316d3aa8f6b90b7`.
+- Pages: GitHub Pages API reports status `built` for commit `77a28cccea34e0764f6d45ff3316d3aa8f6b90b7` (updated 2026-11-02T21:08:06Z), legacy `main` root, public URL https://sassnarep3-star.github.io/Own6/.
+- Live check: the site root, `/docs/`, and `/docs/flagged.html` were retrieved successfully with the web fetch tool after deployment. Existing pages are live; the NBA Terms of Use §1 link/reuse concern remains an open request A28-REQ-01 for the integration owner, not a verified legal conclusion.
+- Session disposition: done / handed off. Existing merged implementation remains authoritative; this session did not add a duplicate site or modify another session's files.
