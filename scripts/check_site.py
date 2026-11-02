@@ -18,7 +18,7 @@ from urllib.parse import urlparse
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
-DOCS = ROOT / "docs"
+DOCS = ROOT / "docs" / "verified"  # this session's output only
 OFFICIAL_HOSTS = {"www.nba.com", "www.law.go.kr"}
 
 errors = []
@@ -77,7 +77,7 @@ class LinkCollector(html.parser.HTMLParser):
 def check_site():
     pages = sorted(DOCS.glob("*.html"))
     if not pages:
-        fail("no HTML pages in docs/")
+        fail("no HTML pages in docs/verified/")
     for page in pages:
         p = LinkCollector()
         p.feed(page.read_text(encoding="utf-8"))

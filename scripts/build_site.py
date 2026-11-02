@@ -10,7 +10,7 @@ import pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
-DOCS = ROOT / "docs"
+DOCS = ROOT / "docs" / "verified"  # isolated from other sessions' docs/ output
 REPO = "https://github.com/sassnarep3-star/Own6"
 SITE = "https://sassnarep3-star.github.io/Own6/"
 
@@ -307,12 +307,11 @@ def main():
 <ul>
   <li>Each official page was read with the fetch tool on 2026-11-02. Bash access was limited to GitHub, npm, and PyPI, so the NBA and law.go.kr pages were read through the fetch tool.</li>
   <li>Korean statute text is quoted from the official page. English summaries are the compiler's translation.</li>
-  <li>The coordination log is in <a href="{REPO}/blob/arena/05e359b8-own6/COORDINATION.md" target="_blank" rel="noopener">COORDINATION.md</a>.</li>
+  <li>The coordination log is in <a href="{REPO}/blob/main/COORDINATION.md" target="_blank" rel="noopener">COORDINATION.md</a>.</li>
 </ul>
 """
     page("sources.html", "Sources and verification", sources_body, "sources.html")
 
-    (DOCS / ".nojekyll").write_text("", encoding="utf-8")
     print("built", len(list(DOCS.glob("*.html"))), "pages")
 
 
