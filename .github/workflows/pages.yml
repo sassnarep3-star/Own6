@@ -1,46 +1,32 @@
-name: Deploy static site to GitHub Pages
+name: Deploy GitHub Pages
 on:
   push:
     branches: [main]
   workflow_dispatch:
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-concurrency:
-  group: pages
-  cancel-in-progress: true
+permissions: {contents: read, pages: write, id-token: write}
+concurrency: {group: pages, cancel-in-progress: false}
 jobs:
-  build:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  deploy:
     runs-on: ubuntu-latest
+    environment: {name: github-pages, url: "${{ steps.deployment.outputs.page_url }}"}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-      - name: Validate local links
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - name: Check local links in published pages
         run: |
           python - <<'PY'
           from pathlib import Path
           import re
-          html = list(Path('.').glob('*.html'))
-          errors=[]
-          for page in html:
-              text=page.read_text()
-              for target in re.findall(r'(?:href|src)="([^"#][^"]*)"', text):
-                  if target.startswith(('http://','https://','mailto:')) or '${' in target: continue
-                  path=target.split('#')[0]
-                  if path and not Path(path).exists(): errors.append(f'{page}: missing {path}')
+          root=Path('docs'); errors=[]
+          for page in root.rglob('*.html'):
+              for target in re.findall(r'(?:href|src)=["\']([^"\']+)', page.read_text()):
+                  if target.startswith(('http://','https://','mailto:','#')): continue
+                  rel=target.split('#')[0]
+                  if rel and not (page.parent/rel).exists(): errors.append(f'{page}: missing {rel}')
           if errors: raise SystemExit('\n'.join(errors))
-          print(f'Checked local links in {len(html)} HTML pages')
+          print('Published documentation links checked')
           PY
-      - name: Upload site
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
-      - name: Deploy
-        id: deployment
+      - uses: actions/upload-pages-artifact@v3
+        with: {path: docs}
+      - id: deployment
         uses: actions/deploy-pages@v4
