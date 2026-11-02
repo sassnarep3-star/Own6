@@ -332,8 +332,28 @@ coexist (cross-linked).
 
 ### PR record
 
-- Follow-up PR (this record + fixes): to be opened from `arena/71464040-own6` immediately after this
-  commit; merge result and PR link will be appended below per the brief.
+- Follow-up PR: https://github.com/sassnarep3-star/Own6/pull/13 (arena/71464040-own6 -> main),
+  title "Integration re-verification: line-by-line source checks, S3 URL fix, ToU §9(iv) flag
+  (A28-REQ-01), cross-linked flag registries, exec status".
+- Merge result: **MERGED** at 2026-11-02T21:27:39Z, merge commit `015740f`.
+- Pages deploy: build for `015740f` created 2026-11-02T21:27:40Z, status **built** (legacy
+  `main:/`, no errors). Live checks after deploy: root URL redirects to `docs/` dashboard ✓;
+  `docs/sources.html` serves the S1–S23 registry with V-code evidence and the corrected S3 URL ✓;
+  `docs/verified/` (F01–F16 incl. ToU F16) and `docs/review/` serve ✓. Verified by live fetch
+  2026-11-02.
+- Checks re-run on the merge result: `tools/run_tests.py` 5/5, `pytest` 5/5,
+  `scripts/check_site.py` OK (9 pages, 0 broken links), `tools/check_site.py` 12 pages / 0 errors /
+  31 advisory (documented), `examples/demo_synthetic.py` runs, `git diff --check` clean.
+- Session disposition: task 13 **done**. Handoff notes for any later integration pass:
+  (a) branch `arena/325834c9-own6` is ACTIVE (last commit 2026-11-02T21:27:27Z, "T5/T8: totals
+  calibration + cross-game margin independence metrics"; +897 lines vs main: standings/ratings/
+  92 game results/DraftKings-via-ESPN odds, `scripts/verify_data.py`, `verification/` reports) —
+  NOT merged; per the rules its claim is respected. Before merging that branch, line-by-line verify
+  `verification/verification_report.csv` rows and confirm the odds rows' source disclosure (ESPN
+  odds feed is not an NBA-official source; keep official-vs-secondary labeling). (b) Branch
+  `arena/5dfdc6d5-own6` has claim only; `arena/3b057a2c-own6` PR #2 closed unmerged (branch
+  preserved); `arena/463d936f-own6`, `arena/d100a9d1-own6`, `arena/a28a2ee1-own6`,
+  `arena/05e359b8-own6`, `arena/a6ccf588-own6` all closed out via merged PRs #1–#12.
 
 
 ---
