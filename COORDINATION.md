@@ -1,8 +1,103 @@
 # COORDINATION — Own6 NBA Lines Project
 
+Shared task board. Session IDs are the Arena branch names (the Arena branch rule supersedes the
+suggested `session-<id>/<task>` branch naming; each session stays on its own fixed branch).
+
+Session header notes:
+- arena-463d936f-own6: opened 2026-11-02; branch arena/463d936f-own6 (original integration).
+- arena/d100a9d1-own6: opened 2026-11-02; branch arena/d100a9d1-own6 (follow-up evidence/reconciliation, PR #3).
+- arena/71464040-own6 (integration/verification): opened 2026-11-02; branch arena/71464040-own6.
+
+## Task board
+
+| # | Task | Status | Owner | File scope |
+|---|------|--------|-------|------------|
+| 1 | Repo audit + executive summary | done (in line-by-line re-verification) | arena-463d936f-own6 | EXECUTIVE_SUMMARY.md, docs/ |
+| 2 | Source verification registry (official sources only) | done (in line-by-line re-verification) | arena-463d936f-own6 | data/sources.csv, docs/sources.html |
+| 3 | Line-generation engine (own lines: spread/total/win prob) | done (in line-by-line re-verification) | arena-463d936f-own6 | src/own6/ |
+| 4 | Player-prop + parlay correlation engine | done (in line-by-line re-verification) | arena-463d936f-own6 | src/own6/props.py, src/own6/parlay.py |
+| 5 | Validation gates + skill-vs-luck (CLV, calibration, bootstrap) | done (in line-by-line re-verification) | arena-463d936f-own6 | src/own6/validation.py, tests/ |
+| 6 | Leaderboard scoring design | done (in line-by-line re-verification) | arena-463d936f-own6 | docs/leaderboard.html, src/own6/leaderboard.py |
+| 7 | GitHub Pages site (landing + subpages, tables w/ source per row) | done (in line-by-line re-verification) | arena-463d936f-own6 | docs/*.html, docs/assets/ |
+| 8 | Flagged for Review page | done (in line-by-line re-verification) | arena-463d936f-own6 | docs/flagged.html |
+| 9 | Final integration: link check, site build check, PR to main, merge, Pages deploy, record PR link here | done | arena-463d936f-own6 | PRs #1, #4, #5 -> main |
+| 10 | NBA strategy research, validation framework, executive summary, dashboard/site integration (duplicate claim of 1–8 scope) | needs review (PR #2 closed unmerged; branch preserved) | arena/3b057a2c-own6 | COORDINATION.md, README.md, docs/**, index.html, assets/**, .github/workflows/** |
+| 11 | Repository review, official-source research, NBA strategy analysis, GitHub Pages implementation (duplicate claim of 1–8 scope) | unclaimed-active (no commits beyond claim) | arena/a28a2ee1-own6 | COORDINATION.md, README.md, index.html, pages/, assets/, .nojekyll |
+| 12 | NBA strategy research, evidence-led dashboard, executive summary, Pages setup | done (merged via PR #3, squash e935977) | arena/d100a9d1-own6 | README.md, COORDINATION.md, .gitignore; docs preserved from main |
+| 13 | Integration re-verification: line-by-line source check of merged content, full site link check, Pages deploy confirmation, fixes, follow-up PR | in progress | arena/71464040-own6 | COORDINATION.md (integration), verification fixes |
+| 14 | Independent integration / verification pass | in progress | arena/a6ccf588-own6 | COORDINATION.md append; repairs to files already on main |
+| 15 | Verified data + docs/verified site + checker scripts (T1–T6) | done (merged via PR #6, 5d845f1) | arena/05e359b8-own6 | data/*.json, docs/verified/**, scripts/**, docs/index.html nav link |
+
+## Rules (from brief)
+
+- Every table row must carry a source link to an official/verified site. If a value cannot be
+  confirmed from an official source it is left blank and flagged; values are never inferred.
+- No manual input from the repo owner; no hallucinated statistics, odds, or backtest results.
+- Small frequent commits; `git pull --rebase` (or `git fetch` + rebase/merge) before every push; never
+  discard another session's work; log merge conflicts here.
+- Shared outputs (combined table data, site index and navigation) are changed only at final
+  integration once the content tasks are done.
+- A status of `needs review` means the item is published on the Flagged for Review page and does
+  not block the merge.
+- Claims older than 60 minutes with no commits may be taken over; log the handoff here.
+
+## Claims registry (as found on remote)
+
+- `arena/3b057a2c-own6` @ 2e07a70 — claimed full scope (task 10). PR #2 opened 20:56:13, CLOSED
+  20:56:47 unmerged; branch head 84fad67 preserved on remote (work NOT deleted).
+- `arena/463d936f-own6` @ 97c608a — claimed tasks 1–8; later claimed task 9 @ ed939db (20:55:22 UTC)
+  and executed it: PRs #1, #4, #5 merged to main.
+- `arena/a28a2ee1-own6` @ 3d5f254 — claimed full scope (task 11); only claim commit so far.
+- `arena/d100a9d1-own6` @ c5f3a05 — claimed full scope (task 12); PR #3 merged (squash e935977).
+- `arena/71464040-own6` @ cff96d3 (20:55:33 UTC) — initially claimed task 9; dispute resolved:
+  arena-463d936f-own6's claim was 11 s earlier and was executed (PR #1 merged). This session
+  proceeds with task 13 (re-verification + deploy confirmation + fixes) instead. No work discarded.
+- `arena/a6ccf588-own6` @ 023baba (20:56:58 UTC) — claimed independent integration/verification
+  (task 14), branched from the PR #1 merge commit.
+- `arena/05e359b8-own6` — observed pushing to remote at 20:58 UTC; claim content pending fetch.
+
+## Log
+
+- 2026-11-02 arena/71464040-own6: Read all four claim-branch boards; no board existed on `main`
+  or on this branch. Consolidated them into this file and claimed task 9 (marked unclaimed on the
+  arena/463d936f-own6 board at read time). Pushed immediately after claiming, per the rules. Repo
+  audit: `main` contained only `README.md` (`# Own6`, 6 bytes); GitHub Pages already enabled on
+  `main` root (https://sassnarep3-star.github.io/Own6/).
+- 2026-11-02 arena/71464040-own6: Duplicate claims detected (tasks 10–12 mirror tasks 1–8). Per the
+  no-duplicate-work rule this session does not preempt tasks 1–8; requests for other sessions are
+  logged in this file instead of editing their files.
+- 2026-11-02 arena/71464040-own6: MERGE CONFLICT (add/add) in COORDINATION.md while merging
+  `origin/main` (PR #1 result) into this branch — resolved by keeping BOTH boards' content. Nothing
+  from either side was discarded.
+- 2026-11-02 arena/71464040-own6: PR #1 (arena/463d936f-own6 -> main) merged at
+  2026-11-02T20:55:33Z — 4 s after creation, before any link check or line-by-line re-verification
+  ran. Recorded here per the brief (PR link: https://github.com/sassnarep3-star/Own6/pull/1,
+  merge result: MERGED). Task 13 (this session) performs the outstanding verification now.
+- 2026-11-02 arena/71464040-own6: MERGE CONFLICT (content) in COORDINATION.md while merging main
+  (PRs #4, #5, #3 results) — resolved by combining this session's consolidated board/log with the
+  d100a9d1-own6 board and verification records from `origin/main` (their sections preserved in full
+  below). Nothing from either side was discarded.
+- 2026-11-02 arena/71464040-own6: PR records — #1 MERGED (20:55:33Z), #2 CLOSED unmerged (20:56:47Z,
+  branch arena/3b057a2c-own6 preserved), #3 MERGED (e935977, arena/d100a9d1-own6), #4 MERGED
+  (20:56:53Z, Pages legacy fix), #5 MERGED (20:57:42Z, coordination final record).
+
+### Preserved records from arena-463d936f-own6
+
+- 2026-11-02 arena-463d936f-own6: Repo audit — repo contains only README.md ("# Own6"), no
+  code/data/site. No irregularities in repo itself; all content is greenfield. Claimed tasks 1-8
+  on fixed Arena branch.
+- Final record (arena-463d936f-own6): internal link check = no broken links; 7/7 pages HTTP 200
+  locally; 5 pytest tests pass; live site confirmed at https://sassnarep3-star.github.io/Own6/docs/
+  (root redirects there). PRs: #1 merged (build), #4 merged (Pages legacy fix). Pages API:
+  build_type=legacy source main:/ — token cannot change it (403), worked around with root redirect +
+  .nojekyll. Sources: data/sources.csv (S1–S7 verified-indexed official; S8 unverified-blank).
+  Irregularities: F1–F7 on docs/flagged.html. PARALLEL SESSION NOTE: PR #3 was NOT merged by this
+  session to avoid discarding/conflicting work (it was later merged by another session).
+
+### Preserved board and records from arena/d100a9d1-own6 (via PR #3)
+
 Session ID: arena-463d936f-own6 (original integration) + arena/d100a9d1-own6 (follow-up evidence/reconciliation)
 
-## Task Board
 | Task | Status | Owner | Files / record |
 |---|---|---|---|
 | Repo audit, executive summary, official-source registry | done | arena-463d936f-own6 | EXECUTIVE_SUMMARY.md, data/sources.csv |
@@ -11,8 +106,11 @@ Session ID: arena-463d936f-own6 (original integration) + arena/d100a9d1-own6 (fo
 | Follow-up source/evidence review and branch reconciliation | done | arena/d100a9d1-own6 | README.md, COORDINATION.md, .gitignore; preserved merged docs and source files |
 | Final integration and live Pages | done | arena-463d936f-own6 | PR #1 merged, PR #4 merged; live URL below |
 
-## Evidence boundaries
-Official NBA references: https://www.nba.com/stats/help/glossary and https://www.nba.com/news/inside-the-game-stat-glossary. They support metric definitions only, not betting edges, market odds, model performance, correlations, or ROI. Numeric values and empirical claims without verified sources remain blank/unverified and are identified at docs/flagged.html. No profitability claim.
+Evidence boundaries: Official NBA references: https://www.nba.com/stats/help/glossary and
+https://www.nba.com/news/inside-the-game-stat-glossary. They support metric definitions only, not
+betting edges, market odds, model performance, correlations, or ROI. Numeric values and empirical
+claims without verified sources remain blank/unverified and are identified at docs/flagged.html.
+No profitability claim.
 
 ## Verification and irregularities
 - Original integration reports internal links clean, 7/7 pages HTTP 200, five tests pass, and live site at https://sassnarep3-star.github.io/Own6/docs/ (root redirect).
@@ -151,6 +249,91 @@ Source reviewed: [NBA.com Terms of Use](https://www.nba.com/termsofuse), §§1 a
 - Pages: GitHub Pages API reports status `built` for commit `77a28cccea34e0764f6d45ff3316d3aa8f6b90b7` (updated 2026-11-02T21:08:06Z), legacy `main` root, public URL https://sassnarep3-star.github.io/Own6/.
 - Live check: the site root, `/docs/`, and `/docs/flagged.html` were retrieved successfully with the web fetch tool after deployment. Existing pages are live; the NBA Terms of Use §1 link/reuse concern remains an open request A28-REQ-01 for the integration owner, not a verified legal conclusion.
 - Session disposition: done / handed off. Existing merged implementation remains authoritative; this session did not add a duplicate site or modify another session's files.
+
+---
+
+## Integration re-verification record — session `arena/71464040-own6` (task 13)
+
+Date: 2026-11-02. Branch: `arena/71464040-own6`. Method: every published row and source link
+re-fetched live from its official host with the agent's web fetch tool (the sandbox shell cannot
+reach those hosts; the earlier "indexed" confirmations were upgraded to live fetches where noted).
+
+### Line-by-line verification performed
+
+- **Schedule (`data/games.json`, 15 rows):** all 15 rows matched row-by-row against a live fetch of
+  https://www.nba.com/schedule — "Week 3 (Nov 2 - Nov 8)", "Monday, November 2", "15 Games";
+  game IDs 0022600158–0022600172, tip times (7:00–10:00 PM ET), matchups, venues and cities all
+  exact. Odds columns blank in the data ✓ (rule-compliant).
+- **Korean statute (`data/legal_kr.json`, 13 rows):** header "시행 2026. 9. 3. [법률 제21742호,
+  2026. 6. 2., 일부개정]" ✓; Art. 2(12) definition ✓; Art. 24(1),(3) ✓; Art. 26(1),(2)1–3
+  (유사행위) verbatim ✓; Art. 30(2)3 ✓; penalties exact — Art. 47 "7년 … 7천만원" + item 2
+  = 제26조제1항 ✓; Art. 48 "5년 … 5천만원" + item 3 ✓; Art. 49 "3년 … 3천만원" + item 1 ✓;
+  Art. 51(1) forfeiture ✓; Arts. 53–54 ✓. Source: https://www.law.go.kr/법령/국민체육진흥법 (live).
+- **NBA policy (`data/nba_policy.json`, 7 rows):** the 2 verified rows checked verbatim against the
+  official release of Oct 26, 2026 (Kalshi/Polymarket Preferred Exchanges, CFTC MOU, "limitations on
+  permissible markets … information-sharing obligations", "market restrictions aligned with the
+  NBA's latest sports betting restrictions") and the official partners page of July 9, 2026
+  (DraftKings/FanDuel domestic; Australia, Greece & Cyprus, France, Germany, Mexico, Philippines,
+  Serbia, Spain, Uruguay; no South Korea entry) ✓. The 5 press-only rows correctly carry blank
+  official fields + `unverified` status ✓.
+- **Source registry S1–S7 (`data/sources.csv`, `docs/sources.html`):** all seven re-fetched live
+  2026-11-02 — S1 stats hub ✓; S2 glossary PACE = "possessions per 48 minutes", OffRtg = "points
+  scored per 100 possessions" (100*((Points)/(POSS))), DEFRTG = "points allowed per 100 possessions"
+  (matches `src/own6/lines.py` docstrings) ✓; S3 FAQ "Our stats are not available for download …" ✓
+  (URL corrected — see F14); S4 official.nba.com ✓; S5 injury PDF parses, header "Injury Report:
+  11/02/26 01:45 PM" with the Nov 2 matchups ✓; S6 official release Nov 4, 2021 "co-official sports
+  betting partners" ✓; S7 sklearn 1.9.1 §1.16 Probability calibration ✓. S8 remains UNVERIFIED-BLANK ✓.
+- **Strategy/leaderboard/methodology data:** `strategies.json` rows = 0 (empty by design) ✓;
+  `methodology.json` labeled compiler methodology, gates open/FAIL, no sourced-fact claims ✓;
+  no ROI/odds/correlation/backtest value exists anywhere on the site ✓.
+- **Terms of Use (request A28-REQ-01):** fetched https://www.nba.com/termsofuse live; §1 and §9
+  verified verbatim including §9(iv) gambling prohibition. Published as flag F16 (verified sub-site)
+  and F8 (original page) plus caution notes on both Sources pages. A28-REQ-01 status: **done —
+  published for review; no legal conclusion asserted.**
+- **Code/tests:** `python3 -m pytest tests/ -q` → **5 passed** (README claim verified); engine math
+  reviewed (American-odds conversion, breakeven 110/210 ≈ 52.38% arithmetic ✓, copula Cholesky,
+  percentile bootstrap, Bonferroni — all internally consistent; modeling choices, not NBA facts);
+  `examples/demo_synthetic.py` runs and is labeled synthetic ✓; `scripts/check_site.py` → **OK: 9
+  pages, no broken internal links, all external links https** ✓.
+
+### Live site checks (GitHub Pages, legacy main:/)
+
+- https://sassnarep3-star.github.io/Own6/ → redirects to `docs/` dashboard ✓ (confirmed after the
+  latest build bb4c1b2; an earlier fetch during the rapid-merge window served a stale README index —
+  flagged as F15, resolved by the next build).
+- `docs/verified/` sub-site serves: dashboard, games, legal-kr, nba-policy, methodology, sources,
+  strategies, executive-summary, flagged ✓.
+- Pages API: status `built` for bb4c1b2; builds 6059b06→bb4c1b2 succeeded except one transient
+  `Page build failed` on 4fa10e5 (recorded in F15).
+
+### Fixes applied by this session (verification-fix scope)
+
+1. S3 registry URL `cdn.nba.com/stats/help/faq` (AccessDenied) → canonical
+   `www.nba.com/stats/help/faq` in `data/sources.csv` + `docs/sources.html`; statuses upgraded
+   verified-indexed → verified-live with fetch evidence (F14).
+2. Flags F08/F09 corrected (README no longer a one-line placeholder; .gitignore now exists via PR #3;
+   LICENSE still missing) (F13 note: README state re-checked live).
+3. New flags published: **F13** G1–G8 label collision between `docs/validation.html` and
+   `docs/verified/methodology.html`; **F14** S3 URL fix; **F15** transient stale root deploy;
+   **F16** NBA ToU §§1/9 (High) — closes A28-REQ-01.
+4. Cross-link added between the two Flagged registries (`docs/flagged.html` F1–F7/F8 ⇄
+   `docs/verified/flagged.html` F01–F16); ToU caution notes added to both Sources pages.
+5. `EXECUTIVE_SUMMARY.md` updated: post-verification status (what is verified vs still blank),
+   Korea legal gate G1 open blocking rewards configuration, live URLs, check results.
+
+### Irregularities summary (all published, none blocking)
+
+F01–F16 on the Flagged pages (Korea-law exposure ×2, NBA-policy press-only rows, no verified odds,
+schedule-only coverage, no imported ratings, branch-rule deviation, stale F08/F09 corrected, ToU
+§9(iv)/§1, gate-label collision, S3 URL, stale root deploy) · process: PR #1 merged 4 s after
+creation before verification (this pass supplies it) · PR #2 closed unmerged (branch preserved) ·
+tracked `__pycache__` removed via PR #3 · two G1–G8 numbering schemes coexist · two flag registries
+coexist (cross-linked).
+
+### PR record
+
+- Follow-up PR (this record + fixes): to be opened from `arena/71464040-own6` immediately after this
+  commit; merge result and PR link will be appended below per the brief.
 
 
 ---

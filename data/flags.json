@@ -80,19 +80,19 @@
       "id": "F08",
       "category": "Repo",
       "severity": "Low",
-      "item": "README.md is a one-line placeholder ('# Own6'). No description, license, or usage notes.",
-      "detail": "Verified by reading the file at commit c5d6e4c.",
+      "item": "README.md was a one-line placeholder at the initial commit; it now has a project description (updated via merged PRs), but there is still no license file.",
+      "detail": "Original state verified at commit c5d6e4c ('# Own6'). Current README verified on main at integration re-verification 2026-11-02: description, pointers to EXECUTIVE_SUMMARY.md, COORDINATION.md, engine, tests, site, sources registry. LICENSE still absent.",
       "source_url": "https://github.com/sassnarep3-star/Own6/blob/main/README.md",
-      "action_requested": "Add a project description and a license choice."
+      "action_requested": "Choose a license and add a LICENSE file."
     },
     {
       "id": "F09",
       "category": "Repo",
       "severity": "Low",
-      "item": "No LICENSE file and no .gitignore in the repository.",
-      "detail": "Checked the file tree at commit c5d6e4c. Reuse rights for the data are unclear.",
+      "item": "No LICENSE file in the repository (.gitignore was added via merged PR #3).",
+      "detail": "Checked the file tree at commit c5d6e4c (no .gitignore, no LICENSE). At integration re-verification 2026-11-02: .gitignore exists and tracked __pycache__/*.pyc files were removed (PR #3); LICENSE is still missing. Reuse rights for the data remain unclear.",
       "source_url": "https://github.com/sassnarep3-star/Own6",
-      "action_requested": "Choose a license and add a .gitignore."
+      "action_requested": "Choose a license and add a LICENSE file."
     },
     {
       "id": "F10",
@@ -120,6 +120,42 @@
       "detail": "The English is not an official translation. Verify wording against the official text before relying on it.",
       "source_url": "https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B5%AD%EB%AF%BC%EC%B2%B4%EC%9C%A1%EC%A7%84%ED%9D%A5%EB%B2%95",
       "action_requested": "Review the translations."
+    },
+    {
+      "id": "F13",
+      "category": "Site",
+      "severity": "Medium",
+      "item": "Two different validation-gate sets both use labels G1–G8.",
+      "detail": "docs/validation.html (original dashboard) defines G1 walk-forward … G8 ledger integrity. docs/verified/methodology.html (verified sub-site) defines G1 legal review … G8 different rules. The labels collide; a reader comparing pages could misread which gate a strategy passed. Both sets are internally consistent and sourced as project policy — this is a naming collision, not a data error. Found during integration re-verification 2026-11-02.",
+      "source_url": "https://sassnarep3-star.github.io/Own6/docs/validation.html",
+      "action_requested": "Decide on one numbering scheme (e.g. rename one set) at the next content pass."
+    },
+    {
+      "id": "F14",
+      "category": "Sources",
+      "severity": "Low",
+      "item": "Source S3 registry URL was broken: cdn.nba.com/stats/help/faq returns AccessDenied.",
+      "detail": "Found by live fetch on 2026-11-02 during integration re-verification. The claim itself (NBA stats are not offered as CSV download) is TRUE at the canonical URL https://www.nba.com/stats/help/faq, which was fetched and quoted. data/sources.csv and docs/sources.html were corrected to the canonical URL the same day; status upgraded from verified-indexed to verified-live.",
+      "source_url": "https://www.nba.com/stats/help/faq",
+      "action_requested": "None — corrected. Recorded for audit."
+    },
+    {
+      "id": "F15",
+      "category": "Site",
+      "severity": "Low",
+      "item": "During the deploy window the root URL briefly served a stale README-as-index build instead of the redirect to docs/.",
+      "detail": "Observed by live fetch on 2026-11-02 shortly after several rapid merges; the Pages build for the pre-redirect tree was still cached at the edge. Re-fetch after the latest build (bb4c1b2, built 21:08:48Z) followed the redirect to the docs/ dashboard correctly, and https://sassnarep3-star.github.io/Own6/docs/verified/ served normally. Build 4fa10e5 (PR #5) also recorded one transient 'Page build failed' before later builds succeeded.",
+      "source_url": "https://sassnarep3-star.github.io/Own6/",
+      "action_requested": "None unless the root URL shows README content again after a future deploy — then re-check the Pages build log."
+    },
+    {
+      "id": "F16",
+      "category": "Legal (NBA ToU)",
+      "severity": "High",
+      "item": "NBA.com Terms of Use §9(iv) bars use of NBA Statistics in connection with any gambling activity (including legal gambling activity); §1 restricts linking Basketball Content without written permission.",
+      "detail": "Verbatim, fetched live from https://www.nba.com/termsofuse on 2026-11-02 during integration re-verification (request A28-REQ-01 from session arena/a28a2ee1-own6, substantiated and upgraded): §9 — 'the NBA Statistics may not be used in connection with any gambling activity (including legal gambling activity)'; also (i) prominent attribution to NBA.com required, (ii) use limited to legitimate news reporting or private non-commercial purposes, (v)-(vii) fantasy/real-time/database restrictions. §1 — 'No Basketball Content from the Services may be ... linked to, or otherwise used except as provided in these Terms of Use without the written permission of the Operator.' This project consumes NBA efficiency definitions (PACE/OffRtg/DefRtg) and links NBA pages as sources; it is research-only and non-commercial, but applicability to a gambling-research context is a legal question. This flag states the terms only — no legal conclusion.",
+      "source_url": "https://www.nba.com/termsofuse",
+      "action_requested": "Obtain written legal review on §§1 and 9 applicability (with A28-REQ-01); consider NBA permission before any gambling-adjacent use of NBA Statistics or deep source linking; keep the site research-only meanwhile."
     }
   ]
 }

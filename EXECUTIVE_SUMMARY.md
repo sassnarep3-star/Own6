@@ -66,6 +66,13 @@ None has been validated. No win rate, ROI, CLV or hit rate is published.
 - GitHub Pages is configured as a **legacy `main:/` publishing source** with a root `index.html` redirect to `docs/`; an API attempt to switch the source to `/docs` returned HTTP 403 ("Resource not accessible by integration"). Publishing-source options are documented by [GitHub Docs](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site). The live URL is <https://sassnarep3-star.github.io/Own6/>.
 - The repository has **no LICENSE file** ([GitHub API](https://api.github.com/repos/sassnarep3-star/Own6) reports `license: null`).
 
+## Integration re-verification status (2026-11-02 — session `arena/71464040-own6`)
+
+- **Line-by-line re-check:** all 15 Nov 2 schedule rows, all 13 statute rows, and both official policy rows re-matched against live official pages; registry S1–S23 confirmed by direct retrieval (evidence: `data/verification_log.csv`, details in `COORDINATION.md`).
+- **Checks run:** `pytest` 5/5 (local venv) and `tools/run_tests.py`; `scripts/check_site.py` = 9 pages, no broken internal links; `examples/demo_synthetic.py` runs (synthetic only); live root → `docs/` redirect, `docs/verified/` and `docs/review/` all confirmed by live fetch after the latest Pages build.
+- **Rewards gate (important):** `data/methodology.json` G1 (Korean legal review, 국민체육진흥법 Art. 26) is **open/FAIL** — no leaderboard rewards are configured and nothing should be exposed to Korean users until written counsel review. NBA ToU §§1/9 (I-24/F16) is also open for written review.
+- **Flag registries (cross-linked):** [`docs/flagged.html`](docs/flagged.html) (F1–F8 + I-items), [`docs/verified/flagged.html`](docs/verified/flagged.html) (F01–F16), [`docs/review/flagged.html`](docs/review/flagged.html) (complete register). None blocks publication.
+
 ## Site map (all tables link official sources)
 
 Dashboard/calculator · Strategies · Validation Gates · Correlations · Leaderboard · Sources · Flagged for Review (all under `docs/`), plus the source-linked [verified data section](docs/verified/index.html) and this session's [independent review section](docs/review/index.html): Overview, Executive summary, Verification log, Repo review, Flagged for Review.
