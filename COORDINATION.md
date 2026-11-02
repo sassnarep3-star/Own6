@@ -1,33 +1,22 @@
 # COORDINATION — Own6 NBA Lines Project
 
-Session ID: arena-463d936f-own6 | Branch: arena/463d936f-own6 (fixed by Arena; note: user template suggested session-<id>/<task> branches, superseded by Arena branch rule — do not switch branches)
-Date opened: 2026-11-02
+Session ID: arena-463d936f-own6 (original integration) + arena/d100a9d1-own6 (follow-up evidence/reconciliation)
 
 ## Task Board
-| # | Task | Status | Owner | File scope |
-|---|------|--------|-------|------------|
-| 1 | Repo audit + executive summary | done | arena-463d936f-own6 | EXECUTIVE_SUMMARY.md, docs/ |
-| 2 | Source verification registry (official sources only) | done | arena-463d936f-own6 | data/sources.csv, docs/sources.html |
-| 3 | Line-generation engine (own lines: spread/total/win prob) | done | arena-463d936f-own6 | src/own6/ |
-| 4 | Player-prop + parlay correlation engine | done | arena-463d936f-own6 | src/own6/props.py, src/own6/parlay.py |
-| 5 | Validation gates + skill-vs-luck (CLV, calibration, bootstrap) | done | arena-463d936f-own6 | src/own6/validation.py, tests/ |
-| 6 | Leaderboard scoring design | done | arena-463d936f-own6 | docs/leaderboard.html, src/own6/leaderboard.py |
-| 7 | GitHub Pages site (landing + subpages, tables w/ source per row) | done | arena-463d936f-own6 | docs/*.html, docs/assets/ |
-| 8 | Flagged for Review page | done | arena-463d936f-own6 | docs/flagged.html |
-| 9 | Final integration, link check, PR to main, merge, Pages deploy | done | arena-463d936f-own6 | docs/, .github/ |
+| Task | Status | Owner | Files / record |
+|---|---|---|---|
+| Repo audit, executive summary, official-source registry | done | arena-463d936f-own6 | EXECUTIVE_SUMMARY.md, data/sources.csv |
+| Line/prop/parlay model utilities and validation design | done | arena-463d936f-own6 | src/own6/, tests/ |
+| Pages site, table pages, leaderboard design and flagged items | done | arena-463d936f-own6 | docs/ |
+| Follow-up source/evidence review and branch reconciliation | done | arena/d100a9d1-own6 | README.md, COORDINATION.md, .gitignore; preserved merged docs and source files |
+| Final integration and live Pages | done | arena-463d936f-own6 | PR #1 merged, PR #4 merged; live URL below |
 
-## Rules (from brief)
-- Every table row: official-source link. Unconfirmable value => blank + flagged, never inferred.
-- No manual input from owner; no hallucinated statistics, odds, or backtest results.
-- Small frequent commits; pull --rebase before push; never discard others' work.
-- Shared outputs (site index/nav, combined tables) changed only at final integration.
+## Evidence boundaries
+Official NBA references: https://www.nba.com/stats/help/glossary and https://www.nba.com/news/inside-the-game-stat-glossary. They support metric definitions only, not betting edges, market odds, model performance, correlations, or ROI. Numeric values and empirical claims without verified sources remain blank/unverified and are identified at docs/flagged.html. No profitability claim.
 
-## Final record (arena-463d936f-own6)
-- Verification: internal link check = no broken links; 7/7 pages HTTP 200 locally; 5 pytest tests pass; live site confirmed at https://sassnarep3-star.github.io/Own6/docs/ (root redirects there).
-- PRs: #1 merged (build), #4 merged (Pages legacy fix). Pages API: build_type=legacy source main:/ — token cannot change it (403), worked around with root redirect + .nojekyll.
-- Sources: data/sources.csv (S1-S7 verified-indexed official; S8 unverified-blank).
-- Irregularities: F1-F7 on docs/flagged.html (all numeric NBA values/correlations/backtests/odds blank by rule).
-- PARALLEL SESSION NOTE: PR #3 from branch arena/d100a9d1-own6 appeared during integration (duplicate-topic work). It was NOT merged by this session to avoid discarding/conflicting work — owner/other session to reconcile against merged main.
-
-## Log
-- 2026-11-02 arena-463d936f-own6: Repo audit — repo contains only README.md ("# Own6"), no code/data/site. No irregularities in repo itself; all content is greenfield. Claimed tasks 1-8 on fixed Arena branch.
+## Verification and irregularities
+- Original integration reports internal links clean, 7/7 pages HTTP 200, five tests pass, and live site at https://sassnarep3-star.github.io/Own6/docs/ (root redirect).
+- Follow-up independently checked local documentation links and Python source syntax; synthetic example runs. `pytest` is not installed in this session, so tests were not rerun here.
+- Pages' GitHub Actions workflow was removed by an upstream merged Pages fix; preserved root redirect and `.nojekyll`, avoiding an alternate publisher.
+- Source history included tracked Python bytecode caches; follow-up added `.gitignore` and removes cached artifacts where possible.
+- PR #3 follow-up opened against main; rebased/merged upstream changes were reconciled while preserving the independent integration and later Pages fixes. (PR URL: https://github.com/sassnarep3-star/Own6/pull/3)
