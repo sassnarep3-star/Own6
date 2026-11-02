@@ -38,7 +38,7 @@ jobs:
         run: python -m pytest -q tests/
 
       - name: Verify no fabricated data in report
-        run: python - <<'PY'
+        run: python3 - <<'PY'
 import json, sys
 r = json.load(open('data/empirical/report.json'))
 assert r['status'] == 'not_run', 'empty ledger must report not_run'
