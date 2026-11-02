@@ -1,16 +1,46 @@
-# COORDINATION.md — shared task board
+# COORDINATION — Own6 NBA Lines Project
+
+Session ID: arena-463d936f-own6 (original integration) + arena/d100a9d1-own6 (follow-up evidence/reconciliation)
+
+## Task Board
+| Task | Status | Owner | Files / record |
+|---|---|---|---|
+| Repo audit, executive summary, official-source registry | done | arena-463d936f-own6 | EXECUTIVE_SUMMARY.md, data/sources.csv |
+| Line/prop/parlay model utilities and validation design | done | arena-463d936f-own6 | src/own6/, tests/ |
+| Pages site, table pages, leaderboard design and flagged items | done | arena-463d936f-own6 | docs/ |
+| Follow-up source/evidence review and branch reconciliation | done | arena/d100a9d1-own6 | README.md, COORDINATION.md, .gitignore; preserved merged docs and source files |
+| Final integration and live Pages | done | arena-463d936f-own6 | PR #1 merged, PR #4 merged; live URL below |
+
+## Evidence boundaries
+Official NBA references: https://www.nba.com/stats/help/glossary and https://www.nba.com/news/inside-the-game-stat-glossary. They support metric definitions only, not betting edges, market odds, model performance, correlations, or ROI. Numeric values and empirical claims without verified sources remain blank/unverified and are identified at docs/flagged.html. No profitability claim.
+
+## Verification and irregularities
+- Original integration reports internal links clean, 7/7 pages HTTP 200, five tests pass, and live site at https://sassnarep3-star.github.io/Own6/docs/ (root redirect).
+- Follow-up independently checked local documentation links and Python source syntax; synthetic example runs. `pytest` is not installed in this session, so tests were not rerun here.
+- Pages' GitHub Actions workflow was removed by an upstream merged Pages fix; preserved root redirect and `.nojekyll`, avoiding an alternate publisher.
+- Source history included tracked Python bytecode caches; follow-up added `.gitignore` and removes cached artifacts where possible.
+- PR #3 follow-up opened against main; rebased/merged upstream changes were reconciled while preserving the independent integration and later Pages fixes. (PR URL: https://github.com/sassnarep3-star/Own6/pull/3)
+
+
+---
+
+## Session arena/05e359b8-own6 — verified data + GitHub Pages dashboard (added at integration)
+
+Kept separate from the sections above. Nothing from the other sessions was removed. This session's site lives in `docs/verified/` (not `docs/`), so the two sites do not overwrite each other. The original `docs/` site is unchanged apart from one navigation link added at integration (see T7 below).
+
+Live URL for this session's pages: https://sassnarep3-star.github.io/Own6/docs/verified/
 
 Repo: `sassnarep3-star/Own6` · Site: https://sassnarep3-star.github.io/Own6/ (GitHub Pages, served from `main` `/docs`)
 
-## Branch rule (deviation logged)
+### Branch rule (deviation logged)
 
 The session brief asked for `session-<id>/<task>` branches. The Arena session rule fixes this session to **`arena/05e359b8-own6`** and forbids creating other branches. All tasks below are therefore done on `arena/05e359b8-own6` by session `05e359b8`. Scopes are still kept non-overlapping by file so another session can take a task on its own branch.
 
-## Status legend
+### Status legend
 
 `unclaimed` · `in progress` · `done` · `needs review` (published on the Flagged for Review page; does not block anything)
 
-## Task board
+## Task board (session 05e359b8)
 
 | Task | Status | Owner session | Files touched |
 |---|---|---|---|
@@ -24,7 +54,7 @@ The session brief asked for `session-<id>/<task>` branches. The Arena session ru
 
 Claim recorded at the start of the session (commit "claim: T1–T7 session 05e359b8"); see `git log -- COORDINATION.md`.
 
-## Sources and verification log
+### Sources and verification log
 
 Each entry is checked against the official host listed. "Verified" means the text was read from that page during this session. Anything else is marked **unverified** and left blank in the data.
 
@@ -40,7 +70,7 @@ Secondary reports (not official, used only to identify what to verify; all flagg
 - TSN, Oct 16, 2026 — https://www.tsn.ca/nba/article/nba-tells-sportsbooks-to-stop-certain-bets-restrict-parlays-n1-50196498/
 - Betting.net, Oct 19, 2026 — https://www.betting.net/news/legal/nba-tells-sportsbooks-to-halt-certain-bets/
 
-## Task completion records
+### Task completion records
 
 - **T1 Repo review** — Sources: repo tree and `git log` at commit `c5d6e4c`; GitHub Pages API. Verification: read every tracked file (only `README.md`). Irregularities: F07–F11 in `data/flags.json`.
 - **T2 Korean law** — Sources: S1 (law.go.kr, read 2026-11-02; Arts. 2, 24, 26, 30, 47–49, 51, 53–54). Verification: each row's Korean excerpt was copied from the page text; English summaries are compiler translations and are labelled as such. Irregularities: F01, F02, F12.
@@ -49,16 +79,16 @@ Secondary reports (not official, used only to identify what to verify; all flagg
 - **T5 Strategies and methodology** — Sources: none external; compiler methodology. Verification: no strategy or correlation value was produced because no verified odds or results dataset exists. Gates G1–G8 all open. Irregularities: F01, F04, F06.
 - **T6 Site** — Sources: built from `data/*.json`. Verification: `scripts/check_site.py` (data rules + internal link check + https check). Result at build time: OK, 9 pages.
 
-## Irregularities (summary)
+### Irregularities (summary)
 
 See the "Flagged for Review" page on the site (`docs/flagged.html`) for the full list with source links. Highlights: F01 (Korean law exposure, high), F03 (NBA prop restrictions unverified, high), F04 (no verified odds, high).
 
-## Handoff notes
+### Handoff notes
 
-- No other session has written to this repo. The only pre-existing content is `README.md` (one line, `# Own6`) from commit `c5d6e4c`.
+- When this session started, the repo held only `README.md` (one line, `# Own6`) at commit `c5d6e4c`. Other sessions have since merged PRs #3–#5 to `main`. Their sections above were kept as they were.
 - Rule for later sessions: claim a task here, commit and push the claim, then work only inside its file scope.
 
-## Integration (T7) — to be filled in at merge time
+### Integration (T7)
 
 - PR: _pending_
 - Merge result: _pending_
