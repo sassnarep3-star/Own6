@@ -1,0 +1,9 @@
+id,claim_or_input,official_source,url,verified_via,status
+S1,"Official NBA player/team statistics hub",NBA.com Stats,https://www.nba.com/stats/overview,Web search result indexing live NBA.com page 2026-11-02,verified-indexed
+S2,"PACE / OffRtg / DefRtg definitions & formulas",NBA Stats Glossary,https://www.nba.com/stats/help/glossary,Web search result quoting glossary definitions 2026-11-02,verified-indexed
+S3,"Stats coverage history & update timing; no CSV download offered",NBA Stats FAQ,https://cdn.nba.com/stats/help/faq,Web search result quoting FAQ 2026-11-02,verified-indexed
+S4,"Rulebook / scoring & timing rules (game context)",NBA Official,https://official.nba.com/,Web search result from official.nba.com rule pages 2026-11-02,verified-indexed
+S5,"Official injury report (player availability status)",NBA (ak-static.cms.nba.com),https://ak-static.cms.nba.com/referee/injury/Injury-Report_2026-11-02_01_45PM.pdf,Web search result showing dated 11/02/26 report,verified-indexed-timestamped
+S6,"DraftKings/FanDuel = NBA co-official sports betting partners",NBA.com News,https://www.nba.com/news/draftkings-fanduel-become-nbas-co-official-sports-betting-partners,Cited as NBA source in indexed reporting 2026-11-02,verified-indexed
+S7,"Probability calibration & Brier score methodology",scikit-learn official docs,https://scikit-learn.org/stable/modules/calibration.html,Web search result from scikit-learn.org 2026-11-02,verified-indexed
+S8,"Any current team/player numeric rating, odds, or backtest result",—,,No value published: sandbox cannot fetch NBA.com directly and no official CSV download exists per S3,UNVERIFIED-BLANK
