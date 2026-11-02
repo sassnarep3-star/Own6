@@ -185,6 +185,7 @@ extra_flags = [
     ("I-21", "Coordination board misstates Pages source", "Board says main /docs; API reports main:/", "Correct the board or change the source", GHAPI, "GitHub Pages API"),
     ("I-22", "Schedule values are date-specific", "Official schedule changes daily", "Re-retrieve on the date of use", "https://www.nba.com/schedule", "NBA.com schedule"),
     ("I-23", "Current official gaming partners", "List dated July 9, 2026; re-check before use", "Re-retrieve the official list", P26, "NBA NBABet"),
+    ("I-24", "NBA.com Terms of Use §§1 and 9 — content linking / NBA Statistics use", "§1 restricts linking to Basketball Content without written permission; §9 says NBA Statistics may not be used in connection with any gambling activity (including legal gambling). Legal applicability is undetermined.", "Obtain written permission / qualified legal review; keep statistic values blank until resolved", "https://www.nba.com/termsofuse", "NBA.com Terms of Use (official)"),
 ]
 flag_html = "".join(
     f'<tr><td>{fid}</td><td>{html.escape(item)}</td><td>{html.escape(why)}</td>'

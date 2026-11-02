@@ -205,6 +205,7 @@ def build() -> dict[str, str]:
         ["Integrity context", "Oct 26, 2026 official release cites limitations on permissible markets and alignment with the NBA's latest sports betting restrictions, but does not enumerate them", A("https://www.nba.com/news/nba-establishes-integrity-framework-and-commercial-partnerships-for-prediction-markets", "NBA official release"), "Partly verified; specifics blank"],
         ["Verification rule", "Every table row links an official source; a value that cannot be confirmed stays blank and appears on Flagged for Review", A("https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site", "GitHub Docs (publishing rules)"), "Project policy"],
         ["Deployment", "GitHub Pages can publish from a branch or a workflow; this repo uses a legacy main:/ source with a root redirect to docs/", A("https://api.github.com/repos/sassnarep3-star/Own6/pages", "GitHub Pages API"), "Verified via API"],
+        ["Rights / legal constraint", "NBA.com Terms of Use §1 restricts linking to Basketball Content without written permission; §9 restricts NBA Statistics use in gambling activity. Applicability requires qualified legal review; no statistic values are ingested.", A("https://www.nba.com/termsofuse", "NBA.com Terms of Use (official)"), "Flagged I-24 · needs review"],
         ["Irregularities", "Coordination collisions, broken/incorrect links and unverifiable fields are published on the Flagged for Review page and do not block the site", A("https://github.com/sassnarep3-star/Own6/blob/main/COORDINATION.md", "COORDINATION.md (official repo)"), "needs review"],
     ]
     fact_rows = [
@@ -226,6 +227,8 @@ def build() -> dict[str, str]:
         ["Brier score", "“The Brier score measures the mean squared difference between the predicted probability and the actual outcome.”", A("https://scikit-learn.org/stable/modules/generated/sklearn.metrics.brier_score_loss.html", "scikit-learn docs"), "V10"],
         ["Binomial luck test", "“The binomial distribution is used when there are exactly two mutually exclusive outcomes of a trial.”", A("https://www.itl.nist.gov/div898/handbook/eda/section3/eda366i.htm", "NIST e-Handbook"), "V14"],
         ["Bonferroni correction", "Method list includes “bonferroni : one-step correction”", A("https://www.statsmodels.org/stable/generated/statsmodels.stats.multitest.multipletests.html", "statsmodels docs"), "V13"],
+        ["Terms of Use §1 (linking)", "“No Basketball Content from the Services may be … linked to, or otherwise used except as provided in these Terms of Use without the written permission of the Operator.”", A("https://www.nba.com/termsofuse", "NBA.com Terms of Use"), "V25"],
+        ["Terms of Use §9 (statistics)", "“the NBA Statistics may not be used in connection with any gambling activity (including legal gambling activity)”", A("https://www.nba.com/termsofuse", "NBA.com Terms of Use"), "V25"],
     ]
     not_verified_rows = [
         ["Current team ratings", '<span class="blank">blank</span>', A("https://www.nba.com/stats/help/faq", "NBA Stats FAQ — no official bulk download")],
@@ -375,6 +378,8 @@ def build() -> dict[str, str]:
         flag("I-20", "Main-site rows without official source links", "validation.html G5–G8, leaderboard.html's only data row, sources.html S8 and flagged.html F4/F7 lacked official links", "Official links added to every row; enforced by tools/check_site.py", NIST, "NIST e-Handbook (example of added link)", "resolved"),
         flag("I-21", "Coordination board misstates the Pages source", "COORDINATION.md says the site is served from main /docs; the Pages API reports main:/", "Correct the board text or change the publishing source", API, "GitHub Pages API"),
         flag("I-22", "Schedule data is date-specific", "Official schedule shows Week 3 / Monday Nov 2 2026 with 15 games; it changes daily", "Re-retrieve the official schedule on the date of use", SCH, "NBA.com schedule (source to check)"),
+        flag("I-23", "Current official gaming partners list is dated", "The official list is dated July 9, 2026", "Re-retrieve before relying on it", P26, "NBA NBABet partners list"),
+        flag("I-24", "NBA.com Terms of Use §§1 and 9 — content linking and NBA Statistics use", "§1 restricts linking to Basketball Content without written permission; §9 states NBA Statistics may not be used in connection with any gambling activity (including legal gambling) and only for news reporting or private non-commercial purposes. Legal applicability to this research site is undetermined.", "Obtain written permission / qualified legal review before ingesting NBA Statistics into betting models or republishing NBA content; keep all statistic values blank until resolved", "https://www.nba.com/termsofuse", "NBA.com Terms of Use (official)"),
     ]
     flagged_body = (
         '<div class="grid">'
