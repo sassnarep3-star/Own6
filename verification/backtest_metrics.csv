@@ -1,0 +1,17 @@
+metric,value,note,source
+games_graded,82,,backtest_walkforward.csv
+logloss_model,0.67472,lower better,data/backtest_walkforward.csv
+logloss_coin,0.69315,baseline p=0.5,data/backtest_walkforward.csv
+logloss_homebase,0.70588,baseline expanding home-win rate,data/backtest_walkforward.csv
+brier_model,0.24078,lower better,data/backtest_walkforward.csv
+brier_coin,0.25,baseline p=0.5,data/backtest_walkforward.csv
+sign_accuracy_model_fav,0.5976,model favorite straight-up,data/backtest_walkforward.csv
+corr_pred_vs_actual_margin,0.2101,Pearson r,data/backtest_walkforward.csv
+mean_logloss_diff_homebase_minus_model,0.03116,>0 = model beats home baseline,data/backtest_walkforward.csv
+bootstrap95_ci_logloss_diff,"[-0.01297, 0.07329]","10000 resamples, seed 42",data/backtest_walkforward.csv
+games_model_beats_homebase,52,of 82,data/backtest_walkforward.csv
+gate_logloss_beats_homebase,FAIL,95% CI strictly > 0 required,verification/verification_report.csv
+gate_sign_accuracy_vs_coin,PASS,pre-registered threshold 0.55,verification/verification_report.csv
+final_HCA_est,1.64,"expanding empirical, points",data/backtest_walkforward.csv
+final_sigma_est,16.48,"expanding empirical, points",data/backtest_walkforward.csv
+home_win_rate_2026_27,0.5217,48-44,data/games_results_2026-27.csv

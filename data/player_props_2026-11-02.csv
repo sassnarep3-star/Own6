@@ -1,0 +1,8 @@
+athlete,athlete_id,team,market,line_open,line_current,american_quotes_a_b,source_url
+Shai Gilgeous-Alexander,4278073,OKC,29.5,30.5,-109 / -117,https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909907/competitions/401909907/odds/100/propBets
+Isaiah Hartenstein,4222252,OKC,,10.5,-138 / -117,https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909907/competitions/401909907/odds/100/propBets
+Donovan Mitchell,3908809,CLE,21.5,22.5,,https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909907/competitions/401909907/odds/100/propBets
+James Harden,3992,CLE,17.5,17.5,,https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909907/competitions/401909907/odds/100/propBets
+Jarrett Allen,4066328,CLE,12.5,12.5,,https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909907/competitions/401909907/odds/100/propBets
+Sam Merrill,4066757,CLE,9.5,9.5,,https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909907/competitions/401909907/odds/100/propBets
+Kenrich Williams,3133626,OKC,7.5,7.5,,https://sports.core.api.espn.com/v2/sports/basketball/leagues/nba/events/401909907/competitions/401909907/odds/100/propBets

@@ -1,0 +1,4 @@
+pair,interpretation,n,pearson_r,source_desc,source_file
+home_score_vs_away_score,same-game team totals (parlay legs on team pts),92,0.2004,official NBA game results 2026-27,data/games_results_2026-27.csv
+rest_diff_vs_home_margin,rest differential vs margin,76,-0.0162,official NBA game results 2026-27 (schedule-derived rest),data/games_results_2026-27.csv
+teammate_PTS_Mitchell_Allen,"same-game teammate scoring (prop combo legs), 2026-27 only",6,-0.4222,ESPN official player gamelogs (2026-27 CLE),https://www.espn.com/nba/player/gamelog/_/id/3908809 + /id/4066328
