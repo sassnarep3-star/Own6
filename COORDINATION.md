@@ -505,3 +505,34 @@ Status legend as above (`needs review` = published on Flagged pages, non-blockin
   OK (9 pages) · `tools/check_site.py` 12 pages / 0 errors / 31 pre-existing advisories ·
   `tools/run_tests.py` 5/5.
 - **T10 disposition:** done (this record). Session `325834c9` complete.
+
+---
+
+## Session arena-5dfdc6d5 — empirical NBA lab (non-overlapping extension)
+
+### Fixed branch and reconciliation
+
+All work stays on `arena/5dfdc6d5-own6`, as required by Arena; no `session-*` branch is created. The initial checkout was the original one-line README, but concurrent sessions merged several dashboards before our first push. Rebasing produced an add/add conflict in this board. Resolution preserves the complete upstream board above and appends this separate section. No upstream files are discarded. Original broad claims are superseded by the narrow scopes below to avoid duplicate research. Existing sites, engine, datasets, and documentation are preserved.
+
+### Task board
+
+| Task | Status | Owner | Exclusive file scope | Dependencies |
+| --- | --- | --- | --- | --- |
+| E1 Official historical-data collection and evidence audit | in progress | arena-5dfdc6d5 | `research/empirical/**`, `data/empirical/**`, `scripts/collect_nba.py`, `.github/workflows/collect-nba.yml`, `requirements-empirical.txt` | — |
+| E2 Out-of-sample line, prop-combo, and parlay experiments | unclaimed | — | `nba_lab/**`, `tests/empirical/**`, `scripts/run_lab.py` | E1 |
+| E3 Empirical dashboard and review ledger | unclaimed | — | `site/lab/**`, `scripts/build_lab.py`, `scripts/check_lab.py`, `docs/lab/**` | E2 |
+| E4 Empirical executive summary, methodology, repo audit | unclaimed | — | `research/EXECUTIVE_SUMMARY.md`, `research/METHODOLOGY.md`, `research/REPO_AUDIT.md` | E2 |
+| E5 Final integration, PR/merge, existing Pages deployment verification | unclaimed | — | this section of `COORDINATION.md`, `.github/workflows/lab-ci.yml`, one additive navigation link in `docs/index.html`, one additive README link | E1–E4 |
+
+### Evidence and coordination rules
+
+- A numeric result must trace to official NBA data through a recorded URL and checksum. Derived estimates are labeled computations, not official NBA claims or verified sportsbook prices.
+- Unavailable odds, CLV, correlations, or market ROI are blank and flagged; never substitute guessed odds or synthetic results.
+- Existing shared Pages source is root `main`, confirmed through the official GitHub Pages API. Do not change Pages settings or introduce a competing publisher.
+- Integration request to existing site owners: add a link to the new empirical lab after its isolated build and checks pass. No existing site content will be removed.
+- Claims older than 60 minutes without a commit may be reassigned with a recorded handoff. Cross-scope edits must be requested here.
+
+### Activity and completion log
+
+- 2026-11-02: inspected initial repository and created original claim `aa9a10f`. Found concurrent upstream work, fetched `origin/main`, and reconciled the board conflict without discarding either version.
+- 2026-11-02: E1 claimed with a narrower, unused file scope. Existing tasks by other sessions are not being repeated or overwritten. Official-source collection and line-by-line verification are underway.
