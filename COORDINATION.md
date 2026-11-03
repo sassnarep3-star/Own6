@@ -250,3 +250,12 @@ All work stays on the fixed Arena branch `arena/f56f0055-own6`; no other branch 
 
 - None new. Standing flags remain on the site's Flagged for Review pages (NBA.com Terms of Use §§1/9 restrict use of NBA statistics in connection with gambling; no licensed odds/results feed exists, so correlation, edge and ROI fields remain blank/unverified by design).
 - PR and merge record: see final entry appended after merge below.
+
+---
+
+## Session arena/db20c549-own6 — CI integration audit
+| Task | Status | Owner | Exclusive files |
+|---|---|---|---|
+| C1 Audit existing verification and make lab CI run on current branch | in progress | db20c549 | `.github/workflows/lab-ci.yml`, `COORDINATION.md` |
+
+Claimed 2026-11-03. Arena fixes this branch name; no session-* branch can be created. Existing research and Pages content belongs to prior sessions and will not be overwritten. Integration checks will be recorded here.
