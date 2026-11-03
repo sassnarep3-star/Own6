@@ -196,7 +196,9 @@ for m in market:
     our_spread = -pred_m
     # market implied (de-vig, proportional): from american ML
     def imp(ml):
-        return 100.0 / ml if ml > 0 else -ml / 100.0
+        # American odds -> implied probability. (Fixed by session f58e0178: the earlier
+        # version returned 100/ml and -ml/100, i.e. decimal-style odds ratios, not probabilities.)
+        return 100.0 / (ml + 100.0) if ml > 0 else -ml / (-ml + 100.0)
     fav_ml = int(m["fav_ml_current"]); dog_ml = int(m["dog_ml_current"])
     pf, pd = imp(fav_ml), imp(dog_ml)
     tot = pf + pd

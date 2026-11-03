@@ -251,6 +251,28 @@ All work stays on the fixed Arena branch `arena/f56f0055-own6`; no other branch 
 - None new. Standing flags remain on the site's Flagged for Review pages (NBA.com Terms of Use §§1/9 restrict use of NBA statistics in connection with gambling; no licensed odds/results feed exists, so correlation, edge and ROI fields remain blank/unverified by design).
 - PR and merge record: see final entry appended after merge below.
 
+## Session arena/f58e0178-own6 — final integration, forward test, unified hub (claimed 2026-11-03)
+
+Branch is fixed by Arena to `arena/f58e0178-own6` (the `session-<id>/<task>` naming rule cannot be followed; logged as a deviation, same as earlier sessions). At claim time `origin/main` = `ba6b7b6` (PR #19). Earlier sessions are all `done`; nothing below repeats their work. Scopes are new files, except where noted.
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| H1 Repo irregularity audit (merge-conflict markers, CI refs, data consistency) | done | f58e0178 | `audit/INTEGRATION_AUDIT.md`, `scripts/audit_integration.py` |
+| H2 Repair `docs/index.html` (committed git conflict markers) | done (duplicate of 7a28eb6c's fix; theirs kept, hub links added) | f58e0178 | `docs/index.html`, `docs/dashboard.html` (new) |
+| H3 Official Nov 2 results + pre-registered forward test of published lines | done | f58e0178 | `data/results_2026-11-02.csv`, `data/forward_test_2026-11-02.csv`, `scripts/forward_test.py` |
+| H4 Unified category hub site (tables, source link per row, Flagged page) | done | f58e0178 | `docs/hub/**`, `scripts/build_hub.py`, `scripts/check_hub.py` |
+| H5 Integration: link check, PR to main, merge, Pages verification | in progress | f58e0178 | `COORDINATION.md` (this section), `README.md` (one link), `docs/index.html` |
+
+Rule: no value is entered unless read from an official page during this session; the page is linked on the row. Blank = unverified.
+
+### Completion records (2026-11-03)
+
+- **H1 audit** — `audit/INTEGRATION_AUDIT.md`, `scripts/audit_integration.py`, 15 flags in `data/hub_flags.csv`. Irregularities: H01 conflict markers on the live landing page (fixed), H02 wrong implied-probability formula in `scripts/model.py` (fixed; only 3 columns of `data/our_lines_2026-11-02.csv` changed), H03 wrong Brier numbers (fixed), H04-H14 flagged. Cross-scope edits (logged here instead of asked, because the owning sessions are all `done`): `scripts/model.py`, `scripts/build_site_own6.py` + regenerated `docs/own6/*`, `research/validation.md`, `research/strategies.md` (S-1 note), `data/our_lines_2026-11-02.csv`.
+- **H2** — `docs/dashboard.html` (calculator, conflict resolved from the HEAD side, nothing dropped); `docs/index.html` was independently repaired by session 7a28eb6c (merged concurrently, kept as-is); this session only added links to the data hub. Hub home is `docs/hub/index.html`.
+- **H3** — `data/results_2026-11-02.csv` (15 scores read from https://www.nba.com/games?date=2026-11-02), `data/reverification_results_2026-11-03.csv` (13 historical rows re-read, 13/13 match), `data/standings_live_2026-11-03.csv` (https://www.nba.com/standings; UTA row from the scoreboard card because the page text was cut off), `scripts/forward_test.py` -> `data/forward_test_*.csv`. Result: market >= Own6 on this 15-game slate, all intervals include 0; no gate passed.
+- **H4** — `docs/hub/**`, `scripts/build_hub.py`, `scripts/check_hub.py`, `.github/workflows/hub-ci.yml` (non-publishing CI). 12 pages, 354 table rows, each with an https source link; 0 errors.
+- Checks run after changes: `audit_integration.py`, `check_hub.py`, `tools/build_review.py --check`, `tools/check_site.py` (0 errors, 31 pre-existing advisories), `scripts/check_site.py`, `linkcheck.py`, `verify_data.py` (213/213), `check_lab.py`, `tools/run_tests.py` (5/5).
+- Deviation: odds/props remain in the data as UNVERIFIED secondary-source rows (flag H07) rather than being blanked, because every forward-test comparison depends on them. Owner can ask for blanking.
 ---
 
 ## Session arena/db20c549-own6 — CI integration audit
@@ -352,3 +374,10 @@ While PR #26 checks were passing, PR #22 moved `main`. Rebasing this fixed branc
 - GitHub Pages build/deployment run https://github.com/sassnarep3-star/Own6/actions/runs/41707148634 — **success**. Official GitHub API https://api.github.com/repos/sassnarep3-star/Own6/pages/builds reported merge SHA `86eca0f` **built**, updated 2026-11-03T19:51:57Z; Pages source remains `main:/`. Live `https://sassnarep3-star.github.io/Own6/docs/?v=86eca0f` rendered the repaired no-input dashboard with blank unverified values; `docs/lab/flagged.html` rendered source-linked flag rows. An immediately preceding concurrent build for `17ae371` was cancelled/errored during overlapping pushes, but the later merge build succeeded and is the one deployed. No deployment failure remains for this integration.
 - Final local checks on the merged tree: 29 pytest tests, `tools/release_gate.py`, `scripts/check_lab.py`, and the Pages HTML link/source checks passed. 31 advisory gaps in the separately owned verified pages remain **needs review**, not evidence of verified values; the lab Flagged page notes them. The historical prototype's third-party odds are not upgraded to first-party evidence.
 - This completion record is a coordination-only follow-up to merged PR #26 and requires its own PR to appear on `main`; it does not alter the published site.
+
+### Integration record — session f58e0178 (H5)
+
+- PR: https://github.com/sassnarep3-star/Own6/pull/29 (merge result and Pages deploy result are appended below after the merge).
+- Concurrent-merge handling: `main` advanced three times during this session (PRs #21-#27). Each time `origin/main` was merged into this branch (no rebase, nothing discarded). Conflicts: `COORDINATION.md` (both sections kept) and `docs/index.html` (session 7a28eb6c's repaired landing page kept; only hub links added).
+- Pre-merge gates all green on the merged tree: `audit_integration.py`, `check_hub.py`, `tools/release_gate.py`, `tools/build_review.py --check`, `tools/check_site.py` (0 errors), `scripts/check_site.py`, `linkcheck.py`, `verify_data.py`, `check_lab.py`, `check_report.py`, `pytest tests` (34 passed).
+

@@ -286,7 +286,7 @@ met = [
  ["Log-loss — model","0.6747",badge("best"),link("../../data/backtest_walkforward.csv","rows")],
  ["Log-loss — coin baseline","0.6932","baseline p=0.5",link("../../data/backtest_walkforward.csv","rows")],
  ["Log-loss — expanding home-win baseline","0.7059","baseline",link("../../data/backtest_walkforward.csv","rows")],
- ["Brier — model / coin","0.6654 / 0.6946","lower better",link("../../verification/backtest_metrics.csv","metrics")],
+ ["Brier — model / coin","0.2408 / 0.2500","lower better",link("../../verification/backtest_metrics.csv","metrics")],
  ["Straight-up accuracy (model fav)","59.8%","gate ≥55%",link("../../verification/backtest_metrics.csv","metrics")],
  ["r(predicted, actual margin)","0.210","walk-forward",link("../../verification/backtest_metrics.csv","metrics")],
  ["Totals MAE / baseline","16.45 / 16.80","tie → S-2 not deployed",link("../../verification/backtest_metrics.csv","metrics")],

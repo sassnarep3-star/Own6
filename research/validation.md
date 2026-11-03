@@ -64,7 +64,7 @@ game-level rows: [data/backtest_walkforward.csv](../data/backtest_walkforward.cs
 | Metric | Model | Baseline (coin) | Baseline (expanding home-win) |
 |---|---|---|---|
 | Log-loss (↓ better) | **0.6747** | 0.6932 | 0.7059 |
-| Brier (↓ better) | **0.6654** | 0.6946 | — |
+| Brier (↓ better) | **0.2408** | 0.2500 | — |
 | Straight-up sign accuracy | **59.8%** | 50.0% | 52.2% (season home WR) |
 | Pearson r(pred, actual margin) | **0.210** | — | — |
 | Totals MAE | 16.45 | — | 16.80 (expanding mean) |

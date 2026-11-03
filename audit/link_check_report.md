@@ -1,6 +1,6 @@
 # Site verification gate report
 
-- Strict pages checked: 12
+- Strict pages checked: 13
 - Other-session pages checked (advisory): 9
 - Directly verified official URLs in registry: 25
 - Strict errors: 0

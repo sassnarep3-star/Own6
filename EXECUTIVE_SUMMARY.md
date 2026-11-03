@@ -122,3 +122,20 @@ two places corrects the picture of — the combined summary above. Nothing above
   prop quote-side ambiguity, unavailable historical closing lines (CLV gate blocked), prior-season
   log gaps, the G1 failure itself, schedule-vs-feed line drift, ESPN secondary labeling,
   IND–BKN recap-slug mismatch. Full list: `docs/own6/flagged.html`.
+
+
+---
+
+## Integration update — 2026-11-03 (session `arena/f58e0178-own6`)
+
+Full, linked version: [`docs/hub/summary.html`](docs/hub/summary.html) (live: https://sassnarep3-star.github.io/Own6/docs/hub/summary.html).
+
+**Bottom line.** No Own6 strategy has a statistically supported edge; none is skill-eligible, so no rank or paper reward is awarded. The first dated forward test (15 games, 2026-11-02) found the market at least as accurate as Own6 on margin (MAE 9.70 vs 10.19), total (15.30 vs 16.29) and win probability (log-loss 0.575 vs 0.607), with every interval including zero. No profitability claim is made.
+
+**Verified against official NBA.com pages on 2026-11-03.** 15 new final scores; 13 historical scores re-read (13/13 match); win-loss records recomputed from all 107 result rows equal the official standings for all 30 teams. Not verified: 79 score rows at score level, the team-ratings snapshot, odds/props (secondary ESPN feed, flagged), and NBA/Korean legal questions.
+
+**Errors found and fixed.** (H01) the live landing page contained committed git conflict markers; (H02) market implied probabilities used a wrong formula, understating "edge vs fair" by about 10-17 points; (H03) Brier score was published as 0.6654/0.6946 instead of 0.2408/0.2500. Also flagged: four inconsistent gate registries (H04) and a leaderboard score that rewarded process compliance rather than skill (H05).
+
+**Correlations** (Pearson r, official results): same-game home vs away points +0.22 (n=107); same-game margin vs total +0.01 (n=107); cross-game same-date margins +0.11 (n=357 overlapping pairs, interval not reported); teammate points -0.42 (n=6, unusable).
+
+All open items: [Flagged for Review](docs/hub/flagged.html).
