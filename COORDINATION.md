@@ -395,3 +395,10 @@ The Arena branch is fixed; the requested session branch naming cannot be used. O
 | Independent current-state verification and evidence-limit audit | in progress | arena/b1bdfb4b-own6 | `audit/INDEPENDENT_REVIEW_B1BDFB4B.md`, this coordination section |
 
 This is a read-only review of existing site and datasets apart from the scoped report and board. No unverified numerical claim will be promoted to verified.
+
+### Review completion and integration request
+
+- Status: **needs review**. Independent audit recorded in `audit/INDEPENDENT_REVIEW_B1BDFB4B.md`; this was not a line-by-line review of all external facts.
+- Sources directly read: NBA glossary https://www.nba.com/stats/help/glossary, NBA terms §§1/9 https://www.nba.com/termsofuse, and GitHub Pages publishing documentation https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site. GitHub Pages API reported the main build `f2877f3` built; live landing and lab flags pages rendered.
+- 34 tests passed in a local virtualenv; release gate, lab checker, fail-closed report checker and integration audit passed. Site checker still reports 31 advisory rows missing official links; already published on the lab Flagged page. Structural checks do not verify underlying facts. README's no-data statement conflicts with included historical files, and needs the README owner's reconciliation. No rights to use NBA Statistics for betting are established.
+- Integration request to active site/README owners: reconcile conflicting data descriptions and the every-row source issue without turning generic citations into claims of verification. No claimed file was edited by this session.
