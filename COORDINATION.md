@@ -275,3 +275,5 @@ The Arena branch is fixed; no session-named branch will be created. Existing cla
 2026-11-03: PR #19 merged, but its Lab CI failed at “Audit upstream evidence.” E5's last branch commit was 2026-11-02 22:14 UTC (over 60 minutes ago), so this session takes over the stale E5 CI repair scope `.github/workflows/lab-ci.yml`. The audit needs historical commit `77a28cc`; checkout defaults to a shallow clone. Original E5 owner is credited above. The earlier E5 status is not evidence of successful CI.
 
 Rebase conflict on this board after PR #20 landed: retained the entire upstream `arena/f56f0055-own6` section and appended this session's section; no other session's work was discarded.
+
+2026-11-03: Found a rendering defect in the lab generator: table rows contain Python generator-object representations instead of cells. E3's last owner commit is older than 60 minutes; this session takes over the stale E3 repair scope `scripts/build_lab.py`, `scripts/check_lab.py`, `docs/lab/**` and `tests/empirical/test_site_tables.py`. Generated pages will be rebuilt and tested. This is independent of the pre-existing official-source gaps.
