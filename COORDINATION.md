@@ -477,3 +477,5 @@ P4 combined-tree verification on top of PR #33: **55/55 pytest tests passed**. I
 P4 integration PR: https://github.com/sassnarep3-star/Own6/pull/34 . Final pre-merge CI and live Pages evidence will be appended after the operation; no success is claimed in advance.
 
 P4 second coordination-only rebase: while PR #34's eight reported jobs were green, PR #35 appended the source-coverage deployment record on `main`, making #34 temporarily conflicted. Pulled/rebased again; retained all upstream completion evidence and this section. No code/data/site conflict occurred. Updated-head checks must pass before merge.
+
+P4 third concurrent integration: GitHub first returned a transient merge GraphQL error, then reported conflicts after PR #36 moved `main`. No merge had occurred. Pulled/rebased again and preserved both entire coordination sections; no other files conflicted. Upstream #36 withholds unsupported hub values; this session preserves that repair. Rechecking the newly combined tree before a fresh merge attempt.
