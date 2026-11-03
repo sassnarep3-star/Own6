@@ -451,3 +451,43 @@ Initial finding: `scripts/build_hub.py` publishes ESPN-carried market/prop numbe
 ### P3 concurrent integration resolution
 
 `main` advanced through PR #33 (additive source-coverage audit) and #35 (its release record) while this session implemented its separately claimed hub repair. `git pull --rebase origin main` conflicted only at the appended end of `COORDINATION.md`. Resolved by retaining the complete upstream fd5276fa section and this session's separate claim/completion sections; no upstream source, data or code was discarded. Rebased tree: 56 pytest tests plus 6 subtests pass; hub checker reports 335 source-linked rows, no errors; release gate passes. New source-coverage artifacts are a historical snapshot; its CI rebuilds coverage for the exact tested tree rather than implying that its older checked-in inventory is current. Other sessions' output files were not regenerated or edited here.
+---
+
+## Session arena/197aa3f0-own6 — line-by-line reverification and Flagged-for-Review publication (claimed 2026-11-03)
+
+### Branch rule (deviation logged)
+
+The brief asked for `session-<id>/<task>` branches. The Arena session rule fixes this session to **`arena/197aa3f0-own6`** and forbids other branches, so all work is on that branch. File scopes below are kept disjoint from the open PRs at claim time (#23, #28, #31, #32), so their owners can merge without conflict.
+
+### Task board (session 197aa3f0)
+
+| Task | Status | Owner session | Exclusive files | Notes |
+|---|---|---|---|---|
+| R1 Line-by-line reverification of legal (국민체육진흥법), NBA-policy and site claims, with official-source links per row; publish as a separate page | in progress | arena/197aa3f0-own6 | `data/line_reverification_2026-11-03.csv`, `scripts/build_reverification.py`, `tests/test_reverification.py`, `docs/reverification/**`, this section of `COORDINATION.md` | Does not edit `docs/index.html` navigation, `docs/verified/**`, `data/nba_policy.json`, `data/legal_kr.json`, `EXECUTIVE_SUMMARY.md` or `README.md`; those are logged as requests below. |
+
+### Status legend
+
+`unclaimed` · `in progress` · `done` · `needs review` (published on the Flagged for Review page; does not block anything)
+
+### Requests to file owners (logged, not edited)
+
+| Request | Target file (owner) | Requested change |
+|---|---|---|
+| Q-1 | `data/nba_policy.json` row 2, and generated `docs/verified/nba-policy.html` (owner: session 05e359b8 / integration) | The official NBABet list dated July 9, 2026 does not include **Brazil**. Remove Brazil from the country list in `official_statement_verified`, then regenerate the page. Source: https://www.nba.com/nbabet/official-nba-gaming-partners-and-operators-2 (read 2026-11-03). |
+| Q-2 | `docs/verified/strategies.html`, `docs/hub/validation.html`, `docs/verified/methodology.html` and related pages (owner: integration) vs `nba_lab/gates.py` | Two different gate frameworks use the same IDs. The verified/hub pages use G1–G8 (G1 = Korean legal review), while the lab uses ten gates (G01–G10, G01 = rights and market permission). Rename one set or add an explicit crosswalk. |
+| Q-3 | `docs/verified/{flagged,methodology,nba-policy,sources,strategies}.html` (owner: integration) | 31 table rows still have no official source link (advisory from `tools/check_site.py`). Add a link to an official URL or mark the row unverified. |
+| Q-4 | `docs/index.html` navigation (owner: integration) | Add a link to the new page `docs/reverification/index.html` once merged. |
+| Q-5 | `data/legal_kr.json`, row "제53조 / 제54조" (owner: session 05e359b8) | The summary "corporate liability" is incomplete. Art. 54 (양벌규정) applies only to violations of Art. 47 item 2 (제47조제2호). |
+| Q-6 | `data/legal_kr.json` meta (owner: session 05e359b8) | The law.go.kr page shows several articles with later effective dates (Art. 21: 시행일 2026. 12. 3.; Art. 22: 시행일 2027. 4. 21.). The repo cites the 2026. 9. 3. header, which is correct for that version. Add an "as-of" note. |
+
+### Open PRs at claim time (not touched by this session)
+
+#23 (`arena/db20c549-own6`), #28 (`arena/269a73e2-own6`, conflicting), #31 (`arena/74d27b5d-own6`), #32 (`arena/b1bdfb4b-own6`). Their owners should merge or close them. This session does not merge other sessions' PRs.
+
+### Completion record
+
+Pending. Sources, verification performed and merge result will be recorded here before the PR is merged.
+
+### Coordination note on concurrent work
+
+Session `arena/fd5276fa-own6` (PR #33, merged) published sitewide source-coverage findings under `docs/coverage/**`. That work audits link coverage per row. This session (R1) checks factual claims against official text, so the file scopes do not overlap. R1 will link to the `docs/coverage/` audit rather than repeat it.
