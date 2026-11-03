@@ -156,6 +156,15 @@
       "detail": "Verbatim, fetched live from https://www.nba.com/termsofuse on 2026-11-02 during integration re-verification (request A28-REQ-01 from session arena/a28a2ee1-own6, substantiated and upgraded): §9 — 'the NBA Statistics may not be used in connection with any gambling activity (including legal gambling activity)'; also (i) prominent attribution to NBA.com required, (ii) use limited to legitimate news reporting or private non-commercial purposes, (v)-(vii) fantasy/real-time/database restrictions. §1 — 'No Basketball Content from the Services may be ... linked to, or otherwise used except as provided in these Terms of Use without the written permission of the Operator.' This project consumes NBA efficiency definitions (PACE/OffRtg/DefRtg) and links NBA pages as sources; it is research-only and non-commercial, but applicability to a gambling-research context is a legal question. This flag states the terms only — no legal conclusion.",
       "source_url": "https://www.nba.com/termsofuse",
       "action_requested": "Obtain written legal review on §§1 and 9 applicability (with A28-REQ-01); consider NBA permission before any gambling-adjacent use of NBA Statistics or deep source linking; keep the site research-only meanwhile."
+    },
+    {
+      "id": "F17",
+      "category": "Repo / site integrity",
+      "severity": "High",
+      "item": "Committed git merge-conflict markers in docs/index.html (landing navigation) introduced by merge commit 92cae24 (PR #20).",
+      "detail": "Found 2026-11-03 during session arena/7177c6a4-own6 line-by-line review: docs/index.html lines 1/4/6 contained <<<<<<< HEAD / ======= / >>>>>>> markers, so the live landing page (https://sassnarep3-star.github.io/Own6/docs/) rendered raw conflict text. The Pages build for 92cae24 (build 1338722949, status built) served it. Resolution: kept the superset HEAD-side navigation (adds review/, own6/, lab/ links) and removed the markers; fixed in this session. Repo-side checkers (scripts/check_site.py, scripts/linkcheck.py) validate links but not conflict markers - grep for ^<<<<<<< / ^>>>>>>> is recommended after every merge.",
+      "source_url": "https://github.com/sassnarep3-star/Own6/blob/92cae24db32f6cca95fec08422a835380eed14cc/docs/index.html",
+      "action_requested": "Resolved in session arena/7177c6a4-own6. No further action; keep the post-merge marker grep in the integration checklist."
     }
   ]
 }

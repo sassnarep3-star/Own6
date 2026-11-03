@@ -122,3 +122,24 @@ two places corrects the picture of — the combined summary above. Nothing above
   prop quote-side ambiguity, unavailable historical closing lines (CLV gate blocked), prior-season
   log gaps, the G1 failure itself, schedule-vs-feed line drift, ESPN secondary labeling,
   IND–BKN recap-slug mismatch. Full list: `docs/own6/flagged.html`.
+
+---
+
+## Session `arena/7177c6a4-own6` — full re-review, repair, and close-out (2026-11-03)
+
+Independent line-by-line re-review of the merged repo at `92cae24` (= `main` at session start). No content from other sessions was removed; changes are listed below.
+
+**Tooling re-run (all pass):** `scripts/check_site.py` OK (9 pages, no broken links, external links https) · `scripts/linkcheck.py` PASS (7 pages, 322 links, 240/240 data rows sourced) · `scripts/check_lab.py` OK (8 pages) · `scripts/verify_data.py` 213/213 · `scripts/check_report.py` OK · `tools/check_site.py` 12 strict pages, 0 errors (31 pre-existing advisory rows in `docs/verified/` editorial tables, already flagged) · `tools/build_review.py --check` OK · `pytest tests -q` 20 passed (venv with pinned `requirements-empirical.txt`) · `scripts/run_lab.py` FAIL-CLOSED `not_run` (0 authorized observations, 6 strategies, 10 gates — no fabricated results) · `git diff --check` clean.
+
+**Live official-source spot checks on 2026-11-03 (direct retrieval, not snippets):**
+- [NBA Stats Glossary](https://www.nba.com/stats/help/glossary): PACE = "The number of possessions per 48 minutes for a team or player"; OffRtg = "Measures a team's points scored per 100 possessions"; NetRtg = "point differential per 100 possessions … Formula OFFRTG - DEFRTG" — matches `data/verification_log.csv` V02 exactly.
+- [NBA.com Terms of Use](https://www.nba.com/termsofuse) §9(iv): "the NBA Statistics may not be used in connection with any gambling activity (including legal gambling activity)" — matches V25 / flag F16 verbatim.
+- [NBA Standings](https://www.nba.com/standings): live 2026-27 table retrieved (e.g., PHI 7-1, HOU 7-1). The repo's `data/standings_2026-27.csv` is a dated 2026-11-02 snapshot (pre–Nov-2 games: PHI 6-1); the movement since is the Nov 2 results, not an error — recomputation checks 213/213 pass.
+- Game pages exist and match rows: [0022600001 BOS@DET Oct 20, 2026](https://www.nba.com/game/bos-vs-det-0022600001), [0022600158 OKC@CLE Nov 2, 2026](https://www.nba.com/game/okc-vs-cle-0022600158).
+- GitHub Pages API (`api.github.com/repos/sassnarep3-star/Own6/pages`): legacy `main` root source, status `built`; build 1338722949 for `92cae24` = `built` (2026-11-03T19:45:56Z).
+
+**Irregularity found and fixed (new flag F17, published on the Flagged for Review pages):** merge commit `92cae24` (PR #20) committed unresolved git conflict markers (`<<<<<<< HEAD` / `=======` / `>>>>>>> 111ab29`) into `docs/index.html`, and the live landing page https://sassnarep3-star.github.io/Own6/docs/ rendered the raw marker text (confirmed by live fetch 2026-11-03). Fixed by keeping the superset HEAD-side navigation (adds `review/`, `own6/`, `lab/` links) and removing the markers; `data/flags.json` gained F17 and `docs/verified/flagged.html` + `docs/verified/index.html` were regenerated with `scripts/build_site.py`. Recommendation logged in F17: grep for conflict markers after every merge (the link checkers do not catch them).
+
+**Standing flags unchanged and non-blocking:** F16/A28-REQ-01 (NBA ToU §§1/9 — research-only posture kept; no NBA statistics values ingested by the engine, citations only), F01–F03 (Korean law review + unverified press-reported NBA prop restrictions), F04/F05 (no verified odds source; Nov 2 slate only), F13 (G1–G8 label collision across gate sets), no LICENSE file. No profitability or edge claim anywhere; leaderboard remains empty by design until gates pass on authorized data.
+
+**PR / merge / Pages record:** see the `arena/7177c6a4-own6` section of [`COORDINATION.md`](COORDINATION.md).
