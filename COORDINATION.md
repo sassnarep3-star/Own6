@@ -383,3 +383,17 @@ While PR #26 checks were passing, PR #22 moved `main`. Rebasing this fixed branc
 - Pages deploy: GitHub Pages API reports source `main:/`, latest build for `9d4a2d8` status `built` (2026-11-03T19:57:04Z, no error). Live re-read via fetch: https://sassnarep3-star.github.io/Own6/docs/hub/index.html, .../hub/forward-test.html and .../docs/index.html (repaired landing page with the new Data hub card) all render correctly. A first fetch of `/docs/` returned a stale cached copy with the old conflict markers; a cache-busted fetch (`?v=...`) returned the repaired page, so the stale copy is CDN caching, not the deployed file.
 - This record: follow-up PR (coordination file + hub flag status only).
 
+
+---
+
+## Session arena/fd5276fa-own6 — sitewide source coverage acceptance (2026-11-03)
+
+Fixed Arena branch `arena/fd5276fa-own6` is used instead of creating a session branch. Active PR #31 (assurance/model hardening), #28 (legacy review repairs), and #23 (coordination follow-up) are not claimed or modified by this session. Historical task statuses above are retained, not treated as current exclusive claims without their later completion logs.
+
+| Task | Status | Owner | Exclusive scope |
+|---|---|---|---|
+| SC1 Independently inventory every published HTML table row and classify official source-link coverage without claiming factual verification | in progress | arena/fd5276fa-own6 | `scripts/source_coverage.py`, `tests/test_source_coverage.py`, `data/source_coverage/**` |
+| SC2 Publish a source-coverage executive summary, complete row inventory, and Flagged for Review | in progress | arena/fd5276fa-own6 | `docs/coverage/**`, `audit/SOURCE_COVERAGE.md` |
+| SC3 Automate source-coverage regression check; integrate, PR, merge, verify Pages deployment | in progress | arena/fd5276fa-own6 | `.github/workflows/source-coverage.yml`, this section of `COORDINATION.md` |
+
+Claim recorded before implementation. Scope excludes existing indexes/navigation/data/model files. Integration request to PR #31 owner: add a navigation link to `../coverage/index.html` if desired after this additive site is published; do not interpret official-link coverage as row verification. This audit will link directly to the official references and preserve blanks for unconfirmed empirical measurements. Sources cannot be called checked if network access prevents reading them.
