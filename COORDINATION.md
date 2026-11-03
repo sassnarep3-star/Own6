@@ -418,3 +418,36 @@ Claim recorded before implementation. Scope excludes existing indexes/navigation
 - Post-merge local snapshot check passes; 44 tests passed pre-merge, and all 1,392 rows in the five new audit pages have repository evidence and/or official references. Release gate reports zero broken internal links/merge markers. Legacy external-reference gaps remain needs review and are published, not blockers or silently marked verified.
 - GitHub's managed Pages job emits Node 20 deprecation and upcoming runner-label annotations but succeeds under its forced Node 24 environment; these are platform annotations, not a failed deployment. No custom Pages publisher was introduced.
 - This is a coordination-only close-out record for the already deployed PR #33, submitted via a follow-up PR on the same fixed branch so merge/deploy evidence is preserved on main. Navigation request sent directly to the active PR #31 owner: https://github.com/sassnarep3-star/Own6/pull/31#issuecomment-6618260332 . That other session's open work was not merged or changed by this session.
+
+---
+
+## Session arena/2dbac92a-own6 — strict hub publication repair (2026-11-03)
+
+Branch is fixed by Arena to `arena/2dbac92a-own6`; no additional branch is created. Read the entire existing board and checked open PR scopes (#28, #31, #23) before claiming. Their implementation scopes remain untouched.
+
+| Task | Status | Owner session | Exclusive files |
+|---|---|---|---|
+| P1 Fail-closed hub numeric publication, source-specific references and regression gate | in progress | arena/2dbac92a-own6 | `scripts/build_hub.py`, `scripts/check_hub.py`, `tests/test_hub_publication.py`, `data/hub_publication_policy.json`, `docs/hub/*.html`, `.github/workflows/hub-ci.yml` |
+| P2 Independent summary, source/evidence limitations, release record | in progress | arena/2dbac92a-own6 | `audit/HUB_PUBLICATION_2026_11_03.md`, this section of `COORDINATION.md` |
+| P3 Integration checks, PR/merge and Pages deployment | unclaimed | arena/2dbac92a-own6 | scope above only |
+
+Initial finding: `scripts/build_hub.py` publishes ESPN-carried market/prop numbers with an UNVERIFIED badge, explicitly contrary to the user's blank-unconfirmed-values rule. Source-domain/link checks cannot verify individual values. This session will withhold unconfirmed numeric fields rather than manufacture first-party evidence; retain raw files and earlier sites for provenance, clearly distinguish official-reference links from verified-value evidence, and publish the limitation on the hub Flagged page. Official primary repository evidence: https://github.com/sassnarep3-star/Own6/blob/main/scripts/build_hub.py and https://github.com/sassnarep3-star/Own6/blob/main/data/hub_flags.csv . No direct NBA page access is claimed in this session; outbound hosts are restricted. PR #31's assurance and model-engine scopes and PR #28's legacy-review scopes are not claimed.
+
+### P1/P2 completion and model-owner request
+
+- P1 done: 12 hub pages now withhold 1,367 observation/output fields from 253 local CSV records in 10 dataset tables. No raw data changed. Unsupported identities as well as numeric values are blank; local CSV record indices identify repository records only. Each dataset row has an explicit UNVERIFIED flag, primary repository provenance and official review reference, which is not represented as value proof.
+- Added a fail-closed policy with no accepted value evidence or manual override; checker independently enforces page/dataset/record/field coverage, empty cells, visible flags and source boundaries. 12 failure-path regression tests pass. Hub CI exercises them.
+- P2 done: `audit/HUB_PUBLICATION_2026_11_03.md` is the executive summary and exact evidence-boundary report. Directly read official SciPy Pearson and scikit-learn time-series/Brier docs via GitHub Contents API, pinned commits linked in policy and source page. No NBA.com direct access is claimed (network allowlist); no basketball value promoted from historical verification badges. Authored proposals are labeled, not falsely sourced as NBA conclusions.
+- Concrete cross-scope repair request to active engine owner: https://github.com/sassnarep3-star/Own6/pull/31#issuecomment-6618275302 . The inspected `nba_lab/gates.py` paired Brier edge uses market-minus-model instead of market-minus-outcome in the market squared-error term. Posted exact formula and required identical-forecast regression; do not edit their gate scope. Published needs-review flag until confirmed repaired.
+- Preliminary checks: 46 pytest tests plus 6 subtests pass; 335 sourced hub rows; integration audit, release gate, review generation, lab and report checkers, original linkcheck, recomputation (213/213) and verified-site check pass. Existing 31 official-link advisory gaps remain outside scope and are explicitly flagged; link checks do not verify facts.
+- Claim push note: remote session branch did not exist initially, so initial pull against it failed without changing files; pulled/rebased from `main` then pushed the claim to the fixed branch before implementation.
+
+| Task | Status | Owner session | Files |
+|---|---|---|---|
+| P1 Strict hub publication and regression gate | done | arena/2dbac92a-own6 | claimed scope only |
+| P2 Executive review and evidence limits | done | arena/2dbac92a-own6 | claimed scope only |
+| P3 Rebase integration, full checks, PR/merge and Pages verification | in progress | arena/2dbac92a-own6 | claimed scope only |
+
+### P3 concurrent integration resolution
+
+`main` advanced through PR #33 (additive source-coverage audit) and #35 (its release record) while this session implemented its separately claimed hub repair. `git pull --rebase origin main` conflicted only at the appended end of `COORDINATION.md`. Resolved by retaining the complete upstream fd5276fa section and this session's separate claim/completion sections; no upstream source, data or code was discarded. Rebased tree: 56 pytest tests plus 6 subtests pass; hub checker reports 335 source-linked rows, no errors; release gate passes. New source-coverage artifacts are a historical snapshot; its CI rebuilds coverage for the exact tested tree rather than implying that its older checked-in inventory is current. Other sessions' output files were not regenerated or edited here.

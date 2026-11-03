@@ -23,5 +23,7 @@ jobs:
         run: |
           python3 scripts/build_hub.py
           git diff --exit-code -- docs/hub
-      - name: Hub links and per-row sources
+      - name: Hub links, row coverage and blank-unconfirmed publication
         run: python3 scripts/check_hub.py
+      - name: Publication failure-path regressions
+        run: python3 -m unittest discover -s tests -p test_hub_publication.py -v
