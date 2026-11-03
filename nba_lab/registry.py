@@ -16,11 +16,15 @@ NIST = "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm"
 BONFERRONI = "https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm"
 
 CONFIG = {
-    "version": "1.0.0",
+    "version": "1.1.0",
     "family_size": 6,
     "min_bets": 200,
     "min_events": 200,
     "min_nonpush": 200,
+    "min_slates": 60,
+    "min_paired_events": 200,
+    "qualification_tests_per_strategy": 4,
+    "cluster_unit": "Eastern calendar date of event start (project convention)",
     "alpha": 0.05,
     "bootstrap_iterations": 10000,
     "bootstrap_seed": 20261102,
@@ -40,6 +44,7 @@ EXTERNAL_EVIDENCE = {
     "ledger_audited": False,
     "preregistered": False,
     "dependence_verified": False,
+    "power_verified": False,
 }
 
 STRATEGIES = [
@@ -114,12 +119,12 @@ GATE_DEFINITIONS = [
     {"id": "G01", "name": "Rights and market permission", "rule": "Documented rights for the intended use and an authorized market; no self-asserted permission.", "source_url": TERMS},
     {"id": "G02", "name": "Field-level provenance", "rule": "Official provider URLs, source hashes, settlement rules and independently reviewed provenance for every observation.", "source_url": TERMS},
     {"id": "G03", "name": "Chronological walk-forward", "rule": "Features and fits precede decisions; decisions precede events; qualification uses only the untouched chronological holdout.", "source_url": NIST},
-    {"id": "G04", "name": "Effective sample size", "rule": "At least 200 holdout bets, 200 distinct event clusters and 200 non-push scoring observations per candidate.", "source_url": NIST},
-    {"id": "G05", "name": "Market-relative predictive quality", "rule": "Positive Brier and log-loss improvement versus the same-selection de-vigged market; event-clustered lower bounds above zero. Reliability bins are reported separately.", "source_url": CALIBRATION},
-    {"id": "G06", "name": "Post-vig profitability", "rule": "Positive unit-stake holdout ROI with an event-clustered 95% bootstrap lower bound above zero.", "source_url": NIST},
-    {"id": "G07", "name": "Closing-line value", "rule": "Positive mean log(offered price / closing price) for identical selections/lines, with an event-clustered lower bound above zero.", "source_url": NIST},
-    {"id": "G08", "name": "Luck and multiple testing", "rule": "Heterogeneous-price Poisson-binomial diagnostic, Bonferroni-adjusted across all six frozen candidates; never sufficient without the cluster-robust gates.", "source_url": BONFERRONI},
-    {"id": "G09", "name": "Joint dependence", "rule": "Singles use event clustering; combos additionally require training-only joint evidence, adequate paired samples and provider permission. Missing is not independence.", "source_url": TERMS},
+    {"id": "G04", "name": "Effective sample size", "rule": "At least 200 holdout bets, 200 distinct events, 60 slate clusters and 200 non-push observations, plus a supplied training-only power/precision audit.", "source_url": NIST},
+    {"id": "G05", "name": "Market-relative predictive quality", "rule": "Positive Brier and log-loss improvement versus the same-selection de-vigged market; slate-clustered lower bounds above zero. Reliability bins are reported separately.", "source_url": CALIBRATION},
+    {"id": "G06", "name": "Post-vig profitability", "rule": "Positive unit-stake holdout ROI with a slate-clustered 95% bootstrap lower bound above zero.", "source_url": NIST},
+    {"id": "G07", "name": "Closing-line value", "rule": "Positive mean log(closing fair probability / entry fair probability) for identical selections/lines, with a slate-clustered lower bound above zero. Moved lines have blank CLV and block this gate.", "source_url": NIST},
+    {"id": "G08", "name": "Luck and multiple testing", "rule": "Bonferroni across the four qualification statistics (ROI, Brier edge, log-loss edge, CLV) for all six frozen candidates. The independent-trial win-count test is diagnostic only.", "source_url": BONFERRONI},
+    {"id": "G09", "name": "Joint dependence", "rule": "Singles use slate clustering; combos additionally require a strict training-only paired residual sample, clustered correlation interval, joint hit evidence and provider permission. Missing is not independence.", "source_url": TERMS},
     {"id": "G10", "name": "Frozen, auditable ledger", "rule": "Preregistered candidate family and thresholds, immutable model versions, independent timestamp/ledger audit and reproducible artifacts.", "source_url": "https://github.com/sassnarep3-star/Own6/blob/main/research/empirical/DATA_CONTRACT.md"},
 ]
 

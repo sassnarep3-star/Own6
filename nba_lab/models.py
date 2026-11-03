@@ -74,8 +74,10 @@ def shrunk_prop_projection(minutes, points, league_rate: float, shrinkage_n: flo
     p = np.asarray(points, dtype=float)
     if m.ndim != 1 or p.ndim != 1 or len(m) != len(p) or len(m) < 2:
         raise ValueError("prop fit requires aligned samples of at least two prior games")
-    if not np.isfinite(m).all() or not np.isfinite(p).all() or np.any(m <= 0) or np.any(p < 0):
-        raise ValueError("minutes must be positive and points nonnegative")
+    if not np.isfinite(m).all() or not np.isfinite(p).all() or np.any(m < 0) or np.any(p < 0) or float(m.sum()) <= 0:
+        raise ValueError("minutes must be nonnegative with positive total, and points nonnegative")
+    if np.any((m == 0) & (p > 0)):
+        raise ValueError("points cannot be positive in a zero-minute observation")
     if not np.isfinite(league_rate) or league_rate < 0 or not np.isfinite(shrinkage_n) or shrinkage_n <= 0:
         raise ValueError("league rate must be nonnegative and shrinkage count positive")
     recent_rate = float(p.sum() / m.sum())

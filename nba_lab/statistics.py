@@ -86,7 +86,13 @@ def cluster_bootstrap(values: Sequence[float], groups: Sequence[str], *, iterati
     idx = rng.integers(0, len(arr), size=(iterations, len(arr)))
     means = arr[idx, 0].sum(axis=1) / arr[idx, 1].sum(axis=1)
     low, high = np.quantile(means, [alpha / 2, 1 - alpha / 2])
-    return {"mean": float(arr[:, 0].sum() / arr[:, 1].sum()), "lower": float(low), "upper": float(high), "n_observations": len(values), "n_clusters": len(arr), "iterations": iterations, "seed": seed, "method": "Percentile bootstrap of whole event clusters; serial dependence is not eliminated."}
+    # One-sided bootstrap achievement p-value for H0: mean <= 0. This is an
+    # approximate percentile-bootstrap diagnostic, not an exact randomization test.
+    p_greater = float((1 + np.count_nonzero(means <= 0)) / (iterations + 1))
+    return {"mean": float(arr[:, 0].sum() / arr[:, 1].sum()), "lower": float(low), "upper": float(high),
+            "p_one_sided_greater": p_greater, "n_observations": len(values), "n_clusters": len(arr),
+            "iterations": iterations, "seed": seed,
+            "method": "Percentile bootstrap of whole clusters; serial dependence is not eliminated. p is approximate."}
 
 
 def bonferroni(pvals: Sequence[float]) -> dict:
@@ -135,3 +141,40 @@ def max_drawdown(returns: Sequence[float]) -> float | None:
     equity = np.concatenate(([0.0], np.cumsum(r)))
     peak = np.maximum.accumulate(equity)
     return float(np.max(peak - equity))
+
+
+def cluster_correlation(xs: Sequence[float], ys: Sequence[float], groups: Sequence[str], *,
+                        iterations: int = 10000, seed: int = 20261102, alpha: float = 0.05) -> dict:
+    """Pearson/phi estimate with a paired whole-cluster percentile interval.
+
+    Zero residuals are valid observations and are retained. Undefined resamples
+    (a constant leg) are skipped; too many undefined resamples block the estimate.
+    This interval assumes the supplied clusters are the relevant dependence unit.
+    """
+    point = pearson_pair(xs, ys)
+    if len(groups) != len(xs):
+        raise ValueError("correlation groups must align with paired observations")
+    if not isinstance(iterations, int) or iterations < 100 or not 0 < alpha < 1:
+        raise ValueError("invalid bootstrap configuration")
+    by_group: dict[str, list[int]] = defaultdict(list)
+    for i, group in enumerate(groups):
+        if not isinstance(group, str) or not group:
+            raise ValueError("cluster IDs must be nonempty strings")
+        by_group[group].append(i)
+    keys = sorted(by_group)
+    x, y = np.asarray(xs, dtype=float), np.asarray(ys, dtype=float)
+    rng = np.random.default_rng(seed)
+    draws = rng.integers(0, len(keys), size=(iterations, len(keys)))
+    estimates = []
+    for draw in draws:
+        idx = np.concatenate([np.asarray(by_group[keys[k]], dtype=int) for k in draw])
+        xx, yy = x[idx], y[idx]
+        if np.ptp(xx) == 0 or np.ptp(yy) == 0:
+            continue
+        estimates.append(float(np.corrcoef(xx, yy)[0, 1]))
+    if len(estimates) < max(100, iterations // 2):
+        raise ValueError("too many undefined correlation resamples; estimate is unstable")
+    low, high = np.quantile(estimates, [alpha / 2, 1 - alpha / 2])
+    return {**point, "ci_low": float(low), "ci_high": float(high), "n_clusters": len(keys),
+            "valid_resamples": len(estimates), "iterations": iterations, "seed": seed,
+            "method": "Paired Pearson/phi with whole-cluster percentile bootstrap; zeros retained; not causal."}

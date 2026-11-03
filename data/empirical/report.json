@@ -3,12 +3,16 @@
     "alpha": 0.05,
     "bootstrap_iterations": 10000,
     "bootstrap_seed": 20261102,
+    "cluster_unit": "Eastern calendar date of event start (project convention)",
     "family_size": 6,
     "min_bets": 200,
     "min_events": 200,
     "min_nonpush": 200,
+    "min_paired_events": 200,
+    "min_slates": 60,
     "minimum_expected_value": 0.02,
     "minimum_model_edge": 0.02,
+    "qualification_tests_per_strategy": 4,
     "ranking_metric": "Lower bound of event-clustered holdout ROI; only all-gate qualifiers are ranked.",
     "reward_policy": "Non-monetary research priority only; no payouts, stakes, or betting recommendations.",
     "split_order": [
@@ -17,22 +21,24 @@
       "holdout"
     ],
     "stake_units": 1.0,
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
-  "config_sha256": "b090dc8e9d2205de975aa3e5efc3d283995be5d09c89f7a40ee55953dda5bd27",
+  "config_sha256": "6757451deb9f1aa4bb99685860985cffcb85c4c7196365b19110aa7612be4f76",
   "correlations": [
     {
       "ci_high": null,
       "ci_low": null,
       "estimate": null,
       "id": "C-01",
+      "joint": null,
       "leg_a": "Player A points-over residual",
       "leg_b": "Player B points-over residual",
       "method": "Pearson phi on paired binary residual hits; event-bootstrap interval; training folds only.",
       "n": null,
+      "n_clusters": null,
       "reason": "No authorized paired training residuals are available. Do not infer independence.",
       "scope": "Same game, two players",
-      "source_dataset": "Authorized residual file required; observations.csv holds binary outcomes only.",
+      "source_dataset": "Strict authorized training residual file required; no holdout residuals are used.",
       "source_url": "https://www.nba.com/termsofuse#nba-statistics",
       "status": "unverified"
     },
@@ -41,13 +47,15 @@
       "ci_low": null,
       "estimate": null,
       "id": "C-02",
+      "joint": null,
       "leg_a": "Player points residual",
       "leg_b": "Same player assists residual",
       "method": "Pearson correlation of paired continuous residual outcomes; event-bootstrap interval.",
       "n": null,
+      "n_clusters": null,
       "reason": "No authorized paired training residuals are available. Do not infer independence.",
       "scope": "Same player, same game",
-      "source_dataset": "Authorized residual file required; observations.csv holds binary outcomes only.",
+      "source_dataset": "Strict authorized training residual file required; no holdout residuals are used.",
       "source_url": "https://www.nba.com/termsofuse#nba-statistics",
       "status": "unverified"
     },
@@ -56,13 +64,15 @@
       "ci_low": null,
       "estimate": null,
       "id": "C-03",
+      "joint": null,
       "leg_a": "Team-total residual",
       "leg_b": "Game-total residual",
       "method": "Paired residual correlation; mechanical overlap disclosed; not a causal estimate.",
       "n": null,
+      "n_clusters": null,
       "reason": "No authorized paired training residuals are available. Do not infer independence.",
       "scope": "Same game",
-      "source_dataset": "Authorized residual file required; observations.csv holds binary outcomes only.",
+      "source_dataset": "Strict authorized training residual file required; no holdout residuals are used.",
       "source_url": "https://www.nba.com/termsofuse#nba-statistics",
       "status": "unverified"
     },
@@ -71,13 +81,15 @@
       "ci_low": null,
       "estimate": null,
       "id": "C-04",
+      "joint": null,
       "leg_a": "Home margin residual",
       "leg_b": "Starter minutes residual",
       "method": "Paired residual correlation; blowout/rotation confounding disclosed.",
       "n": null,
+      "n_clusters": null,
       "reason": "No authorized paired training residuals are available. Do not infer independence.",
       "scope": "Same game",
-      "source_dataset": "Authorized residual file required; observations.csv holds binary outcomes only.",
+      "source_dataset": "Strict authorized training residual file required; no holdout residuals are used.",
       "source_url": "https://www.nba.com/termsofuse#nba-statistics",
       "status": "unverified"
     },
@@ -86,13 +98,15 @@
       "ci_low": null,
       "estimate": null,
       "id": "C-05",
+      "joint": null,
       "leg_a": "Game A favorite win indicator",
       "leg_b": "Game B favorite win indicator",
       "method": "Slate-clustered residual dependence; zero is not assumed.",
       "n": null,
+      "n_clusters": null,
       "reason": "No authorized paired training residuals are available. Do not infer independence.",
       "scope": "Different games, same slate",
-      "source_dataset": "Authorized residual file required; observations.csv holds binary outcomes only.",
+      "source_dataset": "Strict authorized training residual file required; no holdout residuals are used.",
       "source_url": "https://www.nba.com/termsofuse#nba-statistics",
       "status": "unverified"
     },
@@ -101,22 +115,28 @@
       "ci_low": null,
       "estimate": null,
       "id": "C-06",
+      "joint": null,
       "leg_a": "Player points residual",
       "leg_b": "Same player rebounds residual",
       "method": "Paired residual correlation with minutes/pace exposure disclosed.",
       "n": null,
+      "n_clusters": null,
       "reason": "No authorized paired training residuals are available. Do not infer independence.",
       "scope": "Same player, same game",
-      "source_dataset": "Authorized residual file required; observations.csv holds binary outcomes only.",
+      "source_dataset": "Strict authorized training residual file required; no holdout residuals are used.",
       "source_url": "https://www.nba.com/termsofuse#nba-statistics",
       "status": "unverified"
     }
   ],
   "external_evidence": {
+    "config_sha256": "6757451deb9f1aa4bb99685860985cffcb85c4c7196365b19110aa7612be4f76",
     "dependence_verified": false,
     "ledger_audited": false,
+    "ledger_sha256": "324b14d7deaef613eb23e9bab1060dbf94e022609740eed26b41a13de5d27bcb",
+    "power_verified": false,
     "preregistered": false,
     "provenance_verified": false,
+    "records": [],
     "rights_verified": false,
     "walk_forward_verified": false
   },
@@ -131,7 +151,7 @@
         {
           "id": "G01",
           "name": "Rights and market permission",
-          "reason": "No independently reviewed gambling-use/data rights and market permission.",
+          "reason": "No artifact-bound gambling-use/data rights and market permission audit.",
           "source_url": "https://www.nba.com/termsofuse#nba-statistics",
           "status": "blocked"
         },
@@ -145,7 +165,7 @@
         {
           "id": "G03",
           "name": "Chronological walk-forward",
-          "reason": "No independent audit of feature availability, fit windows and untouched holdout.",
+          "reason": "No artifact-bound audit of feature availability, fit windows and untouched holdout.",
           "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
           "status": "blocked"
         },
@@ -187,14 +207,14 @@
         {
           "id": "G09",
           "name": "Joint dependence",
-          "reason": "Combo joint evidence is missing; singles still use event-clustered uncertainty.",
+          "reason": "Combo joint residual evidence, clustered interval and paired sample are missing; singles still use slate clustering.",
           "source_url": "https://www.nba.com/termsofuse#nba-statistics",
           "status": "blocked"
         },
         {
           "id": "G10",
           "name": "Frozen, auditable ledger",
-          "reason": "Independent append-only timestamp/ledger audit, preregistration and one frozen model version are required.",
+          "reason": "Artifact-bound ledger audit, preregistration and one frozen model version are required.",
           "source_url": "https://github.com/sassnarep3-star/Own6/blob/main/research/empirical/DATA_CONTRACT.md",
           "status": "blocked"
         }
@@ -206,14 +226,17 @@
         "brier_edge_lower": null,
         "brier_market": null,
         "brier_model": null,
+        "brier_p": null,
         "calibration": [],
         "clv_lower": null,
         "clv_mean": null,
+        "clv_p": null,
         "clv_upper": null,
         "events": null,
         "logloss_edge_lower": null,
         "logloss_market": null,
         "logloss_model": null,
+        "logloss_p": null,
         "losses": null,
         "max_drawdown_units": null,
         "model_versions": null,
@@ -221,9 +244,12 @@
         "p_adjusted": null,
         "p_raw": null,
         "pushes": null,
+        "qualification_p_adjusted": null,
         "roi": null,
         "roi_lower": null,
+        "roi_p": null,
         "roi_upper": null,
+        "slates": null,
         "win_rate": null,
         "wins": null
       },
@@ -237,7 +263,7 @@
         {
           "id": "G01",
           "name": "Rights and market permission",
-          "reason": "No independently reviewed gambling-use/data rights and market permission.",
+          "reason": "No artifact-bound gambling-use/data rights and market permission audit.",
           "source_url": "https://www.nba.com/termsofuse#nba-statistics",
           "status": "blocked"
         },
@@ -251,7 +277,7 @@
         {
           "id": "G03",
           "name": "Chronological walk-forward",
-          "reason": "No independent audit of feature availability, fit windows and untouched holdout.",
+          "reason": "No artifact-bound audit of feature availability, fit windows and untouched holdout.",
           "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
           "status": "blocked"
         },
@@ -293,14 +319,14 @@
         {
           "id": "G09",
           "name": "Joint dependence",
-          "reason": "Combo joint evidence is missing; singles still use event-clustered uncertainty.",
+          "reason": "Combo joint residual evidence, clustered interval and paired sample are missing; singles still use slate clustering.",
           "source_url": "https://www.nba.com/termsofuse#nba-statistics",
           "status": "blocked"
         },
         {
           "id": "G10",
           "name": "Frozen, auditable ledger",
-          "reason": "Independent append-only timestamp/ledger audit, preregistration and one frozen model version are required.",
+          "reason": "Artifact-bound ledger audit, preregistration and one frozen model version are required.",
           "source_url": "https://github.com/sassnarep3-star/Own6/blob/main/research/empirical/DATA_CONTRACT.md",
           "status": "blocked"
         }
@@ -312,14 +338,17 @@
         "brier_edge_lower": null,
         "brier_market": null,
         "brier_model": null,
+        "brier_p": null,
         "calibration": [],
         "clv_lower": null,
         "clv_mean": null,
+        "clv_p": null,
         "clv_upper": null,
         "events": null,
         "logloss_edge_lower": null,
         "logloss_market": null,
         "logloss_model": null,
+        "logloss_p": null,
         "losses": null,
         "max_drawdown_units": null,
         "model_versions": null,
@@ -327,9 +356,12 @@
         "p_adjusted": null,
         "p_raw": null,
         "pushes": null,
+        "qualification_p_adjusted": null,
         "roi": null,
         "roi_lower": null,
+        "roi_p": null,
         "roi_upper": null,
+        "slates": null,
         "win_rate": null,
         "wins": null
       },
@@ -343,7 +375,7 @@
         {
           "id": "G01",
           "name": "Rights and market permission",
-          "reason": "No independently reviewed gambling-use/data rights and market permission.",
+          "reason": "No artifact-bound gambling-use/data rights and market permission audit.",
           "source_url": "https://www.nba.com/termsofuse#nba-statistics",
           "status": "blocked"
         },
@@ -357,7 +389,7 @@
         {
           "id": "G03",
           "name": "Chronological walk-forward",
-          "reason": "No independent audit of feature availability, fit windows and untouched holdout.",
+          "reason": "No artifact-bound audit of feature availability, fit windows and untouched holdout.",
           "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
           "status": "blocked"
         },
@@ -399,14 +431,14 @@
         {
           "id": "G09",
           "name": "Joint dependence",
-          "reason": "Combo joint evidence is missing; singles still use event-clustered uncertainty.",
+          "reason": "Combo joint residual evidence, clustered interval and paired sample are missing; singles still use slate clustering.",
           "source_url": "https://www.nba.com/termsofuse#nba-statistics",
           "status": "blocked"
         },
         {
           "id": "G10",
           "name": "Frozen, auditable ledger",
-          "reason": "Independent append-only timestamp/ledger audit, preregistration and one frozen model version are required.",
+          "reason": "Artifact-bound ledger audit, preregistration and one frozen model version are required.",
           "source_url": "https://github.com/sassnarep3-star/Own6/blob/main/research/empirical/DATA_CONTRACT.md",
           "status": "blocked"
         }
@@ -418,14 +450,17 @@
         "brier_edge_lower": null,
         "brier_market": null,
         "brier_model": null,
+        "brier_p": null,
         "calibration": [],
         "clv_lower": null,
         "clv_mean": null,
+        "clv_p": null,
         "clv_upper": null,
         "events": null,
         "logloss_edge_lower": null,
         "logloss_market": null,
         "logloss_model": null,
+        "logloss_p": null,
         "losses": null,
         "max_drawdown_units": null,
         "model_versions": null,
@@ -433,9 +468,12 @@
         "p_adjusted": null,
         "p_raw": null,
         "pushes": null,
+        "qualification_p_adjusted": null,
         "roi": null,
         "roi_lower": null,
+        "roi_p": null,
         "roi_upper": null,
+        "slates": null,
         "win_rate": null,
         "wins": null
       },
@@ -449,7 +487,7 @@
         {
           "id": "G01",
           "name": "Rights and market permission",
-          "reason": "No independently reviewed gambling-use/data rights and market permission.",
+          "reason": "No artifact-bound gambling-use/data rights and market permission audit.",
           "source_url": "https://www.nba.com/termsofuse#nba-statistics",
           "status": "blocked"
         },
@@ -463,7 +501,7 @@
         {
           "id": "G03",
           "name": "Chronological walk-forward",
-          "reason": "No independent audit of feature availability, fit windows and untouched holdout.",
+          "reason": "No artifact-bound audit of feature availability, fit windows and untouched holdout.",
           "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
           "status": "blocked"
         },
@@ -505,14 +543,14 @@
         {
           "id": "G09",
           "name": "Joint dependence",
-          "reason": "Combo joint evidence is missing; singles still use event-clustered uncertainty.",
+          "reason": "Combo joint residual evidence, clustered interval and paired sample are missing; singles still use slate clustering.",
           "source_url": "https://www.nba.com/termsofuse#nba-statistics",
           "status": "blocked"
         },
         {
           "id": "G10",
           "name": "Frozen, auditable ledger",
-          "reason": "Independent append-only timestamp/ledger audit, preregistration and one frozen model version are required.",
+          "reason": "Artifact-bound ledger audit, preregistration and one frozen model version are required.",
           "source_url": "https://github.com/sassnarep3-star/Own6/blob/main/research/empirical/DATA_CONTRACT.md",
           "status": "blocked"
         }
@@ -524,14 +562,17 @@
         "brier_edge_lower": null,
         "brier_market": null,
         "brier_model": null,
+        "brier_p": null,
         "calibration": [],
         "clv_lower": null,
         "clv_mean": null,
+        "clv_p": null,
         "clv_upper": null,
         "events": null,
         "logloss_edge_lower": null,
         "logloss_market": null,
         "logloss_model": null,
+        "logloss_p": null,
         "losses": null,
         "max_drawdown_units": null,
         "model_versions": null,
@@ -539,9 +580,12 @@
         "p_adjusted": null,
         "p_raw": null,
         "pushes": null,
+        "qualification_p_adjusted": null,
         "roi": null,
         "roi_lower": null,
+        "roi_p": null,
         "roi_upper": null,
+        "slates": null,
         "win_rate": null,
         "wins": null
       },
@@ -555,7 +599,7 @@
         {
           "id": "G01",
           "name": "Rights and market permission",
-          "reason": "No independently reviewed gambling-use/data rights and market permission.",
+          "reason": "No artifact-bound gambling-use/data rights and market permission audit.",
           "source_url": "https://www.nba.com/termsofuse#nba-statistics",
           "status": "blocked"
         },
@@ -569,7 +613,7 @@
         {
           "id": "G03",
           "name": "Chronological walk-forward",
-          "reason": "No independent audit of feature availability, fit windows and untouched holdout.",
+          "reason": "No artifact-bound audit of feature availability, fit windows and untouched holdout.",
           "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
           "status": "blocked"
         },
@@ -611,14 +655,14 @@
         {
           "id": "G09",
           "name": "Joint dependence",
-          "reason": "Combo joint evidence is missing; singles still use event-clustered uncertainty.",
+          "reason": "Combo joint residual evidence, clustered interval and paired sample are missing; singles still use slate clustering.",
           "source_url": "https://www.nba.com/termsofuse#nba-statistics",
           "status": "blocked"
         },
         {
           "id": "G10",
           "name": "Frozen, auditable ledger",
-          "reason": "Independent append-only timestamp/ledger audit, preregistration and one frozen model version are required.",
+          "reason": "Artifact-bound ledger audit, preregistration and one frozen model version are required.",
           "source_url": "https://github.com/sassnarep3-star/Own6/blob/main/research/empirical/DATA_CONTRACT.md",
           "status": "blocked"
         }
@@ -630,14 +674,17 @@
         "brier_edge_lower": null,
         "brier_market": null,
         "brier_model": null,
+        "brier_p": null,
         "calibration": [],
         "clv_lower": null,
         "clv_mean": null,
+        "clv_p": null,
         "clv_upper": null,
         "events": null,
         "logloss_edge_lower": null,
         "logloss_market": null,
         "logloss_model": null,
+        "logloss_p": null,
         "losses": null,
         "max_drawdown_units": null,
         "model_versions": null,
@@ -645,9 +692,12 @@
         "p_adjusted": null,
         "p_raw": null,
         "pushes": null,
+        "qualification_p_adjusted": null,
         "roi": null,
         "roi_lower": null,
+        "roi_p": null,
         "roi_upper": null,
+        "slates": null,
         "win_rate": null,
         "wins": null
       },
@@ -661,7 +711,7 @@
         {
           "id": "G01",
           "name": "Rights and market permission",
-          "reason": "No independently reviewed gambling-use/data rights and market permission.",
+          "reason": "No artifact-bound gambling-use/data rights and market permission audit.",
           "source_url": "https://www.nba.com/termsofuse#nba-statistics",
           "status": "blocked"
         },
@@ -675,7 +725,7 @@
         {
           "id": "G03",
           "name": "Chronological walk-forward",
-          "reason": "No independent audit of feature availability, fit windows and untouched holdout.",
+          "reason": "No artifact-bound audit of feature availability, fit windows and untouched holdout.",
           "source_url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
           "status": "blocked"
         },
@@ -717,14 +767,14 @@
         {
           "id": "G09",
           "name": "Joint dependence",
-          "reason": "Combo joint evidence is missing; singles still use event-clustered uncertainty.",
+          "reason": "Combo joint residual evidence, clustered interval and paired sample are missing; singles still use slate clustering.",
           "source_url": "https://www.nba.com/termsofuse#nba-statistics",
           "status": "blocked"
         },
         {
           "id": "G10",
           "name": "Frozen, auditable ledger",
-          "reason": "Independent append-only timestamp/ledger audit, preregistration and one frozen model version are required.",
+          "reason": "Artifact-bound ledger audit, preregistration and one frozen model version are required.",
           "source_url": "https://github.com/sassnarep3-star/Own6/blob/main/research/empirical/DATA_CONTRACT.md",
           "status": "blocked"
         }
@@ -736,14 +786,17 @@
         "brier_edge_lower": null,
         "brier_market": null,
         "brier_model": null,
+        "brier_p": null,
         "calibration": [],
         "clv_lower": null,
         "clv_mean": null,
+        "clv_p": null,
         "clv_upper": null,
         "events": null,
         "logloss_edge_lower": null,
         "logloss_market": null,
         "logloss_model": null,
+        "logloss_p": null,
         "losses": null,
         "max_drawdown_units": null,
         "model_versions": null,
@@ -751,9 +804,12 @@
         "p_adjusted": null,
         "p_raw": null,
         "pushes": null,
+        "qualification_p_adjusted": null,
         "roi": null,
         "roi_lower": null,
+        "roi_p": null,
         "roi_upper": null,
+        "slates": null,
         "win_rate": null,
         "wins": null
       },

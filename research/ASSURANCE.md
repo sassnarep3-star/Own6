@@ -19,7 +19,7 @@ This is a complete structural scan and record-level provenance review, **not** a
 
 ## Important findings
 
-1. The legacy line model converts American odds incorrectly (`scripts/model.py:197–203`). Its published market probabilities and edges are not reliable. The official operator formula and a pure arithmetic regression demonstrate the defect. No historical quote is needed to reproduce it.
+1. The legacy line model formerly converted American odds incorrectly (`scripts/model.py:197–203`). Concurrent PR #29 repaired the formula and regenerated its outputs; the official operator formula and a pure arithmetic regression demonstrate the original defect. Historical ESPN quotes remain unverified even after the arithmetic repair.
 2. The empirical engine previously accepted self-asserted audit booleans, discarded zero-valued residuals, and did not bind combo qualification to a real joint sample. The D2 hardening addresses these failure modes without adding data.
 3. A win-count Poisson-binomial test is not a family-wise correction for clustered ROI. The revised design uses a common slate-cluster resampling family for the actual qualification statistics. The independent-trial win-count test remains only a diagnostic.
 4. The 200-event sample floor is a policy minimum, not a power calculation. A training-only precision/power analysis is required; no sample size guarantees discovery of an edge.
