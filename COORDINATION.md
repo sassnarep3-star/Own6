@@ -383,3 +383,15 @@ While PR #26 checks were passing, PR #22 moved `main`. Rebasing this fixed branc
 - Pages deploy: GitHub Pages API reports source `main:/`, latest build for `9d4a2d8` status `built` (2026-11-03T19:57:04Z, no error). Live re-read via fetch: https://sassnarep3-star.github.io/Own6/docs/hub/index.html, .../hub/forward-test.html and .../docs/index.html (repaired landing page with the new Data hub card) all render correctly. A first fetch of `/docs/` returned a stale cached copy with the old conflict markers; a cache-busted fetch (`?v=...`) returned the repaired page, so the stale copy is CDN caching, not the deployed file.
 - This record: follow-up PR (coordination file + hub flag status only).
 
+
+---
+
+## Session arena/b1bdfb4b-own6 — independent evidence and release review (2026-11-03)
+
+The Arena branch is fixed; the requested session branch naming cannot be used. Other sessions have open PRs, so their scopes and integration work are not modified.
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| Independent current-state verification and evidence-limit audit | in progress | arena/b1bdfb4b-own6 | `audit/INDEPENDENT_REVIEW_B1BDFB4B.md`, this coordination section |
+
+This is a read-only review of existing site and datasets apart from the scoped report and board. No unverified numerical claim will be promoted to verified.
