@@ -73,4 +73,9 @@ All current-scope unresolved findings are on the hub [Flagged for Review](https:
 
 ## Release record
 
-PR, merge SHA, final checks and Pages deployment will be recorded in this session's `COORDINATION.md` section after integration. No live-success claim is made before GitHub deployment metadata confirms the merged revision.
+- [PR #36](https://github.com/sassnarep3-star/Own6/pull/36) merged 2026-11-03T23:39:43Z as `2ceeb606c15bfbcc5ca52b0d9bd5257a0033593e`; all five PR checks passed before merge.
+- [Pages run 41740906013](https://github.com/sassnarep3-star/Own6/actions/runs/41740906013) succeeded. [Official Pages API](https://api.github.com/repos/sassnarep3-star/Own6/pages/builds/latest) reported the exact merge revision **built**, no error, updated 2026-11-03T23:40:07Z. All five merged-commit verification workflows also succeeded.
+- Local merged-tree tests: **56 passed + 6 subtests**, hub 335 source-linked rows/zero errors, release gate zero issues.
+- [Published hub](https://sassnarep3-star.github.io/Own6/docs/hub/) · [Executive summary](https://sassnarep3-star.github.io/Own6/docs/hub/summary.html) · [Flagged for Review](https://sassnarep3-star.github.io/Own6/docs/hub/flagged.html).
+- Deployment confirmation is from authenticated GitHub metadata; direct live HTTP/browser retrieval was not performed because that host is outside this session's network allowlist. This is not a full remote-link or external-fact audit.
+- This final release record is submitted as a follow-up on the fixed session branch. Historical archives and missing authorized data remain needs review. See this session's `COORDINATION.md` section for the complete integration record.

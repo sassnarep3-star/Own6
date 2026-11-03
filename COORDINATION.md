@@ -427,9 +427,9 @@ Branch is fixed by Arena to `arena/2dbac92a-own6`; no additional branch is creat
 
 | Task | Status | Owner session | Exclusive files |
 |---|---|---|---|
-| P1 Fail-closed hub numeric publication, source-specific references and regression gate | in progress | arena/2dbac92a-own6 | `scripts/build_hub.py`, `scripts/check_hub.py`, `tests/test_hub_publication.py`, `data/hub_publication_policy.json`, `docs/hub/*.html`, `.github/workflows/hub-ci.yml` |
-| P2 Independent summary, source/evidence limitations, release record | in progress | arena/2dbac92a-own6 | `audit/HUB_PUBLICATION_2026_11_03.md`, this section of `COORDINATION.md` |
-| P3 Integration checks, PR/merge and Pages deployment | unclaimed | arena/2dbac92a-own6 | scope above only |
+| P1 Fail-closed hub numeric publication, source-specific references and regression gate | done | arena/2dbac92a-own6 | `scripts/build_hub.py`, `scripts/check_hub.py`, `tests/test_hub_publication.py`, `data/hub_publication_policy.json`, `docs/hub/*.html`, `.github/workflows/hub-ci.yml` |
+| P2 Independent summary, source/evidence limitations, release record | done | arena/2dbac92a-own6 | `audit/HUB_PUBLICATION_2026_11_03.md`, this section of `COORDINATION.md` |
+| P3 Integration checks, PR/merge and Pages deployment | done | arena/2dbac92a-own6 | scope above only |
 
 Initial finding: `scripts/build_hub.py` publishes ESPN-carried market/prop numbers with an UNVERIFIED badge, explicitly contrary to the user's blank-unconfirmed-values rule. Source-domain/link checks cannot verify individual values. This session will withhold unconfirmed numeric fields rather than manufacture first-party evidence; retain raw files and earlier sites for provenance, clearly distinguish official-reference links from verified-value evidence, and publish the limitation on the hub Flagged page. Official primary repository evidence: https://github.com/sassnarep3-star/Own6/blob/main/scripts/build_hub.py and https://github.com/sassnarep3-star/Own6/blob/main/data/hub_flags.csv . No direct NBA page access is claimed in this session; outbound hosts are restricted. PR #31's assurance and model-engine scopes and PR #28's legacy-review scopes are not claimed.
 
@@ -446,11 +446,25 @@ Initial finding: `scripts/build_hub.py` publishes ESPN-carried market/prop numbe
 |---|---|---|---|
 | P1 Strict hub publication and regression gate | done | arena/2dbac92a-own6 | claimed scope only |
 | P2 Executive review and evidence limits | done | arena/2dbac92a-own6 | claimed scope only |
-| P3 Rebase integration, full checks, PR/merge and Pages verification | in progress | arena/2dbac92a-own6 | claimed scope only |
+| P3 Rebase integration, full checks, PR/merge and Pages verification | done | arena/2dbac92a-own6 | claimed scope only |
 
 ### P3 concurrent integration resolution
 
 `main` advanced through PR #33 (additive source-coverage audit) and #35 (its release record) while this session implemented its separately claimed hub repair. `git pull --rebase origin main` conflicted only at the appended end of `COORDINATION.md`. Resolved by retaining the complete upstream fd5276fa section and this session's separate claim/completion sections; no upstream source, data or code was discarded. Rebased tree: 56 pytest tests plus 6 subtests pass; hub checker reports 335 source-linked rows, no errors; release gate passes. New source-coverage artifacts are a historical snapshot; its CI rebuilds coverage for the exact tested tree rather than implying that its older checked-in inventory is current. Other sessions' output files were not regenerated or edited here.
+
+
+### P3 final release evidence (2026-11-03)
+
+- PR **#36** https://github.com/sassnarep3-star/Own6/pull/36 — **MERGED** at `2026-11-03T23:39:43Z`, merge SHA `2ceeb606c15bfbcc5ca52b0d9bd5257a0033593e`. All five PR checks passed before merge; merge state was CLEAN/MERGEABLE. No review wait or auto-merge was used.
+- GitHub Pages deployment https://github.com/sassnarep3-star/Own6/actions/runs/41740906013 — **success**, including build, report-build-status and deploy jobs. Official Pages API https://api.github.com/repos/sassnarep3-star/Own6/pages/builds/latest reported exact merge SHA `2ceeb606` **built**, no error, updated `2026-11-03T23:40:07Z`. Site is published from `main:/` at https://sassnarep3-star.github.io/Own6/ ; strict hub: https://sassnarep3-star.github.io/Own6/docs/hub/ ; executive summary: https://sassnarep3-star.github.io/Own6/docs/hub/summary.html ; review queue: https://sassnarep3-star.github.io/Own6/docs/hub/flagged.html . Deployment is confirmed via GitHub metadata; direct browser/live HTTP retrieval was not performed under this session's host allowlist.
+- All five **merged-commit** workflows succeeded: Hub CI run `41740906355`, Lab CI `41740906229`, release integrity `41740906409`, verification `41740906430`, source coverage `41740906397`. Local merged-tree recheck: **56 pytest tests + 6 subtests pass**, hub 335 source-linked rows / zero errors, release gate zero issues. No external fact-verification claim is inferred from passing CI.
+- The managed Pages build emits platform Node 20 deprecation/runner-migration annotations but deploys successfully. No custom publisher or manual form was introduced.
+- Remaining items are **needs review**, published on hub Flagged for Review: absent authorized/value-level data, direct NBA access limits, historical archive standards/gaps, and the active engine-owner Brier request. No fabricated value, profitability claim, reward winner or legal authorization is substituted. P1–P3 are done within the claimed scope; full legacy/source empirical verification is explicitly incomplete.
+- This coordination/executive-report release record is a follow-up on the same fixed branch for inclusion in main; it does not alter the already deployed dashboard.
+
+
+---
+
 ## Session arena/b700d3ca-own6 — legacy parlay safety and independent release (2026-11-03)
 
 Branch deviation: Arena fixes this session to `arena/b700d3ca-own6`; no additional branch will be created. Open PR #31 owns the assurance dashboard and `nba_lab/**`; PR #28 owns its documented review fixes. Those scopes will not be edited. This session adds a narrow, independent repair to the original dependency-free parlay utility. Existing site content remains preserved.
@@ -479,3 +493,5 @@ P4 integration PR: https://github.com/sassnarep3-star/Own6/pull/34 . Final pre-m
 P4 second coordination-only rebase: while PR #34's eight reported jobs were green, PR #35 appended the source-coverage deployment record on `main`, making #34 temporarily conflicted. Pulled/rebased again; retained all upstream completion evidence and this section. No code/data/site conflict occurred. Updated-head checks must pass before merge.
 
 P4 third concurrent integration: GitHub first returned a transient merge GraphQL error, then reported conflicts after PR #36 moved `main`. No merge had occurred. Pulled/rebased again and preserved both entire coordination sections; no other files conflicted. Upstream #36 withholds unsupported hub values; this session preserves that repair. Rechecking the newly combined tree before a fresh merge attempt.
+
+P3 close-out rebase note (arena/2dbac92a-own6): concurrent PR #34 added legacy parlay safety after hub deployment. Follow-up release-record rebase conflicted only on appended COORDINATION.md; kept both complete sections, including the parlay owner's evidence, and changed no parlay code or data. Re-ran combined tests before the close-out PR.
