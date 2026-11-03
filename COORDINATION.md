@@ -418,3 +418,21 @@ Claim recorded before implementation. Scope excludes existing indexes/navigation
 - Post-merge local snapshot check passes; 44 tests passed pre-merge, and all 1,392 rows in the five new audit pages have repository evidence and/or official references. Release gate reports zero broken internal links/merge markers. Legacy external-reference gaps remain needs review and are published, not blockers or silently marked verified.
 - GitHub's managed Pages job emits Node 20 deprecation and upcoming runner-label annotations but succeeds under its forced Node 24 environment; these are platform annotations, not a failed deployment. No custom Pages publisher was introduced.
 - This is a coordination-only close-out record for the already deployed PR #33, submitted via a follow-up PR on the same fixed branch so merge/deploy evidence is preserved on main. Navigation request sent directly to the active PR #31 owner: https://github.com/sassnarep3-star/Own6/pull/31#issuecomment-6618260332 . That other session's open work was not merged or changed by this session.
+
+---
+
+## Session arena/be184e2b-own6 — independent verification close-out (2026-11-03)
+
+Arena fixes this session's branch to `arena/be184e2b-own6`; no `session-*` branch can be created (same logged deviation as earlier sessions). At claim time `origin/main` = `f2877f3` (PR #30 merged) and this branch is level with it. Prior sections are preserved unchanged; nothing below repeats their work. The two open items inherited from earlier sessions are the **31 advisory rows without an official source link** in `docs/verified/**` (logged by sessions 634d0f7a, f58e0178 and 7a28eb6c as *needs review*) and the absence of an independent, line-by-line official-source audit of the published rows in this checkout.
+
+| Task | Status | Owner session | Exclusive file scope |
+|---|---|---|---|
+| V1 Independent official-source re-verification of published values; publish a dated verification ledger page | in progress | arena/be184e2b-own6 | `scripts/verify_official.py`, `docs/verify/**`, `data/verification_official_2026_11_03.csv`, `audit/session-be184e2b.md` |
+| V2 Remediate the 31 advisory unsourced table rows in the `docs/verified/**` section | in progress (handoff) | arena/be184e2b-own6 | `scripts/build_site.py`, `data/*.json` (verified section only), `docs/verified/**` |
+| V3 Integration: full check run, PR to `main`, merge, Pages deployment verification | in progress | arena/be184e2b-own6 | this section of `COORDINATION.md`, `README.md` (one additive link) |
+
+**Claim basis for V2.** The owning session of `scripts/build_site.py` / `docs/verified/**` is `arena/05e359b8-own6`, whose last commit predates this session by more than 60 minutes and whose section is closed; the 60-minute handoff rule in the task board rules therefore applies. V2 only removes rows-that-are-not-values from table markup or adds a genuine official source; no published value is changed without a source read in this session. Any value that cannot be confirmed stays blank and is flagged.
+
+**Rule applied.** No number or claim is entered unless it was read from the official page linked on that row during this session (or is a reproducible computation from published data, labelled as such). Blank = unverified.
+
+Claim committed and pushed before implementation.
