@@ -1,0 +1,28 @@
+name: Independent verification ledger
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-ledger:
+    name: Verification ledger and published pages
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Rebuild the verification pages from the committed ledger
+        run: python3 scripts/build_verify.py
+      - name: Published verification pages match the ledger
+        run: git diff --exit-code -- docs/verify/
+      - name: Ledger completeness, official sources and link checks
+        run: python3 scripts/check_verify.py
+      - name: Repo-wide published HTML gate
+        run: python3 tools/release_gate.py

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Independent verification ledger — Own6 verification</title>
+<link rel="stylesheet" href="assets/verify.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="../index.html">OWN6</a>
+  <span class="grp">VERIFICATION · read 2026-11-03</span>
+  <a class="on" href="index.html">Verification</a><a href="results.html">Game results</a><a href="standings.html">Standings</a><a href="policy.html">Rights &amp; law</a><a href="unverified.html">Unverified</a><a href="flagged.html">Flagged for review</a>
+</header>
+<main>
+  <h1>Independent verification ledger</h1>
+  <p class="lead">One row per check, one link per row, read from the official source on 2026-11-03.</p>
+  
+<div class="kpis"><div class="kpi"><b>54</b><span>official checks recorded</span></div><div class="kpi"><b>54/54</b><span>published values matched</span></div><div class="kpi"><b>0</b><span>mismatches</span></div><div class="kpi"><b>8</b><span>items left blank / unverified</span></div><div class="kpi"><b>7</b><span>irregularities flagged</span></div></div>
+<div class="banner"><b>Scope, stated plainly.</b> This section records only what was read from an official page on
+2026-11-03: NBA.com game summaries, the NBA.com standings table, NBA.com Terms of Use, the NBA.com/Stats FAQ,
+the NBA's official release on prediction markets, and the Korean statute on law.go.kr.
+Each row is one check with the URL that was opened. Nothing was inferred, averaged or filled in.
+A blank cell means the value is unknown, not zero.</div>
+<h2>What was checked</h2>
+<div class="tw"><table><thead><tr><th>Category</th><th>Checks</th><th>Matched</th><th>Mismatched</th><th>Official source</th><th>Table</th></tr></thead><tbody><tr><td>Game result</td><td class="n">15</td><td class="n">15</td><td class="n">0</td><td><a href="https://www.nba.com/games?date=2026-11-02" target="_blank" rel="noopener">official source ↗</a></td><td><a href="results.html">open table →</a></td></tr><tr><td>Standings</td><td class="n">30</td><td class="n">30</td><td class="n">0</td><td><a href="https://www.nba.com/standings" target="_blank" rel="noopener">official source ↗</a></td><td><a href="standings.html">open table →</a></td></tr><tr><td>Rights</td><td class="n">9</td><td class="n">9</td><td class="n">0</td><td><a href="https://www.nba.com/termsofuse" target="_blank" rel="noopener">official source ↗</a></td><td><a href="policy.html">open table →</a></td></tr><tr><td>Unverified items</td><td class="n">—</td><td class="n">—</td><td class="n">8</td><td><a href="https://www.nba.com/stats/help/faq" target="_blank" rel="noopener">NBA Stats FAQ ↗</a></td><td><a href="unverified.html">open list →</a></td></tr></tbody></table></div>
+<h2>Open the tables</h2>
+<div class="cards"><a class="card" href="results.html"><h3>Game results</h3><p>All 15 final scores of the 2026-11-02 slate, each re-read on its official NBA.com game page.</p></a><a class="card" href="standings.html"><h3>Standings</h3><p>All 30 win-loss records re-read from the official NBA.com standings table.</p></a><a class="card" href="policy.html"><h3>Rights &amp; law</h3><p>NBA Terms of Use and the Korean National Sports Promotion Act, quoted verbatim with links.</p></a><a class="card" href="unverified.html"><h3>Unverified</h3><p>What could not be confirmed from an official source. Published value: blank.</p></a><a class="card" href="flagged.html"><h3>Flagged for review</h3><p>Irregularities and conflicts, with severity and the official source to review.</p></a></div>
+<h2>How the audit was run</h2>
+<ol>
+  <li>Each published value was compared, one row at a time, with the official page for that row.</li>
+  <li>The URL actually opened and the read date are stored on the row (ledger CSV in the repository).</li>
+  <li>If the value could not be read from an official source, the row is not shown as verified: its published value stays blank on the <a href="unverified.html">Unverified</a> page with the reason.</li>
+  <li>The build fails if any ledger row has no official https link, an unknown status, or if an unverified row carries a value.</li>
+  <li>Conflicts and rights problems are listed on <a href="flagged.html">Flagged for review</a>; they do not block publication but are never hidden inside a table.</li>
+</ol>
+<h2>What this does and does not prove</h2>
+<div class="banner warn"><b>It does not prove an edge.</b> Verifying that a score, a standing or a statute is
+correct says nothing about whether a model can beat a market. On the single graded slate the market was at
+least as accurate as the model and every uncertainty interval included zero; no strategy passed its gates.
+Statistical validation reduces uncertainty about bad luck — it cannot remove luck from a small sample.
+See <a href="../hub/forward-test.html">forward test</a> and <a href="../hub/validation.html">validation gates</a>.</div>
+<h2>Verification limits</h2>
+<ul>
+  <li>The 15 Nov 2 scores were verified row by row in this session. Of the 92 earlier scores, 13 were re-read by an earlier session and the rest carry a prior-session badge.</li>
+  <li>Market prices and prop lines are secondary-source (ESPN relay of DraftKings) and stay unverified: no official sportsbook or licensed odds page was read.</li>
+  <li>Aggregate cross-check: win-loss records recomputed from all 107 result rows match the official 30-team standings exactly.</li>
+</ul>
+<p class="mut">Machine-readable record:
+<a href="https://github.com/sassnarep3-star/Own6/blob/main/data/verification_official_2026_11_03.csv">verification ledger</a> ·
+<a href="https://github.com/sassnarep3-star/Own6/blob/main/data/verification_unverified_2026_11_03.csv">unverified list</a> ·
+<a href="https://github.com/sassnarep3-star/Own6/blob/main/data/verification_flags_2026_11_03.csv">flag register</a>.</p>
+
+</main>
+<footer>
+  <p>Every row above links to the official page it was checked against. A blank
+  value means it could not be confirmed from an official source; it is never
+  estimated. Research only — no wagers, no betting advice, no profitability
+  claim. See <a href="flagged.html">Flagged for review</a>,
+  <a href="unverified.html">Unverified items</a>, and the
+  <a href="https://www.nba.com/termsofuse">NBA Terms of Use</a> (§1, §6, §9).</p>
+</footer>
+</body>
+</html>
