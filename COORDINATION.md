@@ -377,7 +377,9 @@ While PR #26 checks were passing, PR #22 moved `main`. Rebasing this fixed branc
 
 ### Integration record — session f58e0178 (H5)
 
-- PR: https://github.com/sassnarep3-star/Own6/pull/29 (merge result and Pages deploy result are appended below after the merge).
+- PR: https://github.com/sassnarep3-star/Own6/pull/29 — merged with a merge commit `9d4a2d8482d67ea8874c00647e523173887f0265` at 2026-11-03T19:56:41Z after all five PR checks passed (hub, lab, published-html, Line-by-line verification gates). Mergeability was checked immediately before the merge.
 - Concurrent-merge handling: `main` advanced three times during this session (PRs #21-#27). Each time `origin/main` was merged into this branch (no rebase, nothing discarded). Conflicts: `COORDINATION.md` (both sections kept) and `docs/index.html` (session 7a28eb6c's repaired landing page kept; only hub links added).
 - Pre-merge gates all green on the merged tree: `audit_integration.py`, `check_hub.py`, `tools/release_gate.py`, `tools/build_review.py --check`, `tools/check_site.py` (0 errors), `scripts/check_site.py`, `linkcheck.py`, `verify_data.py`, `check_lab.py`, `check_report.py`, `pytest tests` (34 passed).
+- Pages deploy: GitHub Pages API reports source `main:/`, latest build for `9d4a2d8` status `built` (2026-11-03T19:57:04Z, no error). Live re-read via fetch: https://sassnarep3-star.github.io/Own6/docs/hub/index.html, .../hub/forward-test.html and .../docs/index.html (repaired landing page with the new Data hub card) all render correctly. A first fetch of `/docs/` returned a stale cached copy with the old conflict markers; a cache-busted fetch (`?v=...`) returned the repaired page, so the stale copy is CDN caching, not the deployed file.
+- This record: follow-up PR (coordination file + hub flag status only).
 
