@@ -261,3 +261,20 @@ All work stays on the fixed Arena branch `arena/f56f0055-own6`; no other branch 
 Claimed 2026-11-03. Arena fixes this branch name; no session-* branch can be created. Existing research and Pages content belongs to prior sessions and will not be overwritten. Integration checks will be recorded here.
 
 C1 completion (2026-11-03): CI now runs for branch pushes rather than only the former session branch, fetches full history required by `scripts/audit_sources.py` (shallow checkout reproduced `fatal: not a tree object`), and exercises combined-site checks. Verified locally: 20/20 pytest tests; audit 82 rows/43 files/20 findings; fail-closed report `not_run` and zero qualified; lab/site/review/link checks passed. `tools/check_site.py` emitted 31 advisory rows missing official links in prior `docs/verified/` pages; they concern unverified/editorial entries, not independently verified measurements. They remain flagged for review; this session did not add invented citations or edit another owner's pages. Official source boundaries: https://www.nba.com/termsofuse and https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/triggering-a-workflow ; no new performance claims. Pages API reports main-root publication built: https://sassnarep3-star.github.io/Own6/ .
+
+---
+
+## Session arena/10f12cfa-own6 — final evidence audit and integration (2026-11-03)
+
+Arena fixes this session to `arena/10f12cfa-own6`; no `session-*` or separate integration branch may be created. The stale E5 claim above is more than 60 minutes old and PR #19 is already recorded in the base commit, so this session takes over only final verification/integration and records the handoff here. Existing completed research is preserved; no new empirical performance is asserted without source evidence.
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| I1 Line-by-line repository, source, and rendered-site audit | in progress | arena-10f12cfa | `audit/final_integration/**`, `verification/final_integration/**`, this section of `COORDINATION.md` |
+| I2 Reproducible validation and targeted repairs | unclaimed | — | files specifically identified by I1; scope to be narrowed before edits |
+| I3 Final integrated dashboard and executive-summary reconciliation | unclaimed | — | shared `docs/**`, data/site generators, `EXECUTIVE_SUMMARY.md`, `README.md` after I1/I2 |
+| I4 PR, merge, and GitHub Pages deployment verification | unclaimed | — | this section of `COORDINATION.md`, required GitHub metadata only |
+
+Verification rule: official sources support only the facts they explicitly state; derived values must be reproducible and labeled. Empty/unverified fields remain empty and are published for review. Final integration will not merge a failing build or broken-link result.
+
+Conflict log: rebasing the initial claim onto `origin/main` at `92cae24` produced a content conflict because PR #20 appended the f56f0055 close-out at the same location. Both complete sections were preserved in chronological order; no upstream text was discarded. A second same-location conflict arose when PR #21 merged during the rebase (`e5ceb0f`); the db20c549 CI record and this claim were likewise both preserved.
