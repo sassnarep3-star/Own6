@@ -73,6 +73,33 @@ def check_ledger():
             fail("observations.csv header does not match contract v1")
 
 
+class TableRows(html.parser.HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.in_body = False
+        self.row = None
+        self.rows = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "tbody":
+            self.in_body = True
+        elif tag == "tr" and self.in_body:
+            self.row = {"cells": 0, "source": False}
+        elif self.row is not None and tag == "td":
+            self.row["cells"] += 1
+        elif self.row is not None and tag == "a":
+            href = dict(attrs).get("href", "")
+            if urlparse(href).scheme == "https":
+                self.row["source"] = True
+
+    def handle_endtag(self, tag):
+        if tag == "tr" and self.row is not None:
+            self.rows.append(self.row)
+            self.row = None
+        elif tag == "tbody":
+            self.in_body = False
+
+
 def check_site():
     pages = sorted(DOCS.glob("*.html"))
     if len(pages) != 8:
@@ -81,6 +108,13 @@ def check_site():
         text = page.read_text(encoding="utf-8")
         if len(re.findall(r"<h1[^>]*>", text)) != 1:
             fail(f"{page.name}: expected exactly one <h1>")
+        parser = TableRows()
+        parser.feed(text)
+        for number, row in enumerate(parser.rows, 1):
+            if not row["cells"] or not row["source"]:
+                fail(f"{page.name}: table row {number} has no cells or HTTPS source link")
+        if "<generator object" in text:
+            fail(f"{page.name}: unrendered generator object")
         for link in re.findall(r'href="([^"]+)"', text):
             if link.startswith("#") or link.startswith("mailto:"):
                 continue
