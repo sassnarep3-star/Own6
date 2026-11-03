@@ -31,7 +31,17 @@ jobs:
       - name: Check assurance dashboard and evidence state
         run: python scripts/check_assurance.py
       - name: Generated assurance artifacts are committed
-        run: git diff --exit-code -- data/assurance docs/assurance
+        run: |
+          git diff -- data/assurance docs/assurance > /tmp/assurance.diff || true
+          if [ -s /tmp/assurance.diff ]; then
+            {
+              echo '## Assurance generated diff'
+              echo '```diff'
+              head -200 /tmp/assurance.diff
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
       - name: Run tests
         run: python -m pytest -q tests
       - name: Verify fail-closed report
