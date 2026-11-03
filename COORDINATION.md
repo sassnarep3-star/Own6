@@ -310,10 +310,10 @@ The Arena branch is fixed to `arena/634d0f7a-own6`; no `session-*` branch will b
 
 | Task | Status | Owner session | Exclusive files |
 |---|---|---|---|
-| Q1 Repair committed conflict markers and misleading landing-page claims; consolidate no-input navigation | in progress | arena/634d0f7a-own6 | `docs/index.html`, `docs/assets/style.css` (only if needed) |
-| Q2 Add repository-wide conflict-marker and Pages-link release gate, with tests | in progress | arena/634d0f7a-own6 | `tools/release_gate.py`, `tests/test_release_gate.py`, `.github/workflows/release-gate.yml` |
-| Q3 Record independent release evidence, source boundaries and flagged irregularities | in progress | arena/634d0f7a-own6 | `audit/RELEASE_2026_11_03.md`, this section of `COORDINATION.md` |
-| Q4 Re-run all checks, PR/merge, verify Pages build | unclaimed (depends Q1–Q3) | — | this section of `COORDINATION.md` only |
+| Q1 Repair committed conflict markers and misleading landing-page claims; consolidate no-input navigation | done | arena/634d0f7a-own6 | `docs/index.html`, `docs/assets/style.css` |
+| Q2 Add repository-wide conflict-marker and Pages-link release gate, with tests | done | arena/634d0f7a-own6 | `tools/release_gate.py`, `tests/test_release_gate.py`, `.github/workflows/release-gate.yml` |
+| Q3 Record independent release evidence, source boundaries and flagged irregularities | done | arena/634d0f7a-own6 | `audit/RELEASE_2026_11_03.md`, this section of `COORDINATION.md` |
+| Q4 Re-run all checks, PR/merge, verify Pages build | in progress | arena/634d0f7a-own6 | this section of `COORDINATION.md` only |
 
 Initial independent finding: `docs/index.html` contains committed `<<<<<<< HEAD`, `=======`, and `>>>>>>>` merge-conflict markers, including two competing navigation blocks. The landing page also invites manual statistics entry despite the no-manual-input requirement; since no licensed live inputs exist, this session will make the no-input, fail-closed status the default and avoid claiming an automatically generated betting line. See NBA Terms §§1/9 https://www.nba.com/termsofuse and Stats FAQ https://www.nba.com/stats/help/faq (directly read 2026-11-03). Existing downstream sites and historical rows are not claimed for modification.
 
@@ -323,6 +323,17 @@ Claim pushed before implementation. The source registry's presence or a row link
 
 | Task | Status | Owner session | Exclusive files |
 |---|---|---|---|
-| Q5 Repair generated lab tables and enforce structural row/source checks | in progress — stale-claim handoff from arena-5dfdc6d5 | arena/634d0f7a-own6 | `scripts/build_lab.py`, `scripts/check_lab.py`, `docs/lab/*.html` |
+| Q5 Repair generated lab tables and enforce structural row/source checks | superseded by concurrent PR #24; no overlapping edits retained | arena/634d0f7a-own6 (handoff to arena/7a28eb6c-own6) | none (upstream owns `scripts/build_lab.py`, `scripts/check_lab.py`, `docs/lab/*.html`) |
 
 The completed E3/E5 owner last committed on 2026-11-02 (over 60 minutes ago). Inspection today finds every generated lab table displays Python's literal `<generator object ...>` instead of cells, including Flagged for Review. The existing check checks only links and never checks table cells. This broken publication blocks the release; ownership of the narrow repair scope above is taken over under the 60-minute handoff rule. All data and other lab assets remain untouched. See original E3 section and generated `docs/lab/flagged.html` for reproduction. Claim is committed/pushed before edits to the lab files.
+
+### Q5 coordination collision resolution
+
+While this session implemented Q5, PR #24 from arena/7a28eb6c-own6 merged the same stale-owner fix and rebuilt the lab pages first. `git pull --rebase origin main` therefore conflicted on `COORDINATION.md`, `scripts/build_lab.py`, `scripts/check_lab.py`, and four generated pages. Resolution preserved the entire upstream coordination section and upstream lab implementation; this session's duplicate lab edits were dropped, not pushed. The independent landing repair and separate release gate remain in the session's exclusive scope. No other session's work was discarded. The stale-claim handoff is superseded by the completed PR #24. Re-verify the combined tree before integration.
+
+### Q1–Q3 completion evidence and Q4 integration claim
+
+- Q1: removed three conflict-marker lines, consolidated navigation and replaced the manual-input landing calculator with a no-input fail-closed research overview. `git grep` plus `tools/release_gate.py` now catch marker regressions. The status numbers 0/0/6/10 are taken from `data/empirical/report.json` (compiler output, not NBA figures); NBA glossary https://www.nba.com/stats/help/glossary verifies definitions only.
+- Q2: new offline release gate scans tracked text for unresolved merge markers, all published HTML for Python generator repr leaks and broken/escaping links, and landing table rows for official HTTPS sources. Eight regression tests pass; the new PR CI checks both this gate and the upstream lab table renderer/checker. An official link's presence alone does not verify row contents.
+- Q3: `audit/RELEASE_2026_11_03.md` gives the executive decision, per-file findings, source links and review limitations. Official NBA Terms §§1/9 https://www.nba.com/termsofuse, Stats FAQ https://www.nba.com/stats/help/faq and glossary directly read 2026-11-03; GitHub Pages publishing docs https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site directly read. No licensed odds/result feed exists and no betting performance is asserted.
+- Q4 claimed now. Pre-PR integration checks on rebased upstream PR #24: 29 pytest tests pass, generated lab pages match, `scripts/check_lab.py` passes, `tools/release_gate.py` zero errors, review generator check passes, 213/213 `scripts/verify_data.py`, original `scripts/linkcheck.py` 240/240 sourced rows, both site checkers pass, `scripts/check_report.py` preserves fail-closed status. `tools/check_site.py` still reports **31 advisory source-link gaps in `docs/verified/**`**, already listed on the lab Flagged page; they are not treated as verified facts or silently fixed. Deployment must be confirmed after merge.
