@@ -250,3 +250,17 @@ All work stays on the fixed Arena branch `arena/f56f0055-own6`; no other branch 
 
 - None new. Standing flags remain on the site's Flagged for Review pages (NBA.com Terms of Use §§1/9 restrict use of NBA statistics in connection with gambling; no licensed odds/results feed exists, so correlation, edge and ROI fields remain blank/unverified by design).
 - PR and merge record: see final entry appended after merge below.
+
+## Session arena/f58e0178-own6 — final integration, forward test, unified hub (claimed 2026-11-03)
+
+Branch is fixed by Arena to `arena/f58e0178-own6` (the `session-<id>/<task>` naming rule cannot be followed; logged as a deviation, same as earlier sessions). At claim time `origin/main` = `ba6b7b6` (PR #19). Earlier sessions are all `done`; nothing below repeats their work. Scopes are new files, except where noted.
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| H1 Repo irregularity audit (merge-conflict markers, CI refs, data consistency) | in progress | f58e0178 | `audit/INTEGRATION_AUDIT.md`, `scripts/audit_integration.py` |
+| H2 Repair `docs/index.html` (committed git conflict markers) | in progress | f58e0178 | `docs/index.html`, `docs/dashboard.html` (new) |
+| H3 Official Nov 2 results + pre-registered forward test of published lines | in progress | f58e0178 | `data/results_2026-11-02.csv`, `data/forward_test_2026-11-02.csv`, `scripts/forward_test.py` |
+| H4 Unified category hub site (tables, source link per row, Flagged page) | in progress | f58e0178 | `docs/hub/**`, `scripts/build_hub.py`, `scripts/check_hub.py` |
+| H5 Integration: link check, PR to main, merge, Pages verification | unclaimed→mine at end | f58e0178 | `COORDINATION.md` (this section), `README.md` (one link), `docs/index.html` |
+
+Rule: no value is entered unless read from an official page during this session; the page is linked on the row. Blank = unverified.
