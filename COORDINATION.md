@@ -261,3 +261,23 @@ All work stays on the fixed Arena branch `arena/f56f0055-own6`; no other branch 
 Claimed 2026-11-03. Arena fixes this branch name; no session-* branch can be created. Existing research and Pages content belongs to prior sessions and will not be overwritten. Integration checks will be recorded here.
 
 C1 completion (2026-11-03): CI now runs for branch pushes rather than only the former session branch, fetches full history required by `scripts/audit_sources.py` (shallow checkout reproduced `fatal: not a tree object`), and exercises combined-site checks. Verified locally: 20/20 pytest tests; audit 82 rows/43 files/20 findings; fail-closed report `not_run` and zero qualified; lab/site/review/link checks passed. `tools/check_site.py` emitted 31 advisory rows missing official links in prior `docs/verified/` pages; they concern unverified/editorial entries, not independently verified measurements. They remain flagged for review; this session did not add invented citations or edit another owner's pages. Official source boundaries: https://www.nba.com/termsofuse and https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/triggering-a-workflow ; no new performance claims. Pages API reports main-root publication built: https://sassnarep3-star.github.io/Own6/ .
+
+---
+
+## Session arena/7a28eb6c-own6 — independent integration review
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| Independent integration checks and review report | in progress | arena/7a28eb6c-own6 | `audit/session-7a28eb6c.md`, this section of `COORDINATION.md` |
+
+The Arena branch is fixed; no session-named branch will be created. Existing claimed scopes are not edited. PR #19 is already merged; prior E5 board status is stale or inconsistent, so this session will independently check the published integration rather than assume ownership of another session's files.
+
+2026-11-03: PR #19 merged, but its Lab CI failed at “Audit upstream evidence.” E5's last branch commit was 2026-11-02 22:14 UTC (over 60 minutes ago), so this session takes over the stale E5 CI repair scope `.github/workflows/lab-ci.yml`. The audit needs historical commit `77a28cc`; checkout defaults to a shallow clone. Original E5 owner is credited above. The earlier E5 status is not evidence of successful CI.
+
+Rebase conflict on this board after PR #20 landed: retained the entire upstream `arena/f56f0055-own6` section and appended this session's section; no other session's work was discarded.
+
+2026-11-03: Found a rendering defect in the lab generator: table rows contain Python generator-object representations instead of cells. E3's last owner commit is older than 60 minutes; this session takes over the stale E3 repair scope `scripts/build_lab.py`, `scripts/check_lab.py`, `docs/lab/**` and `tests/empirical/test_site_tables.py`. Generated pages will be rebuilt and tested. This is independent of the pre-existing official-source gaps.
+
+2026-11-03 completion: independent review and E3/E5 repairs complete; 31 advisory unsourced rows in `docs/verified/` need review, disclosed on `docs/lab/flagged.html`. Official sources: https://www.nba.com/termsofuse and https://github.com/actions/checkout#fetch-all-history-for-all-tags-and-branches. Local full-history lab CI sequence passed, 21 tests pass, lab link/row checker passes. Prior #19 Lab CI failure and table-rendering defect documented in `audit/session-7a28eb6c.md`; external claims have not all been independently rechecked. Final PR and Pages status pending.
+
+A second rebase encountered concurrent PR #21. Preserved both coordination sections and retained PR #21's more complete CI workflow (including its full-history fix), rather than overwriting the other session's work. The duplicate CI claim and repair were superseded by PR #21.

@@ -54,7 +54,7 @@ def page(title: str, body: str, nav: str, css_src: str = "assets/style.css") -> 
 
 def table(head: list[str], rows: list[list[str]], cls: str = "") -> str:
     th = "".join(f"<th>{esc(h)}</th>" for h in head)
-    body = "".join(f"<tr>{''.join(td) for td in r}</tr>" for r in rows)
+    body = "".join("<tr>" + "".join(f"<td>{td}</td>" for td in r) + "</tr>" for r in rows)
     return f'<table class="{cls}"><thead><tr>{th}</tr></thead><tbody>{body}</tbody></table>'
 
 
@@ -135,7 +135,7 @@ def main() -> None:
         for r in report["leaderboard"]:
             leader_rows.append([str(r["rank"]), esc(r["strategy_id"]), esc(r["name"]), cell(r["score_roi_lower"]), link(r["source_url"], "Source")])
     else:
-        leader_rows.append(['<span class="blank">—</span>', '<span class="blank">no strategy qualified</span>', '<span class="blank">—</span>', '<span class="blank">—</span>', '<span class="blank">—</span>'])
+        leader_rows.append(['<span class="blank">—</span>', '<span class="blank">no strategy qualified</span>', '<span class="blank">—</span>', '<span class="blank">—</span>', link("https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm", "Uncertainty reference")])
     leaderboard = f"""<h1>Leaderboard</h1>
 <p class="callout">Ranking uses the lower bound of event-clustered holdout ROI so small-sample heaters cannot win. Only strategies passing all gates appear here. Rewards are non-monetary research priority only — no payouts, stakes, or picks.</p>
 {table(["Rank", "Strategy", "Name", "ROI lower bound", "Source"], leader_rows, "leaderboard-table")}
@@ -166,6 +166,7 @@ def main() -> None:
         flag_rows.append([esc(r["file"]), esc(r["row"]), esc(r["verification"]), esc(r["review_note"]), link(r["source_url"], "Source")])
     flagged = f"""<h1>Flagged for Review</h1>
 <p class="callout">Every upstream data row is reviewed against an official source or explicitly marked unverified. Blank values are not inferred. These items do not block the build; they are published for owner review after launch.</p>
+<p class="callout"><strong>Integration review, 2026-11-03:</strong> Prior lab pages rendered table rows as Python generator objects; the renderer was repaired. Prior Lab CI failed at the historical audit step with a shallow checkout; full history is now requested. The combined-site checker also reported 31 advisory rows without an official source link in the separate verified section. Those rows need review; do not treat a generic reference as verification. See the <a href="https://github.com/sassnarep3-star/Own6/blob/main/audit/session-7a28eb6c.md">integration review</a> and <a href="https://docs.github.com/en/actions/tutorials/build-and-test-code/python">GitHub Actions documentation</a>.</p>
 {table(["File", "Row", "Verification", "Review note", "Source"], flag_rows, "flagged-table")}"""
     page("Flagged", flagged, nav)
 
