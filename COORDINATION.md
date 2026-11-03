@@ -383,3 +383,28 @@ While PR #26 checks were passing, PR #22 moved `main`. Rebasing this fixed branc
 - Pages deploy: GitHub Pages API reports source `main:/`, latest build for `9d4a2d8` status `built` (2026-11-03T19:57:04Z, no error). Live re-read via fetch: https://sassnarep3-star.github.io/Own6/docs/hub/index.html, .../hub/forward-test.html and .../docs/index.html (repaired landing page with the new Data hub card) all render correctly. A first fetch of `/docs/` returned a stale cached copy with the old conflict markers; a cache-busted fetch (`?v=...`) returned the repaired page, so the stale copy is CDN caching, not the deployed file.
 - This record: follow-up PR (coordination file + hub flag status only).
 
+
+---
+
+## Session arena/fd5276fa-own6 — sitewide source coverage acceptance (2026-11-03)
+
+Fixed Arena branch `arena/fd5276fa-own6` is used instead of creating a session branch. Active PR #31 (assurance/model hardening), #28 (legacy review repairs), and #23 (coordination follow-up) are not claimed or modified by this session. Historical task statuses above are retained, not treated as current exclusive claims without their later completion logs.
+
+| Task | Status | Owner | Exclusive scope |
+|---|---|---|---|
+| SC1 Independently inventory every published HTML table row and classify official source-link coverage without claiming factual verification | in progress | arena/fd5276fa-own6 | `scripts/source_coverage.py`, `tests/test_source_coverage.py`, `data/source_coverage/**` |
+| SC2 Publish a source-coverage executive summary, complete row inventory, and Flagged for Review | in progress | arena/fd5276fa-own6 | `docs/coverage/**`, `audit/SOURCE_COVERAGE.md` |
+| SC3 Automate source-coverage regression check; integrate, PR, merge, verify Pages deployment | in progress | arena/fd5276fa-own6 | `.github/workflows/source-coverage.yml`, this section of `COORDINATION.md` |
+
+Claim recorded before implementation. Scope excludes existing indexes/navigation/data/model files. Integration request to PR #31 owner: add a navigation link to `../coverage/index.html` if desired after this additive site is published; do not interpret official-link coverage as row verification. This audit will link directly to the official references and preserve blanks for unconfirmed empirical measurements. Sources cannot be called checked if network access prevents reading them.
+
+### SC1–SC2 findings and verification (2026-11-03)
+
+- Entire current published scope inspected: 50 HTML pages (root plus every docs section, excluding only the new self-generated coverage pages), 1,021 td-bearing rows. External official references: 713; Own6 repository references only: 205; secondary/unknown publisher references only: 82; no HTTPS anchor reference: 21. These are **reference coverage counts**, not verified-fact counts. All confirmed empirical-value fields in the new audit remain blank. The raw row inventory includes page and row hashes, line coordinates, and actual source URLs.
+- Official source bodies directly read this session: https://www.nba.com/termsofuse chunks 0/3/4 (§§1 and 9), https://www.nba.com/stats/help/faq chunk 0, https://www.nba.com/stats/help/glossary chunk 0 only, and full https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages. No legacy NBA score, correlation, secondary odds quote, or legal eligibility is certified from those pages.
+- Published executive summary and sources/limits: `docs/coverage/index.html`, `docs/coverage/sources.html`; every audited entry is in the readable table `docs/coverage/rows.html`; all 308 external-reference coverage gaps are in `docs/coverage/flagged.html`. A repository-only source may validly document repo facts, but does not verify NBA/market values. No values copied into confirmed fields, no guesses, no new performance claims.
+- Page-owner request: review the row-specific findings (especially 82 ESPN-only observations and 21 unsourced-anchor rows) and avoid labeling structural recomputation as factual verification. Existing owners retain their scopes; this session edits none of their pages/data. Optional link request: add `docs/coverage/index.html` to the landing/assurance navigation after integration.
+- Parser/regression verification: 10 new unittest tests cover tables without tbody, optional end tags, nested-source isolation, spoofed domains/credentials, arbitrary GitHub repositories, blank verified fields even with fabricated source-linked text, deterministic all-section inventory and row hash changes. All 44 repository pytest tests pass after installing the pinned empirical dependencies in ignored `.venv/`. Initial attempts without pytest/numpy failed due missing dependencies; resolved in the isolated virtual environment, not by changing project requirements.
+- Existing integration, hub, lab, verified site, legacy link, 213 recomputation and review-output checks pass. These tests demonstrate internal consistency and link structure only. Source-body factual verification of every legacy row remains incomplete, published as such.
+- New CI builds/uploads exact-tested-tree coverage and checks deterministic regeneration. It does not silently commit or deploy report changes on someone else's PR, nor claim a committed snapshot remains fresh after future upstream edits. `--check` locally detects snapshot drift; `--strict` explicitly fails with the reported legacy gaps, which do not block clearly labeled research publication.
+- SC1 and SC2: done. SC3: in progress pending PR checks, merge and Pages confirmation. The initial claim push attempted a nonexistent remote branch; after pulling/rebasing `origin/main`, the fixed branch was pushed successfully before implementation. No work or credentials lost.
