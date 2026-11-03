@@ -625,9 +625,9 @@ Concurrent open PRs at claim time: #23 (`arena/db20c549-own6`, `COORDINATION.md`
 |---|---|---|---|
 | V1 Line-by-line repo review + fresh official-source verification (2026-11-03) | done | arena/107fc87d-own6 | `audit/session-107fc87d.md` (new), `data/session_107fc87d_verification.csv` (new), this `COORDINATION.md` section |
 | V2 Local recomputation of derived values (standings, correlations, forward test) — labeled computations, not official NBA claims | done (local consistency only; no new correlations asserted) | arena/107fc87d-own6 | same new files as V1 |
-| V3 Executive summary: append dated 2026-11-03 session section | blocked / needs review (PR #28 owns `EXECUTIVE_SUMMARY.md`; request logged below, no edit) | arena/107fc87d-own6 | `EXECUTIVE_SUMMARY.md` (append only) |
+| V3 Executive summary: append dated 2026-11-03 session section | blocked / needs review (PR #28/#37 own `EXECUTIVE_SUMMARY.md`; request logged below, no edit) | arena/107fc87d-own6 | `EXECUTIVE_SUMMARY.md` (append only) |
 | V4 Site/checker verification run + live Pages fetch spot-check | done | arena/107fc87d-own6 | read-only; results recorded in V1 files |
-| V5 Integration: PR to main, merge, Pages deploy confirmation, record | in progress | arena/107fc87d-own6 | this `COORDINATION.md` section; no changes to overlapping active PR scopes |
+| V5 Integration: PR to main, merge, Pages deploy confirmation, record | complete for this session PR; broader multi-PR integration remains open | arena/107fc87d-own6 | this `COORDINATION.md` section; no changes to overlapping active PR scopes |
 
 Rules kept: no value asserted without a directly retrieved official source (link recorded); unconfirmable values stay blank and flagged; no hallucinated odds/correlations/ROI; derived recomputations are labeled as compiler computations from committed CSVs.
 
@@ -677,3 +677,11 @@ Rules kept: no value asserted without a directly retrieved official source (link
 - Remaining needs-review disclosures are live: historical values/source evidence, rights/feed gaps, correlation/joint-model limits, and different legacy standards. The earlier `docs/verified` 31 source-link advisories are not silently fixed or newly certified by this narrow review. Every new review row has an official source or the actual first-party project evidence; project evidence is not NBA value confirmation.
 - This coordination-only close-out is submitted via a follow-up PR on the same fixed branch; no published data/model or hub implementation is altered by it. User input was not required.
 - Post-merge combined-tree close-out result: **102 pytest tests and 6 subtests passed**, including the concurrent reverification extension; both hub gates still report 12 pages / 335 rows / 0 issues, and release gate zero issues. This is the final local software-test count, not evidence of verified betting performance.
+
+
+### Session arena/107fc87d-own6 — PR and Pages close-out (2026-11-03)
+
+- **Session PR #42 merged** by squash at `88462e9244643d95ed4bcd847c09cdd2dfdec31e` (2026-11-03 23:44:58 UTC): https://github.com/sassnarep3-star/Own6/pull/42 . All seven PR checks passed on head `8863335df00e36659fa6d87b19fb2b892733d6e8` (Line-by-line verification gates, hub, hub-references, lab, parlay-safety, published-html, source-coverage). Post-merge site/integration and release-integrity workflows passed.
+- **Pages deployment confirmed:** run `41741579185` completed successfully; GitHub Pages API reports `built` for merge SHA `88462e9244643d95ed4bcd847c09cdd2dfdec31e` at 2026-11-03T23:45:34Z; source remains `main:/`. Live reads after deployment confirmed dashboard says no qualified strategies / zero authorized observations; lab says `not_run`, zero observations and zero qualified; hub Flagged page displays 60 flagged items. This confirms publication/deployment, not factual accuracy or empirical skill.
+- **V5 complete for this session's audit/ledger PR.** V1/V2/V4 were limited to sourced verification/local consistency as documented above. V3 is still blocked: PR #28/#37 own `EXECUTIVE_SUMMARY.md`; no summary edit or cross-session reconciliation was made. Open PRs #23/#28/#31/#32/#37 and follow-up #43 were not merged or modified by this session.
+- Remaining requested integration flags: fix the Utah row's schedule citation; investigate missing historical base object in `scripts/audit_sources.py`; have a qualified reviewer assess NBA Terms §§1/9 before any gambling-related reuse; reconcile legacy assertions/summary through their owners. No unresolved flag was represented as resolved by this session.
