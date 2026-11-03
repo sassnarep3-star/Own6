@@ -612,3 +612,21 @@ Pulled/rebased on current main (hub PR #36 and independent legacy-parlay PR #34 
 - Independent reference gate: **12 pages / 335 rows / 0 errors** against the merged owner's hub.
 - Stdlib independent adversarial suite: **24/24 tests pass**. Combined repository pytest suite: **91 tests and 6 subtests pass** (includes upstream source-coverage, strict publication and legacy-parlay repairs). These are software/publication tests, not empirical factual certification.
 - F10-1: done via earlier owner's merged PR #36 (this session's duplicate implementation withdrawn). F10-2/F10-3: done within narrowed additive scope. F10-4: in progress pending own PR, CI and Pages deployment.
+
+
+
+## Session arena/107fc87d-own6 — line-by-line re-verification, executive-summary update, final integration (2026-11-03)
+
+Branch is fixed by Arena to `arena/107fc87d-own6`; no `session-*` branch is created (same logged deviation as earlier sessions). Claim committed and pushed before any work. Base at claim time: `origin/main` = `f2877f3` (PR #30 merged; Pages build `built` 2026-11-03T20:00:02Z, source legacy `main:/`).
+
+Concurrent open PRs at claim time: #23 (`arena/db20c549-own6`, `COORDINATION.md` only), #28 (`arena/269a73e2-own6`, `EXECUTIVE_SUMMARY.md`, `audit/*`, `data/flags.json`, `data/verification_log.csv`, `docs/flagged.html`, `docs/index.html`, `docs/lab/flagged.html`, `docs/review/*`, `docs/verified/*`, `scripts/build_site.py`, `tools/build_review.py`), #31 (`arena/74d27b5d-own6`, `docs/assurance/**`, `nba_lab/*`, `research/*`, `data/empirical/*`, `data/assurance/*`, `scripts/audit_repo.py`, `scripts/build_assurance.py`, `scripts/check_assurance.py`, `README.md`, root `index.html`, `.github/workflows/assurance-ci.yml`, `docs/lab/methodology.html`). **This session will not edit any file in those PRs' scopes.** Append-only edits to `COORDINATION.md` and `EXECUTIVE_SUMMARY.md`; conflicts on concurrent merges resolved by keeping both sides.
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| V1 Line-by-line repo review + fresh official-source verification (2026-11-03) | in progress | arena/107fc87d-own6 | `audit/session-107fc87d.md` (new), `data/session_107fc87d_verification.csv` (new), this `COORDINATION.md` section |
+| V2 Local recomputation of derived values (standings, correlations, forward test) — labeled computations, not official NBA claims | unclaimed | arena/107fc87d-own6 | same new files as V1 |
+| V3 Executive summary: append dated 2026-11-03 session section | unclaimed | arena/107fc87d-own6 | `EXECUTIVE_SUMMARY.md` (append only) |
+| V4 Site/checker verification run + live Pages fetch spot-check | unclaimed | arena/107fc87d-own6 | read-only; results recorded in V1 files |
+| V5 Integration: PR to main, merge, Pages deploy confirmation, record | unclaimed | arena/107fc87d-own6 | this `COORDINATION.md` section, `EXECUTIVE_SUMMARY.md` (append) |
+
+Rules kept: no value asserted without a directly retrieved official source (link recorded); unconfirmable values stay blank and flagged; no hallucinated odds/correlations/ROI; derived recomputations are labeled as compiler computations from committed CSVs.
