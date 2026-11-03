@@ -451,6 +451,64 @@ Initial finding: `scripts/build_hub.py` publishes ESPN-carried market/prop numbe
 ### P3 concurrent integration resolution
 
 `main` advanced through PR #33 (additive source-coverage audit) and #35 (its release record) while this session implemented its separately claimed hub repair. `git pull --rebase origin main` conflicted only at the appended end of `COORDINATION.md`. Resolved by retaining the complete upstream fd5276fa section and this session's separate claim/completion sections; no upstream source, data or code was discarded. Rebased tree: 56 pytest tests plus 6 subtests pass; hub checker reports 335 source-linked rows, no errors; release gate passes. New source-coverage artifacts are a historical snapshot; its CI rebuilds coverage for the exact tested tree rather than implying that its older checked-in inventory is current. Other sessions' output files were not regenerated or edited here.
+---
+
+## Session arena/197aa3f0-own6 — line-by-line reverification and Flagged-for-Review publication (claimed 2026-11-03)
+
+### Branch rule (deviation logged)
+
+The brief asked for `session-<id>/<task>` branches. The Arena session rule fixes this session to **`arena/197aa3f0-own6`** and forbids other branches, so all work is on that branch. File scopes below are kept disjoint from the open PRs at claim time (#23, #28, #31, #32), so their owners can merge without conflict.
+
+### Task board (session 197aa3f0)
+
+| Task | Status | Owner session | Exclusive files | Notes |
+|---|---|---|---|---|
+| R1 Line-by-line reverification of legal (국민체육진흥법), NBA-policy and site claims, with official-source links per row; publish as a separate page | in progress | arena/197aa3f0-own6 | `data/line_reverification_2026-11-03.csv`, `scripts/build_reverification.py`, `tests/test_reverification.py`, `docs/reverification/**`, this section of `COORDINATION.md` | Does not edit `docs/index.html` navigation, `docs/verified/**`, `data/nba_policy.json`, `data/legal_kr.json`, `EXECUTIVE_SUMMARY.md` or `README.md`; those are logged as requests below. |
+
+### Status legend
+
+`unclaimed` · `in progress` · `done` · `needs review` (published on the Flagged for Review page; does not block anything)
+
+### Requests to file owners (logged, not edited)
+
+| Request | Target file (owner) | Requested change |
+|---|---|---|
+| Q-1 | `data/nba_policy.json` row 2, and generated `docs/verified/nba-policy.html` (owner: session 05e359b8 / integration) | The official NBABet list dated July 9, 2026 does not include **Brazil**. Remove Brazil from the country list in `official_statement_verified`, then regenerate the page. Source: https://www.nba.com/nbabet/official-nba-gaming-partners-and-operators-2 (read 2026-11-03). |
+| Q-2 | `docs/verified/strategies.html`, `docs/hub/validation.html`, `docs/verified/methodology.html` and related pages (owner: integration) vs `nba_lab/gates.py` | Two different gate frameworks use the same IDs. The verified/hub pages use G1–G8 (G1 = Korean legal review), while the lab uses ten gates (G01–G10, G01 = rights and market permission). Rename one set or add an explicit crosswalk. |
+| Q-3 | `docs/verified/{flagged,methodology,nba-policy,sources,strategies}.html` (owner: integration) | 31 table rows still have no official source link (advisory from `tools/check_site.py`). Add a link to an official URL or mark the row unverified. |
+| Q-4 | `docs/index.html` navigation (owner: integration) | Add a link to the new page `docs/reverification/index.html` once merged. |
+| Q-5 | `data/legal_kr.json`, row "제53조 / 제54조" (owner: session 05e359b8) | The summary "corporate liability" is incomplete. Art. 54 (양벌규정) applies only to violations of Art. 47 item 2 (제47조제2호). |
+| Q-6 | `data/legal_kr.json` meta (owner: session 05e359b8) | The law.go.kr page shows several articles with later effective dates (Art. 21: 시행일 2026. 12. 3.; Art. 22: 시행일 2027. 4. 21.). The repo cites the 2026. 9. 3. header, which is correct for that version. Add an "as-of" note. |
+
+### Open PRs at claim time (not touched by this session)
+
+#23 (`arena/db20c549-own6`), #28 (`arena/269a73e2-own6`, conflicting), #31 (`arena/74d27b5d-own6`), #32 (`arena/b1bdfb4b-own6`). Their owners should merge or close them. This session does not merge other sessions' PRs.
+
+### Completion record (R1, 2026-11-03)
+
+Status: **done** for this session's scope. The PR link and merge result are appended below after merge.
+
+**Deliverables:** `data/line_reverification_2026-11-03.csv` (40 rows: 27 verified, 3 mismatch, 6 unverified, 2 flagged, 1 carried forward, 1 not checked); `scripts/build_reverification.py` (validates every row, then renders `docs/reverification/index.html`; `--check` mode); `tests/test_reverification.py` (11 tests); the page at `docs/reverification/index.html`, which includes Flagged for Review and key findings.
+
+**Official sources read directly on 2026-11-03** (the rest are carried forward or not checked, as shown in the CSV):
+- 국민체육진흥법 full text: https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B5%AD%EB%AF%BC%EC%B2%B4%EC%9C%A1%EC%A7%84%ED%9D%A5%EB%B2%95 (header; Arts. 2, 24, 26, 27, 30, 47–49, 51, 53, 54; later-effective versions of Arts. 21–22)
+- NBA Terms of Use: https://www.nba.com/termsofuse (§1 and §9)
+- NBA release, Oct 26, 2026: https://www.nba.com/news/nba-establishes-integrity-framework-and-commercial-partnerships-for-prediction-markets
+- NBABet official gaming partners list, July 9, 2026: https://www.nba.com/nbabet/official-nba-gaming-partners-and-operators-2
+- NBA Stats FAQ: https://www.nba.com/stats/help/faq
+- NBA game pages (score spot-checks): https://www.nba.com/game/bos-vs-det-0022600001 and https://www.nba.com/game/atl-vs-orl-0022600085
+- GitHub Pages build record: https://api.github.com/repos/sassnarep3-star/Own6/pages/builds/latest
+- Live site: https://sassnarep3-star.github.io/Own6/docs/
+
+**Verification performed:** every CSV row was compared with the quoted official text or the repo file it describes. The checks were: `scripts/build_reverification.py --check` (40 rows valid); `tools/run_tests.py` (21/21, including the 11 new tests); `tools/release_gate.py` (0 issues); `tools/build_review.py --check`; `tools/check_site.py` (0 errors; 31 advisory warnings unchanged); `scripts/check_site.py`; `scripts/linkcheck.py`; `scripts/check_hub.py`; `scripts/audit_integration.py`; `scripts/check_lab.py`; `scripts/verify_data.py` (213/213, internal only); `scripts/check_report.py`. All five internal links on the new page resolve.
+
+**Limits (not claimed):** 90 of 92 game rows were not re-read against nba.com. The prop restrictions reported by the press (N08–N12) remain unverified because no official text for them was found on the pages read. The glossary definition (N13) is carried forward from 2026-11-02. Linking to nba.com pages is subject to the existing §1 legal-review flag. This is not legal advice.
+
+**Irregularities for the owners:** Q-1 (Brazil), Q-2 (duplicate gate IDs), Q-3 (31 rows without official link), Q-4 (nav link), Q-5 (Art. 54 scope), Q-6 (as-of note). See the request table above.
+
+### Coordination note on concurrent work
+
+Session `arena/fd5276fa-own6` (PR #33, merged) published sitewide source-coverage findings under `docs/coverage/**`. That work audits link coverage per row. This session (R1) checks factual claims against official text, so the file scopes do not overlap. R1 will link to the `docs/coverage/` audit rather than repeat it.
 
 
 ### P3 final release evidence (2026-11-03)
@@ -474,7 +532,7 @@ Branch deviation: Arena fixes this session to `arena/b700d3ca-own6`; no addition
 | P1 Validate legacy Pearson/correlation matrix/probability inputs; fail closed on undefined quantities | done | arena/b700d3ca-own6 | `src/own6/parlay.py` |
 | P2 Add boundary/regression tests and CI | done | arena/b700d3ca-own6 | `tests/test_legacy_parlay.py`, `.github/workflows/parlay-safety.yml` |
 | P3 Publish official-reference-linked findings and executive decision | done | arena/b700d3ca-own6 | `docs/parlay-safety/index.html`, `audit/PARLAY_SAFETY_2026_11_03.md` |
-| P4 Independent combined-tree checks, additive landing link, PR/merge and Pages evidence | in progress | arena/b700d3ca-own6 | this section of `COORDINATION.md`; one additive link only in `docs/index.html` at final integration |
+| P4 Independent combined-tree checks, additive landing link, PR/merge and Pages evidence | done | arena/b700d3ca-own6 | this section of `COORDINATION.md`; one additive link only in `docs/index.html` at final integration |
 
 Initial code findings (not NBA statistics): `pearson` does not reject unequal lengths and returns 0 for constant arrays; `joint_prob` clips negative Cholesky pivots to zero and does not validate shape, symmetry, unit diagonal, bounds, sample count, or probability range. The intended fix will reject invalid inputs and explicitly distinguish latent-normal copula correlation from observed binary/score correlation. No empirical NBA coefficients or returns will be produced. Official NBA Terms https://www.nba.com/termsofuse (chunk 0) and glossary https://www.nba.com/stats/help/glossary (chunk 0) directly read this session; these verify use/definition context, not model performance. Additional numerical references will be read before publication.
 
@@ -495,6 +553,65 @@ P4 second coordination-only rebase: while PR #34's eight reported jobs were gree
 P4 third concurrent integration: GitHub first returned a transient merge GraphQL error, then reported conflicts after PR #36 moved `main`. No merge had occurred. Pulled/rebased again and preserved both entire coordination sections; no other files conflicted. Upstream #36 withholds unsupported hub values; this session preserves that repair. Rechecking the newly combined tree before a fresh merge attempt.
 
 P3 close-out rebase note (arena/2dbac92a-own6): concurrent PR #34 added legacy parlay safety after hub deployment. Follow-up release-record rebase conflicted only on appended COORDINATION.md; kept both complete sections, including the parlay owner's evidence, and changed no parlay code or data. Re-ran combined tests before the close-out PR.
+### P4 final merge and live Pages evidence
+
+- PR **#34** https://github.com/sassnarep3-star/Own6/pull/34 — **MERGED** 2026-11-03T23:40:34Z, merge SHA `7e28344a9e959ac2768d6c15bfaa6359f7869e27`. All final PR jobs passed (hub, lab, parlay-safety, published-html, source-coverage, Line-by-line verification gates, with duplicate push/PR executions also green). The transient API merge error and concurrent-merge conflict were resolved before this successful merge; no failed merge was reported as success.
+- Latest combined-tree local result before merge: **67 pytest tests and 6 subtests passed** after preserving upstream #36. Release gate 0 errors; hub 12 pages / 335 source-linked rows / 0 errors; lab fail-closed checker passed. These are implementation/link/blank/internal-consistency checks, not complete factual authentication of inherited data.
+- GitHub Pages run https://github.com/sassnarep3-star/Own6/actions/runs/41741020690 — **success** (build, report-build-status, deploy). Official Pages API https://api.github.com/repos/sassnarep3-star/Own6/pages/builds/latest returned `built`, commit `7e28344`, no error, updated 2026-11-03T23:40:59Z. Source remains `main:/`.
+- Live direct read-back succeeded at https://sassnarep3-star.github.io/Own6/docs/parlay-safety/index.html?v=7e28344 : evidence table has blank unverified NBA fields, repaired-method rows have official references, and PS-01–PS-06 render on the clearly labeled Flagged for Review section. Entry from main dashboard: https://sassnarep3-star.github.io/Own6/docs/ . No current NBA coefficient, ROI or executable quote is asserted.
+- Outstanding issues remain **needs review**, published rather than concealed. The new numerical utility does not certify legacy modules, historical data or real-money eligibility. Existing archival source-link gaps remain flagged. No other session's open PR was merged. Optional assurance navigation request sent to #31 owner: https://github.com/sassnarep3-star/Own6/pull/31#issuecomment-6618305117 .
+- This final coordination-only record is submitted via a follow-up PR on the same fixed session branch so the actual merge/deployment evidence appears on `main`; it changes no website/model/data artifact. Platform Pages job annotations warn about Node 20 and runner migration but the deployment succeeded.
+
+P4 close-out rebase note: PR #39 concurrently appended its release record, so the coordination-only PR #40 temporarily conflicted. Pulled/rebased, retained both full close-out notes and all prior evidence, with no website/model/data changes. Re-ran the combined release tests before retrying the close-out merge.
+
+---
+
+
+---
+
+---
+
+## Session arena/fa10f2e0-own6 — hub evidence-boundary repair (2026-11-03)
+
+Environment requires the fixed branch `arena/fa10f2e0-own6`; no alternate branch is created. Reviewed the complete existing board and open PR file scopes (#28, #31, #32, #23). This session does not edit those sessions' owned generator, engine, assurance, source registry or landing files. Prior integration H5 is complete per its final record; this incremental claim concerns the hub only.
+
+| Task | Status | Owner session | Exclusive scope |
+|---|---|---|---|
+| F10-1 Enforce blank unverified values in the hub, preserve raw evidence as review-only links, add clearly sourced hub findings | in progress | arena/fa10f2e0-own6 | `scripts/build_hub.py`, `docs/hub/*.html`, `data/hub_evidence_flags.csv` |
+| F10-2 Harden hub HTTPS/official-host row checks and add regression tests | in progress | arena/fa10f2e0-own6 | `scripts/check_hub.py`, `tests/test_hub_evidence.py` |
+| F10-3 Independent evidence-boundary audit, executive decision and source review | in progress | arena/fa10f2e0-own6 | `audit/HUB_EVIDENCE_2026_11_03.md` |
+| F10-4 Re-run integration checks, PR, merge and Pages build confirmation | in progress | arena/fa10f2e0-own6 | this section of `COORDINATION.md` |
+
+Initial reproduced issue: `scripts/build_hub.py` displays numeric team ratings labelled not re-verified and secondary ESPN-carried odds, while the brief requires blank unconfirmed values. Its checker accepts any HTTPS row link, treats press as acceptable on flagged pages, and uses unsafe hostname suffix matching. Source presence is not factual verification. No existing legacy data files will be rewritten or upgraded to verified. Existing source-verification claims are historical unless independently re-read. Claim committed/pushed before implementation.
+
+### F10-1–F10-3 implementation and direct source review
+
+- Rebuilt the 12-page hub as an evidence-first archive index, preserving every input entry and raw file link while withholding unconfirmed numeric observations and dependent outputs. Source roles explicitly distinguish official references from project-primary records and historical/secondary citations. No raw dataset was altered. HE01–HE07 are published on `docs/hub/flagged.html`.
+- Replaced the weak hub checker with HTTPS/credential/hostname-boundary/project-path validation, per-row scoped primary references, table-width checks, and mandatory empty value/provenance columns. A secondary-only row cannot pass; removing a blank-field marker cannot enable publication.
+- Direct reads 2026-11-03: NBA Terms https://www.nba.com/termsofuse chunks 0/3/4 (§§1/9); NBA Stats FAQ https://www.nba.com/stats/help/faq chunk 0 (download statement); glossary https://www.nba.com/stats/help/glossary chunk 0 only (partial; no later metric entries or numerical data certified). Evidence and executive decision in `audit/HUB_EVIDENCE_2026_11_03.md`. Historical numerical sources were not re-read or recertified. No NBA dataset harvested.
+- Current local result: **64 pytest tests pass** (34 existing + 30 new), `scripts/check_hub.py`: 12 pages, 362 rows, 0 structural errors; deterministic rebuild and record-coverage tests pass. Full integration suite and deployment still pending. Tests do not assert real-world source accuracy.
+- Initial push note: remote session branch did not exist, so initial `git pull --rebase origin arena/fa10f2e0-own6` returned no remote ref; successfully pulled/rebased `origin/main` before first push instead. All subsequent pushes will use the existing fixed session branch.
+
+### Integration test corrections and upstream coordination
+
+- Full-suite execution caught a compatibility issue: the dependency-free test runner imports every top-level test module, so the initial new pytest-only test module failed in that environment. Converted the same 30 regressions to stdlib unittest (still collected by pytest). Both `python tools/run_tests.py` (10/10 simple functions) and `python -m unittest discover -s tests -p test_hub_evidence.py` (30/30) now pass. No shared runner/workflow was edited.
+- The frozen empirical source audit initially failed because the starting checkout was shallow and lacked base commit `77a28cc`. Fetched full origin history; the audit and fail-closed lab now pass without modifying their owned outputs. Lab status stays `not_run`, zero authorized observations, empty leaderboard; generated lab files match exactly.
+- Other completed checks: integration audit, release gate, generated review freshness, maintained-site strict checks (0 errors / 31 known legacy advisory warnings), original/verified/lab checkers, original 213/213 arithmetic checks and 240/240 link-covered legacy rows. Arithmetic/source coverage are not factual verification.
+- Concurrent upstream PRs #33/#35 add an isolated sitewide structural coverage snapshot and CI. Their additive files will be preserved on rebase. Their committed coverage snapshot may be stale after hub changes by design; CI regenerates and uploads current-tree evidence. Request to owner: refresh the published coverage snapshot after integrating this repair; do not treat repository-only methodology records as verified NBA numbers. No edits to their claimed files are made here.
+
+### Collision handoff — narrow scope replaces F10-1/F10-2 implementation claim
+
+Discovered newly opened PR #36 by `arena/2dbac92a-own6` during final integration. Its claim was authored 2026-11-03T23:33:33Z, before this session's claim, but was not on main or an open PR when this session first checked. Both sessions independently repaired the same hub. **The earlier owner's implementation takes precedence.** Notification: https://github.com/sassnarep3-star/Own6/pull/36#issuecomment-6618316111 . Withdrawn this session's overlapping edits to `scripts/build_hub.py`, `scripts/check_hub.py`, `docs/hub/*.html`, and duplicate flag dataset; history is preserved but those replacements will not be part of this release. Their policy checker remains canonical. No request to wait and no work from the other session discarded.
+
+Rebase with concurrent #33/#35 caused only an appended-board conflict; resolved retaining both complete sections. This session now exclusively claims **`tools/hub_reference_gate.py`, `tests/test_hub_evidence.py`, `audit/HUB_EVIDENCE_2026_11_03.md`, `docs/hub-evidence/index.html`, `.github/workflows/hub-references.yml`** and this board section. These are additive independent reference-integrity checks and a source-review report, not a competing hub implementation. The earlier 64-test/362-row result above pertains to the withdrawn prototype, not the eventual combined publication; final combined counts will be recorded separately. F10-1 is handed off to the PR #36 owner; F10-2/F10-3 are narrowed as above. No earlier claim or test record is silently rewritten.
+
+### Combined-tree handoff verification after PR #36/#34 merged
+
+Pulled/rebased on current main (hub PR #36 and independent legacy-parlay PR #34 both merged). Rebase replay touched the withdrawn prototype's former hub files; explicitly retained **all 14 upstream hub generator/checker/page files byte-for-byte from origin/main** at both conflict stages. Only additive independent report/reference-gate files remain in the final diff. No other session's board section or implementation was discarded. Their publication-policy checker remains canonical.
+
+- Independent reference gate: **12 pages / 335 rows / 0 errors** against the merged owner's hub.
+- Stdlib independent adversarial suite: **24/24 tests pass**. Combined repository pytest suite: **91 tests and 6 subtests pass** (includes upstream source-coverage, strict publication and legacy-parlay repairs). These are software/publication tests, not empirical factual certification.
+- F10-1: done via earlier owner's merged PR #36 (this session's duplicate implementation withdrawn). F10-2/F10-3: done within narrowed additive scope. F10-4: in progress pending own PR, CI and Pages deployment.
 
 ---
 
