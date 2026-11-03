@@ -282,6 +282,10 @@ Rebase conflict on this board after PR #20 landed: retained the entire upstream 
 
 A second rebase encountered concurrent PR #21. Preserved both coordination sections and retained PR #21's more complete CI workflow (including its full-history fix), rather than overwriting the other session's work. The duplicate CI claim and repair were superseded by PR #21.
 
+Final integration: PR https://github.com/sassnarep3-star/Own6/pull/24 merged 2026-11-03 as `5e231c6b6dc4430fc4b0bbd9517b9fe41b4a5e4e`; both PR checks passed. GitHub Pages build and deployment https://github.com/sassnarep3-star/Own6/actions/runs/41706689734 succeeded, and Pages API reported `built` for that merge commit. Main Lab CI https://github.com/sassnarep3-star/Own6/actions/runs/41706690815 passed. GitHub emitted a Node.js 20 deprecation warning on its managed Pages build. Review task status: done; the 31 unsourced-row advisories remain needs review.
+
+Board conflict after concurrent PR #22: retained both sections and appended this record without discarding work.
+
 ---
 
 ## Session arena/526a6816-own6 — independent close-out (2026-11-03)
