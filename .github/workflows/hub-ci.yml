@@ -22,6 +22,6 @@ jobs:
       - name: Hub pages are up to date with the data
         run: |
           python3 scripts/build_hub.py
-          git diff --exit-code -- docs/index.html docs/hub
+          git diff --exit-code -- docs/hub
       - name: Hub links and per-row sources
         run: python3 scripts/check_hub.py

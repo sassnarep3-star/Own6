@@ -1,18 +1,50 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Own6 — NBA Lines Lab — Own6 NBA Lines Lab</title><link rel="stylesheet" href="hub/assets/hub.css"></head><body>
-<header class="top"><span class="brand">OWN6</span><span class="grp">Overview</span><a class="on" href="index.html">Home</a><a href="hub/summary.html">Executive summary</a><span class="grp">Data</span><a href="hub/results.html">Results</a><a href="hub/standings.html">Standings</a><a href="hub/lines.html">Lines</a><a href="hub/props.html">Props</a><span class="grp">Analysis</span><a href="hub/forward-test.html">Forward test</a><a href="hub/strategies.html">Strategies</a><a href="hub/correlations.html">Correlations</a><a href="hub/validation.html">Validation</a><span class="grp">Reference</span><a href="hub/sources.html">Sources</a><a href="hub/flagged.html">Flagged for Review</a></header>
-<main><h1>Own6 — NBA Lines Lab</h1><p class="lead">Originate your own NBA lines, test them against official results, and rank strategies on skill rather than luck.</p>
-<div class="grid">
-<div class="card"><div class="kpi">0<small>strategies passing skill gates</small></div></div>
-<div class="card"><div class="kpi">107<small>official results tabulated</small></div></div>
-<div class="card"><div class="kpi">30 / 30<small>teams' W-L match official standings</small></div></div>
-<div class="card"><div class="kpi">15<small>games in first forward test (market ≥ Own6)</small></div></div>
-</div>
-<div class="banner">Own6 originates its own NBA lines and tests them against official results. <b>No edge is claimed.</b> Odds data is secondary-source and flagged. Research and paper tracking only.</div>
-<h2>Browse by category</h2>
-<div class="grid"><div class="card"><h3><a href="hub/summary.html">Executive summary</a></h3><p>Findings, fixes and what is unverified.</p></div><div class="card"><h3><a href="hub/results.html">Results</a></h3><p>107 official final scores with links.</p></div><div class="card"><h3><a href="hub/standings.html">Standings</a></h3><p>Official W-L vs recomputed; ratings snapshot.</p></div><div class="card"><h3><a href="hub/lines.html">Lines</a></h3><p>Market vs Own6 for the Nov 2 slate.</p></div><div class="card"><h3><a href="hub/props.html">Props</a></h3><p>Seven player-points lines, unsettled.</p></div><div class="card"><h3><a href="hub/forward-test.html">Forward test</a></h3><p>15 games graded out-of-sample.</p></div><div class="card"><h3><a href="hub/strategies.html">Strategies</a></h3><p>7 strategies; skill-gated leaderboard.</p></div><div class="card"><h3><a href="hub/correlations.html">Correlations</a></h3><p>Parlay and prop-combo dependence.</p></div><div class="card"><h3><a href="hub/validation.html">Validation</a></h3><p>Gates and luck-removal protocol.</p></div><div class="card"><h3><a href="hub/sources.html">Sources</a></h3><p>Official pages behind every table.</p></div><div class="card"><h3><a href="hub/flagged.html">Flagged for Review</a></h3><p>60 open items with source links.</p></div></div>
-<h2>Earlier section sites (kept)</h2>
-<p class="mut"><a href="dashboard.html">Own-line calculator</a> · <a href="verified/">Verified data (schedule, Korean law, NBA policy)</a> · <a href="own6/">Research sub-site</a> · <a href="lab/overview.html">Fail-closed empirical lab</a> · <a href="review/">Independent review</a> · <a href="strategies.html">Original strategy pages</a></p>
-</main>
-<footer><p>Research and paper tracking only. No wagers, no betting advice, no profitability claim. Every table row links to its source; blank or UNVERIFIED means it could not be confirmed from an official page. Earlier section sites remain available: <a href="dashboard.html">calculator</a> · <a href="verified/">verified data</a> · <a href="own6/">research sub-site</a> · <a href="lab/overview.html">empirical lab</a> · <a href="review/">independent review</a>.</p></footer>
-<script src="hub/assets/hub.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Own6: evidence-first NBA line research, strategy validation and source-linked review.">
+  <title>Own6 | NBA lines research dashboard</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="landing">
+  <nav aria-label="Primary navigation"><a class="brand" href="index.html">OWN6 <span> / RESEARCH LAB</span></a><a href="hub/index.html">Data hub</a><a href="#overview">Overview</a><a href="#categories">Categories</a><a href="#evidence">Evidence</a><a href="lab/flagged.html">Flagged for Review</a></nav>
+  <main id="overview">
+    <header class="hero">
+      <p class="eyebrow">NBA LINES · RESEARCH DASHBOARD</p>
+      <h1>Start with evidence.<br><em>Earn a place on the board.</em></h1>
+      <p class="intro">A home for independent line models, singles, player props and parlays. Candidate strategies must clear rights, provenance, out-of-sample, pricing and uncertainty gates before they can qualify. This is a research framework, not a betting feed or picks service.</p>
+      <div class="hero-actions"><a class="primary" href="lab/overview.html">Open the empirical lab →</a><a class="secondary" href="lab/methodology.html">See validation gates</a><a class="secondary" href="hub/index.html">Browse the data hub</a></div>
+    </header>
+
+    <section class="status-panel" aria-labelledby="status-title">
+      <div><p class="eyebrow">CURRENT RELEASE STATUS</p><h2 id="status-title">No qualified strategies</h2><p>The bundled empirical ledger is empty. Its automated run reports <strong>not_run</strong>; it does not generate current prices, verified edges, correlation coefficients or rewards. No input is required to explore the research.</p></div>
+      <div class="status-list" aria-label="Release status"><div><span>Eligible leaderboard entries</span><strong>0</strong></div><div><span>Authorized observations</span><strong>0</strong></div><div><span>Strategy candidates</span><strong>6</strong></div><div><span>Validation gates per candidate</span><strong>10</strong></div></div>
+    </section>
+
+    <section id="categories" aria-labelledby="category-title"><div class="section-head"><p class="eyebrow">EXPLORE</p><h2 id="category-title">One dashboard, clear paths</h2><p>Each section separates model design from observed performance.</p></div>
+      <div class="category-grid">
+        <a class="category" href="hub/index.html"><span class="category-icon">00</span><h3>Data hub (tables)</h3><p>Results, standings, lines, props, forward test, strategies, correlations and sources in sortable tables, each row source-linked.</p><span class="arrow">Open the hub ↗</span></a>
+        <a class="category" href="lab/strategies.html"><span class="category-icon">01</span><h3>Strategy catalog</h3><p>Six preregistered candidates across moneylines, spreads, totals, props, combos and parlays.</p><span class="arrow">Explore candidates ↗</span></a>
+        <a class="category" href="lab/methodology.html"><span class="category-icon">02</span><h3>Validation gates</h3><p>Rights and provenance first; then chronological testing, calibration, uncertainty and auditability.</p><span class="arrow">Review gates ↗</span></a>
+        <a class="category" href="lab/correlations.html"><span class="category-icon">03</span><h3>Dependence</h3><p>Joint-outcome and paired-residual methods; no independence assumption for prop combinations.</p><span class="arrow">Review correlations ↗</span></a>
+        <a class="category" href="lab/leaderboard.html"><span class="category-icon">04</span><h3>Leaderboard</h3><p>Eligibility requires all gates; no leaderboard reward is awarded to unqualified research.</p><span class="arrow">View leaderboard ↗</span></a>
+        <a class="category" href="verified/index.html"><span class="category-icon">05</span><h3>Verified-source archive</h3><p>Dated schedule and policy snapshots, with original source links and explicit review flags.</p><span class="arrow">Browse archive ↗</span></a>
+        <a class="category" href="lab/flagged.html"><span class="category-icon">06</span><h3>Flagged for Review</h3><p>Missing permissions, odds and results, plus unresolved evidence and rights questions.</p><span class="arrow">See flags ↗</span></a>
+      </div>
+    </section>
+
+    <section id="evidence" class="evidence" aria-labelledby="evidence-title"><div class="section-head"><p class="eyebrow">EVIDENCE LEDGER</p><h2 id="evidence-title">What we can—and cannot—show</h2><p>Blank means no confirmed value; it does not mean zero. Links identify the official source or rule to consult, not proof of a betting edge.</p></div>
+      <div class="table-wrap"><table><thead><tr><th scope="col">Topic</th><th scope="col">Published value</th><th scope="col">Status / boundary</th><th scope="col">Official source for review</th></tr></thead><tbody>
+        <tr><td>PACE, OffRtg and DefRtg</td><td>Definitions only</td><td>Model inputs are not automatically licensed or supplied.</td><td><a href="https://www.nba.com/stats/help/glossary">NBA Stats glossary ↗</a></td></tr>
+        <tr><td>Executable prices &amp; closing lines</td><td class="empty" aria-label="blank, unverified"></td><td>Unverified · no authorized quote archive configured.</td><td><a href="https://www.nba.com/termsofuse#nba-statistics">NBA Terms §9 (use limits) ↗</a></td></tr>
+        <tr><td>Player-prop and parlay correlations</td><td class="empty" aria-label="blank, unverified"></td><td>Unverified · no licensed paired residual history.</td><td><a href="https://www.nba.com/stats/help/faq">NBA Stats FAQ (download limits) ↗</a></td></tr>
+        <tr><td>Profitable market edge / ROI</td><td class="empty" aria-label="blank, unverified"></td><td>Unverified · no qualified out-of-sample selections.</td><td><a href="https://www.nba.com/termsofuse#nba-statistics">NBA Terms §9 (use limits) ↗</a></td></tr>
+      </tbody></table></div>
+    </section>
+
+    <aside class="archive-note"><h2>Other project sections</h2><p>Earlier independent work remains accessible for provenance and review. It uses different evidence standards and is <strong>not</strong> the current qualified leaderboard. The research prototype includes third-party ESPN-carried odds; these are not independently verified first-party sportsbook quotes.</p><div class="archive-links"><a href="own6/index.html">Historical model prototype →</a><a href="review/index.html">Repository review →</a><a href="strategies.html">Original framework →</a><a href="lab/sources.html">Source registry →</a></div></aside>
+  </main>
+  <footer>Research only; no wagers or guarantee of skill. Statistical validation can reduce uncertainty, never remove luck. Read the <a href="https://www.nba.com/termsofuse">NBA Terms of Use</a> and the <a href="lab/flagged.html">Flagged for Review</a> page.</footer>
+</body>
+</html>

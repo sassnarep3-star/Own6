@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the unified Own6 hub (docs/index.html + docs/hub/*.html) from the committed data files.
+"""Build the unified Own6 hub (docs/hub/*.html) from the committed data files.
 
 Stdlib only. Every table body row carries at least one source link. Values that were not
 confirmed are shown blank or with an UNVERIFIED badge; nothing is inferred here.
@@ -44,28 +44,25 @@ NAV = [
     ("Reference", [("Sources", "sources"), ("Flagged for Review", "flagged")]),
 ]
 
-def href(key, cur_is_index):
-    if key == "index":
-        return "index.html" if cur_is_index else "../index.html"
-    return ("hub/" if cur_is_index else "") + key + ".html"
+def href(key):
+    return key + ".html"
 
 def page(key, title, body, lead=""):
-    idx = key == "index"
-    assets = "hub/assets/" if idx else "assets/"
-    nav = ['<span class="brand">OWN6</span>']
+    assets = "assets/"
+    nav = ['<a class="brand" href="../index.html">OWN6</a>']
     for grp, items in NAV:
         nav.append(f'<span class="grp">{grp}</span>')
         for label, k in items:
             on = ' class="on"' if k == key else ""
-            nav.append(f'<a{on} href="{href(k, idx)}">{E(label)}</a>')
-    legacy = "hub/../" if False else ("" if idx else "../")
+            nav.append(f'<a{on} href="{href(k)}">{E(label)}</a>')
+    legacy = "../"
     out = f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{E(title)} — Own6 NBA Lines Lab</title><link rel="stylesheet" href="{assets}hub.css"></head><body>
 <header class="top">{''.join(nav)}</header>
 <main><h1>{E(title)}</h1>{f'<p class="lead">{lead}</p>' if lead else ''}{body}</main>
 <footer><p>Research and paper tracking only. No wagers, no betting advice, no profitability claim. Every table row links to its source; blank or UNVERIFIED means it could not be confirmed from an official page. Earlier section sites remain available: <a href="{legacy}dashboard.html">calculator</a> · <a href="{legacy}verified/">verified data</a> · <a href="{legacy}own6/">research sub-site</a> · <a href="{legacy}lab/overview.html">empirical lab</a> · <a href="{legacy}review/">independent review</a>.</p></footer>
 <script src="{assets}hub.js"></script></body></html>"""
-    path = os.path.join(DOCS, "index.html") if idx else os.path.join(HUB, key + ".html")
+    path = os.path.join(HUB, key + ".html")
     with open(path, "w", encoding="utf-8") as f:
         f.write(out)
 
@@ -388,17 +385,17 @@ page("summary", "Executive summary", body, "What was built, what was found, what
 # ================= HOME =================
 nres = len(all_results)
 cards = [
-    ("Executive summary", "Findings, fixes and what is unverified.", "hub/summary.html"),
-    ("Results", f"{nres} official final scores with links.", "hub/results.html"),
-    ("Standings", "Official W-L vs recomputed; ratings snapshot.", "hub/standings.html"),
-    ("Lines", "Market vs Own6 for the Nov 2 slate.", "hub/lines.html"),
-    ("Props", "Seven player-points lines, unsettled.", "hub/props.html"),
-    ("Forward test", "15 games graded out-of-sample.", "hub/forward-test.html"),
-    ("Strategies", "7 strategies; skill-gated leaderboard.", "hub/strategies.html"),
-    ("Correlations", "Parlay and prop-combo dependence.", "hub/correlations.html"),
-    ("Validation", "Gates and luck-removal protocol.", "hub/validation.html"),
-    ("Sources", "Official pages behind every table.", "hub/sources.html"),
-    ("Flagged for Review", f"{len(flags_h)+len(flags_a)+len(flags_b)+len(flags_c)} open items with source links.", "hub/flagged.html"),
+    ("Executive summary", "Findings, fixes and what is unverified.", "summary.html"),
+    ("Results", f"{nres} official final scores with links.", "results.html"),
+    ("Standings", "Official W-L vs recomputed; ratings snapshot.", "standings.html"),
+    ("Lines", "Market vs Own6 for the Nov 2 slate.", "lines.html"),
+    ("Props", "Seven player-points lines, unsettled.", "props.html"),
+    ("Forward test", "15 games graded out-of-sample.", "forward-test.html"),
+    ("Strategies", "7 strategies; skill-gated leaderboard.", "strategies.html"),
+    ("Correlations", "Parlay and prop-combo dependence.", "correlations.html"),
+    ("Validation", "Gates and luck-removal protocol.", "validation.html"),
+    ("Sources", "Official pages behind every table.", "sources.html"),
+    ("Flagged for Review", f"{len(flags_h)+len(flags_a)+len(flags_b)+len(flags_c)} open items with source links.", "flagged.html"),
 ]
 body = f"""
 <div class="grid">
@@ -411,7 +408,7 @@ body = f"""
 <h2>Browse by category</h2>
 <div class="grid">{''.join(f'<div class="card"><h3><a href="{h}">{E(t)}</a></h3><p>{E(d)}</p></div>' for t, d, h in cards)}</div>
 <h2>Earlier section sites (kept)</h2>
-<p class="mut"><a href="dashboard.html">Own-line calculator</a> · <a href="verified/">Verified data (schedule, Korean law, NBA policy)</a> · <a href="own6/">Research sub-site</a> · <a href="lab/overview.html">Fail-closed empirical lab</a> · <a href="review/">Independent review</a> · <a href="strategies.html">Original strategy pages</a></p>
+<p class="mut"><a href="../index.html">Site home</a> · <a href="../dashboard.html">Own-line calculator (manual input)</a> · <a href="../verified/">Verified data (schedule, Korean law, NBA policy)</a> · <a href="../own6/">Research sub-site</a> · <a href="../lab/overview.html">Fail-closed empirical lab</a> · <a href="../review/">Independent review</a> · <a href="../strategies.html">Original strategy pages</a></p>
 """
 page("index", "Own6 — NBA Lines Lab", body, "Originate your own NBA lines, test them against official results, and rank strategies on skill rather than luck.")
 print("hub built: index + 11 pages")

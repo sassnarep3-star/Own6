@@ -7,7 +7,9 @@ from urllib.parse import urlparse, unquote
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOCS = os.path.join(ROOT, "docs")
-files = [os.path.join(DOCS, "index.html")] + sorted(glob.glob(os.path.join(DOCS, "hub", "*.html")))
+files = sorted(glob.glob(os.path.join(DOCS, "hub", "*.html")))
+if "hub/index.html" not in open(os.path.join(DOCS, "index.html"), encoding="utf-8").read():
+    print("ERROR docs/index.html does not link to the hub"); sys.exit(1)
 ALLOW = ("nba.com", "github.com", "espn.com", "law.go.kr", "sassnarep3-star.github.io", "docs.github.com",
          "scikit-learn.org", "docs.scipy.org", "statsmodels.org", "itl.nist.gov", "docs.python.org")  # official docs
 PRESS = ("mk.co.kr", "sportsbusinessjournal.com", "tsn.ca", "betting.net")  # press: only allowed on the flagged page, as the thing being flagged
