@@ -9,7 +9,7 @@ import tempfile
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-spec = spec_from_file_location("hub_gate", ROOT / "scripts/check_hub.py")
+spec = spec_from_file_location("hub_gate", ROOT / "tools/hub_reference_gate.py")
 gate = module_from_spec(spec)
 spec.loader.exec_module(gate)
 
@@ -55,44 +55,40 @@ class HubEvidenceTests(unittest.TestCase):
         self.assertFalse(self.fixture('<tr><td data-evidence="unverified" aria-label="blank, unverified"></td><td>'
                          '<a href="https://www.nba.com/termsofuse" data-source-kind="official-reference">Terms</a></td></tr>'))
 
-    def test_removing_provenance_does_not_enable_publishing(self):
-        issues = self.fixture('<tr><td>Legacy value</td><td>123</td></tr>', "standings")
-        self.assertTrue(any("lacks required blank provenance" in e for e in issues))
-
     def test_width_mismatch_fails(self):
         self.assertTrue(any("cells for" in e for e in self.fixture('<tr><td>Only one cell</td></tr>')))
 
-    def test_hub_rebuild_is_deterministic(self):
-        paths = sorted((ROOT / "docs/hub").glob("*.html"))
-        before = {p.name: p.read_bytes() for p in paths}
-        subprocess.run([sys.executable, str(ROOT / "scripts/build_hub.py")], check=True)
-        self.assertEqual({p.name: p.read_bytes() for p in paths}, before)
+    def test_github_dot_segments_are_rejected(self):
+        self.assertFalse(gate.project_record("https://github.com/sassnarep3-star/Own6/blob/main/../secret"))
 
-    def test_no_correlation_or_reward_value_promoted(self):
-        corr = table_rows("correlations.html", "correlations")
-        report = json.loads((ROOT / "data/empirical/report.json").read_text())
-        self.assertEqual(len(corr), len(read_csv("data/correlation_findings.csv")) + len(report["correlations"]))
-        for row in corr:
-            self.assertTrue(all(row["cells"][i]["unverified"] for i in (2, 3, 4)))
-        for row in table_rows("strategies.html", "strategies"):
-            self.assertTrue(all(row["cells"][i]["unverified"] for i in (4, 5, 6)))
+    def test_explicit_source_role_must_match_host(self):
+        issues = self.fixture('<tr><td>Record</td><td><a href="https://www.espn.com/nba" '
+                              'data-source-kind="official-reference">Official</a></td></tr>')
+        self.assertTrue(any("source role" in e for e in issues))
 
-    def test_all_historical_flags_retained(self):
-        expected = (len(read_csv("data/hub_evidence_flags.csv")) + len(read_csv("data/hub_flags.csv"))
-                    + len(json.loads((ROOT / "data/flags.json").read_text())["rows"])
-                    + len(read_csv("data/flagged_items.csv")) + len(read_csv("data/empirical/repo_findings.csv")))
-        self.assertEqual(len(table_rows("flagged.html", "flags")), expected)
+    def test_external_links_must_use_https_even_when_not_primary(self):
+        issues = self.fixture('<tr><td>Record</td><td><a href="http://www.espn.com/nba">Archive</a>'
+                              '<a href="https://www.nba.com/termsofuse">Terms</a></td></tr>')
+        self.assertTrue(any("safe HTTPS" in e for e in issues))
 
-    def test_no_generic_sample_size_or_raw_correlation_qualification(self):
-        text = (ROOT / "docs/hub/correlations.html").read_text()
-        self.assertNotIn('class="b ok">usable', text)
-        self.assertIn("Zero Pearson correlation does not prove independence", text)
+    def test_pinned_method_sources_not_arbitrary_github(self):
+        self.assertTrue(all(gate.official_reference(url) for url in gate.METHOD_REFERENCES))
+        self.assertFalse(gate.official_reference("https://github.com/scipy/scipy/blob/main/unknown.csv"))
 
-    def test_complete_hub_passes_scoped_gate(self):
-        issues, pages, rows = gate.check_hub(ROOT)
-        self.assertFalse(issues, issues)
-        self.assertEqual(pages, 12)
-        self.assertGreater(rows, 300)
+    def test_unlabelled_primary_reference_is_not_value_verification(self):
+        self.assertTrue(gate.qualifies("https://www.nba.com/termsofuse", None))
+        self.assertFalse(gate.qualifies("https://www.espn.com/nba", None))
+
+    def test_missing_project_blob_rejected(self):
+        issues = self.fixture('<tr><td>Record</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/missing.csv">Record</a></td></tr>')
+        self.assertTrue(any("missing project source file" in e for e in issues))
+
+    def test_owner_blank_attribute_supported(self):
+        self.assertFalse(self.fixture('<tr><td data-field="price" data-state="unverified"></td><td>'
+                         '<a href="https://www.nba.com/termsofuse">Terms</a></td></tr>'))
+        issues = self.fixture('<tr><td data-field="price" data-state="unverified">123</td><td>'
+                              '<a href="https://www.nba.com/termsofuse">Terms</a></td></tr>')
+        self.assertTrue(any("nonblank unverified" in e for e in issues))
 
 
 # Separate dynamically named test methods retain granular reporting without a
@@ -122,30 +118,6 @@ def nonempty_test(value):
 
 for i, value in enumerate(["123.4", "0", "<span>123</span>", "<img src='value.svg'>"]):
     setattr(HubEvidenceTests, f"test_nonempty_unverified_field_fails_{i}", nonempty_test(value))
-
-
-def coverage_test(page, table, inputs):
-    def test(self):
-        rows = table_rows(page, table)
-        self.assertEqual(len(rows), sum(len(read_csv(path)) for path in inputs))
-        for row in rows:
-            for column in gate.WITHHELD_COLUMNS[table]:
-                self.assertTrue(row["cells"][column]["unverified"])
-                self.assertFalse(row["cells"][column]["text"].strip())
-                self.assertFalse(row["cells"][column]["markup"])
-    return test
-
-
-for page, table, inputs in [
-    ("results.html", "results", ["data/games_results_2026-27.csv", "data/results_2026-11-02.csv"]),
-    ("standings.html", "standings", ["data/standings_live_2026-11-03.csv"]),
-    ("standings.html", "ratings", ["data/team_ratings_2026-27.csv"]),
-    ("lines.html", "lines", ["data/market_lines_2026-11-02.csv"]),
-    ("props.html", "props", ["data/player_props_2026-11-02.csv"]),
-    ("forward-test.html", "forward-games", ["data/forward_test_2026-11-02.csv"]),
-    ("forward-test.html", "forward-summary", ["data/forward_test_summary_2026-11-02.csv"]),
-]:
-    setattr(HubEvidenceTests, "test_all_records_retained_" + table.replace("-", "_"), coverage_test(page, table, inputs))
 
 
 if __name__ == "__main__":

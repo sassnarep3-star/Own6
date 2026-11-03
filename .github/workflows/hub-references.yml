@@ -1,0 +1,20 @@
+name: Independent hub references
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  hub-references:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Independent adversarial reference tests
+        run: python3 -m unittest discover -s tests -p test_hub_evidence.py -v
+      - name: Check published hub reference integrity (not factual accuracy)
+        run: python3 tools/hub_reference_gate.py
