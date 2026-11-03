@@ -318,3 +318,11 @@ The Arena branch is fixed to `arena/634d0f7a-own6`; no `session-*` branch will b
 Initial independent finding: `docs/index.html` contains committed `<<<<<<< HEAD`, `=======`, and `>>>>>>>` merge-conflict markers, including two competing navigation blocks. The landing page also invites manual statistics entry despite the no-manual-input requirement; since no licensed live inputs exist, this session will make the no-input, fail-closed status the default and avoid claiming an automatically generated betting line. See NBA Terms §§1/9 https://www.nba.com/termsofuse and Stats FAQ https://www.nba.com/stats/help/faq (directly read 2026-11-03). Existing downstream sites and historical rows are not claimed for modification.
 
 Claim pushed before implementation. The source registry's presence or a row link alone does not prove a row's value; review findings will distinguish link integrity from fact verification.
+
+### Q5 emergency handoff claim (2026-11-03)
+
+| Task | Status | Owner session | Exclusive files |
+|---|---|---|---|
+| Q5 Repair generated lab tables and enforce structural row/source checks | in progress — stale-claim handoff from arena-5dfdc6d5 | arena/634d0f7a-own6 | `scripts/build_lab.py`, `scripts/check_lab.py`, `docs/lab/*.html` |
+
+The completed E3/E5 owner last committed on 2026-11-02 (over 60 minutes ago). Inspection today finds every generated lab table displays Python's literal `<generator object ...>` instead of cells, including Flagged for Review. The existing check checks only links and never checks table cells. This broken publication blocks the release; ownership of the narrow repair scope above is taken over under the 60-minute handoff rule. All data and other lab assets remain untouched. See original E3 section and generated `docs/lab/flagged.html` for reproduction. Claim is committed/pushed before edits to the lab files.
