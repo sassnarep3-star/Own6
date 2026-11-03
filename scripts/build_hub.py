@@ -60,7 +60,7 @@ def page(key, title, body, lead=""):
 <title>{E(title)} — Own6 NBA Lines Lab</title><link rel="stylesheet" href="{assets}hub.css"></head><body>
 <header class="top">{''.join(nav)}</header>
 <main><h1>{E(title)}</h1>{f'<p class="lead">{lead}</p>' if lead else ''}{body}</main>
-<footer><p>Research and paper tracking only. No wagers, no betting advice, no profitability claim. Every table row links to its source; blank or UNVERIFIED means it could not be confirmed from an official page. Earlier section sites remain available: <a href="{legacy}dashboard.html">calculator</a> · <a href="{legacy}verified/">verified data</a> · <a href="{legacy}own6/">research sub-site</a> · <a href="{legacy}lab/overview.html">empirical lab</a> · <a href="{legacy}review/">independent review</a>.</p></footer>
+<footer><p>Research and paper tracking only. No wagers, no betting advice, no profitability claim. Every table row links to its source; blank or UNVERIFIED means it could not be confirmed from an official page. Earlier section sites remain available: <a href="{legacy}dashboard.html">calculator</a> · <a href="{legacy}verified/">verified data</a> · <a href="{legacy}own6/">research sub-site</a> · <a href="{legacy}lab/overview.html">empirical lab</a> · <a href="{legacy}review/">independent review</a> · <a href="{legacy}verify/index.html">verification ledger (2026-11-03)</a>.</p></footer>
 <script src="{assets}hub.js"></script></body></html>"""
     path = os.path.join(HUB, key + ".html")
     with open(path, "w", encoding="utf-8") as f:

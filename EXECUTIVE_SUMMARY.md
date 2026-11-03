@@ -139,3 +139,34 @@ Full, linked version: [`docs/hub/summary.html`](docs/hub/summary.html) (live: ht
 **Correlations** (Pearson r, official results): same-game home vs away points +0.22 (n=107); same-game margin vs total +0.01 (n=107); cross-game same-date margins +0.11 (n=357 overlapping pairs, interval not reported); teammate points -0.42 (n=6, unusable).
 
 All open items: [Flagged for Review](docs/hub/flagged.html).
+
+---
+
+## Independent verification update — 2026-11-03 (session `arena/be184e2b-own6`)
+
+Full, row-by-row version: [`docs/verify/index.html`](docs/verify/index.html) · live: https://sassnarep3-star.github.io/Own6/docs/verify/
+
+**What was checked, and against what.** Every published value that could be checked against an official page was re-read in this session and recorded in [`data/verification_official_2026_11_03.csv`](data/verification_official_2026_11_03.csv) with the URL opened and the date read. **54 of 54 checks match; 0 mismatches.**
+
+| Check | Rows | Result | Official page used |
+|---|---|---|---|
+| 2026-11-02 final scores | 15 | **15/15 match** (incl. NOP 135–134 MEM in OT) | each game's NBA.com game summary |
+| 2026-27 standings W-L | 30 | **30/30 match** | https://www.nba.com/standings |
+| NBA Terms §1 / §6 / §9, Stats FAQ, prediction-market release | 5 | quoted text matches | nba.com |
+| 국민체육진흥법 identity and Art. 26(1), 26(2)①, 26(2)② | 4 | quoted text matches | law.go.kr |
+
+**Aggregate cross-check.** Win-loss records recomputed from all 107 committed result rows equal the official 30-team standings exactly. This is a recomputation over committed data, not a second independent source.
+
+**Rights findings (unchanged position, re-read and quoted this session).**
+- [NBA Terms §9](https://www.nba.com/termsofuse#nba-statistics): NBA Statistics "may not be used in connection with any gambling activity (including legal gambling activity)", and §9(vii) restricts comprehensive statistics databases without prior consent.
+- [NBA Terms §1](https://www.nba.com/termsofuse#ownership-and-use-restrictions) bars reuse, reproduction or linking of Basketball Content without written permission; §6 allows word links from non-commercial sites to NBA home pages only. This site cites internal game pages as its audit trail, so the conflict is disclosed on the Flagged page rather than hidden.
+- [NBA Stats FAQ](https://www.nba.com/stats/help/faq): statistics are "not available for download" — the reason no bulk statistics feed is used.
+- [국민체육진흥법 제26조](https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B5%AD%EB%AF%BC%EC%B2%B4%EC%9C%A1%EC%A7%84%ED%9D%A5%EB%B2%95/%EC%A0%9C26%EC%A1%B0): only the designated foundation may issue tickets or similar instruments for reward; no one may design, provide or distribute a system for similar betting over an information network, provide match information for that purpose, or promote/broker it. Whether this research publication falls inside that scope is a legal question; no opinion exists.
+
+**What stays blank (8 items, published on the Unverified page).** Sportsbook prices and prop lines (ESPN relay of DraftKings, no official or licensed odds page, no capture times), prop settlement, the press-reported prop/parlay restrictions (the official release refers to restrictions without listing them), the team-ratings snapshot, closing-line values and realized ROI, a Korean legal opinion, and 79 of the 92 earlier score rows that were not re-read this session.
+
+**Integrity repairs made this session.**
+- The 31 previously advisory table rows in `docs/verified/**` that carried no official source now each carry an explicit official reference — an official methods document for a rule (NBA Terms, Stats FAQ, official release, statute, scikit-learn/NIST/statsmodels/SciPy documentation), or the official release that shows why a press-reported restriction is *not* enumerated. **No published value was changed**, and the strict site gate now reports **0 errors, 0 advisories**.
+- New machine checks: `scripts/build_verify.py`, `scripts/check_verify.py` and `.github/workflows/verify-ledger.yml`. The build fails if a ledger row has no official https link, an unknown status, a MISMATCH, an unverified row that carries a value, a table row without a source, or a broken internal link.
+
+**Bottom line, unchanged.** Verifying scores and statutes says nothing about beating a market. On the one graded slate the market was at least as accurate as Own6, every interval included zero, and **no strategy is skill-eligible**. Verifying data removes bookkeeping error; it cannot remove luck from a 15-game sample.
