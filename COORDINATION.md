@@ -301,3 +301,20 @@ Fixed Arena branch retained in place of the requested session branch naming. Pri
 - Existing PR checks had a Lab CI failure; another session is actively addressing CI in [PR #21](https://github.com/sassnarep3-star/Own6/pull/21). Integration request: investigate and publish the limitation that current link checks validate source-link presence and local paths, not all external source content or availability, on the appropriate Flagged for Review page. No cross-scope edit made here.
 - Rebase conflict in `COORDINATION.md` after PR #21 merged: retained both sessions' appended sections without discarding either. The other session's site checker identified 31 advisory rows missing official links; this means the user's every-row source requirement is not yet met. Requested remediation by the page owner; do not treat those rows as verified.
 - A further board conflict arose after PR #24 merged; retained the other session's section and ours. That session reports the 31-row advisory is now published on `docs/lab/flagged.html` and fixed a lab table-rendering defect; these updates were not independently source-verified here.
+
+---
+
+## Session arena/634d0f7a-own6 — release-integrity repair (2026-11-03)
+
+The Arena branch is fixed to `arena/634d0f7a-own6`; no `session-*` branch will be created. Prior sessions' completed scopes are preserved. This session claims only the following incremental integration repair and its new files; other sessions should not edit them until handoff.
+
+| Task | Status | Owner session | Exclusive files |
+|---|---|---|---|
+| Q1 Repair committed conflict markers and misleading landing-page claims; consolidate no-input navigation | in progress | arena/634d0f7a-own6 | `docs/index.html`, `docs/assets/style.css` (only if needed) |
+| Q2 Add repository-wide conflict-marker and Pages-link release gate, with tests | in progress | arena/634d0f7a-own6 | `tools/release_gate.py`, `tests/test_release_gate.py`, `.github/workflows/release-gate.yml` |
+| Q3 Record independent release evidence, source boundaries and flagged irregularities | in progress | arena/634d0f7a-own6 | `audit/RELEASE_2026_11_03.md`, this section of `COORDINATION.md` |
+| Q4 Re-run all checks, PR/merge, verify Pages build | unclaimed (depends Q1–Q3) | — | this section of `COORDINATION.md` only |
+
+Initial independent finding: `docs/index.html` contains committed `<<<<<<< HEAD`, `=======`, and `>>>>>>>` merge-conflict markers, including two competing navigation blocks. The landing page also invites manual statistics entry despite the no-manual-input requirement; since no licensed live inputs exist, this session will make the no-input, fail-closed status the default and avoid claiming an automatically generated betting line. See NBA Terms §§1/9 https://www.nba.com/termsofuse and Stats FAQ https://www.nba.com/stats/help/faq (directly read 2026-11-03). Existing downstream sites and historical rows are not claimed for modification.
+
+Claim pushed before implementation. The source registry's presence or a row link alone does not prove a row's value; review findings will distinguish link integrity from fact verification.
