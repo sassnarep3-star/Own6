@@ -1,0 +1,16 @@
+game_id,date,away_team,away_score,home_team,home_score,overtime,status,source_url,read_on
+0022600158,2026-11-02,OKC,117,CLE,112,,Final,https://www.nba.com/game/okc-vs-cle-0022600158,2026-11-03
+0022600159,2026-11-02,DET,124,CHA,91,,Final,https://www.nba.com/game/det-vs-cha-0022600159,2026-11-03
+0022600160,2026-11-02,ATL,108,IND,104,,Final,https://www.nba.com/game/atl-vs-ind-0022600160,2026-11-03
+0022600161,2026-11-02,BKN,90,NYK,103,,Final,https://www.nba.com/game/bkn-vs-nyk-0022600161,2026-11-03
+0022600162,2026-11-02,WAS,103,ORL,94,,Final,https://www.nba.com/game/was-vs-orl-0022600162,2026-11-03
+0022600163,2026-11-02,CHI,107,PHI,126,,Final,https://www.nba.com/game/chi-vs-phi-0022600163,2026-11-03
+0022600164,2026-11-02,SAC,115,DAL,100,,Final,https://www.nba.com/game/sac-vs-dal-0022600164,2026-11-03
+0022600165,2026-11-02,NOP,135,MEM,134,OT,Final/OT,https://www.nba.com/game/nop-vs-mem-0022600165,2026-11-03
+0022600166,2026-11-02,MIL,100,MIN,112,,Final,https://www.nba.com/game/mil-vs-min-0022600166,2026-11-03
+0022600167,2026-11-02,BOS,93,HOU,109,,Final,https://www.nba.com/game/bos-vs-hou-0022600167,2026-11-03
+0022600168,2026-11-02,UTA,97,SAS,119,,Final,https://www.nba.com/game/uta-vs-sas-0022600168,2026-11-03
+0022600169,2026-11-02,POR,118,DEN,110,,Final,https://www.nba.com/game/por-vs-den-0022600169,2026-11-03
+0022600170,2026-11-02,PHX,113,GSW,116,,Final,https://www.nba.com/game/phx-vs-gsw-0022600170,2026-11-03
+0022600171,2026-11-02,TOR,125,LAC,118,,Final,https://www.nba.com/game/tor-vs-lac-0022600171,2026-11-03
+0022600172,2026-11-02,MIA,117,LAL,138,,Final,https://www.nba.com/game/mia-vs-lal-0022600172,2026-11-03

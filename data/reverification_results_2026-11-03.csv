@@ -1,0 +1,14 @@
+game_id,date,away_team,away_score,home_team,home_score,matches_nba_com,official_page_read,game_page,read_on
+0022600001,2026-10-20,BOS,113,DET,121,yes,https://www.nba.com/games?date=2026-10-20,https://www.nba.com/game/bos-vs-det-0022600001,2026-11-03
+0022600002,2026-10-20,PHI,106,NYK,100,yes,https://www.nba.com/games?date=2026-10-20,https://www.nba.com/game/phi-vs-nyk-0022600002,2026-11-03
+0022600003,2026-10-20,OKC,116,SAS,104,yes,https://www.nba.com/games?date=2026-10-20,https://www.nba.com/game/okc-vs-sas-0022600003,2026-11-03
+0022600006,2026-10-22,CLE,106,PHI,114,yes,https://www.nba.com/games?date=2026-10-22,https://www.nba.com/game/cle-vs-phi-0022600006,2026-11-03
+0022600007,2026-10-22,DEN,84,OKC,96,yes,https://www.nba.com/games?date=2026-10-22,https://www.nba.com/game/den-vs-okc-0022600007,2026-11-03
+0022600113,2026-10-25,IND,136,BKN,109,yes,https://www.nba.com/games?date=2026-10-25,https://www.nba.com/game/ind-vs-bkn-0022600113,2026-11-03
+0022600144,2026-10-29,CLE,111,ATL,114,yes,https://www.nba.com/games?date=2026-10-29,https://www.nba.com/game/cle-vs-atl-0022600144,2026-11-03
+0022600145,2026-10-29,SAC,120,NOP,132,yes,https://www.nba.com/games?date=2026-10-29,https://www.nba.com/game/sac-vs-nop-0022600145,2026-11-03
+0022600146,2026-10-29,MEM,124,POR,103,yes,https://www.nba.com/games?date=2026-10-29,https://www.nba.com/game/mem-vs-por-0022600146,2026-11-03
+0022600154,2026-11-01,BOS,108,ORL,97,yes,https://www.nba.com/games?date=2026-11-01,https://www.nba.com/game/bos-vs-orl-0022600154,2026-11-03
+0022600155,2026-11-01,BKN,98,IND,90,yes,https://www.nba.com/games?date=2026-11-01,https://www.nba.com/game/bkn-vs-ind-0022600155,2026-11-03
+0022600156,2026-11-01,LAC,112,GSW,124,yes,https://www.nba.com/games?date=2026-11-01,https://www.nba.com/game/lac-vs-gsw-0022600156,2026-11-03
+0022600157,2026-11-01,TOR,125,LAL,131,yes,https://www.nba.com/games?date=2026-11-01,https://www.nba.com/game/tor-vs-lal-0022600157,2026-11-03
