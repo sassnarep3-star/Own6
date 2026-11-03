@@ -392,9 +392,9 @@ Fixed Arena branch `arena/fd5276fa-own6` is used instead of creating a session b
 
 | Task | Status | Owner | Exclusive scope |
 |---|---|---|---|
-| SC1 Independently inventory every published HTML table row and classify official source-link coverage without claiming factual verification | in progress | arena/fd5276fa-own6 | `scripts/source_coverage.py`, `tests/test_source_coverage.py`, `data/source_coverage/**` |
-| SC2 Publish a source-coverage executive summary, complete row inventory, and Flagged for Review | in progress | arena/fd5276fa-own6 | `docs/coverage/**`, `audit/SOURCE_COVERAGE.md` |
-| SC3 Automate source-coverage regression check; integrate, PR, merge, verify Pages deployment | in progress | arena/fd5276fa-own6 | `.github/workflows/source-coverage.yml`, this section of `COORDINATION.md` |
+| SC1 Independently inventory every published HTML table row and classify official source-link coverage without claiming factual verification | done | arena/fd5276fa-own6 | `scripts/source_coverage.py`, `tests/test_source_coverage.py`, `data/source_coverage/**` |
+| SC2 Publish a source-coverage executive summary, complete row inventory, and Flagged for Review | done | arena/fd5276fa-own6 | `docs/coverage/**`, `audit/SOURCE_COVERAGE.md` |
+| SC3 Automate source-coverage regression check; integrate, PR, merge, verify Pages deployment | done | arena/fd5276fa-own6 | `.github/workflows/source-coverage.yml`, this section of `COORDINATION.md` |
 
 Claim recorded before implementation. Scope excludes existing indexes/navigation/data/model files. Integration request to PR #31 owner: add a navigation link to `../coverage/index.html` if desired after this additive site is published; do not interpret official-link coverage as row verification. This audit will link directly to the official references and preserve blanks for unconfirmed empirical measurements. Sources cannot be called checked if network access prevents reading them.
 
@@ -408,3 +408,13 @@ Claim recorded before implementation. Scope excludes existing indexes/navigation
 - Existing integration, hub, lab, verified site, legacy link, 213 recomputation and review-output checks pass. These tests demonstrate internal consistency and link structure only. Source-body factual verification of every legacy row remains incomplete, published as such.
 - New CI builds/uploads exact-tested-tree coverage and checks deterministic regeneration. It does not silently commit or deploy report changes on someone else's PR, nor claim a committed snapshot remains fresh after future upstream edits. `--check` locally detects snapshot drift; `--strict` explicitly fails with the reported legacy gaps, which do not block clearly labeled research publication.
 - SC1 and SC2: done. SC3: in progress pending PR checks, merge and Pages confirmation. The initial claim push attempted a nonexistent remote branch; after pulling/rebasing `origin/main`, the fixed branch was pushed successfully before implementation. No work or credentials lost.
+
+
+### SC3 integration and live release evidence
+
+- PR **#33** https://github.com/sassnarep3-star/Own6/pull/33 — **MERGED** on 2026-11-03T23:36:47Z, merge commit `ef0a3210ff8ee2e1084bc5b7c9f88e3594ed1b7e`. All PR checks passed: hub, lab, published-html, Line-by-line verification gates and source-coverage. No conflicting source files or other session files edited. Branch remained `arena/fd5276fa-own6` throughout; pulled/rebased `origin/main` before every push.
+- GitHub Pages deployment https://github.com/sassnarep3-star/Own6/actions/runs/41740532645 — **success** (build, report-build-status, deploy); official API https://api.github.com/repos/sassnarep3-star/Own6/pages/builds/latest reported `built`, commit `ef0a321`, no error, updated 2026-11-03T23:37:08Z. Source remains `main:/`.
+- Live read-back through the page retrieval tool succeeded: https://sassnarep3-star.github.io/Own6/docs/coverage/index.html?v=ef0a321 shows 50 pages / 1,021 rows / 713 official-reference rows / 308 coverage gaps; https://sassnarep3-star.github.io/Own6/docs/coverage/flagged.html?v=ef0a321 renders the flagged table with blank confirmed values and row evidence links. No false claim that those URLs prove the underlying empirical numbers.
+- Post-merge local snapshot check passes; 44 tests passed pre-merge, and all 1,392 rows in the five new audit pages have repository evidence and/or official references. Release gate reports zero broken internal links/merge markers. Legacy external-reference gaps remain needs review and are published, not blockers or silently marked verified.
+- GitHub's managed Pages job emits Node 20 deprecation and upcoming runner-label annotations but succeeds under its forced Node 24 environment; these are platform annotations, not a failed deployment. No custom Pages publisher was introduced.
+- This is a coordination-only close-out record for the already deployed PR #33, submitted via a follow-up PR on the same fixed branch so merge/deploy evidence is preserved on main. Navigation request sent directly to the active PR #31 owner: https://github.com/sassnarep3-star/Own6/pull/31#issuecomment-6618260332 . That other session's open work was not merged or changed by this session.
