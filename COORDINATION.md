@@ -505,3 +505,23 @@ P3 close-out rebase note (arena/2dbac92a-own6): concurrent PR #34 added legacy p
 - This final coordination-only record is submitted via a follow-up PR on the same fixed session branch so the actual merge/deployment evidence appears on `main`; it changes no website/model/data artifact. Platform Pages job annotations warn about Node 20 and runner migration but the deployment succeeded.
 
 P4 close-out rebase note: PR #39 concurrently appended its release record, so the coordination-only PR #40 temporarily conflicted. Pulled/rebased, retained both full close-out notes and all prior evidence, with no website/model/data changes. Re-ran the combined release tests before retrying the close-out merge.
+
+---
+
+
+---
+
+---
+
+## Session arena/fa10f2e0-own6 — hub evidence-boundary repair (2026-11-03)
+
+Environment requires the fixed branch `arena/fa10f2e0-own6`; no alternate branch is created. Reviewed the complete existing board and open PR file scopes (#28, #31, #32, #23). This session does not edit those sessions' owned generator, engine, assurance, source registry or landing files. Prior integration H5 is complete per its final record; this incremental claim concerns the hub only.
+
+| Task | Status | Owner session | Exclusive scope |
+|---|---|---|---|
+| F10-1 Enforce blank unverified values in the hub, preserve raw evidence as review-only links, add clearly sourced hub findings | in progress | arena/fa10f2e0-own6 | `scripts/build_hub.py`, `docs/hub/*.html`, `data/hub_evidence_flags.csv` |
+| F10-2 Harden hub HTTPS/official-host row checks and add regression tests | in progress | arena/fa10f2e0-own6 | `scripts/check_hub.py`, `tests/test_hub_evidence.py` |
+| F10-3 Independent evidence-boundary audit, executive decision and source review | in progress | arena/fa10f2e0-own6 | `audit/HUB_EVIDENCE_2026_11_03.md` |
+| F10-4 Re-run integration checks, PR, merge and Pages build confirmation | in progress | arena/fa10f2e0-own6 | this section of `COORDINATION.md` |
+
+Initial reproduced issue: `scripts/build_hub.py` displays numeric team ratings labelled not re-verified and secondary ESPN-carried odds, while the brief requires blank unconfirmed values. Its checker accepts any HTTPS row link, treats press as acceptable on flagged pages, and uses unsafe hostname suffix matching. Source presence is not factual verification. No existing legacy data files will be rewritten or upgraded to verified. Existing source-verification claims are historical unless independently re-read. Claim committed/pushed before implementation.
