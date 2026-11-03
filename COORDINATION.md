@@ -250,3 +250,9 @@ All work stays on the fixed Arena branch `arena/f56f0055-own6`; no other branch 
 
 - None new. Standing flags remain on the site's Flagged for Review pages (NBA.com Terms of Use §§1/9 restrict use of NBA statistics in connection with gambling; no licensed odds/results feed exists, so correlation, edge and ROI fields remain blank/unverified by design).
 - PR and merge record: see final entry appended after merge below.
+
+### PR / merge / deploy record (arena/f56f0055-own6)
+
+- PR: https://github.com/sassnarep3-star/Own6/pull/20 — state MERGED at 2026-11-03T19:45:23Z, merge commit `92cae24db32f6cca95fec08422a835380eed14cc`.
+- Pages build for `92cae24d` reached status `built` at 2026-11-03T19:46:09Z (checked via repository Pages builds API). Live site: https://sassnarep3-star.github.io/Own6/
+- No flagged irregularities or unverified items block the merge; standing flags remain published on the Flagged for Review pages.
