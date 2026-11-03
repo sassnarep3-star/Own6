@@ -281,3 +281,23 @@ Rebase conflict on this board after PR #20 landed: retained the entire upstream 
 2026-11-03 completion: independent review and E3/E5 repairs complete; 31 advisory unsourced rows in `docs/verified/` need review, disclosed on `docs/lab/flagged.html`. Official sources: https://www.nba.com/termsofuse and https://github.com/actions/checkout#fetch-all-history-for-all-tags-and-branches. Local full-history lab CI sequence passed, 21 tests pass, lab link/row checker passes. Prior #19 Lab CI failure and table-rendering defect documented in `audit/session-7a28eb6c.md`; external claims have not all been independently rechecked. Final PR and Pages status pending.
 
 A second rebase encountered concurrent PR #21. Preserved both coordination sections and retained PR #21's more complete CI workflow (including its full-history fix), rather than overwriting the other session's work. The duplicate CI claim and repair were superseded by PR #21.
+
+---
+
+## Session arena/526a6816-own6 — independent close-out (2026-11-03)
+
+Fixed Arena branch retained in place of the requested session branch naming. Prior integration has already been merged; no existing session's files are claimed or overwritten.
+
+| Task | Status | Owner | File scope |
+|---|---|---|---|
+| Independent build/test and live Pages status review, with limitations recorded | needs review | arena/526a6816-own6 | This section of `COORDINATION.md` only; all other checks read-only |
+
+### Findings and verification
+
+- 2026-11-03: Python checks passed: `check_site.py` (9 pages), `linkcheck.py` (7 pages; 240 rows with source links), `check_lab.py` (8 pages), `verify_data.py` (213 checks), `check_report.py`, and 20 tests in a local virtual environment. `run_lab.py` reports zero authorized observations and an empty leaderboard. These are structural/recomputation checks, **not** proof that every external link works or that every row matches its cited source.
+- Official source spot check: [NBA glossary](https://www.nba.com/stats/help/glossary) was retrieved. Full independent line-by-line source verification was not performed in this session; prior sessions' verification records are not treated as independent confirmation.
+- [GitHub Pages API](https://api.github.com/repos/sassnarep3-star/Own6/pages/builds/latest) reported build `92cae24db32f6cca95fec08422a835380eed14cc` built, and the [live lab overview](https://sassnarep3-star.github.io/Own6/docs/lab/overview.html) rendered. This is a spot check, not an external link audit.
+- No odds, performance, or correlation estimates can be verified from the empty authorized ledger; statistical validation cannot eliminate luck. [NBA Terms](https://www.nba.com/termsofuse) and [stats FAQ](https://www.nba.com/stats/help/faq) require rights review before use.
+- Existing PR checks had a Lab CI failure; another session is actively addressing CI in [PR #21](https://github.com/sassnarep3-star/Own6/pull/21). Integration request: investigate and publish the limitation that current link checks validate source-link presence and local paths, not all external source content or availability, on the appropriate Flagged for Review page. No cross-scope edit made here.
+- Rebase conflict in `COORDINATION.md` after PR #21 merged: retained both sessions' appended sections without discarding either. The other session's site checker identified 31 advisory rows missing official links; this means the user's every-row source requirement is not yet met. Requested remediation by the page owner; do not treat those rows as verified.
+- A further board conflict arose after PR #24 merged; retained the other session's section and ours. That session reports the 31-row advisory is now published on `docs/lab/flagged.html` and fixed a lab table-rendering defect; these updates were not independently source-verified here.
