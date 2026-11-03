@@ -2,7 +2,7 @@
 
 ## Executive summary
 
-Scanned **56 published HTML pages** and **1094 data rows**, excluding only this audit's self-generated `docs/coverage/` pages. **813** rows carry a recognized external official HTTPS reference; **281** are coverage gaps. **No empirical value was independently certified by this structural audit.** Confirmed-value fields remain blank; an official URL, passing arithmetic check or file hash cannot certify a row's factual content.
+Scanned **56 published HTML pages** and **1075 data rows**, excluding only this audit's self-generated `docs/coverage/` pages. **834** rows carry a recognized external official HTTPS reference; **241** are coverage gaps. **No empirical value was independently certified by this structural audit.** Confirmed-value fields remain blank; an official URL, passing arithmetic check or file hash cannot certify a row's factual content.
 
 Site: https://sassnarep3-star.github.io/Own6/docs/coverage/
 
