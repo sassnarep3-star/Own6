@@ -217,3 +217,38 @@ All work stays on `arena/5dfdc6d5-own6`, as required by Arena; no `session-*` br
 - 2026-11-02: E3 complete. `scripts/build_lab.py` built 8 isolated pages under `docs/lab/`. `scripts/check_lab.py` verified the report is fail-closed, the ledger schema is correct, all 10 gates are present, and all internal links resolve. The one additive navigation link was added to `docs/index.html`. `git diff --check` passed. E4 claimed in its non-overlapping scope.
 - 2026-11-02: E4 complete. `research/EXECUTIVE_SUMMARY.md`, `research/METHODOLOGY.md`, and `research/REPO_AUDIT.md` document the objective, data contract, gates, findings, and limitations. `README.md` points to the lab and states the NBA Terms §§1/9 constraints. `git diff --check` passed. E5 claimed for final integration.
 - 2026-11-02: E5 underway. Added `.github/workflows/lab-ci.yml` for non-publishing CI. Added one additive README link. Running final integration checks.
+---
+
+## Session arena/cba44906-own6 — site completion, verification refresh, PR/merge (2026-11-03)
+
+### Branch rule (Arena-fixed)
+
+All work stays on `arena/cba44906-own6`; no `session-*` branch is created (the brief's per-task branches cannot be used under the Arena session rule — see flagged item F7/I-1). Scopes are non-overlapping: this session touches `docs/index.html` (shared dashboard landing page — repair of a committed merge conflict), extends `data/verification_log.csv` (shared verification registry) with today's retrievals only, and appends this section to `COORDINATION.md`. No other session's files are edited.
+
+### Task board (session cba44906)
+
+| Task | Status | Owner session | Files touched |
+|---|---|---|---|
+| C1 Clean landing page: resolve committed merge conflict in docs/index.html; category-organized dashboard; own-line calculator; links to every subpage (strategies, validation gates, correlations, leaderboard, sources, flagged for review, verified data, independent review, research/own6, empirical lab) | in progress | arena/cba44906-own6 | `docs/index.html` |
+| C2 Official-source verification refresh: re-retrieve on 2026-11-03 — NBA schedule, glossary, FAQ, injury report, partner list, integrity framework, Terms of Use, GitHub Pages API; log results | in progress | arena/cba44906-own6 | `data/verification_log.csv` |
+| C3 Verification gates green: tools/run_tests.py (5/5), tools/build_review.py --check, tools/check_site.py (0 strict errors) | unclaimed | arena/cba44906-own6 | `audit/link_check_report.md` |
+| C4 Publish: push arena/cba44906-own6; PR to main; `gh pr merge --merge`; confirm Pages build; record PR link, merge result, Pages status here | unclaimed | arena/cba44906-own6 | PR record in this section |
+
+Claim recorded at the start of the session (commit \"claim: C1–C4 session cba44906\"); see `git log -- COORDINATION.md`.
+
+### Sources scheduled for re-verification on 2026-11-03
+
+| URL | Purpose | Result |
+|---|---|---|
+| https://www.nba.com/schedule | Nov 2, 2026 slate (games.json source) | pending |
+| https://www.nba.com/stats/help/glossary | PACE/OffRtg/DefRtg/USG% definitions | pending |
+| https://www.nba.com/stats/help/faq | No bulk download; coverage/update timing | pending |
+| https://official.nba.com/nba-injury-report-2026-27-season/ | Injury-report rules and landing page | pending |
+| https://www.nba.com/nbabet/official-nba-gaming-partners-and-operators-2 | Official gaming partners/operators (July 9, 2026) | pending |
+| https://www.nba.com/news/nba-establishes-integrity-framework-and-commercial-partnerships-for-prediction-markets | Prediction-market integrity framework (Oct 26, 2026) | pending |
+| https://www.nba.com/termsofuse | Terms of Use §§1 and 9 (rights flag I-24/F16) | pending |
+| https://api.github.com/repos/sassnarep3-star/Own6/pages | Pages publishing source and build status | pending |
+
+### Verification rule for this session
+
+Every re-retrieval is recorded in `data/verification_log.csv` with retrieval date, method, evidence quote, and status. A page that cannot be retrieved stays listed as "pending/unretrievable" and is flagged — no value is inferred.
