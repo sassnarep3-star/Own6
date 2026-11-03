@@ -383,3 +383,22 @@ While PR #26 checks were passing, PR #22 moved `main`. Rebasing this fixed branc
 - Pages deploy: GitHub Pages API reports source `main:/`, latest build for `9d4a2d8` status `built` (2026-11-03T19:57:04Z, no error). Live re-read via fetch: https://sassnarep3-star.github.io/Own6/docs/hub/index.html, .../hub/forward-test.html and .../docs/index.html (repaired landing page with the new Data hub card) all render correctly. A first fetch of `/docs/` returned a stale cached copy with the old conflict markers; a cache-busted fetch (`?v=...`) returned the repaired page, so the stale copy is CDN caching, not the deployed file.
 - This record: follow-up PR (coordination file + hub flag status only).
 
+
+---
+
+## Session `arena/7860fd9b-own6` — independent source verification + evidence-gated dashboard (2026-11-03)
+
+Fixed Arena branch: `arena/7860fd9b-own6` (the brief's `session-<id>/<task>` branch names are not permitted for this session; scopes below are still kept non-overlapping by file so any other session can work in parallel). Prior sessions' sections are preserved unchanged above.
+
+### Claim (written and pushed before any edit)
+
+| Task | Status | Owner session | Exclusive files |
+|---|---|---|---|
+| V1 Independent retrieval of official NBA pages for line-by-line row verification | in progress | arena/7860fd9b-own6 | `data/verification/v1_*.csv`, `scripts/verify_sources.py` |
+| V2 Evidence-gated dashboard generator (overview, results, standings, ratings, lines, props, parlays/correlations, strategies/gates, leaderboard, flags, sources, methodology) | unclaimed→(this session) | arena/7860fd9b-own6 | `scripts/build_verified_dashboard.py`, `docs/verified-dashboard/**` |
+| V3 Executive summary of the verified state | claimed | arena/7860fd9b-own6 | `audit/SESSION_7860fd9b.md` |
+| V4 Integration: gates, PR, merge, Pages deploy check | claimed | arena/7860fd9b-own6 | one nav link in `docs/index.html` |
+
+### Method note (applies to V1)
+
+Verification here means: fetch the cited **official** page in this session, compare the cited value to the page text, and record source URL + UTC retrieval time + the excerpt actually read. Values that cannot be confirmed stay **blank** in the dashboard and are listed on the Flagged for Review page. A link's presence is not treated as proof of a value. This session does **not** re-publish NBA statistics as a data feed; it reports verification status and counts only.
