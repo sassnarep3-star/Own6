@@ -250,3 +250,14 @@ All work stays on the fixed Arena branch `arena/f56f0055-own6`; no other branch 
 
 - None new. Standing flags remain on the site's Flagged for Review pages (NBA.com Terms of Use §§1/9 restrict use of NBA statistics in connection with gambling; no licensed odds/results feed exists, so correlation, edge and ROI fields remain blank/unverified by design).
 - PR and merge record: see final entry appended after merge below.
+
+---
+
+## Session arena/db20c549-own6 — CI integration audit
+| Task | Status | Owner | Exclusive files |
+|---|---|---|---|
+| C1 Audit existing verification and make lab CI run on current branch | done | db20c549 | `.github/workflows/lab-ci.yml`, `COORDINATION.md` |
+
+Claimed 2026-11-03. Arena fixes this branch name; no session-* branch can be created. Existing research and Pages content belongs to prior sessions and will not be overwritten. Integration checks will be recorded here.
+
+C1 completion (2026-11-03): CI now runs for branch pushes rather than only the former session branch, fetches full history required by `scripts/audit_sources.py` (shallow checkout reproduced `fatal: not a tree object`), and exercises combined-site checks. Verified locally: 20/20 pytest tests; audit 82 rows/43 files/20 findings; fail-closed report `not_run` and zero qualified; lab/site/review/link checks passed. `tools/check_site.py` emitted 31 advisory rows missing official links in prior `docs/verified/` pages; they concern unverified/editorial entries, not independently verified measurements. They remain flagged for review; this session did not add invented citations or edit another owner's pages. Official source boundaries: https://www.nba.com/termsofuse and https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/triggering-a-workflow ; no new performance claims. Pages API reports main-root publication built: https://sassnarep3-star.github.io/Own6/ .

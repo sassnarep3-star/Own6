@@ -2,7 +2,7 @@ name: Lab CI
 
 on:
   push:
-    branches: [arena/5dfdc6d5-own6]
+    branches: ['**']
   pull_request:
     branches: [main]
 
@@ -13,6 +13,9 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v4
+        with:
+          # The frozen upstream inventory in audit_sources.py needs historical commits.
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -39,3 +42,10 @@ jobs:
 
       - name: Verify no fabricated data in report
         run: python scripts/check_report.py
+
+      - name: Check generated review and official-source gates
+        run: |
+          python tools/build_review.py --check
+          python tools/check_site.py
+          python scripts/check_site.py
+          python scripts/linkcheck.py
