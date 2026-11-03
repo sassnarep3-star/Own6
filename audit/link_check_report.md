@@ -2,7 +2,7 @@
 
 - Strict pages checked: 12
 - Other-session pages checked (advisory): 9
-- Directly verified official URLs in registry: 25
+- Directly verified official URLs in registry: 27
 - Strict errors: 0
 - Advisory warnings (other-session scope): 31
 
