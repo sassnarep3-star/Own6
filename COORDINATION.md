@@ -418,3 +418,17 @@ Claim recorded before implementation. Scope excludes existing indexes/navigation
 - Post-merge local snapshot check passes; 44 tests passed pre-merge, and all 1,392 rows in the five new audit pages have repository evidence and/or official references. Release gate reports zero broken internal links/merge markers. Legacy external-reference gaps remain needs review and are published, not blockers or silently marked verified.
 - GitHub's managed Pages job emits Node 20 deprecation and upcoming runner-label annotations but succeeds under its forced Node 24 environment; these are platform annotations, not a failed deployment. No custom Pages publisher was introduced.
 - This is a coordination-only close-out record for the already deployed PR #33, submitted via a follow-up PR on the same fixed branch so merge/deploy evidence is preserved on main. Navigation request sent directly to the active PR #31 owner: https://github.com/sassnarep3-star/Own6/pull/31#issuecomment-6618260332 . That other session's open work was not merged or changed by this session.
+
+---
+
+## Session arena/2dbac92a-own6 — strict hub publication repair (2026-11-03)
+
+Branch is fixed by Arena to `arena/2dbac92a-own6`; no additional branch is created. Read the entire existing board and checked open PR scopes (#28, #31, #23) before claiming. Their implementation scopes remain untouched.
+
+| Task | Status | Owner session | Exclusive files |
+|---|---|---|---|
+| P1 Fail-closed hub numeric publication, source-specific references and regression gate | in progress | arena/2dbac92a-own6 | `scripts/build_hub.py`, `scripts/check_hub.py`, `tests/test_hub_publication.py`, `data/hub_publication_policy.json`, `docs/hub/*.html`, `.github/workflows/hub-ci.yml` |
+| P2 Independent summary, source/evidence limitations, release record | in progress | arena/2dbac92a-own6 | `audit/HUB_PUBLICATION_2026_11_03.md`, this section of `COORDINATION.md` |
+| P3 Integration checks, PR/merge and Pages deployment | unclaimed | arena/2dbac92a-own6 | scope above only |
+
+Initial finding: `scripts/build_hub.py` publishes ESPN-carried market/prop numbers with an UNVERIFIED badge, explicitly contrary to the user's blank-unconfirmed-values rule. Source-domain/link checks cannot verify individual values. This session will withhold unconfirmed numeric fields rather than manufacture first-party evidence; retain raw files and earlier sites for provenance, clearly distinguish official-reference links from verified-value evidence, and publish the limitation on the hub Flagged page. Official primary repository evidence: https://github.com/sassnarep3-star/Own6/blob/main/scripts/build_hub.py and https://github.com/sassnarep3-star/Own6/blob/main/data/hub_flags.csv . No direct NBA page access is claimed in this session; outbound hosts are restricted. PR #31's assurance and model-engine scopes and PR #28's legacy-review scopes are not claimed.
