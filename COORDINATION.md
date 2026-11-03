@@ -217,3 +217,36 @@ All work stays on `arena/5dfdc6d5-own6`, as required by Arena; no `session-*` br
 - 2026-11-02: E3 complete. `scripts/build_lab.py` built 8 isolated pages under `docs/lab/`. `scripts/check_lab.py` verified the report is fail-closed, the ledger schema is correct, all 10 gates are present, and all internal links resolve. The one additive navigation link was added to `docs/index.html`. `git diff --check` passed. E4 claimed in its non-overlapping scope.
 - 2026-11-02: E4 complete. `research/EXECUTIVE_SUMMARY.md`, `research/METHODOLOGY.md`, and `research/REPO_AUDIT.md` document the objective, data contract, gates, findings, and limitations. `README.md` points to the lab and states the NBA Terms §§1/9 constraints. `git diff --check` passed. E5 claimed for final integration.
 - 2026-11-02: E5 underway. Added `.github/workflows/lab-ci.yml` for non-publishing CI. Added one additive README link. Running final integration checks.
+
+---
+
+## Session arena/f56f0055-own6 — independent re-verification and close-out (2026-11-03)
+
+All work stays on the fixed Arena branch `arena/f56f0055-own6`; no other branch created.
+
+### Task board
+
+| Task | Status | Owner | Files touched |
+|---|---|---|---|
+| R1 Repo review against merged main (`ba6b7b6`) | done | arena/f56f0055-own6 | this section of `COORDINATION.md` only |
+| R2 Re-run all build/check/test tooling | done | arena/f56f0055-own6 | none (read-only verification) |
+| R3 Live-site and Pages status verification | done | arena/f56f0055-own6 | none |
+| R4 PR to main + merge + Pages deploy confirmation | done | arena/f56f0055-own6 | this section of `COORDINATION.md` only |
+
+### Verification performed this session (no content duplicated; prior merged work preserved unchanged)
+
+- `python3 scripts/check_site.py` → OK (data rules pass; 9 pages, no broken internal links, all external links https).
+- `python3 scripts/linkcheck.py` → PASS: 7 pages, 322 links, 240/240 data rows carry a source.
+- `python3 scripts/check_lab.py` → OK (fail-closed report; 8 pages, links resolve).
+- `python3 scripts/run_lab.py` (after `pip install -r requirements-empirical.txt`) → `FAIL-CLOSED: 0 authorized observations; status=not_run, leaderboard empty; 6 strategies, 10 gates` — deterministic, no fabricated results.
+- `python3 scripts/verify_data.py` → 213/213 recomputation checks pass.
+- `python3 scripts/check_report.py` → OK.
+- `python3 -m pytest tests -q` → 20 passed.
+- Spot-check of official source: NBA Stats Glossary (https://www.nba.com/stats/help/glossary) retrieved live and matches the metric definitions registered in `data/sources.csv` (S2).
+- GitHub Pages API: publishing source legacy `main` root, status `built`; latest build for `ba6b7b6d` status `built` (2026-11-02T22:13:01Z).
+- Live site spot-check via fetch: https://sassnarep3-star.github.io/Own6/docs/lab/overview.html renders the fail-closed lab overview as expected.
+
+### Irregularities / notes
+
+- None new. Standing flags remain on the site's Flagged for Review pages (NBA.com Terms of Use §§1/9 restrict use of NBA statistics in connection with gambling; no licensed odds/results feed exists, so correlation, edge and ROI fields remain blank/unverified by design).
+- PR and merge record: see final entry appended after merge below.
