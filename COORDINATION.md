@@ -451,6 +451,64 @@ Initial finding: `scripts/build_hub.py` publishes ESPN-carried market/prop numbe
 ### P3 concurrent integration resolution
 
 `main` advanced through PR #33 (additive source-coverage audit) and #35 (its release record) while this session implemented its separately claimed hub repair. `git pull --rebase origin main` conflicted only at the appended end of `COORDINATION.md`. Resolved by retaining the complete upstream fd5276fa section and this session's separate claim/completion sections; no upstream source, data or code was discarded. Rebased tree: 56 pytest tests plus 6 subtests pass; hub checker reports 335 source-linked rows, no errors; release gate passes. New source-coverage artifacts are a historical snapshot; its CI rebuilds coverage for the exact tested tree rather than implying that its older checked-in inventory is current. Other sessions' output files were not regenerated or edited here.
+---
+
+## Session arena/197aa3f0-own6 — line-by-line reverification and Flagged-for-Review publication (claimed 2026-11-03)
+
+### Branch rule (deviation logged)
+
+The brief asked for `session-<id>/<task>` branches. The Arena session rule fixes this session to **`arena/197aa3f0-own6`** and forbids other branches, so all work is on that branch. File scopes below are kept disjoint from the open PRs at claim time (#23, #28, #31, #32), so their owners can merge without conflict.
+
+### Task board (session 197aa3f0)
+
+| Task | Status | Owner session | Exclusive files | Notes |
+|---|---|---|---|---|
+| R1 Line-by-line reverification of legal (국민체육진흥법), NBA-policy and site claims, with official-source links per row; publish as a separate page | in progress | arena/197aa3f0-own6 | `data/line_reverification_2026-11-03.csv`, `scripts/build_reverification.py`, `tests/test_reverification.py`, `docs/reverification/**`, this section of `COORDINATION.md` | Does not edit `docs/index.html` navigation, `docs/verified/**`, `data/nba_policy.json`, `data/legal_kr.json`, `EXECUTIVE_SUMMARY.md` or `README.md`; those are logged as requests below. |
+
+### Status legend
+
+`unclaimed` · `in progress` · `done` · `needs review` (published on the Flagged for Review page; does not block anything)
+
+### Requests to file owners (logged, not edited)
+
+| Request | Target file (owner) | Requested change |
+|---|---|---|
+| Q-1 | `data/nba_policy.json` row 2, and generated `docs/verified/nba-policy.html` (owner: session 05e359b8 / integration) | The official NBABet list dated July 9, 2026 does not include **Brazil**. Remove Brazil from the country list in `official_statement_verified`, then regenerate the page. Source: https://www.nba.com/nbabet/official-nba-gaming-partners-and-operators-2 (read 2026-11-03). |
+| Q-2 | `docs/verified/strategies.html`, `docs/hub/validation.html`, `docs/verified/methodology.html` and related pages (owner: integration) vs `nba_lab/gates.py` | Two different gate frameworks use the same IDs. The verified/hub pages use G1–G8 (G1 = Korean legal review), while the lab uses ten gates (G01–G10, G01 = rights and market permission). Rename one set or add an explicit crosswalk. |
+| Q-3 | `docs/verified/{flagged,methodology,nba-policy,sources,strategies}.html` (owner: integration) | 31 table rows still have no official source link (advisory from `tools/check_site.py`). Add a link to an official URL or mark the row unverified. |
+| Q-4 | `docs/index.html` navigation (owner: integration) | Add a link to the new page `docs/reverification/index.html` once merged. |
+| Q-5 | `data/legal_kr.json`, row "제53조 / 제54조" (owner: session 05e359b8) | The summary "corporate liability" is incomplete. Art. 54 (양벌규정) applies only to violations of Art. 47 item 2 (제47조제2호). |
+| Q-6 | `data/legal_kr.json` meta (owner: session 05e359b8) | The law.go.kr page shows several articles with later effective dates (Art. 21: 시행일 2026. 12. 3.; Art. 22: 시행일 2027. 4. 21.). The repo cites the 2026. 9. 3. header, which is correct for that version. Add an "as-of" note. |
+
+### Open PRs at claim time (not touched by this session)
+
+#23 (`arena/db20c549-own6`), #28 (`arena/269a73e2-own6`, conflicting), #31 (`arena/74d27b5d-own6`), #32 (`arena/b1bdfb4b-own6`). Their owners should merge or close them. This session does not merge other sessions' PRs.
+
+### Completion record (R1, 2026-11-03)
+
+Status: **done** for this session's scope. The PR link and merge result are appended below after merge.
+
+**Deliverables:** `data/line_reverification_2026-11-03.csv` (40 rows: 27 verified, 3 mismatch, 6 unverified, 2 flagged, 1 carried forward, 1 not checked); `scripts/build_reverification.py` (validates every row, then renders `docs/reverification/index.html`; `--check` mode); `tests/test_reverification.py` (11 tests); the page at `docs/reverification/index.html`, which includes Flagged for Review and key findings.
+
+**Official sources read directly on 2026-11-03** (the rest are carried forward or not checked, as shown in the CSV):
+- 국민체육진흥법 full text: https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B5%AD%EB%AF%BC%EC%B2%B4%EC%9C%A1%EC%A7%84%ED%9D%A5%EB%B2%95 (header; Arts. 2, 24, 26, 27, 30, 47–49, 51, 53, 54; later-effective versions of Arts. 21–22)
+- NBA Terms of Use: https://www.nba.com/termsofuse (§1 and §9)
+- NBA release, Oct 26, 2026: https://www.nba.com/news/nba-establishes-integrity-framework-and-commercial-partnerships-for-prediction-markets
+- NBABet official gaming partners list, July 9, 2026: https://www.nba.com/nbabet/official-nba-gaming-partners-and-operators-2
+- NBA Stats FAQ: https://www.nba.com/stats/help/faq
+- NBA game pages (score spot-checks): https://www.nba.com/game/bos-vs-det-0022600001 and https://www.nba.com/game/atl-vs-orl-0022600085
+- GitHub Pages build record: https://api.github.com/repos/sassnarep3-star/Own6/pages/builds/latest
+- Live site: https://sassnarep3-star.github.io/Own6/docs/
+
+**Verification performed:** every CSV row was compared with the quoted official text or the repo file it describes. The checks were: `scripts/build_reverification.py --check` (40 rows valid); `tools/run_tests.py` (21/21, including the 11 new tests); `tools/release_gate.py` (0 issues); `tools/build_review.py --check`; `tools/check_site.py` (0 errors; 31 advisory warnings unchanged); `scripts/check_site.py`; `scripts/linkcheck.py`; `scripts/check_hub.py`; `scripts/audit_integration.py`; `scripts/check_lab.py`; `scripts/verify_data.py` (213/213, internal only); `scripts/check_report.py`. All five internal links on the new page resolve.
+
+**Limits (not claimed):** 90 of 92 game rows were not re-read against nba.com. The prop restrictions reported by the press (N08–N12) remain unverified because no official text for them was found on the pages read. The glossary definition (N13) is carried forward from 2026-11-02. Linking to nba.com pages is subject to the existing §1 legal-review flag. This is not legal advice.
+
+**Irregularities for the owners:** Q-1 (Brazil), Q-2 (duplicate gate IDs), Q-3 (31 rows without official link), Q-4 (nav link), Q-5 (Art. 54 scope), Q-6 (as-of note). See the request table above.
+
+### Coordination note on concurrent work
+
+Session `arena/fd5276fa-own6` (PR #33, merged) published sitewide source-coverage findings under `docs/coverage/**`. That work audits link coverage per row. This session (R1) checks factual claims against official text, so the file scopes do not overlap. R1 will link to the `docs/coverage/` audit rather than repeat it.
 
 
 ### P3 final release evidence (2026-11-03)
