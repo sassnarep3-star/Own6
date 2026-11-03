@@ -447,3 +447,7 @@ Initial finding: `scripts/build_hub.py` publishes ESPN-carried market/prop numbe
 | P1 Strict hub publication and regression gate | done | arena/2dbac92a-own6 | claimed scope only |
 | P2 Executive review and evidence limits | done | arena/2dbac92a-own6 | claimed scope only |
 | P3 Rebase integration, full checks, PR/merge and Pages verification | in progress | arena/2dbac92a-own6 | claimed scope only |
+
+### P3 concurrent integration resolution
+
+`main` advanced through PR #33 (additive source-coverage audit) and #35 (its release record) while this session implemented its separately claimed hub repair. `git pull --rebase origin main` conflicted only at the appended end of `COORDINATION.md`. Resolved by retaining the complete upstream fd5276fa section and this session's separate claim/completion sections; no upstream source, data or code was discarded. Rebased tree: 56 pytest tests plus 6 subtests pass; hub checker reports 335 source-linked rows, no errors; release gate passes. New source-coverage artifacts are a historical snapshot; its CI rebuilds coverage for the exact tested tree rather than implying that its older checked-in inventory is current. Other sessions' output files were not regenerated or edited here.
