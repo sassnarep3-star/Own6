@@ -290,4 +290,12 @@ Fixed Arena branch retained in place of the requested session branch naming. Pri
 
 | Task | Status | Owner | File scope |
 |---|---|---|---|
-| Independent build/test and live Pages status review, with limitations recorded | in progress | arena/526a6816-own6 | This section of `COORDINATION.md` only; all other checks read-only |
+| Independent build/test and live Pages status review, with limitations recorded | needs review | arena/526a6816-own6 | This section of `COORDINATION.md` only; all other checks read-only |
+
+### Findings and verification
+
+- 2026-11-03: Python checks passed: `check_site.py` (9 pages), `linkcheck.py` (7 pages; 240 rows with source links), `check_lab.py` (8 pages), `verify_data.py` (213 checks), `check_report.py`, and 20 tests in a local virtual environment. `run_lab.py` reports zero authorized observations and an empty leaderboard. These are structural/recomputation checks, **not** proof that every external link works or that every row matches its cited source.
+- Official source spot check: [NBA glossary](https://www.nba.com/stats/help/glossary) was retrieved. Full independent line-by-line source verification was not performed in this session; prior sessions' verification records are not treated as independent confirmation.
+- [GitHub Pages API](https://api.github.com/repos/sassnarep3-star/Own6/pages/builds/latest) reported build `92cae24db32f6cca95fec08422a835380eed14cc` built, and the [live lab overview](https://sassnarep3-star.github.io/Own6/docs/lab/overview.html) rendered. This is a spot check, not an external link audit.
+- No odds, performance, or correlation estimates can be verified from the empty authorized ledger; statistical validation cannot eliminate luck. [NBA Terms](https://www.nba.com/termsofuse) and [stats FAQ](https://www.nba.com/stats/help/faq) require rights review before use.
+- Existing PR checks had a Lab CI failure; another session is actively addressing CI in [PR #21](https://github.com/sassnarep3-star/Own6/pull/21). Integration request: investigate and publish the limitation that current link checks validate source-link presence and local paths, not all external source content or availability, on the appropriate Flagged for Review page. No cross-scope edit made here.
