@@ -301,6 +301,7 @@ def main():
         ["R5", "mk.co.kr (Mar 27, 2025) — secondary", "Legal commentary quoting a lawyer on overseas betting", "Unverified (press)", "https://www.mk.co.kr/en/society/11275855", "Unverified"],
     ]
     sources_body = f"""
+<p class="muted">⚠ <b>Terms-of-use caution (flag F16/F17, request A28-REQ-01):</b> NBA.com <a href="https://www.nba.com/termsofuse" target="_blank" rel="noopener">Terms of Use</a> §9(ii) says NBA Statistics “may only be used, displayed, or published for legitimate news reporting or private, non-commercial purposes”; §9(iv) says they “may not be used in connection with any gambling activity (including legal gambling activity)”; and §1 restricts linking Basketball Content without written permission. The links below are citations for verification; applicability to this project is flagged for legal review (see <a href="flagged.html" target="_blank" rel="noopener">Flagged for Review</a>). No legal conclusion is asserted here.</p>
 <p class="muted">Official sources (S1–S4) are the only ones used to fill verified values. Secondary sources (R1–R5) only identify what to check, and are never used to fill a value.</p>
 {table(["ID", "Source", "Used for", "Verification", "Link", "Status"], [[esc(c) if i != 4 else link(c) for i, c in enumerate(r)] for r in src_rows], "source-table")}
 <h2>Verification record</h2>
