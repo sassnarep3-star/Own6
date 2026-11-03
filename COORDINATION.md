@@ -250,3 +250,21 @@ All work stays on the fixed Arena branch `arena/f56f0055-own6`; no other branch 
 
 - None new. Standing flags remain on the site's Flagged for Review pages (NBA.com Terms of Use §§1/9 restrict use of NBA statistics in connection with gambling; no licensed odds/results feed exists, so correlation, edge and ROI fields remain blank/unverified by design).
 - PR and merge record: see final entry appended after merge below.
+
+---
+
+## Session arena/28db9d62-own6 — final integration repair (2026-11-03)
+
+**Fixed branch:** `arena/28db9d62-own6` (Arena forbids creating the user's suggested `session-*` branches). Initial checkout was `ba6b7b6`; main advanced to `92cae24` during inspection. The newer board was preserved by rebasing before this claim.
+
+**Handoff:** Older E5 / T7 claims are over 60 minutes old without new commits, and their PRs #19 and #6 are merged. The duplicate E2/E3/E4 unclaimed rows are superseded by their later done entries. New session f56f0055 marked its read-only review done in PR #20. No active implementation task is being taken from it. This session claims a NEW follow-up integration, not a duplicate research task: repair actual CI failures, audit all published evidence and code, consolidate navigation and reporting, and verify deployment. Prior owners' historical records are preserved, not represented as independently verified by this session.
+
+| Task | Status | Owner | Exclusive scope |
+|---|---|---|---|
+| U1 Full-repository and official-source re-audit | in progress | arena/28db9d62-own6 | `research/integration/**`, `data/integration/**`, `scripts/audit_integration.py`, `COORDINATION.md` |
+| U2 Repair and adversarially test pricing, provenance, dependence, validation and ranking | in progress | arena/28db9d62-own6 | `nba_lab/**`, `tests/empirical/**`, `scripts/run_lab.py`, `requirements-empirical.txt`, existing upstream engine defects only after recording findings |
+| U3 One consolidated responsive dashboard and complete review pages | in progress | arena/28db9d62-own6 | `docs/**`, `index.html`, `scripts/build_lab.py`, `scripts/check_lab.py`, additive integration-only updates to existing site generators |
+| U4 Consolidated executive summary, methodology and repository guide | in progress | arena/28db9d62-own6 | `EXECUTIVE_SUMMARY.md`, `README.md`, `research/integration/**` |
+| U5 Full integration CI, PR, merge and live Pages verification | in progress | arena/28db9d62-own6 | `.github/workflows/**`, `scripts/check_integration.py`, final shared-file integration and this section |
+
+No NBA statistical scraper or unauthorized gambling-use data feed is configured. Existing unverified rows will remain blank/flagged; synthetic tests are never empirical performance. No manual input, wager placement, real-money reward or profitability claim is part of this work. Completion evidence and PR/deploy results will be appended here.
