@@ -257,10 +257,19 @@ Branch is fixed by Arena to `arena/f58e0178-own6` (the `session-<id>/<task>` nam
 
 | Task | Status | Owner | Exclusive file scope |
 |---|---|---|---|
-| H1 Repo irregularity audit (merge-conflict markers, CI refs, data consistency) | in progress | f58e0178 | `audit/INTEGRATION_AUDIT.md`, `scripts/audit_integration.py` |
-| H2 Repair `docs/index.html` (committed git conflict markers) | in progress | f58e0178 | `docs/index.html`, `docs/dashboard.html` (new) |
-| H3 Official Nov 2 results + pre-registered forward test of published lines | in progress | f58e0178 | `data/results_2026-11-02.csv`, `data/forward_test_2026-11-02.csv`, `scripts/forward_test.py` |
-| H4 Unified category hub site (tables, source link per row, Flagged page) | in progress | f58e0178 | `docs/hub/**`, `scripts/build_hub.py`, `scripts/check_hub.py` |
-| H5 Integration: link check, PR to main, merge, Pages verification | unclaimed→mine at end | f58e0178 | `COORDINATION.md` (this section), `README.md` (one link), `docs/index.html` |
+| H1 Repo irregularity audit (merge-conflict markers, CI refs, data consistency) | done | f58e0178 | `audit/INTEGRATION_AUDIT.md`, `scripts/audit_integration.py` |
+| H2 Repair `docs/index.html` (committed git conflict markers) | done | f58e0178 | `docs/index.html`, `docs/dashboard.html` (new) |
+| H3 Official Nov 2 results + pre-registered forward test of published lines | done | f58e0178 | `data/results_2026-11-02.csv`, `data/forward_test_2026-11-02.csv`, `scripts/forward_test.py` |
+| H4 Unified category hub site (tables, source link per row, Flagged page) | done | f58e0178 | `docs/hub/**`, `scripts/build_hub.py`, `scripts/check_hub.py` |
+| H5 Integration: link check, PR to main, merge, Pages verification | in progress | f58e0178 | `COORDINATION.md` (this section), `README.md` (one link), `docs/index.html` |
 
 Rule: no value is entered unless read from an official page during this session; the page is linked on the row. Blank = unverified.
+
+### Completion records (2026-11-03)
+
+- **H1 audit** — `audit/INTEGRATION_AUDIT.md`, `scripts/audit_integration.py`, 15 flags in `data/hub_flags.csv`. Irregularities: H01 conflict markers on the live landing page (fixed), H02 wrong implied-probability formula in `scripts/model.py` (fixed; only 3 columns of `data/our_lines_2026-11-02.csv` changed), H03 wrong Brier numbers (fixed), H04-H14 flagged. Cross-scope edits (logged here instead of asked, because the owning sessions are all `done`): `scripts/model.py`, `scripts/build_site_own6.py` + regenerated `docs/own6/*`, `research/validation.md`, `research/strategies.md` (S-1 note), `data/our_lines_2026-11-02.csv`.
+- **H2** — `docs/dashboard.html` (calculator, conflict resolved from the HEAD side, nothing dropped); `docs/index.html` is now the hub landing page.
+- **H3** — `data/results_2026-11-02.csv` (15 scores read from https://www.nba.com/games?date=2026-11-02), `data/reverification_results_2026-11-03.csv` (13 historical rows re-read, 13/13 match), `data/standings_live_2026-11-03.csv` (https://www.nba.com/standings; UTA row from the scoreboard card because the page text was cut off), `scripts/forward_test.py` -> `data/forward_test_*.csv`. Result: market >= Own6 on this 15-game slate, all intervals include 0; no gate passed.
+- **H4** — `docs/hub/**`, `scripts/build_hub.py`, `scripts/check_hub.py`, `.github/workflows/hub-ci.yml` (non-publishing CI). 12 pages, 354 table rows, each with an https source link; 0 errors.
+- Checks run after changes: `audit_integration.py`, `check_hub.py`, `tools/build_review.py --check`, `tools/check_site.py` (0 errors, 31 pre-existing advisories), `scripts/check_site.py`, `linkcheck.py`, `verify_data.py` (213/213), `check_lab.py`, `tools/run_tests.py` (5/5).
+- Deviation: odds/props remain in the data as UNVERIFIED secondary-source rows (flag H07) rather than being blanked, because every forward-test comparison depends on them. Owner can ask for blanking.

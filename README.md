@@ -7,6 +7,10 @@ Estimate outcome distributions independently, convert them to fair probabilities
 
 Leaderboard rewards should be based on audited, preregistered, out-of-sample forecasts with uncertainty-aware eligibility—not raw win rate. Require adequate samples, proper scoring/calibration, market-relative results, drawdown reporting, and robust performance across periods. No historical data or sportsbook quotes are included here; measured advantage and correlation fields remain blank/unverified.
 
+## Start here: unified hub
+
+The site landing page ([`docs/index.html`](docs/index.html)) is a category dashboard: executive summary, results, standings, lines, props, forward test, strategies, correlations, validation, sources and Flagged for Review, all generated from the committed data by `python3 scripts/build_hub.py` and checked by `python3 scripts/check_hub.py` and `python3 scripts/audit_integration.py`. Live: https://sassnarep3-star.github.io/Own6/docs/
+
 ## Live site contents
 GitHub Pages publishes the organized site from [`docs/`](docs/index.html): dashboard/calculator, strategy catalog, validation gates, correlation methodology, leaderboard design, sources registry and Flagged for Review. See [`EXECUTIVE_SUMMARY.md`](EXECUTIVE_SUMMARY.md).
 

@@ -41,6 +41,9 @@ S-1's failed G1, so it receives no paper allocation until S-1 is validated.
 - Signal: Own6 model v0.1 (`scripts/model.py`): shrunk venue-adjusted strength (k=8),
   expanding HCA (init 2.5), expanding margin σ (init 12.0); win prob = Φ(margin/σ).
 - Bet rule (paper): model favourite when |edge| = P(model fav) − de-vigged market P ≥ 0.03, else pass.
+  *2026-11-03 integration note (flag H06/H02): this wording is ambiguous (signed vs absolute edge) and the market probability in
+  `data/our_lines_2026-11-02.csv` was computed with a wrong odds→probability formula until that date; it is now corrected.
+  No graded result in this repo uses the old values. See `data/forward_test_summary_2026-11-02.csv` for the first graded slate.*
 - 2026-11-02 slate: 13/15 model favourites agree with DraftKings; two disagreements
   (WSH@ORL — model WSH +2.3; POR@DEN — model POR +2.3) are recorded as paper leans.
 - Gate G1 result: mean log-loss improvement vs expanding home-win baseline = 0.0312,

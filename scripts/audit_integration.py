@@ -64,6 +64,17 @@ base = {r["game_id"]: r for r in rd("data", "games_results_2026-27.csv")}
 ok = all(all(base[r["game_id"]][k] == r[k] for k in ("away_team", "away_score", "home_team", "home_score")) for r in rd("data", "reverification_results_2026-11-03.csv"))
 check("re-verified rows equal data/games_results_2026-27.csv", ok)
 
+# 5b. W-L recomputed from all 107 result rows == official standings read 2026-11-03
+tot = {}
+for fn in ("games_results_2026-27.csv", "results_2026-11-02.csv"):
+    for g in rd("data", fn):
+        a, h = g["away_team"], g["home_team"]
+        win, lose = (h, a) if int(g["home_score"]) > int(g["away_score"]) else (a, h)
+        tot.setdefault(win, [0, 0])[0] += 1
+        tot.setdefault(lose, [0, 0])[1] += 1
+live = {r["team_abbr"]: [int(r["w"]), int(r["l"])] for r in rd("data", "standings_live_2026-11-03.csv")}
+check("recomputed W-L (107 games) == official standings for all 30 teams", len(live) == 30 and tot == live)
+
 # 6. forward-test file reproducible
 before = open(P("data", "forward_test_summary_2026-11-02.csv")).read()
 subprocess.run([sys.executable, P("scripts", "forward_test.py")], capture_output=True, check=True)

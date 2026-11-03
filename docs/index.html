@@ -1,37 +1,18 @@
-<<<<<<< HEAD
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Own6 — Originate Your Own NBA Lines</title><link rel="stylesheet" href="assets/style.css"></head><body><nav><span class="brand">OWN6</span><a href="index.html">Dashboard</a><a href="strategies.html">Strategies</a><a href="validation.html">Validation Gates</a><a href="correlations.html">Correlations</a><a href="leaderboard.html">Leaderboard</a><a href="sources.html">Sources</a><a href="flagged.html">⚑ Flagged for Review</a><a href="verified/">✓ Verified data (source-linked)</a><a href="review/">✓ Independent review</a>
-<a href="own6/">Research: lines &amp; backtests (session 325834c9)</a><a href="lab/">🔬 Empirical Lab (fail-closed)</a></nav>
-=======
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Own6 — Originate Your Own NBA Lines</title><link rel="stylesheet" href="assets/style.css"></head><body><nav><span class="brand">OWN6</span><a href="index.html">Dashboard</a><a href="strategies.html">Strategies</a><a href="validation.html">Validation Gates</a><a href="correlations.html">Correlations</a><a href="leaderboard.html">Leaderboard</a><a href="sources.html">Sources</a><a href="flagged.html">⚑ Flagged for Review</a><a href="verified/">✓ Verified data (source-linked)</a><a href="lab/">🔬 Empirical Lab (fail-closed)</a></nav>
->>>>>>> 111ab29 (Add fail-closed empirical NBA lab with sourced audit)
-<main><h1>🏀 Originate Your Own NBA Lines</h1><p class="mut">Build your own spread, total & win probability from official NBA efficiency stats — then force every strategy through validation gates that strip out luck before it can top the leaderboard.</p>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Own6 — NBA Lines Lab — Own6 NBA Lines Lab</title><link rel="stylesheet" href="hub/assets/hub.css"></head><body>
+<header class="top"><span class="brand">OWN6</span><span class="grp">Overview</span><a class="on" href="index.html">Home</a><a href="hub/summary.html">Executive summary</a><span class="grp">Data</span><a href="hub/results.html">Results</a><a href="hub/standings.html">Standings</a><a href="hub/lines.html">Lines</a><a href="hub/props.html">Props</a><span class="grp">Analysis</span><a href="hub/forward-test.html">Forward test</a><a href="hub/strategies.html">Strategies</a><a href="hub/correlations.html">Correlations</a><a href="hub/validation.html">Validation</a><span class="grp">Reference</span><a href="hub/sources.html">Sources</a><a href="hub/flagged.html">Flagged for Review</a></header>
+<main><h1>Own6 — NBA Lines Lab</h1><p class="lead">Originate your own NBA lines, test them against official results, and rank strategies on skill rather than luck.</p>
 <div class="grid">
-<div class="card"><h3>🎯 Own Lines</h3><p>Pace × OffRtg/DefRtg matchup model (official NBA definitions). Home-court & margin SD are fitted from your data — never assumed.</p><a href="strategies.html">Strategies →</a></div>
-<div class="card"><h3>🔗 Correlations</h3><p>Gaussian-copula parlay pricing. Independence is a labelled special case, not a default.</p><a href="correlations.html">Correlations →</a></div>
-<div class="card"><h3>✅ Validation Gates</h3><p>Walk-forward, calibration, CLV, binomial luck test, bootstrap CI. Fail one gate = unranked.</p><a href="validation.html">Gates G1–G8 →</a></div>
-<div class="card"><h3>🏆 Leaderboard</h3><p>Ranked by lower confidence bound of ROI. A 20-bet heater is ineligible, not champion.</p><a href="leaderboard.html">Leaderboard →</a></div>
+<div class="card"><div class="kpi">0<small>strategies passing skill gates</small></div></div>
+<div class="card"><div class="kpi">107<small>official results tabulated</small></div></div>
+<div class="card"><div class="kpi">30 / 30<small>teams' W-L match official standings</small></div></div>
+<div class="card"><div class="kpi">15<small>games in first forward test (market ≥ Own6)</small></div></div>
 </div>
-<h2>Own-Line Calculator <span class="mut">(illustrative inputs — enter official stats from NBA.com)</span></h2>
-<div class="card"><div class="grid">
-<div><label>Home Pace</label><input id="hp" type="number" step="0.1" placeholder="from NBA Stats"><label>Home OffRtg</label><input id="ho" type="number" step="0.1"><label>Home DefRtg</label><input id="hd" type="number" step="0.1"></div>
-<div><label>Away Pace</label><input id="ap" type="number" step="0.1"><label>Away OffRtg</label><input id="ao" type="number" step="0.1"><label>Away DefRtg</label><input id="ad" type="number" step="0.1"></div>
-<div><label>League OffRtg</label><input id="lg" type="number" step="0.1"><label>Home-adv pts (fitted)</label><input id="ha" type="number" step="0.1" value="0"><label>Margin SD (fitted)</label><input id="sd" type="number" step="0.1"></div>
-</div><p><button onclick="calc()">Generate My Line</button></p><p id="out" class="ok"></p>
-<p class="mut">Definitions: <a href="https://www.nba.com/stats/help/glossary">NBA Stats Glossary</a> · Stats: <a href="https://www.nba.com/stats/overview">NBA.com/Stats</a>. No default ratings are pre-filled — unconfirmed values stay blank by project rule.</p></div>
-<h2>Executive summary</h2><div class="card"><p>Full summary in the repo (<code>EXECUTIVE_SUMMARY.md</code>): 5 strategy families as <b>hypotheses</b> (none claimed as proven edges), 8 validation gates, correlation map, leaderboard that rewards the lower confidence bound. <span class="flag">All current NBA numeric values, odds, fitted parameters, correlations & backtest results are intentionally blank/unverified</span> — listed on the Flagged page.</p></div>
-</main><footer>Research & analytics only — not betting advice. Bet only where legal with licensed operators. Every table row links its official source; unconfirmed values are blank & flagged.</footer><script>
-/* Abramowitz & Stegun 7.1.26 erf approximation — Math.erf is not part of standard JavaScript. */
-function erf(x){var s=x<0?-1:1;x=Math.abs(x);var t=1/(1+0.3275911*x);
- var p=(((((1.061405429*t-1.453152027)*t)+1.421413741)*t-0.284496736)*t+0.254829592)*t;
- return s*(1-p*Math.exp(-x*x));}
-function cdf(z){return .5*(1+erf(z/Math.SQRT2));}
-function calc(){var v=function(id){return parseFloat(document.getElementById(id).value)};
- var out=document.getElementById('out');
- var hp=v('hp'),ap=v('ap'),ho=v('ho'),hd=v('hd'),ao=v('ao'),ad=v('ad'),lg=v('lg'),ha=v('ha'),sd=v('sd');
- if([hp,ap,ho,hd,ao,ad,lg,ha,sd].some(function(x){return !isFinite(x)})||lg<=0||sd<=0){
-   out.textContent='Fill every field from official NBA Stats (league OffRtg and margin SD must be greater than 0) — no values are guessed for you.';return;}
- var pace=(hp+ap)/2;
- var h=pace*(ho/100)*(ad/100)/(lg/100)+ha/2, a=pace*(ao/100)*(hd/100)/(lg/100)-ha/2, m=h-a;
- out.textContent='Fair spread (home): '+(-m).toFixed(1)+' · Fair total: '+(h+a).toFixed(1)+
-   ' · Home win prob: '+(100*cdf(m/sd)).toFixed(1)+'% · Exp pts '+h.toFixed(1)+'–'+a.toFixed(1);}
-</script></body></html>
+<div class="banner">Own6 originates its own NBA lines and tests them against official results. <b>No edge is claimed.</b> Odds data is secondary-source and flagged. Research and paper tracking only.</div>
+<h2>Browse by category</h2>
+<div class="grid"><div class="card"><h3><a href="hub/summary.html">Executive summary</a></h3><p>Findings, fixes and what is unverified.</p></div><div class="card"><h3><a href="hub/results.html">Results</a></h3><p>107 official final scores with links.</p></div><div class="card"><h3><a href="hub/standings.html">Standings</a></h3><p>Official W-L vs recomputed; ratings snapshot.</p></div><div class="card"><h3><a href="hub/lines.html">Lines</a></h3><p>Market vs Own6 for the Nov 2 slate.</p></div><div class="card"><h3><a href="hub/props.html">Props</a></h3><p>Seven player-points lines, unsettled.</p></div><div class="card"><h3><a href="hub/forward-test.html">Forward test</a></h3><p>15 games graded out-of-sample.</p></div><div class="card"><h3><a href="hub/strategies.html">Strategies</a></h3><p>7 strategies; skill-gated leaderboard.</p></div><div class="card"><h3><a href="hub/correlations.html">Correlations</a></h3><p>Parlay and prop-combo dependence.</p></div><div class="card"><h3><a href="hub/validation.html">Validation</a></h3><p>Gates and luck-removal protocol.</p></div><div class="card"><h3><a href="hub/sources.html">Sources</a></h3><p>Official pages behind every table.</p></div><div class="card"><h3><a href="hub/flagged.html">Flagged for Review</a></h3><p>60 open items with source links.</p></div></div>
+<h2>Earlier section sites (kept)</h2>
+<p class="mut"><a href="dashboard.html">Own-line calculator</a> · <a href="verified/">Verified data (schedule, Korean law, NBA policy)</a> · <a href="own6/">Research sub-site</a> · <a href="lab/overview.html">Fail-closed empirical lab</a> · <a href="review/">Independent review</a> · <a href="strategies.html">Original strategy pages</a></p>
+</main>
+<footer><p>Research and paper tracking only. No wagers, no betting advice, no profitability claim. Every table row links to its source; blank or UNVERIFIED means it could not be confirmed from an official page. Earlier section sites remain available: <a href="dashboard.html">calculator</a> · <a href="verified/">verified data</a> · <a href="own6/">research sub-site</a> · <a href="lab/overview.html">empirical lab</a> · <a href="review/">independent review</a>.</p></footer>
+<script src="hub/assets/hub.js"></script></body></html>

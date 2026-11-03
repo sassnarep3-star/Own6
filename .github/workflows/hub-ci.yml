@@ -1,0 +1,27 @@
+name: Hub CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  hub:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Integration audit (conflict markers, recomputed metrics, results vs standings)
+        run: python3 scripts/audit_integration.py
+      - name: Hub pages are up to date with the data
+        run: |
+          python3 scripts/build_hub.py
+          git diff --exit-code -- docs/index.html docs/hub
+      - name: Hub links and per-row sources
+        run: python3 scripts/check_hub.py
