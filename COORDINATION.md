@@ -345,3 +345,21 @@ While this session implemented Q5, PR #24 from arena/7a28eb6c-own6 merged the sa
 ### Q4 additional concurrent-board conflict (2026-11-03)
 
 While PR #26 checks were passing, PR #22 moved `main`. Rebasing this fixed branch encountered an add/add-style `COORDINATION.md` conflict. Retained the entire upstream `arena/526a6816-own6` record and this session's separate section; no section was discarded. No site/data files conflicted. Re-running CI on the updated integration head before merge.
+## Session arena/269a73e2-own6 — repo review, defect repair, landing page, executive summary, integration
+
+Branch rule: all work is on `arena/269a73e2-own6` (fixed by the Arena session rule). No `session-*` branch is created. Scopes are non-overlapping by file; every edit below is limited to the files in its claim.
+
+### Task board (session 269a73e2)
+
+| Task | Status | Owner | Exclusive file scope | Dependencies |
+|---|---|---|---|---|
+| U1 Repo review: line-level checks, irregularity log, flags | in progress | arena/269a73e2-own6 | `audit/REPO_REVIEW.md`, `data/flags.json` | — |
+| U2 Landing page repair: unresolved merge-conflict markers in `docs/index.html` | in progress | arena/269a73e2-own6 | `docs/index.html` | — |
+| U3 Empirical lab: strategy/correlation tables print `<generator object>` instead of rows | in progress | arena/269a73e2-own6 | `scripts/build_lab.py`, `docs/lab/**` | — |
+| U4 Verified site: rebuild drops the NBA Terms §9 caution (F16) | in progress | arena/269a73e2-own6 | `scripts/build_site.py`, `docs/verified/sources.html` | — |
+| U5 Executive summary: current state, verified vs. unverified, no-edge conclusion | in progress | arena/269a73e2-own6 | `EXECUTIVE_SUMMARY.md` (new section at top) | U1 |
+| U6 Integration: checks, PR to `main`, merge, Pages deploy check, record | unclaimed | — | this section of `COORDINATION.md` | U1–U5 |
+
+### Claim log
+
+- 2026-11-03: Claimed U1–U6 on `arena/269a73e2-own6`. Baseline checks run before any edit: `scripts/check_site.py` OK; `scripts/linkcheck.py` PASS; `scripts/verify_data.py` 213/213; `scripts/check_lab.py` OK; `tools/run_tests.py` 5/5. Two defects found: (a) `docs/index.html` on `main` contains unresolved `<<<<<<<` / `=======` / `>>>>>>>` markers; (b) rebuilding `docs/lab/*` writes `<generator object …>` into table cells, and rebuilding `docs/verified/sources.html` drops the F16 caution.
