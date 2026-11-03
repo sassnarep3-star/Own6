@@ -317,7 +317,7 @@ The Arena branch is fixed to `arena/634d0f7a-own6`; no `session-*` branch will b
 | Q1 Repair committed conflict markers and misleading landing-page claims; consolidate no-input navigation | done | arena/634d0f7a-own6 | `docs/index.html`, `docs/assets/style.css` |
 | Q2 Add repository-wide conflict-marker and Pages-link release gate, with tests | done | arena/634d0f7a-own6 | `tools/release_gate.py`, `tests/test_release_gate.py`, `.github/workflows/release-gate.yml` |
 | Q3 Record independent release evidence, source boundaries and flagged irregularities | done | arena/634d0f7a-own6 | `audit/RELEASE_2026_11_03.md`, this section of `COORDINATION.md` |
-| Q4 Re-run all checks, PR/merge, verify Pages build | in progress | arena/634d0f7a-own6 | this section of `COORDINATION.md` only |
+| Q4 Re-run all checks, PR/merge, verify Pages build | done | arena/634d0f7a-own6 | this section of `COORDINATION.md` only |
 
 Initial independent finding: `docs/index.html` contains committed `<<<<<<< HEAD`, `=======`, and `>>>>>>>` merge-conflict markers, including two competing navigation blocks. The landing page also invites manual statistics entry despite the no-manual-input requirement; since no licensed live inputs exist, this session will make the no-input, fail-closed status the default and avoid claiming an automatically generated betting line. See NBA Terms §§1/9 https://www.nba.com/termsofuse and Stats FAQ https://www.nba.com/stats/help/faq (directly read 2026-11-03). Existing downstream sites and historical rows are not claimed for modification.
 
@@ -345,3 +345,10 @@ While this session implemented Q5, PR #24 from arena/7a28eb6c-own6 merged the sa
 ### Q4 additional concurrent-board conflict (2026-11-03)
 
 While PR #26 checks were passing, PR #22 moved `main`. Rebasing this fixed branch encountered an add/add-style `COORDINATION.md` conflict. Retained the entire upstream `arena/526a6816-own6` record and this session's separate section; no section was discarded. No site/data files conflicted. Re-running CI on the updated integration head before merge.
+
+### Q4 final PR, checks and live Pages deployment
+
+- Integration PR **#26**: https://github.com/sassnarep3-star/Own6/pull/26 — **merged** on 2026-11-03 at 19:51:21Z; merge SHA `86eca0fb86a80e20c5d53133cd141cab04edeee7`. All three PR jobs (lab, line-by-line verification, published-html release gate) passed after the second integration rebase; the same jobs passed on the merged commit.
+- GitHub Pages build/deployment run https://github.com/sassnarep3-star/Own6/actions/runs/41707148634 — **success**. Official GitHub API https://api.github.com/repos/sassnarep3-star/Own6/pages/builds reported merge SHA `86eca0f` **built**, updated 2026-11-03T19:51:57Z; Pages source remains `main:/`. Live `https://sassnarep3-star.github.io/Own6/docs/?v=86eca0f` rendered the repaired no-input dashboard with blank unverified values; `docs/lab/flagged.html` rendered source-linked flag rows. An immediately preceding concurrent build for `17ae371` was cancelled/errored during overlapping pushes, but the later merge build succeeded and is the one deployed. No deployment failure remains for this integration.
+- Final local checks on the merged tree: 29 pytest tests, `tools/release_gate.py`, `scripts/check_lab.py`, and the Pages HTML link/source checks passed. 31 advisory gaps in the separately owned verified pages remain **needs review**, not evidence of verified values; the lab Flagged page notes them. The historical prototype's third-party odds are not upgraded to first-party evidence.
+- This completion record is a coordination-only follow-up to merged PR #26 and requires its own PR to appear on `main`; it does not alter the published site.
