@@ -9,3 +9,45 @@ table{width:100%;border-collapse:collapse;font-size:14px}th,td{border-bottom:1px
 a{color:#7dd3fc}.mut{color:var(--mut)}.flag{color:var(--bad);font-weight:700}.ok{color:var(--ok)}
 input,select,button{background:#0e1426;color:#fff;border:1px solid var(--line);border-radius:8px;padding:8px}button{background:var(--acc);border:0;font-weight:700;cursor:pointer}
 label{display:block;margin:8px 0 4px;color:var(--mut)}footer{color:var(--mut);padding:20px;text-align:center}
+
+/* Landing-page styles are scoped so the earlier research subpages retain their UI. */
+.landing{--bg:#090f1e;--card:#131e31;--line:#30405b;--ink:#f3f6fd;--mut:#b2bfd2;--acc:#fba94b;line-height:1.55;background:radial-gradient(ellipse at 75% 3%,#1b2c46 0%,#090f1e 42%);min-height:100vh}
+.landing nav{align-items:center;gap:22px;background:#0d1729e6;padding:16px max(22px,calc((100vw - 1160px)/2));z-index:3;backdrop-filter:blur(10px)}
+.landing nav .brand{font-size:19px;letter-spacing:.09em;text-decoration:none;white-space:nowrap;margin-right:auto;color:#fba94b}
+.landing nav .brand span{color:#c5cfdd;font-weight:500;font-size:12px;letter-spacing:.12em}
+.landing nav a{font-size:13px}
+.landing main{max-width:1160px;padding:0 22px 72px}
+.landing .hero{padding:76px 0 66px;max-width:850px}
+.landing .eyebrow{font-size:11px;font-weight:800;letter-spacing:.2em;color:#fba94b;margin:0 0 15px}
+.landing .hero h1{font-size:clamp(42px,6vw,74px);line-height:1.05;letter-spacing:-.045em;margin:0 0 26px;color:#fff}
+.landing .hero h1 em{font-style:normal;color:#fba94b}
+.landing .intro{font-size:17px;line-height:1.75;color:#c9d3e3;max-width:720px;margin:0}
+.landing .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.landing .hero-actions a{padding:12px 19px;border-radius:9px;text-decoration:none;font-weight:700;font-size:14px;border:1px solid #516078}
+.landing .hero-actions .primary{background:#fba94b;color:#111b2c;border-color:#fba94b}
+.landing .hero-actions .secondary{color:#f1f4fb}
+.landing .status-panel{display:grid;grid-template-columns:1.1fr 1fr;gap:35px;background:#17243a;border:1px solid #36506b;border-radius:16px;padding:30px;margin-bottom:65px}
+.landing .status-panel h2{font-size:29px;margin:0 0 12px}
+.landing .status-panel p:not(.eyebrow){color:#c8d2e0;margin:0;max-width:490px}
+.landing .status-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.landing .status-list div{background:#101b2e;border:1px solid #33445c;border-radius:10px;padding:14px}
+.landing .status-list span{display:block;color:#b7c4d8;font-size:12px;min-height:38px}
+.landing .status-list strong{font-size:28px;color:#fff}
+.landing .section-head{margin:0 0 23px}
+.landing .section-head h2{font-size:32px;letter-spacing:-.03em;margin:0 0 7px}
+.landing .section-head>p:last-child{color:#b8c4d4;margin:0}
+.landing .category-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:70px}
+.landing .category{display:flex;flex-direction:column;background:#131e31;border:1px solid #33445d;border-radius:13px;padding:23px;text-decoration:none;min-height:230px;transition:transform .15s,border-color .15s}
+.landing .category:hover,.landing .category:focus-visible{transform:translateY(-3px);border-color:#fba94b}
+.landing .category-icon{color:#fba94b;font-size:12px;font-weight:800;letter-spacing:.1em}
+.landing .category h3{font-size:19px;color:#fff;margin:16px 0 8px}
+.landing .category p{font-size:14px;color:#b9c6d7;margin:0 0 18px;line-height:1.55}
+.landing .category .arrow{font-size:13px;color:#fba94b;font-weight:700;margin-top:auto}
+.landing .table-wrap{overflow-x:auto;border:1px solid #33445d;border-radius:12px;background:#131e31}
+.landing table{min-width:730px}.landing th{color:#f3f6fd;background:#1a2a40;font-size:12px;text-transform:uppercase;letter-spacing:.05em}.landing td{color:#d4deea}.landing td.empty{color:#fca5a5}.landing td.empty::after{content:'— unverified';font-size:12px}
+.landing .archive-note{margin-top:56px;padding:24px 27px;border-left:3px solid #fba94b;background:#131e31;border-radius:0 12px 12px 0}
+.landing .archive-note h2{margin:0 0 10px;font-size:21px}.landing .archive-note p{color:#b9c6d7;max-width:870px}
+.landing .archive-links{display:flex;gap:11px 20px;flex-wrap:wrap;font-size:14px}
+.landing footer{border-top:1px solid #30405b;text-align:left;max-width:1160px;margin:auto;line-height:1.7}
+@media(max-width:760px){.landing .hero{padding:52px 0}.landing .status-panel{grid-template-columns:1fr}.landing .category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.landing .category-grid{grid-template-columns:1fr}.landing .status-list{grid-template-columns:1fr 1fr}.landing nav .brand{width:100%}.landing .hero h1{font-size:42px}}
