@@ -1,0 +1,190 @@
+{
+  "version": 1,
+  "mode": "withhold_unconfirmed",
+  "accepted_value_evidence": [],
+  "note": "No row-level official-value evidence is accepted by this hub release. A source URL, prior-session badge, or successful arithmetic check is not value verification. Raw files are preserved for provenance only. No manual inputs or publication override are provided.",
+  "datasets": [
+    {
+      "id": "historical-results",
+      "page": "results",
+      "path": "data/games_results_2026-27.csv",
+      "title": "Historical results archive",
+      "source_field": "source_url",
+      "reference": "https://www.nba.com/games",
+      "fields": [
+        "date",
+        "away_team",
+        "away_score",
+        "home_team",
+        "home_score",
+        "ot"
+      ]
+    },
+    {
+      "id": "slate-results",
+      "page": "results",
+      "path": "data/results_2026-11-02.csv",
+      "title": "Dated slate results archive",
+      "source_field": "source_url",
+      "reference": "https://www.nba.com/games",
+      "fields": [
+        "date",
+        "away_team",
+        "away_score",
+        "home_team",
+        "home_score",
+        "overtime"
+      ]
+    },
+    {
+      "id": "standings",
+      "page": "standings",
+      "path": "data/standings_live_2026-11-03.csv",
+      "title": "Standings archive",
+      "source_field": "source_url",
+      "reference": "https://www.nba.com/standings",
+      "fields": [
+        "team_abbr",
+        "w",
+        "l",
+        "read_on"
+      ]
+    },
+    {
+      "id": "ratings",
+      "page": "standings",
+      "path": "data/team_ratings_2026-27.csv",
+      "title": "Team ratings archive",
+      "source_field": "source_url",
+      "reference": "https://www.nba.com/stats/help/glossary",
+      "fields": [
+        "team",
+        "gp",
+        "off_rtg",
+        "def_rtg",
+        "net_rtg",
+        "pace"
+      ]
+    },
+    {
+      "id": "market-lines",
+      "page": "lines",
+      "path": "data/market_lines_2026-11-02.csv",
+      "title": "Unconfirmed market quotes",
+      "source_field": "source_url",
+      "reference": "https://www.nba.com/termsofuse",
+      "fields": [
+        "away_team",
+        "home_team",
+        "favorite",
+        "market_spread",
+        "market_total",
+        "fav_ml_current",
+        "dog_ml_current"
+      ]
+    },
+    {
+      "id": "model-lines",
+      "page": "lines",
+      "path": "data/our_lines_2026-11-02.csv",
+      "title": "Unqualified model outputs",
+      "source_field": "source_market",
+      "reference": "https://www.nba.com/termsofuse",
+      "fields": [
+        "away",
+        "home",
+        "our_spread",
+        "our_total",
+        "model_p_model_fav",
+        "model_edge_vs_market_fair"
+      ]
+    },
+    {
+      "id": "props",
+      "page": "props",
+      "path": "data/player_props_2026-11-02.csv",
+      "title": "Unconfirmed player props",
+      "source_field": "source_url",
+      "reference": "https://www.nba.com/termsofuse",
+      "fields": [
+        "athlete",
+        "team",
+        "market",
+        "line_open",
+        "line_current",
+        "american_quotes_current_rowA_rowB",
+        "last_updated"
+      ]
+    },
+    {
+      "id": "forward-games",
+      "page": "forward-test",
+      "path": "data/forward_test_2026-11-02.csv",
+      "title": "Unqualified forward-test records",
+      "source_field": "result_source",
+      "reference": "https://www.nba.com/games",
+      "fields": [
+        "away",
+        "home",
+        "home_margin",
+        "market_home_line",
+        "own6_home_line",
+        "spread_lean_result",
+        "total_lean_result"
+      ]
+    },
+    {
+      "id": "forward-summary",
+      "page": "forward-test",
+      "path": "data/forward_test_summary_2026-11-02.csv",
+      "title": "Unqualified forward-test statistics",
+      "reference": "https://www.nba.com/termsofuse",
+      "fields": [
+        "metric",
+        "value"
+      ]
+    },
+    {
+      "id": "correlations",
+      "page": "correlations",
+      "path": "data/correlation_findings.csv",
+      "title": "Unqualified historical dependence estimates",
+      "reference": "https://www.nba.com/stats/help/glossary",
+      "fields": [
+        "pair",
+        "n",
+        "pearson_r",
+        "interpretation"
+      ]
+    }
+  ],
+  "methodology_sources": [
+    {
+      "id": "scipy-pearson",
+      "url": "https://github.com/scipy/scipy/blob/05d068ed2503fad79d5484ae09d55b50a682ec3b/scipy/stats/_stats_py.py#L4656-L4662",
+      "scope": "Pearson measures linear dependence; zero correlation does not imply independence outside the stated jointly normal special case.",
+      "quote": "It is important to keep in mind that no correlation does not imply independence unless (x, y) is jointly normal.",
+      "retrieved_on": "2026-11-03",
+      "method": "Official GitHub Contents API; decoded source docstring read directly; commit pinned",
+      "status": "verified-direct-methodology-only"
+    },
+    {
+      "id": "sklearn-time",
+      "url": "https://github.com/scikit-learn/scikit-learn/blob/d5a61d1149cb94a936d4b32212330f4ba8f24ce0/doc/modules/cross_validation.rst#L878-L905",
+      "scope": "Time-dependent data require future-observation testing; time-aware and grouped validation are documented. No NBA skill or return is verified.",
+      "quote": "it is very important to evaluate our model for time series data on the \"future\" observations least like those that are used to train the model.",
+      "retrieved_on": "2026-11-03",
+      "method": "Official GitHub Contents API; decoded RST read directly; commit pinned",
+      "status": "verified-direct-methodology-only"
+    },
+    {
+      "id": "sklearn-brier",
+      "url": "https://github.com/scikit-learn/scikit-learn/blob/d5a61d1149cb94a936d4b32212330f4ba8f24ce0/sklearn/metrics/_classification.py#L3719-L3724",
+      "scope": "Brier score is mean squared difference between forecast probability and actual outcome; verifies formula definition only, not any NBA result.",
+      "quote": "The Brier score measures the mean squared difference between the predicted probability and the actual outcome.",
+      "retrieved_on": "2026-11-03",
+      "method": "Official GitHub Contents API; decoded function documentation read directly; commit pinned",
+      "status": "verified-direct-methodology-only"
+    }
+  ]
+}
