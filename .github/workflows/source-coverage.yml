@@ -1,0 +1,42 @@
+name: Sitewide source coverage
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Exercise source parser and evidence boundaries
+        run: python3 -m unittest discover -s tests -p test_source_coverage.py -v
+      - name: Build current-tree coverage without editing the source pages
+        run: python3 scripts/source_coverage.py
+      - name: Confirm repeatable coverage artifacts
+        run: python3 scripts/source_coverage.py --check
+      - name: Report strict source coverage separately (known legacy findings do not block publication)
+        id: strict
+        continue-on-error: true
+        run: python3 scripts/source_coverage.py --check --strict
+      - name: Publish coverage evidence for the exact tested tree
+        uses: actions/upload-artifact@v4
+        with:
+          name: source-coverage
+          path: |
+            data/source_coverage/
+            audit/SOURCE_COVERAGE.md
+            docs/coverage/
+      - name: Report the audit boundary
+        run: |
+          echo 'This job checks parser regressions and repeatable structural coverage. It does not verify source bodies or empirical values.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Strict coverage result: ${{ steps.strict.outcome }}. Gaps are included in the uploaded report and Flagged for Review page.' >> "$GITHUB_STEP_SUMMARY"
