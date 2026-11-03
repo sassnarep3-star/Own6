@@ -26,6 +26,9 @@ REPO = "https://github.com/sassnarep3-star/Own6"
 BRANCH = "arena/74d27b5d-own6"
 TERMS = "https://www.nba.com/termsofuse#nba-statistics"
 GENERATED = {"data/assurance/inventory.csv", "data/assurance/row_audit.csv", "data/assurance/findings.csv", "data/assurance/summary.json"}
+# The assurance dashboard renders the inventory; inventorying its own generated HTML
+# would create a self-referential checksum loop. It is verified by check_assurance.py.
+GENERATED_PREFIXES = ("docs/assurance/",)
 OFFICIAL_SUFFIXES = (
     "nba.com", "github.com", "github.io", "docs.github.com", "scikit-learn.org",
     "scipy.org", "nist.gov", "statsmodels.org", "python.org", "law.go.kr", "draftkings.com",
@@ -58,7 +61,7 @@ def write_csv(name: str, fields: list[str], rows: list[dict]) -> None:
 def files() -> list[Path]:
     names = set(git("ls-files", "-z").split("\0"))
     names.update(git("ls-files", "--others", "--exclude-standard", "-z").split("\0"))
-    return sorted(ROOT / n for n in names if n and (ROOT / n).is_file() and n not in GENERATED)
+    return sorted(ROOT / n for n in names if n and (ROOT / n).is_file() and n not in GENERATED and not n.startswith(GENERATED_PREFIXES))
 
 
 def record_source(row: dict) -> str:
