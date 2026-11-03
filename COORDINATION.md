@@ -451,3 +451,15 @@ Initial finding: `scripts/build_hub.py` publishes ESPN-carried market/prop numbe
 ### P3 concurrent integration resolution
 
 `main` advanced through PR #33 (additive source-coverage audit) and #35 (its release record) while this session implemented its separately claimed hub repair. `git pull --rebase origin main` conflicted only at the appended end of `COORDINATION.md`. Resolved by retaining the complete upstream fd5276fa section and this session's separate claim/completion sections; no upstream source, data or code was discarded. Rebased tree: 56 pytest tests plus 6 subtests pass; hub checker reports 335 source-linked rows, no errors; release gate passes. New source-coverage artifacts are a historical snapshot; its CI rebuilds coverage for the exact tested tree rather than implying that its older checked-in inventory is current. Other sessions' output files were not regenerated or edited here.
+## Session arena/b700d3ca-own6 — legacy parlay safety and independent release (2026-11-03)
+
+Branch deviation: Arena fixes this session to `arena/b700d3ca-own6`; no additional branch will be created. Open PR #31 owns the assurance dashboard and `nba_lab/**`; PR #28 owns its documented review fixes. Those scopes will not be edited. This session adds a narrow, independent repair to the original dependency-free parlay utility. Existing site content remains preserved.
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| P1 Validate legacy Pearson/correlation matrix/probability inputs; fail closed on undefined quantities | in progress | arena/b700d3ca-own6 | `src/own6/parlay.py` |
+| P2 Add boundary/regression tests and CI | in progress | arena/b700d3ca-own6 | `tests/test_legacy_parlay.py`, `.github/workflows/parlay-safety.yml` |
+| P3 Publish official-reference-linked findings and executive decision | in progress | arena/b700d3ca-own6 | `docs/parlay-safety.html`, `audit/PARLAY_SAFETY_2026_11_03.md` |
+| P4 Independent combined-tree checks, additive landing link, PR/merge and Pages evidence | unclaimed | arena/b700d3ca-own6 | this section of `COORDINATION.md`; one additive link only in `docs/index.html` at final integration |
+
+Initial code findings (not NBA statistics): `pearson` does not reject unequal lengths and returns 0 for constant arrays; `joint_prob` clips negative Cholesky pivots to zero and does not validate shape, symmetry, unit diagonal, bounds, sample count, or probability range. The intended fix will reject invalid inputs and explicitly distinguish latent-normal copula correlation from observed binary/score correlation. No empirical NBA coefficients or returns will be produced. Official NBA Terms https://www.nba.com/termsofuse (chunk 0) and glossary https://www.nba.com/stats/help/glossary (chunk 0) directly read this session; these verify use/definition context, not model performance. Additional numerical references will be read before publication.
