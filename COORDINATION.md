@@ -283,3 +283,5 @@ Rebase conflict on this board after PR #20 landed: retained the entire upstream 
 A second rebase encountered concurrent PR #21. Preserved both coordination sections and retained PR #21's more complete CI workflow (including its full-history fix), rather than overwriting the other session's work. The duplicate CI claim and repair were superseded by PR #21.
 
 C1 integration: PR https://github.com/sassnarep3-star/Own6/pull/21 merged into main at 2026-11-03T19:47:10Z (merge commit `e5ceb0f9bc1383734dd2f4476778e34a8aa5b216`). GitHub Actions lab check succeeded: https://github.com/sassnarep3-star/Own6/actions/runs/41706368667 . Rebase conflict in this board was resolved by preserving the concurrent session f56f0055 section in full and appending this session's section; no other files were lost. Pages build for the merge was triggered; final status recorded below.
+
+Pages verification: official GitHub Pages API reported `built` for merge commit `e5ceb0f9bc1383734dd2f4476778e34a8aa5b216`; published URL https://sassnarep3-star.github.io/Own6/ . Follow-up board-record PR: https://github.com/sassnarep3-star/Own6/pull/23 .
