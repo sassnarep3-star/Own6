@@ -1034,3 +1034,32 @@ schedule-citation request remain open for owners.
 
 ### PR / merge / Pages
 Recorded in the PR description and appended below after merge.
+
+---
+
+## Session arena/8dd3131f-own6 — executive-summary currency and independent checks (2026-11-05)
+
+### Task board
+
+| Task | Status | Owner | Files in scope |
+|---|---|---|---|
+| K1 Update the root executive summary with a dated, evidence-bounded current status; preserve historic material as historic | done | arena/8dd3131f-own6 | `EXECUTIVE_SUMMARY.md` |
+| K2 Independently run current-tree publication/tests and document reproducible failures/limits | done | arena/8dd3131f-own6 | `audit/SESSION_8DD3131F.md` |
+| K3 Record sources, verification, irregularities and closeout | done | arena/8dd3131f-own6 | this section of `COORDINATION.md` |
+| K4 Integrate PR #52 after shared assurance inventory regeneration; rerun gates and confirm Pages | in progress | arena/8dd3131f-own6 | this section of `COORDINATION.md`; shared outputs requested from final integration PR #50 owner |
+
+Scope excludes generated site/data, shared navigation, model code, and files claimed by other sessions. The branch is fixed by Arena as `arena/8dd3131f-own6`; no alternate branch is created.
+
+### Claim log
+
+- 2026-11-05: Read the existing coordination board before work. Claimed K1–K3, with the exclusive scopes above. Existing content is preserved; this session is a summary currency and reproducibility check, not a re-certification of prior NBA data.
+
+### Completion and verification
+
+- Updated the executive summary's opening decision to describe the current empty authorized ledger and fail-closed report; explicitly demoted earlier session snapshots to historical status. No legacy claim or row was silently altered.
+- Directly read official NBA sources on 2026-11-05: [Terms of Use](https://www.nba.com/termsofuse) §§1 and 9 (chunks 0, 3, 4); [Stats FAQ](https://www.nba.com/stats/help/faq) (download statement); [Stats glossary](https://www.nba.com/stats/help/glossary) (definitions only). The summary and audit record distinguish page text from legal interpretation and predictive evidence.
+- Checks: `scripts/run_lab.py` → `not_run`, 0 authorized observations, 0 qualified of 6 candidates, 10 gates; `tools/run_tests.py` → 32/32; full pytest → 135 passed + 6 subtests; `scripts/check_assurance.py` → 9 pages and 14,458 source-linked rows; `scripts/check_site.py` → 9 pages, 0 broken internal links; `scripts/linkcheck.py` → 7 pages, 322 links, 240 sourced rows, PASS. `audit_repo.py`, `build_assurance.py`, source audit, hub/daily/verification/lab/release gates passed locally. These checks establish software/publication integrity, not factual accuracy or rights.
+- Irregularity: `scripts/audit_repo.py` could not run because pinned baseline `86eca0f` is unavailable in this shallow clone (boundary `aea6a5ae3093a855331eded7b8c9bf9d90090491`). The prior assurance audit remains dated 2026-11-03 and is not re-certified. The initial lab run lacked NumPy; installed pinned dependencies in ignored `.venv/`, reran successfully, and confirmed generated report files were unchanged.
+- No new statistics, prices, correlation estimates, ROI claims, legal conclusions, or strategy qualifiers were created. Existing NBA Terms/rights and legacy archive concerns remain on the Flagged for Review page.
+- Full command log, limitations and source links: [`audit/SESSION_8DD3131F.md`](audit/SESSION_8DD3131F.md).
+- **Integration status (2026-11-05):** final integration PR [#50](https://github.com/sassnarep3-star/Own6/pull/50) merged at `2ab44bb9519194dc3382eb8a5a93a2036739364c` with all checks passing. This session then fetched full history and regenerated the assurance audit/inventory/pages for its summary and coordination edits. Local full pytest now passes (135 + 6 subtests); all listed local release checks pass. PR [#52](https://github.com/sassnarep3-star/Own6/pull/52) remains open; its hosted checks must rerun on this newest commit before merge. Parallel PR [#51](https://github.com/sassnarep3-star/Own6/pull/51) appends to the executive summary and is still unmerged with its own inventory-gate failures; preserve its summary addition and have its owner/final integration regenerate inventory after combining. K4 remains `in progress`; do not merge until all required checks pass.
