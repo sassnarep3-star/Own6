@@ -1053,3 +1053,55 @@ The new section is entirely additive (`docs/reverify/**`, `data/reverify_2026_11
 `audit/SESSION_63A5B5EF_RECHECK.md`). A single navigation link from `docs/index.html` is requested
 but **not** taken while PR #48 and PR #50 hold that file; it will be added at integration only if
 the file is free, and otherwise logged here as a request for its owner.
+
+---
+
+## Session arena/33432806-own6 — final integration close-out (2026-11-05)
+
+Branch fixed to `arena/33432806-own6` (Arena rule). This session is the final integration pass.
+Concurrent PRs #47/#49 (sessions `3d3954d6`/`27fdbe09`) had already integrated the assurance
+dashboard (`docs/assurance/**`, `data/assurance/**`, `nba_lab/assurance.py`, `scripts/{audit_repo,
+build_assurance,check_assurance}.py`, `research/{ASSURANCE,SIGNALS,VALIDATION_v2}.md`) and the
+verification ledger (`docs/verify/**`, `data/verification_*.csv`, `scripts/{build_verify,
+check_verify}.py`, `audit/session-be184e2b.md`, `audit/INDEPENDENT_REVIEW_B1BDFB4B.md`) into `main`
+at `aea6a5a`. This session therefore does **not** re-add those files (they would conflict add/add).
+
+### Unique value added this session
+- `docs/index.html`: added the missing **Assurance** primary-nav link and Assurance/Verification
+  archive links (main had a Verification nav link but no Assurance nav link).
+- This COORDINATION record.
+
+### Reconciliation of the five stale open PRs (#23/#28/#31/#32/#37)
+Their shared-file changes are based on pre-squash history and would revert merged work (e.g. the
+`src/own6/parlay.py` hardening from PR #34; `scripts/build_reverification.py`/`source_coverage.py`
+from PRs #33/#38). Their genuinely-new content is already on `main` via #47/#49. No shared file was
+edited by this session. `src/own6/parlay.py`: all four PRs carry the pre-#34 version (2 of 6 hardening
+keywords); kept main's hardened version.
+
+### Line-by-line re-verification (official sources, read directly 2026-11-05)
+- NBA Terms §1: "No Basketball Content … may be … linked to … without the written permission of the
+  Operator." — matches `data/assurance/sources.csv` A-S01. https://www.nba.com/termsofuse
+- NBA Terms §9(iv): "the NBA Statistics may not be used in connection with any gambling activity
+  (including legal gambling activity)" — matches A-S02. https://www.nba.com/termsofuse#nba-statistics
+- Game `okc-vs-cle-0022600158`: "OKC 117 … Final … 112 … CLE … Monday, November 2nd, 2026" — matches
+  verify ledger R-0022600158. https://www.nba.com/game/okc-vs-cle-0022600158
+- 국민체육진흥법 header "[시행 2026. 9. 3.] [법률 제21742호, 2026. 6. 2., 일부개정]" — matches A-S21.
+  https://www.law.go.kr/법령/국민체육진흥법
+- No hallucinations detected in spot-checks. Nov-3 standings/game values are dated snapshots; the
+  aggregate W-L cross-check (107 rows → 30-team standings) is recomputed by `scripts/audit_integration.py`.
+
+### Combined-tree checks (all green on main @ aea6a5a + this session's nav edit)
+pytest **135 passed + 6 subtests**; `check_assurance` 9 pages/14457 rows all official-HTTPS-sourced;
+`check_verify` 6 pages/54 checks (54 match, 0 mismatch)/8 unverified/7 flags; `check_site` 9/0;
+`check_hub` 12 pages/335 rows/0; `check_lab` 8/0; `verify_data` 213/213; `audit_integration` pass;
+`release_gate` 0 issues; internal-link scan (all `docs/**/*.html`) 0 broken.
+
+### Irregularities carried forward (needs review, do not block)
+V-F1 §6 link restriction; V-F2 Korean effective-date discrepancy; V-F3 §9 gambling-use; V-F4
+secondary-source prices; V-F5 unconfirmed prop/parlay restrictions; V-F6 historical rows; V-F7
+ESPN-sourced correlation. Stale open PRs #23/#28/#31/#32/#37 remain OPEN (not merged as-is); their new
+content is on main via #47/#49. `scripts/audit_sources.py` base-object issue and the Utah
+schedule-citation request remain open for owners.
+
+### PR / merge / Pages
+Recorded in the PR description and appended below after merge.
