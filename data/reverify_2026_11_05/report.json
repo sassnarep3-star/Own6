@@ -1,0 +1,77 @@
+{
+  "limits": [
+    "A match means the published value equals the value read on an official page today; it is not a licence to reuse NBA data.",
+    "The model and correlation rows are computations over official final scores, not official NBA values and not evidence of an edge.",
+    "No sportsbook price, closing line, ROI, CLV or reward value is available, so none is checked or filled in."
+  ],
+  "official_reads": {
+    "results_2026_11_04": {
+      "games": 14,
+      "url": "https://www.nba.com/games?date=2026-11-04"
+    },
+    "slate_2026_11_05": {
+      "games": 2,
+      "url": "https://www.nba.com/games?date=2026-11-05"
+    },
+    "slate_2026_11_06": {
+      "games": 9,
+      "url": "https://www.nba.com/games?date=2026-11-06"
+    },
+    "standings": {
+      "teams": 30,
+      "url": "https://www.nba.com/standings"
+    },
+    "terms_of_use": {
+      "clauses": 9,
+      "url": "https://www.nba.com/termsofuse"
+    }
+  },
+  "published_snapshot": "data/official_2026_11_05/",
+  "recheck_date": "2026-11-05",
+  "recompute": {
+    "by_status": {
+      "computed_match": 89
+    },
+    "duplicate_game_notes": [],
+    "games_recomputed": 121,
+    "open_items": [],
+    "rows": 89,
+    "teams_recomputed": 30
+  },
+  "reconciliation": {
+    "by_status": {
+      "match": 296,
+      "verified_text": 9
+    },
+    "open_items": [],
+    "rows": 305
+  },
+  "session": "arena/63a5b5ef-own6",
+  "verdict": {
+    "authorized_observations": 0,
+    "computations_contradicted": 0,
+    "computations_reproduced": 89,
+    "published_values_confirmed": 305,
+    "published_values_contradicted": 0,
+    "qualified_strategies": 0
+  },
+  "walk_forward_reproduced": {
+    "brier_home_rate_baseline": 0.2529,
+    "brier_model": 0.22,
+    "brier_skill_score": 0.1299,
+    "brier_skill_score_ci95_high": 0.2961,
+    "brier_skill_score_ci95_low": -0.0385,
+    "home_always_accuracy": 0.5082,
+    "mae_margin": 11.509,
+    "mae_total": 15.313,
+    "mcnemar_exact_p_two_sided": 0.06391,
+    "mcnemar_home_only_correct": 7,
+    "mcnemar_model_only_correct": 17,
+    "n_predictions": 61,
+    "rmse_margin": 13.927,
+    "rmse_total": 20.023,
+    "winner_accuracy": 0.6721,
+    "winner_accuracy_ci95_high": 0.7767,
+    "winner_accuracy_ci95_low": 0.5472
+  }
+}

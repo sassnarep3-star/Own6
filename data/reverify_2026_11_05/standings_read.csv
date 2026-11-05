@@ -1,0 +1,31 @@
+conference,rank,team,team_abbr,w,l,win_pct,gb,conf_record,div_record,streak,source_url,read_on
+East,1,Philadelphia 76ers,PHI,8,1,.889,--,8-1,2-0,W 5,https://www.nba.com/standings,2026-11-05
+East,2,Detroit Pistons,DET,6,2,.750,1.5,6-2,0-0,L 1,https://www.nba.com/standings,2026-11-05
+East,3,Boston Celtics,BOS,6,2,.750,1.5,6-1,2-0,W 1,https://www.nba.com/standings,2026-11-05
+East,4,Atlanta Hawks,ATL,5,4,.556,3,5-1,3-1,W 2,https://www.nba.com/standings,2026-11-05
+East,5,Toronto Raptors,TOR,4,4,.500,3.5,3-1,0-0,L 1,https://www.nba.com/standings,2026-11-05
+East,6,Cleveland Cavaliers,CLE,4,4,.500,3.5,3-2,1-0,L 2,https://www.nba.com/standings,2026-11-05
+East,7,Washington Wizards,WAS,4,4,.500,3.5,4-4,2-2,L 1,https://www.nba.com/standings,2026-11-05
+East,8,New York Knicks,NYK,4,4,.500,3.5,4-4,1-3,W 2,https://www.nba.com/standings,2026-11-05
+East,9,Miami Heat,MIA,3,5,.375,4.5,2-2,1-1,W 1,https://www.nba.com/standings,2026-11-05
+East,10,Charlotte Hornets,CHA,3,6,.333,5,3-6,2-2,L 5,https://www.nba.com/standings,2026-11-05
+East,11,Indiana Pacers,IND,3,6,.333,5,1-5,0-1,W 1,https://www.nba.com/standings,2026-11-05
+East,12,Orlando Magic,ORL,2,5,.286,5,2-4,0-2,L 2,https://www.nba.com/standings,2026-11-05
+East,13,Brooklyn Nets,BKN,2,6,.250,5.5,2-6,0-2,W 1,https://www.nba.com/standings,2026-11-05
+East,14,Chicago Bulls,CHI,1,7,.125,6.5,1-7,1-0,L 6,https://www.nba.com/standings,2026-11-05
+East,15,Milwaukee Bucks,MIL,1,7,.125,6.5,1-5,1-2,L 4,https://www.nba.com/standings,2026-11-05
+West,1,Portland Trail Blazers,POR,6,1,.857,--,6-1,2-0,W 3,https://www.nba.com/standings,2026-11-05
+West,2,Los Angeles Lakers,LAL,7,2,.778,--,5-2,4-1,W 3,https://www.nba.com/standings,2026-11-05
+West,3,Houston Rockets,HOU,7,2,.778,--,3-2,2-1,L 1,https://www.nba.com/standings,2026-11-05
+West,4,Oklahoma City Thunder,OKC,6,2,.750,0.5,4-2,1-0,W 2,https://www.nba.com/standings,2026-11-05
+West,5,San Antonio Spurs,SAS,6,2,.750,0.5,6-2,2-1,W 6,https://www.nba.com/standings,2026-11-05
+West,6,Memphis Grizzlies,MEM,6,2,.750,0.5,6-1,0-1,L 2,https://www.nba.com/standings,2026-11-05
+West,7,Minnesota Timberwolves,MIN,6,3,.667,1,2-2,0-0,W 2,https://www.nba.com/standings,2026-11-05
+West,8,Golden State Warriors,GSW,5,3,.625,1.5,5-3,3-2,W 5,https://www.nba.com/standings,2026-11-05
+West,9,Denver Nuggets,DEN,4,3,.571,2,3-3,0-2,W 1,https://www.nba.com/standings,2026-11-05
+West,10,New Orleans Pelicans,NOP,4,4,.500,2.5,3-3,1-0,W 4,https://www.nba.com/standings,2026-11-05
+West,11,Dallas Mavericks,DAL,4,4,.500,2.5,2-4,1-3,L 2,https://www.nba.com/standings,2026-11-05
+West,12,Phoenix Suns,PHX,1,5,.167,4.5,1-5,1-1,L 4,https://www.nba.com/standings,2026-11-05
+West,13,LA Clippers,LAC,1,7,.125,5.5,1-5,1-3,L 7,https://www.nba.com/standings,2026-11-05
+West,14,Sacramento Kings,SAC,1,7,.125,5.5,1-7,0-2,L 1,https://www.nba.com/standings,2026-11-05
+West,15,Utah Jazz,UTA,1,7,.125,5.5,1-7,0-1,L 6,https://www.nba.com/standings,2026-11-05
