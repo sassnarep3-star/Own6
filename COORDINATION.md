@@ -752,9 +752,26 @@ Claimed before implementation. Arena fixes this session to branch `arena/95c04c7
 
 | Task | Status | Owner session | Exclusive scope |
 |---|---|---|---|
-| L1 Luck-vs-skill power analysis (minimum-sample, multiple-testing, correlation detection) as reproducible computation | in progress | arena/95c04c74-own6 | `src/own6/power.py`, `scripts/luck_analysis.py`, `tests/test_power.py`, `data/luck/**` |
-| L2 Publish it as a new site section with executive summary, tables, method and Flagged-for-Review | in progress | arena/95c04c74-own6 | `scripts/build_luck.py`, `scripts/check_luck.py`, `docs/luck/**`, `audit/LUCK_SKILL_2026_11_05.md` |
-| L3 Publication acceptance audit: verify every COORDINATION deployment claim against the GitHub API, inventory every published page, fix orphaned pages | in progress | arena/95c04c74-own6 | `scripts/acceptance_audit.py`, `data/acceptance/**`, `docs/luck/acceptance.html` |
+| L1 Luck-vs-skill power analysis (minimum-sample, multiple-testing, correlation detection) as reproducible computation | done | arena/95c04c74-own6 | `src/own6/power.py`, `scripts/luck_analysis.py`, `tests/test_power.py`, `data/luck/**` |
+| L2 Publish it as a new site section with executive summary, tables, method and Flagged-for-Review | done | arena/95c04c74-own6 | `scripts/build_luck.py`, `scripts/check_luck.py`, `docs/luck/**`, `audit/LUCK_SKILL_2026_11_05.md` |
+| L3 Publication acceptance audit: verify every COORDINATION deployment claim against the GitHub API, inventory every published page, fix orphaned pages | done | arena/95c04c74-own6 | `scripts/acceptance_audit.py`, `data/acceptance/**`, `docs/luck/acceptance.html` |
 | L4 CI workflow, own PR to `main`, merge, Pages build + live confirm, close-out record | in progress | arena/95c04c74-own6 | `.github/workflows/luck.yml`, this section, one additive landing-page link |
 
 Rules followed: no synthetic NBA values; computed numbers are labelled as computations of the stated formula, never as verified NBA facts or market prices; anything unreadable is blank and flagged; shared index/navigation is changed only by an additive link.
+
+### L1–L3 completion record (2026-11-05, implementation commit `626ef5b`)
+
+**Sources actually read this session.** `api.github.com` (repository, `pulls?state=all`, `pages`, `pages/builds`, `commits/main`) via the authenticated `gh` CLI; the committed tree itself; and PyPI-installed SciPy 1.17.1, NumPy 2.4.6 and statsmodels, used numerically. Nothing else was readable: `www.nba.com`, `www.law.go.kr`, `www.espn.com` and `sassnarep3-star.github.io` all returned HTTP 000.
+
+**Verification performed (all reproducible, no network needed except `--refresh`).**
+- `scripts/luck_analysis.py --check`: committed tables reproduce exactly.
+- `scripts/verify_luck_numerics.py`: 6/6 independent cross-checks pass — normal quantiles vs `scipy.stats.norm.ppf` (0.0 difference), exact one-sided binomial p-value vs `scipy.stats.binomtest` over 140 grid points (max 4.53e-13), Wilson interval vs `statsmodels proportion_confint(method="wilson")`, Benjamini–Hochberg q-values vs `statsmodels multipletests(method="fdr_bh")`, and two closed-form sample-size identities (0 bets / 0 pairs difference). Record: `data/luck/numerics_crosscheck.json`.
+- `scripts/acceptance_audit.py --check`: 14 claims — 9 verified, 2 needs review, 2 verification blocked (A13 official sources, A14 live URL), 1 not assessable (A06 shallow clone), 0 mismatch. 25/25 PRs referenced by this board resolve in the API (22 merged); 7 CI workflows reference 0 missing scripts; 64 pages, 0 broken internal links, 0 plain-http links, 0 merge markers, 0 unreachable pages.
+- `scripts/check_luck.py`: every table row in the new section carries an https source link; blocked claims cannot be promoted to verified while offline.
+- Repository-wide: **150 pytest tests + 6 subtests pass** (33 engine + 15 publication tests are new), stdlib runner 32/32, `tools/check_site.py`, `scripts/check_site.py`, `check_hub.py` (12 pages/335 rows), `check_lab.py`, `check_report.py`, `linkcheck.py` (240/240), `verify_data.py` (213/213), `audit_integration.py`, `source_coverage.py --check` and `tools/release_gate.py` (0 issues) all pass.
+
+**Irregularities found, all published at `docs/luck/flagged.html` as L-01…L-10.** Highlights: L-01 no official source re-readable here, so no inherited row is re-certified; L-02 NBA Terms §§1/9 rights limits remain unresolved and unread; L-03 four other sessions' PRs (#23, #28, #31, #37) are open, so their work is not on the published site — none was merged or modified; L-06 two published pages have no generator script; L-09 cited merge SHAs are not assessable in a shallow clone. **Fixed by this session:** L-04 (hub-evidence and reverification were published but unreachable — additive landing links added) and L-05 (`docs/dashboard.html` linked `lab/`, a directory with no index, and 404'd — now `lab/overview.html`).
+
+**Cross-scope changes, logged:** one additive landing-page navigation link plus three archive links in `docs/index.html`; one href correction in `docs/dashboard.html`; and regeneration of the fd5276fa-owned derived snapshot `data/source_coverage/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md` by its own script so its `--check` CI gate passes with the new pages (60 pages / 1,266 rows; no analysis or claim changed). No other session's source, data or page content was edited.
+
+**Non-claims.** The new tables are statistical requirements, not observations. No NBA value, sportsbook price, correlation estimate, ROI or prediction is published; the leaderboard still holds zero qualified strategies; the empirical ledger still reports `not_run`.
