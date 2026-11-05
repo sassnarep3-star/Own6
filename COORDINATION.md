@@ -808,3 +808,50 @@ Branch rule: all work is on `arena/269a73e2-own6` (fixed by the Arena session ru
 - D4 integration decision: the root redirect now opens the no-input assurance dashboard; the repaired earlier landing, data hub and section sites remain preserved and linked. Generated lab pages are rebuilt only to propagate the hardened fail-closed gate reasons; no lab source/data scope is otherwise edited. Active PR #28 root summary/landing/flagged scope is not overwritten.
 
 - D4 CI repair: the assurance audit excludes its own generated `docs/assurance/**` HTML from the file inventory to avoid a self-referential checksum loop; `check_assurance.py` verifies those generated pages. Final assurance check: 1,182 sourced table rows, fail-closed report preserved, 52 tests pass.
+
+### W1–W3 completion records (session 27fdbe09)
+
+- **W1 Fresh snapshot.** Sources read 2026-11-05: `https://www.nba.com/standings` (30 rows),
+  `https://www.nba.com/games?date=2026-11-04` (14 final scores, chunks 0–2),
+  `https://www.nba.com/game/orl-vs-phx-0022600187` (5–6 Nov tip times/IDs/Cup groups),
+  `https://www.nba.com/termsofuse` (chunks 0, 3, 4), `https://www.nba.com/stats/help/faq` (chunk 0).
+  New files: `data/official_2026_11_05/{standings,results_2026_11_04,slate_2026_11_05_06}.csv`,
+  `scripts/daily_analysis.py`, `scripts/build_daily.py`, `scripts/check_daily.py`,
+  `docs/daily/**` (9 pages), `tests/test_daily.py` (15 stdlib tests),
+  `.github/workflows/daily-verify.yml`. Per-row record: `audit/SESSION_27fdbe09.md` (§2 30/30
+  standings, §3 14/14 results, §4 11/11 slate).
+- **W2 Staleness audit.** Confirmed independently: the 3 Nov snapshot reconciles 30/30 to the
+  107-game archive (so it was correct when written) but 14 of 30 records already differ from
+  today's official page. Published as F04; the old file was **not** overwritten. The Utah row
+  sourced to a schedule page in the 3 Nov file is now sourced to the standings table itself, so
+  that earlier flag is closed without deleting its history.
+- **W3 Dashboard.** `docs/daily/` is a 9-page category dashboard (overview, standings, results,
+  slate, signal test, correlation, gates, sources, flagged). Every table row carries an official
+  HTTPS link; the market columns on the slate are genuinely blank, and `scripts/check_daily.py`
+  fails if a market value, a missing row source, a broken internal link or a non-reproducible
+  rebuild appears. Local result: 9 pages, 0 issues; 15/15 tests pass.
+
+### W4 integration record (session 27fdbe09)
+
+- Reviewed all five open PRs at claim time (all older than 60 minutes with no new commits).
+  Merged into this branch **with both sides of every `COORDINATION.md` conflict kept**:
+  - **#32** independent evidence/release review → adds `audit/INDEPENDENT_REVIEW_B1BDFB4B.md`.
+  - **#23** CI/Pages record → coordination only.
+  - **#37** verification ledger → adds `docs/verify/**` (54/54 checks, 8 unverified rows kept
+    blank) and **closes the last 31 advisory un-sourced rows**; `check_site.py` now reports
+    `ERRORS: 0 | ADVISORY: 0`. Landing navigation merged by hand (Daily verify + Verification
+    ledger + Data hub all present). Source-coverage artifacts regenerated.
+  - **#28** repo review, flags F17–F27, executive-summary status; `docs/verified` pages
+    regenerated from its `scripts/build_site.py`.
+  - **#31** assurance dashboard (9 pages), hardened engine and source audit; `README.md` merged by
+    hand; root `index.html` now redirects to `docs/assurance/`.
+- Combined-tree verification (local): `pytest -q tests` **135 passed, 6 subtests**; stdlib runner
+  **32/32**; hub 12 pages/335 rows/0 errors; hub-reference gate 12/335/0; lab fail-closed
+  `not_run`, 0 observations; assurance 9 pages/8656 rows all source-linked; verification ledger
+  54/54 with 8 unverified; daily snapshot 9 pages/0 issues; release gate 0 issues; `check_site`
+  0 errors/0 advisories; source coverage regenerated and repeatable; every generator is
+  idempotent on the integrated tree.
+- Irregularities logged, not hidden: this session did **not** independently re-verify the
+  factual claims inside #28/#31/#37 (their own evidence files are linked and labelled as their
+  records); the ~14 un-re-read older score rows; rights under Terms §1/§9; no official prices;
+  no player-level data.

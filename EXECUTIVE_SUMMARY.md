@@ -205,3 +205,53 @@ Full, row-by-row version: [`docs/verify/index.html`](docs/verify/index.html) · 
 - New machine checks: `scripts/build_verify.py`, `scripts/check_verify.py` and `.github/workflows/verify-ledger.yml`. The build fails if a ledger row has no official https link, an unknown status, a MISMATCH, an unverified row that carries a value, a table row without a source, or a broken internal link.
 
 **Bottom line, unchanged.** Verifying scores and statutes says nothing about beating a market. On the one graded slate the market was at least as accurate as Own6, every interval included zero, and **no strategy is skill-eligible**. Verifying data removes bookkeeping error; it cannot remove luck from a 15-game sample.
+
+---
+
+## Session `arena/27fdbe09-own6` — 5 November 2026 snapshot and full integration
+
+**Bottom line, unchanged.** No validated strategy, no qualified leaderboard entry, no verified
+market price, no player-prop correlation. Rewards remain non-monetary research priority. Nothing
+here is betting advice. What is new is that today's facts were re-read from official pages, every
+table row links to the page used, and the five outstanding session PRs were merged and re-checked
+together.
+
+**What was verified today (2026-11-05, NBA.com):**
+
+| Check | Result | Source |
+|---|---|---|
+| Standings, 2026-27 | 30 rows read; 121 wins = 121 losses | [nba.com/standings](https://www.nba.com/standings) |
+| 4 November final scores | 14/14 read one game card at a time | [nba.com/games 2026-11-04](https://www.nba.com/games?date=2026-11-04) |
+| Archive reconciliation, today | 121 games → **30/30** team records match today's standings | [nba.com/standings](https://www.nba.com/standings) |
+| Archive reconciliation, 3 Nov | 107 games → **30/30** team records match the 3 Nov snapshot | [nba.com/standings](https://www.nba.com/standings) |
+| 4 Nov delta | 28 teams moved by exactly one game; ORL and GSW idle | [nba.com/games](https://www.nba.com/games?date=2026-11-04) |
+| Forward slate | 11 games (5–6 Nov) with tip times, IDs, Cup groups | [ORL @ PHX game page](https://www.nba.com/game/orl-vs-phx-0022600187) |
+| Rights text | §9(i)–(vii) and the FAQ download statement re-read verbatim | [Terms](https://www.nba.com/termsofuse), [FAQ](https://www.nba.com/stats/help/faq) |
+
+**Signal research, with luck controlled.** A ridge team-rating margin/total model, refitted before
+every game, scored 61 unseen games: winner accuracy **67.2%** (95% Wilson 54.7–77.7%) against
+**50.8%** for always picking the home team. But the paired McNemar exact test gives **p = 0.0639**
+and the bootstrap interval on Brier skill (**+0.130**, 95% **−0.039 to +0.296**) contains zero. The
+honest reading is *preliminary signal, unproven*. With ~4 games per team and no market benchmark,
+nothing is promoted; the leaderboard stays empty.
+
+**Measured dependence, for parlay design (official finals only).** Margin vs total r = **+0.018**
+[−0.161, +0.196] (n=121) — side and total carry little shared information here; home vs away points
+r = **+0.199** [+0.022, +0.365] — pace couples the two sides of the same game, so two overs are not
+independent; split-half team differential r = **+0.464** [+0.124, +0.706] (n=30) — weak evidence that
+team quality persists, on a very small sample. Player-prop correlations stay **blank**: no licensed
+player-level archive exists and Terms §9(iv) bars gambling-related use.
+
+**Integration.** Five stale session PRs (#23, #28, #31, #32, #37) were merged into this branch with
+both sides of every coordination-board conflict preserved. Their merges close the last 31 advisory
+un-sourced rows (`check_site`: 0 errors, **0 advisories**) and add the assurance and verification
+ledgers. All nine CI gate suites pass on the combined tree, including 135 pytest tests plus 6
+subtests, the fail-closed lab (`not_run`, zero observations), the 12-page hub (335 rows, 0 errors)
+and the new 9-page daily snapshot (0 issues). Regenerating the derived artifacts is idempotent.
+Their factual claims were structurally re-checked, not independently re-verified by this session, and
+are labelled that way.
+
+**Open flags (do not block publication).** Rights under Terms §1/§9(iv); no official price source;
+no player-level data; the 3 Nov file named "live" is stale; ~4 games per team; older score rows
+validated in aggregate only. Full list on the site's Flagged for Review pages and in
+[`audit/SESSION_27fdbe09.md`](audit/SESSION_27fdbe09.md).
