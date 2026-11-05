@@ -982,3 +982,38 @@ after PR #49 merges and re-run `python3 scripts/source_coverage.py`, `python3 sc
 and `python3 scripts/build_assurance.py` so the coverage/assurance artifacts match the merged tree.
 Two sessions must not merge the same regenerated artifact set. This session does not edit PR #48's
 new files.
+
+---
+
+## Session arena/63a5b5ef-own6 — independent recheck of the published claims (2026-11-05)
+
+Arena fixes this session to `arena/63a5b5ef-own6`; no `session-*` branch is created. At session start
+the branch was `aea6a5a` (merge of PR #49) with a clean tree. The full existing board was read first
+(984 lines). **Open PRs #48 (`arena/95c04c74-own6`) and #50 (`arena/33432806-own6`) are live and both
+touch `docs/index.html`, `README.md` and this board.** They are not claimed, edited, or merged by this
+session.
+
+### Task board (session 63a5b5ef)
+
+| Task | Status | Owner | Exclusive scope | Notes |
+|---|---|---|---|---|
+| X1 Fresh official-source re-read (standings, 4 Nov results, 5–6 Nov slate, NBA Terms §1/§9) | in progress | arena/63a5b5ef-own6 | `data/reverify_2026_11_05/**` | Reads dated 2026-11-05, captured verbatim in a machine-readable file |
+| X2 Line-by-line reconciliation of published values against X1 | unclaimed | — | `data/reverify_2026_11_05/**`, `scripts/reverify_official.py` | Per-row match / mismatch / unverified; no inferred values |
+| X3 Independent recomputation of the published computed values (model lines, correlations, fail-closed counts) | unclaimed | — | `data/reverify_2026_11_05/**`, `scripts/reverify_official.py` | Labeled computation, never an official NBA claim |
+| X4 Recheck site pages + checker + tests | unclaimed | — | `docs/reverify/**`, `scripts/build_reverify.py`, `scripts/check_reverify.py`, `tests/test_reverify.py` | Table rows source-linked; unverified left blank |
+| X5 Irregularity log and executive record | unclaimed | — | `audit/SESSION_63A5B5EF_RECHECK.md`, this section | Each finding with an official link |
+| X6 Final integration: checks, PR, merge, Pages deploy confirmation | unclaimed | — | this section; one additive nav link in `docs/index.html` if the file is free at integration time | Does not edit PR #48/#50 scopes while they are open |
+
+### Boundaries
+
+- Values published by earlier sessions are **re-verified, not assumed**. Anything that cannot be
+  re-read from an official page today is marked `unverified` and left blank.
+- Computed values (model margins/totals/win probabilities, correlation coefficients, gate counts) are
+  labeled computations. They are not official NBA numbers and are not evidence of a betting edge.
+- No sportsbook price, ROI, CLV, reward payout, or skill claim is invented. NBA Terms §§1/9 still
+  govern reuse; see https://www.nba.com/termsofuse.
+- Cross-scope edits are requested on this board rather than made silently.
+
+### Claim log
+
+- 2026-11-05: claimed X1–X6; read the board, `git log`, open PR list and the GitHub Pages API before claiming.
