@@ -1,8 +1,8 @@
 page,page_sha256,data_rows,official_reference_present,repository_reference_only,secondary_reference_only,no_https_reference,repository_source
 index.html,417058e65c28eda5f63cc00f245ad7afc664e6568018f0da905e184750a0dddd,0,0,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/index.html
 docs/assurance/correlations.html,6dd66a3bac399fe188e402fa9142083a1d677e6be1b5191fd81969bf4b46d049,6,6,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/correlations.html
-docs/assurance/flagged.html,74faa4a5982991bb4bf89b5d68bacd30874154219423928099c2e3c369b888bd,47,43,4,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/flagged.html
-docs/assurance/index.html,e3223626f3750ddcf45272e5ddff35ab54a7e971857d676d54fb0830979ed5b2,4,0,4,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/index.html
+docs/assurance/flagged.html,3c9584a84f5379f8c22c9510941174dbfa82e951381fe8fcdeda9483859deab8,54,50,4,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/flagged.html
+docs/assurance/index.html,bfbd09955e4f3ebb9f7745711d1f1cdeacdb4cedbf9b9d7645a9c1e19484031f,4,0,4,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/index.html
 docs/assurance/leaderboard.html,84deb8de2e9ec81e7255d469a43548dbde5aa46ac562f7fb540f9c9633ed68e7,1,1,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/leaderboard.html
 docs/assurance/lines.html,2d5b7828dba3bd886311890c89d73be0e2297f2deeb00cc48171ef4d4b00744c,6,6,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/lines.html
 docs/assurance/repo-audit.html,b163877c47ba292ad094d1f8365b113238812a9e3beec8a3073bee741013f3cd,1416,1172,244,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/repo-audit.html
@@ -34,7 +34,7 @@ docs/hub/strategies.html,5ed4f083b385748cd20329045b8814fb1808185905343d985fba7fd
 docs/hub/summary.html,efdbcc01626ca76623e03ae37beb350a1378c5040e5a572151fa2a934e9f6fd7,9,0,9,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/hub/summary.html
 docs/hub/validation.html,e91d4bf97b612e74a63c2e7f195180478dd7c8edd9168b6dce818fcfae36b42c,10,0,10,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/hub/validation.html
 docs/hub-evidence/index.html,1f42d8cae1ebd35b167d230090e65870034c4f473a24767a073a5ec64b86945a,9,4,5,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/hub-evidence/index.html
-docs/index.html,2f74374327c06f898993a1e65e1a159dc9b200197cde997c932f7dfffbba2741,4,4,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/index.html
+docs/index.html,77ed783f8c98dade0f19658e4794b4317c7fe46ab3c3677d101112427a29322a,4,4,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/index.html
 docs/lab/correlations.html,a33de14e67c4d7eb7587da5d20aaf8284edf7239c91e92c1e6896130df510f38,6,6,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/lab/correlations.html
 docs/lab/findings.html,82f3c6d9a3de4bc653743a43898c3df4daabd586af8dfbf64b1b191ea3e98505,20,4,16,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/lab/findings.html
 docs/lab/flagged.html,f7b6de2d7bbaa3f273f0a69a2923fa19d5ceb5c7bdb539cbd3b73a4d543d1895,93,74,19,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/lab/flagged.html
@@ -61,6 +61,14 @@ docs/own6/strategies.html,9f65f9f90f0f1b48bb0d2252627ada767477db2028bc14fbe755db
 docs/own6/validation.html,e0f3c91903d3afb2746417003cbb36ecd03d19cea56b1c23661a2033c8e4d24c,15,0,12,1,2,https://github.com/sassnarep3-star/Own6/blob/main/docs/own6/validation.html
 docs/parlay-safety/index.html,46edb77fc3e73f3769602658702e63fb8eb89a2c74eae65fab4947e35fd8d80b,22,10,11,1,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/parlay-safety/index.html
 docs/reverification/index.html,279a391af906a6c4887fe8ebf1db78c382456f71387d937106fdfd51f513c6e4,40,34,5,1,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/reverification/index.html
+docs/reverify/computed.html,8bdc9635a3cf951c2f636c252778476ce24238b3a37b0134a9214d2ae4d7b119,51,50,0,0,1,https://github.com/sassnarep3-star/Own6/blob/main/docs/reverify/computed.html
+docs/reverify/flagged.html,88191f2ba80470c93c4a520222389867e198f29c3121829ad9f8df8c0a52f899,7,6,0,0,1,https://github.com/sassnarep3-star/Own6/blob/main/docs/reverify/flagged.html
+docs/reverify/index.html,537476db3cda578306af8b60060b0bb8e1eff21a17576543f23d463c716bda74,6,6,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/reverify/index.html
+docs/reverify/results.html,093e299e835bc57f4732dfbcc39fa8f6a68909ae407960ad71ae0a70c5c45439,14,14,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/reverify/results.html
+docs/reverify/rights.html,f72c3b84ac79777479e733e27fdcd2ac1a775cf22b65e71730cf343084b935d0,9,9,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/reverify/rights.html
+docs/reverify/slate.html,ea780b72124cae6e435a143a4a11985650b22a68de348aa9091a35748db5016f,11,11,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/reverify/slate.html
+docs/reverify/sources.html,3f28952065f8cfc77b6d99ba5ebf0ebb78df375ed98093f989fb4a74496a8b60,10,6,0,0,4,https://github.com/sassnarep3-star/Own6/blob/main/docs/reverify/sources.html
+docs/reverify/standings.html,37e0e41d6323cbaca0f6302d90315e63bd52de20d92e40a1c9df125fde2dc42d,30,30,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/reverify/standings.html
 docs/review/flagged.html,971a5d0f258e2c8f9832d193dbc43176e372c5b81e5f5c3051c8b144fece1168,31,20,11,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/review/flagged.html
 docs/review/index.html,351bcf7f5bc3e83ac392835e42cc56595974d23e2f9521873c1c2fba4a893305,13,12,1,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/review/index.html
 docs/review/repo-review.html,5ff663d598c7b0b04de3a3b30f5fa83176bc11fe615d2f883ec041f5315b6666,30,0,30,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/review/repo-review.html

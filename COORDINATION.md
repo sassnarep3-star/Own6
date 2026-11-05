@@ -985,6 +985,77 @@ new files.
 
 ---
 
+## Session arena/63a5b5ef-own6 — independent recheck of the published claims (2026-11-05)
+
+Arena fixes this session to `arena/63a5b5ef-own6`; no `session-*` branch is created. At session start
+the branch was `aea6a5a` (merge of PR #49) with a clean tree. The full existing board was read first
+(984 lines). **Open PRs #48 (`arena/95c04c74-own6`) and #50 (`arena/33432806-own6`) are live and both
+touch `docs/index.html`, `README.md` and this board.** They are not claimed, edited, or merged by this
+session.
+
+### Task board (session 63a5b5ef)
+
+| Task | Status | Owner | Exclusive scope | Notes |
+|---|---|---|---|---|
+| X1 Fresh official-source re-read (standings, 4 Nov results, 5–6 Nov slate, NBA Terms §1/§9) | in progress | arena/63a5b5ef-own6 | `data/reverify_2026_11_05/**` | Reads dated 2026-11-05, captured verbatim in a machine-readable file |
+| X2 Line-by-line reconciliation of published values against X1 | unclaimed | — | `data/reverify_2026_11_05/**`, `scripts/reverify_official.py` | Per-row match / mismatch / unverified; no inferred values |
+| X3 Independent recomputation of the published computed values (model lines, correlations, fail-closed counts) | unclaimed | — | `data/reverify_2026_11_05/**`, `scripts/reverify_official.py` | Labeled computation, never an official NBA claim |
+| X4 Recheck site pages + checker + tests | unclaimed | — | `docs/reverify/**`, `scripts/build_reverify.py`, `scripts/check_reverify.py`, `tests/test_reverify.py` | Table rows source-linked; unverified left blank |
+| X5 Irregularity log and executive record | unclaimed | — | `audit/SESSION_63A5B5EF_RECHECK.md`, this section | Each finding with an official link |
+| X6 Final integration: checks, PR, merge, Pages deploy confirmation | unclaimed | — | this section; one additive nav link in `docs/index.html` if the file is free at integration time | Does not edit PR #48/#50 scopes while they are open |
+
+### Boundaries
+
+- Values published by earlier sessions are **re-verified, not assumed**. Anything that cannot be
+  re-read from an official page today is marked `unverified` and left blank.
+- Computed values (model margins/totals/win probabilities, correlation coefficients, gate counts) are
+  labeled computations. They are not official NBA numbers and are not evidence of a betting edge.
+- No sportsbook price, ROI, CLV, reward payout, or skill claim is invented. NBA Terms §§1/9 still
+  govern reuse; see https://www.nba.com/termsofuse.
+- Cross-scope edits are requested on this board rather than made silently.
+
+### Claim log
+
+- 2026-11-05: claimed X1–X6; read the board, `git log`, open PR list and the GitHub Pages API before claiming.
+
+### Completion records (session 63a5b5ef)
+
+- **X1 done.** Official pages read directly on 2026-11-05 and captured verbatim in
+  `data/reverify_2026_11_05/{standings,results,slate,calendar,rights}_read.csv`:
+  https://www.nba.com/standings (30 teams), https://www.nba.com/games?date=2026-11-04 (14 finals),
+  https://www.nba.com/games?date=2026-11-05 (2 games), https://www.nba.com/games?date=2026-11-06
+  (9 games), https://www.nba.com/termsofuse (§1 and §9(i)–(vii) quoted word for word).
+- **X2 done.** `scripts/reverify_official.py` reconciled **305 published values** against those
+  reads: 120 standings fields, 70 result fields, 99 slate fields, 4 calendar counts, 9 rights
+  clauses, 3 fail-closed counts. Result: **305 confirmed, 0 contradicted, 0 unverified**.
+- **X3 done.** The derived layer was recomputed with separately written code (Cholesky solve
+  instead of Gauss-Jordan; raw-score-sum Pearson instead of centred means): 30 rebuilt team
+  records, 9 correlation values, 33 model line values, 17 holdout statistics — **89 of 89
+  reproduced**. The published holdout verdict stands: Brier skill score 0.1299 with bootstrap
+  interval −0.0385 to 0.2961 (includes zero), McNemar exact p = 0.06391. No edge, ROI, CLV or
+  reward value is asserted.
+- **X4 done.** `scripts/build_reverify.py` built 8 pages under `docs/reverify/`;
+  `scripts/check_reverify.py` passes (138 table rows, every sourced row carries an https
+  official link, internal links resolve, no manual inputs, fail-closed ledger intact);
+  `tests/test_reverify.py` 10 tests pass. No shared file outside this scope was edited.
+- **X5 done.** `audit/SESSION_63A5B5EF_RECHECK.md` records the per-source reads, the exact rows
+  checked, six irregularities and the reproduction commands. Nothing was found to be wrong in the
+  published snapshot; three informational notes (competition title-sponsor prefix, Cup group
+  records omitted from the published slate, unequal games played) are published on
+  `docs/reverify/flagged.html`.
+- **X6** in progress: full-suite checks, PR to `main`, merge and Pages confirmation are recorded
+  in the final report and in a follow-up commit, because this record cannot contain its own merge.
+
+### Cross-scope note
+
+The new section is entirely additive (`docs/reverify/**`, `data/reverify_2026_11_05/**`,
+`scripts/{reverify_official,build_reverify,check_reverify}.py`, `tests/test_reverify.py`,
+`audit/SESSION_63A5B5EF_RECHECK.md`). A single navigation link from `docs/index.html` is requested
+but **not** taken while PR #48 and PR #50 hold that file; it will be added at integration only if
+the file is free, and otherwise logged here as a request for its owner.
+
+---
+
 ## Session arena/33432806-own6 — final integration close-out (2026-11-05)
 
 Branch fixed to `arena/33432806-own6` (Arena rule). This session is the final integration pass.
