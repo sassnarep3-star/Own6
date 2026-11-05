@@ -1,19 +1,21 @@
 Collecting official NBA results for 2026-10-20 .. 2026-11-04
   schedule JSON unavailable (HTTP Error 403: Forbidden); falling back to slate pages
-  2026-10-20: 2026-10-20: no finished games parsed from the rendered slate
-  2026-10-21: 2026-10-21: no finished games parsed from the rendered slate
-  2026-10-22: 2026-10-22: no finished games parsed from the rendered slate
-  2026-10-23: 2026-10-23: no finished games parsed from the rendered slate
-  2026-10-24: 2026-10-24: no finished games parsed from the rendered slate
-  2026-10-25: 2026-10-25: no finished games parsed from the rendered slate
-  2026-10-26: 2026-10-26: no finished games parsed from the rendered slate
-  2026-10-27: 2026-10-27: no finished games parsed from the rendered slate
-  2026-10-28: 2026-10-28: no finished games parsed from the rendered slate
-  2026-10-29: 2026-10-29: no finished games parsed from the rendered slate
-  2026-10-30: 2026-10-30: no finished games parsed from the rendered slate
-  2026-10-31: 2026-10-31: no finished games parsed from the rendered slate
-  2026-11-01: 2026-11-01: no finished games parsed from the rendered slate
-  2026-11-02: 2026-11-02: no finished games parsed from the rendered slate
-  2026-11-03: 2026-11-03: no finished games parsed from the rendered slate
-  2026-11-04: 2026-11-04: no finished games parsed from the rendered slate
-no games were collected; refusing to write an empty dataset
+  2026-10-20: 3 finished games
+  2026-10-21: 11 finished games
+  2026-10-22: 2 finished games
+  2026-10-23: 12 finished games
+  2026-10-24: 8 finished games
+  2026-10-25: 7 finished games
+  2026-10-26: 9 finished games
+  2026-10-27: 4 finished games
+  2026-10-28: 12 finished games
+  2026-10-29: 3 finished games
+  2026-10-30: 10 finished games
+  2026-10-31: 7 finished games
+  2026-11-01: 4 finished games
+  2026-11-02: 15 finished games
+  2026-11-03: 2026-11-03: no game cards in the payload
+  2026-11-04: 14 finished games
+  standings parse failed (standings: expected 30 teams, parsed 0)
+wrote 121 rows -> data/lines/nba_results_official.csv
+wrote manifest -> data/lines/collection_manifest.json

@@ -1,0 +1,25 @@
+{
+  "generated_by": "scripts/collect_lines_data.py",
+  "window": {
+    "start": "2026-10-20",
+    "end": "2026-11-04"
+  },
+  "games": 121,
+  "standings": 0,
+  "sources": [
+    {
+      "dataset": "nba_results_official.csv",
+      "slate_pattern": "https://www.nba.com/games?date=YYYY-MM-DD",
+      "schedule_payload": "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json",
+      "per_row_source": "https://www.nba.com/game/<slug>-<game_id>"
+    },
+    {
+      "dataset": "nba_standings_official.csv",
+      "pattern": "https://www.nba.com/standings",
+      "schedule_payload": "https://cdn.nba.com/static/json/staticData/standingsLeagueV2_1.json"
+    }
+  ],
+  "sha256": {
+    "nba_results_official.csv": "3082fe5e3164f4348893649cf1b4f7cdc53d663765ce7e40ef194de3b6b5d3af"
+  }
+}
