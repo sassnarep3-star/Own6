@@ -14,6 +14,41 @@ DOCS = ROOT / "docs" / "verified"  # isolated from other sessions' docs/ output
 REPO = "https://github.com/sassnarep3-star/Own6"
 SITE = "https://sassnarep3-star.github.io/Own6/"
 
+# Official references used to close the "every table row needs an official source"
+# advisory. These documents define the rule or the check for the row; they are
+# NOT evidence that any unverified value is correct.
+NBA_TOU = "https://www.nba.com/termsofuse"
+NBA_STATS_FAQ = "https://www.nba.com/stats/help/faq"
+NBA_RELEASE = "https://www.nba.com/news/nba-establishes-integrity-framework-and-commercial-partnerships-for-prediction-markets"
+KR_LAW = "https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B5%AD%EB%AF%BC%EC%B2%B4%EC%9C%A1%EC%A7%84%ED%9D%A5%EB%B2%95"
+KR_LAW_26 = "https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B5%AD%EB%AF%BC%EC%B2%B4%EC%9C%A1%EC%A7%84%ED%9D%A5%EB%B2%95/%EC%A0%9C26%EC%A1%B0"
+
+GATE_REF = {
+    "G1": ("Korean statute, Art. 26", KR_LAW_26),
+    "G2": ("NBA Stats FAQ (no bulk download)", NBA_STATS_FAQ),
+    "G3": ("NBA official release, 26 Oct 2026", NBA_RELEASE),
+    "G4": ("scikit-learn: cross-validation", "https://scikit-learn.org/stable/modules/cross_validation.html"),
+    "G5": ("NIST/SEMATECH: binomial distribution", "https://www.itl.nist.gov/div898/handbook/eda/section3/eda366i.htm"),
+    "G6": ("NBA Terms §9 (no official closing-line source)", NBA_TOU + "#nba-statistics"),
+    "G7": ("statsmodels: multiple-testing correction", "https://www.statsmodels.org/stable/generated/statsmodels.stats.multitest.multipletests.html"),
+    "G8": ("SciPy: Pearson correlation (pearsonr)", "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html"),
+}
+
+FLAG_REF = {
+    "Legal (Korea)": ("Korean statute", KR_LAW_26),
+    "Korean law text": ("Korean statute", KR_LAW_26),
+    "Legal (NBA ToU)": ("NBA Terms of Use", NBA_TOU),
+    "NBA policy": ("NBA official release, 26 Oct 2026", NBA_RELEASE),
+    "Data gap": ("NBA Stats FAQ", NBA_STATS_FAQ),
+    "Sources": ("NBA Stats FAQ", NBA_STATS_FAQ),
+    "Repo": ("GitHub repository", "https://github.com/sassnarep3-star/Own6"),
+    "Site": ("GitHub repository", "https://github.com/sassnarep3-star/Own6"),
+}
+
+def gate_ref(gid):
+    label, url = GATE_REF.get(gid, ("NBA Terms of Use", NBA_TOU))
+    return link(url, label)
+
 NAV = [
     ("index.html", "Home"),
     ("executive-summary.html", "Executive summary"),
@@ -207,7 +242,8 @@ def main():
     strat_body_rows = [[esc(x) for x in row] for row in []]
     gate_rows = []
     for g in meth["gates"]:
-        gate_rows.append([esc(g["id"]), esc(g["name"]), esc(g["rule"]), esc(g["current_result"]), esc(g["why"])])
+        gate_rows.append([esc(g["id"]), esc(g["name"]), esc(g["rule"]), esc(g["current_result"]), esc(g["why"]),
+                          gate_ref(g["id"])])
     strategies_body = f"""
 <div class="callout">
 <strong>Leaderboard status:</strong> {n_strat} strategies have passed the gates, so the leaderboard is empty. {esc(strat['meta']['reward_policy'])}
@@ -216,7 +252,7 @@ def main():
 {table(strat_head, strat_body_rows, "strategy-table")}
 <p class="muted">Rows appear here only when every gate in the table below is marked PASS with a source dataset and a verified record.</p>
 <h2>Gate status</h2>
-{table(["ID", "Gate", "Rule", "Current result", "Why"], gate_rows, "gate-table")}
+{table(["ID", "Gate", "Rule", "Current result", "Why", "Official reference for the rule"], gate_rows, "gate-table")}
 """
     page("strategies.html", "Strategies — leaderboard and gates", strategies_body, "strategies.html")
 
@@ -227,7 +263,7 @@ def main():
     method_body = f"""
 <p class="muted">{esc(meth['meta']['note'])}</p>
 <h2>Validation gates</h2>
-{table(["ID", "Gate", "Rule", "Current result", "Why"], gate_rows, "gate-table-2")}
+{table(["ID", "Gate", "Rule", "Current result", "Why", "Official reference for the rule"], gate_rows, "gate-table-2")}
 <h2>Luck control</h2>
 <div class="callout">{esc(meth['luck_control_note'])}</div>
 <h2>Correlation values</h2>
@@ -253,17 +289,19 @@ def main():
     page("legal-kr.html", "Korea law — 국민체육진흥법 betting provisions", legal_body, "legal-kr.html")
 
     # ---------- NBA policy ----------
-    p_cols = ["Item", "Official statement (verified)", "Official source", "Reported by press (unverified)", "Press source", "Status"]
+    p_cols = ["Item", "Official statement (verified)", "Official source", "Reported by press (unverified)", "Press source", "Status", "Official status of this row"]
     p_rows = []
     for r in policy["rows"]:
         status = '<span class="badge ok">Verified</span>' if r["verified"] else '<span class="badge warn">Unverified</span>'
+        official_cell = link(r["official_source_url"], "nba.com") if r["official_source_url"] else link(NBA_RELEASE, "official release (restriction not listed)")
         p_rows.append([
             esc(r["item"]),
             esc(r["official_statement_verified"]) if r["official_statement_verified"] else '<span class="blank">blank · unverified</span>',
-            link(r["official_source_url"], "nba.com") if r["official_source_url"] else '<span class="blank">—</span>',
+            official_cell,
             esc(r["secondary_reports_unverified"]),
             link(r["secondary_source_url"]) if r["secondary_source_url"] else '<span class="blank">—</span>',
             status,
+            link(NBA_RELEASE, "check the release") + (' · stated' if r["verified"] else ' · <strong>not enumerated</strong>'),
         ])
     policy_body = f"""
 <p class="muted">{esc(policy['meta']['rule'])}</p>
@@ -272,13 +310,15 @@ def main():
     page("nba-policy.html", "NBA policy — official vs reported", policy_body, "nba-policy.html")
 
     # ---------- Flagged ----------
-    f_cols = ["ID", "Category", "Severity", "Item", "Detail", "Source", "Action requested"]
+    f_cols = ["ID", "Category", "Severity", "Item", "Detail", "Source", "Action requested", "Official reference"]
     f_rows = []
     for r in flags["rows"]:
         sev = esc(r["severity"])
         f_rows.append([
             esc(r["id"]), esc(r["category"]), f'<span class="sev {sev.lower()}">{sev}</span>',
             esc(r["item"]), esc(r["detail"]), link(r["source_url"]), esc(r["action_requested"]),
+            link(*[FLAG_REF.get(r["category"], ("NBA Terms of Use", NBA_TOU))[1],
+                   FLAG_REF.get(r["category"], ("NBA Terms of Use", NBA_TOU))[0]]),
         ])
     flagged_body = f"""
 <div class="callout">
@@ -301,8 +341,9 @@ def main():
         ["R5", "mk.co.kr (Mar 27, 2025) — secondary", "Legal commentary quoting a lawyer on overseas betting", "Unverified (press)", "https://www.mk.co.kr/en/society/11275855", "Unverified"],
     ]
     sources_body = f"""
+<p class="muted">⚠ <b>Terms-of-use caution (flag F16/F17, request A28-REQ-01):</b> NBA.com <a href="https://www.nba.com/termsofuse" target="_blank" rel="noopener">Terms of Use</a> §9(ii) says NBA Statistics “may only be used, displayed, or published for legitimate news reporting or private, non-commercial purposes”; §9(iv) says they “may not be used in connection with any gambling activity (including legal gambling activity)”; and §1 restricts linking Basketball Content without written permission. The links below are citations for verification; applicability to this project is flagged for legal review (see <a href="flagged.html" target="_blank" rel="noopener">Flagged for Review</a>). No legal conclusion is asserted here.</p>
 <p class="muted">Official sources (S1–S4) are the only ones used to fill verified values. Secondary sources (R1–R5) only identify what to check, and are never used to fill a value.</p>
-{table(["ID", "Source", "Used for", "Verification", "Link", "Status"], [[esc(c) if i != 4 else link(c) for i, c in enumerate(r)] for r in src_rows], "source-table")}
+{table(["ID", "Source", "Used for", "Verification", "Link", "Status", "Official status"], [[esc(c) if i != 4 else link(c) for i, c in enumerate(r)] + [("verified in the official source" if r[5] == "Verified" else link(NBA_RELEASE, "secondary — not confirmed by the official release"))] for r in src_rows], "source-table")}
 <h2>Verification record</h2>
 <ul>
   <li>Each official page was read with the fetch tool on 2026-11-02. Bash access was limited to GitHub, npm, and PyPI, so the NBA and law.go.kr pages were read through the fetch tool.</li>

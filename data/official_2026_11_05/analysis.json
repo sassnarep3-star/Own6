@@ -1,0 +1,865 @@
+{
+  "consistency": {
+    "compare_prior": [
+      {
+        "match": true,
+        "official_l": 1,
+        "official_w": 7,
+        "recomputed_l": 1,
+        "recomputed_w": 7,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "PHI"
+      },
+      {
+        "match": true,
+        "official_l": 1,
+        "official_w": 6,
+        "recomputed_l": 1,
+        "recomputed_w": 6,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "DET"
+      },
+      {
+        "match": true,
+        "official_l": 2,
+        "official_w": 5,
+        "recomputed_l": 2,
+        "recomputed_w": 5,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "BOS"
+      },
+      {
+        "match": true,
+        "official_l": 3,
+        "official_w": 4,
+        "recomputed_l": 3,
+        "recomputed_w": 4,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "WAS"
+      },
+      {
+        "match": true,
+        "official_l": 3,
+        "official_w": 4,
+        "recomputed_l": 3,
+        "recomputed_w": 4,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "TOR"
+      },
+      {
+        "match": true,
+        "official_l": 3,
+        "official_w": 4,
+        "recomputed_l": 3,
+        "recomputed_w": 4,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "CLE"
+      },
+      {
+        "match": true,
+        "official_l": 4,
+        "official_w": 4,
+        "recomputed_l": 4,
+        "recomputed_w": 4,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "ATL"
+      },
+      {
+        "match": true,
+        "official_l": 4,
+        "official_w": 3,
+        "recomputed_l": 4,
+        "recomputed_w": 3,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "NYK"
+      },
+      {
+        "match": true,
+        "official_l": 5,
+        "official_w": 3,
+        "recomputed_l": 5,
+        "recomputed_w": 3,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "CHA"
+      },
+      {
+        "match": true,
+        "official_l": 5,
+        "official_w": 2,
+        "recomputed_l": 5,
+        "recomputed_w": 2,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "MIA"
+      },
+      {
+        "match": true,
+        "official_l": 5,
+        "official_w": 2,
+        "recomputed_l": 5,
+        "recomputed_w": 2,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "ORL"
+      },
+      {
+        "match": true,
+        "official_l": 6,
+        "official_w": 2,
+        "recomputed_l": 6,
+        "recomputed_w": 2,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "IND"
+      },
+      {
+        "match": true,
+        "official_l": 6,
+        "official_w": 1,
+        "recomputed_l": 6,
+        "recomputed_w": 1,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "CHI"
+      },
+      {
+        "match": true,
+        "official_l": 6,
+        "official_w": 1,
+        "recomputed_l": 6,
+        "recomputed_w": 1,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "MIL"
+      },
+      {
+        "match": true,
+        "official_l": 6,
+        "official_w": 1,
+        "recomputed_l": 6,
+        "recomputed_w": 1,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "BKN"
+      },
+      {
+        "match": true,
+        "official_l": 1,
+        "official_w": 7,
+        "recomputed_l": 1,
+        "recomputed_w": 7,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "HOU"
+      },
+      {
+        "match": true,
+        "official_l": 1,
+        "official_w": 6,
+        "recomputed_l": 1,
+        "recomputed_w": 6,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "MEM"
+      },
+      {
+        "match": true,
+        "official_l": 1,
+        "official_w": 5,
+        "recomputed_l": 1,
+        "recomputed_w": 5,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "POR"
+      },
+      {
+        "match": true,
+        "official_l": 2,
+        "official_w": 6,
+        "recomputed_l": 2,
+        "recomputed_w": 6,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "LAL"
+      },
+      {
+        "match": true,
+        "official_l": 2,
+        "official_w": 5,
+        "recomputed_l": 2,
+        "recomputed_w": 5,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "OKC"
+      },
+      {
+        "match": true,
+        "official_l": 2,
+        "official_w": 5,
+        "recomputed_l": 2,
+        "recomputed_w": 5,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "SAS"
+      },
+      {
+        "match": true,
+        "official_l": 3,
+        "official_w": 5,
+        "recomputed_l": 3,
+        "recomputed_w": 5,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "GSW"
+      },
+      {
+        "match": true,
+        "official_l": 3,
+        "official_w": 5,
+        "recomputed_l": 3,
+        "recomputed_w": 5,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "MIN"
+      },
+      {
+        "match": true,
+        "official_l": 3,
+        "official_w": 4,
+        "recomputed_l": 3,
+        "recomputed_w": 4,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "DAL"
+      },
+      {
+        "match": true,
+        "official_l": 3,
+        "official_w": 3,
+        "recomputed_l": 3,
+        "recomputed_w": 3,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "DEN"
+      },
+      {
+        "match": true,
+        "official_l": 4,
+        "official_w": 3,
+        "recomputed_l": 4,
+        "recomputed_w": 3,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "NOP"
+      },
+      {
+        "match": true,
+        "official_l": 4,
+        "official_w": 1,
+        "recomputed_l": 4,
+        "recomputed_w": 1,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "PHX"
+      },
+      {
+        "match": true,
+        "official_l": 6,
+        "official_w": 1,
+        "recomputed_l": 6,
+        "recomputed_w": 1,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "LAC"
+      },
+      {
+        "match": true,
+        "official_l": 6,
+        "official_w": 1,
+        "recomputed_l": 6,
+        "recomputed_w": 1,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "SAC"
+      },
+      {
+        "match": true,
+        "official_l": 6,
+        "official_w": 1,
+        "recomputed_l": 6,
+        "recomputed_w": 1,
+        "source_url": "https://www.nba.com/games?date=2026-11-02",
+        "team_abbr": "UTA"
+      }
+    ],
+    "compare_today": [
+      {
+        "match": true,
+        "official_l": 1,
+        "official_w": 8,
+        "recomputed_l": 1,
+        "recomputed_w": 8,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "PHI"
+      },
+      {
+        "match": true,
+        "official_l": 2,
+        "official_w": 6,
+        "recomputed_l": 2,
+        "recomputed_w": 6,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "DET"
+      },
+      {
+        "match": true,
+        "official_l": 2,
+        "official_w": 6,
+        "recomputed_l": 2,
+        "recomputed_w": 6,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "BOS"
+      },
+      {
+        "match": true,
+        "official_l": 4,
+        "official_w": 5,
+        "recomputed_l": 4,
+        "recomputed_w": 5,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "ATL"
+      },
+      {
+        "match": true,
+        "official_l": 4,
+        "official_w": 4,
+        "recomputed_l": 4,
+        "recomputed_w": 4,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "TOR"
+      },
+      {
+        "match": true,
+        "official_l": 4,
+        "official_w": 4,
+        "recomputed_l": 4,
+        "recomputed_w": 4,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "CLE"
+      },
+      {
+        "match": true,
+        "official_l": 4,
+        "official_w": 4,
+        "recomputed_l": 4,
+        "recomputed_w": 4,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "WAS"
+      },
+      {
+        "match": true,
+        "official_l": 4,
+        "official_w": 4,
+        "recomputed_l": 4,
+        "recomputed_w": 4,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "NYK"
+      },
+      {
+        "match": true,
+        "official_l": 5,
+        "official_w": 3,
+        "recomputed_l": 5,
+        "recomputed_w": 3,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "MIA"
+      },
+      {
+        "match": true,
+        "official_l": 6,
+        "official_w": 3,
+        "recomputed_l": 6,
+        "recomputed_w": 3,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "CHA"
+      },
+      {
+        "match": true,
+        "official_l": 6,
+        "official_w": 3,
+        "recomputed_l": 6,
+        "recomputed_w": 3,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "IND"
+      },
+      {
+        "match": true,
+        "official_l": 5,
+        "official_w": 2,
+        "recomputed_l": 5,
+        "recomputed_w": 2,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "ORL"
+      },
+      {
+        "match": true,
+        "official_l": 6,
+        "official_w": 2,
+        "recomputed_l": 6,
+        "recomputed_w": 2,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "BKN"
+      },
+      {
+        "match": true,
+        "official_l": 7,
+        "official_w": 1,
+        "recomputed_l": 7,
+        "recomputed_w": 1,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "CHI"
+      },
+      {
+        "match": true,
+        "official_l": 7,
+        "official_w": 1,
+        "recomputed_l": 7,
+        "recomputed_w": 1,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "MIL"
+      },
+      {
+        "match": true,
+        "official_l": 1,
+        "official_w": 6,
+        "recomputed_l": 1,
+        "recomputed_w": 6,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "POR"
+      },
+      {
+        "match": true,
+        "official_l": 2,
+        "official_w": 7,
+        "recomputed_l": 2,
+        "recomputed_w": 7,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "LAL"
+      },
+      {
+        "match": true,
+        "official_l": 2,
+        "official_w": 7,
+        "recomputed_l": 2,
+        "recomputed_w": 7,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "HOU"
+      },
+      {
+        "match": true,
+        "official_l": 2,
+        "official_w": 6,
+        "recomputed_l": 2,
+        "recomputed_w": 6,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "OKC"
+      },
+      {
+        "match": true,
+        "official_l": 2,
+        "official_w": 6,
+        "recomputed_l": 2,
+        "recomputed_w": 6,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "SAS"
+      },
+      {
+        "match": true,
+        "official_l": 2,
+        "official_w": 6,
+        "recomputed_l": 2,
+        "recomputed_w": 6,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "MEM"
+      },
+      {
+        "match": true,
+        "official_l": 3,
+        "official_w": 6,
+        "recomputed_l": 3,
+        "recomputed_w": 6,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "MIN"
+      },
+      {
+        "match": true,
+        "official_l": 3,
+        "official_w": 5,
+        "recomputed_l": 3,
+        "recomputed_w": 5,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "GSW"
+      },
+      {
+        "match": true,
+        "official_l": 3,
+        "official_w": 4,
+        "recomputed_l": 3,
+        "recomputed_w": 4,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "DEN"
+      },
+      {
+        "match": true,
+        "official_l": 4,
+        "official_w": 4,
+        "recomputed_l": 4,
+        "recomputed_w": 4,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "NOP"
+      },
+      {
+        "match": true,
+        "official_l": 4,
+        "official_w": 4,
+        "recomputed_l": 4,
+        "recomputed_w": 4,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "DAL"
+      },
+      {
+        "match": true,
+        "official_l": 5,
+        "official_w": 1,
+        "recomputed_l": 5,
+        "recomputed_w": 1,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "PHX"
+      },
+      {
+        "match": true,
+        "official_l": 7,
+        "official_w": 1,
+        "recomputed_l": 7,
+        "recomputed_w": 1,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "LAC"
+      },
+      {
+        "match": true,
+        "official_l": 7,
+        "official_w": 1,
+        "recomputed_l": 7,
+        "recomputed_w": 1,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "SAC"
+      },
+      {
+        "match": true,
+        "official_l": 7,
+        "official_w": 1,
+        "recomputed_l": 7,
+        "recomputed_w": 1,
+        "source_url": "https://www.nba.com/standings",
+        "team_abbr": "UTA"
+      }
+    ],
+    "games_through_2026_11_02": 107,
+    "games_total": 121,
+    "nov4_rows": 14,
+    "rows_through_2026_11_02": 107,
+    "standings_2026_11_03_matches": 30,
+    "standings_2026_11_03_total": 30,
+    "standings_2026_11_05_matches": 30,
+    "standings_2026_11_05_total": 30,
+    "teams_idle_nov4": [
+      "GSW",
+      "ORL"
+    ],
+    "teams_in_nov4_delta": 28,
+    "teams_total": 30
+  },
+  "correlations": {
+    "home_points_vs_away_points": {
+      "ci95_high": 0.3649,
+      "ci95_low": 0.0216,
+      "n": 121,
+      "r": 0.1994
+    },
+    "margin_vs_total": {
+      "ci95_high": 0.1959,
+      "ci95_low": -0.161,
+      "n": 121,
+      "r": 0.018
+    },
+    "prop_note": "No licensed player-level observation archive is configured; values left blank and flagged.",
+    "prop_or_player_level": null,
+    "team_differential_first_half_vs_second_half": {
+      "ci95_high": 0.706,
+      "ci95_low": 0.1242,
+      "n": 30,
+      "r": 0.4637
+    }
+  },
+  "model": {
+    "final_sigma_margin": 12.344,
+    "final_sigma_total": 16.207,
+    "home_advantage_points": 1.33,
+    "min_training_games": 60,
+    "ratings": {
+      "ATL": 1.95,
+      "BKN": -4.61,
+      "BOS": 1.71,
+      "CHA": -7.39,
+      "CHI": -10.56,
+      "CLE": 1.38,
+      "DAL": 1.1,
+      "DEN": 1.1,
+      "DET": 4.95,
+      "GSW": 2.68,
+      "HOU": 7.59,
+      "IND": -2.33,
+      "LAC": -2.93,
+      "LAL": 4.56,
+      "MEM": 5.46,
+      "MIA": -2.43,
+      "MIL": -7.12,
+      "MIN": 7.45,
+      "NOP": 0.61,
+      "NYK": 1.42,
+      "OKC": 1.57,
+      "ORL": -4.19,
+      "PHI": 2.67,
+      "PHX": -4.15,
+      "POR": 6.14,
+      "SAC": -6.46,
+      "SAS": 4.91,
+      "TOR": 2.03,
+      "UTA": -4.62,
+      "WAS": -2.48
+    },
+    "ridge_lambda": 5.0,
+    "total_effects": {
+      "ATL": 0.8,
+      "BKN": -1.98,
+      "BOS": -3.32,
+      "CHA": -11.12,
+      "CHI": 10.73,
+      "CLE": 7.56,
+      "DAL": -1.96,
+      "DEN": -0.13,
+      "DET": -5.97,
+      "GSW": 1.8,
+      "HOU": -0.3,
+      "IND": -1.92,
+      "LAC": -2.81,
+      "LAL": 4.62,
+      "MEM": 1.14,
+      "MIA": 10.05,
+      "MIL": 3.22,
+      "MIN": -1.87,
+      "NOP": 8.67,
+      "NYK": -7.04,
+      "OKC": -6.34,
+      "ORL": -2.91,
+      "PHI": -5.73,
+      "PHX": 5.71,
+      "POR": 1.77,
+      "SAC": 2.36,
+      "SAS": 0.14,
+      "TOR": 2.72,
+      "UTA": -2.23,
+      "WAS": -5.66
+    },
+    "training_home_win_rate": 0.5124,
+    "type": "ridge team-rating margin/total model with home advantage",
+    "walk_forward": {
+      "accuracy_vs_home_always": 0.1639,
+      "brier_home_rate_baseline": 0.2529,
+      "brier_model": 0.22,
+      "brier_skill_score": 0.1299,
+      "brier_skill_score_ci95_high": 0.2961,
+      "brier_skill_score_ci95_low": -0.0385,
+      "first_predicted_game": "0022600136",
+      "home_always_accuracy": 0.5082,
+      "mae_margin": 11.509,
+      "mae_total": 15.313,
+      "mcnemar_exact_p_two_sided": 0.06391,
+      "mcnemar_home_only_correct": 7,
+      "mcnemar_model_only_correct": 17,
+      "mean_actual_total": 224.5,
+      "n_predictions": 61,
+      "note": "No market prices are used, so this cannot establish a betting edge or ROI.",
+      "rmse_margin": 13.927,
+      "rmse_total": 20.023,
+      "winner_accuracy": 0.6721,
+      "winner_accuracy_ci95_high": 0.7767,
+      "winner_accuracy_ci95_low": 0.5472,
+      "winner_accuracy_exact_p_two_sided": 0.00985
+    }
+  },
+  "slate": [
+    {
+      "away_team": "ORL",
+      "competition": "Regular season",
+      "date": "2026-11-05",
+      "game_id": "0022600187",
+      "home_team": "PHX",
+      "model_home_margin": 1.4,
+      "model_home_win_prob": 0.544,
+      "model_margin_high80": 17.2,
+      "model_margin_low80": -14.5,
+      "model_total": 229.9,
+      "model_total_high80": 250.7,
+      "model_total_low80": 209.1,
+      "source_url": "https://www.nba.com/game/orl-vs-phx-0022600187",
+      "tip_et": "9:00 PM ET"
+    },
+    {
+      "away_team": "MIA",
+      "competition": "Regular season",
+      "date": "2026-11-05",
+      "game_id": "0022600188",
+      "home_team": "GSW",
+      "model_home_margin": 6.4,
+      "model_home_win_prob": 0.699,
+      "model_margin_high80": 22.3,
+      "model_margin_low80": -9.4,
+      "model_total": 238.9,
+      "model_total_high80": 259.7,
+      "model_total_low80": 218.2,
+      "source_url": "https://www.nba.com/game/mia-vs-gsw-0022600188",
+      "tip_et": "10:00 PM ET"
+    },
+    {
+      "away_team": "WAS",
+      "competition": "NBA Cup East Group C",
+      "date": "2026-11-06",
+      "game_id": "0022600025",
+      "home_team": "ATL",
+      "model_home_margin": 5.8,
+      "model_home_win_prob": 0.68,
+      "model_margin_high80": 21.6,
+      "model_margin_low80": -10.1,
+      "model_total": 222.2,
+      "model_total_high80": 243.0,
+      "model_total_low80": 201.5,
+      "source_url": "https://www.nba.com/game/was-vs-atl-0022600025",
+      "tip_et": "7:00 PM ET"
+    },
+    {
+      "away_team": "BOS",
+      "competition": "NBA Cup East Group C",
+      "date": "2026-11-06",
+      "game_id": "0022600026",
+      "home_team": "CHA",
+      "model_home_margin": -7.8,
+      "model_home_win_prob": 0.265,
+      "model_margin_high80": 8.1,
+      "model_margin_low80": -23.6,
+      "model_total": 212.6,
+      "model_total_high80": 233.4,
+      "model_total_low80": 191.9,
+      "source_url": "https://www.nba.com/game/bos-vs-cha-0022600026",
+      "tip_et": "7:00 PM ET"
+    },
+    {
+      "away_team": "PHI",
+      "competition": "NBA Cup East Group B",
+      "date": "2026-11-06",
+      "game_id": "0022600027",
+      "home_team": "CLE",
+      "model_home_margin": 0.0,
+      "model_home_win_prob": 0.501,
+      "model_margin_high80": 15.9,
+      "model_margin_low80": -15.8,
+      "model_total": 228.9,
+      "model_total_high80": 249.7,
+      "model_total_low80": 208.1,
+      "source_url": "https://www.nba.com/game/phi-vs-cle-0022600027",
+      "tip_et": "7:30 PM ET"
+    },
+    {
+      "away_team": "UTA",
+      "competition": "NBA Cup West Group A",
+      "date": "2026-11-06",
+      "game_id": "0022600028",
+      "home_team": "DAL",
+      "model_home_margin": 7.0,
+      "model_home_win_prob": 0.716,
+      "model_margin_high80": 22.9,
+      "model_margin_low80": -8.8,
+      "model_total": 222.9,
+      "model_total_high80": 243.7,
+      "model_total_low80": 202.1,
+      "source_url": "https://www.nba.com/game/uta-vs-dal-0022600028",
+      "tip_et": "8:00 PM ET"
+    },
+    {
+      "away_team": "OKC",
+      "competition": "NBA Cup West Group B",
+      "date": "2026-11-06",
+      "game_id": "0022600029",
+      "home_team": "MEM",
+      "model_home_margin": 5.2,
+      "model_home_win_prob": 0.664,
+      "model_margin_high80": 21.0,
+      "model_margin_low80": -10.6,
+      "model_total": 221.9,
+      "model_total_high80": 242.6,
+      "model_total_low80": 201.1,
+      "source_url": "https://www.nba.com/game/okc-vs-mem-0022600029",
+      "tip_et": "8:00 PM ET"
+    },
+    {
+      "away_team": "TOR",
+      "competition": "NBA Cup East Group A",
+      "date": "2026-11-06",
+      "game_id": "0022600030",
+      "home_team": "MIL",
+      "model_home_margin": -7.8,
+      "model_home_win_prob": 0.263,
+      "model_margin_high80": 8.0,
+      "model_margin_low80": -23.6,
+      "model_total": 233.0,
+      "model_total_high80": 253.8,
+      "model_total_low80": 212.2,
+      "source_url": "https://www.nba.com/game/tor-vs-mil-0022600030",
+      "tip_et": "8:00 PM ET"
+    },
+    {
+      "away_team": "MIN",
+      "competition": "NBA Cup West Group B",
+      "date": "2026-11-06",
+      "game_id": "0022600031",
+      "home_team": "NOP",
+      "model_home_margin": -5.5,
+      "model_home_win_prob": 0.328,
+      "model_margin_high80": 10.3,
+      "model_margin_low80": -21.3,
+      "model_total": 233.9,
+      "model_total_high80": 254.7,
+      "model_total_low80": 213.1,
+      "source_url": "https://www.nba.com/game/min-vs-nop-0022600031",
+      "tip_et": "8:00 PM ET"
+    },
+    {
+      "away_team": "POR",
+      "competition": "NBA Cup West Group C",
+      "date": "2026-11-06",
+      "game_id": "0022600032",
+      "home_team": "LAL",
+      "model_home_margin": -0.3,
+      "model_home_win_prob": 0.492,
+      "model_margin_high80": 15.6,
+      "model_margin_low80": -16.1,
+      "model_total": 233.5,
+      "model_total_high80": 254.2,
+      "model_total_low80": 212.7,
+      "source_url": "https://www.nba.com/game/por-vs-lal-0022600032",
+      "tip_et": "10:00 PM ET"
+    },
+    {
+      "away_team": "SAS",
+      "competition": "NBA Cup West Group C",
+      "date": "2026-11-06",
+      "game_id": "0022600033",
+      "home_team": "SAC",
+      "model_home_margin": -10.0,
+      "model_home_win_prob": 0.208,
+      "model_margin_high80": 5.8,
+      "model_margin_low80": -25.9,
+      "model_total": 229.6,
+      "model_total_high80": 250.4,
+      "model_total_low80": 208.8,
+      "source_url": "https://www.nba.com/game/sas-vs-sac-0022600033",
+      "tip_et": "10:00 PM ET"
+    }
+  ],
+  "snapshot_date": "2026-11-05",
+  "sources": {
+    "games_feed": "https://www.nba.com/games?date=2026-11-04",
+    "slate": "https://www.nba.com/game/orl-vs-phx-0022600187",
+    "standings": "https://www.nba.com/standings"
+  }
+}

@@ -45,9 +45,13 @@ def decimal_to_implied(odds: float) -> float:
 
 
 def prob_to_american(p: float) -> int:
+    """Fair American price; no sportsbook margin is added.
+
+    Even money is represented as +100. The inverse of the official operator
+    conversion is used; an arbitrary -10 offset would invent vig.
+    """
     p = probability(p)
-    # Even money is -110 under the standard American convention.
-    return round(-100 * p / (1 - p) - 10) if p >= 0.5 else round(100 * (1 - p) / p)
+    return round(-100 * p / (1 - p)) if p > 0.5 else round(100 * (1 - p) / p)
 
 
 def fair_decimal(p: float) -> float:

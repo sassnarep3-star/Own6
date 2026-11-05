@@ -1,5 +1,40 @@
 # Executive Summary — Own6: Originate Your Own NBA Lines
 
+## Current status — read first (session `arena/269a73e2-own6`, 2026-11-03)
+
+**Bottom line.** The project has a working framework for originating lines, pricing parlays with correlation, and gating strategies. It has **no validated strategy, no qualifying leaderboard entry, no verified odds, and no verified correlation estimate.** No edge is claimed. Rewards are non-monetary research priority only. Nothing here is betting advice.
+
+**Biggest open issue: NBA.com rights, not statistics.** NBA.com Terms of Use §9(ii) allows NBA Statistics only for "legitimate news reporting or private, non-commercial purposes", and §9(iv) bars use "in connection with any gambling activity (including legal gambling activity)". Verified text: [NBA.com Terms of Use](https://www.nba.com/termsofuse), read 2026-11-03. The sub-site `docs/own6/` republishes 92 NBA game results with per-game nba.com links (flags F17, F26). This session did not re-fetch those nba.com pages, because doing so would add to the same use. The owner or counsel must decide before anything else is published from that dataset. Flags do not block the merge.
+
+**What this session verified (each with a link in the audit or on the site):**
+
+| Check | Result | Source |
+|---|---|---|
+| Landing page on `main` | Had unresolved merge-conflict markers. Fixed (F18). | [docs/index.html](docs/index.html) |
+| Empirical lab tables | Printed `<generator object>` instead of rows. Fixed (F19). | [scripts/build_lab.py](scripts/build_lab.py) |
+| Verified-site rebuild | Dropped the Terms caution. Fixed (F20). | [scripts/build_site.py](scripts/build_site.py) |
+| Correlation `home_score_vs_away_score` | r = 0.2004, n = 92, reproduced exactly. 95% CI −0.005 to 0.389; p = 0.055. Not significant (F21). | [data/correlation_findings.csv](data/correlation_findings.csv), [data/games_results_2026-27.csv](data/games_results_2026-27.csv) |
+| Correlation `same_date_game_margins` | r = 0.1052, n = 357, reproduces only in one arbitrary pair order. Symmetric version gives 0.0927. Not valid (F22). | same |
+| Correlation `teammate_PTS_Mitchell_Allen` | r = −0.4222 on n = 6. 95% CI −0.919 to 0.592. Source rows not in repo (F23). | same |
+| Correlation `rest_diff_vs_home_margin` | r = −0.0162, n = 76. Rest input not in repo, so unverifiable (F25). | same |
+| Alberta problem-gambling helplines | AGLC Self-Exclusion Program **1-844-468-8034**; Alberta Health Services Addiction Helpline **1-866-332-2322**. Shown in the site footer. | [AGLC common gaming questions](https://aglc.ca/gaming/common-gaming-questions); [AGLC resources](https://aglc.ca/training/reel-facts-vlt-staff-training/resources) |
+| Official-source gate | Every external link in the strict pages is in the verified registry. Two AGLC rows were added (V26, V27). | [data/verification_log.csv](data/verification_log.csv) |
+| Engine and checks | `pytest tests/` 20/20 pass with pinned dependencies. `verify_data.py` 213/213. `check_lab.py`, `check_site.py`, `linkcheck.py` and `build_review.py --check` pass. | scripts in [`scripts/`](scripts/) and [`tools/`](tools/) |
+
+**Not verified, and left blank on purpose:** odds and closing lines (no official odds feed exists; ESPN and DraftKings data are secondary); player and team statistics (see F26); every correlation estimate that is not reproducible; any win rate, ROI, CLV or backtest result. The sandbox can only reach GitHub, npm and PyPI, so the live `github.io` site is checked after deploy through the GitHub Pages API and the fetch tool.
+
+**Leaderboard.** Empty by design. The empirical lab reports `not_run` with zero observations and zero qualified strategies. The root site has no verified results to rank.
+
+**Next steps for the owner (none block the merge):**
+1. Decide on NBA Terms §9 (F17, F26): obtain permission or counsel review, or remove NBA-derived numbers from public pages.
+2. Add the rest, same-date and gamelog datasets with official sources and checksums, or keep those values blank (F22, F23, F25).
+3. Publish confidence intervals next to every correlation, or remove the value (F21).
+4. Prune the duplicate coordination block and record the `arena/325834c9-own6` session (F27).
+
+Full per-item record: [audit/REPO_REVIEW.md](audit/REPO_REVIEW.md) (section "Addendum — session arena/269a73e2-own6"). Register: [docs/verified/flagged.html](docs/verified/flagged.html).
+
+---
+
 **Date:** 2026-11-02 (UTC) · **Status:** combined `main` after integration of parallel sessions' work (PRs #1–#7) and the independent verification pass by `arena/a6ccf588-own6`.
 **Evidence rule:** no NBA statistic, price, correlation, ROI or backtest result is asserted unless it is quoted from an official source with a link. Unconfirmable values are blank and published on the Flagged for Review page. Nothing is inferred or filled in. Every official URL used was retrieved **directly** from its official host on 2026-11-02 (not from search snippets); the line-by-line record is in [`data/verification_log.csv`](data/verification_log.csv) and [`audit/VERIFICATION.md`](audit/VERIFICATION.md).
 
@@ -139,3 +174,84 @@ Full, linked version: [`docs/hub/summary.html`](docs/hub/summary.html) (live: ht
 **Correlations** (Pearson r, official results): same-game home vs away points +0.22 (n=107); same-game margin vs total +0.01 (n=107); cross-game same-date margins +0.11 (n=357 overlapping pairs, interval not reported); teammate points -0.42 (n=6, unusable).
 
 All open items: [Flagged for Review](docs/hub/flagged.html).
+
+---
+
+## Independent verification update — 2026-11-03 (session `arena/be184e2b-own6`)
+
+Full, row-by-row version: [`docs/verify/index.html`](docs/verify/index.html) · live: https://sassnarep3-star.github.io/Own6/docs/verify/
+
+**What was checked, and against what.** Every published value that could be checked against an official page was re-read in this session and recorded in [`data/verification_official_2026_11_03.csv`](data/verification_official_2026_11_03.csv) with the URL opened and the date read. **54 of 54 checks match; 0 mismatches.**
+
+| Check | Rows | Result | Official page used |
+|---|---|---|---|
+| 2026-11-02 final scores | 15 | **15/15 match** (incl. NOP 135–134 MEM in OT) | each game's NBA.com game summary |
+| 2026-27 standings W-L | 30 | **30/30 match** | https://www.nba.com/standings |
+| NBA Terms §1 / §6 / §9, Stats FAQ, prediction-market release | 5 | quoted text matches | nba.com |
+| 국민체육진흥법 identity and Art. 26(1), 26(2)①, 26(2)② | 4 | quoted text matches | law.go.kr |
+
+**Aggregate cross-check.** Win-loss records recomputed from all 107 committed result rows equal the official 30-team standings exactly. This is a recomputation over committed data, not a second independent source.
+
+**Rights findings (unchanged position, re-read and quoted this session).**
+- [NBA Terms §9](https://www.nba.com/termsofuse#nba-statistics): NBA Statistics "may not be used in connection with any gambling activity (including legal gambling activity)", and §9(vii) restricts comprehensive statistics databases without prior consent.
+- [NBA Terms §1](https://www.nba.com/termsofuse#ownership-and-use-restrictions) bars reuse, reproduction or linking of Basketball Content without written permission; §6 allows word links from non-commercial sites to NBA home pages only. This site cites internal game pages as its audit trail, so the conflict is disclosed on the Flagged page rather than hidden.
+- [NBA Stats FAQ](https://www.nba.com/stats/help/faq): statistics are "not available for download" — the reason no bulk statistics feed is used.
+- [국민체육진흥법 제26조](https://www.law.go.kr/%EB%B2%95%EB%A0%B9/%EA%B5%AD%EB%AF%BC%EC%B2%B4%EC%9C%A1%EC%A7%84%ED%9D%A5%EB%B2%95/%EC%A0%9C26%EC%A1%B0): only the designated foundation may issue tickets or similar instruments for reward; no one may design, provide or distribute a system for similar betting over an information network, provide match information for that purpose, or promote/broker it. Whether this research publication falls inside that scope is a legal question; no opinion exists.
+
+**What stays blank (8 items, published on the Unverified page).** Sportsbook prices and prop lines (ESPN relay of DraftKings, no official or licensed odds page, no capture times), prop settlement, the press-reported prop/parlay restrictions (the official release refers to restrictions without listing them), the team-ratings snapshot, closing-line values and realized ROI, a Korean legal opinion, and 79 of the 92 earlier score rows that were not re-read this session.
+
+**Integrity repairs made this session.**
+- The 31 previously advisory table rows in `docs/verified/**` that carried no official source now each carry an explicit official reference — an official methods document for a rule (NBA Terms, Stats FAQ, official release, statute, scikit-learn/NIST/statsmodels/SciPy documentation), or the official release that shows why a press-reported restriction is *not* enumerated. **No published value was changed**, and the strict site gate now reports **0 errors, 0 advisories**.
+- New machine checks: `scripts/build_verify.py`, `scripts/check_verify.py` and `.github/workflows/verify-ledger.yml`. The build fails if a ledger row has no official https link, an unknown status, a MISMATCH, an unverified row that carries a value, a table row without a source, or a broken internal link.
+
+**Bottom line, unchanged.** Verifying scores and statutes says nothing about beating a market. On the one graded slate the market was at least as accurate as Own6, every interval included zero, and **no strategy is skill-eligible**. Verifying data removes bookkeeping error; it cannot remove luck from a 15-game sample.
+
+---
+
+## Session `arena/27fdbe09-own6` — 5 November 2026 snapshot and full integration
+
+**Bottom line, unchanged.** No validated strategy, no qualified leaderboard entry, no verified
+market price, no player-prop correlation. Rewards remain non-monetary research priority. Nothing
+here is betting advice. What is new is that today's facts were re-read from official pages, every
+table row links to the page used, and the five outstanding session PRs were merged and re-checked
+together.
+
+**What was verified today (2026-11-05, NBA.com):**
+
+| Check | Result | Source |
+|---|---|---|
+| Standings, 2026-27 | 30 rows read; 121 wins = 121 losses | [nba.com/standings](https://www.nba.com/standings) |
+| 4 November final scores | 14/14 read one game card at a time | [nba.com/games 2026-11-04](https://www.nba.com/games?date=2026-11-04) |
+| Archive reconciliation, today | 121 games → **30/30** team records match today's standings | [nba.com/standings](https://www.nba.com/standings) |
+| Archive reconciliation, 3 Nov | 107 games → **30/30** team records match the 3 Nov snapshot | [nba.com/standings](https://www.nba.com/standings) |
+| 4 Nov delta | 28 teams moved by exactly one game; ORL and GSW idle | [nba.com/games](https://www.nba.com/games?date=2026-11-04) |
+| Forward slate | 11 games (5–6 Nov) with tip times, IDs, Cup groups | [ORL @ PHX game page](https://www.nba.com/game/orl-vs-phx-0022600187) |
+| Rights text | §9(i)–(vii) and the FAQ download statement re-read verbatim | [Terms](https://www.nba.com/termsofuse), [FAQ](https://www.nba.com/stats/help/faq) |
+
+**Signal research, with luck controlled.** A ridge team-rating margin/total model, refitted before
+every game, scored 61 unseen games: winner accuracy **67.2%** (95% Wilson 54.7–77.7%) against
+**50.8%** for always picking the home team. But the paired McNemar exact test gives **p = 0.0639**
+and the bootstrap interval on Brier skill (**+0.130**, 95% **−0.039 to +0.296**) contains zero. The
+honest reading is *preliminary signal, unproven*. With ~4 games per team and no market benchmark,
+nothing is promoted; the leaderboard stays empty.
+
+**Measured dependence, for parlay design (official finals only).** Margin vs total r = **+0.018**
+[−0.161, +0.196] (n=121) — side and total carry little shared information here; home vs away points
+r = **+0.199** [+0.022, +0.365] — pace couples the two sides of the same game, so two overs are not
+independent; split-half team differential r = **+0.464** [+0.124, +0.706] (n=30) — weak evidence that
+team quality persists, on a very small sample. Player-prop correlations stay **blank**: no licensed
+player-level archive exists and Terms §9(iv) bars gambling-related use.
+
+**Integration.** Five stale session PRs (#23, #28, #31, #32, #37) were merged into this branch with
+both sides of every coordination-board conflict preserved. Their merges close the last 31 advisory
+un-sourced rows (`check_site`: 0 errors, **0 advisories**) and add the assurance and verification
+ledgers. All nine CI gate suites pass on the combined tree, including 135 pytest tests plus 6
+subtests, the fail-closed lab (`not_run`, zero observations), the 12-page hub (335 rows, 0 errors)
+and the new 9-page daily snapshot (0 issues). Regenerating the derived artifacts is idempotent.
+Their factual claims were structurally re-checked, not independently re-verified by this session, and
+are labelled that way.
+
+**Open flags (do not block publication).** Rights under Terms §1/§9(iv); no official price source;
+no player-level data; the 3 Nov file named "live" is stale; ~4 games per team; older score rows
+validated in aggregate only. Full list on the site's Flagged for Review pages and in
+[`audit/SESSION_27fdbe09.md`](audit/SESSION_27fdbe09.md).

@@ -156,6 +156,105 @@
       "detail": "Verbatim, fetched live from https://www.nba.com/termsofuse on 2026-11-02 during integration re-verification (request A28-REQ-01 from session arena/a28a2ee1-own6, substantiated and upgraded): §9 — 'the NBA Statistics may not be used in connection with any gambling activity (including legal gambling activity)'; also (i) prominent attribution to NBA.com required, (ii) use limited to legitimate news reporting or private non-commercial purposes, (v)-(vii) fantasy/real-time/database restrictions. §1 — 'No Basketball Content from the Services may be ... linked to, or otherwise used except as provided in these Terms of Use without the written permission of the Operator.' This project consumes NBA efficiency definitions (PACE/OffRtg/DefRtg) and links NBA pages as sources; it is research-only and non-commercial, but applicability to a gambling-research context is a legal question. This flag states the terms only — no legal conclusion.",
       "source_url": "https://www.nba.com/termsofuse",
       "action_requested": "Obtain written legal review on §§1 and 9 applicability (with A28-REQ-01); consider NBA permission before any gambling-adjacent use of NBA Statistics or deep source linking; keep the site research-only meanwhile."
+    },
+    {
+      "id": "F17",
+      "category": "Legal (NBA ToU)",
+      "severity": "High",
+      "item": "NBA.com Terms §9(ii) limits NBA Statistics to “legitimate news reporting or private, non-commercial purposes”.",
+      "detail": "Read 2026-11-03 (Terms of Use, chunk 3). §9(i) requires prominent attribution to NBA.com; §9(iii) bars use with sponsorship or commercial identification; §9(iv) bars use “in connection with any gambling activity (including legal gambling activity)”. This project is commercial-purpose, gambling-themed research, so §9(ii) and §9(iv) apply on the face of the Terms. No legal opinion has been obtained.",
+      "source_url": "https://www.nba.com/termsofuse",
+      "action_requested": "Owner: obtain written permission from NBA or qualified legal review before more NBA Statistics are published or analysed. Decide whether NBA-derived figures stay on public pages (see F26)."
+    },
+    {
+      "id": "F18",
+      "category": "Site defect (fixed)",
+      "severity": "High",
+      "item": "The landing page on main (docs/index.html) contained unresolved Git merge-conflict markers.",
+      "detail": "Lines 1, 4 and 6 were the literal text '<<<<<<< HEAD', '=======' and '>>>>>>> 111ab29', so raw text showed above the navigation. The earlier re-verification record (arena/f56f0055-own6) lists no irregularity here. Fixed on arena/269a73e2-own6 by keeping the full navigation and removing the second copy. A parser check finds no unclosed tags. Live result to be confirmed after deploy.",
+      "source_url": "https://github.com/sassnarep3-star/Own6/blob/main/docs/index.html",
+      "action_requested": "Confirm on the live landing page after the merge. No further action expected."
+    },
+    {
+      "id": "F19",
+      "category": "Site defect (fixed)",
+      "severity": "Medium",
+      "item": "Empirical lab tables printed '<generator object …>' in place of data rows.",
+      "detail": "scripts/build_lab.py table() wrote each row with a set comprehension inside an f-string, so the lab Strategies page (and any other lab table) had no readable cells. Fixed by emitting one <td> per cell. docs/lab/strategies.html now lists L1, L2, L3, P1, C1 and X1. scripts/check_lab.py passes.",
+      "source_url": "https://github.com/sassnarep3-star/Own6/blob/main/scripts/build_lab.py",
+      "action_requested": "None beyond review."
+    },
+    {
+      "id": "F20",
+      "category": "Site defect (fixed)",
+      "severity": "Medium",
+      "item": "Rebuilding docs/verified/sources.html removed the F16 Terms-of-Use caution.",
+      "detail": "The caution was added by an earlier integration patch, not by scripts/build_site.py, so every rebuild dropped it. It is now written by the generator, quoting §9(ii) as well as §9(iv) (see F17). A rebuild reproduces the corrected page.",
+      "source_url": "https://github.com/sassnarep3-star/Own6/blob/main/scripts/build_site.py",
+      "action_requested": "None beyond review."
+    },
+    {
+      "id": "F21",
+      "category": "Correlation (recomputed)",
+      "severity": "Medium",
+      "item": "Correlation home_score_vs_away_score, r = 0.2004, n = 92, is not statistically distinguishable from zero.",
+      "detail": "Recomputed 2026-11-03 from data/games_results_2026-27.csv: r = 0.2004, n = 92, reproduced exactly. t = 1.94, two-sided p = 0.055; Fisher 95% CI −0.005 to 0.389. The published table gives no CI or p-value. It does not establish a usable same-game dependence.",
+      "source_url": "https://github.com/sassnarep3-star/Own6/blob/main/data/correlation_findings.csv",
+      "action_requested": "Publish the CI and p-value next to r, or mark the value not significant. No edge, parlay or prop adjustment should use it."
+    },
+    {
+      "id": "F22",
+      "category": "Correlation (recomputed)",
+      "severity": "High",
+      "item": "Correlation same_date_game_margins, r = 0.1052, n = 357, depends on an arbitrary pair order and is not a valid estimate.",
+      "detail": "The value reproduces only when each same-date pair is taken once in file order (n = 357). Taking both orders gives r = 0.0927 (n = 714). The pairs share games and dates, so they are not independent, and no script in the repo computes the value.",
+      "source_url": "https://github.com/sassnarep3-star/Own6/blob/main/data/correlation_findings.csv",
+      "action_requested": "Withdraw the value, or recompute with a documented, order-invariant method and dependence-aware uncertainty."
+    },
+    {
+      "id": "F23",
+      "category": "Correlation (recomputed)",
+      "severity": "High",
+      "item": "Correlation teammate_PTS_Mitchell_Allen, r = −0.4222, rests on n = 6.",
+      "detail": "Fisher 95% CI −0.919 to 0.592; p = 0.40. The underlying ESPN gamelog rows are not in the repo, so the value cannot be reproduced. It is not usable for a leaderboard, parlay or prop decision.",
+      "source_url": "https://github.com/sassnarep3-star/Own6/blob/main/data/correlation_findings.csv",
+      "action_requested": "Keep blank/unverified. Collect full gamelog rows with source and checksum before any estimate."
+    },
+    {
+      "id": "F24",
+      "category": "Source labelling",
+      "severity": "Medium",
+      "item": "ESPN data is labelled 'official' in data/correlation_findings.csv.",
+      "detail": "The row cites 'ESPN official player gamelogs'. ESPN is a third-party provider, not an NBA official source, so the label is wrong. The market-lines file also uses ESPN API data (DraftKings lines via ESPN), which is secondary.",
+      "source_url": "https://github.com/sassnarep3-star/Own6/blob/main/data/correlation_findings.csv",
+      "action_requested": "Relabel as third-party (secondary) in the correlation file and in any page that copies it."
+    },
+    {
+      "id": "F25",
+      "category": "Correlation (recomputed)",
+      "severity": "Medium",
+      "item": "Correlation rest_diff_vs_home_margin, r = −0.0162, n = 76, cannot be reproduced from the repo.",
+      "detail": "The schedule-derived rest input is not in any repo file. data/games_results_2026-27.csv has no rest column. The value is unverified.",
+      "source_url": "https://github.com/sassnarep3-star/Own6/blob/main/data/correlation_findings.csv",
+      "action_requested": "Add the rest dataset with its official source and checksum, or leave the value blank."
+    },
+    {
+      "id": "F26",
+      "category": "Legal (NBA ToU) / publication",
+      "severity": "High",
+      "item": "The Own6 research sub-site republishes NBA game results and per-game nba.com links.",
+      "detail": "docs/own6/data.html has 92 per-game nba.com/game links. correlation.html and validation.html compute from data/games_results_2026-27.csv. These are the NBA Statistics that §9 governs (F17). This session did not fetch those 92 nba.com pages to re-verify them, because doing so would add to the same use. Verification status is therefore 'link present, values not re-verified'.",
+      "source_url": "https://www.nba.com/termsofuse",
+      "action_requested": "Counsel or owner decision: keep, remove, or obtain NBA permission before further publication. Then re-verify any retained rows against nba.com."
+    },
+    {
+      "id": "F27",
+      "category": "Process (board hygiene)",
+      "severity": "Low",
+      "item": "COORDINATION.md contains a duplicated session section and stale rows.",
+      "detail": "The arena-5dfdc6d5 section appears twice. The second copy still lists E3, E4 and E5 as 'unclaimed'. The README cites session arena/325834c9-own6 for docs/own6/, but that session has no board entry. Nothing was removed, per the board's rule that other sessions' content is kept.",
+      "source_url": "https://github.com/sassnarep3-star/Own6/blob/main/COORDINATION.md",
+      "action_requested": "Owner or integration session: prune the duplicate block and add a board entry for arena/325834c9-own6 (or record its absence)."
     }
   ]
 }

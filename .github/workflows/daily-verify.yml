@@ -1,0 +1,30 @@
+name: Daily verified snapshot
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  daily:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Recompute the snapshot analysis from the committed CSVs
+        run: python3 scripts/daily_analysis.py
+      - name: Generated pages must match the builder
+        run: |
+          python3 scripts/build_daily.py
+          git diff --exit-code -- docs/daily
+      - name: Row sources, blank market cells and reconciliation
+        run: python3 scripts/check_daily.py
+      - name: Adversarial regressions
+        run: python3 -m unittest discover -s tests -p test_daily.py -v

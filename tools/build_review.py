@@ -346,7 +346,7 @@ def build() -> dict[str, str]:
     NIST = "https://www.itl.nist.gov/div898/handbook/eda/section3/eda366i.htm"
 
     def flag(fid, item, why, verify, url, label, status="needs review"):
-        return [fid, item, why, verify, A(url, label), f'<span class="{"ok" if status == "resolved" else "warn"}">{status}</span>']
+        return [fid, esc(item), esc(why), esc(verify), A(url, label), f'<span class="{"ok" if status == "resolved" else "warn"}">{status}</span>']
 
     flags = [
         flag("F1", "Current team PACE / OffRtg / DefRtg values", "No official bulk download and no viewer-supplied export yet", "Export official stats with a retrieval date; publish n", F, "NBA Stats FAQ (source to check)"),

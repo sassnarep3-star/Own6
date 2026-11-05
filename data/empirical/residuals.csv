@@ -1,1 +1,1 @@
-pair_id,leg_a,leg_b,split,event_id,feature_source_url,feature_sha256
+pair_id,event_id,cluster_id,split,leg_a,leg_b,feature_source_url,feature_sha256,license_id

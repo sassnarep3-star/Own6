@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Correlation · Own6 verified snapshot</title>
+<meta name="description" content="Own6 NBA line research: official-source verified 5 November 2026 snapshot. Research only, no picks, no betting advice.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<nav class="top" aria-label="Section navigation">
+<a class="brand" href="index.html">OWN6 / DAILY VERIFY</a>
+<a href="index.html">Overview</a><a href="standings.html">Standings</a><a href="results.html">Results</a><a href="slate.html">Forward slate</a><a href="signals.html">Signal test</a><a href="correlations.html" class="active">Correlation</a><a href="validation.html">Validation gates</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for Review</a>
+</nav>
+<main>
+
+<p class="eyebrow">Category · Correlation</p>
+<h1>Measured dependence, and the cells we refuse to fill</h1>
+<p>Correlation is what decides whether a parlay is priced correctly. Multiplying marginal
+probabilities is only valid under independence; where the data show dependence, the joint
+probability has to be modelled. The first three rows are measured from the 121 official final
+scores in this repository. The prop rows are blank because no official, licensed player-level
+source is available to this project.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Quantity</th><th scope="col">Pearson r</th><th scope="col">95% interval</th><th scope="col">n</th><th scope="col">Interpretation</th><th scope="col">Status</th><th scope="col">Source</th></tr></thead><tbody><tr><td>Game margin vs game total (121 finals)</td><td class='num'>+0.018</td><td class='num'>-0.161 to +0.196</td><td class='num'>121</td><td>Near zero and the interval spans zero: on this sample, scoring margin carries almost no information about the total. A parlay pricing that treats a side and a total as independent is not contradicted here — but 121 games is too few to certify independence.</td><td><span class="pill ok">verified</span></td><td><a href="https://www.nba.com/games" rel="noopener">NBA.com ↗</a></td></tr><tr><td>Home points vs away points, same game</td><td class='num'>+0.199</td><td class='num'>+0.022 to +0.365</td><td class='num'>121</td><td>Positive and the interval excludes zero: both teams score in a shared pace environment. Any parlay combining two scoring overs is therefore <em>not</em> a product of two independent probabilities; the naive product understates the joint probability.</td><td><span class="pill ok">verified</span></td><td><a href="https://www.nba.com/games" rel="noopener">NBA.com ↗</a></td></tr><tr><td>Team differential: first half vs second half of its games</td><td class='num'>+0.464</td><td class='num'>+0.124 to +0.706</td><td class='num'>30</td><td>The luck-versus-skill probe: if results were pure noise this correlation would sit at zero. It is positive with an interval above zero, which is weak evidence that some team quality persists — but each half is only about two games per team, so the estimate is extremely unstable.</td><td><span class="pill warn">needs review</span></td><td><a href="https://www.nba.com/standings" rel="noopener">NBA.com ↗</a></td></tr><tr><td>Player-prop correlations and prop-parlay legs</td><td class="empty" aria-label="blank, unverified"></td><td class="empty" aria-label="blank, unverified"></td><td class="num">—</td><td>No licensed player-level observation archive exists for this project, and NBA Terms §9(iv) bars use of NBA statistics in connection with gambling. The cells stay blank.</td><td><span class="pill bad">unverified</span></td><td><a href="https://www.nba.com/termsofuse" rel="noopener">NBA.com ↗</a></td></tr><tr><td>Same-player stat correlation across two legs</td><td class="empty" aria-label="blank, unverified"></td><td class="empty" aria-label="blank, unverified"></td><td class="num">—</td><td>Requires per-player game logs with licensing; not available, so blank.</td><td><span class="pill bad">unverified</span></td><td><a href="https://www.nba.com/termsofuse" rel="noopener">NBA.com ↗</a></td></tr></tbody></table></div>
+<div class="note">
+<p><strong>What a parlay builder should do with this.</strong> Two legs on the same game share a
+pace factor (row 2), so a joint model is required; two legs on different games can be treated as
+independent only after checking that no shared team or player appears in both, and even then the
+independence assumption is a modelling choice, not a measured fact.</p>
+<p><strong>Multiple testing.</strong> Three correlations are reported here; at a 5% level, roughly
+one false positive is expected per twenty tests. Nothing on this page is corrected for multiplicity
+because nothing here is being promoted as a signal — they are descriptions used to design the
+joint model.</p>
+</div>
+
+</main>
+<footer>
+<p>Snapshot read from NBA.com on 2026-11-05. Research and record-keeping only: no picks,
+no prices, no wagers, no profitability claim. NBA statistics and content are the property
+of the NBA Entities — see the <a href="https://www.nba.com/termsofuse">NBA Terms of Use</a>
+and the <a href="flagged.html">Flagged for Review</a> page. Data: Facts only; every table
+row links to the official page that was read.</p>
+</footer>
+</body>
+</html>

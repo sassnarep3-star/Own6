@@ -22,9 +22,10 @@ from nba_lab.experiments import build_report  # noqa: E402
 from nba_lab.registry import STRATEGIES  # noqa: E402
 
 METRIC_FIELDS = [
-    "n", "events", "wins", "losses", "pushes", "win_rate", "roi", "roi_lower", "roi_upper",
+    "n", "events", "slates", "wins", "losses", "pushes", "win_rate", "roi", "roi_lower", "roi_upper",
     "clv_mean", "clv_lower", "clv_upper", "brier_model", "brier_market", "brier_edge_lower",
     "logloss_model", "logloss_market", "logloss_edge_lower", "breakeven_mean", "p_raw", "p_adjusted",
+    "roi_p", "brier_p", "logloss_p", "clv_p", "qualification_p_adjusted",
 ]
 
 
@@ -38,7 +39,7 @@ def fmt(value):
 
 def write_csv(path: Path, report: dict) -> None:
     with path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.writer(handle)
+        writer = csv.writer(handle, lineterminator="\n")
         writer.writerow([
             "strategy_id", "name", "status", "qualified",
             *METRIC_FIELDS,

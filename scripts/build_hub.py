@@ -95,7 +95,7 @@ def page(key, title, body, lead):
 <title>{E(title)} — Own6</title><link rel="stylesheet" href="assets/hub.css"></head><body>
 <header class="top">{nav}</header><main><h1>{E(title)}</h1><p class="lead">{E(lead)}</p>{notice}{body}</main>
 <footer><p>No manual inputs, wagers or cash rewards. No profitable edge is established by this hub. Statistical controls can quantify uncertainty; they cannot eliminate luck.
-{repo("audit/HUB_PUBLICATION_2026_11_03.md", "Executive review and limitations")} · <a href="../lab/overview.html">Empirical lab</a> · <a href="../review/index.html">Earlier review</a>.
+{repo("audit/HUB_PUBLICATION_2026_11_03.md", "Executive review and limitations")} · <a href="../lab/overview.html">Empirical lab</a> · <a href="../review/index.html">Earlier review</a> · <a href="../verify/index.html">Verification ledger (2026-11-03)</a>.
 Historical sections are preserved as unqualified archives, not verified-value publications. This repair covers docs/hub only.</p></footer>
 <script src="assets/hub.js"></script></body></html>'''
     (HUB / f"{key}.html").write_text(out, encoding="utf-8")

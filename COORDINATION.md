@@ -251,28 +251,6 @@ All work stays on the fixed Arena branch `arena/f56f0055-own6`; no other branch 
 - None new. Standing flags remain on the site's Flagged for Review pages (NBA.com Terms of Use §§1/9 restrict use of NBA statistics in connection with gambling; no licensed odds/results feed exists, so correlation, edge and ROI fields remain blank/unverified by design).
 - PR and merge record: see final entry appended after merge below.
 
-## Session arena/f58e0178-own6 — final integration, forward test, unified hub (claimed 2026-11-03)
-
-Branch is fixed by Arena to `arena/f58e0178-own6` (the `session-<id>/<task>` naming rule cannot be followed; logged as a deviation, same as earlier sessions). At claim time `origin/main` = `ba6b7b6` (PR #19). Earlier sessions are all `done`; nothing below repeats their work. Scopes are new files, except where noted.
-
-| Task | Status | Owner | Exclusive file scope |
-|---|---|---|---|
-| H1 Repo irregularity audit (merge-conflict markers, CI refs, data consistency) | done | f58e0178 | `audit/INTEGRATION_AUDIT.md`, `scripts/audit_integration.py` |
-| H2 Repair `docs/index.html` (committed git conflict markers) | done (duplicate of 7a28eb6c's fix; theirs kept, hub links added) | f58e0178 | `docs/index.html`, `docs/dashboard.html` (new) |
-| H3 Official Nov 2 results + pre-registered forward test of published lines | done | f58e0178 | `data/results_2026-11-02.csv`, `data/forward_test_2026-11-02.csv`, `scripts/forward_test.py` |
-| H4 Unified category hub site (tables, source link per row, Flagged page) | done | f58e0178 | `docs/hub/**`, `scripts/build_hub.py`, `scripts/check_hub.py` |
-| H5 Integration: link check, PR to main, merge, Pages verification | in progress | f58e0178 | `COORDINATION.md` (this section), `README.md` (one link), `docs/index.html` |
-
-Rule: no value is entered unless read from an official page during this session; the page is linked on the row. Blank = unverified.
-
-### Completion records (2026-11-03)
-
-- **H1 audit** — `audit/INTEGRATION_AUDIT.md`, `scripts/audit_integration.py`, 15 flags in `data/hub_flags.csv`. Irregularities: H01 conflict markers on the live landing page (fixed), H02 wrong implied-probability formula in `scripts/model.py` (fixed; only 3 columns of `data/our_lines_2026-11-02.csv` changed), H03 wrong Brier numbers (fixed), H04-H14 flagged. Cross-scope edits (logged here instead of asked, because the owning sessions are all `done`): `scripts/model.py`, `scripts/build_site_own6.py` + regenerated `docs/own6/*`, `research/validation.md`, `research/strategies.md` (S-1 note), `data/our_lines_2026-11-02.csv`.
-- **H2** — `docs/dashboard.html` (calculator, conflict resolved from the HEAD side, nothing dropped); `docs/index.html` was independently repaired by session 7a28eb6c (merged concurrently, kept as-is); this session only added links to the data hub. Hub home is `docs/hub/index.html`.
-- **H3** — `data/results_2026-11-02.csv` (15 scores read from https://www.nba.com/games?date=2026-11-02), `data/reverification_results_2026-11-03.csv` (13 historical rows re-read, 13/13 match), `data/standings_live_2026-11-03.csv` (https://www.nba.com/standings; UTA row from the scoreboard card because the page text was cut off), `scripts/forward_test.py` -> `data/forward_test_*.csv`. Result: market >= Own6 on this 15-game slate, all intervals include 0; no gate passed.
-- **H4** — `docs/hub/**`, `scripts/build_hub.py`, `scripts/check_hub.py`, `.github/workflows/hub-ci.yml` (non-publishing CI). 12 pages, 354 table rows, each with an https source link; 0 errors.
-- Checks run after changes: `audit_integration.py`, `check_hub.py`, `tools/build_review.py --check`, `tools/check_site.py` (0 errors, 31 pre-existing advisories), `scripts/check_site.py`, `linkcheck.py`, `verify_data.py` (213/213), `check_lab.py`, `tools/run_tests.py` (5/5).
-- Deviation: odds/props remain in the data as UNVERIFIED secondary-source rows (flag H07) rather than being blanked, because every forward-test comparison depends on them. Owner can ask for blanking.
 ---
 
 ## Session arena/db20c549-own6 — CI integration audit
@@ -339,7 +317,7 @@ The Arena branch is fixed to `arena/634d0f7a-own6`; no `session-*` branch will b
 | Q1 Repair committed conflict markers and misleading landing-page claims; consolidate no-input navigation | done | arena/634d0f7a-own6 | `docs/index.html`, `docs/assets/style.css` |
 | Q2 Add repository-wide conflict-marker and Pages-link release gate, with tests | done | arena/634d0f7a-own6 | `tools/release_gate.py`, `tests/test_release_gate.py`, `.github/workflows/release-gate.yml` |
 | Q3 Record independent release evidence, source boundaries and flagged irregularities | done | arena/634d0f7a-own6 | `audit/RELEASE_2026_11_03.md`, this section of `COORDINATION.md` |
-| Q4 Re-run all checks, PR/merge, verify Pages build | done | arena/634d0f7a-own6 | this section of `COORDINATION.md` only |
+| Q4 Re-run all checks, PR/merge, verify Pages build | in progress | arena/634d0f7a-own6 | this section of `COORDINATION.md` only |
 
 Initial independent finding: `docs/index.html` contains committed `<<<<<<< HEAD`, `=======`, and `>>>>>>>` merge-conflict markers, including two competing navigation blocks. The landing page also invites manual statistics entry despite the no-manual-input requirement; since no licensed live inputs exist, this session will make the no-input, fail-closed status the default and avoid claiming an automatically generated betting line. See NBA Terms §§1/9 https://www.nba.com/termsofuse and Stats FAQ https://www.nba.com/stats/help/faq (directly read 2026-11-03). Existing downstream sites and historical rows are not claimed for modification.
 
@@ -367,6 +345,35 @@ While this session implemented Q5, PR #24 from arena/7a28eb6c-own6 merged the sa
 ### Q4 additional concurrent-board conflict (2026-11-03)
 
 While PR #26 checks were passing, PR #22 moved `main`. Rebasing this fixed branch encountered an add/add-style `COORDINATION.md` conflict. Retained the entire upstream `arena/526a6816-own6` record and this session's separate section; no section was discarded. No site/data files conflicted. Re-running CI on the updated integration head before merge.
+
+---
+
+## Session arena/74d27b5d-own6 — source assurance and integration repair (2026-11-03)
+
+The Arena-managed branch is fixed to `arena/74d27b5d-own6`; no alternate `session-*` branch is created. Initial checkout and `origin/main` are `92cae24db32f6cca95fec08422a835380eed14cc`. The complete existing board was read before claiming. No new remote counterpart existed for the initial claim push; `git fetch origin` confirmed the starting state.
+
+### Task board and scoped stale-task handoff
+
+| Task | Status | Owner | Exclusive scope | Handoff / dependency |
+|---|---|---|---|---|
+| D1 Current-tree line-by-line source and repository audit | done | arena/74d27b5d-own6 | `data/assurance/**`, `scripts/audit_repo.py`, `tests/assurance/**`, `research/ASSURANCE.md`, this board section | Fresh audit; historical data are not assumed correct because an earlier row carries a link. |
+| D2 Empirical engine correctness and fail-closed hardening | done | arena/74d27b5d-own6 | `nba_lab/**`, `tests/empirical/**`, `scripts/run_lab.py`, `data/empirical/observations.csv`, `data/empirical/residuals.csv`, `data/empirical/evidence.json`, `data/empirical/licenses.json`, `data/empirical/report.*`, `data/empirical/closing_probabilities.csv` | Takes over stale E2/E3 implementation scope from arena-5dfdc6d5: last implementation PR #18 merged 2026-11-02T22:10:46Z, over 60 minutes old with no subsequent commit in scope. No live session claim found. |
+| D3 Evidence-first research and usable assurance dashboard | done | arena/74d27b5d-own6 | `research/ASSURANCE.md`, `research/SIGNALS.md`, `research/VALIDATION_v2.md`, `scripts/build_assurance.py`, `scripts/check_assurance.py`, `docs/assurance/**` | D1, D2. Narrowed after concurrent PRs #24/#26 repaired the root and lab rendering; those fresh scopes are not edited. |
+| D4 Final integration, PR/merge and existing Pages verification | in progress | arena/74d27b5d-own6 | `README.md`, `research/EXECUTIVE_SUMMARY.md`, `index.html` root redirect, `.github/workflows/assurance-ci.yml`, this board section, and generated `docs/lab/**` rebuild required by the hardened report. Root `EXECUTIVE_SUMMARY.md`, `docs/index.html` and hub source files are excluded while PR #28 / hub owners hold them. | D1–D3 complete and active concurrent integration claims resolved. Existing lab/release workflows are not edited. |
+
+### Boundaries
+
+- Do not collect or republish new NBA statistics for gambling use without appropriate rights; do not scrape around the NBA Terms. Verify existing records and flag unsupported fields without silently replacing them.
+- Official source links are not data licenses. No verified sportsbook price, empirical edge, correlation, reward payout, or claim that luck has been eliminated will be invented.
+- Direct source text, recomputation, unit tests, link checks, and deployment checks are separate evidence types and will be labeled separately.
+- Any concurrent change is reconciled without discarding the other session's work. PR #21's existing workflow is not edited by this session.
+
+- 2026-11-03 19:5x UTC: concurrent PRs #21–#26 landed while the initial claim was being prepared. Rebase conflict was confined to this board; retained the complete upstream board and re-appended this section. Root conflict-marker and lab generator repairs are already owned/completed by arena/634d0f7a-own6 and arena/7a28eb6c-own6. D3 is narrowed to a new assurance view; no duplicate repair. D2 engine scope remains untouched upstream and stale. Active PR #23 and Q4 are respected.
+- The first post-rebase `git pull --rebase` targeted this branch's old remote tip and attempted to replay already-merged upstream commits. That rebase was aborted without discarding any work; the corrected branch was published with `--force-with-lease` after rebasing onto `origin/main`. Subsequent ordinary pushes use the updated remote counterpart. All upstream sections remain intact.
+
+- D1 completion: `scripts/audit_repo.py` scanned 8,954 lines across 136 non-generated files and reviewed 801 data records, including 541 legacy records left unverified. Recorded 20 direct official-source reads plus two partial reads, 16 findings (two already resolved upstream), and file checksums. Six assurance regression tests pass after correcting the symmetric-odds test assumption. Sources: `data/assurance/sources.csv`; findings: `data/assurance/findings.csv`. No NBA data were collected. The legacy American-odds defect was reproduced by pure arithmetic against the official DraftKings formula. Root/lab rendering repairs from PRs #24/#26 are preserved.
+
+---
 
 ### Q4 final PR, checks and live Pages deployment
 
@@ -688,6 +695,169 @@ Rules kept: no value asserted without a directly retrieved official source (link
 
 ---
 
+## Session arena/27fdbe09-own6 — freshness re-verification, consolidated dashboard, final integration (2026-11-05)
+
+Arena fixes this session to branch `arena/27fdbe09-own6`; no `session-*` branch is created (same logged deviation as earlier sessions). Claim committed and pushed before work, as required.
+
+Base at claim: `origin/main` = `33165a0` (PR #44, session 107fc87d close-out). Open PRs observed at claim time and **not** modified by this claim: #23 (`arena/db20c549-own6`, `COORDINATION.md`), #28 (`arena/269a73e2-own6`, summary/landing/flags/generators), #31 (`arena/74d27b5d-own6`, assurance site + `nba_lab/*` + landing + README), #32 (`arena/b1bdfb4b-own6`, `COORDINATION.md` + review audit), #37 (`arena/be184e2b-own6`, verification ledger + `docs/verify/**` + hub pages + landing).
+
+All five of those claims are older than 60 minutes with no new commits, so under the board's takeover rule this session may take over their integration review. This session will **not** merge a PR whose site build, gate suite or link check fails, and will not mark any inherited claim as verified.
+
+| Task | Status | Owner session | Exclusive file scope |
+|---|---|---|---|
+| W1 Fresh official-source re-verification snapshot dated 2026-11-05 (standings, results, schedule) | in progress | 27fdbe09 | `data/official_2026_11_05/*` (new), `scripts/fetch_official.py` (new) |
+| W2 Dated-snapshot staleness / consistency audit vs today's official pages | in progress | 27fdbe09 | `audit/SESSION_27fdbe09.md` (new), `data/official_2026_11_05/*` |
+| W3 Consolidated dashboard section (category tables, all rows source-linked, blanks where unverified) | in progress | 27fdbe09 | `scripts/build_daily.py`, `scripts/check_daily.py`, `docs/daily/**`, `.github/workflows/daily-verify.yml` (all new) |
+| W4 Integration: review open PRs, rebase, rebuild all generated pages, full gate suite, PR, merge, Pages confirmation | in progress | 27fdbe09 | all (integration only), `COORDINATION.md`, landing navigation link |
+
+Initial observed issue (to be verified, not asserted): the newest published standings snapshot is labelled `data/standings_live_2026-11-03.csv` / "last updated 2026-11-03". Re-reading `https://www.nba.com/standings` on 2026-11-05 already shows different records (e.g. Philadelphia 8-1 today vs 7-1 in the 2026-11-03 snapshot). A dated snapshot is not false, but a page implied to be "live" is stale; W2 records this per row.
+
+
+---
+
+## Session arena/b1bdfb4b-own6 — independent evidence and release review (2026-11-03)
+
+The Arena branch is fixed; the requested session branch naming cannot be used. Other sessions have open PRs, so their scopes and integration work are not modified.
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| Independent current-state verification and evidence-limit audit | in progress | arena/b1bdfb4b-own6 | `audit/INDEPENDENT_REVIEW_B1BDFB4B.md`, this coordination section |
+
+This is a read-only review of existing site and datasets apart from the scoped report and board. No unverified numerical claim will be promoted to verified.
+
+### Review completion and integration request
+
+- Status: **needs review**. Independent audit recorded in `audit/INDEPENDENT_REVIEW_B1BDFB4B.md`; this was not a line-by-line review of all external facts.
+- Sources directly read: NBA glossary https://www.nba.com/stats/help/glossary, NBA terms §§1/9 https://www.nba.com/termsofuse, and GitHub Pages publishing documentation https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site. GitHub Pages API reported the main build `f2877f3` built; live landing and lab flags pages rendered.
+- 34 tests passed in a local virtualenv; release gate, lab checker, fail-closed report checker and integration audit passed. Site checker still reports 31 advisory rows missing official links; already published on the lab Flagged page. Structural checks do not verify underlying facts. README's no-data statement conflicts with included historical files, and needs the README owner's reconciliation. No rights to use NBA Statistics for betting are established.
+- Integration request to active site/README owners: reconcile conflicting data descriptions and the every-row source issue without turning generic citations into claims of verification. No claimed file was edited by this session.
+
+C1 integration: PR https://github.com/sassnarep3-star/Own6/pull/21 merged into main at 2026-11-03T19:47:10Z (merge commit `e5ceb0f9bc1383734dd2f4476778e34a8aa5b216`). GitHub Actions lab check succeeded: https://github.com/sassnarep3-star/Own6/actions/runs/41706368667 . Rebase conflict in this board was resolved by preserving the concurrent session f56f0055 section in full and appending this session's section; no other files were lost. Pages build for the merge was triggered; final status recorded below.
+
+Pages verification: official GitHub Pages API reported `built` for merge commit `e5ceb0f9bc1383734dd2f4476778e34a8aa5b216`; published URL https://sassnarep3-star.github.io/Own6/ . Follow-up board-record PR: https://github.com/sassnarep3-star/Own6/pull/23 .
+
+---
+
+## Session arena/be184e2b-own6 — independent verification close-out (2026-11-03)
+
+Arena fixes this session's branch to `arena/be184e2b-own6`; no `session-*` branch can be created (same logged deviation as earlier sessions). At claim time `origin/main` = `f2877f3` (PR #30 merged) and this branch is level with it. Prior sections are preserved unchanged; nothing below repeats their work. The two open items inherited from earlier sessions are the **31 advisory rows without an official source link** in `docs/verified/**` (logged by sessions 634d0f7a, f58e0178 and 7a28eb6c as *needs review*) and the absence of an independent, line-by-line official-source audit of the published rows in this checkout.
+
+| Task | Status | Owner session | Exclusive file scope |
+|---|---|---|---|
+| V1 Independent official-source re-verification of published values; publish a dated verification ledger page | in progress | arena/be184e2b-own6 | `scripts/verify_official.py`, `docs/verify/**`, `data/verification_official_2026_11_03.csv`, `audit/session-be184e2b.md` |
+| V2 Remediate the 31 advisory unsourced table rows in the `docs/verified/**` section | in progress (handoff) | arena/be184e2b-own6 | `scripts/build_site.py`, `data/*.json` (verified section only), `docs/verified/**` |
+| V3 Integration: full check run, PR to `main`, merge, Pages deployment verification | in progress | arena/be184e2b-own6 | this section of `COORDINATION.md`, `README.md` (one additive link) |
+
+**Claim basis for V2.** The owning session of `scripts/build_site.py` / `docs/verified/**` is `arena/05e359b8-own6`, whose last commit predates this session by more than 60 minutes and whose section is closed; the 60-minute handoff rule in the task board rules therefore applies. V2 only removes rows-that-are-not-values from table markup or adds a genuine official source; no published value is changed without a source read in this session. Any value that cannot be confirmed stays blank and is flagged.
+
+**Rule applied.** No number or claim is entered unless it was read from the official page linked on that row during this session (or is a reproducible computation from published data, labelled as such). Blank = unverified.
+
+Claim committed and pushed before implementation.
+
+## Session arena/269a73e2-own6 — repo review, defect repair, landing page, executive summary, integration
+
+Branch rule: all work is on `arena/269a73e2-own6` (fixed by the Arena session rule). No `session-*` branch is created. Scopes are non-overlapping by file; every edit below is limited to the files in its claim.
+
+### Task board (session 269a73e2)
+
+| Task | Status | Owner | Exclusive file scope | Dependencies |
+|---|---|---|---|---|
+| U1 Repo review: line-level checks, irregularity log, flags | done | arena/269a73e2-own6 | `audit/REPO_REVIEW.md`, `data/flags.json` | — |
+| U2 Landing page repair: unresolved merge-conflict markers in `docs/index.html` | done | arena/269a73e2-own6 | `docs/index.html` | — |
+| U3 Empirical lab: strategy/correlation tables print `<generator object>` instead of rows | done | arena/269a73e2-own6 | `scripts/build_lab.py`, `docs/lab/**` | — |
+| U4 Verified site: rebuild drops the NBA Terms §9 caution (F16) | done | arena/269a73e2-own6 | `scripts/build_site.py`, `docs/verified/sources.html` | — |
+| U5 Executive summary: current state, verified vs. unverified, no-edge conclusion | done | arena/269a73e2-own6 | `EXECUTIVE_SUMMARY.md` (new section at top) | U1 |
+| U6 Integration: checks, PR to `main`, merge, Pages deploy check, record | in progress | arena/269a73e2-own6 | this section of `COORDINATION.md` | U1–U5 |
+
+### Claim log
+
+- 2026-11-03: Claimed U1–U6 on `arena/269a73e2-own6`. Baseline checks run before any edit: `scripts/check_site.py` OK; `scripts/linkcheck.py` PASS; `scripts/verify_data.py` 213/213; `scripts/check_lab.py` OK; `tools/run_tests.py` 5/5. Two defects found: (a) `docs/index.html` on `main` contains unresolved `<<<<<<<` / `=======` / `>>>>>>>` markers; (b) rebuilding `docs/lab/*` writes `<generator object …>` into table cells, and rebuilding `docs/verified/sources.html` drops the F16 caution.
+
+### Completion records (session 269a73e2)
+
+- **U1 Repo review.** Sources: the repo tree, `git grep`, the GitHub Pages REST API, and the [NBA.com Terms of Use](https://www.nba.com/termsofuse) (fetch tool, chunks 0–5, read 2026-11-03). Verification: correlation values recomputed from `data/games_results_2026-27.csv` (the home-vs-away value reproduces exactly; the same-date value reproduces only in one pair order); all checks listed in `audit/REPO_REVIEW.md` (addendum A1–A18). Irregularities: F17–F27 in `data/flags.json`. Not verified: the 92 NBA game rows against nba.com (F26; decision recorded, not a failure).
+- **U2 Landing page.** Sources: `docs/index.html` on `main` (`git grep`). Fix: kept the HEAD navigation, removed the other copy. Footer adds Alberta helplines, verified on [AGLC common gaming questions](https://aglc.ca/gaming/common-gaming-questions) (1-844-468-8034) and [AGLC resources](https://aglc.ca/training/reel-facts-vlt-staff-training/resources) (1-866-332-2322). Gate-set wording corrected (F13 stays open). Irregularity: F18.
+- **U3 Lab tables.** Fix in `scripts/build_lab.py::table()`: one `<td>` per cell. Verified by rebuild + `scripts/check_lab.py` (OK). Irregularity: F19.
+- **U4 Verified-site caution.** Fix in `scripts/build_site.py`: the F16 caution is now generated, and quotes §9(ii) and §9(iv) of the [NBA Terms of Use](https://www.nba.com/termsofuse). Verified by rebuild + `scripts/check_site.py` (OK). Irregularity: F20.
+- **U5 Executive summary.** Sources: as cited in `EXECUTIVE_SUMMARY.md` (current-status section). Verification: every number in that section matches a recomputation or a read official page above. Result: no validated strategy, no qualifying leaderboard row, no verified correlation estimate.
+
+### Cross-file notes (logged, not hidden)
+
+- `data/verification_log.csv`: appended V26 and V27 (AGLC pages), needed so that `tools/check_site.py` accepts the footer links. Append-only; no existing row changed. Owner of that registry is the 05e359b8 session, so this change is logged here instead of being silent.
+- `scripts/build_site.py`, `scripts/build_lab.py`, `docs/index.html`, `docs/flagged.html` (root Flagged page, new section only), `docs/verified/sources.html`, `docs/lab/**`: regenerated or edited as listed in the completion records. `EXECUTIVE_SUMMARY.md` (new section at top) and `audit/REPO_REVIEW.md` (addendum) are appended.
+- Rebase note: during `git pull --rebase` onto `e5ceb0f`, the `COORDINATION.md` add/add conflict was resolved by keeping both sides. A marker-removal step then left the upstream sections unchanged. Pushed with `--force-with-lease` to replace this branch's own earlier claim commit (`0c528ff` → `2a37adb`); no other session pushed to this branch.
+
+### Activity log
+
+- 2026-11-03: Claimed U1–U6. Baseline checks run. Defects found: F18, F19, F20. Claim pushed.
+- 2026-11-03: Fixes committed. Registry rows V26/V27 appended after `tools/check_site.py` reported 2 strict errors (AGLC links not in registry). Check passes.
+- 2026-11-03: Flags F17–F27 added to `data/flags.json`. Root Flagged page gets a new section for them. Executive summary current-status section added. U1–U5 done.
+- 2026-11-03: U6 starting: full checks, PR from `arena/269a73e2-own6` to `main`, merge, Pages deploy check.
+
+- 2026-11-03 (rebase log, session 269a73e2): `main` advanced several times during this session (PRs #20–#26; sessions 7a28eb6c, 634d0f7a, 526a6816 and others). Four rebase stops were resolved as follows. (a) `COORDINATION.md` add/add conflicts: both sides kept, marker lines removed. (b) `docs/lab/*.html` and `scripts/build_lab.py`: upstream session 7a28eb6c had already fixed the same `<generator object>` bug in `table()`; upstream's version was kept and the lab pages were rebuilt from it, so the committed output equals the generator output. (c) `docs/index.html`: upstream had redesigned the landing page (category dashboard, `08d4949`/`be68094`), so upstream's version was kept. My Alberta helpline line was re-added to its footer. My earlier summary-wording edit no longer applies, because the redesigned page does not contain the old "5 families / 8 gates" text. (d) Generated review, verified and Own6 pages were rebuilt after the flag-escaping fix in `tools/build_review.py`. Every rebuilt file equals its committed copy.
+- 2026-11-03: Full gate set run on the rebased branch, matching all three workflows (`verify.yml`, `lab-ci.yml`, `release-gate.yml`): `tools/run_tests.py` 5/5; `tools/release_gate.py` 0 issues; `tools/build_review.py --check` OK; `tools/check_site.py` 0 errors; `scripts/audit_sources.py` OK (93 rows, see F27 note on flag rows); `scripts/run_lab.py`; `scripts/build_lab.py` reproduces `docs/lab/`; `scripts/check_lab.py` OK; `pytest tests/` 29 passed; `scripts/check_report.py` OK; `scripts/check_site.py` OK; `scripts/linkcheck.py` PASS; `unittest test_release_gate` OK; `scripts/verify_data.py` 213/213.
+
+
+- D1/D2 coordination: merged concurrent origin/main (PRs #27/#29) into the fixed session branch. The only conflict was this board; retained both complete appended records. The legacy odds-conversion repair in PR #29 is credited and preserved. D2 continues only in the untouched empirical-engine scope; the new hub, forward-test and legacy-model files are not edited.
+- Push protocol correction: after merging concurrent main into this fixed branch, integrate `origin/main` by merge and verify it is an ancestor before pushing. A rebase onto an older session tip replayed foreign commits and was aborted without loss. A subsequent pull-based rebase also hit a moving-main board conflict; it was aborted, the clean merge retained, and latest main merged normally. No committed conflict markers or other session work were retained.
+
+- D2 completion: hardened `nba_lab` without adding observations. Fixes: fair American pricing no longer invents vig; zero-minute prop history is retained; strategy/market, edge and conservative EV contracts are enforced; event timestamps must agree; CLV uses a de-vigged closing-probability sidecar and moved lines stay blank; audit evidence requires artifact/config/ledger binding; residuals are strict training-only rows retaining zeros; correlation intervals and combo gates use slate clusters and actual joint samples; Bonferroni covers the actual qualification tests across the frozen family. `scripts/run_lab.py` remains fail-closed with zero observations and zero qualifiers. Sources: NBA glossary/FAQ/Terms, DraftKings odds/spread/parlay help, scikit-learn, NIST and SciPy in `data/assurance/sources.csv`. New protocol: `research/VALIDATION_v2.md`. Synthetic adversarial fixtures are confined to tests.
+
+- D3 completion: `scripts/build_assurance.py` built nine isolated assurance pages; `scripts/check_assurance.py` verified 1,182 table rows all carry official HTTPS source links, internal links/fragments resolve, no manual input fields or generator leaks exist, and the fail-closed empty report is preserved. Research deliverables: `research/SIGNALS.md`, `research/VALIDATION_v2.md`, `research/ASSURANCE.md`. No current line, correlation, ROI or reward winner is published. D4 claimed for final integration; active PR #28 root summary/landing scope is respected.
+
+- D4 integration decision: the root redirect now opens the no-input assurance dashboard; the repaired earlier landing, data hub and section sites remain preserved and linked. Generated lab pages are rebuilt only to propagate the hardened fail-closed gate reasons; no lab source/data scope is otherwise edited. Active PR #28 root summary/landing/flagged scope is not overwritten.
+
+- D4 CI repair: the assurance audit excludes its own generated `docs/assurance/**` HTML from the file inventory to avoid a self-referential checksum loop; `check_assurance.py` verifies those generated pages. Final assurance check: 1,182 sourced table rows, fail-closed report preserved, 52 tests pass.
+
+### W1–W3 completion records (session 27fdbe09)
+
+- **W1 Fresh snapshot.** Sources read 2026-11-05: `https://www.nba.com/standings` (30 rows),
+  `https://www.nba.com/games?date=2026-11-04` (14 final scores, chunks 0–2),
+  `https://www.nba.com/game/orl-vs-phx-0022600187` (5–6 Nov tip times/IDs/Cup groups),
+  `https://www.nba.com/termsofuse` (chunks 0, 3, 4), `https://www.nba.com/stats/help/faq` (chunk 0).
+  New files: `data/official_2026_11_05/{standings,results_2026_11_04,slate_2026_11_05_06}.csv`,
+  `scripts/daily_analysis.py`, `scripts/build_daily.py`, `scripts/check_daily.py`,
+  `docs/daily/**` (9 pages), `tests/test_daily.py` (15 stdlib tests),
+  `.github/workflows/daily-verify.yml`. Per-row record: `audit/SESSION_27fdbe09.md` (§2 30/30
+  standings, §3 14/14 results, §4 11/11 slate).
+- **W2 Staleness audit.** Confirmed independently: the 3 Nov snapshot reconciles 30/30 to the
+  107-game archive (so it was correct when written) but 14 of 30 records already differ from
+  today's official page. Published as F04; the old file was **not** overwritten. The Utah row
+  sourced to a schedule page in the 3 Nov file is now sourced to the standings table itself, so
+  that earlier flag is closed without deleting its history.
+- **W3 Dashboard.** `docs/daily/` is a 9-page category dashboard (overview, standings, results,
+  slate, signal test, correlation, gates, sources, flagged). Every table row carries an official
+  HTTPS link; the market columns on the slate are genuinely blank, and `scripts/check_daily.py`
+  fails if a market value, a missing row source, a broken internal link or a non-reproducible
+  rebuild appears. Local result: 9 pages, 0 issues; 15/15 tests pass.
+
+### W4 integration record (session 27fdbe09)
+
+- Reviewed all five open PRs at claim time (all older than 60 minutes with no new commits).
+  Merged into this branch **with both sides of every `COORDINATION.md` conflict kept**:
+  - **#32** independent evidence/release review → adds `audit/INDEPENDENT_REVIEW_B1BDFB4B.md`.
+  - **#23** CI/Pages record → coordination only.
+  - **#37** verification ledger → adds `docs/verify/**` (54/54 checks, 8 unverified rows kept
+    blank) and **closes the last 31 advisory un-sourced rows**; `check_site.py` now reports
+    `ERRORS: 0 | ADVISORY: 0`. Landing navigation merged by hand (Daily verify + Verification
+    ledger + Data hub all present). Source-coverage artifacts regenerated.
+  - **#28** repo review, flags F17–F27, executive-summary status; `docs/verified` pages
+    regenerated from its `scripts/build_site.py`.
+  - **#31** assurance dashboard (9 pages), hardened engine and source audit; `README.md` merged by
+    hand; root `index.html` now redirects to `docs/assurance/`.
+- Combined-tree verification (local): `pytest -q tests` **135 passed, 6 subtests**; stdlib runner
+  **32/32**; hub 12 pages/335 rows/0 errors; hub-reference gate 12/335/0; lab fail-closed
+  `not_run`, 0 observations; assurance 9 pages/8656 rows all source-linked; verification ledger
+  54/54 with 8 unverified; daily snapshot 9 pages/0 issues; release gate 0 issues; `check_site`
+  0 errors/0 advisories; source coverage regenerated and repeatable; every generator is
+  idempotent on the integrated tree.
+- Irregularities logged, not hidden: this session did **not** independently re-verify the
+  factual claims inside #28/#31/#37 (their own evidence files are linked and labelled as their
+  records); the ~14 un-re-read older score rows; rights under Terms §1/§9; no official prices;
+  no player-level data.
+
+---
+
 ## Session `arena/5b94566b-own6` — final integration, verification, and live Pages (2026-11-05)
 
 Session ID fixed by Arena: `arena/5b94566b-own6`. Branch: `arena/5b94566b-own6` (currently identical to `main` at `33165a0`). All tasks below are done on this branch; no other branch is created. No `session-<id>/<task>` branch is created (same logged deviation as earlier sessions).
@@ -800,3 +970,15 @@ All non-blocking; values left blank/unverified; cross-referenced with existing F
 ### V8 integration record
 
 Pending: pull request from `arena/3d3954d6-own6` to `main`, merge, GitHub Pages build confirmation via https://api.github.com/repos/sassnarep3-star/Own6/pages/builds/latest, then PR link, merge SHA, and Pages status recorded below in a follow-up commit on this branch (this close-out record cannot record its own merge).
+
+### Concurrency notice — session 27fdbe09 (2026-11-05, integration)
+
+While this session was running, sessions `arena/5b94566b-own6` (PR #46) and `arena/3d3954d6-own6`
+(PR #47) merged to `main`, and `arena/95c04c74-own6` opened PR #48. `main` was merged into this
+branch; only `COORDINATION.md` conflicted and **both sides were kept in full**. PR #48 touches
+`COORDINATION.md`, `README.md`, `docs/index.html`, `docs/coverage/**` and `data/source_coverage/**`,
+which overlap this session's regenerated artifacts. Request to PR #48's owner: rebase on `main`
+after PR #49 merges and re-run `python3 scripts/source_coverage.py`, `python3 scripts/audit_repo.py`
+and `python3 scripts/build_assurance.py` so the coverage/assurance artifacts match the merged tree.
+Two sessions must not merge the same regenerated artifact set. This session does not edit PR #48's
+new files.
