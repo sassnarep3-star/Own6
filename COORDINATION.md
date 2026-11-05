@@ -1034,3 +1034,12 @@ schedule-citation request remain open for owners.
 
 ### PR / merge / Pages
 Recorded in the PR description and appended below after merge.
+## Session arena/a1a3a565-own6 — originate-your-own-lines pack (2026-11-05)
+Fixed Arena branch `arena/a1a3a565-own6`; no session-* branch. Read full board; prior scopes preserved, not edited except append-only summary at integration.
+| Task | Status | Owner | Exclusive files |
+|---|---|---|---|
+| N1 Own-line origination + strategy catalogue (singles/parlays/prop combos) with validation gates | in progress | a1a3a565 | `research/ORIGINATING_LINES.md`, `data/origin_strategies.csv` |
+| N2 Correlation & luck-removal protocol (values blank/unverified) | in progress | a1a3a565 | same as N1, `audit/ORIGIN_2026_11_05.md` |
+| N3 Dashboard subpages origin/ with per-row official links | in progress | a1a3a565 | `docs/origin/**`, `scripts/build_origin.py`, `scripts/check_origin.py`, `tests/test_origin.py` |
+| N4 Executive summary append + integration PR/merge/Pages | in progress | a1a3a565 | `EXECUTIVE_SUMMARY.md` append-only, this section |
+Rules: no manual input; no invented odds/correlations/ROI; blank=unverified; official links per row; luck reduced not eliminated.
