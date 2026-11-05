@@ -1,6 +1,18 @@
 # Executive Summary — Own6: Originate Your Own NBA Lines
 
-## Current status — read first (session `arena/269a73e2-own6`, 2026-11-03)
+## Current decision — 2026-11-05 independent close-out
+
+**The research framework is published; there is no substantiated betting edge to publish.** The repository's current empirical report has six frozen candidate hypotheses, zero authorized observations and zero qualified strategies. The run status is `not_run`; current ROI, CLV, correlation and model-vs-market estimates are null/blank. The leaderboard is empty. See the reproducible [empirical report](data/empirical/report.csv), [machine-readable report](data/empirical/report.json), [signal specifications](research/SIGNALS.md), and [live assurance dashboard](https://sassnarep3-star.github.io/Own6/docs/assurance/).
+
+**Rights and source boundary.** I re-read the official [NBA Terms of Use](https://www.nba.com/termsofuse) and [NBA Stats FAQ](https://www.nba.com/stats/help/faq) on 2026-11-05. Terms §1 restricts public reuse of Basketball Content without written permission; §9 restricts NBA Statistics to specified purposes, including excluding gambling-related use. The FAQ says NBA statistics are not available for download. These are source-text observations, **not legal advice or a determination of jurisdictional applicability**. No authorization is inferred. Until an appropriate permission/rights path is established, the project does not promote NBA-derived historical archives as an authorized betting dataset. See the existing [Flagged for Review register](docs/assurance/flagged.html).
+
+**Signals and skill controls.** Candidate families cover game moneylines/spreads/totals, player points props, same-game player combinations, and two-game parlays. These are hypotheses, not picks or demonstrated strategies. The protocol requires permitted data, timestamped executable market comparisons, walk-forward splits, proper scoring, post-vig returns, comparable closing-line value, dependence-aware uncertainty, multiple-testing correction, and a frozen audit ledger before leaderboard entry. No method can remove luck; the tests can only limit false discoveries. Method references and the exact gate definitions are in [Validation v2](research/VALIDATION_v2.md) and the [NBA Stats glossary](https://www.nba.com/stats/help/glossary) (definitions only, not evidence of predictive value).
+
+**Independent checks performed for this close-out.** `scripts/run_lab.py` completed after installing the repository's pinned dependencies and preserved `not_run` / zero-observation fail-closed output. `tools/run_tests.py` passed 32/32 tests. `scripts/check_assurance.py` passed for nine pages and 14,457 source-linked table rows; `scripts/check_site.py` and `scripts/linkcheck.py` also passed. These are reproducibility and publication-structure checks, **not independent verification of every legacy statistic**. `scripts/audit_repo.py` could not be re-run in this shallow checkout because its pinned historical baseline commit is absent; the prior audit remains dated, not newly certified. Full commands, outputs and limitations: [this session's audit record](audit/SESSION_8DD3131F.md).
+
+**Important:** The sections below preserve earlier session snapshots and findings for provenance. Their dates and data scope vary; historical correlation and backtest figures are not current model performance and are not promoted by the current empty authorized ledger.
+
+## Historical snapshot — session `arena/269a73e2-own6`, 2026-11-03 (superseded)
 
 **Bottom line.** The project has a working framework for originating lines, pricing parlays with correlation, and gating strategies. It has **no validated strategy, no qualifying leaderboard entry, no verified odds, and no verified correlation estimate.** No edge is claimed. Rewards are non-monetary research priority only. Nothing here is betting advice.
 
