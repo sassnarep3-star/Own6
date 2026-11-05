@@ -1154,6 +1154,29 @@ def page_sources(out: dict) -> str:
             link += f' · <a href="singles.html">used in the build</a>'
         sourced.append([esc(pub), esc(doc), link, esc(read_on), esc(used)])
 
+    quote_rows = []
+    vpath = ROOT / "data" / "skill" / "verification_2026_11_05.csv"
+    if vpath.exists():
+        import csv as _csv
+        with vpath.open(newline="", encoding="utf-8") as fh:
+            for row in _csv.DictReader(fh):
+                verdict = row["result"]
+                badge_kind = "pass" if verdict.startswith("VERIFIED") else "flag"
+                quote_rows.append([
+                    esc(row["id"]),
+                    esc(row["claim"]),
+                    a(row["source_url"], row["publisher"]) if row["source_url"] else
+                    '<span class="blank" aria-label="no source"></span>',
+                    esc(row["read_on"]) if row["read_on"] else
+                    '<span class="blank" aria-label="not read"></span>',
+                    f'<q>{esc(row["quoted_text"])}</q>' if row["quoted_text"] else
+                    '<span class="blank" aria-label="not quoted"></span>',
+                    badge(verdict, badge_kind)
+                    + ' · ' + a(gh("data/skill/verification_2026_11_05.csv"), "ledger"),
+                ])
+    quote_table = table(["ID", "Claim on this site", "Official source", "Read on",
+                         "Text as retrieved", "Result · evidence"], quote_rows)
+
     body = f"""
 <section class="hero"><p class="eyebrow">SOURCES</p>
 <p class="lede">Every number on this site traces to one of four places: an official page, a file
@@ -1164,6 +1187,15 @@ in this repository, a closed-form equation, or a seeded simulation. Nothing trac
 consumes it. The "Read on" column records when the text was actually retrieved, not when it was
 last mentioned.</p>
 {table(["Publisher", "Document", "Official link", "Read on", "Used for"], sourced)}
+
+<h2>Verified quotations</h2>
+<p class="note">Each row is a claim the site makes, the official page it came from, when that page
+was read, and the text as retrieved. The CSV behind this table is
+{a(gh("data/skill/verification_2026_11_05.csv"), "data/skill/verification_2026_11_05.csv")}. One row
+is deliberately listed as UNVERIFIED: the Brier decomposition identity is proven by a test in this
+repository, not quoted from a page, and is labelled that way rather than given a citation it does
+not have.</p>
+{quote_table}
 
 <h2>What the official sources do and do not establish</h2>
 <div class="prose">
