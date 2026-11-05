@@ -746,3 +746,46 @@ Arena fixes this session's branch to `arena/be184e2b-own6`; no `session-*` branc
 **Rule applied.** No number or claim is entered unless it was read from the official page linked on that row during this session (or is a reproducible computation from published data, labelled as such). Blank = unverified.
 
 Claim committed and pushed before implementation.
+
+## Session arena/269a73e2-own6 — repo review, defect repair, landing page, executive summary, integration
+
+Branch rule: all work is on `arena/269a73e2-own6` (fixed by the Arena session rule). No `session-*` branch is created. Scopes are non-overlapping by file; every edit below is limited to the files in its claim.
+
+### Task board (session 269a73e2)
+
+| Task | Status | Owner | Exclusive file scope | Dependencies |
+|---|---|---|---|---|
+| U1 Repo review: line-level checks, irregularity log, flags | done | arena/269a73e2-own6 | `audit/REPO_REVIEW.md`, `data/flags.json` | — |
+| U2 Landing page repair: unresolved merge-conflict markers in `docs/index.html` | done | arena/269a73e2-own6 | `docs/index.html` | — |
+| U3 Empirical lab: strategy/correlation tables print `<generator object>` instead of rows | done | arena/269a73e2-own6 | `scripts/build_lab.py`, `docs/lab/**` | — |
+| U4 Verified site: rebuild drops the NBA Terms §9 caution (F16) | done | arena/269a73e2-own6 | `scripts/build_site.py`, `docs/verified/sources.html` | — |
+| U5 Executive summary: current state, verified vs. unverified, no-edge conclusion | done | arena/269a73e2-own6 | `EXECUTIVE_SUMMARY.md` (new section at top) | U1 |
+| U6 Integration: checks, PR to `main`, merge, Pages deploy check, record | in progress | arena/269a73e2-own6 | this section of `COORDINATION.md` | U1–U5 |
+
+### Claim log
+
+- 2026-11-03: Claimed U1–U6 on `arena/269a73e2-own6`. Baseline checks run before any edit: `scripts/check_site.py` OK; `scripts/linkcheck.py` PASS; `scripts/verify_data.py` 213/213; `scripts/check_lab.py` OK; `tools/run_tests.py` 5/5. Two defects found: (a) `docs/index.html` on `main` contains unresolved `<<<<<<<` / `=======` / `>>>>>>>` markers; (b) rebuilding `docs/lab/*` writes `<generator object …>` into table cells, and rebuilding `docs/verified/sources.html` drops the F16 caution.
+
+### Completion records (session 269a73e2)
+
+- **U1 Repo review.** Sources: the repo tree, `git grep`, the GitHub Pages REST API, and the [NBA.com Terms of Use](https://www.nba.com/termsofuse) (fetch tool, chunks 0–5, read 2026-11-03). Verification: correlation values recomputed from `data/games_results_2026-27.csv` (the home-vs-away value reproduces exactly; the same-date value reproduces only in one pair order); all checks listed in `audit/REPO_REVIEW.md` (addendum A1–A18). Irregularities: F17–F27 in `data/flags.json`. Not verified: the 92 NBA game rows against nba.com (F26; decision recorded, not a failure).
+- **U2 Landing page.** Sources: `docs/index.html` on `main` (`git grep`). Fix: kept the HEAD navigation, removed the other copy. Footer adds Alberta helplines, verified on [AGLC common gaming questions](https://aglc.ca/gaming/common-gaming-questions) (1-844-468-8034) and [AGLC resources](https://aglc.ca/training/reel-facts-vlt-staff-training/resources) (1-866-332-2322). Gate-set wording corrected (F13 stays open). Irregularity: F18.
+- **U3 Lab tables.** Fix in `scripts/build_lab.py::table()`: one `<td>` per cell. Verified by rebuild + `scripts/check_lab.py` (OK). Irregularity: F19.
+- **U4 Verified-site caution.** Fix in `scripts/build_site.py`: the F16 caution is now generated, and quotes §9(ii) and §9(iv) of the [NBA Terms of Use](https://www.nba.com/termsofuse). Verified by rebuild + `scripts/check_site.py` (OK). Irregularity: F20.
+- **U5 Executive summary.** Sources: as cited in `EXECUTIVE_SUMMARY.md` (current-status section). Verification: every number in that section matches a recomputation or a read official page above. Result: no validated strategy, no qualifying leaderboard row, no verified correlation estimate.
+
+### Cross-file notes (logged, not hidden)
+
+- `data/verification_log.csv`: appended V26 and V27 (AGLC pages), needed so that `tools/check_site.py` accepts the footer links. Append-only; no existing row changed. Owner of that registry is the 05e359b8 session, so this change is logged here instead of being silent.
+- `scripts/build_site.py`, `scripts/build_lab.py`, `docs/index.html`, `docs/flagged.html` (root Flagged page, new section only), `docs/verified/sources.html`, `docs/lab/**`: regenerated or edited as listed in the completion records. `EXECUTIVE_SUMMARY.md` (new section at top) and `audit/REPO_REVIEW.md` (addendum) are appended.
+- Rebase note: during `git pull --rebase` onto `e5ceb0f`, the `COORDINATION.md` add/add conflict was resolved by keeping both sides. A marker-removal step then left the upstream sections unchanged. Pushed with `--force-with-lease` to replace this branch's own earlier claim commit (`0c528ff` → `2a37adb`); no other session pushed to this branch.
+
+### Activity log
+
+- 2026-11-03: Claimed U1–U6. Baseline checks run. Defects found: F18, F19, F20. Claim pushed.
+- 2026-11-03: Fixes committed. Registry rows V26/V27 appended after `tools/check_site.py` reported 2 strict errors (AGLC links not in registry). Check passes.
+- 2026-11-03: Flags F17–F27 added to `data/flags.json`. Root Flagged page gets a new section for them. Executive summary current-status section added. U1–U5 done.
+- 2026-11-03: U6 starting: full checks, PR from `arena/269a73e2-own6` to `main`, merge, Pages deploy check.
+
+- 2026-11-03 (rebase log, session 269a73e2): `main` advanced several times during this session (PRs #20–#26; sessions 7a28eb6c, 634d0f7a, 526a6816 and others). Four rebase stops were resolved as follows. (a) `COORDINATION.md` add/add conflicts: both sides kept, marker lines removed. (b) `docs/lab/*.html` and `scripts/build_lab.py`: upstream session 7a28eb6c had already fixed the same `<generator object>` bug in `table()`; upstream's version was kept and the lab pages were rebuilt from it, so the committed output equals the generator output. (c) `docs/index.html`: upstream had redesigned the landing page (category dashboard, `08d4949`/`be68094`), so upstream's version was kept. My Alberta helpline line was re-added to its footer. My earlier summary-wording edit no longer applies, because the redesigned page does not contain the old "5 families / 8 gates" text. (d) Generated review, verified and Own6 pages were rebuilt after the flag-escaping fix in `tools/build_review.py`. Every rebuilt file equals its committed copy.
+- 2026-11-03: Full gate set run on the rebased branch, matching all three workflows (`verify.yml`, `lab-ci.yml`, `release-gate.yml`): `tools/run_tests.py` 5/5; `tools/release_gate.py` 0 issues; `tools/build_review.py --check` OK; `tools/check_site.py` 0 errors; `scripts/audit_sources.py` OK (93 rows, see F27 note on flag rows); `scripts/run_lab.py`; `scripts/build_lab.py` reproduces `docs/lab/`; `scripts/check_lab.py` OK; `pytest tests/` 29 passed; `scripts/check_report.py` OK; `scripts/check_site.py` OK; `scripts/linkcheck.py` PASS; `unittest test_release_gate` OK; `scripts/verify_data.py` 213/213.

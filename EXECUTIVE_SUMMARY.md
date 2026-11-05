@@ -1,5 +1,40 @@
 # Executive Summary — Own6: Originate Your Own NBA Lines
 
+## Current status — read first (session `arena/269a73e2-own6`, 2026-11-03)
+
+**Bottom line.** The project has a working framework for originating lines, pricing parlays with correlation, and gating strategies. It has **no validated strategy, no qualifying leaderboard entry, no verified odds, and no verified correlation estimate.** No edge is claimed. Rewards are non-monetary research priority only. Nothing here is betting advice.
+
+**Biggest open issue: NBA.com rights, not statistics.** NBA.com Terms of Use §9(ii) allows NBA Statistics only for "legitimate news reporting or private, non-commercial purposes", and §9(iv) bars use "in connection with any gambling activity (including legal gambling activity)". Verified text: [NBA.com Terms of Use](https://www.nba.com/termsofuse), read 2026-11-03. The sub-site `docs/own6/` republishes 92 NBA game results with per-game nba.com links (flags F17, F26). This session did not re-fetch those nba.com pages, because doing so would add to the same use. The owner or counsel must decide before anything else is published from that dataset. Flags do not block the merge.
+
+**What this session verified (each with a link in the audit or on the site):**
+
+| Check | Result | Source |
+|---|---|---|
+| Landing page on `main` | Had unresolved merge-conflict markers. Fixed (F18). | [docs/index.html](docs/index.html) |
+| Empirical lab tables | Printed `<generator object>` instead of rows. Fixed (F19). | [scripts/build_lab.py](scripts/build_lab.py) |
+| Verified-site rebuild | Dropped the Terms caution. Fixed (F20). | [scripts/build_site.py](scripts/build_site.py) |
+| Correlation `home_score_vs_away_score` | r = 0.2004, n = 92, reproduced exactly. 95% CI −0.005 to 0.389; p = 0.055. Not significant (F21). | [data/correlation_findings.csv](data/correlation_findings.csv), [data/games_results_2026-27.csv](data/games_results_2026-27.csv) |
+| Correlation `same_date_game_margins` | r = 0.1052, n = 357, reproduces only in one arbitrary pair order. Symmetric version gives 0.0927. Not valid (F22). | same |
+| Correlation `teammate_PTS_Mitchell_Allen` | r = −0.4222 on n = 6. 95% CI −0.919 to 0.592. Source rows not in repo (F23). | same |
+| Correlation `rest_diff_vs_home_margin` | r = −0.0162, n = 76. Rest input not in repo, so unverifiable (F25). | same |
+| Alberta problem-gambling helplines | AGLC Self-Exclusion Program **1-844-468-8034**; Alberta Health Services Addiction Helpline **1-866-332-2322**. Shown in the site footer. | [AGLC common gaming questions](https://aglc.ca/gaming/common-gaming-questions); [AGLC resources](https://aglc.ca/training/reel-facts-vlt-staff-training/resources) |
+| Official-source gate | Every external link in the strict pages is in the verified registry. Two AGLC rows were added (V26, V27). | [data/verification_log.csv](data/verification_log.csv) |
+| Engine and checks | `pytest tests/` 20/20 pass with pinned dependencies. `verify_data.py` 213/213. `check_lab.py`, `check_site.py`, `linkcheck.py` and `build_review.py --check` pass. | scripts in [`scripts/`](scripts/) and [`tools/`](tools/) |
+
+**Not verified, and left blank on purpose:** odds and closing lines (no official odds feed exists; ESPN and DraftKings data are secondary); player and team statistics (see F26); every correlation estimate that is not reproducible; any win rate, ROI, CLV or backtest result. The sandbox can only reach GitHub, npm and PyPI, so the live `github.io` site is checked after deploy through the GitHub Pages API and the fetch tool.
+
+**Leaderboard.** Empty by design. The empirical lab reports `not_run` with zero observations and zero qualified strategies. The root site has no verified results to rank.
+
+**Next steps for the owner (none block the merge):**
+1. Decide on NBA Terms §9 (F17, F26): obtain permission or counsel review, or remove NBA-derived numbers from public pages.
+2. Add the rest, same-date and gamelog datasets with official sources and checksums, or keep those values blank (F22, F23, F25).
+3. Publish confidence intervals next to every correlation, or remove the value (F21).
+4. Prune the duplicate coordination block and record the `arena/325834c9-own6` session (F27).
+
+Full per-item record: [audit/REPO_REVIEW.md](audit/REPO_REVIEW.md) (section "Addendum — session arena/269a73e2-own6"). Register: [docs/verified/flagged.html](docs/verified/flagged.html).
+
+---
+
 **Date:** 2026-11-02 (UTC) · **Status:** combined `main` after integration of parallel sessions' work (PRs #1–#7) and the independent verification pass by `arena/a6ccf588-own6`.
 **Evidence rule:** no NBA statistic, price, correlation, ROI or backtest result is asserted unless it is quoted from an official source with a link. Unconfirmable values are blank and published on the Flagged for Review page. Nothing is inferred or filled in. Every official URL used was retrieved **directly** from its official host on 2026-11-02 (not from search snippets); the line-by-line record is in [`data/verification_log.csv`](data/verification_log.csv) and [`audit/VERIFICATION.md`](audit/VERIFICATION.md).
 
