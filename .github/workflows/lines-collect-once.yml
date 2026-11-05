@@ -37,12 +37,13 @@ jobs:
       - name: Probe candidate official standings endpoints
         if: always()
         run: |
-          {
-            echo '### Standings endpoint probe'
-            for u in \
-              "https://stats.nba.com/stats/leaguestandingsv3?LeagueID=00&Season=2026-27&SeasonType=Regular%20Season" \
-              "https://cdn.nba.com/static/json/staticData/standingsLeagueV2_1.json" \
-              "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json" ; do
+          mkdir -p data/lines/_diagnostics
+          : > data/lines/_diagnostics/standings_probe.txt
+          for u in \
+            "https://stats.nba.com/stats/leaguestandingsv3?LeagueID=00&Season=2026-27&SeasonType=Regular%20Season" \
+            "https://cdn.nba.com/static/json/staticData/standingsLeagueV2_1.json" \
+            "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json" ; do
+            {
               echo "--- $u"
               code=$(curl -sS -o /tmp/probe.out -w '%{http_code} %{size_download}' --max-time 45 \
                      -H 'Accept: application/json' \
@@ -50,10 +51,11 @@ jobs:
                      -H 'Origin: https://www.nba.com' \
                      -A 'Mozilla/5.0 (X11; Linux x86_64) Chrome/124.0' "$u" 2>&1) || true
               echo "status: $code"
-              head -c 700 /tmp/probe.out 2>/dev/null || true
+              head -c 1500 /tmp/probe.out 2>/dev/null || true
               echo
-            done
-          } >> "$GITHUB_STEP_SUMMARY"
+            } >> data/lines/_diagnostics/standings_probe.txt
+          done
+          cat data/lines/_diagnostics/standings_probe.txt >> "$GITHUB_STEP_SUMMARY"
 
       - name: Collect official NBA results from nba.com
         run: |
