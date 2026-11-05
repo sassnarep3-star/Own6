@@ -1,0 +1,17 @@
+claim_id,claim,where_published,published_value,recomputed_value,recompute_method,verdict,source_url,read_on
+C01,Final scores reconciled in the empirical ledger,docs/daily/index.html tile,121,121,unique game ids across the three committed result archives,match,https://www.nba.com/games,2026-11-05
+C02,Standings rows matching today's official table,docs/daily/index.html tile,30/30,30/30,records recomputed from all 121 finals vs the table re-read today,match,https://www.nba.com/standings,2026-11-05
+C03,Games on the published forward slate,docs/daily/index.html tile,11,11,rows in the slate re-read from nba.com/schedule,match,https://www.nba.com/schedule,2026-11-05
+C04,4 November final scores added,docs/daily/index.html claims table,14,14,rows in data/official_2026_11_05/results_2026_11_04.csv,match,https://www.nba.com/games,2026-11-05
+C05,Walk-forward out-of-sample games,docs/daily/signals.html,61,61,121 finals minus the 60-game minimum training window,match,https://www.nba.com/games,2026-11-05
+C06,Out-of-sample winner accuracy,docs/daily/index.html claims table,67.2%,67.2%,"arithmetic restatement of the published accuracy, not an independent model refit",match,https://www.nba.com/games,2026-11-05
+C07,McNemar exact p-value on discordant pairs,docs/daily/index.html claims table,p=0.06391,p=0.06391,two-sided exact binomial on 7 model-only vs 17 baseline-only wins,match,https://www.nba.com/games,2026-11-05
+C08,Brier skill score against the home-team base rate,docs/daily/index.html claims table,+0.130,+0.130,1 - brier_model / brier_baseline from the published components,match,https://www.nba.com/games,2026-11-05
+C09,Game margin vs game total correlation,docs/daily/correlations.html,r=+0.018,r=+0.018,Pearson r recomputed from the 121 final scores with an independent implementation,match,https://www.nba.com/games,2026-11-05
+C10,Home vs away points correlation,docs/daily/correlations.html,r=+0.199,r=+0.199,Pearson r recomputed from the 121 final scores with an independent implementation,match,https://www.nba.com/games,2026-11-05
+C11,Verification-ledger checks passing,docs/verify/index.html,54/54,54/54,rows in data/verification_official_2026_11_03.csv whose result is 'match',match,https://www.nba.com/standings,2026-11-05
+C12,Validated strategies on the leaderboard,docs/daily/index.html tile,0,0,rows in data/strategies.json,match,https://www.nba.com/termsofuse,2026-11-05
+C13,Validation gates per candidate,docs/index.html tile and docs/lab/methodology.html,10,8,gate objects in data/methodology.json (G1-G8) vs the ten gates G01-G10 printed by the lab page,DRIFT,https://github.com/sassnarep3-star/Own6/blob/main/data/methodology.json,2026-11-05
+C14,2026-11-03 snapshot plus 4 November results equals today's table,docs/daily/results.html,"28 teams moved, 2 idle","28 teams moved, 2 idle","prior W-L + 4 Nov result equals today's read for 30/30 teams; idle: ORL, GSW",match,https://www.nba.com/standings,2026-11-05
+C15,Spot-checked game cards agreeing with the archive,this section,3/3,3/3,three game cards read today at random dates across the archive,match,https://www.nba.com/game/bos-vs-det-0022600001,2026-11-05
+C16,Six frozen strategy candidates,docs/index.html tile,6,,no machine-readable candidate registry exists: the count is prose in scripts/build_lab.py,not_recomputable,https://github.com/sassnarep3-star/Own6/blob/main/scripts/build_lab.py,2026-11-05

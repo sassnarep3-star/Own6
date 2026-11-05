@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Correlation cross-check · Own6 independent cross-check</title>
+<meta name="description" content="Own6 NBA research: an independent, official-source cross-check of every published headline number, re-read on 2026-11-05. Research only; no picks, no prices, no profitability claim.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<nav class="top" aria-label="Section navigation">
+<a class="brand" href="index.html">OWN6 / CROSS-CHECK</a>
+<a href="index.html">Overview</a><a href="standings.html">Standings</a><a href="games.html">Games &amp; archive</a><a href="slate.html">Forward slate</a><a href="claims.html">Claims ledger</a><a href="correlations.html" class="active">Correlations</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for Review</a>
+</nav>
+<main>
+
+<p class="eyebrow">Correlations · recomputed</p>
+<h1>Two coefficients, recomputed from the raw finals</h1>
+<p>Correlation is where a parlay stops being a lottery ticket and starts being a single bet with a
+disguised price: two legs that move together cannot be multiplied. The two coefficients below are
+recomputed here from the 121 committed final scores with an implementation written separately from
+the pipeline that produced them.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Pair</th><th scope="col">What it measures</th><th scope="col">n</th><th scope="col">Published r</th><th scope="col">Recomputed r</th><th scope="col">Published 95% interval</th><th scope="col">Match</th><th scope="col">Source</th></tr></thead><tbody><tr><td>home_score_vs_away_score</td><td class="small">same-game team totals — a parlay leg pair if both team totals are used</td><td class="num">121</td><td class="num">0.1994</td><td class="num">0.1994</td><td class="num">[0.0216, 0.3649]</td><td><span class="pill ok">match</span></td><td><a href="https://www.nba.com/games" rel="noopener">https://www.nba.com/games ↗</a></td></tr><tr><td>margin_vs_total</td><td class="small">game margin against game total — spread and total legs are not independent if this is far from zero</td><td class="num">121</td><td class="num">0.018</td><td class="num">0.018</td><td class="num">[-0.161, 0.1959]</td><td><span class="pill ok">match</span></td><td><a href="https://www.nba.com/games" rel="noopener">https://www.nba.com/games ↗</a></td></tr></tbody></table></div>
+<h2>Reading the numbers honestly</h2>
+<p>A coefficient of 0.018 between game margin and game total means spread
+and total legs are close to uncorrelated at game level — but the interval published alongside it
+(<code>[-0.161, 0.1959]</code>) spans zero, so the honest statement is "no dependence
+detected at this sample size", not "independent". Independence is an assumption to be tested, never
+a default. Team-total legs are a different matter: home and away scoring correlate at about
+0.1994 because both teams play the same pace.</p>
+<h2>Where a third decimal could mislead</h2>
+<p>A second correlation table in the repository (<code>data/correlation_findings.csv</code>) quotes
+<strong>r = 0.2004 on n = 92</strong> for the same home-versus-away
+pair, while this table quotes <strong>r = 0.1994 on n = 121</strong>.
+Both are arithmetically reproducible; they are computed on different date cut-offs. Publishing the
+same pair twice with different samples and no label is how a reader ends up citing the number that
+suits them. Logged as X-02.</p>
+<h2>What cannot be computed here</h2>
+<div class="table-wrap"><table><thead><tr><th scope="col">Pair</th><th scope="col">Value</th><th scope="col">Reason</th><th scope="col">Official source</th></tr></thead><tbody><tr><td>Player-prop legs (points, rebounds, assists)</td><td class="empty" aria-label="blank, unverified"></td><td>No licensed player-level observation archive is configured, and NBA Terms §9 restricts gambling use of NBA Statistics.</td><td><a href="https://www.nba.com/termsofuse" rel="noopener">NBA Terms §9 ↗</a></td></tr><tr><td>Same-game parlay joint probability</td><td class="empty" aria-label="blank, unverified"></td><td>Joint probability needs a market price for the combined leg, which no official source publishes.</td><td><a href="https://www.nba.com/stats/help/faq" rel="noopener">NBA Stats FAQ ↗</a></td></tr><tr><td>Correlation of a strategy with a market line</td><td class="empty" aria-label="blank, unverified"></td><td>Requires the licensed price series that this project does not hold.</td><td><a href="https://www.nba.com/termsofuse" rel="noopener">NBA Terms §9 ↗</a></td></tr></tbody></table></div>
+
+</main>
+<footer>
+<p>Independent re-read of official NBA.com pages on 2026-11-05 by session arena/57db4fcc-own6.
+Research and record-keeping only: no picks, no prices, no wagers, no profitability claim.
+Every table row links to the official page it came from; a blank cell means no confirmed value.
+See the <a href="https://www.nba.com/termsofuse">NBA Terms of Use</a> and this section's
+<a href="flagged.html">Flagged for Review</a> page. <a href="../index.html">All project sections →</a></p>
+</footer>
+</body>
+</html>

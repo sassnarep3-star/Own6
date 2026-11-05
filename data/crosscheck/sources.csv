@@ -1,0 +1,9 @@
+source_id,url,what_it_supports,what_it_does_not_support,read_on,read_result
+S1,https://www.nba.com/standings,"2026-27 regular-season W-L, win%, games-behind, conference rank for all 30 teams","Any market price, projection, edge, ROI or reward","2026-11-05","Page read in full (2 chunks); 30 team rows transcribed"
+S2,https://www.nba.com/schedule,"Week 3 (Nov 2-8) fixture list: dates, tip times in ET, home/away, NBA Cup group labels","Final scores; market prices; injury status","2026-11-05","Page read; 2 games on Nov 5 and 9 on Nov 6 transcribed"
+S3,https://www.nba.com/games,"Games-per-date calendar for November 2026 and the two 5 Nov fixtures","Historical box scores for past dates (parameter ignored; page renders today)","2026-11-05","Page read; per-date game counts transcribed for all 30 November dates"
+S4,https://www.nba.com/game/okc-vs-cle-0022600158,"Final score OKC 117 - CLE 112 (Nov 2, 2026) on the official game card","Market closing line; win probability","2026-11-05","Game card read; score block matched"
+S5,https://www.nba.com/game/bos-vs-det-0022600001,"Final score BOS 113 - DET 121 (Oct 20, 2026) on the official game card","Market closing line; win probability","2026-11-05","Game card read; score block matched"
+S6,https://www.nba.com/game/atl-vs-was-0022600174,"Final score ATL 120 - WAS 105 (Nov 4, 2026) on the official game card","Market closing line; win probability","2026-11-05","Game card read; score block matched"
+S7,https://www.nba.com/termsofuse,"Sec. 9 restricts use of NBA Statistics in connection with gambling; Sec. 1 restricts linking/reuse of Basketball Content","Any permission, licence or gambling-use right for this project","2026-11-05","Terms page reachable and cited clause text present"
+S8,https://api.github.com/repos/sassnarep3-star/Own6/pages,"GitHub Pages publishing source (main:/) and build status","Anything about NBA data","2026-11-05","API returned status built"

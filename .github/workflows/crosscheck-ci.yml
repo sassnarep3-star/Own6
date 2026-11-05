@@ -1,0 +1,28 @@
+name: Independent cross-check
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  crosscheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Comparison tables and pages must match the builder
+        run: |
+          python3 scripts/build_crosscheck.py
+          git diff --exit-code -- data/crosscheck docs/crosscheck
+      - name: Sources, links, blanks and verdicts
+        run: python3 scripts/check_crosscheck.py
+      - name: Adversarial regressions
+        run: python3 -m unittest discover -s tests -p test_crosscheck.py -v
