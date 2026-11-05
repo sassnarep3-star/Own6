@@ -1,0 +1,6 @@
+legs,leg_price,parlay_decimal_odds,true_joint_probability_independent,true_roi_per_parlay,per_parlay_variance,required_parlays,assumption
+1,-110,1.909091,0.53428571,0.020000,0.906873,14017,"independent legs, equal 2% true edge per leg; dependence would change the joint probability and is NOT assumed"
+2,-110,3.644628,0.28546122,0.040400,2.709439,10264,"independent legs, equal 2% true edge per leg; dependence would change the joint probability and is NOT assumed"
+3,-110,6.957926,0.15251785,0.061208,6.257645,10327,"independent legs, equal 2% true edge per leg; dependence would change the joint probability and is NOT assumed"
+4,-110,13.283314,0.08148811,0.082432,13.206627,12017,"independent legs, equal 2% true edge per leg; dependence would change the joint probability and is NOT assumed"
+6,-110,48.412739,0.02326170,0.126162,53.252366,20685,"independent legs, equal 2% true edge per leg; dependence would change the joint probability and is NOT assumed"

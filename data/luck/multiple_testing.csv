@@ -1,0 +1,6 @@
+candidate_strategies,family_alpha,per_test_alpha_bonferroni,expected_false_positives_if_all_noise,required_bets_3pct_edge,interpretation
+1,0.050,0.05000000,0.0500,6221,searching more strategies raises both the false-positive count and the sample each winner must show
+10,0.050,0.00500000,0.5000,11752,searching more strategies raises both the false-positive count and the sample each winner must show
+50,0.050,0.00100000,2.5000,15556,searching more strategies raises both the false-positive count and the sample each winner must show
+200,0.050,0.00025000,10.0000,18800,searching more strategies raises both the false-positive count and the sample each winner must show
+1000,0.050,0.00005000,50.0000,22534,searching more strategies raises both the false-positive count and the sample each winner must show

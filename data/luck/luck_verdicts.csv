@@ -1,0 +1,7 @@
+wins,bets,american_odds,observed_win_rate,break_even_probability,roi,exact_binomial_p_value_one_sided,wilson_95_low,wilson_95_high,verdict,interpretation
+55,100,-110,0.550000,0.523810,0.050000,0.33626275,0.452446,0.643855,explainable_by_luck,"exceeds_luck requires p < alpha AND the Wilson lower bound above break-even; illustrative arithmetic only, not a real record"
+60,100,-110,0.600000,0.523810,0.145455,0.07659991,0.502003,0.690599,explainable_by_luck,"exceeds_luck requires p < alpha AND the Wilson lower bound above break-even; illustrative arithmetic only, not a real record"
+110,200,-110,0.550000,0.523810,0.050000,0.25141215,0.480756,0.617359,explainable_by_luck,"exceeds_luck requires p < alpha AND the Wilson lower bound above break-even; illustrative arithmetic only, not a real record"
+540,1000,-110,0.540000,0.523810,0.030909,0.16023989,0.509015,0.570679,explainable_by_luck,"exceeds_luck requires p < alpha AND the Wilson lower bound above break-even; illustrative arithmetic only, not a real record"
+560,1000,-110,0.560000,0.523810,0.069091,0.01182775,0.529063,0.590478,exceeds_luck,"exceeds_luck requires p < alpha AND the Wilson lower bound above break-even; illustrative arithmetic only, not a real record"
+1120,2000,-110,0.560000,0.523810,0.069091,0.00063457,0.538151,0.581619,exceeds_luck,"exceeds_luck requires p < alpha AND the Wilson lower bound above break-even; illustrative arithmetic only, not a real record"

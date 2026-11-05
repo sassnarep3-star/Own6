@@ -1,0 +1,7 @@
+true_correlation,required_paired_observations,alpha,power,method,interpretation
+0.050,3138,0.050,0.80,"Fisher z transform, two-sided test",fewer paired observations than this cannot establish the dependence at the stated power
+0.100,783,0.050,0.80,"Fisher z transform, two-sided test",fewer paired observations than this cannot establish the dependence at the stated power
+0.200,194,0.050,0.80,"Fisher z transform, two-sided test",fewer paired observations than this cannot establish the dependence at the stated power
+0.300,85,0.050,0.80,"Fisher z transform, two-sided test",fewer paired observations than this cannot establish the dependence at the stated power
+0.500,30,0.050,0.80,"Fisher z transform, two-sided test",fewer paired observations than this cannot establish the dependence at the stated power
+0.700,14,0.050,0.80,"Fisher z transform, two-sided test",fewer paired observations than this cannot establish the dependence at the stated power

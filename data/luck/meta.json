@@ -1,0 +1,29 @@
+{
+  "generated_for": "2026-11-05",
+  "alpha": 0.05,
+  "power": 0.8,
+  "sides": 1,
+  "engine": "src/own6/power.py",
+  "engine_version": "1.0.0",
+  "statement": "All values are closed-form statistical requirements computed from the formulas in src/own6/power.py. They are not NBA observations, sportsbook prices, model estimates or evidence of an edge. No value on this page is a prediction.",
+  "method_sources": [
+    {
+      "name": "SciPy pearsonr (Fisher z reference)",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html",
+      "read_this_session": false,
+      "note": "reference link; the doc page was not reachable from this sandbox (egress restricted to GitHub/PyPI). SciPy itself was installed from PyPI and used numerically in tests."
+    },
+    {
+      "name": "NIST/SEMATECH e-Handbook \u2014 confidence intervals / proportions",
+      "url": "https://www.itl.nist.gov/div898/handbook/prc/section2/prc241.htm",
+      "read_this_session": false,
+      "note": "reference link only; not read this session (egress restricted)."
+    },
+    {
+      "name": "statsmodels multipletests (Benjamini-Hochberg)",
+      "url": "https://www.statsmodels.org/stable/generated/statsmodels.stats.multitest.multipletests.html",
+      "read_this_session": false,
+      "note": "reference link only; not read this session (egress restricted)."
+    }
+  ]
+}

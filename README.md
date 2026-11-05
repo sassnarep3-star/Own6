@@ -35,6 +35,22 @@ Build/check: `python3 scripts/build_site_own6.py` · `python3 scripts/linkcheck.
 `python3 scripts/verify_data.py` · `python3 scripts/model.py`. DraftKings lines arrive via the
 ESPN feed (secondary source, labeled as such); research/paper only — no real wagers.
 
+## Luck vs skill: how much evidence a strategy needs
+
+[`docs/luck/`](docs/luck/index.html) is a quantified answer to the question the brief puts
+first: remove luck, reward only selective skill. It computes, in closed form, the bets
+required to distinguish a real per-bet ROI from noise (a 3% edge at -110 needs ~6,200 bets,
+and ~18,800 after correcting for 200 candidates), the smallest ROI a record of a given size
+can resolve, the multiple-testing and correlation sample requirements, and a two-condition
+rule (p-value plus Wilson lower bound above break-even) that fails 55/100 and even 540/1,000
+at -110. The engine is [`src/own6/power.py`](src/own6/power.py), cross-checked against SciPy
+and statsmodels (differences published in `data/luck/numerics_crosscheck.json`). The same
+section carries a publication acceptance audit that resolves the repository's deployment
+claims against the GitHub API. Build/check: `python3 scripts/build_luck.py`,
+`python3 scripts/check_luck.py`, `python3 scripts/acceptance_audit.py --check`.
+Everything on those pages is arithmetic: no NBA value, price or return is asserted, and the
+leaderboard still holds zero qualified strategies.
+
 ## Empirical fail-closed lab
 
 An isolated empirical extension lives in [`docs/lab/`](docs/lab/overview.html). It adds a strict data contract, six frozen strategy candidates, ten validation gates, event-clustered uncertainty, and a leaderboard that ranks only all-gate qualifiers by the lower bound of holdout ROI. With the bundled empty ledger it runs automatically and reports `not_run` — no synthetic or fabricated returns are published. Sources and scope limits are in [`research/EXECUTIVE_SUMMARY.md`](research/EXECUTIVE_SUMMARY.md), [`research/METHODOLOGY.md`](research/METHODOLOGY.md), and [`research/REPO_AUDIT.md`](research/REPO_AUDIT.md). Build and check with `python3 scripts/run_lab.py`, `python3 scripts/build_lab.py`, and `python3 scripts/check_lab.py`.

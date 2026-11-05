@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="The exact formulas, the cross-check against SciPy and statsmodels, and the read status of every cited method reference.">
+<title>Method and numerical checks · Own6</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="assets/luck.css">
+</head>
+<body>
+<nav aria-label="Section navigation"><a class="brand" href="../index.html">OWN6 / LUCK &amp; SKILL</a><a href="index.html">Overview</a><a href="requirements.html">Sample size</a><a href="parlays.html">Parlays &amp; props</a><a href="testing.html">Multiple testing</a><a href="method.html" aria-current="page">Method &amp; checks</a><a href="acceptance.html">Acceptance</a><a href="flagged.html">Flagged for review</a></nav>
+<main>
+<h1>Method and numerical checks</h1>
+<p class="lead">The exact formulas, the cross-check against SciPy and statsmodels, and the read status of every cited method reference.</p>
+<div class="caveat">Every figure on this page is arithmetic from the formulas in <code>src/own6/power.py</code>: a statement of how much evidence would be needed. No NBA result, sportsbook price, correlation estimate or return is observed, scraped or inferred here. Values that cannot be confirmed stay blank and are marked unverified; a blank is not zero.</div>
+
+<h2>Formulas</h2>
+<p class="lead">All figures are closed form; no simulation and no fitted parameter is involved.</p>
+<div class="formula">per-bet mean  mu = p * d - 1 ;   variance = p(d-1)^2 + (1-p) - mu^2   (d = decimal odds, p = win probability)
+required n     n = ceil( ((z_{1-alpha} + z_{power}) * sigma / mu)^2 )      one-sided test
+detectable ROI mu_min = (z_{1-alpha} + z_{power}) * sigma / sqrt(n)
+Bonferroni     alpha' = alpha / m  ;   expected false positives = m * alpha
+Benjamini-Hochberg  q_(i) = min over j >= i of (m/j) * p_(j)
+Fisher z       n = ceil( ((z_{1-alpha/2} + z_{power}) / atanh(r))^2 + 3 )
+Wilson interval  standard score interval for a binomial proportion
+p-value        exact binomial upper tail, evaluated in log space (no normal approximation)
+</div>
+
+<h2>Numerical verification performed in this session</h2>
+<p class="lead">The engine was compared against independent implementations installed from PyPI: SciPy 1.17.1 and statsmodels, running on Python 3.11.2. Each quantity was computed twice and the difference recorded. This is evidence that the arithmetic is implemented correctly — it is not evidence about basketball.</p>
+<div class="table-wrap"><table><caption class="mut" style="text-align:left;padding:10px 12px">Cross-check results (committed evidence: data/luck/numerics_crosscheck.json)</caption><thead><tr><th scope="col">Check</th><th scope="col">Result</th><th scope="col">Tolerance</th><th scope="col">Verdict</th><th scope="col">Source</th></tr></thead><tbody><tr><td>normal quantiles vs scipy.stats.norm.ppf</td><td>max |difference|: 0.00e+00</td><td>1e-10</td><td><span class="badge b-ok">verified</span></td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/luck/numerics_crosscheck.json">evidence</a></td></tr><tr><td>one-sided exact binomial p-value vs scipy.stats.binomtest</td><td>grid points: 140; max |difference|: 4.53e-13</td><td>1e-9</td><td><span class="badge b-ok">verified</span></td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/luck/numerics_crosscheck.json">evidence</a></td></tr><tr><td>Wilson interval vs statsmodels proportion_confint(method=&#x27;wilson&#x27;)</td><td>max |difference|: 1.11e-16</td><td>1e-9</td><td><span class="badge b-ok">verified</span></td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/luck/numerics_crosscheck.json">evidence</a></td></tr><tr><td>Benjamini-Hochberg q-values vs statsmodels multipletests(fdr_bh)</td><td>max |difference|: 1.11e-16</td><td>1e-9</td><td><span class="badge b-ok">verified</span></td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/luck/numerics_crosscheck.json">evidence</a></td></tr><tr><td>required-bets sample size vs closed form using scipy quantiles</td><td>max |difference|: 0 bets</td><td>0 bets</td><td><span class="badge b-ok">verified</span></td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/luck/numerics_crosscheck.json">evidence</a></td></tr><tr><td>Fisher-z required pairs vs closed form using scipy quantiles</td><td>max |difference|: 0 pairs</td><td>0 pairs</td><td><span class="badge b-ok">verified</span></td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/luck/numerics_crosscheck.json">evidence</a></td></tr></tbody></table></div>
+<p class="lead">Reproduce with <code>python3 scripts/verify_luck_numerics.py</code> after installing the development dependencies, and re-verify the committed tables with <code>python3 scripts/luck_analysis.py --check</code>.</p>
+
+<h2>Method references and their status</h2>
+<p class="lead">These are the standard documents for the formulas used. Each row states plainly whether it was read during this session. None was: this sandbox could reach GitHub and PyPI only, so the references are citations, and the numerical cross-check above is the actual in-session verification.</p>
+<div class="table-wrap"><table><caption class="mut" style="text-align:left;padding:10px 12px">Method references (links open the official documentation)</caption><thead><tr><th scope="col">Reference</th><th scope="col">Link</th><th scope="col">Read status</th><th scope="col">Note</th></tr></thead><tbody><tr><td>SciPy pearsonr (Fisher z reference)</td><td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html">open</a></td><td>NOT read this session</td><td>reference link; the doc page was not reachable from this sandbox (egress restricted to GitHub/PyPI). SciPy itself was installed from PyPI and used numerically in tests.</td></tr><tr><td>NIST/SEMATECH e-Handbook — confidence intervals / proportions</td><td><a href="https://www.itl.nist.gov/div898/handbook/prc/section2/prc241.htm">open</a></td><td>NOT read this session</td><td>reference link only; not read this session (egress restricted).</td></tr><tr><td>statsmodels multipletests (Benjamini-Hochberg)</td><td><a href="https://www.statsmodels.org/stable/generated/statsmodels.stats.multitest.multipletests.html">open</a></td><td>NOT read this session</td><td>reference link only; not read this session (egress restricted).</td></tr></tbody></table></div>
+
+<h2>Assumptions and limits</h2>
+<p class="lead">The requirements assume independent, fixed-price, equal-stake bets and a known true edge. Real markets move, stakes vary, and same-game legs are dependent, so the parlay rows are an independence baseline. The normal approximation is used for sample-size planning, while the p-value for an observed record is exact binomial. Nothing on this site observes a price or a result: the values are requirements, and the published leaderboard remains empty.</p>
+<p class="lead">Machine-readable data: <a href="https://github.com/sassnarep3-star/Own6/blob/main/data/luck/">data/luck/</a> · engine: <a href="https://github.com/sassnarep3-star/Own6/blob/main/src/own6/power.py">src/own6/power.py</a> · tests: <a href="https://github.com/sassnarep3-star/Own6/blob/main/tests/test_power.py">tests/test_power.py</a> · audit note: <a href="https://github.com/sassnarep3-star/Own6/blob/main/audit/LUCK_SKILL_2026_11_05.md">audit/LUCK_SKILL_2026_11_05.md</a></p>
+
+</main>
+<footer>Research only — no wagers, no picks, no profitability claim. Statistical requirements reduce luck; they cannot create an edge. <a href="flagged.html">Flagged for review</a> · <a href="../index.html">Back to the dashboard</a> · <a href="https://www.nba.com/termsofuse">NBA Terms of Use</a> (not read this session)</footer>
+</body>
+</html>
