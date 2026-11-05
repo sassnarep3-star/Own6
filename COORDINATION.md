@@ -685,3 +685,22 @@ Rules kept: no value asserted without a directly retrieved official source (link
 - **Pages deployment confirmed:** run `41741579185` completed successfully; GitHub Pages API reports `built` for merge SHA `88462e9244643d95ed4bcd847c09cdd2dfdec31e` at 2026-11-03T23:45:34Z; source remains `main:/`. Live reads after deployment confirmed dashboard says no qualified strategies / zero authorized observations; lab says `not_run`, zero observations and zero qualified; hub Flagged page displays 60 flagged items. This confirms publication/deployment, not factual accuracy or empirical skill.
 - **V5 complete for this session's audit/ledger PR.** V1/V2/V4 were limited to sourced verification/local consistency as documented above. V3 is still blocked: PR #28/#37 own `EXECUTIVE_SUMMARY.md`; no summary edit or cross-session reconciliation was made. Open PRs #23/#28/#31/#32/#37 and follow-up #43 were not merged or modified by this session.
 - Remaining requested integration flags: fix the Utah row's schedule citation; investigate missing historical base object in `scripts/audit_sources.py`; have a qualified reviewer assess NBA Terms §§1/9 before any gambling-related reuse; reconcile legacy assertions/summary through their owners. No unresolved flag was represented as resolved by this session.
+
+---
+
+## Session arena/27fdbe09-own6 — freshness re-verification, consolidated dashboard, final integration (2026-11-05)
+
+Arena fixes this session to branch `arena/27fdbe09-own6`; no `session-*` branch is created (same logged deviation as earlier sessions). Claim committed and pushed before work, as required.
+
+Base at claim: `origin/main` = `33165a0` (PR #44, session 107fc87d close-out). Open PRs observed at claim time and **not** modified by this claim: #23 (`arena/db20c549-own6`, `COORDINATION.md`), #28 (`arena/269a73e2-own6`, summary/landing/flags/generators), #31 (`arena/74d27b5d-own6`, assurance site + `nba_lab/*` + landing + README), #32 (`arena/b1bdfb4b-own6`, `COORDINATION.md` + review audit), #37 (`arena/be184e2b-own6`, verification ledger + `docs/verify/**` + hub pages + landing).
+
+All five of those claims are older than 60 minutes with no new commits, so under the board's takeover rule this session may take over their integration review. This session will **not** merge a PR whose site build, gate suite or link check fails, and will not mark any inherited claim as verified.
+
+| Task | Status | Owner session | Exclusive file scope |
+|---|---|---|---|
+| W1 Fresh official-source re-verification snapshot dated 2026-11-05 (standings, results, schedule) | in progress | 27fdbe09 | `data/official_2026_11_05/*` (new), `scripts/fetch_official.py` (new) |
+| W2 Dated-snapshot staleness / consistency audit vs today's official pages | in progress | 27fdbe09 | `audit/SESSION_27fdbe09.md` (new), `data/official_2026_11_05/*` |
+| W3 Consolidated dashboard section (category tables, all rows source-linked, blanks where unverified) | in progress | 27fdbe09 | `scripts/build_daily.py`, `scripts/check_daily.py`, `docs/daily/**`, `.github/workflows/daily-verify.yml` (all new) |
+| W4 Integration: review open PRs, rebase, rebuild all generated pages, full gate suite, PR, merge, Pages confirmation | in progress | 27fdbe09 | all (integration only), `COORDINATION.md`, landing navigation link |
+
+Initial observed issue (to be verified, not asserted): the newest published standings snapshot is labelled `data/standings_live_2026-11-03.csv` / "last updated 2026-11-03". Re-reading `https://www.nba.com/standings` on 2026-11-05 already shows different records (e.g. Philadelphia 8-1 today vs 7-1 in the 2026-11-03 snapshot). A dated snapshot is not false, but a page implied to be "live" is stale; W2 records this per row.
