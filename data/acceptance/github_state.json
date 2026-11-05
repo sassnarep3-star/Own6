@@ -1,5 +1,5 @@
 {
-  "fetched_at_utc": "2026-11-05T21:26:46Z",
+  "fetched_at_utc": "2026-11-05T21:33:11Z",
   "endpoints": {
     "pulls": "https://api.github.com/repos/sassnarep3-star/Own6/pulls?state=all&per_page=100",
     "pages": "https://api.github.com/repos/sassnarep3-star/Own6/pages",
@@ -7,6 +7,61 @@
     "main_commit": "https://api.github.com/repos/sassnarep3-star/Own6/commits/main"
   },
   "pulls": [
+    {
+      "number": 49,
+      "title": "Session 27fdbe09: 5 Nov 2026 official snapshot, luck-controlled signal test, and integration of five open PRs",
+      "state": "open",
+      "merged": false,
+      "merged_at": null,
+      "merge_commit_sha": null,
+      "base": "main",
+      "head": "arena/27fdbe09-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/49"
+    },
+    {
+      "number": 48,
+      "title": "Luck-exclusion power analysis + publication acceptance audit",
+      "state": "open",
+      "merged": false,
+      "merged_at": null,
+      "merge_commit_sha": null,
+      "base": "main",
+      "head": "arena/95c04c74-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/48"
+    },
+    {
+      "number": 47,
+      "title": "Session arena/3d3954d6-own6: independent close-out verification",
+      "state": "open",
+      "merged": false,
+      "merged_at": null,
+      "merge_commit_sha": null,
+      "base": "main",
+      "head": "arena/3d3954d6-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/47"
+    },
+    {
+      "number": 46,
+      "title": "Session arena/5b94566b-own6: record PR #45 merge result and complete task board",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-05T21:27:54Z",
+      "merge_commit_sha": "415592d54f42ea220d85ef42994741754919ba37",
+      "base": "main",
+      "head": "arena/5b94566b-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/46"
+    },
+    {
+      "number": 45,
+      "title": "Session arena/5b94566b-own6: final integration, source verification, and live Pages",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-05T21:27:02Z",
+      "merge_commit_sha": "c19cda059d82a8edab29a5cc58b1e975b6dc4269",
+      "base": "main",
+      "head": "arena/5b94566b-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/45"
+    },
     {
       "number": 44,
       "title": "Record session 107fc87d merge and Pages close-out",
@@ -503,6 +558,20 @@
   "builds": [
     {
       "status": "built",
+      "commit": "415592d54f42ea220d85ef42994741754919ba37",
+      "created_at": "2026-11-05T21:27:55Z",
+      "updated_at": "2026-11-05T21:28:16Z",
+      "error": null
+    },
+    {
+      "status": "built",
+      "commit": "c19cda059d82a8edab29a5cc58b1e975b6dc4269",
+      "created_at": "2026-11-05T21:27:03Z",
+      "updated_at": "2026-11-05T21:27:22Z",
+      "error": null
+    },
+    {
+      "status": "built",
       "commit": "33165a0cd0c6d70969183133648174ada39ffda0",
       "created_at": "2026-11-03T23:47:11Z",
       "updated_at": "2026-11-03T23:47:40Z",
@@ -776,7 +845,7 @@
     }
   ],
   "main_commit": {
-    "sha": "33165a0cd0c6d70969183133648174ada39ffda0",
-    "date": "2026-11-03T23:47:10Z"
+    "sha": "415592d54f42ea220d85ef42994741754919ba37",
+    "date": "2026-11-05T21:27:53Z"
   }
 }

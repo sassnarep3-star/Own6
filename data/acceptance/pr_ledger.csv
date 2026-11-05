@@ -24,3 +24,4 @@ pr,title,state,merged,merged_at,merge_commit_sha,head,evidence_url
 40,"Record PR 34 merge, review flags and successful Pages deployment",closed,yes,2026-11-03T23:42:55Z,f0a0eaa933a1594fba339f6cd9203dbdd9202d11,arena/b700d3ca-own6,https://github.com/sassnarep3-star/Own6/pull/40
 41,Independent hub provenance checks and official-source boundary review,closed,yes,2026-11-03T23:43:48Z,4dced9c997d035b5ee9f2e0a66ce2c35d8d1195a,arena/fa10f2e0-own6,https://github.com/sassnarep3-star/Own6/pull/41
 42,Session 107fc87d: NBA source re-verification and evidence audit,closed,yes,2026-11-03T23:44:58Z,88462e9244643d95ed4bcd847c09cdd2dfdec31e,arena/107fc87d-own6,https://github.com/sassnarep3-star/Own6/pull/42
+45,"Session arena/5b94566b-own6: final integration, source verification, and live Pages",closed,yes,2026-11-05T21:27:02Z,c19cda059d82a8edab29a5cc58b1e975b6dc4269,arena/5b94566b-own6,https://github.com/sassnarep3-star/Own6/pull/45

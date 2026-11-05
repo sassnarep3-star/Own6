@@ -1,9 +1,9 @@
 page,title,heading,section,generator,generator_exists,table_rows,external_links,official_links,inbound_links,orphan,intentional_orphan,evidence_url
 docs/correlations.html,Correlations — Own6,"Correlations — Must Be Measured, Never Assumed",(root),hand-maintained (legacy root page),n/a,0,8,8,8,no,no,https://github.com/sassnarep3-star/Own6/blob/main/docs/correlations.html
-docs/coverage/flagged.html,Flagged for Review · Own6,Flagged for Review,coverage,scripts/source_coverage.py,yes,477,477,477,5,no,no,https://github.com/sassnarep3-star/Own6/blob/main/docs/coverage/flagged.html
+docs/coverage/flagged.html,Flagged for Review · Own6,Flagged for Review,coverage,scripts/source_coverage.py,yes,478,478,478,5,no,no,https://github.com/sassnarep3-star/Own6/blob/main/docs/coverage/flagged.html
 docs/coverage/index.html,Source coverage executive summary · Own6,Source coverage executive summary,coverage,scripts/source_coverage.py,yes,6,6,6,6,no,no,https://github.com/sassnarep3-star/Own6/blob/main/docs/coverage/index.html
 docs/coverage/pages.html,Coverage by page · Own6,Coverage by page,coverage,scripts/source_coverage.py,yes,60,60,60,5,no,no,https://github.com/sassnarep3-star/Own6/blob/main/docs/coverage/pages.html
-docs/coverage/rows.html,Every inventoried table row · Own6,Every inventoried table row,coverage,scripts/source_coverage.py,yes,1266,2060,2052,5,no,no,https://github.com/sassnarep3-star/Own6/blob/main/docs/coverage/rows.html
+docs/coverage/rows.html,Every inventoried table row · Own6,Every inventoried table row,coverage,scripts/source_coverage.py,yes,1267,2061,2053,5,no,no,https://github.com/sassnarep3-star/Own6/blob/main/docs/coverage/rows.html
 docs/coverage/sources.html,Sources and verification limits · Own6,Sources and verification limits,coverage,scripts/source_coverage.py,yes,7,7,7,5,no,no,https://github.com/sassnarep3-star/Own6/blob/main/docs/coverage/sources.html
 docs/dashboard.html,Own6 — Own-Line Calculator,🏀 Originate Your Own NBA Lines,(root),hand-maintained (legacy root page),n/a,0,2,2,2,no,yes,https://github.com/sassnarep3-star/Own6/blob/main/docs/dashboard.html
 docs/flagged.html,Flagged for Review — Own6,⚑ Flagged for Review,(root),hand-maintained (legacy root page),n/a,0,18,17,9,no,no,https://github.com/sassnarep3-star/Own6/blob/main/docs/flagged.html
@@ -30,7 +30,7 @@ docs/lab/overview.html,Overview · Own6,Empirical NBA Lab,lab,scripts/build_lab.
 docs/lab/sources.html,Sources · Own6,Sources,lab,scripts/build_lab.py,yes,15,15,15,10,no,no,https://github.com/sassnarep3-star/Own6/blob/main/docs/lab/sources.html
 docs/lab/strategies.html,Strategies · Own6,Strategies,lab,scripts/build_lab.py,yes,6,6,6,10,no,no,https://github.com/sassnarep3-star/Own6/blob/main/docs/lab/strategies.html
 docs/leaderboard.html,Leaderboard — Own6,"Leaderboard — Rewards Skill, Not Luck",(root),hand-maintained (legacy root page),n/a,0,1,1,9,no,no,https://github.com/sassnarep3-star/Own6/blob/main/docs/leaderboard.html
-docs/luck/acceptance.html,Publication acceptance audit · Own6,Publication acceptance audit,luck,scripts/build_luck.py,yes,103,104,99,7,no,no,https://github.com/sassnarep3-star/Own6/blob/main/docs/luck/acceptance.html
+docs/luck/acceptance.html,Publication acceptance audit · Own6,Publication acceptance audit,luck,scripts/build_luck.py,yes,104,105,100,7,no,no,https://github.com/sassnarep3-star/Own6/blob/main/docs/luck/acceptance.html
 docs/luck/flagged.html,Flagged for review · Own6,Flagged for review,luck,scripts/build_luck.py,yes,10,11,11,7,no,no,https://github.com/sassnarep3-star/Own6/blob/main/docs/luck/flagged.html
 docs/luck/index.html,Luck is the default explanation · Own6,Luck is the default explanation,luck,scripts/build_luck.py,yes,6,7,7,8,no,no,https://github.com/sassnarep3-star/Own6/blob/main/docs/luck/index.html
 docs/luck/method.html,Method and numerical checks · Own6,Method and numerical checks,luck,scripts/build_luck.py,yes,9,14,14,7,no,no,https://github.com/sassnarep3-star/Own6/blob/main/docs/luck/method.html
