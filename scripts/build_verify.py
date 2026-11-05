@@ -242,7 +242,7 @@ def main():
 the NBA's official release on prediction markets, and the Korean statute on law.go.kr.
 Each row is one check with the URL that was opened. Nothing was inferred, averaged or filled in.
 A blank cell means the value is unknown, not zero.</div>
-<div class="banner"><b>Final integration re-read, 2026-11-05.</b> All 15 November 2 final scores were opened again on their official game pages and matched (V28–V42 in the <a href="../review/verification.html">direct verification log</a>). Terms §6, the Korean whole-law header and the other scoped policy pages were also freshly read. The 54-row ledger below keeps its original 2026-11-03 dates. The live standings page has advanced, so it cannot freshly confirm the 30 historical W-L rows; those rows remain a dated snapshot, not current standings.</div>
+<div class="banner"><b>Final integration re-read, 2026-11-05.</b> All 15 November 2 final scores were opened again on their official game pages and matched (V28–V42 in the <a href="../review/verification.html">direct verification log</a>). Terms §6, the Korean whole-law header and the other scoped policy pages were also freshly read. The 54-row ledger below keeps its original 2026-11-03 dates. The live standings page has advanced, so it cannot freshly confirm the 30 historical W-L rows; those rows remain a dated snapshot, not current standings. A <a href="../daily/standings.html">separate November 5 daily capture</a> supplies its own dated table without rewriting this ledger.</div>
 <h2>What was checked</h2>
 {table(["Category", "Checks", "Matched", "Mismatched", "Official source", "Table"], coverage, numeric=(1, 2, 3))}
 <h2>Open the tables</h2>

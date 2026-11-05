@@ -61,6 +61,8 @@ data/flags.json,F24,needs_review,Flag added by another session; not independentl
 data/flags.json,F25,needs_review,Flag added by another session; not independently reviewed in this audit.,https://github.com/sassnarep3-star/Own6/blob/77a28cccea34e0764f6d45ff3316d3aa8f6b90b7/data/flags.json,2026-11-02
 data/flags.json,F26,needs_review,Flag added by another session; not independently reviewed in this audit.,https://github.com/sassnarep3-star/Own6/blob/77a28cccea34e0764f6d45ff3316d3aa8f6b90b7/data/flags.json,2026-11-02
 data/flags.json,F27,needs_review,Flag added by another session; not independently reviewed in this audit.,https://github.com/sassnarep3-star/Own6/blob/77a28cccea34e0764f6d45ff3316d3aa8f6b90b7/data/flags.json,2026-11-02
+data/flags.json,F28,needs_review,Flag added by another session; not independently reviewed in this audit.,https://github.com/sassnarep3-star/Own6/blob/77a28cccea34e0764f6d45ff3316d3aa8f6b90b7/data/flags.json,2026-11-02
+data/flags.json,F29,needs_review,Flag added by another session; not independently reviewed in this audit.,https://github.com/sassnarep3-star/Own6/blob/77a28cccea34e0764f6d45ff3316d3aa8f6b90b7/data/flags.json,2026-11-02
 data/sources.csv,S1,needs_review,Stats overview was not directly re-read in this session; indexed is not the same as verified.,https://www.nba.com/stats/overview,2026-11-02
 data/sources.csv,S2,verified_direct,Glossary definitions read directly; no performance claim is supported.,https://www.nba.com/stats/help/glossary,2026-11-02
 data/sources.csv,S3,verified_canonical,The FAQ was read at www.nba.com/stats/help/faq; the upstream CDN URL is a different locator for the reviewed FAQ content.,https://www.nba.com/stats/help/faq,2026-11-02

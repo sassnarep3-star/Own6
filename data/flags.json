@@ -261,9 +261,9 @@
       "category": "Data snapshot",
       "severity": "Medium",
       "item": "The 30-team W-L ledger is a 2026-11-03 snapshot, not current 2026-11-05 standings.",
-      "detail": "All 30 rows matched the official standings when read on 2026-11-03. A fresh 2026-11-05 read shows that the live table has advanced (for example PHI is 8-1 rather than 7-1). The dated values are preserved for audit reproducibility; the live page cannot retroactively confirm that historical snapshot.",
+      "detail": "All 30 rows matched the official standings when read on 2026-11-03. A fresh 2026-11-05 read shows that the live table has advanced (for example PHI is 8-1 rather than 7-1). The dated values are preserved for audit reproducibility; the live page cannot retroactively confirm that historical snapshot. Concurrent PR #49 added a separate timestamped November 5 capture under docs/daily/, which does not make this older ledger current.",
       "source_url": "https://www.nba.com/standings",
-      "action_requested": "Do not describe the dated rows as current standings. Use a new timestamped capture for any current-state analysis; do not overwrite the historical ledger silently."
+      "action_requested": "Do not describe the dated rows as current standings. Use the separately dated docs/daily/ capture for November 5 review or create a new timestamped capture later; do not overwrite the historical ledger silently."
     },
     {
       "id": "F29",

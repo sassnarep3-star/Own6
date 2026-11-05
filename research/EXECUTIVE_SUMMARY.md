@@ -1,6 +1,16 @@
 # Executive Summary — Own6 NBA Lines Research
 
-**Date:** 2026-11-03 · **Session:** `arena/74d27b5d-own6` · **Protocol:** v1.1.0
+## Final integration update — 2026-11-05
+
+Session `arena/6eb8d991-own6` rebased onto concurrent `main` after PR #49, preserving the separate `docs/daily/` November 5 snapshot and all earlier sections. The decision below is unchanged: **zero strategies are qualified and no reward winner, current executable price, profitable edge or betting recommendation is published.**
+
+Fresh direct reads in V28–V54 reconfirmed all 15 November 2 final scores and the scoped NBA/Korean policy claims. The original 30-team W-L ledger remains a November 3 historical match, not current standings; PR #49's November 5 daily capture is separately dated. The daily walk-forward and descriptive correlations are preliminary retrospective evidence with disclosed uncertainty, not an authorized data feed or an all-gate qualification. The assurance engine still has zero authorized observations and an empty leaderboard.
+
+Four provenance defects were corrected without filling gaps: the NBA partner list no longer includes Brazil, Utah's dated W-L row cites standings, ESPN gamelogs are labelled third-party/secondary, and an unsupported commercial-status assertion was removed. Full record: [`audit/FINAL_INTEGRATION_REVIEW_2026-11-05.md`](../audit/FINAL_INTEGRATION_REVIEW_2026-11-05.md) and the [direct verification log](../data/verification_log.csv).
+
+---
+
+**Original assurance summary date:** 2026-11-03 · **Session:** `arena/74d27b5d-own6` · **Protocol:** v1.1.0
 
 ## Decision
 
@@ -44,8 +54,8 @@ Originate NBA moneylines, spreads, totals, player props, same-game prop combos a
 
 ## What remains unverified
 
-- Current/historical odds, player props, correlations, ROI, CLV and strategy performance from an authorized ledger.
-- Korean-law article bodies beyond the official version header.
+- Current/historical executable odds, player-prop prices, strategy-qualifying joint dependence, ROI, CLV and strategy performance from an authorized ledger. The separate daily section contains descriptive estimates, not qualified performance.
+- Resolution of the Korean whole-law/Article 26 effective-date discrepancy and legal applicability. Article 26(1), 26(2)(1) and 26(2)(2) were directly read; other article bodies are not freshly certified by final integration.
 - Specific NBA prop restrictions reported only by press sources.
 - Any legal applicability or data-use permission.
 

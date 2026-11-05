@@ -1,8 +1,10 @@
 # Final integration review — 2026-11-05
 
-Session: `arena/6eb8d991-own6`  
-Integrated local HEAD at review start: `3a517aa`  
+Session: `arena/6eb8d991-own6`
+Integrated local HEAD at review start: `3a517aa`
 Publication target: `main` / legacy GitHub Pages `main:/`
+
+**Concurrency update.** While this review was being committed, PR #49 merged the same five stale PRs into `main` at `aea6a5a` and added the separate November 5 daily snapshot. This branch was rebased onto that tree with both coordination records retained. Git omitted the duplicate local merge commits because their changes were already upstream; no concurrent daily, coverage or review work was reverted. PR #48 and PR #50 remain separate active sessions and are not represented as this session's work.
 
 ## Decision and evidence boundary
 
@@ -82,6 +84,8 @@ The 30 W-L rows in `data/verification_official_2026_11_03.csv` remain a **2026-1
 - no dated value is silently replaced with a current value;
 - current-site navigation and summaries label the snapshot date;
 - a future current-state analysis needs a new timestamped capture.
+
+Concurrent PR #49 independently added `data/official_2026_11_05/standings.csv` and `docs/daily/standings.html` as a separate November 5 capture. That later snapshot is useful dated evidence, but it neither rewrites the November 3 ledger nor authorizes gambling-related reuse. Its descriptive model/correlation results remain outside the assurance leaderboard's all-gate qualification.
 
 This limitation is V49 and public flag F28. It does not alter the 15 final scores above.
 

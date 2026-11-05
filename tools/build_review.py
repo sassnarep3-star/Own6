@@ -181,7 +181,7 @@ def build() -> dict[str, str]:
         + card("Direct retrieval", "The initial source set was retrieved on 2026-11-02; final integration re-reads carry their own dates through 2026-11-05. Search snippets are not treated as verification. " + A("https://www.nba.com/stats/help/faq", "NBA Stats FAQ"))
         + card("No invented values", "No NBA statistic, price, correlation or backtest result is asserted unless it is quoted from an official page. Unconfirmed values stay blank. " + A("https://www.nba.com/stats/overview", "NBA Stats overview"))
         + card("Automated gate", "A script rejects any table row without a directly verified official source link and any broken internal link. " + GH("tools/check_site.py", "tools/check_site.py"))
-        + card("Engine tests", "The final integrated tree passes 32/32 dependency-free tests; the separate pinned scientific suite passes 120 tests plus six subtests. These are software checks, not evidence of betting skill. " + GH("tools/run_tests.py", "tools/run_tests.py"))
+        + card("Engine tests", "The final integrated tree passes 32/32 dependency-free tests; the separate pinned scientific suite passes 135 tests plus six subtests. These are software checks, not evidence of betting skill. " + GH("tools/run_tests.py", "tools/run_tests.py"))
         + "</div>"
         + table("Verified entry points — official sources used", ["Source", "What it supports", "Official link", "Verification"], verified_entry_rows, "t-entry")
         + table("Values deliberately blank (no official confirmation)", ["Value", "Published value", "Status", "Why", "Source to check"], blank_rows, "t-blank")

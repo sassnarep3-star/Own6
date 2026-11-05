@@ -1,6 +1,21 @@
 # Executive Summary — Own6: Originate Your Own NBA Lines
 
-## Current status — read first (session `arena/269a73e2-own6`, 2026-11-03)
+## Integrated current status — 2026-11-05 (session `arena/6eb8d991-own6`)
+
+**Decision:** publish the integrated research, dated evidence and Flagged for Review disclosures. **No strategy is qualified, no leaderboard reward is awarded, and no current executable line, profitable edge or betting recommendation is published.** The assurance engine remains fail-closed with zero authorized observations. The separate daily snapshot contains preliminary retrospective estimates; it does not change that qualification decision or establish NBA data-use permission.
+
+- **Fresh independent score review:** all 15 November 2 finals were opened again on their official NBA game pages on November 5 and matched the dated ledger, including NOP–MEM Final/OT. Direct-read entries V28–V42 and per-game links are in [`data/verification_log.csv`](data/verification_log.csv) and [`audit/FINAL_INTEGRATION_REVIEW_2026-11-05.md`](audit/FINAL_INTEGRATION_REVIEW_2026-11-05.md).
+- **Policy review:** Terms §§1/6/9, Stats FAQ, prediction-market release, Korean whole-law header and Article 26(1)/(2)(1)/(2)(2) were freshly read (V43–V54). The Korean effective-date discrepancy and NBA reuse/gambling-use questions remain open; no legal conclusion or license is inferred.
+- **Two standings dates, not one “live” truth:** the original 30 rows are a **2026-11-03 historical match**, not current November 5 standings. A concurrent merged PR #49 added a separate dated [November 5 daily snapshot](docs/daily/standings.html). Neither capture should be silently substituted for the other.
+- **Preliminary daily analysis is not qualification:** the daily section's walk-forward signal test and descriptive correlations have their own sample/uncertainty disclosures. They are not closing-line evidence, authorized sportsbook prices, prop-combination validation or an all-gate leaderboard result. See [`docs/daily/signals.html`](docs/daily/signals.html) and [`docs/daily/validation.html`](docs/daily/validation.html).
+- **Provenance corrections:** removed an erroneous Brazil entry from the official-partner summary; corrected Utah's standings citation; relabelled ESPN gamelogs as third-party/secondary; removed an unsupported commercial-purpose assertion. Unsupported odds, props, ROI, CLV and strategy-qualifying correlations remain blank. Public flags F28–F29 record the dated-source limitation and corrections.
+- **Integration provenance:** concurrent PR #49 merged the same five stale PRs while this review was underway. This branch retained both coordination records, rebased onto that work and kept only its unique source-review changes; no daily, coverage or other session work was discarded.
+
+The sections below are dated historical reviews preserved for provenance. Where their wording differs, this integrated status and the current fail-closed assurance report govern the release decision.
+
+---
+
+## Earlier current-status review (session `arena/269a73e2-own6`, 2026-11-03)
 
 **Bottom line.** The project has a working framework for originating lines, pricing parlays with correlation, and gating strategies. It has **no validated strategy, no qualifying leaderboard entry, no verified odds, and no verified correlation estimate.** No edge is claimed. Rewards are non-monetary research priority only. Nothing here is betting advice.
 
