@@ -24,4 +24,10 @@
 
 The initial direct `python3 scripts/run_lab.py` attempt failed because NumPy was not installed in the base interpreter. Installing the pinned requirements in ignored `.venv/` resolved that environment issue; the script then completed and the committed report remained unchanged. `.venv/` is excluded/ignored and is not a deliverable.
 
+## Pull request / integration status
+
+PR [#52](https://github.com/sassnarep3-star/Own6/pull/52) was opened against `main` and is intentionally **not merged**. Required GitHub checks `lab` and `assurance` failed after the summary/coordination changes: the `lab` pytest step failed `tests/assurance/test_audit.py::test_inventory_hashes_and_line_counts` because `data/assurance/inventory.csv` still contains the old `COORDINATION.md` digest; Assurance CI's generated-artifacts-committed check also detects rebuild diffs. The same stale hash failure reproduced locally under `pytest` (134 passed, one failed, six subtests); `tools/run_tests.py` remains 32/32 because it runs the non-pytest subset. Other workflow checks passed. This is not presented as a code logic failure or as a green CI run.
+
+The final integration owner on PR [#50](https://github.com/sassnarep3-star/Own6/pull/50) was asked to rebuild the shared assurance inventory/pages on the combined tree, preserving PR [#51](https://github.com/sassnarep3-star/Own6/pull/51)'s append-only executive-summary section. Per the coordination rule, this session did not alter the shared `data/assurance/**` or `docs/assurance/**` outputs owned by that integration. Merge and Pages deployment remain pending; do not merge until shared artifacts are regenerated and all required checks pass.
+
 No additional NBA data, odds, legal interpretations, correlation estimates, or strategy-performance claims were added. Current rights/authorization and legacy archive issues remain flagged rather than resolved.
