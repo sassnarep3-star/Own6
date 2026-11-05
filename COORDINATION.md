@@ -685,3 +685,43 @@ Rules kept: no value asserted without a directly retrieved official source (link
 - **Pages deployment confirmed:** run `41741579185` completed successfully; GitHub Pages API reports `built` for merge SHA `88462e9244643d95ed4bcd847c09cdd2dfdec31e` at 2026-11-03T23:45:34Z; source remains `main:/`. Live reads after deployment confirmed dashboard says no qualified strategies / zero authorized observations; lab says `not_run`, zero observations and zero qualified; hub Flagged page displays 60 flagged items. This confirms publication/deployment, not factual accuracy or empirical skill.
 - **V5 complete for this session's audit/ledger PR.** V1/V2/V4 were limited to sourced verification/local consistency as documented above. V3 is still blocked: PR #28/#37 own `EXECUTIVE_SUMMARY.md`; no summary edit or cross-session reconciliation was made. Open PRs #23/#28/#31/#32/#37 and follow-up #43 were not merged or modified by this session.
 - Remaining requested integration flags: fix the Utah row's schedule citation; investigate missing historical base object in `scripts/audit_sources.py`; have a qualified reviewer assess NBA Terms §§1/9 before any gambling-related reuse; reconcile legacy assertions/summary through their owners. No unresolved flag was represented as resolved by this session.
+
+---
+
+## Session arena/55ad5ede-own6 — Own6 Lines Lab: originated lines, correlations, gated leaderboard (claimed 2026-11-05)
+
+### Branch rule (deviation logged)
+
+The brief asked for `session-<id>/<task>` branches. The Arena session rule fixes this session to **`arena/55ad5ede-own6`** and forbids creating or pushing any other branch, so all work is on that branch. File scopes below are disjoint from every other session's scope so their merged work is never edited or discarded.
+
+### Task board (session 55ad5ede)
+
+| Task | Status | Owner session | Exclusive file scope | Depends on |
+|---|---|---|---|---|
+| L1 Collect official NBA game results (Oct 20 – Nov 4, 2026) with per-row nba.com source links | in progress | arena/55ad5ede-own6 | `data/lines/**`, `scripts/collect_lines_data.py` | — |
+| L2 Originated-lines engine: walk-forward model, correlations, validation gates, leaderboard scoring | in progress | arena/55ad5ede-own6 | `src/own6_lines/**`, `scripts/run_lines_lab.py` | L1 |
+| L3 Clean landing page + categorized subpages with every entry/finding in table form | unclaimed | — | `docs/lines/**`, `scripts/build_lines_site.py`, `scripts/check_lines_site.py` | L1, L2 |
+| L4 Executive summary of the lines research | unclaimed | — | `research/LINES_EXECUTIVE_SUMMARY.md` | L1, L2, L3 |
+| L5 Line-by-line verification ledger + irregularity log | unclaimed | — | `data/lines/verification/**`, `tests/test_lines_lab.py` | L1, L2 |
+| L6 Final integration: re-verify combined data, build check, PR, merge, Pages confirm | unclaimed | — | this section of `COORDINATION.md` only | L1–L5 |
+
+### Scope boundaries (explicitly NOT touched by this session)
+
+`data/games_results_2026-27.csv`, `data/standings_2026-27.csv`, `data/team_ratings_2026-27.csv`, `data/market_lines_2026-11-02.csv`, `data/player_props_2026-11-02.csv`, `data/strategies.json`, `data/methodology.json`, `data/flags.json`, `data/hub_flags.csv`, `docs/index.html`, `docs/hub/**`, `docs/lab/**`, `docs/verified/**`, `docs/own6/**`, `docs/review/**`, `docs/coverage/**`, `EXECUTIVE_SUMMARY.md`, `README.md`, `src/own6/**`, `nba_lab/**`, `scripts/build_hub.py`, `scripts/build_lab.py`, `scripts/build_site.py`, `scripts/build_site_own6.py`, `scripts/build_reverification.py`, `tools/**`. Requests for changes to those files are logged below, not applied.
+
+### Requests to other file owners (logged, not edited)
+
+| Request | Target file (owner) | Requested change |
+|---|---|---|
+| L-REQ-01 | `docs/index.html` navigation (integration owner) | Add one additive link to the new `docs/lines/index.html` landing page. Not applied by this session because `docs/index.html` is in another session's merged scope. |
+| L-REQ-02 | `README.md` (integration owner) | Add one additive paragraph pointing at `docs/lines/` and `research/LINES_EXECUTIVE_SUMMARY.md`. |
+| L-REQ-03 | `data/hub_flags.csv` / `data/flags.json` (integration owner) | The existing flags reference a 2026-11-02/03 snapshot of NBA results and standings. This session's L1 re-reads the same series on 2026-11-05 and records drift (standings W-L changed for several clubs between 11-03 and 11-05). Consider a dated note that snapshots are point-in-time. |
+| L-REQ-04 | `docs/hub/**` + `scripts/build_hub.py` (integration owner) | The hub withholds every value because `data/hub_publication_policy.json` sets `accepted_value_evidence: []`. This session demonstrates a working, fully source-linked, official-results-only path in `docs/lines/`. Whether to relax the hub policy is the integration owner's decision; this session does not change it. |
+
+### Evidence rules for this session
+
+- A numeric value is published only if it was read directly from an official first-party source (nba.com game pages, nba.com/games date pages, nba.com/standings) during this session, or is a deterministic computation from such rows whose inputs are themselves published with links.
+- Every table row on the site carries at least one source link. Derived values link to the official inputs and are labelled as computed.
+- No sportsbook price, closing line, ROI, or profit figure is published as fact. Market-relative conclusions are marked unverified unless the price itself is verified.
+- Nothing is inferred, imputed or filled in from a secondary source. Blank means unverified.
+
