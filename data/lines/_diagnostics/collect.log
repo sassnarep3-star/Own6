@@ -1,0 +1,19 @@
+Collecting official NBA results for 2026-10-20 .. 2026-11-04
+  schedule JSON unavailable (HTTP Error 403: Forbidden); falling back to slate pages
+  2026-10-20: 2026-10-20: no finished games parsed from the rendered slate
+  2026-10-21: 2026-10-21: no finished games parsed from the rendered slate
+  2026-10-22: 2026-10-22: no finished games parsed from the rendered slate
+  2026-10-23: 2026-10-23: no finished games parsed from the rendered slate
+  2026-10-24: 2026-10-24: no finished games parsed from the rendered slate
+  2026-10-25: 2026-10-25: no finished games parsed from the rendered slate
+  2026-10-26: 2026-10-26: no finished games parsed from the rendered slate
+  2026-10-27: 2026-10-27: no finished games parsed from the rendered slate
+  2026-10-28: 2026-10-28: no finished games parsed from the rendered slate
+  2026-10-29: 2026-10-29: no finished games parsed from the rendered slate
+  2026-10-30: 2026-10-30: no finished games parsed from the rendered slate
+  2026-10-31: 2026-10-31: no finished games parsed from the rendered slate
+  2026-11-01: 2026-11-01: no finished games parsed from the rendered slate
+  2026-11-02: 2026-11-02: no finished games parsed from the rendered slate
+  2026-11-03: 2026-11-03: no finished games parsed from the rendered slate
+  2026-11-04: 2026-11-04: no finished games parsed from the rendered slate
+no games were collected; refusing to write an empty dataset
