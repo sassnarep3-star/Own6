@@ -1034,3 +1034,21 @@ schedule-citation request remain open for owners.
 
 ### PR / merge / Pages
 Recorded in the PR description and appended below after merge.
+
+---
+
+## Session arena/8dd3131f-own6 — executive-summary currency and independent checks (2026-11-05)
+
+### Task board
+
+| Task | Status | Owner | Files in scope |
+|---|---|---|---|
+| K1 Update the root executive summary with a dated, evidence-bounded current status; preserve historic material as historic | in progress | arena/8dd3131f-own6 | `EXECUTIVE_SUMMARY.md` |
+| K2 Independently run current-tree publication/tests and document reproducible failures/limits | in progress | arena/8dd3131f-own6 | `audit/SESSION_8DD3131F.md` |
+| K3 Record sources, verification, irregularities and closeout | in progress | arena/8dd3131f-own6 | this section of `COORDINATION.md` |
+
+Scope excludes generated site/data, shared navigation, model code, and files claimed by other sessions. The branch is fixed by Arena as `arena/8dd3131f-own6`; no alternate branch is created.
+
+### Claim log
+
+- 2026-11-05: Read the existing coordination board before work. Claimed K1–K3, with the exclusive scopes above. Existing content is preserved; this session is a summary currency and reproducibility check, not a re-certification of prior NBA data.
