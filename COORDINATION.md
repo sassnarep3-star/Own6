@@ -761,7 +761,7 @@ Branch fixed by Arena to `arena/3d3954d6-own6`; no additional branch is created.
 | V5 Strategy registry / validation gates fail-closed confirmation | done | arena/3d3954d6-own6 | `data/strategies.json`, `data/methodology.json` read-only |
 | V6 Irregularity log + official sources | done | arena/3d3954d6-own6 | `audit/SESSION_3D3954D6_VERIFICATION.md` |
 | V7 Session claim commit + push | done | arena/3d3954d6-own6 | `COORDINATION.md`, `audit/SESSION_3D3954D6_VERIFICATION.md` |
-| V8 PR to main, merge, Pages confirmation, record result | in progress | arena/3d3954d6-own6 | `COORDINATION.md` (this section) |
+| V8 PR to main, merge, Pages confirmation, record result | done | arena/3d3954d6-own6 | `COORDINATION.md` (this section) |
 
 ### Status legend
 
@@ -797,6 +797,10 @@ All non-blocking; values left blank/unverified; cross-referenced with existing F
 - Prior-session source reads not repeated here are carried forward and flagged, not re-certified.
 - Pages publishing source remains legacy `main:/`; this session does not change it.
 
-### V8 integration record
+### V8 integration record — complete
 
-Pending: pull request from `arena/3d3954d6-own6` to `main`, merge, GitHub Pages build confirmation via https://api.github.com/repos/sassnarep3-star/Own6/pages/builds/latest, then PR link, merge SHA, and Pages status recorded below in a follow-up commit on this branch (this close-out record cannot record its own merge).
+- **PR:** https://github.com/sassnarep3-star/Own6/pull/47 — **MERGED**, merge SHA `9a67ccaead04021a798466fd5f866e7405a6b200`, from `arena/3d3954d6-own6` to `main`.
+- **GitHub Pages:** publishing source remains legacy `main:/`. Build for merge SHA `9a67ccaead04021a798466fd5f866e7405a6b200` reached status `built` at 2026-11-05T21:34:04Z, no error (https://api.github.com/repos/sassnarep3-star/Own6/pages/builds/latest). Live site: https://sassnarep3-star.github.io/Own6/
+- **Confirmation:** all V1–V8 tasks done. No edge/profitability claim; all values blank/unverified unless officially sourced. Irregularities V-01..V-07 published for review (non-blocking).
+
+Note: this final record is committed on `arena/3d3954d6-own6`; the merge is already in `main`.
