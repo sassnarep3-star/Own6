@@ -1034,3 +1034,20 @@ schedule-citation request remain open for owners.
 
 ### PR / merge / Pages
 Recorded in the PR description and appended below after merge.
+
+---
+
+Pending. Will create a PR from `arena/5b94566b-own6` to `main`, merge without waiting for approval, confirm GitHub Pages deploys successfully, and record the PR link and merge result here.
+## Session arena/6eb8d991-own6 — stale-PR handoff and final integration (2026-11-05)
+
+Arena fixes this session to `arena/6eb8d991-own6`; the requested `session-<id>/<task>` branch cannot be created. Read the full task board, current `main` (`33165a0cd0c6d70969183133648174ada39ffda0`), Pages configuration, workflow runs, and open PR scopes before claiming. Open PRs #23, #28, #31, #32 and #37 are conflicting and their last commits are older than 60 minutes, so this session takes over final integration under the board's handoff rule. Their commits and evidence will be preserved where compatible with the current fail-closed publication policy; no prior section will be deleted. A recent workflow-only reference to `arena/27fdbe09-own6` has no fetchable branch or open PR at claim time.
+
+| Task | Status | Owner session | Integration file scope |
+|---|---|---|---|
+| I1 Preserve and reconcile stale PRs #23/#28/#31/#32/#37; record handoffs and conflicts | in progress | arena/6eb8d991-own6 | Their changed files, integrated on the fixed branch; no force-push to other branches |
+| I2 Re-run empirical lab/model gates, source ledgers and per-row publication checks | in progress | arena/6eb8d991-own6 | Existing verification tooling plus integration-only fixes required by failures |
+| I3 Reconcile executive summary, clean category navigation and Flagged for Review disclosures | in progress | arena/6eb8d991-own6 | `README.md`, `EXECUTIVE_SUMMARY.md`, `docs/index.html`, integrated assurance/verification/flag pages |
+| I4 Verify official-source evidence directly where network tools permit; leave unconfirmed values blank | in progress | arena/6eb8d991-own6 | Integrated source ledgers and `audit/` release evidence |
+| I5 Full combined-tree checks, PR from fixed branch to `main`, merge and Pages deployment confirmation | in progress | arena/6eb8d991-own6 | This section of `COORDINATION.md` and integration CI/workflow fixes if needed |
+
+Evidence boundary: source-link coverage and internal recomputation are not factual verification. Official links must support the exact claim in each verified row; unsupported values remain blank and visibly flagged. No strategy is skill-qualified and no reward, ROI, correlation, line or betting recommendation may be inferred from inherited archives.
