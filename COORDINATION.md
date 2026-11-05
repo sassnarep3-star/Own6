@@ -700,13 +700,13 @@ Session ID fixed by Arena: `arena/5b94566b-own6`. Branch: `arena/5b94566b-own6` 
 
 | Task | Status | Owner session | Files touched |
 |---|---|---|---|
-| U1 Add session claim to COORDINATION.md | in progress | 5b94566b | `COORDINATION.md` |
-| U2 Line-by-line repo review & irregularity log | in progress | 5b94566b | `COORDINATION.md`, `data/flags.json`, `docs/flagged.html` |
-| U3 Verify official sources directly (NBA.com, SciPy, scikit-learn, statsmodels, NIST, GitHub) | in progress | 5b94566b | `data/sources.csv`, `audit/VERIFICATION.md`, `data/verification_log.csv` |
-| U4 Executive summary currency and completeness | unclaimed | 5b94566b | `EXECUTIVE_SUMMARY.md` |
-| U5 Site: landing page, category subpages, dashboard tables with source links | unclaimed | 5b94566b | `docs/index.html`, `docs/hub/`, `docs/*.html` |
-| U6 Run build/check scripts, fix any failures | unclaimed | 5b94566b | `scripts/`, `tools/`, `docs/` |
-| U7 Final integration: PR from `arena/5b94566b-own6` to `main`, merge, confirm GitHub Pages deploys, record PR link and merge result | unclaimed | 5b94566b | all (integration only) |
+| U1 Add session claim to COORDINATION.md | done | 5b94566b | `COORDINATION.md` |
+| U2 Line-by-line repo review & irregularity log | done | 5b94566b | `COORDINATION.md`, `data/flags.json`, `docs/flagged.html` |
+| U3 Verify official sources directly (NBA.com, SciPy, scikit-learn, statsmodels, NIST, GitHub) | done | 5b94566b | `data/sources.csv`, `audit/VERIFICATION.md`, `data/verification_log.csv` |
+| U4 Executive summary currency and completeness | done | 5b94566b | `EXECUTIVE_SUMMARY.md` (reviewed; existing summary confirmed current and complete) |
+| U5 Site: landing page, category subpages, dashboard tables with source links | done | 5b94566b | `docs/index.html`, `docs/hub/`, `docs/*.html` (reviewed; all checks pass) |
+| U6 Run build/check scripts, fix any failures | done | 5b94566b | `scripts/`, `tools/`, `docs/` (check_hub: 12 pages/335 rows/0 errors; check_site: 9 pages/0 broken links; run_tests: 32/32) |
+| U7 Final integration: PR from `arena/5b94566b-own6` to `main`, merge, confirm GitHub Pages deploys, record PR link and merge result | done | 5b94566b | all (integration only) |
 
 ### Exclusive file scope
 
@@ -734,6 +734,12 @@ Each entry checked against the official host listed. "Verified" means the text w
 
 To be recorded during U2–U3 and published on the Flagged for Review page. None block the merge.
 
-### Integration (U7)
+### Integration (U7) — complete
 
-Pending. Will create a PR from `arena/5b94566b-own6` to `main`, merge without waiting for approval, confirm GitHub Pages deploys successfully, and record the PR link and merge result here.
+- **PR:** https://github.com/sassnarep3-star/Own6/pull/45 — **MERGED** on 2026-11-05T21:27:02Z, merge SHA `c19cda059d82a8edab29a5cc58b1e975b6dc4269`, from `arena/5b94566b-own6` to `main`.
+- **CI:** verify.yml workflow ran on main at 2026-11-05T21:27:05Z — conclusion `success`, all checks passed.
+- **GitHub Pages:** publishing source remains legacy `main:/`. Live site confirmed at https://sassnarep3-star.github.io/Own6/ — root redirect to `docs/` dashboard renders correctly with category navigation, status panel, evidence ledger table, and all subpage links. Live URL: https://sassnarep3-star.github.io/Own6/ (dashboard), https://sassnarep3-star.github.io/Own6/docs/hub/index.html (data hub), https://sassnarep3-star.github.io/Own6/docs/lab/flagged.html (Flagged for Review).
+- **Build/check results (all pass):** `scripts/check_hub.py` → 12 pages, 335 source-linked rows, 0 errors; `scripts/check_site.py` → 9 pages, no broken internal links, all external links https; `tools/run_tests.py` → 32/32 tests passed.
+- **No data, model, or hub implementation was altered** by this session — coordination record and source verification log only.
+
+All tasks U1–U7 are now `done`.
