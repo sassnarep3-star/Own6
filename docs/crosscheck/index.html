@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Independent cross-check · Own6 independent cross-check</title>
+<meta name="description" content="Own6 NBA research: an independent, official-source cross-check of every published headline number, re-read on 2026-11-05. Research only; no picks, no prices, no profitability claim.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<nav class="top" aria-label="Section navigation">
+<a class="brand" href="index.html">OWN6 / CROSS-CHECK</a>
+<a href="index.html" class="active">Overview</a><a href="standings.html">Standings</a><a href="games.html">Games &amp; archive</a><a href="slate.html">Forward slate</a><a href="claims.html">Claims ledger</a><a href="correlations.html">Correlations</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for Review</a>
+</nav>
+<main>
+
+<p class="eyebrow">Independent cross-check · 2026-11-05</p>
+<h1>A second pair of eyes on every published number</h1>
+<p>Another session built the 5 November snapshot. This section is a <strong>separate, independent
+re-read</strong> of the same official pages plus a recomputation of every headline number from the
+committed data files. Nothing here is copied from the earlier verification: the standings table,
+the schedule, three game cards and the games-per-date calendar were read again from NBA.com today,
+transcribed into <code>data/crosscheck/*.csv</code>, and then compared with what the repository
+publishes.</p>
+<div class="tiles"><div class="tile"><span>Final scores in archive</span><strong>121</strong></div><div class="tile"><span>Standings rows re-read</span><strong>30/30</strong></div><div class="tile"><span>Archive vs official table</span><strong>30/30</strong></div><div class="tile"><span>Played dates matching</span><strong>4/4</strong></div><div class="tile"><span>Slate rows re-read</span><strong>11/11</strong></div><div class="tile"><span>Claims recomputed</span><strong>14/16</strong></div><div class="tile"><span>Irregularities logged</span><strong>15</strong></div><div class="tile"><span>Validated strategies</span><strong>0</strong></div></div>
+
+<h2>What the cross-check found</h2>
+<p>Vocabulary: <strong>match</strong> means the published value reproduced from a source read or
+recomputed today; <strong>needs review</strong> means the value is real but the repository says two
+different things about it; <strong>unverified</strong> means the cell is blank because no official
+source exists for it.</p>
+<div class="table-wrap"><table><thead><tr><th scope="col">Finding</th><th scope="col">Result</th><th scope="col">Status</th><th scope="col">Official source</th><th scope="col">Page</th></tr></thead><tbody><tr><td>Independent re-read of all 30 standings rows agrees with the committed snapshot</td><td>30/30 rows</td><td><span class="pill ok">match</span></td><td><a href="https://www.nba.com/standings" rel="noopener">https://www.nba.com/standings ↗</a></td><td><a href="standings.html">detail →</a></td></tr><tr><td>Records recomputed from the 121 committed finals equal today's official table</td><td>30/30 rows</td><td><span class="pill ok">match</span></td><td><a href="https://www.nba.com/standings" rel="noopener">https://www.nba.com/standings ↗</a></td><td><a href="standings.html">detail →</a></td></tr><tr><td>The 2026-11-03 snapshot plus the 14 games of 4 November reproduces today's table exactly</td><td>30/30 rows; idle: ORL, GSW</td><td><span class="pill ok">match</span></td><td><a href="https://www.nba.com/standings" rel="noopener">https://www.nba.com/standings ↗</a></td><td><a href="standings.html">detail →</a></td></tr><tr><td>Official games-per-date counts match the archive on every November date already played</td><td>4/4 played dates · 26 future dates not applicable</td><td><span class="pill ok">match</span></td><td><a href="https://www.nba.com/games" rel="noopener">https://www.nba.com/games ↗</a></td><td><a href="games.html">detail →</a></td></tr><tr><td>October per-date official counts were not read this session, so October completeness stays open</td><td>12 October dates blank</td><td><span class="pill warn">unverified</span></td><td><a href="https://www.nba.com/games" rel="noopener">https://www.nba.com/games ↗</a></td><td><a href="games.html">detail →</a></td></tr><tr><td>The published 11-game forward slate matches the official schedule line for line</td><td>11/11 games</td><td><span class="pill ok">match</span></td><td><a href="https://www.nba.com/schedule" rel="noopener">https://www.nba.com/schedule ↗</a></td><td><a href="slate.html">detail →</a></td></tr><tr><td>Three game cards read at spread-out dates agree with the archive score</td><td>3/3 games</td><td><span class="pill ok">match</span></td><td><a href="https://www.nba.com/game/bos-vs-det-0022600001" rel="noopener">game card ↗</a></td><td><a href="games.html#spot">detail →</a></td></tr><tr><td>Both published correlation coefficients reproduce with an independent implementation</td><td>2/2 pairs</td><td><span class="pill ok">match</span></td><td><a href="https://www.nba.com/games" rel="noopener">https://www.nba.com/games ↗</a></td><td><a href="correlations.html">detail →</a></td></tr><tr><td>Published headline numbers across sections recompute from the committed data</td><td>14 match · 1 drift · 1 not recomputable</td><td><span class="pill bad">mismatch</span></td><td><a href="https://github.com/sassnarep3-star/Own6/tree/main/data/crosscheck" rel="noopener">committed comparison tables ↗</a></td><td><a href="claims.html">detail →</a></td></tr><tr><td>Gate inventory is inconsistent between the data file and the published pages</td><td>data/methodology.json G1–G8 vs pages G01–G10</td><td><span class="pill bad">needs review</span></td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/methodology.json" rel="noopener">methodology.json ↗</a></td><td><a href="claims.html#c13">detail →</a></td></tr><tr><td>Market prices, edge, ROI, CLV and reward winner</td><td class="empty" aria-label="blank, unverified"></td><td><span class="pill bad">unverified</span></td><td><a href="https://www.nba.com/termsofuse" rel="noopener">NBA Terms of Use §9 ↗</a></td><td><a href="flagged.html">detail →</a></td></tr></tbody></table></div>
+
+<div class="note">
+<p><strong>The line this section will not cross.</strong> Re-reading NBA statistics and recomputing
+coefficients is record-keeping, not evidence of skill. No sportsbook publishes prices through an
+official NBA page, and NBA Terms of Use §9 restricts gambling use of NBA Statistics, so every
+market-relative column in this project — price, edge, closing-line value, ROI, reward rank —
+stays blank and is listed on the Flagged for Review page. A correlation coefficient computed from
+121 finals is descriptive; it is not an edge.</p>
+</div>
+
+<h2>Browse the cross-check</h2>
+<div class="cards">
+<a class="card" href="standings.html"><h3>Standings · 30 rows</h3><p>Independent read, prior-snapshot delta, archive recomputation and a two-reader agreement flag on every row.</p></a>
+<a class="card" href="games.html"><h3>Games &amp; archive</h3><p>Games-per-date completeness for the whole of November, plus three game-card spot checks at different points of the season.</p></a>
+<a class="card" href="slate.html"><h3>Forward slate · 11 games</h3><p>The 5–6 November fixtures compared line by line with the official schedule; market columns blank.</p></a>
+<a class="card" href="claims.html"><h3>Claims ledger · 16 claims</h3><p>Every published headline number, where it appears, and what it recomputes to today.</p></a>
+<a class="card" href="correlations.html"><h3>Correlations</h3><p>Game-level Pearson coefficients recomputed from scratch, with the samples and the limits spelled out.</p></a>
+<a class="card" href="sources.html"><h3>Sources</h3><p>Each official page read today, what it supports and what it does not.</p></a>
+<a class="card" href="flagged.html"><h3>Flagged for Review</h3><p>15 irregularities found by this session, each with a source link.</p></a>
+</div>
+
+<h2>Reproduce it</h2>
+<p>Both the comparison tables and these pages are generated deterministically from the committed
+CSVs:</p>
+<pre><code>python3 scripts/build_crosscheck.py
+python3 scripts/check_crosscheck.py</code></pre>
+<p>The checker fails if a table row loses its official source link, if an internal link breaks, if a
+row marked unverified carries a value, or if any comparison row count changes without the data.</p>
+
+</main>
+<footer>
+<p>Independent re-read of official NBA.com pages on 2026-11-05 by session arena/57db4fcc-own6.
+Research and record-keeping only: no picks, no prices, no wagers, no profitability claim.
+Every table row links to the official page it came from; a blank cell means no confirmed value.
+See the <a href="https://www.nba.com/termsofuse">NBA Terms of Use</a> and this section's
+<a href="flagged.html">Flagged for Review</a> page. <a href="../index.html">All project sections →</a></p>
+</footer>
+</body>
+</html>

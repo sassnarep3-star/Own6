@@ -1034,3 +1034,28 @@ schedule-citation request remain open for owners.
 
 ### PR / merge / Pages
 Recorded in the PR description and appended below after merge.
+
+## Session arena/57db4fcc-own6 — independent cross-section reconciliation (2026-11-05)
+
+Branch fixed by Arena to `arena/57db4fcc-own6`; no `session-*` branch is created (same logged deviation
+as every earlier session). Base at claim: `origin/main` = `aea6a5a` (PR #49, session 27fdbe09).
+Prior sections are preserved unchanged; nothing below repeats their work.
+
+Two PRs were open at claim time and are **not** modified by this session:
+#48 (`arena/95c04c74-own6`, luck/power + acceptance audit, state `CONFLICTING`, touches
+`data/luck/**`, `docs/luck/**`, `data/acceptance/**`, `docs/coverage/**`, `docs/index.html`,
+`README.md`) and #50 (`arena/33432806-own6`, integration of #23/#28/#31/#32/#37, touches
+`COORDINATION.md` and `docs/index.html`). Their file scopes are excluded from this claim.
+
+### Task board (session 57db4fcc)
+
+| Task | Status | Owner session | Exclusive file scope |
+|---|---|---|---|
+| R1 Repo review: line-level read of published claims and data files; drift/irregularity log | in progress | arena/57db4fcc-own6 | `audit/SESSION_57DB4FCC.md` (new) |
+| R2 Independent official-source re-read today (standings, results, forward slate) and recomputation from the committed archives | in progress | arena/57db4fcc-own6 | `data/crosscheck/**` (new) |
+| R3 Cross-check site section (tables, every row source-linked, blanks where unverified) + checker | in progress | arena/57db4fcc-own6 | `scripts/build_crosscheck.py`, `scripts/check_crosscheck.py`, `docs/crosscheck/**` (all new) |
+| R4 Integration: run every existing gate, PR to `main`, merge, confirm Pages, record result | in progress | arena/57db4fcc-own6 | this section of `COORDINATION.md` (no other shared file) |
+
+Non-overlap rule applied: this session creates **only new files** plus this append-only section. It does
+not edit `docs/index.html`, `docs/dashboard.html`, `README.md`, `EXECUTIVE_SUMMARY.md`, or any other
+section's pages — a single navigation link request is logged at R4 instead of an edit.

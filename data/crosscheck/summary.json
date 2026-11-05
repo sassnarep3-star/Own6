@@ -1,0 +1,61 @@
+{
+ "archives": [
+  "data/games_results_2026-27.csv",
+  "data/results_2026-11-02.csv",
+  "data/official_2026_11_05/results_2026_11_04.csv"
+ ],
+ "claims": {
+  "drift": 1,
+  "match": 14,
+  "not_recomputable": 1,
+  "rows": 16
+ },
+ "completeness": {
+  "dates_compared": 4,
+  "dates_matching": 4,
+  "dates_not_applicable": 26,
+  "dates_unverified": 12,
+  "dates_with_official_count": 30
+ },
+ "correlations": {
+  "legacy_table_sample_drift": {
+   "current_n": 121,
+   "current_r": 0.1994,
+   "file": "data/correlation_findings.csv",
+   "legacy_n": 92,
+   "legacy_r": 0.2004,
+   "pair": "home_score_vs_away_score"
+  },
+  "matches": 2,
+  "pairs": 2
+ },
+ "flags": {
+  "rows": 15
+ },
+ "games_in_archive": 121,
+ "no_market_data": "No official NBA source publishes sportsbook prices; NBA Terms Sec. 9 restricts gambling use of NBA Statistics. Edge, ROI, CLV and reward columns therefore stay blank and are flagged.",
+ "session": "arena/57db4fcc-own6",
+ "slate": {
+  "committed_only": [],
+  "matches": 11,
+  "rows": 11
+ },
+ "snapshot_date": "2026-11-05",
+ "spotcheck": {
+  "matches": 3,
+  "rows": 3
+ },
+ "standings": {
+  "archive_matches": 30,
+  "delta_matches": 30,
+  "independent_total_wins": 121,
+  "nov4_rows": 14,
+  "prior_total_wins": 107,
+  "rows": 30,
+  "teams_idle_nov4": [
+   "ORL",
+   "GSW"
+  ],
+  "two_reader_matches": 30
+ }
+}
