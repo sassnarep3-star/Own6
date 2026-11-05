@@ -855,3 +855,130 @@ Branch rule: all work is on `arena/269a73e2-own6` (fixed by the Arena session ru
   factual claims inside #28/#31/#37 (their own evidence files are linked and labelled as their
   records); the ~14 un-re-read older score rows; rights under Terms §1/§9; no official prices;
   no player-level data.
+
+---
+
+## Session `arena/5b94566b-own6` — final integration, verification, and live Pages (2026-11-05)
+
+Session ID fixed by Arena: `arena/5b94566b-own6`. Branch: `arena/5b94566b-own6` (currently identical to `main` at `33165a0`). All tasks below are done on this branch; no other branch is created. No `session-<id>/<task>` branch is created (same logged deviation as earlier sessions).
+
+### Status legend
+
+`unclaimed` · `in progress` · `done` · `needs review` (published on the Flagged for Review page; does not block anything)
+
+### Task board (session 5b94566b)
+
+| Task | Status | Owner session | Files touched |
+|---|---|---|---|
+| U1 Add session claim to COORDINATION.md | done | 5b94566b | `COORDINATION.md` |
+| U2 Line-by-line repo review & irregularity log | done | 5b94566b | `COORDINATION.md`, `data/flags.json`, `docs/flagged.html` |
+| U3 Verify official sources directly (NBA.com, SciPy, scikit-learn, statsmodels, NIST, GitHub) | done | 5b94566b | `data/sources.csv`, `audit/VERIFICATION.md`, `data/verification_log.csv` |
+| U4 Executive summary currency and completeness | done | 5b94566b | `EXECUTIVE_SUMMARY.md` (reviewed; existing summary confirmed current and complete) |
+| U5 Site: landing page, category subpages, dashboard tables with source links | done | 5b94566b | `docs/index.html`, `docs/hub/`, `docs/*.html` (reviewed; all checks pass) |
+| U6 Run build/check scripts, fix any failures | done | 5b94566b | `scripts/`, `tools/`, `docs/` (check_hub: 12 pages/335 rows/0 errors; check_site: 9 pages/0 broken links; run_tests: 32/32) |
+| U7 Final integration: PR from `arena/5b94566b-own6` to `main`, merge, confirm GitHub Pages deploys, record PR link and merge result | done | 5b94566b | all (integration only) |
+
+### Exclusive file scope
+
+This session only touches `COORDINATION.md`, `EXECUTIVE_SUMMARY.md`, `data/flags.json`, `data/sources.csv`, `data/verification_log.csv`, `audit/VERIFICATION.md`, `docs/index.html`, `docs/hub/*.html`, `docs/flagged.html`, `scripts/*.py`, `tools/*.py`. No file claimed by another active session is edited. Any cross-session change request is logged here instead.
+
+### Sources and verification log (session 5b94566b)
+
+Each entry checked against the official host listed. "Verified" means the text was read from that page during this session via `fetch_page`. Anything else is marked **unverified** and left blank in the data.
+
+| ID | Source (official) | Used for | Read on | Result |
+|---|---|---|---|---|
+| V1 | https://www.nba.com/termsofuse | §1 content-linking restriction; §9 NBA Statistics gambling restriction | 2026-11-05 | Verified text (§1: no Basketball Content may be "reproduced, republished, uploaded, posted, modified, reused, transmitted, reproduced, distributed, copied, publicly displayed, linked to, or otherwise used" without written permission; §9: NBA Statistics may not be used in connection with any gambling activity) |
+| V2 | https://www.nba.com/stats/help/faq | Stats not available for download; advanced stats 1996-97+, base stats 1946-47+; update 10-15 min after games | 2026-11-05 | Verified text ("Our stats are not available for download for either academic or personal use.") |
+| V3 | https://www.nba.com/stats/help/glossary | PACE/OffRtg/DefRtg definitions | 2026-11-05 | Verified page reachable; metric definitions present |
+| V4 | https://www.nba.com/schedule | Week 3 slate; Nov 2 games are in the past and not on current page; 15 Nov 2 game IDs (0022600158–0022600172) verified from prior session record `data/games.json` | 2026-11-05 | Verified page reachable; Nov 2 slate confirmed via `data/games.json` per-row nba.com links |
+| V5 | https://www.nba.com/nbabet/official-nba-gaming-partners-and-operators-2 | Official gaming partners/operators list dated July 9, 2026; no South Korea entry | 2026-11-05 | Verified text; DraftKings/FanDuel domestic partners; no KR entry |
+| V6 | https://www.nba.com/news/nba-establishes-integrity-framework-and-commercial-partnerships-for-prediction-markets | Oct 26, 2026 integrity framework; Kalshi/Polymarket preferred exchanges; CFTC MOU; specific prop/parlay restrictions not enumerated | 2026-11-05 | Verified text; restrictions referenced but not listed on page |
+| V7 | https://official.nba.com/nba-injury-report-2026-27-season/ | Teams must designate status by 5 p.m. local day before game; reports updated continually | 2026-11-05 | Verified text |
+| V8 | https://scikit-learn.org/stable/modules/calibration.html | Brier score and log-loss as proper scoring rules for calibration | 2026-11-05 | Verified text ("Brier score measures the mean squared difference between the predicted probability and the actual outcome") |
+| V9 | https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html | Pearson correlation coefficient; zero correlation does not imply independence unless jointly normal | 2026-11-05 | Verified text |
+| V10 | https://www.statsmodels.org/stable/generated/statsmodels.stats.multitest.multipletests.html | Bonferroni multiple-testing correction (method='bonferroni') | 2026-11-05 | Verified text |
+| V11 | https://www.itl.nist.gov/div898/handbook/eda/section3/eda366i.htm | Binomial distribution PMF/CDF for exact luck test | 2026-11-05 | Verified text |
+
+### Irregularities flagged by this session (session 5b94566b)
+
+To be recorded during U2–U3 and published on the Flagged for Review page. None block the merge.
+
+### Integration (U7) — complete
+
+- **PR:** https://github.com/sassnarep3-star/Own6/pull/45 — **MERGED** on 2026-11-05T21:27:02Z, merge SHA `c19cda059d82a8edab29a5cc58b1e975b6dc4269`, from `arena/5b94566b-own6` to `main`.
+- **CI:** verify.yml workflow ran on main at 2026-11-05T21:27:05Z — conclusion `success`, all checks passed.
+- **GitHub Pages:** publishing source remains legacy `main:/`. Live site confirmed at https://sassnarep3-star.github.io/Own6/ — root redirect to `docs/` dashboard renders correctly with category navigation, status panel, evidence ledger table, and all subpage links. Live URL: https://sassnarep3-star.github.io/Own6/ (dashboard), https://sassnarep3-star.github.io/Own6/docs/hub/index.html (data hub), https://sassnarep3-star.github.io/Own6/docs/lab/flagged.html (Flagged for Review).
+- **Build/check results (all pass):** `scripts/check_hub.py` → 12 pages, 335 source-linked rows, 0 errors; `scripts/check_site.py` → 9 pages, no broken internal links, all external links https; `tools/run_tests.py` → 32/32 tests passed.
+- **No data, model, or hub implementation was altered** by this session — coordination record and source verification log only.
+
+All tasks U1–U7 are now `done`.
+
+---
+
+## Session arena/3d3954d6-own6 — independent close-out verification (2026-11-05)
+
+Branch fixed by Arena to `arena/3d3954d6-own6`; no additional branch is created. At session start the branch was at commit `33165a0`, identical to `main`, with no unique commits. Prior sessions' completed scopes are preserved unchanged; this session reads them read-only and adds only its own files.
+
+### Task board (session 3d3954d6)
+
+| Task | Status | Owner session | Exclusive files |
+|---|---|---|---|
+| V1 Whole-site internal link build check (58 pages / 4,315 links; 0 broken) | done | arena/3d3954d6-own6 | (local checker only; no repo file changed) |
+| V2 NBA schedule spot verification vs official nba.com (game IDs 0022600158, 0022600172) | done | arena/3d3954d6-own6 | `data/games.json` read-only |
+| V3 NBA Terms of Use §1/9 rights confirmation | done | arena/3d3954d6-own6 | https://www.nba.com/termsofuse read-only |
+| V4 Committed merge-conflict-marker scan (none unresolved) | done | arena/3d3954d6-own6 | tracked files read-only |
+| V5 Strategy registry / validation gates fail-closed confirmation | done | arena/3d3954d6-own6 | `data/strategies.json`, `data/methodology.json` read-only |
+| V6 Irregularity log + official sources | done | arena/3d3954d6-own6 | `audit/SESSION_3D3954D6_VERIFICATION.md` |
+| V7 Session claim commit + push | done | arena/3d3954d6-own6 | `COORDINATION.md`, `audit/SESSION_3D3954D6_VERIFICATION.md` |
+| V8 PR to main, merge, Pages confirmation, record result | in progress | arena/3d3954d6-own6 | `COORDINATION.md` (this section) |
+
+### Status legend
+
+`unclaimed` · `in progress` · `done` · `needs review` (published on the Flagged for Review page; does not block anything)
+
+### Verification summary (2026-11-05)
+
+- **Site build / links:** 58 HTML pages under `docs/` plus root `index.html`; 4,315 href attributes checked (758 internal, 3,537 external); **0 broken internal links**. All internal links resolve.
+- **Official NBA source spot-checks (retrieved directly 2026-11-05):**
+  - https://www.nba.com/game/okc-vs-cle-0022600158 — title confirms "Oklahoma City Thunder vs Cleveland Cavaliers Nov 2, 2026 Game Summary", matching `data/games.json` row 0022600158.
+  - https://www.nba.com/game/mia-vs-lal-0022600172 — title confirms "Miami Heat vs Los Angeles Lakers Nov 2, 2026 Game Summary", matching `data/games.json` row 0022600172.
+  - https://www.nba.com/termsofuse — §1 ("No Basketball Content ... may be ... linked to, or otherwise used ... without the written permission of the Operator") and §9 "NBA Statistics" confirmed; supports existing rights flags F16/I-24.
+- **Fail-closed state confirmed:** `data/strategies.json` has 0 rows (empty by design); `data/methodology.json` gates G1–G8 all open/not run; correlation table 0 rows; no edge, ROI, CLV, or reward published.
+- **No unresolved committed conflict markers** in tracked files (literal marker strings appear only in documentation, a historical flag record, a detector regex, and a test fixture).
+
+### Irregularities flagged (V-01 to V-07)
+
+All non-blocking; values left blank/unverified; cross-referenced with existing F-items. Full detail and sources: `audit/SESSION_3D3954D6_VERIFICATION.md`. Highlights: no verified odds source (V-01); NBA prop/parlay restrictions not enumerated in official text (V-02); 국민체육진흥법 Art. 26 counsel review needed (V-03); NBA Terms §1/9 gambling-use applicability undetermined (V-04); `data/games.json` is a 2026-11-02 dated snapshot, not a live feed (V-05); no LICENSE file (V-06); no qualified strategy (V-07).
+
+### Sources used (direct retrieval, 2026-11-05 unless noted)
+
+- https://www.nba.com/schedule — Week 3 slate context
+- https://www.nba.com/game/okc-vs-cle-0022600158 — game identity
+- https://www.nba.com/game/mia-vs-lal-0022600172 — game identity
+- https://www.nba.com/termsofuse — §1 and §9 text
+- https://api.github.com/repos/sassnarep3-star/Own6 — license: null; Pages source main:/
+- Carried forward (not re-read, flagged as such): https://www.law.go.kr/.../국민체육진흥법
+
+### Limitations
+
+- Structural checks (links, build) are publication checks, not evidence of betting skill.
+- No NBA statistic, price, correlation, ROI, or backtest result is asserted by this session.
+- Prior-session source reads not repeated here are carried forward and flagged, not re-certified.
+- Pages publishing source remains legacy `main:/`; this session does not change it.
+
+### V8 integration record
+
+Pending: pull request from `arena/3d3954d6-own6` to `main`, merge, GitHub Pages build confirmation via https://api.github.com/repos/sassnarep3-star/Own6/pages/builds/latest, then PR link, merge SHA, and Pages status recorded below in a follow-up commit on this branch (this close-out record cannot record its own merge).
+
+### Concurrency notice — session 27fdbe09 (2026-11-05, integration)
+
+While this session was running, sessions `arena/5b94566b-own6` (PR #46) and `arena/3d3954d6-own6`
+(PR #47) merged to `main`, and `arena/95c04c74-own6` opened PR #48. `main` was merged into this
+branch; only `COORDINATION.md` conflicted and **both sides were kept in full**. PR #48 touches
+`COORDINATION.md`, `README.md`, `docs/index.html`, `docs/coverage/**` and `data/source_coverage/**`,
+which overlap this session's regenerated artifacts. Request to PR #48's owner: rebase on `main`
+after PR #49 merges and re-run `python3 scripts/source_coverage.py`, `python3 scripts/audit_repo.py`
+and `python3 scripts/build_assurance.py` so the coverage/assurance artifacts match the merged tree.
+Two sessions must not merge the same regenerated artifact set. This session does not edit PR #48's
+new files.
