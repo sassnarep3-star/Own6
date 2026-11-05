@@ -28,7 +28,7 @@ TERMS = "https://www.nba.com/termsofuse#nba-statistics"
 GENERATED = {"data/assurance/inventory.csv", "data/assurance/row_audit.csv", "data/assurance/findings.csv", "data/assurance/summary.json"}
 # The assurance dashboard renders the inventory; inventorying its own generated HTML
 # would create a self-referential checksum loop. It is verified by check_assurance.py.
-GENERATED_PREFIXES = ("docs/assurance/",)
+GENERATED_PREFIXES = ("docs/assurance/", "docs/coverage/", "data/source_coverage/")
 OFFICIAL_SUFFIXES = (
     "nba.com", "github.com", "github.io", "docs.github.com", "scikit-learn.org",
     "scipy.org", "nist.gov", "statsmodels.org", "python.org", "law.go.kr", "draftkings.com",
