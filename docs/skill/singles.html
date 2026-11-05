@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Singles — spreads, totals and moneylines | Own6 Skill Lab</title>
+<meta name="description" content="Skill-versus-luck validation for NBA line strategies. Pricing arithmetic, the sample size a real edge needs, and the one graded slate.">
+<link rel="stylesheet" href="../skill-assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="brand"><a href="../index.html">OWN6</a><span> / SKILL LAB</span></div>
+  <nav aria-label="Skill lab sections"><a href="index.html">Summary</a><a href="signals.html">Signal research</a><a href="singles.html" aria-current="page">Singles</a><a href="parlays.html">Parlays &amp; combos</a><a href="correlation.html">Correlation</a><a href="luck.html">Luck removal</a><a href="gates.html">Validation gates</a><a href="leaderboard.html">Leaderboard</a><a href="validation.html">Proof of discrimination</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for Review</a></nav>
+</header>
+<main id="main">
+<h1>Singles — spreads, totals and moneylines</h1>
+<p class="sub">Pricing arithmetic, the sample size a real edge needs, and the one graded slate.</p>
+
+<section class="hero"><p class="eyebrow">SINGLE BETS</p>
+<p class="lede">Before any model, the arithmetic: what a price implies, what vig costs you, and
+how many bets it takes before a real edge is visible at all.</p></section>
+
+<h2>Pricing mechanics</h2>
+<div class="table-wrap"><table class=""><thead><tr><th scope="col">Quantity</th><th scope="col">Rule</th><th scope="col">Status</th><th scope="col">Implementation</th></tr></thead><tbody><tr><td>Rounding and implied probability</td><td>1/decimal odds; American −110 → decimal 1.9091 → 54.55%</td><td><span class="badge pass">FORMULA</span></td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/pricing.py" rel="noopener">skillab/pricing.py</a></td></tr><tr><td>De-vig (proportional)</td><td>(1/decimal) ÷ Σ(1/decimal) for both sides</td><td><span class="badge pass">FORMULA</span></td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/pricing.py" rel="noopener">skillab/pricing.py</a></td></tr><tr><td>Break-even win rate at −110</td><td>52.38%</td><td><span class="badge pass">FORMULA</span></td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/pricing.py" rel="noopener">skillab/pricing.py</a></td></tr><tr><td>Kelly stake</td><td>(p·b − q)/b with b = decimal − 1</td><td><span class="badge pass">FORMULA</span></td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/pricing.py" rel="noopener">skillab/pricing.py</a></td></tr></tbody></table></div>
+
+<h2>How much evidence a real edge needs</h2>
+<p class="note">Two-sided test, α = 0.05, power = 80%, price −110. "Detected power at n" is the
+probability the test would reject the null if the stated edge were true.</p>
+<div class="table-wrap"><table class=""><thead><tr><th scope="col">Target ROI</th><th scope="col">True win rate</th><th scope="col">Per-bet SD</th><th scope="col">Bets required</th><th scope="col">Power @ 200</th><th scope="col">Power @ 1000</th><th scope="col">Implementation · method</th></tr></thead><tbody><tr><td>1.00%</td><td>52.90%</td><td>0.9529</td><td>71275</td><td>0.053</td><td>0.063</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/power.py" rel="noopener">power.py</a> · <a href="https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm" rel="noopener">NIST</a></td></tr><tr><td>2.00%</td><td>53.43%</td><td>0.9523</td><td>17795</td><td>0.060</td><td>0.102</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/power.py" rel="noopener">power.py</a> · <a href="https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm" rel="noopener">NIST</a></td></tr><tr><td>3.00%</td><td>53.95%</td><td>0.9516</td><td>7897</td><td>0.073</td><td>0.169</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/power.py" rel="noopener">power.py</a> · <a href="https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm" rel="noopener">NIST</a></td></tr><tr><td>5.00%</td><td>55.00%</td><td>0.9498</td><td>2833</td><td>0.116</td><td>0.384</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/power.py" rel="noopener">power.py</a> · <a href="https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm" rel="noopener">NIST</a></td></tr><tr><td>10.00%</td><td>57.62%</td><td>0.9434</td><td>699</td><td>0.323</td><td>0.918</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/power.py" rel="noopener">power.py</a> · <a href="https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm" rel="noopener">NIST</a></td></tr></tbody></table></div>
+
+<h2>The graded slate (2026-11-02)</h2>
+<p class="note">All values recomputed from the committed per-game CSV; the published summary
+reproduces to five decimal places (checked in the build). A paired interval that contains zero
+means the difference is indistinguishable from noise.</p>
+<div class="table-wrap"><table class=""><thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Provenance</th><th scope="col">Source file</th></tr></thead><tbody><tr><td>Graded bets on the 2026-11-02 slate</td><td>15</td><td>REPO</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/forward_test_2026-11-02.csv" rel="noopener">forward_test_2026-11-02.csv</a></td></tr><tr><td>Market log-loss</td><td>0.57528</td><td>REPO</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/forward_test_summary_2026-11-02.csv" rel="noopener">summary CSV</a></td></tr><tr><td>Own6 model log-loss</td><td>0.60718</td><td>REPO</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/forward_test_summary_2026-11-02.csv" rel="noopener">summary CSV</a></td></tr><tr><td>Paired difference (market − model), mean</td><td>-0.03189</td><td>REPO</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/forward_test_2026-11-02.csv" rel="noopener">forward_test CSV</a></td></tr><tr><td>Paired difference 95% CI</td><td>-0.15009 to 0.08631</td><td>REPO</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/audit.py" rel="noopener">skillab/audit.py</a></td></tr><tr><td>Paired difference, block-bootstrap 95% CI</td><td>-0.13946 to 0.05089</td><td>REPO</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/luck.py" rel="noopener">skillab/luck.py</a></td></tr><tr><td>Spread leans W–L</td><td>7–8</td><td>REPO</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/forward_test_2026-11-02.csv" rel="noopener">forward_test CSV</a></td></tr><tr><td>Spread leans exact binomial p (vs 50%)</td><td>1.0000</td><td>REPO</td><td><a href="https://www.itl.nist.gov/div898/handbook/eda/section3/eda366i.htm" rel="noopener">NIST binomial</a> · <a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/luck.py" rel="noopener">luck.py</a></td></tr><tr><td>Total leans W–L</td><td>8–7</td><td>REPO</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/forward_test_2026-11-02.csv" rel="noopener">forward_test CSV</a></td></tr><tr><td>Total leans exact binomial p (vs 50%)</td><td>1.0000</td><td>REPO</td><td><a href="https://www.itl.nist.gov/div898/handbook/eda/section3/eda366i.htm" rel="noopener">NIST binomial</a> · <a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/luck.py" rel="noopener">luck.py</a></td></tr></tbody></table></div>
+
+<h2>De-vig audit</h2>
+<p class="note">Every two-sided quote in the lines file is de-vigged again from its raw American
+prices and compared with the published fair probability. This checks internal arithmetic only;
+it does not verify that the price itself was ever available.</p>
+<div class="table-wrap"><table class=""><thead><tr><th scope="col">Check</th><th scope="col">Result</th><th scope="col">Provenance</th><th scope="col">Source</th></tr></thead><tbody><tr><td>Quotes checked</td><td>15</td><td>REPO</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/our_lines_2026-11-02.csv" rel="noopener">our_lines CSV</a></td></tr><tr><td>Mean overround (vig)</td><td>0.04141</td><td>REPO</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/audit.py" rel="noopener">audit</a></td></tr><tr><td>Minimum overround</td><td>0.04073</td><td>REPO</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/audit.py" rel="noopener">audit</a></td></tr><tr><td>Maximum overround</td><td>0.04284</td><td>REPO</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/audit.py" rel="noopener">audit</a></td></tr><tr><td>Published fair probabilities that reproduce</td><td>all 15 of 15</td><td>REPO</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/audit.py" rel="noopener">audit</a></td></tr></tbody></table></div>
+
+<h2>Reading</h2>
+<div class="prose">
+<p>The model's paired loss advantage is negative on average and its interval spans zero in both
+the analytic and the block-bootstrap form. That is consistent with <em>no</em> predictive
+advantage over the de-vigged market on this slate. The 7–8 and 8–7 lean records give exact
+two-sided binomial p-values of 1.00 and
+1.00 — the least surprising result in the document, and
+exactly what a coin would produce.</p>
+<p>Fifteen bets cannot separate skill from luck at any plausible edge size
+(see the power table). The slate is reported because it exists, not because it is informative.</p>
+</div>
+
+</main>
+<footer>
+<p>Build a8998ba1594a · data as of 2026-11-03 · seed 20261105</p>
+<p>Research only. No wagers, no picks, no profitability claim. Read the
+<a href="flagged.html">Flagged for Review</a> page and the
+<a href="https://www.nba.com/termsofuse">NBA Terms of Use</a>.</p>
+</footer>
+</body>
+</html>

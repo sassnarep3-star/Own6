@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Proof of discrimination | Own6 Skill Lab</title>
+<meta name="description" content="Skill-versus-luck validation for NBA line strategies. Known-answer experiments: what the gates accept, what they reject, and why.">
+<link rel="stylesheet" href="../skill-assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="brand"><a href="../index.html">OWN6</a><span> / SKILL LAB</span></div>
+  <nav aria-label="Skill lab sections"><a href="index.html">Summary</a><a href="signals.html">Signal research</a><a href="singles.html">Singles</a><a href="parlays.html">Parlays &amp; combos</a><a href="correlation.html">Correlation</a><a href="luck.html">Luck removal</a><a href="gates.html">Validation gates</a><a href="leaderboard.html">Leaderboard</a><a href="validation.html" aria-current="page">Proof of discrimination</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for Review</a></nav>
+</header>
+<main id="main">
+<h1>Proof of discrimination</h1>
+<p class="sub">Known-answer experiments: what the gates accept, what they reject, and why.</p>
+
+<section class="hero"><p class="eyebrow">PROOF OF DISCRIMINATION</p>
+<p class="lede">A gate that rejects everything is not a test. A gate that accepts everything is
+not a test either. The only way to know which one you have built is to run it against data
+where the answer is already known.</p></section>
+
+<h2>Known-answer experiments</h2>
+<p class="note">Six archetypes with a known generating process. All are SYNTHETIC: seeded
+simulations that describe no real team, player, game or market. The seeds are fixed, so every
+number here is reproducible by re-running the build.</p>
+<div class="table-wrap"><table class=""><thead><tr><th scope="col">Archetype</th><th scope="col">True edge</th><th scope="col">n</th><th scope="col">Realised ROI</th><th scope="col">Failed gates</th><th scope="col">Verdict</th><th scope="col">Generator</th></tr></thead><tbody><tr><td>Skill with full evidence (true edge 5%, n = 30000)</td><td>5.00%</td><td>30000</td><td>5.95%</td><td>none</td><td><span class="badge pass">QUALIFIED</span></td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/simulate.py" rel="noopener">simulate.py</a></td></tr><tr><td>Skill (true edge 3%)</td><td>3.00%</td><td>3000</td><td>4.17%</td><td>SG05, SG06</td><td><span class="badge fail">REJECTED</span></td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/simulate.py" rel="noopener">simulate.py</a></td></tr><tr><td>Heater (true edge 0%, n = 150, lucky draw)</td><td>0.00%</td><td>150</td><td>12.00%</td><td>SG05, SG06, SG07, SG08, SG10</td><td><span class="badge fail">REJECTED</span></td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/simulate.py" rel="noopener">simulate.py</a></td></tr><tr><td>Lucky (true edge 0%)</td><td>0.00%</td><td>3000</td><td>0.42%</td><td>SG05, SG06, SG07, SG10</td><td><span class="badge fail">REJECTED</span></td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/simulate.py" rel="noopener">simulate.py</a></td></tr><tr><td>Low power (true edge 0.02, n = 40)</td><td>2.00%</td><td>40</td><td>0.23%</td><td>SG05, SG06, SG07, SG10</td><td><span class="badge fail">REJECTED</span></td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/simulate.py" rel="noopener">simulate.py</a></td></tr></tbody></table></div>
+
+<h2>What each archetype proves</h2>
+<div class="prose">
+<p><strong>F — full evidence, real 5% edge.</strong> Passes all twelve gates, including SG05's
+requirement that the sample be large enough to detect the edge it claims. This is the pass path;
+without it the other results would only prove the gates are strict, not that they are correct.</p>
+
+<p><strong>B — real 3% edge, 3,000 bets.</strong> Passes SG07 (its return interval excludes zero)
+but fails SG05 and SG06. That is not a false negative; it is the power finding made concrete.
+Three thousand bets is not enough to detect a 3% edge with confidence, even when the edge is
+genuinely there.</p>
+
+<p><strong>A — zero true edge, lucky 150-bet draw (+12.0% ROI).</strong> Fails SG07, SG10 and
+SG05. This is the archetype a naive leaderboard would rank first. Its ROI is real, its edge is
+not.</p>
+
+<p><strong>E — real 2% edge, 40 bets.</strong> Fails SG05 and SG07. A genuine edge observed at a
+sample size that cannot support it is indistinguishable from luck, and the gates treat it that
+way.</p>
+
+<p><strong>C — best of 60 zero-edge strategies.</strong> In-sample ROI of
+11.68% versus out-of-sample
+-0.73%. The collapse is not a modelling
+error; it is what selection does.</p>
+
+<p><strong>D — parlay priced as independent with a true ρ of 0.35.</strong> The independence
+assumption reports an EV of -0.00%;
+the realised return is 21.87%.
+The dependence is the entire result.</p>
+</div>
+
+<h2>Regression protection</h2>
+<div class="prose">
+<p>The same assertions are encoded in <code>tests/test_skilllab.py</code>. If a future change makes
+a gate accept the lucky or low-power archetype, or reject the full-evidence skill archetype, the
+test suite fails. Known-answer testing is what keeps a validation framework honest as it evolves.</p>
+</div>
+
+</main>
+<footer>
+<p>Build a8998ba1594a · data as of 2026-11-03 · seed 20261105</p>
+<p>Research only. No wagers, no picks, no profitability claim. Read the
+<a href="flagged.html">Flagged for Review</a> page and the
+<a href="https://www.nba.com/termsofuse">NBA Terms of Use</a>.</p>
+</footer>
+</body>
+</html>

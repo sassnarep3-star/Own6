@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Validation gates SG01–SG12 | Own6 Skill Lab</title>
+<meta name="description" content="Skill-versus-luck validation for NBA line strategies. Twelve fail-closed gates, and the crosswalk to the two older numbering schemes.">
+<link rel="stylesheet" href="../skill-assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="brand"><a href="../index.html">OWN6</a><span> / SKILL LAB</span></div>
+  <nav aria-label="Skill lab sections"><a href="index.html">Summary</a><a href="signals.html">Signal research</a><a href="singles.html">Singles</a><a href="parlays.html">Parlays &amp; combos</a><a href="correlation.html">Correlation</a><a href="luck.html">Luck removal</a><a href="gates.html" aria-current="page">Validation gates</a><a href="leaderboard.html">Leaderboard</a><a href="validation.html">Proof of discrimination</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for Review</a></nav>
+</header>
+<main id="main">
+<h1>Validation gates SG01–SG12</h1>
+<p class="sub">Twelve fail-closed gates, and the crosswalk to the two older numbering schemes.</p>
+
+<section class="hero"><p class="eyebrow">VALIDATION GATES</p>
+<p class="lede">Twelve gates in three groups: three preconditions you must satisfy before you are
+allowed to look at results, six statistical tests that separate skill from luck, and three
+integrity requirements. Missing evidence is a fail, never a pass.</p></section>
+
+<h2>SG01 – SG12</h2>
+<div class="table-wrap"><table class=""><thead><tr><th scope="col">Gate</th><th scope="col">Name</th><th scope="col">Rule</th><th scope="col">Method source</th></tr></thead><tbody><tr><td>SG01</td><td>Rights and market permission</td><td>The data and the use are permitted. NBA Terms §9 bars use of NBA Statistics in connection with gambling; unresolved rights is a fail.</td><td><a href="https://www.nba.com/termsofuse" rel="noopener">source</a></td></tr><tr><td>SG02</td><td>Field-level provenance</td><td>Every observation carries a source URL, a retrieval timestamp and a content hash. Missing evidence is not imputed.</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/research/empirical/DATA_CONTRACT.md" rel="noopener">source</a></td></tr><tr><td>SG03</td><td>Pre-registered, frozen plan</td><td>Strategy family, thresholds and stopping rules are hashed before the first bet. Post-hoc threshold changes invalidate the run.</td><td><a href="https://scikit-learn.org/stable/modules/cross_validation.html" rel="noopener">source</a></td></tr><tr><td>SG04</td><td>Chronological walk-forward</td><td>No observation may use information dated after the bet. Parameters are fit only on earlier dates.</td><td><a href="https://scikit-learn.org/stable/modules/cross_validation.html" rel="noopener">source</a></td></tr><tr><td>SG05</td><td>Power and effective sample size</td><td>n is at least the sample needed to detect the claimed edge at 80% power, after event clustering.</td><td><a href="https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm" rel="noopener">source</a></td></tr><tr><td>SG06</td><td>Market-relative predictive loss</td><td>Paired log-loss (or Brier) must be strictly lower than the de-vigged market on the same games, with an interval excluding zero.</td><td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.brier_score_loss.html" rel="noopener">source</a></td></tr><tr><td>SG07</td><td>Positive expected value after vig</td><td>Mean return per bet &gt; 0 and the block-bootstrap 95% lower bound &gt; 0.</td><td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bootstrap.html" rel="noopener">source</a></td></tr><tr><td>SG08</td><td>Probability calibration</td><td>Expected calibration error within tolerance; Brier reliability must not exceed resolution.</td><td><a href="https://scikit-learn.org/stable/modules/calibration.html" rel="noopener">source</a></td></tr><tr><td>SG09</td><td>Multiple testing controlled</td><td>Holm-adjusted p &lt;= alpha across the whole tested family AND a reality-check/SPA p &lt;= alpha.</td><td><a href="https://www.statsmodels.org/stable/generated/statsmodels.stats.multitest.multipletests.html" rel="noopener">source</a></td></tr><tr><td>SG10</td><td>Selection bias controlled</td><td>Deflated Sharpe &gt;= 0.95 given the number of trials, and probability of backtest overfitting &lt;= 0.20. Method: Bailey &amp; Lopez de Prado (2014), &#x27;The Deflated Sharpe Ratio&#x27;; CSCV: Bailey, Borwein, Lopez de Prado &amp; Zhu (2014). Implemented in skillab/leaderboard.py with the equations in the module docstring.</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/leaderboard.py" rel="noopener">source</a></td></tr><tr><td>SG11</td><td>Dependence stated, never assumed</td><td>Parlay and prop-combo prices use a measured correlation with n and an interval. Independence is allowed only if labelled.</td><td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html" rel="noopener">source</a></td></tr><tr><td>SG12</td><td>Immutable ledger and reproducibility</td><td>The input set is hashed, the run is deterministic, and no settled observation can be edited or deleted.</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/scripts/check_skilllab.py" rel="noopener">source</a></td></tr></tbody></table></div>
+
+<h2>Why a third numbering scheme</h2>
+<div class="prose">
+<p>The repository already carries two incompatible gate frameworks that reuse the same IDs: G1–G8
+on the verified archive pages (where G1 is a Korean legal review) and G01–G10 in the empirical
+lab (where G01 is rights and market permission). Reusing either prefix would deepen a
+documentation defect that is already flagged. These gates therefore use <strong>SG</strong>, and
+the crosswalk below maps the same intent without pretending the frameworks are identical.</p>
+</div>
+<div class="table-wrap"><table class=""><thead><tr><th scope="col">Existing gate</th><th scope="col">Skill-lab gate</th><th scope="col">Relationship</th><th scope="col">Implementation</th></tr></thead><tbody><tr><td>G1 Legal review (verified pages)</td><td>SG01</td><td>Same intent: permission before publication</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/gates.py" rel="noopener">gates.py</a></td></tr><tr><td>G2 Data provenance</td><td>SG02</td><td>Verified pages lack hashes; SG02 requires them</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/gates.py" rel="noopener">gates.py</a></td></tr><tr><td>G3 Integrity screen</td><td>SG01 / SG11</td><td>Market restriction folded into rights and dependence</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/gates.py" rel="noopener">gates.py</a></td></tr><tr><td>G4 Out-of-sample</td><td>SG04</td><td>Both require strict chronology</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/gates.py" rel="noopener">gates.py</a></td></tr><tr><td>G5–G8 statistics</td><td>SG06–SG10</td><td>Split into market loss, EV, calibration, correction</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/gates.py" rel="noopener">gates.py</a></td></tr><tr><td>G01 Rights and market permission</td><td>SG01</td><td>Direct match</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/gates.py" rel="noopener">gates.py</a></td></tr><tr><td>G05 Market-relative quality</td><td>SG06</td><td>Same test, different effect measure</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/gates.py" rel="noopener">gates.py</a></td></tr><tr><td>G08 Luck and multiple testing</td><td>SG09</td><td>SG09 adds a reality check on top</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/gates.py" rel="noopener">gates.py</a></td></tr><tr><td>G09 Joint dependence</td><td>SG11</td><td>Direct match</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/gates.py" rel="noopener">gates.py</a></td></tr><tr><td>G10 Frozen auditable ledger</td><td>SG12</td><td>Direct match</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/gates.py" rel="noopener">gates.py</a></td></tr></tbody></table></div>
+
+<h2>The ordering is not cosmetic</h2>
+<div class="prose">
+<p>SG01–SG03 come first for a reason. If you do not hold the rights, cannot prove where each
+number came from, and did not freeze the plan before looking, then every statistic computed
+afterwards is uninterpretable — you cannot tell a real effect from the freedom you had in
+choosing what to measure. Computing the statistics first and asking about rights later is how
+projects end up with a confident number they cannot legally publish.</p>
+</div>
+
+<h2>Fail-closed, concretely</h2>
+<div class="prose">
+<ul>
+<li>A gate with no data returns <code>false</code> and a reason string. It never returns "n/a".</li>
+<li>SG09 checks that the declared family size equals the number of p-values supplied, so a
+strategy cannot quietly declare "we only tried one".</li>
+<li>SG03 compares the frozen plan hash with a recomputed hash. A changed threshold changes the
+hash and fails the run.</li>
+<li>SG05 uses the strategy's own claimed edge to compute the required sample size. Claim a bigger
+edge and you must bring more evidence.</li>
+</ul>
+</div>
+
+</main>
+<footer>
+<p>Build a8998ba1594a · data as of 2026-11-03 · seed 20261105</p>
+<p>Research only. No wagers, no picks, no profitability claim. Read the
+<a href="flagged.html">Flagged for Review</a> page and the
+<a href="https://www.nba.com/termsofuse">NBA Terms of Use</a>.</p>
+</footer>
+</body>
+</html>

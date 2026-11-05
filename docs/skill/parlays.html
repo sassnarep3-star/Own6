@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Parlays and player-prop combos | Own6 Skill Lab</title>
+<meta name="description" content="Skill-versus-luck validation for NBA line strategies. Joint probability, measured dependence, and the cost of assuming independence.">
+<link rel="stylesheet" href="../skill-assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="brand"><a href="../index.html">OWN6</a><span> / SKILL LAB</span></div>
+  <nav aria-label="Skill lab sections"><a href="index.html">Summary</a><a href="signals.html">Signal research</a><a href="singles.html">Singles</a><a href="parlays.html" aria-current="page">Parlays &amp; combos</a><a href="correlation.html">Correlation</a><a href="luck.html">Luck removal</a><a href="gates.html">Validation gates</a><a href="leaderboard.html">Leaderboard</a><a href="validation.html">Proof of discrimination</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for Review</a></nav>
+</header>
+<main id="main">
+<h1>Parlays and player-prop combos</h1>
+<p class="sub">Joint probability, measured dependence, and the cost of assuming independence.</p>
+
+<section class="hero"><p class="eyebrow">PARLAYS &amp; PROP COMBOS</p>
+<p class="lede">A parlay is not k independent bets with a bigger payout. It is one bet on a
+joint event. Getting the dependence wrong is the single largest source of fake edge in
+parlay and player-prop-combo pricing.</p></section>
+
+<h2>The independence error, quantified</h2>
+<div class="table-wrap"><table class=""><thead><tr><th scope="col">Quantity</th><th scope="col">Value</th><th scope="col">Provenance</th><th scope="col">Implementation</th></tr></thead><tbody><tr><td>Legs</td><td>2</td><td>SYNTHETIC</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/correlation.py" rel="noopener">correlation.py</a></td></tr><tr><td>Per-leg win probability</td><td>0.55</td><td>SYNTHETIC</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/simulate.py" rel="noopener">simulate.py</a></td></tr><tr><td>Joint probability if independent</td><td>0.3025</td><td>FORMULA</td><td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html" rel="noopener">SciPy</a></td></tr><tr><td>Joint probability with ρ = 0.35</td><td>0.3586</td><td>SYNTHETIC</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/correlation.py" rel="noopener">copula</a></td></tr><tr><td>True joint probability (simulated legs)</td><td>0.3687</td><td>SYNTHETIC</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/simulate.py" rel="noopener">simulate.py</a></td></tr><tr><td>Ratio (dependent ÷ independent)</td><td>1.000</td><td>FORMULA</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/correlation.py" rel="noopener">correlation.py</a></td></tr><tr><td>Fair price if independent (American)</td><td>231</td><td>FORMULA</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/pricing.py" rel="noopener">pricing.py</a></td></tr><tr><td>Fair price with ρ = 0.35 (American)</td><td>231</td><td>FORMULA</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/pricing.py" rel="noopener">pricing.py</a></td></tr><tr><td>EV of the combo if priced at the independent-product fair price</td><td>-0.00%</td><td>SYNTHETIC</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/simulate.py" rel="noopener">simulate.py</a></td></tr><tr><td>EV of the same combo at its true joint probability</td><td>21.87%</td><td>SYNTHETIC</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/simulate.py" rel="noopener">simulate.py</a></td></tr><tr><td>Error from assuming independence (true EV − independent EV)</td><td>21.87%</td><td>SYNTHETIC</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/simulate.py" rel="noopener">simulate.py</a></td></tr></tbody></table></div>
+
+<h2>Sensitivity to the correlation</h2>
+<p class="note">Two legs at 55% each. As ρ rises, the joint probability rises and the fair price
+shortens (a shorter price means a smaller payout). A model that multiplies marginals therefore
+<em>understates</em> the joint probability of a positively correlated "both win" combo.</p>
+<div class="table-wrap"><table class=""><thead><tr><th scope="col">ρ (equicorrelation)</th><th scope="col">Joint probability</th><th scope="col">vs independence</th><th scope="col">Fair American price</th><th scope="col">Implementation · method</th></tr></thead><tbody><tr><td>0.00</td><td>0.3025</td><td>1.000</td><td>230.6</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/correlation.py" rel="noopener">correlation.py</a> · <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html" rel="noopener">SciPy</a></td></tr><tr><td>0.10</td><td>0.3182</td><td>1.052</td><td>214.3</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/correlation.py" rel="noopener">correlation.py</a> · <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html" rel="noopener">SciPy</a></td></tr><tr><td>0.20</td><td>0.3341</td><td>1.104</td><td>199.3</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/correlation.py" rel="noopener">correlation.py</a> · <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html" rel="noopener">SciPy</a></td></tr><tr><td>0.30</td><td>0.3503</td><td>1.158</td><td>185.4</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/correlation.py" rel="noopener">correlation.py</a> · <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html" rel="noopener">SciPy</a></td></tr><tr><td>0.40</td><td>0.3671</td><td>1.214</td><td>172.4</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/correlation.py" rel="noopener">correlation.py</a> · <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html" rel="noopener">SciPy</a></td></tr><tr><td>0.50</td><td>0.3848</td><td>1.272</td><td>159.9</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/correlation.py" rel="noopener">correlation.py</a> · <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html" rel="noopener">SciPy</a></td></tr></tbody></table></div>
+
+<h2>Which way the error runs</h2>
+<div class="prose">
+<p>For a same-game "both legs win" combo whose legs are positively correlated (two overs on the
+same fast-paced game, for instance), the true joint probability is <strong>higher</strong> than
+the product of the marginals. The book, pricing at the product, is offering a <em>shorter</em>
+payout than the true probability justifies — so the bettor who assumes independence
+systematically understates their own win probability and passes on value that is really there.</p>
+<p>The error runs the other way for negatively correlated legs, which is the usual case for two
+teammates' counting stats: a big scoring night for one competes with the other for the same
+possessions and shot attempts. There the true joint is <strong>lower</strong> than the product, and
+a bettor who multiplies marginals will believe they have an edge on a combo that is actually
+overpriced. Both directions are modelled by the same copula; only the sign of ρ changes.</p>
+<p>In absolute terms the error is material: two legs at 55% with ρ = 0.35 give a joint of
+35.86% against
+30.25% assumed — a difference
+of 5.61
+percentage points, roughly a 19% relative error, on a bet type where a 5% pricing edge is considered
+large.</p>
+</div>
+
+<h2>Prop combos: the same problem, worse</h2>
+<div class="prose">
+<p>Two teammates' scoring overs are negatively correlated: possessions and shot attempts are
+finite, so a big night for one usually costs the other. The repository's single measured
+teammate pair (n = 6, sourced from an ESPN game log, not an official NBA file) gives
+<span class="blank" aria-label="blank, unverified"></span>
+with an n of six. At that sample size the 95% interval spans almost the entire range, so
+<strong>the sign is not established</strong>, let alone the magnitude. It is published here as a
+flagged observation, not as a usable ρ.</div>
+
+<h2>What the platform must require</h2>
+<div class="prose">
+<p>Gate SG11 refuses to qualify any multi-leg strategy whose joint probability was produced by
+multiplying marginals unless independence is explicitly labelled as an assumption, and it
+requires a measured ρ with n and a confidence interval otherwise. The simulated
+correlated-parlay archetype fails SG11 when it assumes independence and passes when it carries
+the measured ρ — see <a href="validation.html">Proof of discrimination</a>.</p>
+</div>
+
+</main>
+<footer>
+<p>Build a8998ba1594a · data as of 2026-11-03 · seed 20261105</p>
+<p>Research only. No wagers, no picks, no profitability claim. Read the
+<a href="flagged.html">Flagged for Review</a> page and the
+<a href="https://www.nba.com/termsofuse">NBA Terms of Use</a>.</p>
+</footer>
+</body>
+</html>

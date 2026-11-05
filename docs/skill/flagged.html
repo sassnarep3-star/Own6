@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Flagged for Review | Own6 Skill Lab</title>
+<meta name="description" content="Skill-versus-luck validation for NBA line strategies. Ten items requiring a human decision, with evidence and a source for each.">
+<link rel="stylesheet" href="../skill-assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="brand"><a href="../index.html">OWN6</a><span> / SKILL LAB</span></div>
+  <nav aria-label="Skill lab sections"><a href="index.html">Summary</a><a href="signals.html">Signal research</a><a href="singles.html">Singles</a><a href="parlays.html">Parlays &amp; combos</a><a href="correlation.html">Correlation</a><a href="luck.html">Luck removal</a><a href="gates.html">Validation gates</a><a href="leaderboard.html">Leaderboard</a><a href="validation.html">Proof of discrimination</a><a href="sources.html">Sources</a><a href="flagged.html" aria-current="page">Flagged for Review</a></nav>
+</header>
+<main id="main">
+<h1>Flagged for Review</h1>
+<p class="sub">Ten items requiring a human decision, with evidence and a source for each.</p>
+
+<section class="hero"><p class="eyebrow">FLAGGED FOR REVIEW</p>
+<p class="lede">Ten items that need a human decision. None of them blocks publication; all of them
+limit what the published numbers mean. Each carries a source link.</p></section>
+
+<h2>Flag register</h2>
+<div class="table-wrap"><table class=""><thead><tr><th scope="col">ID</th><th scope="col">Severity</th><th scope="col">Finding</th><th scope="col">Evidence</th><th scope="col">Disposition requested</th><th scope="col">Source</th></tr></thead><tbody><tr><td>S-F01</td><td>High</td><td>No lawful basis for gambling-related use of NBA data is established. NBA Terms §9 restricts NBA Statistics in connection with gambling.</td><td>Every empirical claim downstream is unpublishable until this is resolved.</td><td>Open — requires written permission or a licensed provider contract; not a legal opinion.</td><td><a href="https://www.nba.com/termsofuse" rel="noopener">NBA Terms of Use</a></td></tr><tr><td>S-F02</td><td>High</td><td>The rest-differential correlation published in the repository does not reproduce from its own stated file.</td><td>Published -0.0162 vs recomputed -0.0801</td><td>Not corrected here: the rest definition belongs to the file's owner. Flagged for review.</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/correlation_findings.csv" rel="noopener">correlation_findings.csv</a></td></tr><tr><td>S-F03</td><td>High</td><td>The same-date margin correlation's nominal p-value is an artefact of pseudo-replication.</td><td>Nominal p = 0.0470; date-cluster 95% CI -0.0749 to 0.2205 contains zero.</td><td>Any statement that cross-game dependence is significant should be withdrawn.</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/correlation_findings.csv" rel="noopener">correlation_findings.csv</a></td></tr><tr><td>S-F04</td><td>High</td><td>Only 15 graded bets exist with prices. Every ROI in the repository is underpowered by more than two orders of magnitude.</td><td>7,897 bets are needed to detect a 3% edge at 80% power; 15 are present.</td><td>No fix available from existing data. Requires a long, lawful price archive.</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/forward_test_2026-11-02.csv" rel="noopener">forward_test CSV</a></td></tr><tr><td>S-F05</td><td>Medium</td><td>The teammate-scoring correlation has n = 6 and its interval spans almost the full range.</td><td>Published r uses a 6-game ESPN log; the sign is not established.</td><td>Published as a flagged observation, not as a usable ρ.</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/correlation_findings.csv" rel="noopener">correlation_findings.csv</a></td></tr><tr><td>S-F06</td><td>Medium</td><td>Three incompatible gate numbering schemes now coexist (G1–G8, G01–G10, SG01–SG12).</td><td>Cross-referencing a gate ID is ambiguous without naming the scheme.</td><td>Crosswalk published on the gates page; consolidation is an integration decision.</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/docs/skill/gates.html" rel="noopener">gates page</a></td></tr><tr><td>S-F07</td><td>Medium</td><td>Five earlier session PRs (#23, #28, #31, #32, #37) remain open and conflicting, more than a day past the 60-minute handoff rule.</td><td>Their independent verification ledgers are not part of the published site.</td><td>Not merged here: merging conflicting branches risks discarding upstream work.</td><td><a href="https://github.com/sassnarep3-star/Own6/pulls" rel="noopener">Pull requests</a></td></tr><tr><td>S-F08</td><td>Medium</td><td>The sitewide source-coverage snapshot under data/source_coverage is stale relative to the current tree.</td><td>`source_coverage.py --check` reports drift on 8 artifacts.</td><td>Owned by another session; this build does not regenerate it.</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/source_coverage/summary.json" rel="noopener">summary.json</a></td></tr><tr><td>S-F09</td><td>Low</td><td>The repository's own source files list no licence.</td><td>Reuse terms for the code are unspecified.</td><td>Flagged; adding a licence is an owner decision.</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/README.md" rel="noopener">README</a></td></tr><tr><td>S-F10</td><td>Low</td><td>Every published strategy return on this site is synthetic.</td><td>0 real strategies are eligible; the leaderboard has no real entrants.</td><td>By design and labelled on every table. Not an error, but a limit worth stating.</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/simulate.py" rel="noopener">simulate.py</a></td></tr></tbody></table></div>
+
+<h2>Items this build resolved rather than flagged</h2>
+<div class="prose">
+<ul>
+<li><strong>SG06 direction.</strong> The paired loss comparison was initially written with the
+subtraction inverted, which would have credited a model that lost <em>more</em> than the market.
+Corrected before publication and covered by a test.</li>
+<li><strong>SG08 semantics.</strong> Calibration was initially required to beat climatology, which
+conflates calibration with discrimination and would fail a well-calibrated constant forecast for
+the wrong reason. Discrimination is scored at SG06; SG08 now tests calibration only.</li>
+<li><strong>Published correlations that did reproduce.</strong> The home/away and same-date point
+estimates recompute to within 2×10⁻⁵ and are not flagged.</li>
+</ul>
+</div>
+
+<h2>How to request a change</h2>
+<div class="prose">
+<p>Open an issue on the repository referencing the flag ID. A change to a flagged value must
+arrive with its own official source, or it stays blank. Flags do not delay publication; they are
+the mechanism by which an unpublished claim stays visible instead of disappearing.</p>
+</div>
+
+</main>
+<footer>
+<p>Build a8998ba1594a · data as of 2026-11-03 · seed 20261105</p>
+<p>Research only. No wagers, no picks, no profitability claim. Read the
+<a href="flagged.html">Flagged for Review</a> page and the
+<a href="https://www.nba.com/termsofuse">NBA Terms of Use</a>.</p>
+</footer>
+</body>
+</html>

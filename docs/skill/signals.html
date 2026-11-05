@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Signal research | Own6 Skill Lab</title>
+<meta name="description" content="Skill-versus-luck validation for NBA line strategies. Twelve families, what each needs, and which can be measured today.">
+<link rel="stylesheet" href="../skill-assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="brand"><a href="../index.html">OWN6</a><span> / SKILL LAB</span></div>
+  <nav aria-label="Skill lab sections"><a href="index.html">Summary</a><a href="signals.html" aria-current="page">Signal research</a><a href="singles.html">Singles</a><a href="parlays.html">Parlays &amp; combos</a><a href="correlation.html">Correlation</a><a href="luck.html">Luck removal</a><a href="gates.html">Validation gates</a><a href="leaderboard.html">Leaderboard</a><a href="validation.html">Proof of discrimination</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for Review</a></nav>
+</header>
+<main id="main">
+<h1>Signal research</h1>
+<p class="sub">Twelve families, what each needs, and which can be measured today.</p>
+
+<section class="hero"><p class="eyebrow">SIGNAL RESEARCH</p>
+<p class="lede">Twelve hypotheses worth testing, each reduced to the question that decides it:
+<em>is there a lawful, timestamped dataset in this repository that could test it at all?</em></p></section>
+
+<h2>Candidate signal families</h2>
+<div class="table-wrap"><table class=""><thead><tr><th scope="col">Signal</th><th scope="col">Definition</th><th scope="col">Bet type</th><th scope="col">Data required</th><th scope="col">Present in repo</th><th scope="col">n</th><th scope="col">Status</th></tr></thead><tbody><tr><td>Efficiency spread</td><td>Own PACE x OffRtg/DefRtg matchup model vs de-vigged market spread</td><td>single (spread)</td><td>Needs licensed team ratings + pre-game prices</td><td>Own model output · <a href="https://github.com/sassnarep3-star/Own6/blob/main/docs/skill/signals.html" rel="noopener">this page</a></td><td>1 (Nov 2 slate)</td><td><span class="badge flag">UNTESTABLE</span></td></tr><tr><td>Pace residual total</td><td>Blended pace estimate vs market-implied total</td><td>single (total)</td><td>Needs licensed possessions data + totals history</td><td>Own model output · <a href="https://github.com/sassnarep3-star/Own6/blob/main/docs/skill/signals.html" rel="noopener">this page</a></td><td>1 (Nov 2 slate)</td><td><span class="badge flag">UNTESTABLE</span></td></tr><tr><td>Closing-line value</td><td>Price taken vs closing price, per bet</td><td>single (moneyline)</td><td>Needs a timestamped two-sided quote archive</td><td>None in repo · <a href="https://github.com/sassnarep3-star/Own6/blob/main/docs/skill/signals.html" rel="noopener">this page</a></td><td>0</td><td><span class="badge flag">NO DATA</span></td></tr><tr><td>Rest differential</td><td>Days of rest advantage vs margin</td><td>single (spread)</td><td>Derivable from schedule + results</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/games_results_2026-27.csv" rel="noopener">data/games_results_2026-27.csv</a> · <a href="https://github.com/sassnarep3-star/Own6/blob/main/docs/skill/signals.html" rel="noopener">this page</a></td><td>76</td><td><span class="badge pass">MEASURED · not significant</span></td></tr><tr><td>Home/away total dependence</td><td>Same-game home pts vs away pts</td><td>parlay legs</td><td>Derivable from results</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/games_results_2026-27.csv" rel="noopener">data/games_results_2026-27.csv</a> · <a href="https://github.com/sassnarep3-star/Own6/blob/main/docs/skill/signals.html" rel="noopener">this page</a></td><td>92</td><td><span class="badge pass">MEASURED · weak</span></td></tr><tr><td>Same-slate margin dependence</td><td>Correlation of margins across games on one date</td><td>cross-game parlay</td><td>Derivable from results</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/games_results_2026-27.csv" rel="noopener">data/games_results_2026-27.csv</a> · <a href="https://github.com/sassnarep3-star/Own6/blob/main/docs/skill/signals.html" rel="noopener">this page</a></td><td>357 pairs</td><td><span class="badge pass">MEASURED · not robust</span></td></tr><tr><td>Teammate usage competition</td><td>Two teammates&#x27; scoring vs each other</td><td>prop combo</td><td>Needs licensed player game logs</td><td>1 press-era pair, n = 6 · <a href="https://github.com/sassnarep3-star/Own6/blob/main/docs/skill/signals.html" rel="noopener">this page</a></td><td>6</td><td><span class="badge flag">UNTESTABLE</span></td></tr><tr><td>Minutes x rate prop model</td><td>Projected minutes x shrunk per-minute rate</td><td>single (prop)</td><td>Needs injury reports + player logs</td><td>None in repo · <a href="https://github.com/sassnarep3-star/Own6/blob/main/docs/skill/signals.html" rel="noopener">this page</a></td><td>0</td><td><span class="badge flag">NO DATA</span></td></tr><tr><td>Referee / crew tendencies</td><td>Crew-level foul rate vs totals</td><td>single (total)</td><td>Needs licensed crew assignments</td><td>None in repo · <a href="https://github.com/sassnarep3-star/Own6/blob/main/docs/skill/signals.html" rel="noopener">this page</a></td><td>0</td><td><span class="badge flag">NO DATA</span></td></tr><tr><td>Schedule spot (B2B, 4-in-5)</td><td>Fatigue proxy vs margin</td><td>single (spread)</td><td>Partially derivable</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/games_results_2026-27.csv" rel="noopener">data/games_results_2026-27.csv</a> · <a href="https://github.com/sassnarep3-star/Own6/blob/main/docs/skill/signals.html" rel="noopener">this page</a></td><td>76</td><td><span class="badge pass">MEASURED · proxy only</span></td></tr><tr><td>Market steam / line move</td><td>Open-to-current move as a signal</td><td>single (all)</td><td>1 slate of open and current prices</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/market_lines_2026-11-02.csv" rel="noopener">data/market_lines_2026-11-02.csv</a> · <a href="https://github.com/sassnarep3-star/Own6/blob/main/docs/skill/signals.html" rel="noopener">this page</a></td><td>15</td><td><span class="badge flag">UNTESTABLE · too few</span></td></tr><tr><td>Prop line overreaction</td><td>Recent form vs posted prop line</td><td>single (prop)</td><td>Needs multi-date prop history</td><td>1 date, 7 rows · <a href="https://github.com/sassnarep3-star/Own6/blob/main/docs/skill/signals.html" rel="noopener">this page</a></td><td>7</td><td><span class="badge flag">NO DATA</span></td></tr></tbody></table></div>
+
+<h2>Why most rows say UNTESTABLE</h2>
+<div class="prose">
+<p>A signal is only testable if you hold the input <em>as of before the bet</em> and the price you
+would actually have received. The repository has results (92 games, each linked to its official
+NBA game page) and one slate of prices. It has no archive of quotes across time, which is the one
+thing that makes closing-line value measurable.</p>
+<p>The NBA's own terms are the binding constraint, not the statistics. §9 of the
+<a href="https://www.nba.com/termsofuse" rel="noopener">NBA Terms of Use</a> restricts use of NBA Statistics in
+connection with gambling activity, and the
+<a href="https://www.nba.com/stats/help/faq" rel="noopener">NBA Stats FAQ</a> states that statistics are not available
+for download. This section therefore publishes no scraped NBA dataset and no invented price.</p>
+</div>
+
+<h2>What would unblock each family</h2>
+<div class="prose">
+<p><strong>Rights first.</strong> A written permission or a licensed provider contract that covers
+gambling-related use would turn SG01 from a fail into a pass and would let the four UNTESTABLE
+price-dependent families be evaluated. Until then they stay listed and unmeasured rather than
+quietly dropped — dropping them would inflate every multiple-testing correction in our favour.</p>
+</div>
+
+</main>
+<footer>
+<p>Build a8998ba1594a · data as of 2026-11-03 · seed 20261105</p>
+<p>Research only. No wagers, no picks, no profitability claim. Read the
+<a href="flagged.html">Flagged for Review</a> page and the
+<a href="https://www.nba.com/termsofuse">NBA Terms of Use</a>.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Correlation values, measured | Own6 Skill Lab</title>
+<meta name="description" content="Skill-versus-luck validation for NBA line strategies. Four pairs, recomputed, with sampling and cluster-robust intervals.">
+<link rel="stylesheet" href="../skill-assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="brand"><a href="../index.html">OWN6</a><span> / SKILL LAB</span></div>
+  <nav aria-label="Skill lab sections"><a href="index.html">Summary</a><a href="signals.html">Signal research</a><a href="singles.html">Singles</a><a href="parlays.html">Parlays &amp; combos</a><a href="correlation.html" aria-current="page">Correlation</a><a href="luck.html">Luck removal</a><a href="gates.html">Validation gates</a><a href="leaderboard.html">Leaderboard</a><a href="validation.html">Proof of discrimination</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for Review</a></nav>
+</header>
+<main id="main">
+<h1>Correlation values, measured</h1>
+<p class="sub">Four pairs, recomputed, with sampling and cluster-robust intervals.</p>
+
+<section class="hero"><p class="eyebrow">CORRELATION</p>
+<p class="lede">Every correlation this project publishes, recomputed from the raw game log, with
+an interval attached. A point estimate without n and an interval is not a finding.</p></section>
+
+<h2>Recomputed values</h2>
+<p class="note">Source: <a href="https://github.com/sassnarep3-star/Own6/blob/main/data/games_results_2026-27.csv" rel="noopener">data/games_results_2026-27.csv</a>, 92 games,
+2026-10-20 to 2026-11-01. Pearson r with a Fisher z interval, and
+date-cluster bootstrap where observations are not independent.</p>
+<div class="table-wrap"><table class=""><thead><tr><th scope="col">Pair</th><th scope="col">Pearson r</th><th scope="col">n</th><th scope="col">95% interval</th><th scope="col">Nominal p</th><th scope="col">Spearman ρ</th><th scope="col">Source file</th></tr></thead><tbody><tr><td>Home score vs away score (same game)</td><td>0.2004</td><td>92</td><td>-0.0046 to 0.3892</td><td>0.0555</td><td>0.1805</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/games_results_2026-27.csv" rel="noopener">games_results_2026-27.csv</a></td></tr><tr><td>Margin vs total (same game)</td><td>-0.0026</td><td>92</td><td>-0.2073 to 0.2024</td><td>0.9806</td><td>—</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/games_results_2026-27.csv" rel="noopener">games_results_2026-27.csv</a></td></tr><tr><td>Rest differential vs home margin</td><td>-0.0801</td><td>76</td><td>-0.3001 to 0.1480</td><td>0.4915</td><td>—</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/games_results_2026-27.csv" rel="noopener">games_results_2026-27.csv</a></td></tr><tr><td>Same-date game margins (pooled pairs)</td><td>0.1052</td><td>357</td><td>-0.0749 to 0.2205 (date-cluster)</td><td>0.0470</td><td>—</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/games_results_2026-27.csv" rel="noopener">games_results_2026-27.csv</a></td></tr></tbody></table></div>
+
+<h2>Reproduction of the published values</h2>
+<p class="note">The repository already publishes four correlations. Each is recomputed here from
+the file it claims to come from. Two reproduce to within 5×10⁻⁴; one does not; one is not
+recomputable at all because its source is an external game log.</p>
+<div class="table-wrap"><table class=""><thead><tr><th scope="col">Pair</th><th scope="col">Published r</th><th scope="col">Recomputed r</th><th scope="col">Δ</th><th scope="col">Verdict</th><th scope="col">Published file</th></tr></thead><tbody><tr><td>home_score_vs_away_score</td><td>0.2004</td><td>0.2004</td><td>-0.000011</td><td><span class="badge pass">REPRODUCES</span></td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/correlation_findings.csv" rel="noopener">correlation_findings.csv</a></td></tr><tr><td>rest_diff_vs_home_margin</td><td>-0.0162</td><td>-0.0801</td><td>-0.063905</td><td><span class="badge fail">DOES NOT REPRODUCE</span></td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/correlation_findings.csv" rel="noopener">correlation_findings.csv</a></td></tr><tr><td>same_date_game_margins</td><td>0.1052</td><td>0.1052</td><td>0.000017</td><td><span class="badge pass">REPRODUCES</span></td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/correlation_findings.csv" rel="noopener">correlation_findings.csv</a></td></tr></tbody></table></div>
+
+<h2>The interval is the finding</h2>
+<div class="prose">
+<p><strong>Home vs away score, r = 0.2004.</strong> Nominal
+p = 0.055, just above 0.05, and the Fisher
+interval runs from -0.0046 to
+0.3892. The interval nearly touches zero. Calling
+this "a correlation of 0.20" without that interval would overstate what 92 games can show.</p>
+
+<p><strong>Same-date margins, r = 0.1052.</strong> The nominal p-value of
+0.047 looks significant. It is not. Every game appears in
+many of the 357 pairs, so the pairs are not independent observations.
+Resampling whole dates instead of pairs gives an interval of
+-0.0749 to 0.2205,
+which <strong>contains zero</strong>. The naive p-value is an artefact of pseudo-replication —
+the same mistake that inflates most amateur parlay-dependence claims.</p>
+
+<p><strong>Rest differential does not reproduce.</strong> The published value is
+-0.0162; the
+recomputation from the same file and the same n gives
+-0.0801. The
+difference of more than 0.06 is far outside rounding. Either the published value used a
+different rest definition that is not documented, or it is wrong. It is flagged rather than
+silently corrected, because the definition of record belongs to the file's owner.</p>
+</div>
+
+<h2>How to measure a correlation you could actually use</h2>
+<div class="prose">
+<ol>
+<li>Pair the residual, not the raw value. Correlating two raw totals mostly measures shared pace.</li>
+<li>Report n, the interval, and the clustering unit (game, date, player, season).</li>
+<li>Resample the clustering unit, not the observation, when the unit repeats.</li>
+<li>Pre-register the pair before looking. Choosing the pair after seeing the scatter is a
+multiple-testing problem in disguise.</li>
+<li>Never multiply marginals into a parlay price without stating the dependence model.</li>
+</ol>
+</div>
+
+</main>
+<footer>
+<p>Build a8998ba1594a · data as of 2026-11-03 · seed 20261105</p>
+<p>Research only. No wagers, no picks, no profitability claim. Read the
+<a href="flagged.html">Flagged for Review</a> page and the
+<a href="https://www.nba.com/termsofuse">NBA Terms of Use</a>.</p>
+</footer>
+</body>
+</html>

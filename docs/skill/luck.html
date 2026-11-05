@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Luck removal | Own6 Skill Lab</title>
+<meta name="description" content="Skill-versus-luck validation for NBA line strategies. Sample size, multiple testing, selection bias, deflated Sharpe, reality checks and PBO.">
+<link rel="stylesheet" href="../skill-assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="brand"><a href="../index.html">OWN6</a><span> / SKILL LAB</span></div>
+  <nav aria-label="Skill lab sections"><a href="index.html">Summary</a><a href="signals.html">Signal research</a><a href="singles.html">Singles</a><a href="parlays.html">Parlays &amp; combos</a><a href="correlation.html">Correlation</a><a href="luck.html" aria-current="page">Luck removal</a><a href="gates.html">Validation gates</a><a href="leaderboard.html">Leaderboard</a><a href="validation.html">Proof of discrimination</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for Review</a></nav>
+</header>
+<main id="main">
+<h1>Luck removal</h1>
+<p class="sub">Sample size, multiple testing, selection bias, deflated Sharpe, reality checks and PBO.</p>
+
+<section class="hero"><p class="eyebrow">LUCK REMOVAL</p>
+<p class="lede">Six independent ways a record can be luck, and the control that removes each.
+Every number on this page is produced by the build from a fixed seed or from a named file.</p></section>
+
+<h2>1. Sample size — the floor under everything else</h2>
+<div class="prose">
+<p>A 3% edge at −110 needs about <strong>7,900</strong> settled bets for an 80%-power test. At
+2% it needs roughly 17,800. This is not a matter of discipline; it is arithmetic. A 200-bet
+record with a 6% ROI is genuinely uninformative, and no amount of good process changes that.</p>
+</div>
+
+<h2>2. Multiple testing — the more you try, the more you "find"</h2>
+<p class="note">Probability of at least one false positive when testing <em>k</em> independent
+strategies at α = 0.05: 1 − (1 − α)^k.</p>
+<div class="table-wrap"><table class=""><thead><tr><th scope="col">Strategies tried</th><th scope="col">P(at least one false positive)</th><th scope="col">Implementation</th></tr></thead><tbody><tr><td>1</td><td>5.00%</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/power.py" rel="noopener">power.py</a></td></tr><tr><td>5</td><td>22.62%</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/power.py" rel="noopener">power.py</a></td></tr><tr><td>10</td><td>40.13%</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/power.py" rel="noopener">power.py</a></td></tr><tr><td>14</td><td>51.23%</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/power.py" rel="noopener">power.py</a></td></tr><tr><td>20</td><td>64.15%</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/power.py" rel="noopener">power.py</a></td></tr><tr><td>45</td><td>90.06%</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/power.py" rel="noopener">power.py</a></td></tr><tr><td>100</td><td>99.41%</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/power.py" rel="noopener">power.py</a></td></tr></tbody></table></div>
+<div class="prose">
+<p>By 14 tries a leaderboard has a better than even chance of containing at least one spurious
+winner. By 45 it is about 90%. This is why the ranking here uses a Holm correction across the
+whole tested family and refuses to rank anything that has not survived it.</p>
+</div>
+
+<h3>Correction in action</h3>
+<p class="note">Seven raw p-values, corrected two ways. Holm is uniformly at least as powerful as
+Bonferroni while controlling the same family-wise error rate.</p>
+<div class="table-wrap"><table class=""><thead><tr><th scope="col">Raw p</th><th scope="col">Holm adjusted</th><th scope="col">Bonferroni adjusted</th><th scope="col">Holm verdict</th><th scope="col">Bonferroni verdict</th><th scope="col">Implementation · method</th></tr></thead><tbody><tr><td>0.001</td><td>0.0070</td><td>0.0070</td><td><span class="badge pass">PASS</span></td><td><span class="badge pass">PASS</span></td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/leaderboard.py" rel="noopener">leaderboard.py</a> · <a href="https://www.statsmodels.org/stable/generated/statsmodels.stats.multitest.multipletests.html" rel="noopener">statsmodels</a></td></tr><tr><td>0.008</td><td>0.0480</td><td>0.0560</td><td><span class="badge pass">PASS</span></td><td><span class="badge fail">FAIL</span></td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/leaderboard.py" rel="noopener">leaderboard.py</a> · <a href="https://www.statsmodels.org/stable/generated/statsmodels.stats.multitest.multipletests.html" rel="noopener">statsmodels</a></td></tr><tr><td>0.020</td><td>0.1000</td><td>0.1400</td><td><span class="badge fail">FAIL</span></td><td><span class="badge fail">FAIL</span></td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/leaderboard.py" rel="noopener">leaderboard.py</a> · <a href="https://www.statsmodels.org/stable/generated/statsmodels.stats.multitest.multipletests.html" rel="noopener">statsmodels</a></td></tr><tr><td>0.040</td><td>0.1600</td><td>0.2800</td><td><span class="badge fail">FAIL</span></td><td><span class="badge fail">FAIL</span></td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/leaderboard.py" rel="noopener">leaderboard.py</a> · <a href="https://www.statsmodels.org/stable/generated/statsmodels.stats.multitest.multipletests.html" rel="noopener">statsmodels</a></td></tr><tr><td>0.050</td><td>0.1600</td><td>0.3500</td><td><span class="badge fail">FAIL</span></td><td><span class="badge fail">FAIL</span></td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/leaderboard.py" rel="noopener">leaderboard.py</a> · <a href="https://www.statsmodels.org/stable/generated/statsmodels.stats.multitest.multipletests.html" rel="noopener">statsmodels</a></td></tr><tr><td>0.400</td><td>0.8000</td><td>1.0000</td><td><span class="badge fail">FAIL</span></td><td><span class="badge fail">FAIL</span></td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/leaderboard.py" rel="noopener">leaderboard.py</a> · <a href="https://www.statsmodels.org/stable/generated/statsmodels.stats.multitest.multipletests.html" rel="noopener">statsmodels</a></td></tr><tr><td>0.600</td><td>0.8000</td><td>1.0000</td><td><span class="badge fail">FAIL</span></td><td><span class="badge fail">FAIL</span></td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/leaderboard.py" rel="noopener">leaderboard.py</a> · <a href="https://www.statsmodels.org/stable/generated/statsmodels.stats.multitest.multipletests.html" rel="noopener">statsmodels</a></td></tr></tbody></table></div>
+
+<h2>3. Selection bias — the maximum of noise</h2>
+<div class="prose">
+<p>Simulate 50 strategies with <em>zero</em> edge, 100 bets each, and record the best ROI.
+The median best is <strong>20.3%</strong>
+(5th–95th percentile 14.5% to 29.8%).
+In 300 simulated competitions, the winner exceeded 5% in
+100% of them — with no skill anywhere in the pool.</p>
+<p>The closed-form check agrees: the median of the maximum of N independent zero-mean normals is
+(sd/√n)·Φ⁻¹(0.5^(1/N)) = <strong>21.01%</strong>. A leaderboard
+that simply sorts by ROI is measuring this quantity.</p>
+</div>
+
+<h2>4. Family-wise reality check</h2>
+<p class="note">The same 60 zero-edge strategies, tested against the null that no strategy has
+positive expected return. The reality check uses the maximum statistic; SPA standardises each
+strategy and trims clearly bad ones. Both should fail to reject — there is nothing to find.</p>
+<div class="table-wrap"><table class=""><thead><tr><th scope="col">Test</th><th scope="col">Statistic</th><th scope="col">p-value</th><th scope="col">Strategies</th><th scope="col">Evaluation</th><th scope="col">Implementation</th></tr></thead><tbody><tr><td>White reality check (200 bootstrap reps)</td><td>2.336</td><td>0.308</td><td>60</td><td><span class="badge pass">correctly not significant</span></td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/leaderboard.py" rel="noopener">leaderboard.py</a></td></tr><tr><td>Hansen SPA (200 reps)</td><td>2.719</td><td>0.169</td><td>60</td><td><span class="badge pass">correctly not significant</span></td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/leaderboard.py" rel="noopener">leaderboard.py</a></td></tr><tr><td>PBO over the simulated family</td><td>0.486</td><td>—</td><td>60</td><td><span class="badge fail">high overfitting risk</span></td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/skillab/leaderboard.py" rel="noopener">leaderboard.py</a></td></tr></tbody></table></div>
+
+<h2>5. Deflated Sharpe</h2>
+<div class="prose">
+<p>A Sharpe ratio computed after trying many variants must be deflated for the number of trials.
+The build reports the deflated Sharpe for every strategy that reaches SG10 and requires 0.95.
+In the known-answer experiment, the true-edge strategy with a single trial scores above the
+threshold and the zero-edge heater does not.</p>
+</div>
+
+<h2>6. Probability of backtest overfitting on the repository's own data</h2>
+<div class="prose">
+<p><strong>Not computed, and that is the correct answer.</strong> Only 15 graded bets exist; CSCV requires &gt;= 32 observations and &gt;= 2 strategy series to estimate out-of-sample rank stability. No PBO value is published rather than a meaningless one.
+Publishing a PBO from 15 observations would produce a number with
+no meaning, and a meaningless number in a table is worse than a blank.</p>
+</div>
+
+<h2>What luck removal does not do</h2>
+<div class="prose">
+<p>These controls reduce the chance of publishing noise. They cannot create an edge, cannot rescue
+an underpowered record, and cannot substitute for a lawful dataset. A strategy that fails SG05
+does not become qualified by surviving every other gate.</p>
+</div>
+
+</main>
+<footer>
+<p>Build a8998ba1594a · data as of 2026-11-03 · seed 20261105</p>
+<p>Research only. No wagers, no picks, no profitability claim. Read the
+<a href="flagged.html">Flagged for Review</a> page and the
+<a href="https://www.nba.com/termsofuse">NBA Terms of Use</a>.</p>
+</footer>
+</body>
+</html>

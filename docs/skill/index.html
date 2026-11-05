@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Skill Lab — luck removal and selective skill | Own6 Skill Lab</title>
+<meta name="description" content="Skill-versus-luck validation for NBA line strategies. Originating NBA lines is easy to fake. This section is the part that is hard to fake.">
+<link rel="stylesheet" href="../skill-assets/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="brand"><a href="../index.html">OWN6</a><span> / SKILL LAB</span></div>
+  <nav aria-label="Skill lab sections"><a href="index.html" aria-current="page">Summary</a><a href="signals.html">Signal research</a><a href="singles.html">Singles</a><a href="parlays.html">Parlays &amp; combos</a><a href="correlation.html">Correlation</a><a href="luck.html">Luck removal</a><a href="gates.html">Validation gates</a><a href="leaderboard.html">Leaderboard</a><a href="validation.html">Proof of discrimination</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for Review</a></nav>
+</header>
+<main id="main">
+<h1>Skill Lab — luck removal and selective skill</h1>
+<p class="sub">Originating NBA lines is easy to fake. This section is the part that is hard to fake.</p>
+
+<section class="hero">
+  <p class="eyebrow">LUCK REMOVAL · SELECTIVE SKILL</p>
+  <p class="lede">A strategy is only interesting if its record cannot be reproduced by a coin
+  flip. This section builds the machinery that decides that, proves the machinery works on
+  simulated data where the answer is known, and then applies it to everything the repository
+  can legitimately measure. <strong>It finds no qualified strategy. That is the finding.</strong></p>
+</section>
+
+<section class="cards">
+  <div class="card"><span class="k">Qualified strategies</span><strong>0</strong>
+    <small>of 6 simulated archetypes; 5 fail at least one gate</small></div>
+  <div class="card"><span class="k">Validation gates</span><strong>12</strong>
+    <small>SG01–SG12, fail-closed</small></div>
+  <div class="card"><span class="k">Verified real market prices</span><strong>0</strong>
+    <small>no authorised gambling-use feed</small></div>
+  <div class="card"><span class="k">Bets to prove a 3% edge</span><strong>7,897</strong>
+    <small>80% power, 5% two-sided, at −110</small></div>
+</section>
+
+<h2>Executive summary</h2>
+<div class="prose">
+<p><strong>1. You cannot out-sample luck.</strong> At the standard −110 price a bettor needs
+52.38% to break even. To distinguish a genuine 3% return from noise at 80% power requires
+about 7,900 settled bets. The repository contains 15 graded bets on one slate and a 92-game
+result log with no attached prices. Every ROI in it is therefore a description, not evidence.</p>
+
+<p><strong>2. A leaderboard without correction rewards the maximum of noise.</strong> With 50
+zero-edge strategies of 100 bets each, the median best observed ROI is
+<strong>20.3%</strong>. That is not a typo: a competition that
+crowns the top of fifty coin-flippers will routinely crown a 20% return. The fix is not a
+better filter, it is a corrected family-wide test plus a deflated Sharpe, both implemented here.</p>
+
+<p><strong>3. The repository's own correlation values mostly do not survive.</strong>
+2 of
+3 published correlations reproduce exactly. The rest-based value does
+not (-0.0162
+published vs -0.0801
+recomputed). The same-date value reproduces arithmetically but collapses once whole slates are
+resampled: the date-cluster interval is
+-0.0749 to
+0.2205, which
+contains zero. Its nominal p-value was an artefact of treating non-independent pairs as
+independent.</p>
+
+<p><strong>4. Parlays are a dependence problem before they are a pricing problem.</strong> Two
+legs at 55% each and a true ρ of 0.35 have a joint probability of
+35.86% against the
+30.25% that independence
+implies. On the simulated match 21.87% is
+returned. A market priced at the independent product gives up most of that value to the
+bettor; the same model applied to <em>negatively</em> correlated legs — two teammates competing for
+one possession pool — invents an edge that does not exist. Getting the sign and the magnitude
+wrong is the single largest source of fictitious parlay edge.</p>
+
+<p><strong>5. No strategy qualifies, and the gates are not the obstacle.</strong> The simulated
+skill archetype carrying a complete evidence bundle passes all twelve gates
+(<span class="badge pass">12/12</span>). The archetypes without real skill fail. What blocks a real strategy
+is not the statistics, it is that no lawfully usable price history exists in this repository.</p>
+</div>
+
+<h2>Headline numbers</h2>
+<div class="table-wrap"><table class=""><thead><tr><th scope="col">Question</th><th scope="col">Value</th><th scope="col">Denominator</th><th scope="col">Uncertainty</th><th scope="col">Official / method source</th><th scope="col">Provenance</th></tr></thead><tbody><tr><td>Correlation between a game's home and away score</td><td>0.2004</td><td>92</td><td>95% CI -0.0046 to 0.3892</td><td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html" rel="noopener">SciPy pearsonr</a></td><td>REPO · data/games_results_2026-27.csv</td></tr><tr><td>Model log-loss minus market log-loss on the graded slate</td><td>-0.0319</td><td>15</td><td>95% CI -0.1501 to 0.0863</td><td><a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.brier_score_loss.html" rel="noopener">scikit-learn Brier</a></td><td>REPO · data/forward_test_2026-11-02.csv</td></tr><tr><td>Best of 50 zero-edge strategies, 100 bets each (median ROI)</td><td>20.27%</td><td>(sys)</td><td>SYNTHETIC simulation</td><td><a href="https://www.itl.nist.gov/div898/handbook/eda/section3/eda366i.htm" rel="noopener">NIST binomial</a></td><td>SYNTHETIC · skillab/audit.py</td></tr><tr><td>Bets needed to detect a 3% edge at 80% power</td><td>7897</td><td>(sys)</td><td>FORMULA · z-test power</td><td><a href="https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm" rel="noopener">NIST CI</a></td><td>FORMULA · skillab/power.py</td></tr><tr><td>Real NBA sportsbook prices verified in this build</td><td>—</td><td>(sys)</td><td>BLANK by rule: no authorised feed</td><td><a href="https://www.nba.com/termsofuse" rel="noopener">NBA Terms §9</a></td><td>UNVERIFIED</td></tr></tbody></table></div>
+
+<h2>How to read this section</h2>
+<div class="prose">
+<p>Each row on every page carries a provenance tag: <strong>SYNTHETIC</strong> (a fixed-seed
+simulation that describes no real game), <strong>REPO</strong> (recomputed from a named file in
+this repository), <strong>FORMULA</strong> (closed-form arithmetic), or <strong>SOURCE</strong>
+(quoted from an official page, with the URL). A row that has no verified value has a blank cell
+and a visible flag. Blank never means zero.</p>
+</div>
+
+<h2>Sections</h2>
+<div class="grid">
+  <a href="signals.html"><h3>Signal research</h3><p>Twelve candidate signal families, how each is
+  computed, and why most cannot be tested with the data present.</p></a>
+  <a href="singles.html"><h3>Singles</h3><p>Spread, total and moneyline mechanics; power and
+  sample-size arithmetic; the graded slate.</p></a>
+  <a href="parlays.html"><h3>Parlays &amp; prop combos</h3><p>Why multiplying marginals is a
+  modelling error, and what a measured dependence changes.</p></a>
+  <a href="correlation.html"><h3>Correlation</h3><p>Every correlation value the repository
+  publishes, recomputed, with intervals and cluster-robust bounds.</p></a>
+  <a href="luck.html"><h3>Luck removal</h3><p>Sample size, multiple testing, deflated Sharpe,
+  reality check, SPA, and PBO — with the numbers each one changes.</p></a>
+  <a href="gates.html"><h3>Validation gates</h3><p>SG01–SG12, the crosswalk from the other two
+  gate numbering schemes, and why fail-closed matters.</p></a>
+  <a href="leaderboard.html"><h3>Leaderboard</h3><p>Scoring that rewards the worst plausible
+  estimate, not the best observed one.</p></a>
+  <a href="validation.html"><h3>Proof of discrimination</h3><p>Known-answer experiments: a real
+  edge passes, a heater does not.</p></a>
+</div>
+
+</main>
+<footer>
+<p>Build a8998ba1594a · data as of 2026-11-03 · seed 20261105</p>
+<p>Research only. No wagers, no picks, no profitability claim. Read the
+<a href="flagged.html">Flagged for Review</a> page and the
+<a href="https://www.nba.com/termsofuse">NBA Terms of Use</a>.</p>
+</footer>
+</body>
+</html>
