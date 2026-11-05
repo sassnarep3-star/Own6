@@ -743,3 +743,18 @@ To be recorded during U2–U3 and published on the Flagged for Review page. None
 - **No data, model, or hub implementation was altered** by this session — coordination record and source verification log only.
 
 All tasks U1–U7 are now `done`.
+
+## Session arena/95c04c74-own6 — luck-exclusion power analysis + publication acceptance (2026-11-05)
+
+Claimed before implementation. Arena fixes this session to branch `arena/95c04c74-own6`; no `session-*` branch is created (same logged deviation as earlier sessions). Base commit at claim time: `33165a0` (`origin/main`). Open PRs #37 and any others are not touched, merged or modified by this session.
+
+**Egress limitation recorded first.** This session's sandbox can reach only `github.com`, `codeload.github.com`, `api.github.com`, `registry.npmjs.org`, `pypi.org`, `files.pythonhosted.org`. Direct requests to `www.nba.com`, `www.law.go.kr`, `www.espn.com` and `sassnarep3-star.github.io` returned no response (HTTP 000) on 2026-11-05. Therefore **no official NBA / statute / press page could be re-read by this session**, and no inherited official-source row is re-certified here. Values are left blank rather than inferred, and the limitation is published on the site.
+
+| Task | Status | Owner session | Exclusive scope |
+|---|---|---|---|
+| L1 Luck-vs-skill power analysis (minimum-sample, multiple-testing, correlation detection) as reproducible computation | in progress | arena/95c04c74-own6 | `src/own6/power.py`, `scripts/luck_analysis.py`, `tests/test_power.py`, `data/luck/**` |
+| L2 Publish it as a new site section with executive summary, tables, method and Flagged-for-Review | in progress | arena/95c04c74-own6 | `scripts/build_luck.py`, `scripts/check_luck.py`, `docs/luck/**`, `audit/LUCK_SKILL_2026_11_05.md` |
+| L3 Publication acceptance audit: verify every COORDINATION deployment claim against the GitHub API, inventory every published page, fix orphaned pages | in progress | arena/95c04c74-own6 | `scripts/acceptance_audit.py`, `data/acceptance/**`, `docs/luck/acceptance.html` |
+| L4 CI workflow, own PR to `main`, merge, Pages build + live confirm, close-out record | in progress | arena/95c04c74-own6 | `.github/workflows/luck.yml`, this section, one additive landing-page link |
+
+Rules followed: no synthetic NBA values; computed numbers are labelled as computations of the stated formula, never as verified NBA facts or market prices; anything unreadable is blank and flagged; shared index/navigation is changed only by an additive link.
