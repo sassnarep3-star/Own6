@@ -16,6 +16,20 @@ GitHub Pages publishes the organized site from [`docs/`](docs/index.html): dashb
 
 The Python package in `src/own6/` contains transparent modeling utilities, with tests in `tests/`. Inputs and model assumptions are not official NBA facts; do not interpret illustrative estimates as verified lines or betting advice.
 
+
+## Verified snapshot — 5 November 2026 (`docs/daily/`)
+
+A dated, official-source snapshot with its own checker: 121 committed final scores reconciled
+30/30 to today's `nba.com/standings` **and** 30/30 to the previous 3 November snapshot; the 14
+4 November games re-read one card at a time; an 11-game forward slate (5–6 November) with model
+line estimates and deliberately **blank** market cells; a luck-controlled walk-forward signal test
+(61 games, McNemar plus bootstrap); and a Flagged-for-Review page. Live:
+https://sassnarep3-star.github.io/Own6/docs/daily/
+
+Build and check: `python3 scripts/daily_analysis.py` · `python3 scripts/build_daily.py` ·
+`python3 scripts/check_daily.py` · `python3 -m unittest discover -s tests -p test_daily.py`.
+Per-row verification record: [`audit/SESSION_27fdbe09.md`](audit/SESSION_27fdbe09.md).
+
 ## Sources and evidence boundaries
 Official NBA sources used for metric definitions: [NBA Stats Glossary](https://www.nba.com/stats/help/glossary) and [NBA Inside the Game Stat Glossary](https://www.nba.com/news/inside-the-game-stat-glossary). These sources do **not** verify predictive value, odds, correlation estimates or profitability. Unconfirmed values must remain blank and be flagged.
 
