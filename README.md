@@ -1,22 +1,33 @@
 # Own6 — NBA Lines Research Lab
 
-A research-first project for originating NBA spreads, totals, win probabilities, player props and parlays. **Nothing in this repository demonstrates a profitable edge.** No player projections, prices, empirical correlations or backtest returns are asserted without evidence.
+A research-first project for originating NBA spreads, totals, win probabilities, player props, prop combos and parlays. **Nothing in this repository demonstrates a profitable edge.** No current line, correlation, ROI or reward winner is published without authorized, timestamped, out-of-sample evidence.
 
-## Executive summary
-Estimate outcome distributions independently, convert them to fair probabilities, and compare against timestamped executable market prices after vig and execution costs. Skill must survive time-ordered out-of-sample testing, calibration checks, uncertainty bounds, multiple-testing controls and market benchmarks. Parlays and player-prop combinations require joint probabilities; multiplying marginal probabilities assumes independence and is not a default.
+## Start here
 
-Leaderboard rewards should be based on audited, preregistered, out-of-sample forecasts with uncertainty-aware eligibility—not raw win rate. Require adequate samples, proper scoring/calibration, market-relative results, drawdown reporting, and robust performance across periods. No historical data or sportsbook quotes are included here; measured advantage and correlation fields remain blank/unverified.
+- **Live assurance dashboard:** https://sassnarep3-star.github.io/Own6/ — clean no-input overview, strategies, lines/props, correlations, leaderboard, validation gates, official sources, Flagged for Review and full repo audit.
+- **Executive summary:** [`research/EXECUTIVE_SUMMARY.md`](research/EXECUTIVE_SUMMARY.md)
+- **Signal research:** [`research/SIGNALS.md`](research/SIGNALS.md)
+- **Validation protocol v2:** [`research/VALIDATION_v2.md`](research/VALIDATION_v2.md)
+- **Source assurance:** [`research/ASSURANCE.md`](research/ASSURANCE.md)
 
-## Start here: unified hub
+The root page redirects to the assurance dashboard. The earlier data hub and section sites are preserved as archives and linked from the dashboard.
 
-The data hub ([`docs/hub/index.html`](docs/hub/index.html), linked from the site landing page) is a category dashboard: executive summary, results, standings, lines, props, forward test, strategies, correlations, validation, sources and Flagged for Review, all generated from the committed data by `python3 scripts/build_hub.py` and checked by `python3 scripts/check_hub.py` and `python3 scripts/audit_integration.py`. Live: https://sassnarep3-star.github.io/Own6/docs/
+## Evidence state
 
 ## Live site contents
 
 **Verification ledger (2026-11-03):** [`docs/verify/`](docs/verify/index.html) records every value that was re-read against an official page this session — 15/15 final scores and 30/30 standings rows match (54/54 ledger checks), with the NBA Terms of Use and 국민체육진흥법 제26조 quoted verbatim. Items that could not be confirmed are blank and listed with a reason. Build/check: `python3 scripts/build_verify.py` · `python3 scripts/check_verify.py`.
 GitHub Pages publishes the organized site from [`docs/`](docs/index.html): dashboard/calculator, strategy catalog, validation gates, correlation methodology, leaderboard design, sources registry and Flagged for Review. See [`EXECUTIVE_SUMMARY.md`](EXECUTIVE_SUMMARY.md).
 
-The Python package in `src/own6/` contains transparent modeling utilities, with tests in `tests/`. Inputs and model assumptions are not official NBA facts; do not interpret illustrative estimates as verified lines or betting advice.
+| Area | Status | Source |
+|---|---|---|
+| Authorized empirical observations | 0 | [Project report](https://github.com/sassnarep3-star/Own6/blob/main/data/empirical/report.csv) |
+| Qualified strategies | 0 | [Project report](https://github.com/sassnarep3-star/Own6/blob/main/data/empirical/report.csv) |
+| Current correlations / edge / ROI / CLV | Blank · unverified | [NBA Terms §9](https://www.nba.com/termsofuse#nba-statistics) |
+| Legacy data archives | Preserved but unverified in the current assurance review | [Row audit](https://github.com/sassnarep3-star/Own6/blob/main/data/assurance/row_audit.csv) |
+| Official source register | 20 direct reads, 2 partial reads | [Source register](https://github.com/sassnarep3-star/Own6/blob/main/data/assurance/sources.csv) |
+
+**No authorized NBA gambling-use data feed is configured.** [NBA Terms §9](https://www.nba.com/termsofuse#nba-statistics) restricts gambling use of NBA Statistics, and §1 restricts public reuse. The [NBA Stats FAQ](https://www.nba.com/stats/help/faq) says statistics are not available for download. The project does not scrape, republish or invent NBA statistics, odds, correlations or returns.
 
 
 ## Verified snapshot — 5 November 2026 (`docs/daily/`)
@@ -35,24 +46,46 @@ Per-row verification record: [`audit/SESSION_27fdbe09.md`](audit/SESSION_27fdbe0
 ## Sources and evidence boundaries
 Official NBA sources used for metric definitions: [NBA Stats Glossary](https://www.nba.com/stats/help/glossary) and [NBA Inside the Game Stat Glossary](https://www.nba.com/news/inside-the-game-stat-glossary). These sources do **not** verify predictive value, odds, correlation estimates or profitability. Unconfirmed values must remain blank and be flagged.
 
-## Source-linked verified dashboard
+The repository does contain historical legacy CSV/JSON archives and earlier dashboards. Those are **not** the authorized empirical ledger. The current assurance review leaves their numeric values unverified unless separately matched to an authorized official snapshot. Internal consistency checks are not official-source verification.
 
-A separate, source-checked section lives in [`docs/verified/`](docs/verified/index.html): the verified NBA schedule rows (Nov 2, 2026), Korean statute rows (국민체육진흥법), NBA official policy vs. unverified press reports, validation gates, and a Flagged for Review page. Data is in `data/*.json`; build with `python3 scripts/build_site.py` and check with `python3 scripts/check_site.py`.
+## What was hardened
 
-## Research sub-site (session `arena/325834c9-own6`)
+- Fair American odds conversion no longer invents a margin.
+- Strategy/market identity, frozen edge and conservative EV thresholds are enforced.
+- Audit evidence requires reviewer, artifact URL/hash, scope, config hash and ledger hash; a boolean alone is rejected.
+- CLV uses de-vigged same-line closing probabilities; moved lines stay blank and block the CLV gate.
+- Correlations use strict training-only paired residuals, retain zeros, and require slate-clustered intervals and joint samples for combos.
+- Bonferroni covers the actual qualification statistics across the frozen candidate family; the independent-trial win-count test is diagnostic only.
+- The leaderboard ranks only all-gate qualifiers by the lower bound of slate-clustered holdout ROI. Rewards are non-monetary research priority only.
 
-A second, independently verified research line lives in [`docs/own6/`](docs/own6/index.html):
-92 official game results with per-row nba.com links (213/213 recomputation checks pass), a
-walk-forward line-origination model with honest gate outcomes (**G1 not met — no edge claimed**),
-measured parlay/prop correlations, a pre-registered strategy leaderboard with paper rewards, and a
-Flagged-for-Review page. Research docs: [`EXECUTIVE_SUMMARY.md`](EXECUTIVE_SUMMARY.md) (session
-section), [`research/`](research/strategies.md), [`verification/`](verification/verification_report.csv).
-Build/check: `python3 scripts/build_site_own6.py` · `python3 scripts/linkcheck.py` ·
-`python3 scripts/verify_data.py` · `python3 scripts/model.py`. DraftKings lines arrive via the
-ESPN feed (secondary source, labeled as such); research/paper only — no real wagers.
+## Reproduce
 
-## Empirical fail-closed lab
+```sh
+python -m pip install -r requirements-empirical.txt
+python scripts/audit_repo.py
+python scripts/run_lab.py
+python scripts/build_assurance.py
+python scripts/check_assurance.py
+python -m pytest -q tests
+```
 
-An isolated empirical extension lives in [`docs/lab/`](docs/lab/overview.html). It adds a strict data contract, six frozen strategy candidates, ten validation gates, event-clustered uncertainty, and a leaderboard that ranks only all-gate qualifiers by the lower bound of holdout ROI. With the bundled empty ledger it runs automatically and reports `not_run` — no synthetic or fabricated returns are published. Sources and scope limits are in [`research/EXECUTIVE_SUMMARY.md`](research/EXECUTIVE_SUMMARY.md), [`research/METHODOLOGY.md`](research/METHODOLOGY.md), and [`research/REPO_AUDIT.md`](research/REPO_AUDIT.md). Build and check with `python3 scripts/run_lab.py`, `python3 scripts/build_lab.py`, and `python3 scripts/check_lab.py`.
+The empty ledger deterministically reports `not_run`, zero observations and an empty leaderboard. Synthetic fixtures are confined to tests and never enter the report.
 
-**No authorized NBA gambling-use data feed is configured.** NBA.com Terms §9 restricts NBA Statistics from being used in connection with any gambling activity, and §1 restricts public reuse. The NBA Stats FAQ says statistics are not available for download. The lab therefore does not scrape, republish, or invent NBA statistics, odds, correlations, or returns. No betting advice is provided.
+## Preserved archives
+
+- Data hub: [`docs/hub/index.html`](docs/hub/index.html)
+- Earlier repaired landing: [`docs/index.html`](docs/index.html)
+- Fail-closed empirical lab: [`docs/lab/overview.html`](docs/lab/overview.html)
+- Source-linked verified section: [`docs/verified/index.html`](docs/verified/index.html)
+- Research sub-site: [`docs/own6/index.html`](docs/own6/index.html)
+- Independent review: [`docs/review/index.html`](docs/review/index.html)
+
+These archives are preserved for provenance. Their historical claims are not promoted to verified facts by the assurance dashboard.
+
+## Coordination
+
+Concurrent sessions are coordinated in [`COORDINATION.md`](COORDINATION.md). This session works on the fixed Arena branch `arena/74d27b5d-own6`, preserves other sessions' work, and records sources, verification and irregularities there. Flagged items are published on the site's **Flagged for Review** page and do not block publication of the research framework.
+
+## No betting advice
+
+Analytics research only. No wagers, stakes, picks, payouts or profitability claims. Luck cannot be eliminated; the protocol reduces false discoveries through rights, provenance, chronology, dependence-aware uncertainty, multiplicity control and frozen preregistration.

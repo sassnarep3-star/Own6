@@ -1,9 +1,5 @@
 {
-  "note": "Optional independent-audit evidence. Every key defaults to false. Set them only after an independent audit provides documented evidence; the empty file is the deterministic fail-closed default.",
-  "rights_verified": false,
-  "provenance_verified": false,
-  "walk_forward_verified": false,
-  "ledger_audited": false,
-  "preregistered": false,
-  "dependence_verified": false
+  "schema_version": 2,
+  "note": "No independent audit artifacts are supplied. Every gate remains blocked. A future record must bind reviewer, artifact URL/hash, scope, config hash and ledger hash; a boolean alone is not evidence.",
+  "records": []
 }

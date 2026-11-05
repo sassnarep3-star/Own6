@@ -22,7 +22,7 @@ def test_prices():
     assert american_to_implied(-110) == pytest.approx(110 / 210)
     assert american_to_implied(110) == pytest.approx(100 / 210)
     assert probability(0.5) == 0.5
-    assert prob_to_american(0.5) == -110
+    assert prob_to_american(0.5) == 100
     a, b = devig_two_way(0.55, 0.52)
     assert a + b == pytest.approx(1.0)
     assert expected_value(0.5, 2.0) == pytest.approx(0.0)
