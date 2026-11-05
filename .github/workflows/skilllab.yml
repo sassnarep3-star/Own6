@@ -1,0 +1,57 @@
+name: Skill lab
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  skilllab:
+    name: Luck removal and gate discrimination
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install pinned scientific dependencies (SciPy cross-check only)
+        run: python -m pip install -r requirements-empirical.txt
+
+      - name: Build the skill-lab data and site
+        run: python scripts/build_skilllab.py
+
+      - name: Verify the build is reproducible and the pages pass link/source gates
+        run: python scripts/check_skilllab.py --check
+
+      - name: Known-answer and arithmetic tests
+        run: python -m pytest -q tests/test_skilllab.py
+
+      - name: Confirm the site tree still passes the existing gates
+        run: |
+          python tools/release_gate.py
+          python tools/check_site.py
+          python scripts/check_site.py
+
+      - name: Confirm the landing page still points at the skill lab
+        run: |
+          python - <<'PY'
+          import pathlib, sys
+          landing = pathlib.Path("docs/index.html").read_text(encoding="utf-8")
+          if "skill/index.html" not in landing:
+              sys.exit("docs/index.html no longer links to the skill lab")
+          pages = sorted(pathlib.Path("docs/skill").glob("*.html"))
+          if len(pages) != 11:
+              sys.exit(f"expected 11 skill pages, found {len(pages)}")
+          print(f"landing link present; {len(pages)} skill pages published")
+          PY
+
+      - name: Report the audit boundary
+        run: |
+          echo 'These checks verify arithmetic, links, source coverage and reproducibility.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'They do not verify any basketball value and do not establish a profitable strategy.' >> "$GITHUB_STEP_SUMMARY"
