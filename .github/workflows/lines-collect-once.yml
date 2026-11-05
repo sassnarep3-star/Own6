@@ -34,14 +34,42 @@ jobs:
 
       - name: Collect official NBA results from nba.com
         run: |
+          set -o pipefail
           python3 scripts/collect_lines_data.py --out data/lines \
-            --start 2026-10-20 --end 2026-11-04
+            --start 2026-10-20 --end 2026-11-04 2>&1 | tee collect.log
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          echo '### Collector output' >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          cat collect.log >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Inspect the raw payloads
+        if: always()
+        run: |
+          {
+            echo '### Cached payloads'
+            ls -la data/lines/raw 2>/dev/null || echo 'no raw directory'
+            for f in data/lines/raw/*.json; do
+              [ -e "$f" ] || continue
+              echo "--- $f (first 600 bytes) ---"
+              head -c 600 "$f"
+              echo
+            done
+            for f in data/lines/raw/*.html; do
+              [ -e "$f" ] || continue
+              echo "--- $f (size $(wc -c < "$f")) ---"
+            done
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Show what changed
+        if: always()
         run: |
-          git --no-pager diff --stat -- data/lines || true
-          head -5 data/lines/nba_results_official.csv || true
-          wc -l data/lines/nba_results_official.csv || true
+          {
+            git --no-pager diff --stat -- data/lines || true
+            echo '### Results head'
+            head -5 data/lines/nba_results_official.csv 2>/dev/null || echo 'no results csv'
+            wc -l data/lines/nba_results_official.csv 2>/dev/null || true
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Commit and push the refreshed dataset
         run: |

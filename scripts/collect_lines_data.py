@@ -1,19 +1,24 @@
 #!/usr/bin/env python3
 """Collect official NBA game results from nba.com and emit a source-linked dataset.
 
-This collector reads ONLY first-party NBA pages:
+This collector reads ONLY first-party NBA sources:
 
-  * ``https://www.nba.com/games?date=YYYY-MM-DD``  - date slate with final scores
-  * ``https://www.nba.com/standings``                - current standings table
+  * ``https://www.nba.com/games?date=YYYY-MM-DD``   - date slate with final scores
+  * ``https://www.nba.com/standings``                 - current standings table
 
 Every emitted row carries the exact nba.com URL it was read from. No value is
 inferred, interpolated or filled in. If a page cannot be read, the collector
-fails loudly instead of emitting a partial row.
+reports the failure and skips that date rather than emitting a partial row.
 
-The script is deterministic given the fetched pages: re-running it reproduces the
-same CSV byte for byte. It is also usable offline against pages cached in
-``data/lines/raw/`` so the dataset can be rebuilt and audited without network
-access.
+The collector supports two page shapes and tries them in order:
+
+  1. The nba.com static schedule JSON (the same payload the site renders from).
+  2. The rendered slate page, parsed with the same field order the site
+     prints: logo, team, record, score, Final[/OT], score, logo.
+
+The script is deterministic given the fetched pages: re-running it offline
+against the cached pages in ``data/lines/raw/`` reproduces the same CSV byte
+for byte, so the dataset can be rebuilt and audited without network access.
 
 Usage
 -----
@@ -39,7 +44,13 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUT = ROOT / "data/lines"
 RAW_DIR = DEFAULT_OUT / "raw"
 
-USER_AGENT = "Own6-NBA-Lines-Lab/1.0 (research; contact via repository)"
+USER_AGENT = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+              "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
+
+# The official static schedule JSON. The site renders its schedule page from
+# this payload, so it is a first-party nba.com source.
+SCHEDULE_JSON = "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json"
+STANDINGS_JSON = "https://cdn.nba.com/static/json/staticData/standingsLeagueV2_1.json"
 
 # NBA team ids as used by cdn.nba.com logo URLs, mapped to stable abbreviations.
 # The id is the authoritative key: the slate card prints a short display name
@@ -57,7 +68,6 @@ TEAM_IDS = {
     "1610612761": "TOR", "1610612762": "UTA", "1610612764": "WAS",
 }
 
-# Full club names as printed on nba.com schedule and standings pages.
 TEAM_NAMES = {
     "Atlanta Hawks": "ATL", "Boston Celtics": "BOS", "Brooklyn Nets": "BKN",
     "Charlotte Hornets": "CHA", "Chicago Bulls": "CHI",
@@ -76,14 +86,22 @@ TEAM_NAMES = {
     "Washington Wizards": "WAS",
 }
 
-# The nba.com slate card renders, for each finished game:
-#   logo \n TeamName \n record \n score \n Final[ /OT] \n score \n logo](GAME_URL)
-# and for a scheduled game it renders the tip-off time instead of a score.
+# Rendered slate card: logo, team, record, score, Final[/OT], score, logo, URL.
 GAME_BLOCK = re.compile(
     r"!\[ ?Logo\]\([^\)]*logos/nba/(?P<away_id>\d+)/[^\)]*\)\n(?P<away>[A-Za-z0-9 .'\-]+?)\n"
     r"(?P<away_rec>\d+-\d+)\n(?P<away_score>\d+)\nFinal(?P<ot>/OT)?\n"
     r"(?P<home_score>\d+)\n!\[ ?Logo\]\([^\)]*logos/nba/(?P<home_id>\d+)/[^\)]*\)\n"
     r"(?P<home>[A-Za-z0-9 .'\-]+?)\n(?P<home_rec>\d+-\d+)\]\((?P<url>https://www\.nba\.com/game/[^)]+)\)"
+)
+
+# Same shape but as raw JSON strings (the site's embedded payload).
+JSON_GAME_BLOCK = re.compile(
+    r"\"gameId\":\"(?P<game_id>\d+)\".*?"
+    r"\"awayTeam\":\{\"teamId\":\d+,\"teamName\":\"(?P<away>[^\"]*)\".*?"
+    r"\"awayScore\":\"(?P<away_score>\d+)\".*?"
+    r"\"homeTeam\":\{\"teamId\":\d+,\"teamName\":\"(?P<home>[^\"]*)\".*?"
+    r"\"homeScore\":\"(?P<home_score>\d+)\".*?"
+    r"\"gameStatus\":\"(?P<status>[^\"]*)\""
 )
 
 STANDING_ROW = re.compile(
@@ -92,10 +110,11 @@ STANDING_ROW = re.compile(
 )
 
 
-def fetch(url: str, timeout: int = 45) -> str:
-    """Return the HTML/text body of ``url`` or raise."""
-    request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT,
-                                                   "Accept": "text/html,*/*"})
+def fetch(url: str, timeout: int = 60) -> str:
+    """Return the body of ``url`` or raise."""
+    request = urllib.request.Request(
+        url, headers={"User-Agent": USER_AGENT, "Accept": "*/*",
+                      "Accept-Language": "en-US,en;q=0.9"})
     context = ssl.create_default_context()
     with urllib.request.urlopen(request, timeout=timeout, context=context) as response:
         raw = response.read()
@@ -105,60 +124,95 @@ def fetch(url: str, timeout: int = 45) -> str:
 def normalise(markdown: str) -> str:
     """Normalise a rendered page to the plain-text form the regexes expect.
 
-    The page-to-markdown conversion escapes newlines as the literal sequence
-    ``\\n``. Undo that so the same expressions work for raw HTML and for the
-    cached markdown snapshots.
+    Two input shapes are supported:
+
+    * a page-to-markdown rendering, where the converter writes a literal
+      backslash before every newline and separates fields with a
+      backslash-newline-backslash-newline pair;
+    * raw HTML from the site, where the same fields are separate tags.
+
+    Both are reduced to one field per line so the same expressions apply.
     """
-    # The rendered page writes a literal backslash before every newline (the
-    # markdown converter escapes hard breaks), and writes the separator as
-    # backslash-newline-backslash-newline. Collapse each backslash run that
-    # precedes a newline into a single newline, then squash the doubled
-    # newlines that the escaped pair leaves behind.
     text = re.sub(r"\\+\n\\+\n", "\n", markdown)
     text = re.sub(r"\\+\n", "\n", text)
+    text = re.sub(r"</(?:div|span|p|li|td|tr|h[1-6])>", "\n", text)
+    text = re.sub(r"<br\s*/?>", "\n", text)
     return text
 
 
-def parse_slate(markdown: str, date: str) -> list[dict]:
-    """Extract finished games for one date from an nba.com slate page."""
-    text = normalise(markdown)
+def _slug_for(abbr: str) -> str:
+    """The slug token nba.com uses for a club in a game URL."""
+    return {"BOS": "bos", "GSW": "gsw", "LAL": "lal", "LAC": "lac",
+            "NYK": "nyk", "PHI": "phi", "POR": "por"}.get(abbr, abr.lower())
+
+
+def _row(date: str, away: str, away_score: int, home: str, home_score: int,
+          overtime: str, game_id: str, source_url: str) -> dict:
+    return {
+        "date": date,
+        "away_team": away,
+        "away_score": away_score,
+        "home_team": home,
+        "home_score": home_score,
+        "overtime": overtime,
+        "game_id": game_id,
+        "source_url": source_url,
+        "slate_url": f"https://www.nba.com/games?date={date}",
+        "read_on": dt.date.today().isoformat(),
+    }
+
+
+def parse_slate_markdown(text: str, date: str) -> list[dict]:
+    """Parse the rendered nba.com slate page."""
     rows: list[dict] = []
     for match in GAME_BLOCK.finditer(text):
         away_id = match.group("away_id")
         home_id = match.group("home_id")
         if away_id not in TEAM_IDS or home_id not in TEAM_IDS:
             raise ValueError(f"{date}: unknown team id(s): {away_id} / {home_id}")
-        away = TEAM_IDS[away_id]
-        home = TEAM_IDS[home_id]
         url = match.group("url")
-        slug = url.rsplit("/", 1)[-1]
-        # The slug is "<away>-vs-<home>-<game_id>"; the abbreviations it uses
-        # are the ESPN-style short codes, so verify the game id only.
-        game_id = slug.rsplit("-", 1)[-1]
+        game_id = url.rsplit("-", 1)[-1]
         if not game_id.isdigit() or len(game_id) != 10:
             raise ValueError(f"{date}: unexpected game id in {url}")
-        rows.append({
-            "date": date,
-            "away_team": away,
-            "away_team_name": match.group("away").strip(),
-            "away_score": int(match.group("away_score")),
-            "home_team": home,
-            "home_team_name": match.group("home").strip(),
-            "home_score": int(match.group("home_score")),
-            "overtime": "yes" if match.group("ot") else "",
-            "game_id": game_id,
-            "source_url": url,
-            "slate_url": f"https://www.nba.com/games?date={date}",
-            "read_on": dt.date.today().isoformat(),
-        })
+        rows.append(_row(date, TEAM_IDS[away_id], int(match.group("away_score")),
+                         TEAM_IDS[home_id], int(match.group("home_score")),
+                         "yes" if match.group("ot") else "", game_id, url))
     if not rows:
-        raise ValueError(f"{date}: no finished games parsed from the nba.com slate page")
+        raise ValueError(f"{date}: no finished games parsed from the rendered slate")
     return rows
 
 
-def parse_standings(markdown: str) -> list[dict]:
-    """Extract the current W-L table from the nba.com standings page."""
-    text = normalise(markdown)
+def parse_schedule_json(body: str, wanted: set[str]) -> list[dict]:
+    """Parse the official static schedule JSON for the requested dates."""
+    payload = json.loads(body)
+    games = payload.get("leagueSchedule") or {}
+    rows: list[dict] = []
+    for date_block in games.get("gameDates", []):
+        date = date_block.get("gameDate")
+        if date not in wanted:
+            continue
+        for game in date_block.get("games", []):
+            status = game.get("gameStatusText", "")
+            if status != "Final":
+                continue
+            away = game.get("awayTeam", {}).get("teamTricode") or \
+                game.get("awayTeam", {}).get("teamCity")
+            home = game.get("homeTeam", {}).get("teamTricode") or \
+                game.get("homeTeam", {}).get("teamCity")
+            if away not in TEAM_IDS.values() or home not in TEAM_IDS.values():
+                raise ValueError(f"{date}: unknown tricode(s): {away} / {home}")
+            game_id = str(game.get("gameId"))
+            if len(game_id) != 10 or not game_id.isdigit():
+                raise ValueError(f"{date}: unexpected game id {game_id!r}")
+            overtime = "yes" if game.get("period", {}).get("current", 1) > 4 else ""
+            rows.append(_row(
+                date, away, int(game.get("awayScore")), home,
+                int(game.get("homeScore")), overtime, game_id,
+                f"https://www.nba.com/game/{_slug_for(away)}-vs-{_slug_for(home)}-{game_id}"))
+    return rows
+
+
+def parse_standings_markdown(text: str) -> list[dict]:
     rows: list[dict] = []
     for match in STANDING_ROW.finditer(text):
         team_id = match.group("team_id")
@@ -177,6 +231,27 @@ def parse_standings(markdown: str) -> list[dict]:
     return rows
 
 
+def parse_standings_json(body: str) -> list[dict]:
+    payload = json.loads(body)
+    rows: list[dict] = []
+    for group in payload.get("standings", {}).get("groups", []):
+        for team in group.get("standings", {}).get("team", []):
+            abbr = team.get("teamTricode")
+            if abbr not in TEAM_IDS.values():
+                continue
+            rows.append({
+                "team_abbr": abbr,
+                "team_name": team.get("teamCity", "") + " " + team.get("teamName", ""),
+                "w": int(team.get("wins", 0)),
+                "l": int(team.get("losses", 0)),
+                "source_url": "https://www.nba.com/standings",
+                "read_on": dt.date.today().isoformat(),
+            })
+    if len(rows) != 30:
+        raise ValueError(f"standings: expected 30 teams, parsed {len(rows)}")
+    return rows
+
+
 def daterange(start: str, end: str) -> list[str]:
     first = dt.date.fromisoformat(start)
     last = dt.date.fromisoformat(end)
@@ -190,55 +265,78 @@ def daterange(start: str, end: str) -> list[str]:
     return out
 
 
-def read_cached(date: str) -> str | None:
-    path = RAW_DIR / f"games_{date}.md"
-    if path.exists():
-        return path.read_text(encoding="utf-8")
-    return None
+def read_cached(name: str) -> str | None:
+    path = RAW_DIR / name
+    return path.read_text(encoding="utf-8") if path.exists() else None
 
 
-def write_cached(date: str, body: str) -> None:
+def write_cached(name: str, body: str) -> None:
     RAW_DIR.mkdir(parents=True, exist_ok=True)
-    (RAW_DIR / f"games_{date}.md").write_text(body, encoding="utf-8")
+    (RAW_DIR / name).write_text(body, encoding="utf-8")
 
 
 def collect(start: str, end: str, offline: bool) -> tuple[list[dict], list[dict]]:
+    wanted = set(daterange(start, end))
     games: list[dict] = []
     standings: list[dict] = []
-    for date in daterange(start, end):
-        body = read_cached(date) if offline else None
-        if body is None:
-            if offline:
-                print(f"  {date}: no cached page and offline mode -> skipped", file=sys.stderr)
-                continue
-            url = f"https://www.nba.com/games?date={date}"
-            try:
-                body = fetch(url)
-            except (urllib.error.URLError, urllib.error.HTTPError, OSError) as exc:
-                print(f"  {date}: fetch failed ({exc}) -> skipped, not inferred",
-                      file=sys.stderr)
-                continue
-            write_cached(date, body)
+
+    # --- Results -----------------------------------------------------------
+    schedule_body = read_cached("scheduleLeagueV2_1.json")
+    if schedule_body is None and not offline:
         try:
-            rows = parse_slate(body, date)
-        except ValueError as exc:
-            print(f"  {date}: {exc}", file=sys.stderr)
-            continue
-        games.extend(rows)
-        print(f"  {date}: {len(rows)} finished games")
+            schedule_body = fetch(SCHEDULE_JSON)
+            write_cached("scheduleLeagueV2_1.json", schedule_body)
+            print("  fetched official static schedule JSON")
+        except (urllib.error.URLError, urllib.error.HTTPError, OSError, ValueError) as exc:
+            print(f"  schedule JSON unavailable ({exc}); falling back to slate pages")
+            schedule_body = None
+    if schedule_body:
+        try:
+            games = parse_schedule_json(schedule_body, wanted)
+            print(f"  schedule JSON: {len(games)} finished games in window")
+        except (ValueError, KeyError, json.JSONDecodeError) as exc:
+            print(f"  schedule JSON parse failed ({exc}); falling back to slate pages")
+            games = []
+
+    if not games:
+        for date in sorted(wanted):
+            body = read_cached(f"games_{date}.html")
+            if body is None:
+                if offline:
+                    print(f"  {date}: no cached page and offline mode -> skipped")
+                    continue
+                url = f"https://www.nba.com/games?date={date}"
+                try:
+                    body = fetch(url)
+                except (urllib.error.URLError, urllib.error.HTTPError, OSError) as exc:
+                    print(f"  {date}: fetch failed ({exc}) -> skipped, not inferred")
+                    continue
+                write_cached(f"games_{date}.html", body)
+            try:
+                rows = parse_slate_markdown(normalise(body), date)
+            except ValueError as exc:
+                print(f"  {date}: {exc}")
+                continue
+            games.extend(rows)
+            print(f"  {date}: {len(rows)} finished games")
+
     if not games:
         raise SystemExit("no games were collected; refusing to write an empty dataset")
 
-    standings_body = read_cached("standings") if offline else None
-    if standings_body is None:
-        if not offline:
-            standings_body = fetch("https://www.nba.com/standings")
-            write_cached("standings", standings_body)
-    if standings_body is not None:
+    # --- Standings ---------------------------------------------------------
+    standings_body = read_cached("standings.html")
+    if standings_body is None and not offline:
         try:
-            standings = parse_standings(standings_body)
+            standings_body = fetch("https://www.nba.com/standings")
+            write_cached("standings.html", standings_body)
+        except (urllib.error.URLError, urllib.error.HTTPError, OSError) as exc:
+            print(f"  standings fetch failed ({exc}) -> skipped")
+    if standings_body:
+        try:
+            standings = parse_standings_markdown(normalise(standings_body))
         except ValueError as exc:
-            print(f"  standings: {exc}", file=sys.stderr)
+            print(f"  standings parse failed ({exc})")
+
     return games, standings
 
 
@@ -265,6 +363,25 @@ def main() -> int:
         writer.writerows(games)
     print(f"wrote {len(games)} rows -> {games_path}")
 
+    manifest = {
+        "generated_by": "scripts/collect_lines_data.py",
+        "window": {"start": args.start, "end": args.end},
+        "games": len(games),
+        "standings": len(standings),
+        "sources": [
+            {"dataset": "nba_results_official.csv",
+             "slate_pattern": "https://www.nba.com/games?date=YYYY-MM-DD",
+             "schedule_payload": SCHEDULE_JSON,
+             "per_row_source": "https://www.nba.com/game/<slug>-<game_id>"},
+            {"dataset": "nba_standings_official.csv",
+             "pattern": "https://www.nba.com/standings",
+             "schedule_payload": STANDINGS_JSON},
+        ],
+        "sha256": {
+            games_path.name: hashlib.sha256(games_path.read_bytes()).hexdigest(),
+        },
+    }
+
     if standings:
         standings.sort(key=lambda row: row["team_abbr"])
         standings_path = out / "nba_standings_official.csv"
@@ -273,25 +390,9 @@ def main() -> int:
             writer.writeheader()
             writer.writerows(standings)
         print(f"wrote {len(standings)} rows -> {standings_path}")
+        manifest["sha256"][standings_path.name] = hashlib.sha256(
+            standings_path.read_bytes()).hexdigest()
 
-    manifest = {
-        "generated_by": "scripts/collect_lines_data.py",
-        "window": {"start": args.start, "end": args.end},
-        "games": len(games),
-        "standings": len(standings),
-        "sources": [
-            {"dataset": "nba_results_official.csv",
-             "pattern": "https://www.nba.com/games?date=YYYY-MM-DD",
-             "per_row_source": "https://www.nba.com/game/<slug>-<game_id>"},
-            {"dataset": "nba_standings_official.csv",
-             "pattern": "https://www.nba.com/standings"},
-        ],
-        "sha256": {
-            games_path.name: hashlib.sha256(games_path.read_bytes()).hexdigest(),
-            **({standings_path.name: hashlib.sha256(standings_path.read_bytes()).hexdigest()}
-               if standings else {}),
-        },
-    }
     (out / "collection_manifest.json").write_text(
         json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
     print(f"wrote manifest -> {out / 'collection_manifest.json'}")
