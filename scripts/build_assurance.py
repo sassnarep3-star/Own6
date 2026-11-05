@@ -107,6 +107,7 @@ def main() -> None:
 
     overview = f"""
 <p class="callout"><strong>No authorized betting-use data feed is configured.</strong> Current lines, correlations, edge, ROI and CLV are blank. The leaderboard is empty because no strategy has passed the validation gates. This dashboard separates official source reads, reproducible calculations and unverified historical claims.</p>
+<p class="callout"><strong>Final integration evidence, 2026-11-05.</strong> All 15 November 2 final scores were freshly re-read on their official NBA game pages and matched. The 30-team W-L table remains a <strong>2026-11-03 snapshot</strong>: the live standings have advanced and are not presented as current. See the <a href="../verify/index.html">dated verification ledger</a>, <a href="../review/verification.html">direct-read log V28–V54</a>, <a href="../verified/flagged.html">public flags F28–F29</a> and {link(REPO + '/blob/main/audit/FINAL_INTEGRATION_REVIEW_2026-11-05.md', 'integration audit')}. Verifying historical scores does not verify odds, statistics rights or betting skill.</p>
 <div class="cards">
 <div class="card"><div class="num">{report['n_observations']}</div><div class="label">Authorized observations</div></div>
 <div class="card"><div class="num">{report['n_qualified']}</div><div class="label">Qualified strategies</div></div>

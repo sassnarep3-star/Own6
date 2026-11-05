@@ -44,8 +44,8 @@
       "id": "F04",
       "category": "Data gap",
       "severity": "High",
-      "item": "No verified odds or results data. Odds columns are blank for all 15 games.",
-      "detail": "The nba.com schedule has a 'Hide Odds' toggle, but the provider and values were not confirmed from an official source. Sportsbook odds are not published by the NBA as an official source.",
+      "item": "No verified sportsbook odds or player-prop prices. Odds columns are blank for all 15 games.",
+      "detail": "The 15 final scores were separately re-read on official NBA game pages on 2026-11-05. That does not verify market prices. The nba.com schedule has a 'Hide Odds' toggle, but the provider and values were not confirmed from an official source. Sportsbook odds are not published by the NBA as an official source.",
       "source_url": "https://www.nba.com/schedule",
       "action_requested": "Decide on a verified odds source. Without one, the strategy and correlation sections stay empty."
     },
@@ -62,8 +62,8 @@
       "id": "F06",
       "category": "Data gap",
       "severity": "Medium",
-      "item": "No official team or player stats were imported.",
-      "detail": "The NBA stats pages returned navigation only, and the stats data endpoints could not be reached from the sandbox. No stats were filled in.",
+      "item": "No authorized team or player statistics are present in the empirical ledger.",
+      "detail": "The fail-closed empirical ledger has zero observations. Earlier legacy CSV archives contain team-rating and player-related claims, but they remain unverified and are not promoted to the current model. The NBA Stats FAQ offers no bulk download; no licensed feed is configured.",
       "source_url": "https://www.nba.com/stats/players/traditional",
       "action_requested": "Provide an official stats source or export that the sandbox can read."
     },
@@ -162,7 +162,7 @@
       "category": "Legal (NBA ToU)",
       "severity": "High",
       "item": "NBA.com Terms §9(ii) limits NBA Statistics to “legitimate news reporting or private, non-commercial purposes”.",
-      "detail": "Read 2026-11-03 (Terms of Use, chunk 3). §9(i) requires prominent attribution to NBA.com; §9(iii) bars use with sponsorship or commercial identification; §9(iv) bars use “in connection with any gambling activity (including legal gambling activity)”. This project is commercial-purpose, gambling-themed research, so §9(ii) and §9(iv) apply on the face of the Terms. No legal opinion has been obtained.",
+      "detail": "Read 2026-11-03 (Terms of Use, chunk 3). §9(i) requires prominent attribution to NBA.com; §9(iii) bars use with sponsorship or commercial identification; §9(iv) bars use “in connection with any gambling activity (including legal gambling activity)”. This is gambling-themed research; its commercial status and the applicability of §9(ii) and §9(iv) require qualified review rather than an unsupported assumption. No legal opinion has been obtained.",
       "source_url": "https://www.nba.com/termsofuse",
       "action_requested": "Owner: obtain written permission from NBA or qualified legal review before more NBA Statistics are published or analysed. Decide whether NBA-derived figures stay on public pages (see F26)."
     },
@@ -225,9 +225,9 @@
       "category": "Source labelling",
       "severity": "Medium",
       "item": "ESPN data is labelled 'official' in data/correlation_findings.csv.",
-      "detail": "The row cites 'ESPN official player gamelogs'. ESPN is a third-party provider, not an NBA official source, so the label is wrong. The market-lines file also uses ESPN API data (DraftKings lines via ESPN), which is secondary.",
+      "detail": "The row originally cited 'ESPN official player gamelogs'. ESPN is a third-party provider, not an NBA official source, so the label was wrong. Final integration corrected it to 'ESPN player gamelogs (third-party/secondary)' without changing the unverified estimate. The market-lines file also uses ESPN API data (DraftKings lines via ESPN), which is secondary.",
       "source_url": "https://github.com/sassnarep3-star/Own6/blob/main/data/correlation_findings.csv",
-      "action_requested": "Relabel as third-party (secondary) in the correlation file and in any page that copies it."
+      "action_requested": "None for the label — corrected during final integration. Keep the estimate itself unverified and do not use it for a combination or leaderboard decision."
     },
     {
       "id": "F25",
@@ -255,6 +255,24 @@
       "detail": "The arena-5dfdc6d5 section appears twice. The second copy still lists E3, E4 and E5 as 'unclaimed'. The README cites session arena/325834c9-own6 for docs/own6/, but that session has no board entry. Nothing was removed, per the board's rule that other sessions' content is kept.",
       "source_url": "https://github.com/sassnarep3-star/Own6/blob/main/COORDINATION.md",
       "action_requested": "Owner or integration session: prune the duplicate block and add a board entry for arena/325834c9-own6 (or record its absence)."
+    },
+    {
+      "id": "F28",
+      "category": "Data snapshot",
+      "severity": "Medium",
+      "item": "The 30-team W-L ledger is a 2026-11-03 snapshot, not current 2026-11-05 standings.",
+      "detail": "All 30 rows matched the official standings when read on 2026-11-03. A fresh 2026-11-05 read shows that the live table has advanced (for example PHI is 8-1 rather than 7-1). The dated values are preserved for audit reproducibility; the live page cannot retroactively confirm that historical snapshot.",
+      "source_url": "https://www.nba.com/standings",
+      "action_requested": "Do not describe the dated rows as current standings. Use a new timestamped capture for any current-state analysis; do not overwrite the historical ledger silently."
+    },
+    {
+      "id": "F29",
+      "category": "Source integrity (fixed)",
+      "severity": "Medium",
+      "item": "Final integration corrected four provenance/wording defects without inventing replacement values.",
+      "detail": "The official NBA partner list incorrectly included Brazil; the current official table does not. The Utah W-L row now cites the official standings ledger rather than a schedule URL. ESPN gamelogs are labelled third-party/secondary rather than official NBA data. An unsupported statement that the project is commercial-purpose was replaced with a scoped legal-review caveat. These corrections do not verify legacy correlations, odds or statistics.",
+      "source_url": "https://www.nba.com/nbabet/official-nba-gaming-partners-and-operators-2",
+      "action_requested": "Review the corrected rows and preserve the distinction between dated official facts, secondary data and unresolved legal applicability."
     }
   ]
 }

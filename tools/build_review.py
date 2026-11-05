@@ -98,7 +98,7 @@ def page(title: str, h1: str, lede: str, body: str, active: str) -> str:
 <body><header class="top"><span class="brand">OWN6 · INDEPENDENT REVIEW</span><nav>{nav}</nav></header>
 <main><h1>{html.escape(h1)}</h1><p class="lede">{lede}</p>
 {body}
-</main><footer>Independent verification pass · session <code>arena/a6ccf588-own6</code> · 2026-11-02 · Research only, not betting advice · Unverified values are blank and flagged.</footer>
+</main><footer>Independent verification pass · session <code>arena/a6ccf588-own6</code> · 2026-11-02 · final integration re-reads through 2026-11-05 · Research only, not betting advice · Unverified values are blank and flagged.</footer>
 <script src="assets/app.js"></script></body></html>
 """
 
@@ -178,10 +178,10 @@ def build() -> dict[str, str]:
     ]
     overview_body = (
         '<div class="grid">'
-        + card("Direct retrieval", "Every official URL used here was retrieved from the official host on 2026-11-02. Search snippets are not treated as verification. " + A("https://www.nba.com/stats/help/faq", "NBA Stats FAQ"))
+        + card("Direct retrieval", "The initial source set was retrieved on 2026-11-02; final integration re-reads carry their own dates through 2026-11-05. Search snippets are not treated as verification. " + A("https://www.nba.com/stats/help/faq", "NBA Stats FAQ"))
         + card("No invented values", "No NBA statistic, price, correlation or backtest result is asserted unless it is quoted from an official page. Unconfirmed values stay blank. " + A("https://www.nba.com/stats/overview", "NBA Stats overview"))
         + card("Automated gate", "A script rejects any table row without a directly verified official source link and any broken internal link. " + GH("tools/check_site.py", "tools/check_site.py"))
-        + card("Engine tests", "The five engine unit tests were rerun with a dependency-free runner (5/5 pass). " + GH("tools/run_tests.py", "tools/run_tests.py"))
+        + card("Engine tests", "The final integrated tree passes 32/32 dependency-free tests; the separate pinned scientific suite passes 120 tests plus six subtests. These are software checks, not evidence of betting skill. " + GH("tools/run_tests.py", "tools/run_tests.py"))
         + "</div>"
         + table("Verified entry points — official sources used", ["Source", "What it supports", "Official link", "Verification"], verified_entry_rows, "t-entry")
         + table("Values deliberately blank (no official confirmation)", ["Value", "Published value", "Status", "Why", "Source to check"], blank_rows, "t-blank")
@@ -244,7 +244,7 @@ def build() -> dict[str, str]:
         + '<section class="card"><h2>Interpretation</h2><p>The framework separates <b>skill</b> (repeatable, out-of-sample, market-beating calibration and closing-line value) from <b>luck</b> (small-sample outcomes). No strategy is claimed profitable, and no reward scheme is asserted as empirically validated. See ' + I("../validation.html", "validation gates") + ' and ' + I("../leaderboard.html", "leaderboard") + ' on the main dashboard, plus the methodology basis from ' + A("https://scikit-learn.org/stable/modules/calibration.html", "scikit-learn") + ' and ' + A("https://www.itl.nist.gov/div898/handbook/eda/section3/eda366i.htm", "NIST") + '.</p></section>'
     )
     files["summary.html"] = page("Executive summary", "Executive summary",
-        "Important details of the Own6 system, all source-linked. Quotes below are copied from official pages retrieved on 2026-11-02.",
+        "Important details of the Own6 system, all source-linked. Initial quotes below were retrieved on 2026-11-02; later direct re-reads are dated individually in the verification log.",
         summary_body, "summary.html")
 
     # ---------------- Verification log ----------------
@@ -256,7 +256,8 @@ def build() -> dict[str, str]:
         for r in log_rows_raw
     ]
     check_rows = [
-        ["Engine unit tests", "python3 tools/run_tests.py", "5/5 pass (pytest unavailable in sandbox)", GH("tools/run_tests.py", "tools/run_tests.py")],
+        ["Dependency-free tests", "python3 tools/run_tests.py", "32/32 pass on the final integrated tree", GH("tools/run_tests.py", "tools/run_tests.py")],
+        ["Scientific tests", "python -m pytest -q tests", "120 passed, 6 subtests passed with pinned NumPy/SciPy/pytest", GH("tests", "tests")],
         ["Row-level source gate", "python3 tools/check_site.py", "Every data row on maintained pages links a verified official URL", GH("tools/check_site.py", "tools/check_site.py")],
         ["Internal link check", "python3 tools/check_site.py", "Relative href/src targets resolve inside the Pages root", GH("tools/check_site.py", "tools/check_site.py")],
         ["Site build drift", "python3 tools/build_review.py --check", "Generated review pages match committed files", GH("tools/build_review.py", "tools/build_review.py")],
@@ -271,10 +272,10 @@ def build() -> dict[str, str]:
         + "</div>"
         + table(f"Source verification log — {len(log_rows)} entries, line by line", ["ID", "Claim checked", "Official source", "Retrieved", "Evidence quoted from official page", "Status"], log_rows, "t-log")
         + table("Automated verification checks", ["Check", "Command", "Result", "Official basis"], check_rows, "t-checks")
-        + '<section class="card"><h2>Machine-readable copies</h2><p>Full log: ' + GH("data/verification_log.csv", "data/verification_log.csv") + ' · Source registry: ' + GH("data/sources.csv", "data/sources.csv") + ' · Narrative record: ' + GH("audit/VERIFICATION.md", "audit/VERIFICATION.md") + ' · Gate report: ' + GH("audit/link_check_report.md", "audit/link_check_report.md") + '. Publishing rules: ' + A("https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site", "GitHub Docs") + '.</p></section>'
+        + '<section class="card"><h2>Machine-readable copies</h2><p>Full log: ' + GH("data/verification_log.csv", "data/verification_log.csv") + ' · Source registry: ' + GH("data/sources.csv", "data/sources.csv") + ' · Narrative record: ' + GH("audit/VERIFICATION.md", "audit/VERIFICATION.md") + ' · Final integration: ' + GH("audit/FINAL_INTEGRATION_REVIEW_2026-11-05.md", "2026-11-05 integration review") + ' · Gate report: ' + GH("audit/link_check_report.md", "audit/link_check_report.md") + '. Publishing rules: ' + A("https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site", "GitHub Docs") + '.</p></section>'
     )
     files["verification.html"] = page("Verification log", "Verification log — line by line",
-        "Each row records one official source retrieved directly during this session, the exact evidence observed, and its verification status.",
+        "Each row records one directly retrieved source, its own retrieval date, the exact scoped evidence observed and its status. V28–V54 are final-integration reads on 2026-11-05; limited rows do not certify a different historical snapshot.",
         verification_body, "verification.html")
 
     # ---------------- Repo review ----------------

@@ -229,7 +229,7 @@ def main():
         f'<a class="card" href="{href}"><h3>{esc(title)}</h3><p>{esc(desc)}</p></a>'
         for href, title, desc in [
             ("results.html", "Game results", "All 15 final scores of the 2026-11-02 slate, each re-read on its official NBA.com game page."),
-            ("standings.html", "Standings", "All 30 win-loss records re-read from the official NBA.com standings table."),
+            ("standings.html", "Standings — dated 2026-11-03", "All 30 win-loss records matched the official table on 2026-11-03; this is not a current 2026-11-05 snapshot."),
             ("policy.html", "Rights & law", "NBA Terms of Use and the Korean National Sports Promotion Act, quoted verbatim with links."),
             ("unverified.html", "Unverified", "What could not be confirmed from an official source. Published value: blank."),
             ("flagged.html", "Flagged for review", "Irregularities and conflicts, with severity and the official source to review."),
@@ -242,6 +242,7 @@ def main():
 the NBA's official release on prediction markets, and the Korean statute on law.go.kr.
 Each row is one check with the URL that was opened. Nothing was inferred, averaged or filled in.
 A blank cell means the value is unknown, not zero.</div>
+<div class="banner"><b>Final integration re-read, 2026-11-05.</b> All 15 November 2 final scores were opened again on their official game pages and matched (V28–V42 in the <a href="../review/verification.html">direct verification log</a>). Terms §6, the Korean whole-law header and the other scoped policy pages were also freshly read. The 54-row ledger below keeps its original 2026-11-03 dates. The live standings page has advanced, so it cannot freshly confirm the 30 historical W-L rows; those rows remain a dated snapshot, not current standings.</div>
 <h2>What was checked</h2>
 {table(["Category", "Checks", "Matched", "Mismatched", "Official source", "Table"], coverage, numeric=(1, 2, 3))}
 <h2>Open the tables</h2>
@@ -281,7 +282,7 @@ See <a href="../hub/forward-test.html">forward test</a> and <a href="../hub/vali
     ]
     body = (
         f'<div class="banner"><b>{len(results)} of {len(results)} final scores match.</b> Each row was re-read on the '
-        "official NBA.com game summary page for that game id. Home team is listed second, as on NBA.com.</div>"
+        "official NBA.com game summary page for that game id on 2026-11-03, and all 15 were independently re-read again on 2026-11-05 (V28–V42). The table's Read on column preserves the original ledger date. Home team is listed second, as on NBA.com.</div>"
         + table(["Game (id)", "Value on this site", "Value read on nba.com", "Check", "Source", "Read on", "Note"],
                 rows, table_id="results")
         + '<p class="mut">Machine-readable: <a href="' + REPO + '/blob/main/data/results_2026-11-02.csv">data/results_2026-11-02.csv</a> '
@@ -298,13 +299,14 @@ See <a href="../hub/forward-test.html">forward test</a> and <a href="../hub/vali
     body = (
         f'<div class="banner"><b>{len(standings)} of {len(standings)} records match.</b> '
         "Published values are from the dated capture in <code>data/standings_live_2026-11-03.csv</code>; "
-        "the official values were read from the 2026-27 regular-season standings page.</div>"
+        "the official values were read from the 2026-27 regular-season standings page on 2026-11-03. "
+        "A fresh 2026-11-05 read shows the live table has advanced (for example PHI 8–1 rather than 7–1), so these 30 rows are historical matches, not current standings.</div>"
         + table(["Team", "Value on this site", "Value read on nba.com", "Check", "Source", "Read on"], rows, table_id="standings")
         + '<h2>Aggregate cross-check</h2><div class="banner">Win-loss records recomputed from all 107 result rows '
           "(92 earlier + 15 on 2026-11-02) equal the official standings for all 30 teams. This is an internal recomputation "
           "over the committed results, not a second independent source.</div>"
     )
-    page("standings.html", "Standings — 30 teams", "Win-loss records compared with the official NBA.com standings table.", body)
+    page("standings.html", "Standings — dated 2026-11-03 snapshot", "Thirty historical W-L matches from 2026-11-03; not current 2026-11-05 standings.", body)
 
     # ---------------- policy ----------------
     rows = []
