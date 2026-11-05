@@ -685,3 +685,40 @@ Rules kept: no value asserted without a directly retrieved official source (link
 - **Pages deployment confirmed:** run `41741579185` completed successfully; GitHub Pages API reports `built` for merge SHA `88462e9244643d95ed4bcd847c09cdd2dfdec31e` at 2026-11-03T23:45:34Z; source remains `main:/`. Live reads after deployment confirmed dashboard says no qualified strategies / zero authorized observations; lab says `not_run`, zero observations and zero qualified; hub Flagged page displays 60 flagged items. This confirms publication/deployment, not factual accuracy or empirical skill.
 - **V5 complete for this session's audit/ledger PR.** V1/V2/V4 were limited to sourced verification/local consistency as documented above. V3 is still blocked: PR #28/#37 own `EXECUTIVE_SUMMARY.md`; no summary edit or cross-session reconciliation was made. Open PRs #23/#28/#31/#32/#37 and follow-up #43 were not merged or modified by this session.
 - Remaining requested integration flags: fix the Utah row's schedule citation; investigate missing historical base object in `scripts/audit_sources.py`; have a qualified reviewer assess NBA Terms §§1/9 before any gambling-related reuse; reconcile legacy assertions/summary through their owners. No unresolved flag was represented as resolved by this session.
+
+---
+
+## Session arena/53ada516-own6 — signal generation, luck removal and skill-gated leaderboard (claimed 2026-11-05)
+
+### Branch rule (deviation logged)
+
+The brief asks for `session-<id>/<task>` branches. The Arena session rule fixes this session to **`arena/53ada516-own6`** and forbids creating or pushing other branches, so all work is on that branch. File scopes below are disjoint from every open PR at claim time (#23, #28, #31, #32, #37) so their owners can merge without conflict.
+
+### Task board (session 53ada516)
+
+| Task | Status | Owner session | Exclusive files | Notes |
+|---|---|---|---|---|
+| S1 Official-source verification of every statistic used to remove luck (devig, skill score, t-stat, bootstrap, White reality check, Hansen SPA, deflated Sharpe, PBO) | in progress | arena/53ada516-own6 | `data/skill/**`, this section of `COORDINATION.md` | Methodology only; no NBA value is invented. |
+| S2 Measured correlation values from the repository's own linked dataset, with confidence intervals and power limits | in progress | arena/53ada516-own6 | `data/skill/**`, `skillab/correlation.py` | Recomputation of in-repo data, not a new NBA claim. |
+| S3 Skill-vs-luck engine + leaderboard scoring with multiple-testing and selection-bias controls | in progress | arena/53ada516-own6 | `skillab/**`, `tests/test_skilllab.py` | New package; does not edit `nba_lab/**`, `src/own6/**`. |
+| S4 Ground-truth simulation that proves the gates accept a known-skill strategy and reject a known-luck strategy | in progress | arena/53ada516-own6 | `skillab/**`, `data/skill/**` | Labelled synthetic; no NBA value is fabricated. |
+| S5 Site section `docs/skill/**` + executive summary + one additive landing link | in progress | arena/53ada516-own6 | `docs/skill/**`, `scripts/build_skilllab.py`, `scripts/check_skilllab.py`, `docs/index.html` (one additive card/nav link only), `SKILL_EXECUTIVE_SUMMARY.md` | Does not edit `EXECUTIVE_SUMMARY.md` (open PR #28/#37 scope) or `README.md` (PR #37 scope); a README link is logged as a request below. |
+| S6 Integration: rebase, full gate rerun, own PR, merge, Pages confirmation, close-out | in progress | arena/53ada516-own6 | this section only | Does not merge or edit other sessions' PRs. |
+
+### Claim boundary and non-edit list
+
+This session edits **no** file owned by another session: not `nba_lab/**`, `src/own6/**`, `data/*.json`, `data/*.csv` (existing), `scripts/build_*.py` (existing), `docs/**` existing pages (except one additive link in `docs/index.html`), `EXECUTIVE_SUMMARY.md`, or `README.md`. All new content is additive in new paths.
+
+### Requests to file owners (logged, not edited)
+
+| Request | Target file (owner) | Requested change |
+|---|---|---|
+| S-1 | `README.md` (open PR #37/#28 scope) | Add one line linking `docs/skill/index.html` after this section merges. |
+| S-2 | `EXECUTIVE_SUMMARY.md` (open PR #28/#37 scope) | Add a pointer to `SKILL_EXECUTIVE_SUMMARY.md` and this section once merged; this session does not edit it. |
+| S-3 | `docs/verified/**` (31 advisory source-link rows) | Unchanged by this session; still `needs review` and still listed on the Flagged pages. Not silently certified. |
+| S-4 | `data/source_coverage/**`, `docs/coverage/**` | Checked-in coverage snapshot is STALE relative to the current tree (`--check` reports drift). This session did not regenerate another owner's snapshot; a later integration session should rerun `scripts/source_coverage.py`. |
+
+### Evaluation of the open, stale PRs (not merged, not modified)
+
+PRs #23 (coordination-only, CONFLICTING), #28 (repo review/defects, CONFLICTING), #31 (assurance dashboard + `nba_lab` hardening, CONFLICTING, 3k additions), #32 (independent review record, CONFLICTING), #37 (verification ledger `docs/verify/`, CONFLICTING) are all unmerged and have no commits in more than 24 hours, well past the 60-minute handoff rule. This session does not take them over and does not merge them: their content overlaps files they own, and merging a CONFLICTING branch would risk discarding upstream work. Their substantive findings are carried into this section's flag register where they are re-checked here, and the unmerged state is itself published as a flag.
+
