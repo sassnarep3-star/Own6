@@ -12,6 +12,8 @@ Leaderboard rewards should be based on audited, preregistered, out-of-sample for
 The data hub ([`docs/hub/index.html`](docs/hub/index.html), linked from the site landing page) is a category dashboard: executive summary, results, standings, lines, props, forward test, strategies, correlations, validation, sources and Flagged for Review, all generated from the committed data by `python3 scripts/build_hub.py` and checked by `python3 scripts/check_hub.py` and `python3 scripts/audit_integration.py`. Live: https://sassnarep3-star.github.io/Own6/docs/
 
 ## Live site contents
+
+**Verification ledger (2026-11-03):** [`docs/verify/`](docs/verify/index.html) records every value that was re-read against an official page this session — 15/15 final scores and 30/30 standings rows match (54/54 ledger checks), with the NBA Terms of Use and 국민체육진흥법 제26조 quoted verbatim. Items that could not be confirmed are blank and listed with a reason. Build/check: `python3 scripts/build_verify.py` · `python3 scripts/check_verify.py`.
 GitHub Pages publishes the organized site from [`docs/`](docs/index.html): dashboard/calculator, strategy catalog, validation gates, correlation methodology, leaderboard design, sources registry and Flagged for Review. See [`EXECUTIVE_SUMMARY.md`](EXECUTIVE_SUMMARY.md).
 
 The Python package in `src/own6/` contains transparent modeling utilities, with tests in `tests/`. Inputs and model assumptions are not official NBA facts; do not interpret illustrative estimates as verified lines or betting advice.
