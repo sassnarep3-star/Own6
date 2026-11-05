@@ -255,3 +255,8 @@ are labelled that way.
 no player-level data; the 3 Nov file named "live" is stale; ~4 games per team; older score rows
 validated in aggregate only. Full list on the site's Flagged for Review pages and in
 [`audit/SESSION_27fdbe09.md`](audit/SESSION_27fdbe09.md).
+
+---
+
+## Originate-your-own-lines pack — 2026-11-05 (session arena/a1a3a565-own6)
+New non-overlapping section: `research/ORIGINATING_LINES.md`, `data/origin_strategies.csv` (O1–O10 covering single bets, parlays, player-prop combos), `docs/origin/` (8-page dashboard: overview/strategies/own-lines/correlations/leaderboard/validation/flagged/sources), `scripts/build_origin.py`, `scripts/check_origin.py`, `audit/ORIGIN_2026_11_05.md`. Method: pace×efficiency own lines per [NBA Glossary](https://www.nba.com/stats/help/glossary), shrunk prop projections, copula joint pricing from training-only residuals ([SciPy pearsonr](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html)), walk-forward + Bonferroni + slate-clustered ROI lower-bound ranking. **Result unchanged: 0 qualified strategies, leaderboard empty, every correlation/n/ROI blank-unverified** — no authorized feed ([NBA Stats FAQ](https://www.nba.com/stats/help/faq); [Terms §9](https://www.nba.com/termsofuse)). Luck is reduced by gates, never eliminated. Live section: https://sassnarep3-star.github.io/Own6/docs/origin/

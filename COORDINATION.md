@@ -1043,3 +1043,5 @@ Fixed Arena branch `arena/a1a3a565-own6`; no session-* branch. Read full board; 
 | N3 Dashboard subpages origin/ with per-row official links | in progress | a1a3a565 | `docs/origin/**`, `scripts/build_origin.py`, `scripts/check_origin.py`, `tests/test_origin.py` |
 | N4 Executive summary append + integration PR/merge/Pages | in progress | a1a3a565 | `EXECUTIVE_SUMMARY.md` append-only, this section |
 Rules: no manual input; no invented odds/correlations/ROI; blank=unverified; official links per row; luck reduced not eliminated.
+### N1-N4 completion (a1a3a565)
+Built origin pack above; sources read 2026-11-05: NBA glossary, Stats FAQ, Terms §9, SciPy pearsonr, sklearn CV (see audit/ORIGIN_2026_11_05.md). check_origin + tests pass locally (recorded in PR). Flags F-O1..F-O4 on docs/origin/flagged.html. Integration: own PR to main, merge, Pages confirm.
