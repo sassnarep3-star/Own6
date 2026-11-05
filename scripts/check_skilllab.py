@@ -57,6 +57,49 @@ FORBIDDEN_TEXT = [
 ]
 
 
+VOID_TAGS = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link",
+             "meta", "param", "source", "track", "wbr"}
+
+
+def well_formed(text: str) -> list[str]:
+    """Structural HTML check: balanced tags, no stray close, no unclosed element.
+
+    A browser would silently repair a mismatched tag, which is exactly why it
+    needs to be caught here rather than discovered visually.
+    """
+    from html.parser import HTMLParser
+
+    problems: list[str] = []
+
+    class Checker(HTMLParser):
+        def __init__(self):
+            super().__init__(convert_charrefs=True)
+            self.stack: list[str] = []
+
+        def handle_starttag(self, tag, attrs):
+            if tag not in VOID_TAGS:
+                self.stack.append(tag)
+
+        def handle_endtag(self, tag):
+            if tag in VOID_TAGS:
+                return
+            if not self.stack:
+                problems.append(f"stray </{tag}>")
+                return
+            if self.stack[-1] != tag:
+                problems.append(f"expected </{self.stack[-1]}> but found </{tag}>")
+                if tag in self.stack:
+                    while self.stack and self.stack.pop() != tag:
+                        pass
+            else:
+                self.stack.pop()
+
+    c = Checker()
+    c.feed(text)
+    problems.extend(f"unclosed <{t}>" for t in c.stack)
+    return problems
+
+
 def allowed_external(url: str) -> bool:
     if not url.startswith("https://"):
         return False
@@ -84,6 +127,12 @@ def main(check_only: bool = False) -> int:
         for bad in FORBIDDEN_TEXT:
             if bad in text:
                 errors.append(f"{name}: forbidden content {bad!r}")
+
+        for problem in well_formed(text):
+            errors.append(f"{name}: malformed HTML: {problem}")
+
+        if text.count("<h1>") != 1:
+            errors.append(f"{name}: expected exactly one <h1>, found {text.count('<h1>')}")
 
         # 1 + 2: links
         for href in HREF_RE.findall(text):

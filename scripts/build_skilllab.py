@@ -602,6 +602,12 @@ def page_parlays(out: dict) -> str:
     ind = dep["independence_assumption"]
     true = dep["measured_dependence"]
     curve = dep["rho_curve"]
+    tm = next(((k, v) for k, v in out["correlations"]["published_in_repo"].items()
+               if "teammate" in k.lower()), None)
+    tm_r = tm[1]["pearson_r"] if tm else None
+    tm_n = tm[1]["n"] if tm else None
+    tm_key = tm[0] if tm else None
+
     curve_rows = [[fmt(c["rho"], 2), fmt(c["p_joint"], 4),
                    fmt(c["ratio_over_independent"], 3),
                    fmt(c["fair_american"], 1),
@@ -672,13 +678,13 @@ large.</p>
 
 <h2>Prop combos: the same problem, worse</h2>
 <div class="prose">
-<p>Two teammates' scoring overs are negatively correlated: possessions and shot attempts are
-finite, so a big night for one usually costs the other. The repository's single measured
-teammate pair (n = 6, sourced from an ESPN game log, not an official NBA file) gives
-{fmt(next((r['pearson_r'] for r in [{'pearson_r': v['pearson_r']} for v in out['correlations']['published_in_repo'].values() if 'teammate' in str(v)]), None))}
-with an n of six. At that sample size the 95% interval spans almost the entire range, so
-<strong>the sign is not established</strong>, let alone the magnitude. It is published here as a
-flagged observation, not as a usable ρ.</div>
+<p>Two teammates' scoring totals are plausibly negatively correlated: possessions and shot
+attempts are finite, so a big night for one can cost the other. The repository's single measured
+teammate pair ({esc(tm_key or "unnamed pair")}) gives r = {fmt(tm_r)} with n = {fmt(tm_n, 0)},
+sourced from an ESPN game log rather than an official NBA file. At that sample size the 95%
+interval spans almost the entire range, so <strong>the sign is not established</strong>, let alone
+the magnitude. It is published here as a flagged observation, not as a usable ρ.</p>
+</div>
 
 <h2>What the platform must require</h2>
 <div class="prose">
