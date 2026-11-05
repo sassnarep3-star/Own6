@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="How much evidence is needed before a betting record stops being explainable by luck — computed in closed form, with the multiple-testing penalty made explicit.">
+<title>Luck is the default explanation · Own6</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="assets/luck.css">
+</head>
+<body>
+<nav aria-label="Section navigation"><a class="brand" href="../index.html">OWN6 / LUCK &amp; SKILL</a><a href="index.html" aria-current="page">Overview</a><a href="requirements.html">Sample size</a><a href="parlays.html">Parlays &amp; props</a><a href="testing.html">Multiple testing</a><a href="method.html">Method &amp; checks</a><a href="acceptance.html">Acceptance</a><a href="flagged.html">Flagged for review</a></nav>
+<main>
+<h1>Luck is the default explanation</h1>
+<p class="lead">How much evidence is needed before a betting record stops being explainable by luck — computed in closed form, with the multiple-testing penalty made explicit.</p>
+<div class="caveat">Every figure on this page is arithmetic from the formulas in <code>src/own6/power.py</code>: a statement of how much evidence would be needed. No NBA result, sportsbook price, correlation estimate or return is observed, scraped or inferred here. Values that cannot be confirmed stay blank and are marked unverified; a blank is not zero.</div>
+
+
+<div class="stat-grid">
+  <div class="stat"><span>Bets needed to prove a 3% edge at -110 (80% power)</span><strong>6221</strong><small>Bonferroni over 200 candidates: 18800</small></div>
+  <div class="stat"><span>Bets needed to prove a 5% edge at -110</span><strong>2231</strong><small>Same test, larger edge, fewer bets</small></div>
+  <div class="stat"><span>Smallest ROI detectable from 500 bets at -110</span><strong>10.602%</strong><small>Anything below this is luck at alpha 0.05</small></div>
+  <div class="stat"><span>Numerical cross-checks against SciPy / statsmodels</span><strong>6/6</strong><small>Largest difference 4.53e-13</small></div>
+</div>
+
+<h2>Why a record alone proves nothing</h2>
+<p class="lead">A leaderboard rewards the strategy that looks best. Luck guarantees that one candidate looks best even when no candidate has an edge: with 200 tested candidates at alpha 0.05, about ten pass by chance alone. This section computes, in closed form, the sample sizes and corrections that separate a real edge from that noise, and then applies the rule to illustrative records.</p>
+<div class="table-wrap"><table><caption class="mut" style="text-align:left;padding:10px 12px">Luck-exclusion decisions for illustrative records at -110 (arithmetic, not a real strategy record)</caption><thead><tr><th scope="col">Record</th><th scope="col">Win rate</th><th scope="col">Exact p-value</th><th scope="col">Wilson 95% low</th><th scope="col">Decision</th><th scope="col">Source</th></tr></thead><tbody><tr><td>55/100</td><td class="num">0.550000</td><td class="num">0.33626275</td><td class="num">0.452446</td><td><span class="badge b-warn">needs review</span> explainable_by_luck</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/src/own6/power.py">engine</a></td></tr><tr><td>60/100</td><td class="num">0.600000</td><td class="num">0.07659991</td><td class="num">0.502003</td><td><span class="badge b-warn">needs review</span> explainable_by_luck</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/src/own6/power.py">engine</a></td></tr><tr><td>110/200</td><td class="num">0.550000</td><td class="num">0.25141215</td><td class="num">0.480756</td><td><span class="badge b-warn">needs review</span> explainable_by_luck</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/src/own6/power.py">engine</a></td></tr><tr><td>540/1000</td><td class="num">0.540000</td><td class="num">0.16023989</td><td class="num">0.509015</td><td><span class="badge b-warn">needs review</span> explainable_by_luck</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/src/own6/power.py">engine</a></td></tr><tr><td>560/1000</td><td class="num">0.560000</td><td class="num">0.01182775</td><td class="num">0.529063</td><td><span class="badge b-ok">verified</span> exceeds_luck</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/src/own6/power.py">engine</a></td></tr><tr><td>1120/2000</td><td class="num">0.560000</td><td class="num">0.00063457</td><td class="num">0.538151</td><td><span class="badge b-ok">verified</span> exceeds_luck</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/src/own6/power.py">engine</a></td></tr></tbody></table></div>
+<p class="lead">A 55%/100-bet record looks excellent and is indistinguishable from luck: the p-value is 0.336 and the Wilson lower bound sits below the 52.38% break-even rate. Even 540 wins in 1,000 bets fails. Only when the sample grows to roughly 560 of 1,000 does the interval clear break-even.</p>
+
+<h2>What each page contains</h2>
+<div class="section-links">
+  <a href="requirements.html">Sample-size requirements →</a>
+  <a href="parlays.html">Parlays and prop combinations →</a>
+  <a href="testing.html">Multiple testing and verdicts →</a>
+  <a href="method.html">Formulas and numerical checks →</a>
+  <a href="acceptance.html">Publication acceptance audit →</a>
+  <a href="flagged.html">Flagged for review (10 items) →</a>
+</div>
+
+<h2>Acceptance snapshot</h2>
+<p class="lead">The publication audit checks the claims that can be checked from a primary source reachable in this environment. It verified 9 of 14 claims against the GitHub API and the committed tree, flagged 2 for review, recorded 0 mismatch, and marked 2 as blocked because the cited official hosts were unreachable.</p>
+
+</main>
+<footer>Research only — no wagers, no picks, no profitability claim. Statistical requirements reduce luck; they cannot create an edge. <a href="flagged.html">Flagged for review</a> · <a href="../index.html">Back to the dashboard</a> · <a href="https://www.nba.com/termsofuse">NBA Terms of Use</a> (not read this session)</footer>
+</body>
+</html>

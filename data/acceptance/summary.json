@@ -1,0 +1,59 @@
+{
+  "generated_for": "2026-11-05",
+  "snapshot_fetched_at_utc": "2026-11-05T21:26:46Z",
+  "pages": 64,
+  "table_rows": 3020,
+  "official_links": 4128,
+  "prs_referenced": 25,
+  "prs_merged": 22,
+  "prs_unmerged": 3,
+  "orphans": 0,
+  "claims": 14,
+  "claims_verified": 9,
+  "claims_needs_review": 2,
+  "claims_mismatch": 0,
+  "claims_blocked": 2,
+  "claims_not_assessable": 1,
+  "workflows": [
+    {
+      "workflow": ".github/workflows/hub-ci.yml",
+      "scripts": "scripts/audit_integration.py; scripts/build_hub.py; scripts/check_hub.py",
+      "missing": ""
+    },
+    {
+      "workflow": ".github/workflows/hub-references.yml",
+      "scripts": "tools/hub_reference_gate.py",
+      "missing": ""
+    },
+    {
+      "workflow": ".github/workflows/lab-ci.yml",
+      "scripts": "scripts/audit_sources.py; scripts/build_lab.py; scripts/check_lab.py; scripts/check_report.py; scripts/check_site.py; scripts/linkcheck.py; scripts/run_lab.py; tools/build_review.py; tools/check_site.py",
+      "missing": ""
+    },
+    {
+      "workflow": ".github/workflows/luck.yml",
+      "scripts": "scripts/acceptance_audit.py; scripts/build_luck.py; scripts/check_luck.py; scripts/luck_analysis.py; tools/release_gate.py",
+      "missing": ""
+    },
+    {
+      "workflow": ".github/workflows/parlay-safety.yml",
+      "scripts": "tools/release_gate.py; tools/run_tests.py",
+      "missing": ""
+    },
+    {
+      "workflow": ".github/workflows/release-gate.yml",
+      "scripts": "scripts/build_lab.py; scripts/check_lab.py; tools/release_gate.py",
+      "missing": ""
+    },
+    {
+      "workflow": ".github/workflows/source-coverage.yml",
+      "scripts": "scripts/source_coverage.py",
+      "missing": ""
+    },
+    {
+      "workflow": ".github/workflows/verify.yml",
+      "scripts": "tools/build_review.py; tools/check_site.py; tools/run_tests.py",
+      "missing": ""
+    }
+  ]
+}

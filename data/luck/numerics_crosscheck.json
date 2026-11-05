@@ -1,0 +1,49 @@
+{
+  "libraries": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "python": "3.11.2"
+  },
+  "generated_for": "2026-11-05",
+  "purpose": "Independent numerical cross-check of src/own6/power.py; not NBA data.",
+  "checks": [
+    {
+      "check": "normal quantiles vs scipy.stats.norm.ppf",
+      "max_abs_difference": 0.0,
+      "tolerance": "1e-10",
+      "pass": true
+    },
+    {
+      "check": "one-sided exact binomial p-value vs scipy.stats.binomtest",
+      "grid_points": 140,
+      "max_abs_difference": 4.526379271396763e-13,
+      "tolerance": "1e-9",
+      "pass": true
+    },
+    {
+      "check": "Wilson interval vs statsmodels proportion_confint(method='wilson')",
+      "max_abs_difference": 1.1102230246251565e-16,
+      "tolerance": "1e-9",
+      "pass": true
+    },
+    {
+      "check": "Benjamini-Hochberg q-values vs statsmodels multipletests(fdr_bh)",
+      "max_abs_difference": 1.1102230246251565e-16,
+      "tolerance": "1e-9",
+      "pass": true
+    },
+    {
+      "check": "required-bets sample size vs closed form using scipy quantiles",
+      "max_abs_difference_bets": 0,
+      "tolerance": "0 bets",
+      "pass": true
+    },
+    {
+      "check": "Fisher-z required pairs vs closed form using scipy quantiles",
+      "max_abs_difference_pairs": 0,
+      "tolerance": "0 pairs",
+      "pass": true
+    }
+  ],
+  "all_pass": true
+}

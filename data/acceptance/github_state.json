@@ -1,0 +1,782 @@
+{
+  "fetched_at_utc": "2026-11-05T21:26:46Z",
+  "endpoints": {
+    "pulls": "https://api.github.com/repos/sassnarep3-star/Own6/pulls?state=all&per_page=100",
+    "pages": "https://api.github.com/repos/sassnarep3-star/Own6/pages",
+    "builds": "https://api.github.com/repos/sassnarep3-star/Own6/pages/builds?per_page=5",
+    "main_commit": "https://api.github.com/repos/sassnarep3-star/Own6/commits/main"
+  },
+  "pulls": [
+    {
+      "number": 44,
+      "title": "Record session 107fc87d merge and Pages close-out",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-03T23:47:10Z",
+      "merge_commit_sha": "33165a0cd0c6d70969183133648174ada39ffda0",
+      "base": "main",
+      "head": "arena/107fc87d-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/44"
+    },
+    {
+      "number": 43,
+      "title": "Record independent hub review merge and live Pages confirmation",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-03T23:46:04Z",
+      "merge_commit_sha": "a9c13537575954ae1cc91a9cf20d6c4783d5e871",
+      "base": "main",
+      "head": "arena/fa10f2e0-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/43"
+    },
+    {
+      "number": 42,
+      "title": "Session 107fc87d: NBA source re-verification and evidence audit",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-03T23:44:58Z",
+      "merge_commit_sha": "88462e9244643d95ed4bcd847c09cdd2dfdec31e",
+      "base": "main",
+      "head": "arena/107fc87d-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/42"
+    },
+    {
+      "number": 41,
+      "title": "Independent hub provenance checks and official-source boundary review",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-03T23:43:48Z",
+      "merge_commit_sha": "4dced9c997d035b5ee9f2e0a66ce2c35d8d1195a",
+      "base": "main",
+      "head": "arena/fa10f2e0-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/41"
+    },
+    {
+      "number": 40,
+      "title": "Record PR 34 merge, review flags and successful Pages deployment",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-03T23:42:55Z",
+      "merge_commit_sha": "f0a0eaa933a1594fba339f6cd9203dbdd9202d11",
+      "base": "main",
+      "head": "arena/b700d3ca-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/40"
+    },
+    {
+      "number": 39,
+      "title": "Record strict hub merge, Pages deployment and verification limits",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-03T23:41:35Z",
+      "merge_commit_sha": "2757eea16a18993c29f2b92fff63e8941872ee5d",
+      "base": "main",
+      "head": "arena/2dbac92a-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/39"
+    },
+    {
+      "number": 38,
+      "title": "R1: line-by-line reverification of legal, NBA-policy and site claims (Flagged page)",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-03T23:43:33Z",
+      "merge_commit_sha": "3f772329e5b02d753a7836e74801af307cb05f3a",
+      "base": "main",
+      "head": "arena/197aa3f0-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/38"
+    },
+    {
+      "number": 37,
+      "title": "Independent verification ledger: 54/54 official checks, 0 advisory source gaps",
+      "state": "open",
+      "merged": false,
+      "merged_at": null,
+      "merge_commit_sha": null,
+      "base": "main",
+      "head": "arena/be184e2b-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/37"
+    },
+    {
+      "number": 36,
+      "title": "Withhold unconfirmed NBA hub values and enforce row-level publication gates",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-03T23:39:43Z",
+      "merge_commit_sha": "2ceeb606c15bfbcc5ca52b0d9bd5257a0033593e",
+      "base": "main",
+      "head": "arena/2dbac92a-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/36"
+    },
+    {
+      "number": 35,
+      "title": "Record source coverage release, merge and live Pages evidence",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-03T23:38:17Z",
+      "merge_commit_sha": "b9dc7e565d74c362f0ac66cb26adf2b4a1237490",
+      "base": "main",
+      "head": "arena/fd5276fa-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/35"
+    },
+    {
+      "number": 34,
+      "title": "Harden legacy parlay correlation validation and publish safety review",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-03T23:40:34Z",
+      "merge_commit_sha": "7e28344a9e959ac2768d6c15bfaa6359f7869e27",
+      "base": "main",
+      "head": "arena/b700d3ca-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/34"
+    },
+    {
+      "number": 33,
+      "title": "Audit every published table row for source coverage and verification limits",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-03T23:36:47Z",
+      "merge_commit_sha": "ef0a3210ff8ee2e1084bc5b7c9f88e3594ed1b7e",
+      "base": "main",
+      "head": "arena/fd5276fa-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/33"
+    },
+    {
+      "number": 32,
+      "title": "Document independent evidence and release review",
+      "state": "open",
+      "merged": false,
+      "merged_at": null,
+      "merge_commit_sha": null,
+      "base": "main",
+      "head": "arena/b1bdfb4b-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/32"
+    },
+    {
+      "number": 31,
+      "title": "NBA assurance dashboard, hardened validation gates and source audit",
+      "state": "open",
+      "merged": false,
+      "merged_at": null,
+      "merge_commit_sha": null,
+      "base": "main",
+      "head": "arena/74d27b5d-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/31"
+    },
+    {
+      "number": 30,
+      "title": "Record PR #29 merge and Pages deploy result (coordination + flag status)",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-03T19:59:12Z",
+      "merge_commit_sha": "f2877f3e4d5fd1ca736f1c66ff3a03b439b4f3b5",
+      "base": "main",
+      "head": "arena/f58e0178-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/30"
+    },
+    {
+      "number": 29,
+      "title": "Unified source-linked hub, Nov 2 forward test, audit fixes (implied-probability bug, Brier typo)",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-03T19:56:41Z",
+      "merge_commit_sha": "9d4a2d8482d67ea8874c00647e523173887f0265",
+      "base": "main",
+      "head": "arena/f58e0178-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/29"
+    },
+    {
+      "number": 28,
+      "title": "Session 269a73e2: repo review, defect repair, flags F17\u2013F27, executive summary status, integration",
+      "state": "open",
+      "merged": false,
+      "merged_at": null,
+      "merge_commit_sha": null,
+      "base": "main",
+      "head": "arena/269a73e2-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/28"
+    },
+    {
+      "number": 27,
+      "title": "Record PR 26 merge and successful Pages deployment",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-03T19:53:50Z",
+      "merge_commit_sha": "c39c4a1fa4f91521495f2e026697d3edb2466f14",
+      "base": "main",
+      "head": "arena/634d0f7a-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/27"
+    },
+    {
+      "number": 26,
+      "title": "Repair NBA research landing and prevent broken Pages releases",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-03T19:51:21Z",
+      "merge_commit_sha": "86eca0fb86a80e20c5d53133cd141cab04edeee7",
+      "base": "main",
+      "head": "arena/634d0f7a-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/26"
+    },
+    {
+      "number": 25,
+      "title": "Record lab integration deployment",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-03T19:50:57Z",
+      "merge_commit_sha": "17ae371498147c4dacfed404a4564e31759e7b1a",
+      "base": "main",
+      "head": "arena/7a28eb6c-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/25"
+    },
+    {
+      "number": 24,
+      "title": "Repair lab dashboard table rendering",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-03T19:48:25Z",
+      "merge_commit_sha": "5e231c6b6dc4430fc4b0bbd9517b9fe41b4a5e4e",
+      "base": "main",
+      "head": "arena/7a28eb6c-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/24"
+    },
+    {
+      "number": 23,
+      "title": "Record merged CI integration and Pages result in coordination board",
+      "state": "open",
+      "merged": false,
+      "merged_at": null,
+      "merge_commit_sha": null,
+      "base": "main",
+      "head": "arena/db20c549-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/23"
+    },
+    {
+      "number": 22,
+      "title": "Record independent NBA dashboard verification",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-03T19:49:53Z",
+      "merge_commit_sha": "da47e46d1b6d12256b6eebe4361c78e7a0129ff4",
+      "base": "main",
+      "head": "arena/526a6816-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/22"
+    },
+    {
+      "number": 21,
+      "title": "Run NBA lab verification on all branch pushes",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-03T19:47:10Z",
+      "merge_commit_sha": "e5ceb0f9bc1383734dd2f4476778e34a8aa5b216",
+      "base": "main",
+      "head": "arena/db20c549-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/21"
+    },
+    {
+      "number": 20,
+      "title": "Session arena/f56f0055-own6: independent re-verification and coordination close-out",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-03T19:45:23Z",
+      "merge_commit_sha": "92cae24db32f6cca95fec08422a835380eed14cc",
+      "base": "main",
+      "head": "arena/f56f0055-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/20"
+    },
+    {
+      "number": 19,
+      "title": "Fix lab CI workflow",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-02T22:13:00Z",
+      "merge_commit_sha": "ba6b7b6d627839459cf6380f15b2d34e6f38aa85",
+      "base": "main",
+      "head": "arena/5dfdc6d5-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/19"
+    },
+    {
+      "number": 18,
+      "title": "Add fail-closed empirical NBA lab with sourced audit",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-02T22:10:46Z",
+      "merge_commit_sha": "3add858c1ac9b70db9c1c84d4c96443ab2ead6d0",
+      "base": "main",
+      "head": "arena/5dfdc6d5-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/18"
+    },
+    {
+      "number": 17,
+      "title": "T10 follow-up 2: convert last raw repo-document hrefs in docs/own6 to blob URLs",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-02T21:58:59Z",
+      "merge_commit_sha": "303e1d6d08da05b8591211cb685515aec5fc2b2b",
+      "base": "main",
+      "head": "arena/325834c9-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/17"
+    },
+    {
+      "number": 16,
+      "title": "T10 follow-up: blob-URL repo links (Pages CSV 500) + PR #15 merge record",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-02T21:55:06Z",
+      "merge_commit_sha": "0f3928ad26b52604c508854238fd157c8541a79e",
+      "base": "main",
+      "head": "arena/325834c9-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/16"
+    },
+    {
+      "number": 15,
+      "title": "NBA line-origination research: verified data, gated strategies, dashboard site (T1\u2013T10)",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-02T21:51:37Z",
+      "merge_commit_sha": "33a1c255a0bde4d761e85546af1cb7be8162d6aa",
+      "base": "main",
+      "head": "arena/325834c9-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/15"
+    },
+    {
+      "number": 14,
+      "title": "Coordination: record PR #13 merge, Pages deploy verification, task 13 close-out",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-02T21:30:26Z",
+      "merge_commit_sha": "a17253865c01b2b6d7c8506dfae5f0cb4e694a60",
+      "base": "main",
+      "head": "arena/71464040-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/14"
+    },
+    {
+      "number": 13,
+      "title": "Integration re-verification: line-by-line source checks, S3 URL fix, ToU \u00a79(iv) flag (A28-REQ-01), cross-linked flag registries, exec status",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-02T21:27:39Z",
+      "merge_commit_sha": "015740fe65a304e3f252e945b5aee4cb17bc0414",
+      "base": "main",
+      "head": "arena/71464040-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/13"
+    },
+    {
+      "number": 12,
+      "title": "Record PR #11 merge and Pages result; final coordination close-out",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-02T21:17:28Z",
+      "merge_commit_sha": "98780fdcc4e42619e5cfce7c25d69729c75defb8",
+      "base": "main",
+      "head": "arena/a6ccf588-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/12"
+    },
+    {
+      "number": 11,
+      "title": "Final integration: direct source verification, strict link gate, audit & review dashboard",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-02T21:14:38Z",
+      "merge_commit_sha": "5248bbe671701182e191ce74802a4b704649fd68",
+      "base": "main",
+      "head": "arena/a6ccf588-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/11"
+    },
+    {
+      "number": 10,
+      "title": "Record final Pages deployment check",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-02T21:08:47Z",
+      "merge_commit_sha": "bb4c1b298364c12c4299fba25b9eed3b2bd33af3",
+      "base": "main",
+      "head": "arena/a28a2ee1-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/10"
+    },
+    {
+      "number": 9,
+      "title": "Log NBA source-rights review and handoff",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-02T21:07:38Z",
+      "merge_commit_sha": "77a28cccea34e0764f6d45ff3316d3aa8f6b90b7",
+      "base": "main",
+      "head": "arena/a28a2ee1-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/9"
+    },
+    {
+      "number": 8,
+      "title": "Record PR #6 and #7 merge results (coordination only)",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-02T21:03:57Z",
+      "merge_commit_sha": "6493a7af0049d3120ed23d3300c048c99d8d9866",
+      "base": "main",
+      "head": "arena/05e359b8-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/8"
+    },
+    {
+      "number": 7,
+      "title": "Correct flagged items F10/F11; record integration result",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-02T21:02:35Z",
+      "merge_commit_sha": "79ce0647b7b333351e30783fb73cfe91b44bae44",
+      "base": "main",
+      "head": "arena/05e359b8-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/7"
+    },
+    {
+      "number": 6,
+      "title": "NBA research dashboard: verified data, Korea law, NBA policy, validation gates, GitHub Pages site",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-02T21:00:58Z",
+      "merge_commit_sha": "5d845f190972becd475b7e038c6ffbd9e004b5fa",
+      "base": "main",
+      "head": "arena/05e359b8-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/6"
+    },
+    {
+      "number": 5,
+      "title": "Coordination: final record",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-02T20:57:42Z",
+      "merge_commit_sha": "4fa10e525f8b7cf7af89965f4af75e36aacaac00",
+      "base": "main",
+      "head": "arena/463d936f-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/5"
+    },
+    {
+      "number": 4,
+      "title": "Fix GitHub Pages serving (legacy main:/ source)",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-02T20:56:53Z",
+      "merge_commit_sha": "6059b067d50b6247451448a0b8b47ea02be747e4",
+      "base": "main",
+      "head": "arena/463d936f-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/4"
+    },
+    {
+      "number": 3,
+      "title": "Add evidence-led NBA lines research dashboard",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-02T20:58:21Z",
+      "merge_commit_sha": "e9359773c6e7fd7485f31de4b31d25fd553a06f2",
+      "base": "main",
+      "head": "arena/d100a9d1-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/3"
+    },
+    {
+      "number": 2,
+      "title": "NBA Lines Lab: research framework and dashboard",
+      "state": "closed",
+      "merged": false,
+      "merged_at": null,
+      "merge_commit_sha": null,
+      "base": "main",
+      "head": "arena/3b057a2c-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/2"
+    },
+    {
+      "number": 1,
+      "title": "Own6: own NBA lines engine, validation gates, leaderboard & GitHub Pages dashboard",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-02T20:55:33Z",
+      "merge_commit_sha": "28ef706688cb8dbc84c08e41790f51dba546ef18",
+      "base": "main",
+      "head": "arena/463d936f-own6",
+      "html_url": "https://github.com/sassnarep3-star/Own6/pull/1"
+    }
+  ],
+  "pages": {
+    "status": "built",
+    "html_url": "https://sassnarep3-star.github.io/Own6/",
+    "source_branch": "main",
+    "source_path": "/",
+    "build_type": "legacy",
+    "https_enforced": true
+  },
+  "builds": [
+    {
+      "status": "built",
+      "commit": "33165a0cd0c6d70969183133648174ada39ffda0",
+      "created_at": "2026-11-03T23:47:11Z",
+      "updated_at": "2026-11-03T23:47:40Z",
+      "error": null
+    },
+    {
+      "status": "built",
+      "commit": "a9c13537575954ae1cc91a9cf20d6c4783d5e871",
+      "created_at": "2026-11-03T23:46:05Z",
+      "updated_at": "2026-11-03T23:46:35Z",
+      "error": null
+    },
+    {
+      "status": "built",
+      "commit": "88462e9244643d95ed4bcd847c09cdd2dfdec31e",
+      "created_at": "2026-11-03T23:44:59Z",
+      "updated_at": "2026-11-03T23:45:34Z",
+      "error": null
+    },
+    {
+      "status": "built",
+      "commit": "4dced9c997d035b5ee9f2e0a66ce2c35d8d1195a",
+      "created_at": "2026-11-03T23:43:50Z",
+      "updated_at": "2026-11-03T23:44:12Z",
+      "error": null
+    },
+    {
+      "status": "errored",
+      "commit": "3f772329e5b02d753a7836e74801af307cb05f3a",
+      "created_at": "2026-11-03T23:43:34Z",
+      "updated_at": "2026-11-03T23:43:50Z",
+      "error": "Page build failed."
+    },
+    {
+      "status": "built",
+      "commit": "f0a0eaa933a1594fba339f6cd9203dbdd9202d11",
+      "created_at": "2026-11-03T23:42:57Z",
+      "updated_at": "2026-11-03T23:43:27Z",
+      "error": null
+    },
+    {
+      "status": "built",
+      "commit": "2757eea16a18993c29f2b92fff63e8941872ee5d",
+      "created_at": "2026-11-03T23:41:36Z",
+      "updated_at": "2026-11-03T23:41:58Z",
+      "error": null
+    },
+    {
+      "status": "built",
+      "commit": "7e28344a9e959ac2768d6c15bfaa6359f7869e27",
+      "created_at": "2026-11-03T23:40:35Z",
+      "updated_at": "2026-11-03T23:40:59Z",
+      "error": null
+    },
+    {
+      "status": "built",
+      "commit": "2ceeb606c15bfbcc5ca52b0d9bd5257a0033593e",
+      "created_at": "2026-11-03T23:39:45Z",
+      "updated_at": "2026-11-03T23:40:07Z",
+      "error": null
+    },
+    {
+      "status": "built",
+      "commit": "b9dc7e565d74c362f0ac66cb26adf2b4a1237490",
+      "created_at": "2026-11-03T23:38:18Z",
+      "updated_at": "2026-11-03T23:38:41Z",
+      "error": null
+    },
+    {
+      "status": "built",
+      "commit": "ef0a3210ff8ee2e1084bc5b7c9f88e3594ed1b7e",
+      "created_at": "2026-11-03T23:36:48Z",
+      "updated_at": "2026-11-03T23:37:08Z",
+      "error": null
+    },
+    {
+      "status": "built",
+      "commit": "f2877f3e4d5fd1ca736f1c66ff3a03b439b4f3b5",
+      "created_at": "2026-11-03T19:59:13Z",
+      "updated_at": "2026-11-03T20:00:02Z",
+      "error": null
+    },
+    {
+      "status": "built",
+      "commit": "9d4a2d8482d67ea8874c00647e523173887f0265",
+      "created_at": "2026-11-03T19:56:42Z",
+      "updated_at": "2026-11-03T19:57:04Z",
+      "error": null
+    },
+    {
+      "status": "built",
+      "commit": "c39c4a1fa4f91521495f2e026697d3edb2466f14",
+      "created_at": "2026-11-03T19:53:51Z",
+      "updated_at": "2026-11-03T19:54:26Z",
+      "error": null
+    },
+    {
+      "status": "built",
+      "commit": "86eca0fb86a80e20c5d53133cd141cab04edeee7",
+      "created_at": "2026-11-03T19:51:22Z",
+      "updated_at": "2026-11-03T19:51:57Z",
+      "error": null
+    },
+    {
+      "status": "errored",
+      "commit": "17ae371498147c4dacfed404a4564e31759e7b1a",
+      "created_at": "2026-11-03T19:50:58Z",
+      "updated_at": "2026-11-03T19:51:23Z",
+      "error": "Page build failed."
+    },
+    {
+      "status": "built",
+      "commit": "da47e46d1b6d12256b6eebe4361c78e7a0129ff4",
+      "created_at": "2026-11-03T19:49:55Z",
+      "updated_at": "2026-11-03T19:50:28Z",
+      "error": null
+    },
+    {
+      "status": "built",
+      "commit": "5e231c6b6dc4430fc4b0bbd9517b9fe41b4a5e4e",
+      "created_at": "2026-11-03T19:48:26Z",
+      "updated_at": "2026-11-03T19:49:01Z",
+      "error": null
+    },
+    {
+      "status": "built",
+      "commit": "e5ceb0f9bc1383734dd2f4476778e34a8aa5b216",
+      "created_at": "2026-11-03T19:47:11Z",
+      "updated_at": "2026-11-03T19:47:46Z",
+      "error": null
+    },
+    {
+      "status": "built",
+      "commit": "92cae24db32f6cca95fec08422a835380eed14cc",
+      "created_at": "2026-11-03T19:45:24Z",
+      "updated_at": "2026-11-03T19:45:56Z",
+      "error": null
+    },
+    {
+      "status": "built",
+      "commit": "ba6b7b6d627839459cf6380f15b2d34e6f38aa85",
+      "created_at": "2026-11-02T22:13:01Z",
+      "updated_at": "2026-11-02T22:13:20Z",
+      "error": null
+    },
+    {
+      "status": "built",
+      "commit": "3add858c1ac9b70db9c1c84d4c96443ab2ead6d0",
+      "created_at": "2026-11-02T22:10:48Z",
+      "updated_at": "2026-11-02T22:11:18Z",
+      "error": null
+    },
+    {
+      "status": "built",
+      "commit": "303e1d6d08da05b8591211cb685515aec5fc2b2b",
+      "created_at": "2026-11-02T21:59:01Z",
+      "updated_at": "2026-11-02T21:59:22Z",
+      "error": null
+    },
+    {
+      "status": "built",
+      "commit": "0f3928ad26b52604c508854238fd157c8541a79e",
+      "created_at": "2026-11-02T21:55:07Z",
+      "updated_at": "2026-11-02T21:56:48Z",
+      "error": null
+    },
+    {
+      "status": "built",
+      "commit": "33a1c255a0bde4d761e85546af1cb7be8162d6aa",
+      "created_at": "2026-11-02T21:51:38Z",
+      "updated_at": "2026-11-02T21:52:11Z",
+      "error": null
+    },
+    {
+      "status": "built",
+      "commit": "a17253865c01b2b6d7c8506dfae5f0cb4e694a60",
+      "created_at": "2026-11-02T21:30:28Z",
+      "updated_at": "2026-11-02T21:31:01Z",
+      "error": null
+    },
+    {
+      "status": "built",
+      "commit": "015740fe65a304e3f252e945b5aee4cb17bc0414",
+      "created_at": "2026-11-02T21:27:40Z",
+      "updated_at": "2026-11-02T21:28:02Z",
+      "error": null
+    },
+    {
+      "status": "built",
+      "commit": "98780fdcc4e42619e5cfce7c25d69729c75defb8",
+      "created_at": "2026-11-02T21:17:29Z",
+      "updated_at": "2026-11-02T21:18:03Z",
+      "error": null
+    },
+    {
+      "status": "built",
+      "commit": "5248bbe671701182e191ce74802a4b704649fd68",
+      "created_at": "2026-11-02T21:14:40Z",
+      "updated_at": "2026-11-02T21:15:08Z",
+      "error": null
+    },
+    {
+      "status": "built",
+      "commit": "bb4c1b298364c12c4299fba25b9eed3b2bd33af3",
+      "created_at": "2026-11-02T21:08:48Z",
+      "updated_at": "2026-11-02T21:09:14Z",
+      "error": null
+    },
+    {
+      "status": "built",
+      "commit": "77a28cccea34e0764f6d45ff3316d3aa8f6b90b7",
+      "created_at": "2026-11-02T21:07:39Z",
+      "updated_at": "2026-11-02T21:08:06Z",
+      "error": null
+    },
+    {
+      "status": "built",
+      "commit": "6493a7af0049d3120ed23d3300c048c99d8d9866",
+      "created_at": "2026-11-02T21:03:59Z",
+      "updated_at": "2026-11-02T21:04:25Z",
+      "error": null
+    },
+    {
+      "status": "built",
+      "commit": "79ce0647b7b333351e30783fb73cfe91b44bae44",
+      "created_at": "2026-11-02T21:02:37Z",
+      "updated_at": "2026-11-02T21:03:39Z",
+      "error": null
+    },
+    {
+      "status": "built",
+      "commit": "5d845f190972becd475b7e038c6ffbd9e004b5fa",
+      "created_at": "2026-11-02T21:01:00Z",
+      "updated_at": "2026-11-02T21:02:06Z",
+      "error": null
+    },
+    {
+      "status": "built",
+      "commit": "e9359773c6e7fd7485f31de4b31d25fd553a06f2",
+      "created_at": "2026-11-02T20:58:23Z",
+      "updated_at": "2026-11-02T20:58:37Z",
+      "error": null
+    },
+    {
+      "status": "errored",
+      "commit": "4fa10e525f8b7cf7af89965f4af75e36aacaac00",
+      "created_at": "2026-11-02T20:57:44Z",
+      "updated_at": "2026-11-02T20:58:24Z",
+      "error": "Page build failed."
+    },
+    {
+      "status": "built",
+      "commit": "6059b067d50b6247451448a0b8b47ea02be747e4",
+      "created_at": "2026-11-02T20:56:54Z",
+      "updated_at": "2026-11-02T20:57:31Z",
+      "error": null
+    },
+    {
+      "status": "built",
+      "commit": "28ef706688cb8dbc84c08e41790f51dba546ef18",
+      "created_at": "2026-11-02T20:55:35Z",
+      "updated_at": "2026-11-02T20:56:46Z",
+      "error": null
+    },
+    {
+      "status": "built",
+      "commit": "c5d6e4c4b3b7ed486d48b0bf4d9d0cbce89ef49d",
+      "created_at": "2026-10-31T23:03:36Z",
+      "updated_at": "2026-10-31T23:04:11Z",
+      "error": null
+    }
+  ],
+  "main_commit": {
+    "sha": "33165a0cd0c6d70969183133648174ada39ffda0",
+    "date": "2026-11-03T23:47:10Z"
+  }
+}

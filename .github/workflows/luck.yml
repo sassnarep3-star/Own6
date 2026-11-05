@@ -1,0 +1,33 @@
+name: Luck vs skill and acceptance
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  luck:
+    name: luck-skill
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Engine and publication-rule tests (standard library only)
+        run: python3 -m unittest tests.test_power tests.test_luck_site -v
+      - name: Committed data regenerates exactly
+        run: python3 scripts/luck_analysis.py --check
+      - name: Acceptance audit snapshot is reproducible
+        run: python3 scripts/acceptance_audit.py --check
+      - name: Pages are up to date
+        run: python3 scripts/build_luck.py --check
+      - name: Source, blank and link gates for the new section
+        run: python3 scripts/check_luck.py
+      - name: Release integrity across every published page
+        run: python3 tools/release_gate.py
