@@ -1119,3 +1119,41 @@ Built origin pack above; sources read 2026-11-05: NBA glossary, Stats FAQ, Terms
 - Integration fix (a1a3a565): scripts/audit_repo.py now excludes generated docs/coverage/ + data/source_coverage/ from inventory (same self-reference rule as docs/assurance/); without it audit<->coverage counts diverged +2,988/run after adding pages. Regenerated assurance+coverage to stable fixed point (audit reruns identical: 244 files/1,172 records); 125 tests pass.
 ### Final record (a1a3a565)
 PR #51 https://github.com/sassnarep3-star/Own6/pull/51 MERGED 2026-11-05T21:57:36Z merge SHA 61f4442a5f75fe1860b6677f76f280ae1a1e12a3; all 10 PR checks passed. Pages API built for 61f4442; live https://sassnarep3-star.github.io/Own6/docs/origin/ renders. N1-N4 done; F-O1..F-O4 needs review on docs/origin/flagged.html (non-blocking).
+
+### X6 final integration record (session 63a5b5ef)
+
+- **PR:** https://github.com/sassnarep3-star/Own6/pull/53 — **MERGED** at 2026-11-05T22:02:25Z,
+  merge SHA `b5a53da4b7c5c0ff6f2896e62069fcd74bdd4a7a`, from `arena/63a5b5ef-own6` to `main`.
+- **CI before merge:** all ten PR jobs passed (Line-by-line verification gates, Verification ledger and
+  published pages, assurance, daily, hub, hub-references, lab, parlay-safety, published-html,
+  source-coverage).
+- **GitHub Pages:** publishing source remains legacy `main:/`. The Pages build API reported the merge
+  commit `b5a53da` **built** with no error at 2026-11-05T22:03:10Z. Live reads confirmed
+  https://sassnarep3-star.github.io/Own6/docs/reverify/ (overview renders the 305 / 0 / 89 / 0 cards),
+  .../reverify/flagged.html (seven review items with source links) and .../docs/index.html (new
+  “Independent recheck (5 Nov)” card linking to the section).
+- **Concurrency:** `main` advanced twice while this session ran (PR #50, then PR #51/#55). Each time
+  `origin/main` was merged into the fixed branch; `COORDINATION.md` conflicts were resolved by keeping
+  both sides in full, and conflicts in generated assurance/coverage artifacts were resolved by taking
+  upstream and **regenerating** from the merged tree. Nothing from another session was discarded.
+- **Shared-artifact note (integration action):** `data/assurance/**`, `docs/assurance/**`,
+  `data/source_coverage/**`, `docs/coverage/**` and `audit/SOURCE_COVERAGE.md` were regenerated so the
+  inventory and coverage pages cover the new `docs/reverify/**` and `data/reverify_2026_11_05/**` files.
+  One navigation link and one category card were added to `docs/index.html` (additive).
+- **Follow-up observation for the coverage owner (not fixed here, not blocking):**
+  `scripts/source_coverage.py --check` reports stale artifacts on a clean checkout because the coverage
+  pages hash the assurance pages while the assurance inventory hashes `audit/SOURCE_COVERAGE.md`. The CI
+  job still passes because it rebuilds coverage before checking. Recorded as an irregularity.
+- **Follow-up cosmetic fix in this session's own scope:** the overview family table now prints
+  “120 of 120 match” instead of a duplicated “match 120 match”.
+
+### Final state of this session's tasks
+
+| Task | Status | Evidence |
+|---|---|---|
+| X1 official reads | done | `data/reverify_2026_11_05/*_read.csv` |
+| X2 line-by-line reconciliation | done | `reconciliation.csv` 305 rows, 0 mismatches |
+| X3 independent recomputation | done | `recompute.csv` 89 rows, 0 non-reproductions |
+| X4 recheck pages, checker, tests | done | `docs/reverify/**`, `check_reverify.py`, 10 tests |
+| X5 irregularity and executive record | done | `audit/SESSION_63A5B5EF_RECHECK.md`, Flagged page |
+| X6 integration, PR, merge, Pages | done | PR #53 merged; Pages build `b5a53da` built |

@@ -83,6 +83,11 @@ def read(path: Path) -> list[dict[str, str]]:
         return list(csv.DictReader(handle))
 
 
+def count_pill(matched: int, total: int, noun: str) -> str:
+    klass = "ok" if matched == total else "bad"
+    return f'<span class="pill {klass}">{matched} of {total} {noun}</span>'
+
+
 def pill(status: str) -> str:
     label = {
         "match": "match",
@@ -214,28 +219,28 @@ def main() -> int:
                 [
                     "Standings snapshot",
                     str(len([r for r in recon if r["category"] == "standings"])),
-                    pill("match") + " " + str(len([r for r in recon if r["category"] == "standings" and r["status"] == "match"])) + " match",
+                    count_pill(len([r for r in recon if r["category"] == "standings" and r["status"] == "match"]), len([r for r in recon if r["category"] == "standings"]), "match"),
                     "Every win, loss, win percentage and games-behind value re-read on the live standings table",
                     source_link("https://www.nba.com/standings", "nba.com/standings"),
                 ],
                 [
                     "4 November results",
                     str(len([r for r in recon if r["category"] == "results"])),
-                    pill("match") + " " + str(len([r for r in recon if r["category"] == "results" and r["status"] == "match"])) + " match",
+                    count_pill(len([r for r in recon if r["category"] == "results" and r["status"] == "match"]), len([r for r in recon if r["category"] == "results"]), "match"),
                     "All 14 final scores, overtime flags and team identities re-read game by game",
                     source_link("https://www.nba.com/games?date=2026-11-04", "nba.com/games 11-04"),
                 ],
                 [
                     "5&#8211;6 November slate",
                     str(len([r for r in recon if r["category"] == "slate"])),
-                    pill("match") + " " + str(len([r for r in recon if r["category"] == "slate" and r["status"] == "match"])) + " match",
+                    count_pill(len([r for r in recon if r["category"] == "slate" and r["status"] == "match"]), len([r for r in recon if r["category"] == "slate"]), "match"),
                     "Tip times, dates, matchups, competition and both records re-read on the daily games pages",
                     source_link("https://www.nba.com/games?date=2026-11-06", "nba.com/games 11-06"),
                 ],
                 [
                     "Calendar game counts",
                     str(len([r for r in recon if r["category"] == "calendar"])),
-                    pill("match"),
+                    count_pill(len([r for r in recon if r["category"] == "calendar"]), 4, "match"),
                     "Archive sizes compared with the official month calendar cells",
                     source_link("https://www.nba.com/games?date=2026-11-04", "nba.com/games calendar"),
                 ],
@@ -249,7 +254,7 @@ def main() -> int:
                 [
                     "Fail-closed ledger",
                     str(len([r for r in recon if r["category"] == "failclosed"])),
-                    pill("match"),
+                    count_pill(len([r for r in recon if r["category"] == "failclosed"]), 3, "match"),
                     "Observation and qualification counts recomputed from the committed CSV",
                     source_link("https://www.nba.com/termsofuse#nba-statistics", "NBA Terms &#167;9"),
                 ],
