@@ -32,16 +32,38 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Probe network reachability
+        if: always()
+        run: |
+          {
+            echo '### Reachability probe'
+            for u in \
+              "https://cdn.nba.com/static/json/staticData/scheduleLeagueV2_1.json" \
+              "https://www.nba.com/games?date=2026-11-04" \
+              "https://www.nba.com/standings" ; do
+              echo "--- $u"
+              code=$(curl -sS -o /tmp/probe.out -w '%{http_code} %{size_download}' --max-time 45 \
+                     -A 'Mozilla/5.0 (X11; Linux x86_64) Chrome/124.0' "$u" 2>&1) || true
+              echo "status: $code"
+              head -c 400 /tmp/probe.out 2>/dev/null || true
+              echo
+            done
+          } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Collect official NBA results from nba.com
         run: |
           set -o pipefail
           python3 scripts/collect_lines_data.py --out data/lines \
-            --start 2026-10-20 --end 2026-11-04 2>&1 | tee collect.log
-          echo '```' >> "$GITHUB_STEP_SUMMARY"
-          echo '### Collector output' >> "$GITHUB_STEP_SUMMARY"
-          echo '```' >> "$GITHUB_STEP_SUMMARY"
-          cat collect.log >> "$GITHUB_STEP_SUMMARY"
-          echo '```' >> "$GITHUB_STEP_SUMMARY"
+            --start 2026-10-20 --end 2026-11-04 2>&1 | tee collect.log || true
+          {
+            echo '```'
+            echo '### Collector output'
+            echo '```'
+            cat collect.log
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          mkdir -p data/lines/_diagnostics
+          cp collect.log data/lines/_diagnostics/collect.log || true
 
       - name: Inspect the raw payloads
         if: always()
@@ -72,13 +94,14 @@ jobs:
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Commit and push the refreshed dataset
+        if: always()
         run: |
-          if git diff --quiet -- data/lines; then
+          git config user.name "own6-lines-bot"
+          git config user.email "own6-lines-bot@users.noreply.github.com"
+          git add -A data/lines || true
+          if git diff --cached --quiet; then
             echo "no dataset change"
             exit 0
           fi
-          git config user.name "own6-lines-bot"
-          git config user.email "own6-lines-bot@users.noreply.github.com"
-          git add data/lines
-          git commit -m "data(lines): official NBA results and standings collected from nba.com"
-          git push origin HEAD:${{ github.ref_name }}
+          git commit -m "data(lines): official NBA results and standings collected from nba.com" || true
+          git push origin HEAD:${{ github.ref_name }} || true
