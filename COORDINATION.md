@@ -775,3 +775,60 @@ Rules followed: no synthetic NBA values; computed numbers are labelled as comput
 **Cross-scope changes, logged:** one additive landing-page navigation link plus three archive links in `docs/index.html`; one href correction in `docs/dashboard.html`; and regeneration of the fd5276fa-owned derived snapshot `data/source_coverage/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md` by its own script so its `--check` CI gate passes with the new pages (60 pages / 1,266 rows; no analysis or claim changed). No other session's source, data or page content was edited.
 
 **Non-claims.** The new tables are statistical requirements, not observations. No NBA value, sportsbook price, correlation estimate, ROI or prediction is published; the leaderboard still holds zero qualified strategies; the empirical ledger still reports `not_run`.
+
+---
+
+## Session arena/3d3954d6-own6 — independent close-out verification (2026-11-05)
+
+Branch fixed by Arena to `arena/3d3954d6-own6`; no additional branch is created. At session start the branch was at commit `33165a0`, identical to `main`, with no unique commits. Prior sessions' completed scopes are preserved unchanged; this session reads them read-only and adds only its own files.
+
+### Task board (session 3d3954d6)
+
+| Task | Status | Owner session | Exclusive files |
+|---|---|---|---|
+| V1 Whole-site internal link build check (58 pages / 4,315 links; 0 broken) | done | arena/3d3954d6-own6 | (local checker only; no repo file changed) |
+| V2 NBA schedule spot verification vs official nba.com (game IDs 0022600158, 0022600172) | done | arena/3d3954d6-own6 | `data/games.json` read-only |
+| V3 NBA Terms of Use §1/9 rights confirmation | done | arena/3d3954d6-own6 | https://www.nba.com/termsofuse read-only |
+| V4 Committed merge-conflict-marker scan (none unresolved) | done | arena/3d3954d6-own6 | tracked files read-only |
+| V5 Strategy registry / validation gates fail-closed confirmation | done | arena/3d3954d6-own6 | `data/strategies.json`, `data/methodology.json` read-only |
+| V6 Irregularity log + official sources | done | arena/3d3954d6-own6 | `audit/SESSION_3D3954D6_VERIFICATION.md` |
+| V7 Session claim commit + push | done | arena/3d3954d6-own6 | `COORDINATION.md`, `audit/SESSION_3D3954D6_VERIFICATION.md` |
+| V8 PR to main, merge, Pages confirmation, record result | in progress | arena/3d3954d6-own6 | `COORDINATION.md` (this section) |
+
+### Status legend
+
+`unclaimed` · `in progress` · `done` · `needs review` (published on the Flagged for Review page; does not block anything)
+
+### Verification summary (2026-11-05)
+
+- **Site build / links:** 58 HTML pages under `docs/` plus root `index.html`; 4,315 href attributes checked (758 internal, 3,537 external); **0 broken internal links**. All internal links resolve.
+- **Official NBA source spot-checks (retrieved directly 2026-11-05):**
+  - https://www.nba.com/game/okc-vs-cle-0022600158 — title confirms "Oklahoma City Thunder vs Cleveland Cavaliers Nov 2, 2026 Game Summary", matching `data/games.json` row 0022600158.
+  - https://www.nba.com/game/mia-vs-lal-0022600172 — title confirms "Miami Heat vs Los Angeles Lakers Nov 2, 2026 Game Summary", matching `data/games.json` row 0022600172.
+  - https://www.nba.com/termsofuse — §1 ("No Basketball Content ... may be ... linked to, or otherwise used ... without the written permission of the Operator") and §9 "NBA Statistics" confirmed; supports existing rights flags F16/I-24.
+- **Fail-closed state confirmed:** `data/strategies.json` has 0 rows (empty by design); `data/methodology.json` gates G1–G8 all open/not run; correlation table 0 rows; no edge, ROI, CLV, or reward published.
+- **No unresolved committed conflict markers** in tracked files (literal marker strings appear only in documentation, a historical flag record, a detector regex, and a test fixture).
+
+### Irregularities flagged (V-01 to V-07)
+
+All non-blocking; values left blank/unverified; cross-referenced with existing F-items. Full detail and sources: `audit/SESSION_3D3954D6_VERIFICATION.md`. Highlights: no verified odds source (V-01); NBA prop/parlay restrictions not enumerated in official text (V-02); 국민체육진흥법 Art. 26 counsel review needed (V-03); NBA Terms §1/9 gambling-use applicability undetermined (V-04); `data/games.json` is a 2026-11-02 dated snapshot, not a live feed (V-05); no LICENSE file (V-06); no qualified strategy (V-07).
+
+### Sources used (direct retrieval, 2026-11-05 unless noted)
+
+- https://www.nba.com/schedule — Week 3 slate context
+- https://www.nba.com/game/okc-vs-cle-0022600158 — game identity
+- https://www.nba.com/game/mia-vs-lal-0022600172 — game identity
+- https://www.nba.com/termsofuse — §1 and §9 text
+- https://api.github.com/repos/sassnarep3-star/Own6 — license: null; Pages source main:/
+- Carried forward (not re-read, flagged as such): https://www.law.go.kr/.../국민체육진흥법
+
+### Limitations
+
+- Structural checks (links, build) are publication checks, not evidence of betting skill.
+- No NBA statistic, price, correlation, ROI, or backtest result is asserted by this session.
+- Prior-session source reads not repeated here are carried forward and flagged, not re-certified.
+- Pages publishing source remains legacy `main:/`; this session does not change it.
+
+### V8 integration record
+
+Pending: pull request from `arena/3d3954d6-own6` to `main`, merge, GitHub Pages build confirmation via https://api.github.com/repos/sassnarep3-star/Own6/pages/builds/latest, then PR link, merge SHA, and Pages status recorded below in a follow-up commit on this branch (this close-out record cannot record its own merge).
