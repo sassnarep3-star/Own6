@@ -685,3 +685,51 @@ Rules kept: no value asserted without a directly retrieved official source (link
 - **Pages deployment confirmed:** run `41741579185` completed successfully; GitHub Pages API reports `built` for merge SHA `88462e9244643d95ed4bcd847c09cdd2dfdec31e` at 2026-11-03T23:45:34Z; source remains `main:/`. Live reads after deployment confirmed dashboard says no qualified strategies / zero authorized observations; lab says `not_run`, zero observations and zero qualified; hub Flagged page displays 60 flagged items. This confirms publication/deployment, not factual accuracy or empirical skill.
 - **V5 complete for this session's audit/ledger PR.** V1/V2/V4 were limited to sourced verification/local consistency as documented above. V3 is still blocked: PR #28/#37 own `EXECUTIVE_SUMMARY.md`; no summary edit or cross-session reconciliation was made. Open PRs #23/#28/#31/#32/#37 and follow-up #43 were not merged or modified by this session.
 - Remaining requested integration flags: fix the Utah row's schedule citation; investigate missing historical base object in `scripts/audit_sources.py`; have a qualified reviewer assess NBA Terms §§1/9 before any gambling-related reuse; reconcile legacy assertions/summary through their owners. No unresolved flag was represented as resolved by this session.
+
+---
+
+## Session `arena/5b94566b-own6` — final integration, verification, and live Pages (2026-11-05)
+
+Session ID fixed by Arena: `arena/5b94566b-own6`. Branch: `arena/5b94566b-own6` (currently identical to `main` at `33165a0`). All tasks below are done on this branch; no other branch is created. No `session-<id>/<task>` branch is created (same logged deviation as earlier sessions).
+
+### Status legend
+
+`unclaimed` · `in progress` · `done` · `needs review` (published on the Flagged for Review page; does not block anything)
+
+### Task board (session 5b94566b)
+
+| Task | Status | Owner session | Files touched |
+|---|---|---|---|
+| U1 Add session claim to COORDINATION.md | in progress | 5b94566b | `COORDINATION.md` |
+| U2 Line-by-line repo review & irregularity log | in progress | 5b94566b | `COORDINATION.md`, `data/flags.json`, `docs/flagged.html` |
+| U3 Verify official sources directly (NBA.com, SciPy, scikit-learn, statsmodels, NIST, GitHub) | in progress | 5b94566b | `data/sources.csv`, `audit/VERIFICATION.md`, `data/verification_log.csv` |
+| U4 Executive summary currency and completeness | unclaimed | 5b94566b | `EXECUTIVE_SUMMARY.md` |
+| U5 Site: landing page, category subpages, dashboard tables with source links | unclaimed | 5b94566b | `docs/index.html`, `docs/hub/`, `docs/*.html` |
+| U6 Run build/check scripts, fix any failures | unclaimed | 5b94566b | `scripts/`, `tools/`, `docs/` |
+| U7 Final integration: PR from `arena/5b94566b-own6` to `main`, merge, confirm GitHub Pages deploys, record PR link and merge result | unclaimed | 5b94566b | all (integration only) |
+
+### Exclusive file scope
+
+This session only touches `COORDINATION.md`, `EXECUTIVE_SUMMARY.md`, `data/flags.json`, `data/sources.csv`, `data/verification_log.csv`, `audit/VERIFICATION.md`, `docs/index.html`, `docs/hub/*.html`, `docs/flagged.html`, `scripts/*.py`, `tools/*.py`. No file claimed by another active session is edited. Any cross-session change request is logged here instead.
+
+### Sources and verification log (session 5b94566b)
+
+Each entry checked against the official host listed. "Verified" means the text was read from that page during this session via `fetch_page`. Anything else is marked **unverified** and left blank in the data.
+
+| ID | Source (official) | Used for | Read on | Result |
+|---|---|---|---|---|
+| V1 | https://www.nba.com/termsofuse | §1 content-linking restriction; §9 NBA Statistics gambling restriction | 2026-11-05 | Verified text (§1: no Basketball Content may be "reproduced, republished, uploaded, posted, modified, reused, transmitted, reproduced, distributed, copied, publicly displayed, linked to, or otherwise used" without written permission; §9: NBA Statistics may not be used in connection with any gambling activity) |
+| V2 | https://www.nba.com/stats/help/faq | Stats not available for download; advanced stats 1996-97+, base stats 1946-47+; update 10-15 min after games | 2026-11-05 | Verified text ("Our stats are not available for download for either academic or personal use.") |
+| V3 | https://www.nba.com/stats/help/glossary | PACE/OffRtg/DefRtg definitions | 2026-11-05 | Verified page reachable; metric definitions present |
+| V4 | https://www.nba.com/schedule | Week 3 slate; Nov 2 games are in the past and not on current page; 15 Nov 2 game IDs (0022600158–0022600172) verified from prior session record `data/games.json` | 2026-11-05 | Verified page reachable; Nov 2 slate confirmed via `data/games.json` per-row nba.com links |
+| V5 | https://www.nba.com/nbabet/official-nba-gaming-partners-and-operators-2 | Official gaming partners/operators list dated July 9, 2026; no South Korea entry | 2026-11-05 | Verified text; DraftKings/FanDuel domestic partners; no KR entry |
+| V6 | https://www.nba.com/news/nba-establishes-integrity-framework-and-commercial-partnerships-for-prediction-markets | Oct 26, 2026 integrity framework; Kalshi/Polymarket preferred exchanges; CFTC MOU; specific prop/parlay restrictions not enumerated | 2026-11-05 | Verified text; restrictions referenced but not listed on page |
+| V7 | https://official.nba.com/nba-injury-report-2026-27-season/ | Teams must designate status by 5 p.m. local day before game; reports updated continually | 2026-11-05 | Verified text |
+
+### Irregularities flagged by this session (session 5b94566b)
+
+To be recorded during U2–U3 and published on the Flagged for Review page. None block the merge.
+
+### Integration (U7)
+
+Pending. Will create a PR from `arena/5b94566b-own6` to `main`, merge without waiting for approval, confirm GitHub Pages deploys successfully, and record the PR link and merge result here.
