@@ -1,0 +1,56 @@
+name: Lines collect (once)
+
+# One-shot collector for session 55ad5ede. Runs when this file is pushed to
+# arena/55ad5ede-own6, fetches official NBA results from nba.com on the
+# runner, and pushes the refreshed dataset back to the same branch.
+
+on:
+  push:
+    branches:
+      - arena/55ad5ede-own6
+    paths:
+      - ".github/workflows/lines-collect-once.yml"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: lines-collect-once
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Collect official NBA results from nba.com
+        run: |
+          python3 scripts/collect_lines_data.py --out data/lines \
+            --start 2026-10-20 --end 2026-11-04
+
+      - name: Show what changed
+        run: |
+          git --no-pager diff --stat -- data/lines || true
+          head -5 data/lines/nba_results_official.csv || true
+          wc -l data/lines/nba_results_official.csv || true
+
+      - name: Commit and push the refreshed dataset
+        run: |
+          if git diff --quiet -- data/lines; then
+            echo "no dataset change"
+            exit 0
+          fi
+          git config user.name "own6-lines-bot"
+          git config user.email "own6-lines-bot@users.noreply.github.com"
+          git add data/lines
+          git commit -m "data(lines): official NBA results and standings collected from nba.com"
+          git push origin HEAD:${{ github.ref_name }}
