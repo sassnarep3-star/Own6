@@ -982,3 +982,43 @@ after PR #49 merges and re-run `python3 scripts/source_coverage.py`, `python3 sc
 and `python3 scripts/build_assurance.py` so the coverage/assurance artifacts match the merged tree.
 Two sessions must not merge the same regenerated artifact set. This session does not edit PR #48's
 new files.
+
+### W4 result — integration PR merged and live (session 27fdbe09, 2026-11-05)
+
+- **PR #49** https://github.com/sassnarep3-star/Own6/pull/49 — **MERGED** by merge commit
+  `aea6a5ae3093a855331eded7b8c9bf9d90090491` at 2026-11-05T21:36:33Z. All **ten** required checks
+  passed on head `966d96b` before the merge: Line-by-line verification gates, Verification ledger
+  and published pages, assurance, daily, hub, hub-references, lab, parlay-safety, published-html,
+  source-coverage. No failed check was reported as success.
+- **Pages deployment confirmed for the merge commit:** GitHub Pages API
+  `https://api.github.com/repos/sassnarep3-star/Own6/pages/builds/latest` reported
+  `status: built`, `commit: aea6a5a…`, no error, updated 2026-11-05T21:37:58Z; source remains
+  `main:/`. Live readback (independent of the API): `docs/daily/index.html`,
+  `docs/daily/flagged.html` and `docs/assurance/` all render the new content.
+- **The five pre-existing open PRs are now merged into `main` through #49** and GitHub marks them
+  `MERGED`: #23, #28, #31, #32, #37. A comment was added to each recording the integrating PR and
+  merge SHA. Their commits were preserved; the only conflict was `COORDINATION.md`, and both sides
+  were kept in full.
+- **Concurrent sessions:** PR #48 (`arena/95c04c74-own6`, luck-exclusion power analysis) and PR #50
+  (`arena/33432806-own6`, another final-integration attempt) were **not** edited or merged by this
+  session. Both must rebase on `main` after this merge and re-run `python3
+  scripts/source_coverage.py`, `python3 scripts/audit_repo.py` and `python3
+  scripts/build_assurance.py`, otherwise their regenerated coverage/assurance artifacts will not
+  match the merged tree and their CI will fail. Note also that #50's assurance dashboard content
+  is already on `main` via #31 → #49, so #50 should be reduced to its genuinely new files or closed
+  with a record, not merged wholesale.
+- **Final combined-tree results (local, pinned deps):** `pytest -q tests` **135 passed, 6 subtests**;
+  `tools/run_tests.py` **32/32**; hub 12 pages/335 rows/0 errors; hub-reference gate 12/335/0; lab
+  fail-closed `not_run`, 0 observations, empty leaderboard; assurance 9 pages,
+  all table rows source-linked; verification ledger 54/54 with 8 blanks; daily snapshot 9 pages/0
+  issues; release gate 0 issues; `check_site` 0 errors and **0 advisories** (31 closed by #37);
+  source coverage regenerated and repeatable; every generator idempotent.
+- **New irregularity found during close-out (F10):** the assurance dashboard's "legacy records
+  unverified" figure is produced by `scripts/audit_repo.py` over the current tree and therefore
+  changes whenever published pages change; it is a moving structural count, **not** a fixed
+  historical claim. The assurance page should eventually label it as "at build time". No value was
+  altered by this session.
+- **Evidence boundary, restated:** none of this verifies a betting edge. The only market-relative
+  evidence in the repo remains empty, the rights gate (NBA Terms §1/§9) is unresolved, and the
+  leaderboard has zero qualified entries. Documentation and deployment are verified; profitability
+  is not claimed anywhere.
