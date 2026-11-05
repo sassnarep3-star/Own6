@@ -1046,3 +1046,5 @@ Rules: no manual input; no invented odds/correlations/ROI; blank=unverified; off
 ### N1-N4 completion (a1a3a565)
 Built origin pack above; sources read 2026-11-05: NBA glossary, Stats FAQ, Terms §9, SciPy pearsonr, sklearn CV (see audit/ORIGIN_2026_11_05.md). check_origin + tests pass locally (recorded in PR). Flags F-O1..F-O4 on docs/origin/flagged.html. Integration: own PR to main, merge, Pages confirm.
 - Integration fix (a1a3a565): scripts/audit_repo.py now excludes generated docs/coverage/ + data/source_coverage/ from inventory (same self-reference rule as docs/assurance/); without it audit<->coverage counts diverged +2,988/run after adding pages. Regenerated assurance+coverage to stable fixed point (audit reruns identical: 244 files/1,172 records); 125 tests pass.
+### Final record (a1a3a565)
+PR #51 https://github.com/sassnarep3-star/Own6/pull/51 MERGED 2026-11-05T21:57:36Z merge SHA 61f4442a5f75fe1860b6677f76f280ae1a1e12a3; all 10 PR checks passed. Pages API built for 61f4442; live https://sassnarep3-star.github.io/Own6/docs/origin/ renders. N1-N4 done; F-O1..F-O4 needs review on docs/origin/flagged.html (non-blocking).
