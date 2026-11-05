@@ -10,6 +10,8 @@ on:
       - arena/55ad5ede-own6
     paths:
       - ".github/workflows/lines-collect-once.yml"
+      - "scripts/collect_lines_data.py"
+      - "data/lines/**"
   workflow_dispatch: {}
 
 permissions:
