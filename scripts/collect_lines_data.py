@@ -110,6 +110,60 @@ STANDING_ROW = re.compile(
 )
 
 
+NEXT_DATA = re.compile(
+    r'<script id="__NEXT_DATA__" type="application/json">(.*?)</script>', re.S)
+
+
+def parse_next_data(body: str, date: str) -> list[dict]:
+    """Parse the nba.com slate page's embedded Next.js payload.
+
+    nba.com server-renders the slate from an official payload that the page
+    embeds as ``__NEXT_DATA__``. The payload carries the game id, both club
+    codes, both final scores, the number of periods played and the official
+    per-team slug used to build the game's nba.com URL.
+    """
+    match = NEXT_DATA.search(body)
+    if not match:
+        raise ValueError(f"{date}: no __NEXT_DATA__ payload in the page")
+    payload = json.loads(match.group(1))
+    page_props = payload.get("props", {}).get("pageProps", {})
+    cards = []
+    for module in page_props.get("gameCardFeed", {}).get("modules", []):
+        cards.extend(module.get("cards", []))
+    if not cards:
+        raise ValueError(f"{date}: no game cards in the payload")
+
+    rows: list[dict] = []
+    for card in cards:
+        data = card.get("cardData", {})
+        status = data.get("gameStatusText")
+        away = data.get("awayTeam") or {}
+        home = data.get("homeTeam") or {}
+        away_code = away.get("teamTricode")
+        home_code = home.get("teamTricode")
+        if away_code not in TEAM_IDS.values() or home_code not in TEAM_IDS.values():
+            raise ValueError(f"{date}: unknown club code(s): {away_code} / {home_code}")
+        game_id = str(data.get("gameId") or "")
+        if len(game_id) != 10 or not game_id.isdigit():
+            raise ValueError(f"{date}: unexpected game id {game_id!r}")
+        # period > 4 means the game went to overtime.
+        overtime = "yes" if int(data.get("period") or 0) > 4 else ""
+        # nba.com's own "Summary" link uses the three-letter club codes in the
+        # slug; the long club slugs also resolve. Use the short form so the
+        # row link matches the link nba.com prints on the same page.
+        url = (f"https://www.nba.com/game/{away_code.lower()}-vs-"
+               f"{home_code.lower()}-{game_id}")
+        if not status or not status.startswith("Final"):
+            # A scheduled or in-progress game has no final score; it is not a
+            # result row. nba.com writes "Final" and "Final/OT".
+            continue
+        rows.append(_row(date, away_code, int(away["score"]), home_code,
+                         int(home["score"]), overtime, game_id, url))
+    if not rows:
+        raise ValueError(f"{date}: no final games in the payload")
+    return rows
+
+
 def fetch(url: str, timeout: int = 60) -> str:
     """Return the body of ``url`` or raise."""
     request = urllib.request.Request(
@@ -313,7 +367,7 @@ def collect(start: str, end: str, offline: bool) -> tuple[list[dict], list[dict]
                     continue
                 write_cached(f"games_{date}.html", body)
             try:
-                rows = parse_slate_markdown(normalise(body), date)
+                rows = parse_next_data(body, date)
             except ValueError as exc:
                 print(f"  {date}: {exc}")
                 continue
