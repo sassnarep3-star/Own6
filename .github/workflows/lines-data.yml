@@ -1,0 +1,72 @@
+name: Lines data collection
+
+# Collects official NBA game results and standings from nba.com and refreshes the
+# source-linked dataset under data/lines/. Runs on the repository's own runner
+# (which has outbound internet access) and opens a pull request with the
+# refreshed dataset. It never edits analysis code, the site, or any file owned
+# by another session.
+
+on:
+  workflow_dispatch:
+    inputs:
+      start:
+        description: "First date to collect (YYYY-MM-DD)"
+        required: true
+        default: "2026-10-20"
+      end:
+        description: "Last date to collect (YYYY-MM-DD)"
+        required: true
+        default: "2026-11-04"
+  schedule:
+    # 11:00 UTC daily (after the US evening slate is complete).
+    - cron: "0 11 * * *"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: lines-data-collection
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Collect official NBA results from nba.com
+        env:
+          START: ${{ inputs.start || '2026-10-20' }}
+          END: ${{ inputs.end || '2026-11-04' }}
+        run: |
+          python3 scripts/collect_lines_data.py --out data/lines \
+            --start "$START" --end "$END"
+
+      - name: Show what changed
+        run: |
+          git --no-pager diff --stat -- data/lines || true
+          git --no-pager diff -- data/lines/nba_results_official.csv | head -60 || true
+
+      - name: Commit and open a pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet -- data/lines; then
+            echo "no dataset change; nothing to do"
+            exit 0
+          fi
+          git config user.name "own6-lines-bot"
+          git config user.email "own6-lines-bot@users.noreply.github.com"
+          git add data/lines
+          git commit -m "data(lines): refresh official NBA results and standings"
+          BR="data/lines-refresh-$(date -u +%Y%m%d-%H%M%S)"
+          git push --force origin "HEAD:${BR}"
+          gh pr create \
+            --title "Refresh official NBA results dataset (data/lines)" \
+            --body "Automated refresh of \`data/lines/\` from nba.com. All rows carry their own nba.com source URL. No analysis, site or coordination files are touched." \
+            --base main --head "${BR}"
