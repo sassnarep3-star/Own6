@@ -725,6 +725,10 @@ Each entry checked against the official host listed. "Verified" means the text w
 | V5 | https://www.nba.com/nbabet/official-nba-gaming-partners-and-operators-2 | Official gaming partners/operators list dated July 9, 2026; no South Korea entry | 2026-11-05 | Verified text; DraftKings/FanDuel domestic partners; no KR entry |
 | V6 | https://www.nba.com/news/nba-establishes-integrity-framework-and-commercial-partnerships-for-prediction-markets | Oct 26, 2026 integrity framework; Kalshi/Polymarket preferred exchanges; CFTC MOU; specific prop/parlay restrictions not enumerated | 2026-11-05 | Verified text; restrictions referenced but not listed on page |
 | V7 | https://official.nba.com/nba-injury-report-2026-27-season/ | Teams must designate status by 5 p.m. local day before game; reports updated continually | 2026-11-05 | Verified text |
+| V8 | https://scikit-learn.org/stable/modules/calibration.html | Brier score and log-loss as proper scoring rules for calibration | 2026-11-05 | Verified text ("Brier score measures the mean squared difference between the predicted probability and the actual outcome") |
+| V9 | https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html | Pearson correlation coefficient; zero correlation does not imply independence unless jointly normal | 2026-11-05 | Verified text |
+| V10 | https://www.statsmodels.org/stable/generated/statsmodels.stats.multitest.multipletests.html | Bonferroni multiple-testing correction (method='bonferroni') | 2026-11-05 | Verified text |
+| V11 | https://www.itl.nist.gov/div898/handbook/eda/section3/eda366i.htm | Binomial distribution PMF/CDF for exact luck test | 2026-11-05 | Verified text |
 
 ### Irregularities flagged by this session (session 5b94566b)
 
