@@ -209,12 +209,6 @@ def load_state() -> dict:
     return json.loads(STATE.read_text(encoding="utf-8"))
 
 
-def local_head() -> str:
-    return subprocess.run(
-        ["git", "rev-parse", "HEAD"], capture_output=True, text=True, cwd=ROOT
-    ).stdout.strip()
-
-
 def page_inventory() -> list[dict[str, object]]:
     docs = ROOT / "docs"
     pages: dict[str, Page] = {}
@@ -405,7 +399,7 @@ def build() -> tuple[list[dict[str, object]], list[dict[str, object]], list[dict
         "A03",
         "Publication",
         "The deployed build corresponds to the current main commit.",
-        f"latest_build_commit={latest.get('commit')}; main={main_sha}; local HEAD={local_head()}",
+        f"latest_build_commit={latest.get('commit')}; main={main_sha}",
         "verified"
         if latest.get("commit") == main_sha
         else "mismatch",
@@ -441,9 +435,9 @@ def build() -> tuple[list[dict[str, object]], list[dict[str, object]], list[dict
         "A06",
         "Repository",
         "Commit SHAs quoted as merge commits in COORDINATION.md are reachable in the clone.",
-        "not assessable: clone is shallow (git rev-list --count = 2); absence of a SHA here is not evidence it never existed",
+        "not assessable: the clone used for this audit was shallow (two commits), so a cited historical SHA can be neither confirmed nor refuted locally; absence is not evidence",
         "not assessable",
-        "git rev-parse --is-shallow-repository / git rev-list --count",
+        "clone-depth inspection in the auditing session (recorded here as static text so the snapshot is reproducible on any checkout)",
         f"https://github.com/{REPO}/commits/main",
         "Re-check from a full clone before treating any quoted SHA as wrong.",
     )
