@@ -1154,3 +1154,24 @@ Claim log:
 **Irregularities (needs review, non-blocking, see docs/rental/flagged.html):** F-R1 high (Unit 2 combined 13.1% → 90-day notice) · F-R2 high (HUD area FY2027 FMRs not readable from official page — left blank) · F-R3 medium (Unit 1 April 1, 2026 tenancy-status ambiguity; roommate adds no rent) · F-R4 medium (Unit 1 Feb 2025 vacancy-decontrol reset unverified) · F-R5 high (Unit 1 banked 1.4% not available before 2027-02-01) · F-R6 low (1.6% methodology — secondary claim only) · F-R7 high (Unit 2 current lawful base rent unverified) · F-R8 info (anonymization) · F-R9 low (RTC cited via official Form 1007) · F-R10 info (mail +5 days) · F-R11 info (not legal advice) · F-R12 info (verification basis) · F-R13 medium (market practices labeled, no official 94122 dataset).
 
 **Not legal advice.** No tenant personal information beyond placeholders is published anywhere in this pack.
+
+---
+
+## Session arena/47644160-own6 — SF rental research (2026-11-06)
+Arena requires the fixed session branch; session-specific branches are not permitted. Existing NBA scopes remain untouched.
+| Task | Status | Owner | Scope |
+|---|---|---|---|
+| SF rental official-source research, privacy-safe dashboard and integration | in progress | 47644160 | `docs/sf-rent/**`, `scripts/check_sf_rent.py`, this section of `COORDINATION.md`; additive navigation at integration if available |
+
+### Research completion and review (47644160)
+- Dashboard: `docs/sf-rent/`; checker: `scripts/check_sf_rent.py`. Private names and initials excluded; reported facts are explicitly unverified and calculations conditional.
+- Official sources reviewed 2026-11-06: SF Rent Board [rates and notices](https://www.sf.gov/learn-about-rent-increases-san-francisco), [banking](https://www.sf.gov/information--banked-rent-increases), [irregular periods](https://www.sf.gov/information--increasing-rents-during-irregular-periods), [license](https://www.sf.gov/notice-of-owner-noncompliance-with-housing-inventory), [state act](https://www.sf.gov/reports--california-tenant-protection-act-2019-ab-1482), [coverage](https://sf.gov/information/find-out-if-san-franciscos-rental-law-applies-you), [capital petitions](https://www.sf.gov/information--capital-improvement-petitions); California [fair housing](https://calcivilrights.ca.gov/housing/); [HUD](https://www.hud.gov/sites/dfiles/PIH/documents/HCV_Guidebook-Chapter_Fair-Housing_April-2025.pdf). Each row links relevant official authority; private facts cannot be verified from it.
+- Verification: checker confirms five pages, source links on data rows and local links; arithmetic checked (3995 × .016 = 63.92; 3150 × .016 = 50.40). No actual legal maximum or banked balance asserted for either unit.
+- Needs review: license, coverage, lawful base and prior increases, lease and occupancy continuity, rate after February 2027, attorney review, comparative industry practice. Official Rent Board examples contain apparent date typos; highlighted on dashboard. Exact dates and rents can be identifying even without names; retained per request.
+- Integration in progress; publishing path `docs/sf-rent/` does not alter shared navigation, which is claimed by other open sessions.
+- PR #57: https://github.com/sassnarep3-star/Own6/pull/57. Initial CI identified the legacy assurance inventory as stale after this board and the new site changed; integration regenerates its derived inventory/pages without altering underlying source claims. No other session's active source scope was modified.
+
+---
+
+## Duplicate rental-pack notice (2026-11-06, session 10504d38)
+Three parallel SF rental implementations landed/opened the same day, all additive: `docs/sf-rent/` (session 47644160, PR #57 merged), `docs/rental-sf/` (PR #58 open), `docs/rental_increase/` (PR #59 open), and this pack `docs/rental/` (session 10504d38, PR #60). Paths are non-conflicting; shared files (`docs/index.html`, README, root `index.html`) were edited additively with different lines where applicable. Owners should consolidate into one canonical pack before serving any notice; this pack's Flagged page (docs/rental/flagged.html) is the review list for this pack.
