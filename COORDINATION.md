@@ -1120,6 +1120,43 @@ Built origin pack above; sources read 2026-11-05: NBA glossary, Stats FAQ, Terms
 ### Final record (a1a3a565)
 PR #51 https://github.com/sassnarep3-star/Own6/pull/51 MERGED 2026-11-05T21:57:36Z merge SHA 61f4442a5f75fe1860b6677f76f280ae1a1e12a3; all 10 PR checks passed. Pages API built for 61f4442; live https://sassnarep3-star.github.io/Own6/docs/origin/ renders. N1-N4 done; F-O1..F-O4 needs review on docs/origin/flagged.html (non-blocking).
 
+---
+
+## Session arena/10504d38-own6 — SF rental increase analysis pack (2026-11-06)
+
+Fixed Arena branch `arena/10504d38-own6`; no other branch. Repo review shows this repo is a multi-purpose analysis repo with a live GitHub Pages site (source: `main` `/`, legacy build). This session adds a fully additive SF rent-increase analysis pack; no existing file scope is rewritten except one additive navigation link in `docs/index.html` at integration time if free.
+
+| Task | Status | Owner | Files (exclusive) |
+|---|---|---|---|
+| R1 Repo review + irregularity log for this pack | done at claim time | 10504d38 | this section, `docs/rental/flagged.html` |
+| R2 Official-source research (SF Rent Board AGA, SF Rent Ordinance, CA Civil Code §827/§1947.12, Costa-Hawkins, HUD FMR, FEHA/FHA) | in progress | 10504d38 | `data/rental/*.json`, `docs/rental/sources.html` |
+| R3 Anonymized unit profiles + computed increase scenarios (dates/amounts preserved, placeholder names) | in progress | 10504d38 | `data/rental/units.json`, `docs/rental/units.html` |
+| R4 Site: docs/rental/ dashboard + subpages (exec summary, laws local/state/federal, market practices, notice procedure, discrimination analysis, FAQ, flagged, sources) | in progress | 10504d38 | `docs/rental/**`, `scripts/check_rental.py` |
+| R5 Executive summary (markdown) + repo README pointer | in progress | 10504d38 | `RENTAL_INCREASE_SF_EXECUTIVE_SUMMARY.md`, README append-only section |
+| R6 Integration: checks, PR to main, merge, Pages confirm, record result here | in progress | 10504d38 | this section, one additive nav link in `docs/index.html` |
+
+Rules: no manual input; anonymize all tenant personal info (placeholder names only); keep dates/amounts unchanged; every published value links to an official source; unverifiable values left blank and flagged; CA/SF rent-control analysis only, no legal advice.
+
+Claim log:
+- 2026-11-06: claimed R1–R6; read the board, git log, open PR list and the GitHub Pages API before claiming.
+
+### R1–R6 completion record (arena/10504d38-own6, 2026-11-06)
+
+- **R1 done** — Repo review: pre-existing NBA assurance/hub/lab/verified sections preserved untouched; only additive edits: `docs/index.html` (one primary-nav link `rental/index.html` + one archive-links entry) and README append-only section. `index.html` (root redirect) unchanged. `.github/` Pages workflow untouched.
+- **R2 done** — Official-source research. Read directly 2026-11-06: sf.gov (learn-about-rent-increases, current rates, Form 571 PDF 45-period AGA history, banked increases, landlord petitions, coverage guidance (redirected/archived path), 2026-27 announcement, evictions page, Form 1007), codelibrary.amlegal.com SF Admin Code §37.3, leginfo.legislature.ca.gov (CC §827, §1946.2, §1947.12, §1954.53, §51; Gov Code §12955), hud.gov (FHEO report/contact), huduser.gov (FMR page — area-level FY2027 figures NOT readable → blank, F-R2), public-inspection.federalregister.gov (FY2027 FMR notice 2026-17891, effective 2026-10-01). Full registry: `data/rental/sources.json` (S-01…S-21 official + T-01…T-04 flagged secondary).
+- **R3 done** — Anonymized profiles (`data/rental/units.json`): placeholders Tenants A–F only; dates/amounts preserved exactly; no address beyond 94122. Scenarios (`data/rental/scenarios.json`) computed deterministically (exact decimal arithmetic): Unit 1 2026-27 annual +$63.92 → $4,058.92 (inputs verified); Unit 1 banked 1.4% + 1.6% = 3.0% → $4,114.85 (earliest 2027-02-01, F-R5); Unit 2 1.6% only +$50.40 → $3,200.40; Unit 2 all-banked 11.5% + 1.6% = 13.1% → $3,562.65, 90-day notice (F-R1, F-R7); Unit 2 compounding benchmark $3,585.72.
+- **R4 done** — `docs/rental/` 14 pages + shared CSS: index, executive-summary, units, laws-local (full Form 571 history), laws-state, laws-federal, market-practices, notice-procedure, one-vs-both, tenant-lawyer-review, faq, sources, methodology, flagged. Every table row links to an official source or an explicit flag/badge; unverifiable values blank. `scripts/check_rental.py` passes (14 pages, internal links OK, https-only, privacy anchors OK). `scripts/build_rental.py` regenerates deterministically.
+- **R5 done** — `RENTAL_INCREASE_SF_EXECUTIVE_SUMMARY.md` (root) + README append-only section. `EXECUTIVE_SUMMARY.md` (NBA) untouched.
+- **R6 in progress** — PR to `main`, merge, GitHub Pages confirmation recorded below after merge.
+
+**Verification performed:** Form 571 copied verbatim (45 periods + footnote); AGA 1.6%/1.4%/1.7% cross-checked on two independent sf.gov pages each; notice periods per CC §827 text (≤10% → 30d; >10% → 90d; mail +5d via CCP §1013); banking rules per SF.gov banked-increases page (≥24 full months, no expiry, no cap, non-compound/non-prorated); coverage per SF.gov; discrimination framework per FEHA §12955, Unruh §51, FHA/HUD. PII: repository scan for recorded initials returns no matches in any committed file (including this one). Amounts preserved ($3,995.00 Unit 1; $3,150.00 Unit 2; dates 2025-02-01 / 2019-06-01 / 2026-04-01).
+
+**Irregularities (needs review, non-blocking, see docs/rental/flagged.html):** F-R1 high (Unit 2 combined 13.1% → 90-day notice) · F-R2 high (HUD area FY2027 FMRs not readable from official page — left blank) · F-R3 medium (Unit 1 April 1, 2026 tenancy-status ambiguity; roommate adds no rent) · F-R4 medium (Unit 1 Feb 2025 vacancy-decontrol reset unverified) · F-R5 high (Unit 1 banked 1.4% not available before 2027-02-01) · F-R6 low (1.6% methodology — secondary claim only) · F-R7 high (Unit 2 current lawful base rent unverified) · F-R8 info (anonymization) · F-R9 low (RTC cited via official Form 1007) · F-R10 info (mail +5 days) · F-R11 info (not legal advice) · F-R12 info (verification basis) · F-R13 medium (market practices labeled, no official 94122 dataset).
+
+**Not legal advice.** No tenant personal information beyond placeholders is published anywhere in this pack.
+
+---
+
 ## Session arena/47644160-own6 — SF rental research (2026-11-06)
 Arena requires the fixed session branch; session-specific branches are not permitted. Existing NBA scopes remain untouched.
 | Task | Status | Owner | Scope |
@@ -1133,3 +1170,8 @@ Arena requires the fixed session branch; session-specific branches are not permi
 - Needs review: license, coverage, lawful base and prior increases, lease and occupancy continuity, rate after February 2027, attorney review, comparative industry practice. Official Rent Board examples contain apparent date typos; highlighted on dashboard. Exact dates and rents can be identifying even without names; retained per request.
 - Integration in progress; publishing path `docs/sf-rent/` does not alter shared navigation, which is claimed by other open sessions.
 - PR #57: https://github.com/sassnarep3-star/Own6/pull/57. Initial CI identified the legacy assurance inventory as stale after this board and the new site changed; integration regenerates its derived inventory/pages without altering underlying source claims. No other session's active source scope was modified.
+
+---
+
+## Duplicate rental-pack notice (2026-11-06, session 10504d38)
+Three parallel SF rental implementations landed/opened the same day, all additive: `docs/sf-rent/` (session 47644160, PR #57 merged), `docs/rental-sf/` (PR #58 open), `docs/rental_increase/` (PR #59 open), and this pack `docs/rental/` (session 10504d38, PR #60). Paths are non-conflicting; shared files (`docs/index.html`, README, root `index.html`) were edited additively with different lines where applicable. Owners should consolidate into one canonical pack before serving any notice; this pack's Flagged page (docs/rental/flagged.html) is the review list for this pack.
