@@ -1119,3 +1119,22 @@ Built origin pack above; sources read 2026-11-05: NBA glossary, Stats FAQ, Terms
 - Integration fix (a1a3a565): scripts/audit_repo.py now excludes generated docs/coverage/ + data/source_coverage/ from inventory (same self-reference rule as docs/assurance/); without it audit<->coverage counts diverged +2,988/run after adding pages. Regenerated assurance+coverage to stable fixed point (audit reruns identical: 244 files/1,172 records); 125 tests pass.
 ### Final record (a1a3a565)
 PR #51 https://github.com/sassnarep3-star/Own6/pull/51 MERGED 2026-11-05T21:57:36Z merge SHA 61f4442a5f75fe1860b6677f76f280ae1a1e12a3; all 10 PR checks passed. Pages API built for 61f4442; live https://sassnarep3-star.github.io/Own6/docs/origin/ renders. N1-N4 done; F-O1..F-O4 needs review on docs/origin/flagged.html (non-blocking).
+
+## Session arena/dbf93ba4-own6 — San Francisco rental increase review (2026-11-06)
+
+**Scope:** additive standalone Pages site at `docs/rental-sf/**`; no shared dashboard/navigation files edited because the existing coordination ledger documents other concurrent integration work. Public display anonymizes names/initials; units named only A/B.
+
+| Task | Status | Owner | Files |
+|---|---|---|---|
+| SF rent-control executive summary, two-unit screening, official-source tables and flagged items | done | dbf93ba4 | `docs/rental-sf/index.html`, `rules.html`, `flagged.html`, `style.css` |
+
+**Official sources checked directly (2026-11-06):**
+- SF.gov, Learn about rent increases: https://www.sf.gov/learn-about-rent-increases-san-francisco — page states 1.6% effective 2026-03-01 through 2027-02-28; 12-month interval; base rent/rounding; license/Housing Inventory; notice particulars and roommate rent rule.
+- SF Rent Board, Replacement of Roommates: https://www.sf.gov/information--replacement-roommates — replacement rules and tenant-status details.
+- California Legislative Information, Civil Code §1947.12: https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=1947.12.&lawCode=CIV — statutory cap/exemptions read directly.
+- HUD Fair Housing: https://www.hud.gov/fairhousing — linked as official resource; top-level page currently redirects to HUD partners; specific discrimination analysis requires counsel.
+- SF tenant rights/resources: https://www.sf.gov/reports/tenant-rights-and-resources — referral source; no claim representation is guaranteed.
+
+**Verification:** recomputed submitted amounts × .016 ($3,995 → $63.92; $3,150 → $50.40); these are illustrative arithmetic, not approved amounts. No names/initials, contact data, or street address published. Substantive table rows cite official sources; uncertain property/tenancy facts are blank/unverified and flagged. Internal links and anonymization checked; `git diff --check` passed. The site is standalone to avoid shared navigation edits.
+
+**Irregularities / needs review:** User-provided 1940 construction, rent-control status and tenancy transition are unverified. Unit A's 2026 change could implicate roommate replacement versus new tenancy; no reset conclusion made. Lawful base, prior increases/banked amount, license and due dates cannot be determined. State exemption unresolved. Do not serve an increase before records are checked by SF Rent Board/qualified counsel. This is informational, not legal advice.
