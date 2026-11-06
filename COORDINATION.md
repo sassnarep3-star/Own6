@@ -1183,3 +1183,19 @@ Three parallel SF rental implementations landed/opened the same day, all additiv
 - Pages: builds API shows `b5a53da` built 2026-11-05T22:02:27Z (OK). After PR #57 (`076c495`) merged at 13:40:57Z the legacy builder reported **"Page build failed."** The merge of this pack (`b824282`) also reported **"Page build failed."** (13:44:30Z) — fast failures with no size/name/encoding/gitlink anomalies found in the tree (3.7 MB docs/, no gitlinks, no non-ASCII or overlong paths, valid UTF-8) and no Pages workflows exist (legacy builder). A 2026-11-03 precedent (`3f77232`) errored identically and recovered on the next push with no content revert — suspected transient legacy-builder failures during the multi-session 13:38–13:44 push burst. The POST builds endpoint returned 403 for this token, so a fresh build is requested indirectly by this record commit/PR.
 - Verification state at merge: `scripts/check_rental.py` 14/14 pages OK (internal links, https-only, privacy anchors, all table rows linked/flagged/badged, F-R1…F-R13 and S-01…S-21 present); local static server returned HTTP 200 for all 14 pages + CSS; zero matches for recorded tenant identifiers anywhere in the pack; dates/amounts preserved.
 - **Not yet confirmed live.** If the build for the commit carrying this record also errors, the site content remains fully verified locally and the cause is on the GitHub legacy builder side; the owner should re-trigger Pages (Settings → Pages → re-save) or wait for the next push. All flagged items F-R1…F-R13 are published on docs/rental/flagged.html regardless.
+
+## Session arena/06faec62-own6 — SF rental research final integration review (2026-11-06)
+
+### Task board
+| Task | Status | Owner | Files / record |
+|---|---|---|---|
+| I1 Independent source, privacy, and requirement audit of the two already-open SF rental PRs; document verified issues and select a non-duplicative integration path | in progress | arena/06faec62-own6 | `audit/RENTAL_SF_INTEGRATION_REVIEW_2026_11_06.md`, this append-only section |
+| I2 Final integration of the selected rental dashboard, checks, Pages confirmation, and duplicate-PR disposition | unclaimed | — | integration record only; no edits to `docs/sf-rent/**` or `docs/rental-sf/**` without a logged scope request; shared `docs/index.html` remains owned by open PRs #48/#54 |
+
+### Coordination finding at claim
+Two open PRs already claim the same San Francisco rent-increase request: #57 (`docs/sf-rent/**`) and #58 (`docs/rental-sf/**`). This session will not duplicate or edit either claimed site scope. It is limited to independent verification, privacy/evidence review, and final integration coordination. No navigation change is claimed while PRs #48 and #54 also own `docs/index.html`.
+
+### Claim log
+- 2026-11-06: read the full coordination ledger and examined open-PR scopes before claiming I1/I2. Official legal facts will be re-read from government primary sources; all private tenancy facts remain owner-reported and unverified.
+- Rebase conflict 1: origin/main had merged PR #57 and appended its rental-session record to this same coordination file. Resolved by preserving the complete upstream record and this session’s claim, with no site files changed.
+- Rebase conflict 2: origin/main then added PR #60/#63 integration records to the same append-only file. Resolved by retaining both complete upstream records and this session’s section; no other session’s work was discarded.
