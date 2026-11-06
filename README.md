@@ -5,7 +5,8 @@ A research-first project for originating NBA spreads, totals, win probabilities,
 ## Start here
 
 - **Live assurance dashboard:** https://sassnarep3-star.github.io/Own6/ — clean no-input overview, strategies, lines/props, correlations, leaderboard, validation gates, official sources, Flagged for Review and full repo audit.
-- **Executive summary:** [`research/EXECUTIVE_SUMMARY.md`](research/EXECUTIVE_SUMMARY.md)
+- **SF Rental Increase research (new — 94122 Outer Sunset, rent-controlled 1940):** https://sassnarep3-star.github.io/Own6/docs/rental/ — lawful caps, per-unit calculations, notices, discrimination analysis, checklist; every table row source-linked to official SF.gov / leginfo / HUD pages.
+- **Executive summary:** [`research/EXECUTIVE_SUMMARY.md`](research/EXECUTIVE_SUMMARY.md) · **Rental executive summary:** [`research/RENTAL_EXECUTIVE_SUMMARY.md`](research/RENTAL_EXECUTIVE_SUMMARY.md)
 - **Signal research:** [`research/SIGNALS.md`](research/SIGNALS.md)
 - **Validation protocol v2:** [`research/VALIDATION_v2.md`](research/VALIDATION_v2.md)
 - **Source assurance:** [`research/ASSURANCE.md`](research/ASSURANCE.md)

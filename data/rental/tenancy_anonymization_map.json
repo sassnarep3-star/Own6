@@ -1,0 +1,34 @@
+{
+  "anonymization_method": "Initials replaced with Tenant A-F placeholders; amounts and dates preserved exactly as provided; no other PII retained.",
+  "location": {
+    "address_placeholder_public": "94122 Outer Sunset, San Francisco, CA — exact address withheld for privacy",
+    "building_built": "1940",
+    "city": "San Francisco",
+    "neighborhood": "Outer Sunset",
+    "rent_controlled": "Yes - pre June 13 1979 multi-unit under SF Admin Code Chapter 37",
+    "zip_code": "94122"
+  },
+  "notice": "INTERNAL ONLY - DO NOT PUBLISH ON PUBLIC SITE. Contains PII mapping for audit. Public site uses placeholders Tenant A-F only.",
+  "privacy_priority": "Public site never shows original initials, full names, addresses, emails, or phone numbers.",
+  "unit_1": {
+    "continuing_tenancy_amount": 3995,
+    "continuing_tenancy_date": "2026-04-01",
+    "current_tenants_anonymized": ["Tenant A", "Tenant D"],
+    "current_tenants_original": ["L O", "M T"],
+    "initial_tenants_anonymized": ["Tenant A", "Tenant B", "Tenant C"],
+    "initial_tenants_original": ["L O", "V N", "JP"],
+    "last_lease_amount": 3995,
+    "last_lease_start": "2025-02-01",
+    "notes": "Continuing tenancy; no rent change at continuation. Anniversary remains Feb 1 but note April 1 continuation may create new anniversary if increase served then — verify Housing Inventory.",
+    "public_label": "Unit 1 — Upper (anonymized)"
+  },
+  "unit_2": {
+    "current_amount": 3150,
+    "last_lease_amount": 3150,
+    "last_lease_start": "2019-06-01",
+    "notes": "No reported increase since 2019-06-01; long tenancy with potential banked stack if licensed and documented.",
+    "public_label": "Unit 2 — Lower (anonymized)",
+    "tenants_anonymized": ["Tenant E", "Tenant F"],
+    "tenants_original": ["E R", "I S"]
+  }
+}
