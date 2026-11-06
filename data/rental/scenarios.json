@@ -1,0 +1,85 @@
+{
+  "disclaimer": "Computed illustrations, not legal advice and not Rent Board determinations. 'Banked' method follows SF.gov: add percentage amounts for each banked year, multiply the summed percentage by the tenant's current base rent; increases may not be compounded or prorated; a skipped increase is bankable only once at least 24 full months have passed without any rent increase. Notice percentages use the rate in effect on the effective date of the increase. Rent increases cannot be rounded up to the nearest dollar (SF.gov).",
+  "source_banked": "https://www.sf.gov/information--banked-rent-increases",
+  "source_increase_rules": "https://www.sf.gov/learn-about-rent-increases-san-francisco",
+  "source_571": "https://www.sf.gov/documents/34344/571_Allowable_Annual_Increases_26-27_1.pdf",
+  "source_civil_code_827": "https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?sectionNum=827&lawCode=CIV",
+  "computed_on": "2026-11-06",
+  "scenarios": [
+    {
+      "id": "U1-A",
+      "unit": "Unit 1",
+      "label": "2026-27 annual allowable increase only",
+      "base_rent": "3995.00",
+      "rate_applied": "1.6% (period in effect 3/1/26-2/28/27)",
+      "dollar_increase": "63.92",
+      "new_rent": "4058.92",
+      "notice_required": "30-day written notice (increase ≤ 10%); +5 days if served by mail",
+      "assumptions": ["Base rent is $3,995.00 (unchanged since February 1, 2025).", "Increase effective on/after March 1, 2026.", "Rent Increase License (Housing Inventory registration) held before imposing."],
+      "verified_inputs": true
+    },
+    {
+      "id": "U1-B",
+      "unit": "Unit 1",
+      "label": "Banked 2025-26 increase + 2026-27 annual increase (earliest lawful date: on/after Feb 1, 2027)",
+      "base_rent": "3995.00",
+      "rate_applied": "1.4% banked (2025-26, skipped 2/1/2026) + 1.6% annual = 3.0% combined",
+      "dollar_increase": "119.85",
+      "new_rent": "4114.85",
+      "notice_required": "30-day written notice (combined increase ≤ 10%); +5 days if served by mail; notice must state which part of the increase is banked",
+      "assumptions": [
+        "No rent increase has been imposed on this tenancy since February 1, 2025 (rent unchanged at $3,995.00 through April 1, 2026).",
+        "Banked 1.4% requires at least 24 full months without any rent increase -> earliest on/after February 1, 2027 (2 years from Feb 1, 2025 tenancy start). See Flag F-R5.",
+        "Notice uses the percentage in effect on the effective date; banked part = $55.93; annual part = $63.92. Total $119.85.",
+        "Rent increases cannot be rounded up to the nearest dollar.",
+        "Imposing the banked increase sets a new anniversary date equal to the effective date."
+      ],
+      "verified_inputs": true
+    },
+    {
+      "id": "U2-A",
+      "unit": "Unit 2",
+      "label": "Annual allowable increase for the year in effect only",
+      "base_rent": "3150.00",
+      "rate_applied": "1.6% (period in effect 3/1/26-2/28/27)",
+      "dollar_increase": "50.40",
+      "new_rent": "3200.40",
+      "notice_required": "30-day written notice (increase ≤ 10%); +5 days if served by mail",
+      "assumptions": ["UNVERIFIED base rent: assumes current lawful base rent is still $3,150.00 as at June 1, 2019 lease start. Verify against the rent ledger and the Rent Board Housing Inventory before relying (Flag F-R7).", "Increase effective on/after March 1, 2026; first lawful 12-month anniversary for this scenario is June 1, 2026 (2026-27 rate applies)."],
+      "verified_inputs": false
+    },
+    {
+      "id": "U2-B",
+      "unit": "Unit 2",
+      "label": "All skipped years banked + 2026-27 annual increase (impose in one notice)",
+      "base_rent": "3150.00",
+      "rate_applied": "1.8% (6/1/20) + 0.7% (6/1/21) + 2.3% (6/1/22) + 3.6% (6/1/23) + 1.7% (6/1/24) + 1.4% (6/1/25) banked = 11.5%, + 1.6% (2026-27) annual = 13.1% combined",
+      "dollar_increase": "412.65",
+      "new_rent": "3562.65",
+      "notice_required": "90-DAY written notice REQUIRED (combined increase > 10% over the prior 12 months), Civil Code §827(b)(3)(A); notice must state which part is banked; +5 days if served by mail",
+      "assumptions": [
+        "UNVERIFIED base rent (Flag F-R7): $3,150.00 assumed.",
+        "No increase ever imposed since June 1, 2019; banking has been allowed since April 1, 1982; banked increases do not expire during the tenancy and carry over to new owners but not new tenants (SF.gov).",
+        "Banked percentages are added and multiplied by the CURRENT base rent; they are not compounded or prorated (SF.gov).",
+        "11.5% banked portion = $362.25; 1.6% annual portion = $50.40; total $412.65.",
+        "Combined single-notice increase of 13.1% exceeds 10%, so a 90-day notice is mandatory. Splitting into smaller annual notices, each ≤10% combined, would only allow 30-day notices but cannot lawfully exceed the AGA for any anniversary."
+      ],
+      "verified_inputs": false
+    },
+    {
+      "id": "U2-C",
+      "unit": "Unit 2",
+      "label": "Illustration: every anniversary increase imposed on time since June 1, 2020 (compounding base) — comparison benchmark",
+      "base_rent": "3150.00",
+      "rate_applied": "1.8% → 0.7% → 2.3% → 3.6% → 1.7% → 1.4% → 1.6% (each applied to the then-current base)",
+      "dollar_increase": "435.72",
+      "new_rent": "3585.72",
+      "notice_required": "30-day written notice each year (each individual increase well under 10%)",
+      "assumptions": [
+        "UNVERIFIED base-rent history (Flag F-R7). This scenario shows what full, on-time annual increases would have produced and terminates near $3,585.72 — close to, not above, the 13.1% banked figure. It is a benchmark, not a proposed increase.",
+        "Year-by-year: 6/1/2020 +$56.70 → $3,206.70; 6/1/2021 +$22.45 → $3,229.15; 6/1/2022 +$74.27 → $3,303.42; 6/1/2023 +$118.92 → $3,422.34; 6/1/2024 +$58.18 → $3,480.52; 6/1/2025 +$48.73 → $3,529.25; 6/1/2026 +$56.47 → $3,585.72."
+      ],
+      "verified_inputs": false
+    }
+  ]
+}

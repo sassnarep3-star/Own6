@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="SF 94122 rent-increase analysis: SF Rent Ordinance AGA, California Civil Code, federal Fair Housing Act, anonymized unit scenarios, notice procedure and tenant-lawyer review checklist.">
+<title>Methodology &amp; Privacy Protocol · SF 94122 Rental Increase Review</title>
+<link rel="stylesheet" href="assets/rental.css">
+</head>
+<body>
+<nav class="nav" aria-label="Rental pack navigation"><div class="nav-inner"><a class="brand" href="index.html"><span class="mark">94122</span>RENTAL INCREASE · SF</a><a href="index.html">Dashboard</a><a href="executive-summary.html">Executive Summary</a><a href="units.html">Units &amp; Scenarios</a><a href="laws-local.html">Local law (SF)</a><a href="laws-state.html">State law (CA)</a><a href="laws-federal.html">Federal &amp; HUD</a><a href="market-practices.html">Market practices</a><a href="notice-procedure.html">Notice procedure</a><a href="one-vs-both.html">One or both units</a><a href="tenant-lawyer-review.html">Tenant-lawyer review</a><a href="faq.html">FAQ</a><a href="sources.html">Sources</a><a href="methodology.html" style="color:#fff;border-bottom:2px solid #17a2c8">Methodology</a><a href="flagged.html">Flagged for Review</a></div></nav>
+<header class="page-head"><div class="wrap"><p class="crumb">Verification · how this was built</p><h1>Methodology &amp; Privacy Protocol</h1><p>Official-first verification, deterministic computations, the blank-over-unverified rule, and the placeholder protocol that keeps tenant identities out of every published page.</p></div></header>
+<main><div class="wrap">
+
+<h2>How this was verified</h2>
+<ol class="tight">
+<li><strong>Official-first.</strong> Every legal/regulatory value traces to an .gov / .ca.gov / federalregister.gov page (or the official SF code library) read on 2026-11-06 — see <a href="sources.html">Sources</a>. leginfo.legislature.ca.gov, sf.gov and hud.gov pages were fetched and read directly.</li>
+<li><strong>Form 571 for history.</strong> The complete 45-period AGA table was copied verbatim from the official Rent Board Form 571 PDF (2026-11-06), including its footnote on the two 1992–93 increases.</li>
+<li><strong>Computed values are labeled, never passed off as official.</strong> Dollar increases and scenario tables are produced deterministically by <code>scripts/build_rental.py</code> from <code>data/rental/scenarios.json</code> using exact decimal arithmetic. They are illustrations, not Rent Board determinations.</li>
+<li><strong>Blank beats unverified.</strong> Where a value could not be read from an official page (HUD area-level FY2027 FMRs — F-R2; Unit 2's current base rent — F-R7), it is blank and flagged. Nothing is inferred or filled in from secondary sites.</li>
+<li><strong>Banking math follows SF.gov exactly:</strong> banked percentages are <em>added</em>, multiplied by the <em>current</em> base rent; never compounded or prorated; a skip is bankable only after ≥24 full months without any increase; banked amounts never expire during the tenancy.</li>
+<li><strong>Notice periods</strong> follow Civil Code §827(b): ≤10% → 30 days; &gt;10% (alone or combined) → 90 days; mail adds 5 days (incorporating CCP §1013).</li>
+<li><strong>Privacy protocol.</strong> Tenant names replaced by placeholders (Tenants A–F) everywhere, including this page and the repository history of this pack. Dates and dollar amounts preserved exactly as recorded in the underlying documents. No street address beyond 94122 is published. The placeholder mapping is kept only in the private source material, never committed.</li>
+<li><strong>No legal advice.</strong> This pack informs; it does not represent. SF tenants facing eviction have a right to free counsel (S-11); all tenants can call Rent Board counselors (S-05).</li>
+</ol>
+
+<h2>Anonymization mapping (private; not published)</h2>
+<div class="table-wrap"><table class=""><caption>Placeholder legend</caption><thead><tr><th scope="col">Placeholder</th><th scope="col">Role</th></tr></thead><tbody>
+
+<tr><td><a href="flagged.html#F-R8">Tenant A</a></td><td>Unit 1 — initial and continuing tenant</td></tr>
+<tr><td><a href="flagged.html#F-R8">Tenant B</a></td><td>Unit 1 — initial tenant only</td></tr>
+<tr><td><a href="flagged.html#F-R8">Tenant C</a></td><td>Unit 1 — initial tenant only</td></tr>
+<tr><td><a href="flagged.html#F-R8">Tenant D</a></td><td>Unit 1 — continuing tenancy (from April 1, 2026 records)</td></tr>
+<tr><td><a href="flagged.html#F-R8">Tenant E</a></td><td>Unit 2 — tenant since June 1, 2019</td></tr>
+<tr><td><a href="flagged.html#F-R8">Tenant F</a></td><td>Unit 2 — tenant since June 1, 2019</td></tr>
+</tbody></table></div>
+
+<p class="small">Letters are labels only; no inference about identity, count, or relationship of occupants may be drawn. Dates and amounts are unchanged from the source records.</p>
+
+<h2>Verification status summary</h2>
+<div class="table-wrap"><table class=""><caption>What is verified vs flagged</caption><thead><tr><th scope="col">Area</th><th scope="col">Status</th><th scope="col">Where</th></tr></thead><tbody>
+
+<tr><td>AGA current (1.6%) and history (Form 571)</td><td><span class="badge ok">verified</span></td><td><a href="laws-local.html">Local law</a></td></tr>
+<tr><td>Notice periods (30/90 days, mail +5)</td><td><span class="badge ok">verified</span></td><td><a href="notice-procedure.html">Notice procedure</a></td></tr>
+<tr><td>Banking mechanics; license requirement; no roommate surcharge; no rounding</td><td><span class="badge ok">verified</span></td><td><a href="laws-local.html">Local law</a></td></tr>
+<tr><td>Scenario dollar math (from verified rates)</td><td><span class="badge ok">verified rates</span> · unit 2 base <span class="badge warn">unverified</span></td><td><a href="units.html">Units</a></td></tr>
+<tr><td>HUD area-level FY2027 FMRs</td><td><span class="badge warn">blank · F-R2</span></td><td><a href="laws-federal.html">Federal</a></td></tr>
+<tr><td>Unit 2 current lawful base rent</td><td><span class="badge warn">unverified · F-R7</span></td><td><a href="flagged.html#F-R7">F-R7</a></td></tr>
+<tr><td>Unit 1 2025 commencement theory (vacancy decontrol)</td><td><span class="badge warn">unverified · F-R4</span></td><td><a href="flagged.html#F-R4">F-R4</a></td></tr>
+<tr><td>2026-27 AGA methodology (geometric-mean CPI story)</td><td><span class="badge warn">secondary only · F-R6</span></td><td><a href="flagged.html#F-R6">F-R6</a></td></tr>
+<tr><td>Corporate-vs-individual practice claims</td><td><span class="badge warn">labeled practice · F-R13</span></td><td><a href="market-practices.html">Market practices</a></td></tr>
+</tbody></table></div>
+
+
+</div></main>
+<footer class="footer"><div class="wrap"><p><strong>SF 94122 Rental Increase Review.</strong> Prepared 2026-11-06 from official sources read 2026-11-06. Not legal advice. Personal information is anonymized (placeholders Tenants A–F); dates and amounts are preserved. Every table row carries an official source link; unverifiable values are blank and listed on <a href="flagged.html">Flagged for Review</a>. Building: rent-controlled, built 1940. This pack is not legal advice and creates no attorney–client relationship.</p></div></footer>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{
+  "privacy_note": "All personal information is anonymized. Placeholder names (Tenant A through Tenant F) replace every real name. Dates and dollar amounts are preserved exactly as recorded. No addresses beyond the 94122 Outer Sunset zip code are published.",
+  "property": {
+    "location": "San Francisco, CA 94122 (Outer Sunset)",
+    "building_year_built": 1940,
+    "coverages": "Residential unit(s) in a pre-June 13, 1979 building -> full Rent Ordinance protection (just cause + rent increase limits), per SF.gov 'Find out if San Francisco's rental laws apply to you'.",
+    "units": 2
+  },
+  "units": [
+    {
+      "unit": "Unit 1",
+      "last_lease_start": "2025-02-01",
+      "last_lease_start_label": "February 1, 2025",
+      "monthly_rent_at_last_lease_start": 3995,
+      "initial_lease_tenants_placeholder": ["Tenant A", "Tenant B", "Tenant C"],
+      "continuing_tenancy_date": "2026-04-01",
+      "continuing_tenancy_date_label": "April 1, 2026",
+      "continuing_tenancy_monthly_rent": 3995,
+      "continuing_tenancy_current_tenants_placeholder": ["Tenant A", "Tenant D"],
+      "tenancy_notes": "Continuing tenancy: rent unchanged at $3,995/month from February 1, 2025 through at least April 1, 2026. Initial lease cohort (Tenants A, B, C) and current occupants (Tenants A, D) differ; the records do not establish whether this reflects tenant move-outs, a new roommate, or a documentation note. An added roommate is NOT a lawful basis for added rent (SF.gov rent-increase rules).",
+      "flags": ["F-R3", "F-R4", "F-R5"]
+    },
+    {
+      "unit": "Unit 2",
+      "last_lease_start": "2019-06-01",
+      "last_lease_start_label": "June 1, 2019",
+      "monthly_rent_at_last_lease_start": 3150,
+      "initial_lease_tenants_placeholder": ["Tenant E", "Tenant F"],
+      "continuing_tenancy_date": null,
+      "continuing_tenancy_monthly_rent": null,
+      "tenancy_notes": "Lease start June 1, 2019 at $3,150/month; current lawful base rent NOT confirmed in the records reviewed. Any rent-controlled increase imposed since June 1, 2019 must come from the ledger/Housing Inventory registration. All Unit 2 computations in this pack assume, without verification, that the base rent is still $3,150 (see Flag F-R7).",
+      "flags": ["F-R7"]
+    }
+  ]
+}
