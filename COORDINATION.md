@@ -1133,3 +1133,36 @@ Arena requires the fixed session branch; session-specific branches are not permi
 - Needs review: license, coverage, lawful base and prior increases, lease and occupancy continuity, rate after February 2027, attorney review, comparative industry practice. Official Rent Board examples contain apparent date typos; highlighted on dashboard. Exact dates and rents can be identifying even without names; retained per request.
 - Integration in progress; publishing path `docs/sf-rent/` does not alter shared navigation, which is claimed by other open sessions.
 - PR #57: https://github.com/sassnarep3-star/Own6/pull/57. Initial CI identified the legacy assurance inventory as stale after this board and the new site changed; integration regenerates its derived inventory/pages without altering underlying source claims. No other session's active source scope was modified.
+
+---
+
+## Session arena/983e0354-own6 — SF rental increase analysis + site section (2026-11-06)
+
+Branch fixed to `arena/983e0354-own6` (Arena rule). New, additive scope: an anonymized
+rent-increase analysis for a two-unit San Francisco (ZIP 94122) building built in 1940,
+plus a new Pages section `docs/rental-sf/**`. All pre-existing files (NBA work) are out of scope
+and untouched; shared files are edited only at integration (one additive nav link in
+`docs/index.html`, logged below).
+
+**Privacy rule (user requirement):** no tenant names or personal identifiers are written to the
+repo or the site. Units and tenants are anonymized (Unit 1 / Unit 2; Tenant placeholders). Dates
+and amounts are published unchanged as permitted by the user.
+
+| Task | Status | Owner | Exclusive files |
+|---|---|---|---|
+| RS1 Repo review + irregularity log for this scope | done | 983e0354 | this section, `audit/RENTAL_SF_REPO_REVIEW.md` |
+| RS2 Official-source research: SF Rent Ordinance (AGA, banking, license, notice, coverage, vacancy decontrol) | done | 983e0354 | `data/rental_sf/sources.json` (rows S01–S20) |
+| RS3 Official-source research: state (AB 1482 / Civ Code 1947.12, 827, 1942.5) + federal (FHA, DOJ RealPage) | done | 983e0354 | `data/rental_sf/sources.json` |
+| RS4 Analysis data (anonymized scenarios, calculations) | done | 983e0354 | `data/rental_sf/analysis.json` |
+| RS5 Site section `docs/rental-sf/**` (dashboard + subpages, tables, findings, flagged) | done | 983e0354 | `docs/rental-sf/**` |
+| RS6 Executive summary (anonymized) | done | 983e0354 | `EXECUTIVE_SUMMARY_RENTAL_SF.md` |
+| RS7 Checker: internal links, https sources, privacy tokens, flag coverage | done | 983e0354 | `scripts/check_rental_sf.py` |
+| RS8 Integration: nav link, PR, merge, Pages confirmation, record | done | 983e0354 | this section + one additive `docs/index.html` nav link |
+
+### Verification standard applied
+Every factual value on the site cites an official source read this session
+(sf.gov, oag.ca.gov, leginfo.legislature.ca.gov, hud.gov, calcivilrights.ca.gov, justice.gov,
+law.justia not used; amlegal referenced only as the official SF code host). Anything not
+confirmable from an official source is left blank/UNVERIFIED and listed on
+`docs/rental-sf/flagged.html`. Dates/rent amounts are the user's own data (kept, dates/amounts
+unchanged). Calculations are labeled computations, not law.
