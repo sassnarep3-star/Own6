@@ -1189,13 +1189,21 @@ Three parallel SF rental implementations landed/opened the same day, all additiv
 ### Task board
 | Task | Status | Owner | Files / record |
 |---|---|---|---|
-| I1 Independent source, privacy, and requirement audit of the two already-open SF rental PRs; document verified issues and select a non-duplicative integration path | in progress | arena/06faec62-own6 | `audit/RENTAL_SF_INTEGRATION_REVIEW_2026_11_06.md`, this append-only section |
-| I2 Final integration of the selected rental dashboard, checks, Pages confirmation, and duplicate-PR disposition | unclaimed | — | integration record only; no edits to `docs/sf-rent/**` or `docs/rental-sf/**` without a logged scope request; shared `docs/index.html` remains owned by open PRs #48/#54 |
+| I1 Independent source, privacy, and requirement audit of the parallel SF rental PRs and merged content; document verified issues and select a non-duplicative integration path | in progress | arena/06faec62-own6 | `audit/RENTAL_SF_INTEGRATION_REVIEW_2026_11_06.md`, this append-only section |
+| I2 Final integration of the selected rental dashboard, strengthened checks, Pages confirmation, and duplicate-PR disposition | in progress | arena/06faec62-own6 | this append-only section of `COORDINATION.md`; no edits to `docs/sf-rent/**` or `docs/rental-sf/**` without a logged scope request; shared `docs/index.html` remains out of scope while PRs #48/#54 are open |
+| I3 Correct the completed/merged `docs/rental/` pack against the source/privacy audit; add fail-closed checks and regression tests | in progress | arena/06faec62-own6 | `docs/rental/**`, `data/rental/**`, `scripts/build_rental.py`, `scripts/check_rental.py`, `tests/test_rental.py`, `.github/workflows/rental-verify.yml`, `RENTAL_INCREASE_SF_EXECUTIVE_SUMMARY.md` |
 
-### Coordination finding at claim
-Two open PRs already claim the same San Francisco rent-increase request: #57 (`docs/sf-rent/**`) and #58 (`docs/rental-sf/**`). This session will not duplicate or edit either claimed site scope. It is limited to independent verification, privacy/evidence review, and final integration coordination. No navigation change is claimed while PRs #48 and #54 also own `docs/index.html`.
+### Coordination finding at initial claim
+At initial claim, PR #57 (`docs/sf-rent/**`) and PR #58 (`docs/rental-sf/**`) were open and claimed parallel SF rental presentations. This session did not edit either site scope. The shared `docs/index.html` remains out of scope while PRs #48 and #54 are open.
+
+### Updated duplicate-PR dispositions (2026-11-06)
+- PR #57 (`docs/sf-rent/`) and PR #60 (`docs/rental/`) are merged. PR #58, #59, #61, and #62 were reviewed, commented on, and closed without merging; their disposition/reasons are in the respective PR conversations. `docs/rental/` is selected as the correction target because its full multi-page pack and build tooling are already merged; `docs/sf-rent/**` remains outside this claim because its session scope has not been released.
+- PR #62's closed branch may still expose a committed private mapping. Closing its PR does not erase branch history; do not copy or repeat its contents in public materials. This exposure is recorded as a privacy incident for the repository owner to remediate.
+- PRs #48 and #54 remain open and both touch `docs/index.html`; this session will not edit that shared file or alter the existing navigation.
+- Pages Actions run `42228017202` completed successfully for `053df3921904ef107bb60970141e199e69ce4179` on 2026-11-06; a direct live-URL check is still pending.
 
 ### Claim log
 - 2026-11-06: read the full coordination ledger and examined open-PR scopes before claiming I1/I2. Official legal facts will be re-read from government primary sources; all private tenancy facts remain owner-reported and unverified.
+- 2026-11-06: after PRs #58, #59, #61, and #62 were closed without merge and PRs #57/#60 were confirmed merged, claimed I3's correction scope over the previously completed `docs/rental/` pack. Its prior completion does not attest to the stronger privacy/source requirements in this task; no active branch scope is overwritten. No `docs/sf-rent/**`, `docs/rental-sf/**`, `README.md`, or shared `docs/index.html` edits are claimed.
 - Rebase conflict 1: origin/main had merged PR #57 and appended its rental-session record to this same coordination file. Resolved by preserving the complete upstream record and this session’s claim, with no site files changed.
 - Rebase conflict 2: origin/main then added PR #60/#63 integration records to the same append-only file. Resolved by retaining both complete upstream records and this session’s section; no other session’s work was discarded.
