@@ -1119,3 +1119,23 @@ Built origin pack above; sources read 2026-11-05: NBA glossary, Stats FAQ, Terms
 - Integration fix (a1a3a565): scripts/audit_repo.py now excludes generated docs/coverage/ + data/source_coverage/ from inventory (same self-reference rule as docs/assurance/); without it audit<->coverage counts diverged +2,988/run after adding pages. Regenerated assurance+coverage to stable fixed point (audit reruns identical: 244 files/1,172 records); 125 tests pass.
 ### Final record (a1a3a565)
 PR #51 https://github.com/sassnarep3-star/Own6/pull/51 MERGED 2026-11-05T21:57:36Z merge SHA 61f4442a5f75fe1860b6677f76f280ae1a1e12a3; all 10 PR checks passed. Pages API built for 61f4442; live https://sassnarep3-star.github.io/Own6/docs/origin/ renders. N1-N4 done; F-O1..F-O4 needs review on docs/origin/flagged.html (non-blocking).
+
+---
+
+## Session arena/10504d38-own6 — SF rental increase analysis pack (2026-11-06)
+
+Fixed Arena branch `arena/10504d38-own6`; no other branch. Repo review shows this repo is a multi-purpose analysis repo with a live GitHub Pages site (source: `main` `/`, legacy build). This session adds a fully additive SF rent-increase analysis pack; no existing file scope is rewritten except one additive navigation link in `docs/index.html` at integration time if free.
+
+| Task | Status | Owner | Files (exclusive) |
+|---|---|---|---|
+| R1 Repo review + irregularity log for this pack | done at claim time | 10504d38 | this section, `docs/rental/flagged.html` |
+| R2 Official-source research (SF Rent Board AGA, SF Rent Ordinance, CA Civil Code §827/§1947.12, Costa-Hawkins, HUD FMR, FEHA/FHA) | in progress | 10504d38 | `data/rental/*.json`, `docs/rental/sources.html` |
+| R3 Anonymized unit profiles + computed increase scenarios (dates/amounts preserved, placeholder names) | in progress | 10504d38 | `data/rental/units.json`, `docs/rental/units.html` |
+| R4 Site: docs/rental/ dashboard + subpages (exec summary, laws local/state/federal, market practices, notice procedure, discrimination analysis, FAQ, flagged, sources) | in progress | 10504d38 | `docs/rental/**`, `scripts/check_rental.py` |
+| R5 Executive summary (markdown) + repo README pointer | in progress | 10504d38 | `RENTAL_INCREASE_SF_EXECUTIVE_SUMMARY.md`, README append-only section |
+| R6 Integration: checks, PR to main, merge, Pages confirm, record result here | in progress | 10504d38 | this section, one additive nav link in `docs/index.html` |
+
+Rules: no manual input; anonymize all tenant personal info (placeholder names only); keep dates/amounts unchanged; every published value links to an official source; unverifiable values left blank and flagged; CA/SF rent-control analysis only, no legal advice.
+
+Claim log:
+- 2026-11-06: claimed R1–R6; read the board, git log, open PR list and the GitHub Pages API before claiming.
