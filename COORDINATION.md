@@ -1119,3 +1119,17 @@ Built origin pack above; sources read 2026-11-05: NBA glossary, Stats FAQ, Terms
 - Integration fix (a1a3a565): scripts/audit_repo.py now excludes generated docs/coverage/ + data/source_coverage/ from inventory (same self-reference rule as docs/assurance/); without it audit<->coverage counts diverged +2,988/run after adding pages. Regenerated assurance+coverage to stable fixed point (audit reruns identical: 244 files/1,172 records); 125 tests pass.
 ### Final record (a1a3a565)
 PR #51 https://github.com/sassnarep3-star/Own6/pull/51 MERGED 2026-11-05T21:57:36Z merge SHA 61f4442a5f75fe1860b6677f76f280ae1a1e12a3; all 10 PR checks passed. Pages API built for 61f4442; live https://sassnarep3-star.github.io/Own6/docs/origin/ renders. N1-N4 done; F-O1..F-O4 needs review on docs/origin/flagged.html (non-blocking).
+
+## Session arena/47644160-own6 — SF rental research (2026-11-06)
+Arena requires the fixed session branch; session-specific branches are not permitted. Existing NBA scopes remain untouched.
+| Task | Status | Owner | Scope |
+|---|---|---|---|
+| SF rental official-source research, privacy-safe dashboard and integration | in progress | 47644160 | `docs/sf-rent/**`, `scripts/check_sf_rent.py`, this section of `COORDINATION.md`; additive navigation at integration if available |
+
+### Research completion and review (47644160)
+- Dashboard: `docs/sf-rent/`; checker: `scripts/check_sf_rent.py`. Private names and initials excluded; reported facts are explicitly unverified and calculations conditional.
+- Official sources reviewed 2026-11-06: SF Rent Board [rates and notices](https://www.sf.gov/learn-about-rent-increases-san-francisco), [banking](https://www.sf.gov/information--banked-rent-increases), [irregular periods](https://www.sf.gov/information--increasing-rents-during-irregular-periods), [license](https://www.sf.gov/notice-of-owner-noncompliance-with-housing-inventory), [state act](https://www.sf.gov/reports--california-tenant-protection-act-2019-ab-1482), [coverage](https://sf.gov/information/find-out-if-san-franciscos-rental-law-applies-you), [capital petitions](https://www.sf.gov/information--capital-improvement-petitions); California [fair housing](https://calcivilrights.ca.gov/housing/); [HUD](https://www.hud.gov/sites/dfiles/PIH/documents/HCV_Guidebook-Chapter_Fair-Housing_April-2025.pdf). Each row links relevant official authority; private facts cannot be verified from it.
+- Verification: checker confirms five pages, source links on data rows and local links; arithmetic checked (3995 × .016 = 63.92; 3150 × .016 = 50.40). No actual legal maximum or banked balance asserted for either unit.
+- Needs review: license, coverage, lawful base and prior increases, lease and occupancy continuity, rate after February 2027, attorney review, comparative industry practice. Official Rent Board examples contain apparent date typos; highlighted on dashboard. Exact dates and rents can be identifying even without names; retained per request.
+- Integration in progress; publishing path `docs/sf-rent/` does not alter shared navigation, which is claimed by other open sessions.
+- PR #57: https://github.com/sassnarep3-star/Own6/pull/57. Initial CI identified the legacy assurance inventory as stale after this board and the new site changed; integration regenerates its derived inventory/pages without altering underlying source claims. No other session's active source scope was modified.
