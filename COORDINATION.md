@@ -1119,3 +1119,52 @@ Built origin pack above; sources read 2026-11-05: NBA glossary, Stats FAQ, Terms
 - Integration fix (a1a3a565): scripts/audit_repo.py now excludes generated docs/coverage/ + data/source_coverage/ from inventory (same self-reference rule as docs/assurance/); without it audit<->coverage counts diverged +2,988/run after adding pages. Regenerated assurance+coverage to stable fixed point (audit reruns identical: 244 files/1,172 records); 125 tests pass.
 ### Final record (a1a3a565)
 PR #51 https://github.com/sassnarep3-star/Own6/pull/51 MERGED 2026-11-05T21:57:36Z merge SHA 61f4442a5f75fe1860b6677f76f280ae1a1e12a3; all 10 PR checks passed. Pages API built for 61f4442; live https://sassnarep3-star.github.io/Own6/docs/origin/ renders. N1-N4 done; F-O1..F-O4 needs review on docs/origin/flagged.html (non-blocking).
+
+---
+
+## Session arena/f3990e7b-own6 — San Francisco Rental Increase Research — Outer Sunset 94122 (2026-11-06)
+
+Arena branch fixed to `arena/f3990e7b-own6`; no alternate branch created. Claim committed and pushed before implementation as required. Prior sections preserved unchanged. This session does not edit other sessions' claimed scopes except via this coordination append and a final integration additive navigation link. All work verifies line-by-line against official sources; no hallucinations; every table row has an official HTTPS source link or is flagged unverified/blank.
+
+### Status legend
+
+`unclaimed` · `in progress` · `done` · `needs review` (published on Flagged for Review page; does not block anything)
+
+### Task board (session f3990e7b)
+
+| Task | Status | Owner | Exclusive files | Notes |
+|---|---|---|---|---|
+| R1 Executive summary (anonymized) + tenancy record | in progress | f3990e7b | `research/RENTAL_EXECUTIVE_SUMMARY.md`, `data/rental/units.csv`, `data/rental/tenancy_anonymization_map.json` (internal only, not published) | Dates/amounts preserved; PII anonymized to Tenant A-F; privacy priority |
+| R2 Local-law data collection + verification (SF Rent Ordinance Chapter 37, Rent Board) | in progress | f3990e7b | `data/rental/sf_allowable_increases.csv`, `data/rental/sf_rent_board_rules.csv`, `data/rental/sources_rental.csv` | Every row official source link; blank if unverified |
+| R3 State + federal law data (AB1482 Civil Code 1947.12/1946.2, Costa-Hawkins, HUD Fair Housing Act, notice Civil Code 827) | in progress | f3990e7b | `data/rental/state_federal_laws.csv`, same sources file | Official leginfo.legislature.ca.gov + hud.gov links |
+| R4 Reasonable increase analysis + banking + Outer Sunset market context 94122 | in progress | f3990e7b | `data/rental/reasonable_increase_analysis.csv`, `data/rental/market_context_94122.csv`, `data/rental/calculations_per_unit.csv` | Line-by-line verified; recomputed math labeled as computation |
+| R5 Corporate vs individual practices, notice procedure, discrimination analysis, tenant-lawyer review | in progress | f3990e7b | `data/rental/notice_requirements.csv`, `data/rental/corporate_vs_individual_practices.csv`, `data/rental/discrimination_analysis.csv`, `data/rental/lawyer_review_checklist.csv` | Every row source-linked; no invented practice |
+| R6 Site generation — clean dashboard + subpages (tables, findings) with build/check gate | in progress | f3990e7b | `docs/rental/**`, `scripts/build_rental.py`, `scripts/check_rental.py`, `tests/test_rental.py`, `assets` under docs/rental | Tables per category; every row has source; flagged page |
+| R7 Final integration: full re-verification, link checks, PR to main, merge, Pages deploy confirmation | unclaimed | f3990e7b | `COORDINATION.md` (this section), `README.md` (one additive link), `docs/index.html` (one additive nav link), `EXECUTIVE_SUMMARY.md` appendix (optional), `.github/workflows/rental-verify.yml` | Only after R1–R6 done; shared outputs changed here |
+
+### Coordination rules for this session
+
+- No manual input required from user; all tasks automated via scripts with deterministic rebuilds.
+- No value entered without direct official-source read; unverified blanks and flagged.
+- PII anonymized: published site uses Tenant A-F and placeholder addresses; internal map file is not published on site but retained in repo for audit (or excluded from Pages).
+- Shared outputs (root navigation, landing) changed only in R7 after all other tasks done.
+- Small frequent commits; git pull --rebase before every push; resolve conflicts by preserving other session's work.
+- If claim >60 min without commit, handoff allowed with log.
+
+### Claim log
+
+- 2026-11-06: Read full COORDINATION.md (1122 lines at b5a53da), checked git branches, reviewed docs/ structure, verified official SF Rent Board page via fetch_page, checked leginfo Civil Code 1947.12 via fetch_page. Claimed R1–R7 on fixed branch arena/f3990e7b-own6. Commit and push claim now before implementation.
+
+### Sources and verification log — to be completed per task
+
+Each entry checked against official host listed. Verified means text was read from that page during this session via fetch_page/web_search with URL recorded.
+
+| ID | Source (official) | Used for | Read on | Result |
+|---|---|---|---|---|
+| (to be filled) | | | | |
+
+### Cross-scope requests (logged not edited)
+
+| Request | Target file owner | Requested change |
+|---|---|---|
+| None at claim time | — | — |
