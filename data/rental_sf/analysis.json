@@ -1,0 +1,59 @@
+{
+  "project": "SF rental increase analysis (94122, building built 1940)",
+  "session": "arena/983e0354-own6",
+  "prepared_on": "2026-11-06",
+  "privacy": "Tenant names and leaseholder identities are internal to the user's file and are NOT recorded here. Units and tenants are anonymized (Unit 1 / Unit 2; Tenant placeholders). Dates and amounts are kept unchanged as directed by the user.",
+  "property": {
+    "location_zip": "94122 (San Francisco Outer Sunset)",
+    "building_built": 1940,
+    "unit_count": "2 in this analysis (full building scope not asserted)",
+    "coverage_assumption": "Pre-June 13, 1979 construction in a multi-unit San Francisco building -> covered by the SF Rent Ordinance (rent control + eviction protection), unless a full exemption applies (e.g., single-family home/condo per Costa-Hawkins, subsidized unit, etc.). NOT confirmable from official sources by this session; flagged (see flagged.html F-01).",
+    "zip_note": "ZIP 94122 = San Francisco (Outer Sunset). Rent control is city-wide; no 94122-specific rate exists."
+  },
+  "units": [
+    {
+      "unit": "Unit 1",
+      "last_lease_start": "2025-02-01",
+      "last_known_base_rent": "3995.00",
+      "initial_tenancy": "2025-02-01 (initial lease); multiple occupants at start, reduced to a continuing tenancy from 2026-04-01 with rent unchanged at $3,995.00",
+      "continuing_tenancy_from": "2026-04-01",
+      "continuing_base_rent": "3995.00",
+      "anniversary_date": "February 1 (assuming lawful base rent set 2025-02-01 and no prior increase)",
+      "current_effective_aga": "1.6% (AGA period 3/1/2026-2/28/2027) [S01,S02,S03]",
+      "unit1_note": "Reduced household (one original occupant remains; one new occupant joined 2026-04-01). Under SF rules this is NOT a vacancy; the initial rent cannot be reset, and rent may NOT be raised because a new roommate moved in [S01]."
+    },
+    {
+      "unit": "Unit 2",
+      "last_lease_start": "2019-06-01",
+      "last_known_base_rent": "3150.00",
+      "initial_tenancy": "2019-06-01; occupants unchanged per user's brief",
+      "continuing_tenancy_from": null,
+      "continuing_base_rent": null,
+      "anniversary_date": "June 1 (assuming no prior increases; anniversary resets to the date of any increase)",
+      "current_effective_aga": "1.6% (AGA period 3/1/2026-2/28/2027) [S01,S02,S03]",
+      "unit2_note": "User's brief lists the 2019-06-01 lease as the last lease event and shows no subsequent increases. Whether $3,150 remains the lawful base rent (i.e., no lawful increases were imposed since June 2019) is UNVERIFIED; flagged (see flagged.html F-02). If any increase was imposed after 2019-06-01, the banking calculation below changes and must be redone from actual records."
+    }
+  ],
+  "calculations": [
+    {"id": "C-U1-A", "unit": "Unit 1", "label": "Scenario A — current-period 1.6% increase only (recommended baseline)", "formula": "$3,995.00 × 1.6% = $63.92; new base rent $4,058.92", "amount": "63.92", "new_rent": "4058.92", "notice": "30-day written notice (increase ≤10%); +5 days if mailed [S09,S01]", "license_required": true, "status": "computed", "source_refs": ["S01","S02","S03"], "notes": "Base rent only; no rounding up; use the 1.6% rate in effect on the effective date; once per 12 months [S01]."},
+    {"id": "C-U1-B", "unit": "Unit 1", "label": "Scenario B — skip 2026 AGA entirely, take 1.6% on next anniversary (Feb 1, 2027)", "formula": "$3,995.00 × 1.6% = $63.92; new base rent $4,058.92", "amount": "63.92", "new_rent": "4058.92", "notice": "30-day written notice, serve by ~Jan 2, 2027 for Feb 1, 2027 effective date", "license_required": true, "status": "computed", "source_refs": ["S01","S02","S03"], "notes": "The 1.4% AGA that became available 2026-02-01, if never imposed for 24+ full months, banks; imposing any increase resets the 24-month clock for skipped prior increments. Interaction of the 2026 skipped increment with a 2027 increase is a judgment call — confirm with the SF Rent Board counselor (415-252-4600) before serving [S04,S05]."},
+    {"id": "C-U1-C", "unit": "Unit 1", "label": "Scenario C — banked 2026 (1.4%) + 2027 (1.6%) if rules permit = 3.0%", "formula": "$3,995.00 × (1.4% + 1.6%) = $3,995.00 × 3.0% = $119.85; new base rent $4,114.85", "amount": "119.85", "new_rent": "4114.85", "notice": "30-day written notice (≤10%); +5 days if mailed; notice must itemize the banked portion [S04]", "license_required": true, "status": "computed-with-flag", "source_refs": ["S01","S03","S04"], "notes": "FLAGGED: the 2026 1.4% increment may only be imposed once at least 24 full months have passed without any increase (≈ 2028-02-01 if still no increase); imposing any earlier increase forfeits it. Treat 3.0% as a ceiling, not a plan; requires Rent Board counselor confirmation and a rent increase license [S04]. Do NOT use this figure in a notice without written confirmation of availability."},
+    {"id": "C-U2-A", "unit": "Unit 2", "label": "Scenario A — current-period 1.6% increase only (recommended baseline)", "formula": "$3,150.00 × 1.6% = $50.40; new base rent $3,200.40", "amount": "50.40", "new_rent": "3200.40", "notice": "30-day written notice (≤10%); +5 days if mailed [S09,S01]", "license_required": true, "status": "computed", "source_refs": ["S01","S02","S03"], "notes": "Assumes $3,150.00 is still the lawful base rent (no increases imposed since 2019-06-01) — UNVERIFIED (flagged F-02)."},
+    {"id": "C-U2-B", "unit": "Unit 2", "label": "Scenario B — banked AGAs 2020-2025 (11.5%) + current 1.6% = 13.1% maximum (requires verification)", "formula": "$3,150.00 × (1.8 + 0.7 + 2.3 + 3.6 + 1.7 + 1.4 + 1.6)% = $3,150.00 × 13.1% = $412.65; new base rent $3,562.65", "amount": "412.65", "new_rent": "3562.65", "notice": "90-day written notice (increase >10%); +5 days if mailed; notice must itemize banked and current portions [S09,S04]", "license_required": true, "status": "computed-with-flag", "source_refs": ["S03","S04","S09"], "notes": "FLAGGED F-02/F-06: valid only if (i) NO increase of any amount was lawfully imposed since 2019-06-01, (ii) each skipped increment has aged ≥24 full months without an increase before imposition (the 2025-06-01 increment, 1.4%, qualifies only on/after 2027-06-01; the 2026-06-01 increment, 1.6%, is the current annual increase), (iii) total single-imposition ≤ once per 12 months, (iv) rent increase license in effect on the effective date, (v) increase not imposed in retaliation and not above any tenant's protest. Banking percentages are added, never compounded; current base rent is the multiplier [S03,S04]."},
+    {"id": "C-U2-B2", "unit": "Unit 2", "label": "Scenario B2 — banked AGAs only (11.5%), defer the 1.6%", "formula": "$3,150.00 × 11.5% = $362.25; new base rent $3,512.25", "amount": "362.25", "new_rent": "3512.25", "notice": "90-day written notice (>10%); +5 days if mailed; banked portion itemized [S09,S04]", "license_required": true, "status": "computed-with-flag", "source_refs": ["S03","S04","S09"], "notes": "Same flags as Scenario B. If imposed on/after 2027-06-01, the 1.4% (2025-06-01) increment is includable."},
+    {"id": "C-U2-C", "unit": "Unit 2", "label": "Scenario C — no increase now; preserve banking rights", "formula": "$0.00; rent remains $3,150.00", "amount": "0.00", "new_rent": "3150.00", "notice": "none", "license_required": false, "status": "analysis", "source_refs": ["S04"], "notes": "Skipped increases bank (they do not expire during a tenancy), but imposition still requires a license and correct notice; doing nothing now forfeits nothing beyond the anniversary-date mechanics."}
+  ],
+  "scenario_assumptions": [
+    "Building is covered by the SF Rent Ordinance (pre-June 13, 1979, multi-unit). If either unit is a condominium/single-family unit exempt under Costa-Hawkins, or covered by another full exemption, the analysis changes (SF cap would not apply; AB 1482 may still cap at 5%+CPI ≤10% unless an exemption applies). Not confirmable officially — UNVERIFIED, flagged F-01.",
+    "No lawful increases were imposed for Unit 2 at any point after 2019-06-01. UNVERIFIED — flagged F-02.",
+    "Unit 1's continuing tenancy with an added occupant from 2026-04-01 is not a vacancy and supports no increase, and no surcharge for the added occupant may be charged [S01].",
+    "No capital-improvement or other passthrough petitions are assumed. Any such passthrough requires Rent Board approval via petition and is out of scope — flagged F-05.",
+    "AGA percentages are current as of 2026-11-06 (1.6% through 2027-02-28). The 2027-28 AGA is announced ~Jan 2027 and is not yet available — left blank, flagged F-07.",
+    "All dollar figures are computations by this analysis, not official statements; rounding to cents, banker's rounding not applied."
+  ],
+  "answers": {
+    "reasonable_increase": "For both covered units, the defensible 'reasonable and normal' increase today is the annual allowable 1.6% (Unit 1: $63.92 → $4,058.92; Unit 2: $50.40 → $3,200.40), once per 12 months, on/after the anniversary, with proper 30-day notice, a Housing Inventory report and a rent increase license. Larger banked amounts (Unit 2 only, up to 13.1% / $412.65 / $3,562.65) are lawful ONLY after full verification of the no-increase history and the 24-month banking rule, and require a 90-day notice and itemized banking disclosure.",
+    "one_or_both": "Raise both units with the same method and percentage (uniform 1.6%), or raise neither — see fairness.html. Different treatment is legally possible only on documented, objective, non-protected-class grounds (e.g., verified banking differences) and is harder to defend under tenant-lawyer review; uniform treatment is the recommended course.",
+    "ss_pass_tenant_review": "A 1.6% uniform increase with correct notice, license and records satisfies the elements any SF tenant lawyer would check. A >10% banked increase without bulletproof documentation would not."
+  }
+}
