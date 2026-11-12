@@ -1220,3 +1220,15 @@ Arena platform constraint fixes this session to branch `arena/05a657f4-own6` (cr
   - `https://sassnarep3-star.github.io/Own6/docs/sf-94122/notice-and-reasons.html`
   - `https://sassnarep3-star.github.io/Own6/docs/sf-94122/tenant-scrutiny-and-fairness.html`
   - `https://sassnarep3-star.github.io/Own6/docs/sf-94122/flagged.html`
+
+## Session `arena/9e78abc5-own6` — NFL research and decision-support section (2026-11-12)
+
+Arena fixes this work to branch `arena/9e78abc5-own6`; no `session-*` branch is created. Existing NBA research and unrelated project scopes are preserved.
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| NFL strategy/research framework, evidence boundaries and decision questions | in progress | `arena/9e78abc5-own6` | `research/NFL_EXECUTIVE_SUMMARY.md`, `data/nfl/`, `scripts/check_nfl.py`, `tests/test_nfl.py` |
+| NFL dedicated dashboard pages and source-linked flagged items | in progress | `arena/9e78abc5-own6` | `docs/nfl/` |
+| Final integration: nav, complete-site checks, PR and Pages verification | unclaimed | `arena/9e78abc5-own6` | `docs/index.html`, `COORDINATION.md` final record |
+
+Claim source review: existing `COORDINATION.md` task inventory (searched for NFL/football; no NFL task or active NFL owner found). Scope is additive and does not edit existing shared datasets or generators.
