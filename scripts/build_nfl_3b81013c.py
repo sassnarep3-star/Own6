@@ -166,15 +166,8 @@ def is_method_url(url: str) -> bool:
     return parsed.scheme == "https" and (parsed.hostname or "").lower() in METHOD_HOSTS
 
 
-def load_csv(name: str) -> list[dict[str, str]]:
-    """Load a register and enforce the three-state evidence contract."""
-    path = DATA_DIR / name
-    if not path.is_file():
-        raise DataError(f"missing register data/nfl_3b81013c/{name}")
-    with path.open(newline="", encoding="utf-8") as handle:
-        reader = csv.DictReader(handle)
-        rows = list(reader)
-        fields = reader.fieldnames or []
+def validate_register(name: str, rows: list[dict[str, str]], fields: list[str]) -> None:
+    """Enforce the three-state evidence contract on already-parsed register rows."""
     if not fields or len(set(fields)) != len(fields):
         raise DataError(f"{name}: duplicate or missing CSV headers")
     for index, row in enumerate(rows, 2):
@@ -193,6 +186,18 @@ def load_csv(name: str) -> list[dict[str, str]]:
         method = (row.get("methodology_reference_url") or "").strip()
         if method and not any(is_method_url(u) for u in _parse_url_list(method)):
             raise DataError(f"{name}:{index}: methodology URL not on the reference allowlist: {method!r}")
+
+
+def load_csv(name: str) -> list[dict[str, str]]:
+    """Load a register file and validate it."""
+    path = DATA_DIR / name
+    if not path.is_file():
+        raise DataError(f"missing register data/nfl_3b81013c/{name}")
+    with path.open(newline="", encoding="utf-8") as handle:
+        reader = csv.DictReader(handle)
+        rows = list(reader)
+        fields = reader.fieldnames or []
+    validate_register(name, rows, fields)
     return rows
 
 
