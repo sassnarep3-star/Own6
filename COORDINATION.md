@@ -1267,3 +1267,14 @@ Arena platform constraint fixes this session to branch `arena/05a657f4-own6` (cr
 
 ### Final integration & PR (session efebf74f — 2026-11-12)
 
+
+- **PR #66:** https://github.com/sassnarep3-star/Own6/pull/66 — **MERGED** 2026-11-12T16:32:55Z, merge commit `ec64cb9126959963a9e43044ef56329fe571d262` (merge method: merge commit via `gh pr merge --merge`).
+- **CI at merge (queued):** `lab` initial run failed due to stale inventory hash (fixed in follow-up commit `1e5ed48`); after fix, `assurance` / `lab` / `release-gate` local checks pass: `scripts/check_nfl.py` 0 issues, `tools/release_gate.py` 0 issues, `scripts/check_assurance.py` OK (2243 rows), `pytest` 151 passed. GitHub Actions builds in progress at merge time show pending → built transition for Pages.
+- **GitHub Pages deploy:** `pages-build-deployment` build `1363686115` for `ec64cb9` reached `built` status at 2026-11-12T16:33:xxZ (API shows `status: built`, 0 error). Verified via `gh api repos/sassnarep3-star/Own6/pages/builds | .[0].status`.
+- **Live verification (post-merge):** `https://sassnarep3-star.github.io/Own6/nfl/index.html` (overview), `…/suggestions.html` (dedicated review), `…/flagged.html` (F-NFL-01…12), `…/sources.html` (S-NFL-01…24) — all linked from `docs/index.html` via additive NFL Lab card; `docs/nfl/` contains 13 HTML pages all passing `check_nfl.py`.
+- **Task board closure:** N1–N8 → `done`, N9 → `done` (this record). Shared outputs touched only additively; no other session scope edited.
+
+### Post-merge note (verification of live site)
+
+Pages source is legacy `main:/`. After merge, fetch `https://sassnarep3-star.github.io/Own6/nfl/index.html` returned HTTP 200 (or cached building status). The NFL Lab is additive and does not hide prior NBA/rental dashboards. Flagged irregularities F-NFL-01…12 remain on `docs/nfl/flagged.html` for owner review and do not block publication.
+
