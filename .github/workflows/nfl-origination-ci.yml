@@ -1,0 +1,33 @@
+name: NFL Origination Verification Gate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/nfl_origination/**"
+      - "data/nfl_origination/**"
+      - "docs/nfl-origination/**"
+      - "research/nfl_origination/**"
+      - "NFL_ORIGINATION_EXECUTIVE_SUMMARY.md"
+      - "audit/NFL_ORIGINATION_REPO_AND_SOURCE_AUDIT.md"
+      - "scripts/build_nfl_origination.py"
+      - "scripts/check_nfl_origination.py"
+      - "tests/test_nfl_origination.py"
+      - ".github/workflows/nfl-origination-ci.yml"
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify-nfl-origination:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Run pure-stdlib unit tests & NFL Origination verifier
+        run: |
+          python3 tools/run_tests.py
+          python3 scripts/build_nfl_origination.py --check
+          python3 scripts/check_nfl_origination.py
+          python3 tools/release_gate.py
