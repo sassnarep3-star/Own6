@@ -1,0 +1,37 @@
+name: NFL research dashboard
+
+on:
+  push:
+    paths:
+      - 'data/nfl/**'
+      - 'docs/nfl/**'
+      - 'scripts/build_nfl.py'
+      - 'scripts/check_nfl.py'
+      - 'tests/test_nfl.py'
+      - '.github/workflows/nfl-research.yml'
+  pull_request:
+    paths:
+      - 'data/nfl/**'
+      - 'docs/nfl/**'
+      - 'scripts/build_nfl.py'
+      - 'scripts/check_nfl.py'
+      - 'tests/test_nfl.py'
+      - '.github/workflows/nfl-research.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Regenerate NFL dashboard
+        run: python scripts/build_nfl.py
+      - name: Verify evidence, row sources and links
+        run: python scripts/check_nfl.py
+      - name: Run NFL regression tests
+        run: python -m unittest discover -s tests -p 'test_nfl.py' -v
