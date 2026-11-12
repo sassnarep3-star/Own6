@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="NFL evidence-first line research, injury-data requirements, validation and review dashboard.">
+  <title>Correlation methods | Own6 NFL Research</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar"><a class="brand" href="index.html">OWN6 <span>/ NFL RESEARCH</span></a><nav aria-label="NFL research sections"><a href="index.html">Overview</a>
+<a href="strategies.html">Strategies</a>
+<a href="injuries.html">Injuries &amp; depth</a>
+<a href="correlations.html" aria-current="page">Correlations</a>
+<a href="validation.html">Validation</a>
+<a href="leaderboard.html">Leaderboard</a>
+<a href="questions.html">Decision questions</a>
+<a href="suggestions.html">Suggestions</a>
+<a href="sources.html">Sources</a>
+<a href="flagged.html">Flagged for Review</a></nav></header>
+<main><section class="page-head"><p class="eyebrow">NFL RESEARCH / EVIDENCE REGISTER</p><h1>Correlation methods</h1><p>No empirical NFL correlation has been estimated. Coefficients and intervals are blank rather than guessed; methods below are proposed for authorized paired data.</p><p class="back"><a href="index.html">← NFL dashboard</a></p></section><section class="section"><div class="table-wrap"><table><thead><tr><th scope="col">Correlation Id</th><th scope="col">Question / Pair</th><th scope="col">Estimation Design</th><th scope="col">Reported Value</th><th scope="col">Status</th><th scope="col">Reason</th><th scope="col">Official source / review</th></tr></thead><tbody>
+<tr><td>C01</td><td>Continuous same-game player-prop residuals</td><td>Compute paired out-of-sample residual correlation only from same-game and same-time prediction snapshots; report paired sample count and uncertainty</td><td class="blank" aria-label="Blank"></td><td>unverified-blank</td><td>No licensed paired NFL prop history or valid quotes; never substitute a guessed coefficient</td><td><a rel="noopener" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html">STAT02 — review source ↗</a></td></tr>
+<tr><td>C02</td><td>Binary player-prop outcomes</td><td>Use joint event counts and binary association on matched same-game observations; also score direct joint probability calibration</td><td class="blank" aria-label="Blank"></td><td>unverified-blank</td><td>No complete paired settlement ledger</td><td><a rel="noopener" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html">STAT02 — review source ↗</a></td></tr>
+<tr><td>C03</td><td>Team result and player outcomes</td><td>Estimate conditional joint probability against game context and compare with a preregistered dependence model</td><td class="blank" aria-label="Blank"></td><td>unverified-blank</td><td>No authorized synchronized odds/outcomes or frozen design</td><td><a rel="noopener" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bootstrap.html">STAT03 — review source ↗</a></td></tr>
+<tr><td>C04</td><td>Same-game parlay payout outcomes</td><td>Model joint contract settlement directly; do not multiply marginal event probabilities absent a supported independence test</td><td class="blank" aria-label="Blank"></td><td>unverified-blank</td><td>No market-specific same-game settlement and joint samples</td><td><a rel="noopener" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html">STAT02 — review source ↗</a></td></tr>
+<tr><td>C05</td><td>Cross-game combo dependence</td><td>Pair observations by actual slate and shared context; cluster uncertainty by slate rather than treating each leg as independent</td><td class="blank" aria-label="Blank"></td><td>unverified-blank</td><td>No synchronized slate dataset or price feed</td><td><a rel="noopener" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bootstrap.html">STAT03 — review source ↗</a></td></tr>
+<tr><td>C06</td><td>Injury/lineup signal dependence</td><td>Estimate only after source-timed role identity and availability are confirmed; compare within matched position/team/context windows</td><td class="blank" aria-label="Blank"></td><td>unverified-blank</td><td>No dated depth chart, replacement identity or licensed outcomes</td><td><a rel="noopener" href="https://www.nfl.com/teams/">DEPTH00 — review source ↗</a></td></tr>
+</tbody></table></div></section></main>
+<footer><strong>Research only.</strong> No current lines, picks, wagers, measured edge, correlation coefficients, ROI, or strategy rewards are published. Luck cannot be removed; validation can only reduce false discovery and quantify uncertainty. See <a href="flagged.html">Flagged for Review</a>, the <a href="https://www.nfl.com/legal/terms/">NFL terms</a>, the <a href="https://aglc.ca/playalberta">AGLC</a> and <a href="https://gamesenseab.ca/">GameSense</a>.</footer>
+</body></html>

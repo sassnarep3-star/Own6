@@ -12,6 +12,14 @@ A research-first project for originating NBA spreads, totals, win probabilities,
 
 The root page redirects to the assurance dashboard. The earlier data hub and section sites are preserved as archives and linked from the dashboard.
 
+## NFL research section (added 2026-11-12)
+
+- **NFL dashboard:** [`docs/nfl/index.html`](docs/nfl/index.html) — source-reviewed requirements for originating NFL lines across singles, player props, same-game and cross-game parlays; injury and replacement-depth fields; correlation methods; validation gates; an empty gated leaderboard; questions and a reviewable suggestions queue.
+- **Executive summary:** [`research/NFL_EXECUTIVE_SUMMARY.md`](research/NFL_EXECUTIVE_SUMMARY.md)
+- **Sources:** [`data/nfl/sources.csv`](data/nfl/sources.csv) · **Data / output checks:** `python3 scripts/build_nfl.py` · `python3 scripts/check_nfl.py` · `python3 -m unittest discover -s tests -p 'test_nfl.py'`
+
+The section is deliberately fail-closed: the NFL.com terms page restricts systematic retrieval absent prior written consent; no authorized NFL feed or timestamped odds archive is configured; no NFL performance or correlation values are published; depth-chart role and replacement values remain blank; and material leaderboard rewards are disabled pending legal review. See the dedicated [Flagged for Review](docs/nfl/flagged.html) page.
+
 ## Evidence state
 
 ## Live site contents

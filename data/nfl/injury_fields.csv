@@ -1,0 +1,16 @@
+field,definition / handling rule,live value,status,source_id
+player_id,Stable league player identifier; name alone is not a safe join key,,not-ingested,NFL01
+team,Team at snapshot timestamp; do not carry a stale roster assignment,,not-ingested,NFL01
+position,Position as shown on the official report; preserve the source value,,not-ingested,NFL01
+injury_description,Copy only the report's published injury text; do not infer severity or diagnosis,,not-ingested,NFL01
+practice_status,Preserve the report's listed practice participation category,,not-ingested,NFL01
+game_status,Preserve the report's listed game status; blank report cell is not converted to active or healthy,,not-ingested,NFL01
+report_time,Source publication/update timestamp and retrieval timestamp,,not-ingested,NFL01
+scheduled_game,Official schedule/game identifier connected only by validated team and date,,not-ingested,NFL03
+expected_starter,"Store only from an authorized, dated lineup source or confirmed official game information; otherwise blank",,unverified-blank,DEPTH00
+role_order,Depth order 1/2/3/4 for that team-position-date; never infer from roster order,,unverified-blank,DEPTH00
+replacement_identity,Named replacement mapped to affected role at the same timestamp; otherwise blank,,unverified-blank,DEPTH00
+prior_participation,Player game participation and snap/route/share evidence,,not-ingested,NFL02
+unit_absence_count,Derived only after dated starters and replacements are independently verified; leave blank if lineup mapping is incomplete,,unverified-blank,DEPTH00
+offensive_vs_defensive_unit,Mark offense/defense/special teams from verified position/role metadata; no offense/defense injury impact guessed,,unverified-blank,NFL01
+source_payload_hash,Immutable source artifact hash,,not-ingested,NFL06

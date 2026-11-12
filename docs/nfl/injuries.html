@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="NFL evidence-first line research, injury-data requirements, validation and review dashboard.">
+  <title>Injuries and depth chart | Own6 NFL Research</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar"><a class="brand" href="index.html">OWN6 <span>/ NFL RESEARCH</span></a><nav aria-label="NFL research sections"><a href="index.html">Overview</a>
+<a href="strategies.html">Strategies</a>
+<a href="injuries.html" aria-current="page">Injuries &amp; depth</a>
+<a href="correlations.html">Correlations</a>
+<a href="validation.html">Validation</a>
+<a href="leaderboard.html">Leaderboard</a>
+<a href="questions.html">Decision questions</a>
+<a href="suggestions.html">Suggestions</a>
+<a href="sources.html">Sources</a>
+<a href="flagged.html">Flagged for Review</a></nav></header>
+<main><section class="page-head"><p class="eyebrow">NFL RESEARCH / EVIDENCE REGISTER</p><h1>Injuries and depth chart</h1><p>The official NFL report fields can inform an availability log. A report does not by itself establish a starter, expected snaps, or second/third/fourth replacement. Live values remain blank.</p><p class="back"><a href="index.html">← NFL dashboard</a></p></section><section class="section"><div class="table-wrap"><table><thead><tr><th scope="col">Field</th><th scope="col">Definition / Handling Rule</th><th scope="col">Live Value</th><th scope="col">Status</th><th scope="col">Official source / review</th></tr></thead><tbody>
+<tr><td>player_id</td><td>Stable league player identifier; name alone is not a safe join key</td><td class="blank" aria-label="Blank"></td><td>not-ingested</td><td><a rel="noopener" href="https://www.nfl.com/injuries/">NFL01 — review source ↗</a></td></tr>
+<tr><td>team</td><td>Team at snapshot timestamp; do not carry a stale roster assignment</td><td class="blank" aria-label="Blank"></td><td>not-ingested</td><td><a rel="noopener" href="https://www.nfl.com/injuries/">NFL01 — review source ↗</a></td></tr>
+<tr><td>position</td><td>Position as shown on the official report; preserve the source value</td><td class="blank" aria-label="Blank"></td><td>not-ingested</td><td><a rel="noopener" href="https://www.nfl.com/injuries/">NFL01 — review source ↗</a></td></tr>
+<tr><td>injury_description</td><td>Copy only the report&#x27;s published injury text; do not infer severity or diagnosis</td><td class="blank" aria-label="Blank"></td><td>not-ingested</td><td><a rel="noopener" href="https://www.nfl.com/injuries/">NFL01 — review source ↗</a></td></tr>
+<tr><td>practice_status</td><td>Preserve the report&#x27;s listed practice participation category</td><td class="blank" aria-label="Blank"></td><td>not-ingested</td><td><a rel="noopener" href="https://www.nfl.com/injuries/">NFL01 — review source ↗</a></td></tr>
+<tr><td>game_status</td><td>Preserve the report&#x27;s listed game status; blank report cell is not converted to active or healthy</td><td class="blank" aria-label="Blank"></td><td>not-ingested</td><td><a rel="noopener" href="https://www.nfl.com/injuries/">NFL01 — review source ↗</a></td></tr>
+<tr><td>report_time</td><td>Source publication/update timestamp and retrieval timestamp</td><td class="blank" aria-label="Blank"></td><td>not-ingested</td><td><a rel="noopener" href="https://www.nfl.com/injuries/">NFL01 — review source ↗</a></td></tr>
+<tr><td>scheduled_game</td><td>Official schedule/game identifier connected only by validated team and date</td><td class="blank" aria-label="Blank"></td><td>not-ingested</td><td><a rel="noopener" href="https://www.nfl.com/schedules/">NFL03 — review source ↗</a></td></tr>
+<tr><td>expected_starter</td><td>Store only from an authorized, dated lineup source or confirmed official game information; otherwise blank</td><td class="blank" aria-label="Blank"></td><td>unverified-blank</td><td><a rel="noopener" href="https://www.nfl.com/teams/">DEPTH00 — review source ↗</a></td></tr>
+<tr><td>role_order</td><td>Depth order 1/2/3/4 for that team-position-date; never infer from roster order</td><td class="blank" aria-label="Blank"></td><td>unverified-blank</td><td><a rel="noopener" href="https://www.nfl.com/teams/">DEPTH00 — review source ↗</a></td></tr>
+<tr><td>replacement_identity</td><td>Named replacement mapped to affected role at the same timestamp; otherwise blank</td><td class="blank" aria-label="Blank"></td><td>unverified-blank</td><td><a rel="noopener" href="https://www.nfl.com/teams/">DEPTH00 — review source ↗</a></td></tr>
+<tr><td>prior_participation</td><td>Player game participation and snap/route/share evidence</td><td class="blank" aria-label="Blank"></td><td>not-ingested</td><td><a rel="noopener" href="https://www.nfl.com/stats/player-stats/">NFL02 — review source ↗</a></td></tr>
+<tr><td>unit_absence_count</td><td>Derived only after dated starters and replacements are independently verified; leave blank if lineup mapping is incomplete</td><td class="blank" aria-label="Blank"></td><td>unverified-blank</td><td><a rel="noopener" href="https://www.nfl.com/teams/">DEPTH00 — review source ↗</a></td></tr>
+<tr><td>offensive_vs_defensive_unit</td><td>Mark offense/defense/special teams from verified position/role metadata; no offense/defense injury impact guessed</td><td class="blank" aria-label="Blank"></td><td>unverified-blank</td><td><a rel="noopener" href="https://www.nfl.com/injuries/">NFL01 — review source ↗</a></td></tr>
+<tr><td>source_payload_hash</td><td>Immutable source artifact hash</td><td class="blank" aria-label="Blank"></td><td>not-ingested</td><td><a rel="noopener" href="https://www.nfl.com/legal/terms/">NFL06 — review source ↗</a></td></tr>
+</tbody></table></div></section></main>
+<footer><strong>Research only.</strong> No current lines, picks, wagers, measured edge, correlation coefficients, ROI, or strategy rewards are published. Luck cannot be removed; validation can only reduce false discovery and quantify uncertainty. See <a href="flagged.html">Flagged for Review</a>, the <a href="https://www.nfl.com/legal/terms/">NFL terms</a>, the <a href="https://aglc.ca/playalberta">AGLC</a> and <a href="https://gamesenseab.ca/">GameSense</a>.</footer>
+</body></html>
