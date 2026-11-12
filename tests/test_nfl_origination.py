@@ -388,3 +388,16 @@ def test_nfl_origination_csv_datasets_and_blank_integrity() -> None:
             assert r["reward_tier"] == "NONE_UNQUALIFIED"
             for col in ("holdout_roi", "same_line_clv", "brier_score", "skill_score", "leaderboard_rank"):
                 assert r[col] == ""
+
+
+def test_nfl_origination_dashboard_verifier_passes() -> None:
+    if str(ROOT / "scripts") not in sys.path:
+        sys.path.insert(0, str(ROOT / "scripts"))
+    import check_nfl_origination  # noqa: WPS433
+
+    errors, stats = check_nfl_origination.verify_all()
+    assert errors == [], f"Dashboard verifier errors: {errors}"
+    assert stats["pages"] == 11
+    assert stats["rows"] >= 230
+    assert stats["empty_cells"] >= 210
+

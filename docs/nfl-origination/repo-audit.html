@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Line-by-Line Repository Review &amp; Code Audit — Own6 NFL Origination &amp; Verification Pack</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand-row">
+        <div>
+          <div class="brand-title">Own6 · NFL Fair-Line Origination, Depth-Deficiency &amp; Skill-Gated Leaderboard</div>
+          <div class="brand-sub">Verified 2026 Regular Season (Entering Week 10 · Nov 12, 2026) · Zero Manual Input · Pure-Stdlib Engine</div>
+        </div>
+        <div class="brand-sub">
+          <a href="../index.html" style="color:#93c5fd;">Repo Docs Hub</a> ·
+          <a href="../assurance/index.html" style="color:#93c5fd;">NBA Assurance</a> ·
+          <a href="../sf-94122/index.html" style="color:#93c5fd;">SF 94122</a>
+        </div>
+      </div>
+      <nav class="nav-tabs" aria-label="NFL Origination sections">
+        <a href="index.html">Overview &amp; Wk 10 Slate</a>
+        <a href="executive-summary.html">Executive Summary</a>
+        <a href="requirements.html">Requirements</a>
+        <a href="suggestions.html">Suggestions (Review)</a>
+        <a href="decision-qa.html">Decision Q&amp;A</a>
+        <a href="strategies-leaderboard.html">Origination &amp; Leaderboard</a>
+        <a href="validation-gates.html">Validation &amp; Luck</a>
+        <a href="correlations.html">Correlations &amp; Combos</a>
+        <a href="injuries-depth.html">Injuries &amp; 1–4 Depth</a>
+        <a href="repo-audit.html" class="active">Repo Audit</a>
+        <a href="flagged.html">Flagged for Review</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <div class="gate-banner">
+      <strong>DECISION-READINESS GATE STATUS:</strong> Engine Math &amp; 2026 NFL Rules/Standings/Depth Chains <strong>VERIFIED</strong> ·
+      Live Line Publication &amp; Strategy Qualification <strong>FAIL-CLOSED (0 / 10 Qualified)</strong> pending licensed NFL play-by-play &amp; timestamped sportsbook closing feeds (<code>Gate NFL-G01</code>, <code>NFL-G07</code>, <code>NFL-G11</code>). Unconfirmed empirical cells are intentionally left blank.
+    </div>
+    <section class="hero">
+      <h1>Line-by-Line Repository Review &amp; Code Audit</h1>
+      <p>Line-by-line code, math, CI-workflow, and link audit of existing Own6 repository modules with primary GitHub inspection links.</p>
+    </section>
+
+    <section class="section-card">
+      <h2>Line-by-Line Existing Repository Review (<code>RA-01</code>..<code>RA-16</code>)</h2>
+      <p class="lead">Companion full audit report: <a href="../../audit/NFL_ORIGINATION_REPO_AND_SOURCE_AUDIT.md"><code>audit/NFL_ORIGINATION_REPO_AND_SOURCE_AUDIT.md</code></a>. Every legacy module, CI workflow, sibling pack, and root entrypoint was inspected against official sources without modifying files outside our claimed scope.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Audit ID</th><th>Severity</th><th>Repository Path</th><th>Lines</th><th>Domain</th><th>Line-by-Line Verification Finding</th><th>Disposition</th><th>Source</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><code>RA-01</code></td><td><span class="badge badge-info">info</span></td><td><code>index.html</code></td><td>1-2</td><td>Root GitHub Pages Redirect</td><td>Root `index.html` hard-redirects (`0; url=docs/assurance/`) to the NBA Assurance dashboard hiding SF 94122 and NFL modules unless navigated directly; logged in `SUG-01` for owner choice rather than overwritten.</td><td><span class="badge badge-info">flagged_for_owner_review</span></td><td><a class="src-link" href="https://github.com/sassnarep3-star/Own6/blob/main/index.html" rel="noopener noreferrer">Repo / API</a></td></tr><tr><td><code>RA-02</code></td><td><span class="badge badge-warn">medium</span></td><td><code>src/own6/lines.py</code></td><td>1-37</td><td>Legacy Line Origination Math</td><td>Uses continuous NBA Gaussian CDF (`0.5*(1+math.erf(...))`) with zero push mass and zero overtime tie mass; valid as a simplified NBA continuous baseline but invalid for NFL key numbers (3 7 6 10 14) and 2025+ regular-season OT ties. Solved for NFL in `src/nfl_origination/lines.py`.</td><td><span class="badge badge-ok">verified_nba_only_not_nfl</span></td><td><a class="src-link" href="https://github.com/sassnarep3-star/Own6/blob/main/src/own6/lines.py" rel="noopener noreferrer">Repo / API</a></td></tr><tr><td><code>RA-03</code></td><td><span class="badge badge-warn">medium</span></td><td><code>src/own6/validation.py</code></td><td>7-31</td><td>Legacy Validation &amp; Bootstrap</td><td>Line 10 `bootstrap_roi_ci` resamples individual bets IID (`returns[rng.randrange(n)]`) ignoring same-slate/same-week dependence; line 7 `binomial_p` assumes fixed homogeneous p0 across bets. Upgraded to week-clustered block bootstrap in `src/nfl_origination/gates.py`.</td><td><span class="badge badge-ok">verified_iid_limitation_flagged</span></td><td><a class="src-link" href="https://github.com/sassnarep3-star/Own6/blob/main/src/own6/validation.py" rel="noopener noreferrer">Repo / API</a></td></tr><tr><td><code>RA-04</code></td><td><span class="badge badge-warn">medium</span></td><td><code>src/own6/leaderboard.py</code></td><td>1-10</td><td>Legacy Leaderboard Formula</td><td>Line 7 computes `lcb = m - 1.96*sd/sqrt(n)` using IID normal standard error and does not check multi-gate qualification before computing a score (`eligible` checks only `n &gt;= min_n`). Upgraded in `src/nfl_origination/leaderboard.py` to require all 12 gates + week-clustered LCB.</td><td><span class="badge badge-ok">verified_upgraded_in_nfl_module</span></td><td><a class="src-link" href="https://github.com/sassnarep3-star/Own6/blob/main/src/own6/leaderboard.py" rel="noopener noreferrer">Repo / API</a></td></tr><tr><td><code>RA-05</code></td><td><span class="badge badge-info">info</span></td><td><code>src/own6/parlay.py</code></td><td>1-174</td><td>Hardened Gaussian Copula Utility</td><td>Verified line-by-line: strict `_finite` non-bool checks rescaled `pearson()` strict Cholesky `_PIVOT_MIN = 1e-12` and 95% Wilson Monte Carlo CI; cleanly rejects invalid/singular inputs without defaulting to independence.</td><td><span class="badge badge-ok">verified_sound</span></td><td><a class="src-link" href="https://github.com/sassnarep3-star/Own6/blob/main/src/own6/parlay.py" rel="noopener noreferrer">Repo / API</a></td></tr><tr><td><code>RA-06</code></td><td><span class="badge badge-info">info</span></td><td><code>src/own6/props.py</code></td><td>1-16</td><td>Legacy Player Props Module</td><td>Empirical-Bayes shrinkage `w = n/(n+k)` and continuity-corrected normal `prob_over` verified; lacks multi-string (1st-4th) injury replacement and skewed/zero-inflated NFL TD/yardage caveats. Addressed in `src/nfl_origination/depth.py`.</td><td><span class="badge badge-ok">verified_with_nfl_caveat</span></td><td><a class="src-link" href="https://github.com/sassnarep3-star/Own6/blob/main/src/own6/props.py" rel="noopener noreferrer">Repo / API</a></td></tr><tr><td><code>RA-07</code></td><td><span class="badge badge-warn">medium</span></td><td><code>scripts/model.py</code></td><td>197-225</td><td>Historical Prototype Script</td><td>Contains session `f58e0178` repair to `imp(ml)` odds conversion (earlier commit had defect `A-F02` `100/ml`) but still reads unverified third-party ESPN quotes from `data/market_lines_2026-11-02.csv`; quarantined from empirical/NFL ledgers.</td><td><span class="badge badge-info">flagged_quarantined_legacy</span></td><td><a class="src-link" href="https://github.com/sassnarep3-star/Own6/blob/main/scripts/model.py" rel="noopener noreferrer">Repo / API</a></td></tr><tr><td><code>RA-08</code></td><td><span class="badge badge-info">info</span></td><td><code>nba_lab/gates.py &amp; statistics.py</code></td><td>1-150</td><td>Hardened NBA Empirical Lab</td><td>Verified fail-closed empty observation ledger (`report.json` status=`not_run` `n_observations=0` `n_qualified=0`) preserved intact; all 150 existing pytest checks pass once `inventory.csv` is synced.</td><td><span class="badge badge-ok">verified_sound</span></td><td><a class="src-link" href="https://github.com/sassnarep3-star/Own6/blob/main/data/empirical/report.json" rel="noopener noreferrer">Repo / API</a></td></tr><tr><td><code>RA-09</code></td><td><span class="badge badge-warn">medium</span></td><td><code>scripts/audit_repo.py &amp; tests/assurance/test_audit.py</code></td><td>35-65</td><td>Self-Referential Repo Hash Gate</td><td>`test_inventory_hashes_and_line_counts` asserts SHA-256 of every tracked file against `data/assurance/inventory.csv`; any edit to `COORDINATION.md` or new domain pack breaks `lab-ci.yml` unless `audit_repo.py` + `build_assurance.py` are regenerated in the same commit (`SUG-09`).</td><td><span class="badge badge-ok">verified_ci_constraint_handled</span></td><td><a class="src-link" href="https://github.com/sassnarep3-star/Own6/blob/main/scripts/audit_repo.py" rel="noopener noreferrer">Repo / API</a></td></tr><tr><td><code>RA-10</code></td><td><span class="badge badge-bad">high</span></td><td><code>tools/run_tests.py</code></td><td>1-59</td><td>Stdlib-Only CI Test Runner Trap</td><td>`.github/workflows/verify.yml` and `parlay-safety.yml` run `python3 tools/run_tests.py` WITHOUT installing `requirements-empirical.txt` (`numpy`/`scipy`/`pytest`); any `tests/test_*.py` importing third-party packages crashes CI! `src/nfl_origination/` and `tests/test_nfl_origination.py` are 100% pure stdlib to guarantee CI safety.</td><td><span class="badge badge-bad">verified_critical_ci_guard</span></td><td><a class="src-link" href="https://github.com/sassnarep3-star/Own6/blob/main/tools/run_tests.py" rel="noopener noreferrer">Repo / API</a></td></tr><tr><td><code>RA-11</code></td><td><span class="badge badge-bad">high</span></td><td><code>docs/sf-rent/ (PR #57)</code></td><td>1-90</td><td>Dead External SF.gov URL in Prior Pack</td><td>Cross-checked prior audit `05a657f4`: 4 rows in `docs/sf-rent/` link to `https://sf.gov/information/find-out-if-san-franciscos-rental-law-applies-you` (HTTP 404). Left untouched per non-overlapping scope rule and carried forward as advisory.</td><td><span class="badge badge-info">flagged_untouched_other_scope</span></td><td><a class="src-link" href="https://github.com/sassnarep3-star/Own6/blob/main/audit/SF_94122_REPO_AND_SOURCE_AUDIT.md" rel="noopener noreferrer">Repo / API</a></td></tr><tr><td><code>RA-12</code></td><td><span class="badge badge-info">info</span></td><td><code>docs/sf-94122/ &amp; scripts/check_sf_94122.py</code></td><td>1-311</td><td>Prior SF 94122 Compliance Pack</td><td>Verified passing (`scripts/check_sf_94122.py` OK: 6 pages 93 sourced rows 8 CSVs 0 PII/initials exact Decimal math). Preserved 100% untouched.</td><td><span class="badge badge-ok">verified_sound</span></td><td><a class="src-link" href="https://github.com/sassnarep3-star/Own6/blob/main/scripts/check_sf_94122.py" rel="noopener noreferrer">Repo / API</a></td></tr><tr><td><code>RA-13</code></td><td><span class="badge badge-info">info</span></td><td><code>docs/rental/ &amp; scripts/check_rental.py</code></td><td>1-200</td><td>Prior SF Rental Analysis Pack</td><td>Verified passing (`scripts/check_rental.py` OK: 14 pages 0 broken links). Preserved 100% untouched.</td><td><span class="badge badge-ok">verified_sound</span></td><td><a class="src-link" href="https://github.com/sassnarep3-star/Own6/blob/main/scripts/check_rental.py" rel="noopener noreferrer">Repo / API</a></td></tr><tr><td><code>RA-14</code></td><td><span class="badge badge-warn">medium</span></td><td><code>Concurrent NFL Branches (`efebf74f` &amp; `34dacba5`)</code></td><td>1220-1255</td><td>Parallel Session Path Collision Risk</td><td>Remote inspection via `gh api` revealed concurrent branches `arena/efebf74f-own6` and `arena/34dacba5-own6` both claimed `docs/nfl/**` and `scripts/build_nfl.py`; `efebf74f` also misstated Pages URL as `/Own6/nfl/` instead of `/Own6/docs/nfl/` (`main:/` source); `34dacba5` planned `numpy/scipy` in `tests/test_nfl.py` risking `tools/run_tests.py` failure. Our session `8132a3b1` isolated all work to `docs/nfl-origination/**` `data/nfl_origination/**` and pure-stdlib `src/nfl_origination/**`.</td><td><span class="badge badge-info">flagged_mitigated_by_disjoint_scope</span></td><td><a class="src-link" href="https://github.com/sassnarep3-star/Own6/blob/main/COORDINATION.md" rel="noopener noreferrer">Repo / API</a></td></tr><tr><td><code>RA-15</code></td><td><span class="badge badge-info">low</span></td><td><code>Open Stale PRs (#48 #52 #54 #56)</code></td><td>N/A</td><td>Unmerged Nov 5 NBA PRs</td><td>Four open PRs from 2026-11-05 remain open on GitHub (`#48` `#52` `#54` `#56`); none touch `nfl_origination` paths and are left undisturbed per branch rules.</td><td><span class="badge badge-info">flagged_non_blocking</span></td><td><a class="src-link" href="https://github.com/sassnarep3-star/Own6/pulls" rel="noopener noreferrer">Repo / API</a></td></tr><tr><td><code>RA-16</code></td><td><span class="badge badge-info">low</span></td><td><code>Repository Root (`LICENSE`)</code></td><td>N/A</td><td>Missing Open-Source License File</td><td>GitHub repo metadata confirms no `LICENSE` file exists at repository root (all-rights-reserved default under copyright law); flagged for repository owner.</td><td><span class="badge badge-info">flagged_non_blocking</span></td><td><a class="src-link" href="https://api.github.com/repos/sassnarep3-star/Own6" rel="noopener noreferrer">Repo / API</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        <strong>Verification &amp; Compliance Notice:</strong> All rows link directly to primary official sources retrieved on <code>2026-11-12</code>
+        (<code>nfl.com</code>, <code>operations.nfl.com</code>, <code>support.nfl.com</code>, official NFL club sites, <code>scipy.org</code>, <code>scikit-learn.org</code>, <code>statsmodels.org</code>, <code>nist.gov</code>, <code>aglc.ca</code>, and <code>github.com/sassnarep3-star/Own6</code>).
+        Analytical research &amp; software verification only — no wagering solicitation or unlicensed data scraping.
+        Responsible gambling support (Alberta, CA): AGLC GameSense / Self-Exclusion <code>1-844-468-8034</code> (<a href="https://aglc.ca/gaming/common-gaming-questions">aglc.ca</a>).
+      </p>
+    </footer>
+  </main>
+</body>
+</html>
