@@ -1220,3 +1220,34 @@ Arena platform constraint fixes this session to branch `arena/05a657f4-own6` (cr
   - `https://sassnarep3-star.github.io/Own6/docs/sf-94122/notice-and-reasons.html`
   - `https://sassnarep3-star.github.io/Own6/docs/sf-94122/tenant-scrutiny-and-fairness.html`
   - `https://sassnarep3-star.github.io/Own6/docs/sf-94122/flagged.html`
+
+---
+
+## Session arena/8132a3b1-own6 — NFL Line Origination, Skill-Gated Leaderboard, Correlation & Depth-Deficiency System (2026-11-12)
+
+**Platform branch constraint (logged deviation):** Arena fixes this session to branch `arena/8132a3b1-own6` (switching to or creating `session-<id>/<task>` branches is disallowed by platform rule). Checked `COORDINATION.md`, `origin/main`, open PRs (`#48`, `#52`, `#54`, `#56`), and concurrent remote branches (`efebf74f`, `34dacba5`) before claiming; **every file path claimed below is 100% disjoint** from all prior scopes (`docs/assurance/`, `docs/hub/`, `docs/lab/`, `docs/rental/`, `docs/sf-94122/`, `docs/sf-rent/`) and from concurrent NFL sessions (`docs/nfl/`, `data/nfl/`, `src/nfllab/`, `scripts/*_nfl.py`, `NFL_EXECUTIVE_SUMMARY.md`).
+
+**Live GitHub Pages target:** `docs/nfl-origination/` → `https://sassnarep3-star.github.io/Own6/docs/nfl-origination/` (published from `main:/` via GitHub Pages legacy builder).
+
+### Task Board (session `8132a3b1`)
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| NFL-O1 Repo line-by-line audit, requirement inventory & source verification register | in progress | `8132a3b1` | `audit/NFL_ORIGINATION_REPO_AND_SOURCE_AUDIT.md`, `data/nfl_origination/sources.csv`, `data/nfl_origination/requirements_matrix.csv`, `data/nfl_origination/repo_audit_findings.csv` |
+| NFL-O2 Official NFL rules, roster/depth/injury policy & verified Week 10/11 2026 snapshot | in progress | `8132a3b1` | `data/nfl_origination/nfl_official_rules_and_roster.csv`, `data/nfl_origination/verified_nfl_snapshot_2026.csv` |
+| NFL-O3 Decision-readiness Q&A matrix (knowns, unknowns, missing-info discovery protocol) & dedicated site-improvement Suggestions review pack | in progress | `8132a3b1` | `data/nfl_origination/decision_qa_and_missing_info.csv`, `data/nfl_origination/site_suggestions.csv`, `research/nfl_origination/DECISION_QA_AND_SUGGESTIONS.md` |
+| NFL-O4 NFL line-origination engine, signal strategies (singles, parlays, SGP/player-prop combos), validation gates, correlation matrix & skill-only leaderboard rewards | in progress | `8132a3b1` | `src/nfl_origination/**`, `data/nfl_origination/strategies_leaderboard.csv`, `data/nfl_origination/validation_gates.csv`, `data/nfl_origination/correlations_and_combos.csv`, `research/nfl_origination/ORIGINATION_SIGNALS_AND_CORRELATIONS.md` |
+| NFL-O5 Offensive & defensive starter-vs-backup (1st/2nd/3rd/4th string) injury & depth-deficiency tracking framework | in progress | `8132a3b1` | `data/nfl_origination/injury_and_depth_deficiency.csv`, `research/nfl_origination/INJURY_AND_DEPTH_TRACKING.md` |
+| NFL-O6 Executive summary, 11-page zero-input GitHub Pages dashboard (`docs/nfl-origination/`) & Flagged for Review page | in progress | `8132a3b1` | `NFL_ORIGINATION_EXECUTIVE_SUMMARY.md`, `docs/nfl-origination/**`, `scripts/build_nfl_origination.py` |
+| NFL-O7 Line-by-line automated verifier, regression test suite & dedicated CI workflow | in progress | `8132a3b1` | `scripts/check_nfl_origination.py`, `tests/test_nfl_origination.py`, `.github/workflows/nfl-origination-ci.yml` |
+| NFL-O8 Final integration: sync `origin/main`, regenerate derived CI inventories (`audit_repo.py`, `build_assurance.py`, `source_coverage.py`), run all repo gates, PR to `main`, merge, verify live GitHub Pages | unclaimed (final step) | `8132a3b1` | `COORDINATION.md` (append-only), `README.md` (append-only), `docs/index.html` (additive nav link at integration only if free), `data/assurance/**`, `docs/assurance/**`, `data/source_coverage/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md` |
+
+**Verification & Evidence Rules (`8132a3b1`):**
+- Zero manual user input; deterministic build and verification scripts.
+- Every published HTML table row carries at least one `https://` link to a directly verified official source (`nfl.com`, `operations.nfl.com`, `nflpa.com`, `cftc.gov`, `gaming.nv.gov`, `law.cornell.edu`, `nist.gov`, `docs.scipy.org`, `scikit-learn.org`, `statsmodels.org`, `github.com/sassnarep3-star/Own6`).
+- Any unconfirmed empirical value (live sportsbook odds, Empirical NFL training residuals/correlations, unverified backup snap shares, unverified historical ROI/CLV) is strictly left **blank (`""`)** and flagged on `docs/nfl-origination/flagged.html` (`needs review`, non-blocking).
+- Luck cannot be mathematically zeroed out in finite samples, so strategies enforce multi-gate statistical luck-filtering (chronological out-of-sample walk-forward, NFL week/slate block bootstrap CIs, Deflated Sharpe / Bonferroni-Holm FWER across all candidate trials, de-vigged same-line CLV, proper scoring rules Brier/Log-Loss, and starter/backup injury-timestamp cutoff auditing).
+
+**Claim log:**
+- `2026-11-12`: Session `8132a3b1` read `COORDINATION.md`, `origin/main`, open PRs, and concurrent remote branches (`efebf74f`, `34dacba5`), claimed `NFL-O1`..`NFL-O8` with 100% disjoint file scopes, and pushed claim immediately.
+
