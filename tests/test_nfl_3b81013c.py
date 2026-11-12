@@ -330,6 +330,38 @@ class BuildIntegrityTests(unittest.TestCase):
         with self.assertRaises(builder.DataError):
             self._validate(verification_status="probably_fine")
 
+    def test_every_table_row_matches_its_header_width(self) -> None:
+        """A row with the wrong number of cells silently shifts every later column."""
+        for path in sorted(DOCS.glob("*.html")):
+            parser = checker.RowParser()
+            parser.feed(path.read_text(encoding="utf-8"))
+            for index, row in enumerate(parser.completed_rows, 1):
+                expected = parser.header_width.get(row["table"])
+                self.assertIsNotNone(expected, f"{path.name} row {index}: table has no header")
+                self.assertEqual(
+                    row["cells"], expected,
+                    f"{path.name} row {index}: {row['cells']} cells vs {expected} header cells",
+                )
+
+    def test_kpi_counts_match_the_registers(self) -> None:
+        import re
+
+        text = (DOCS / "index.html").read_text(encoding="utf-8")
+        questions = rows("open_questions.csv")
+        expected_open = sum(1 for q in questions if q["status"] == "open")
+        match = re.search(r"Open questions</p><p class=\"kpi-value\">(\d+)<", text)
+        self.assertIsNotNone(match)
+        self.assertEqual(int(match.group(1)), expected_open)
+        match = re.search(r"Unverified / blank</p><p class=\"kpi-value\">([\d,]+)<", text)
+        self.assertIsNotNone(match)
+        registered_unverified = sum(
+            1
+            for name in sorted(p.name for p in DATA.glob("*.csv"))
+            for r in rows(name)
+            if r["verification_status"] == "unverified"
+        )
+        self.assertEqual(int(match.group(1).replace(",", "")), registered_unverified)
+
     def test_no_wagering_recommendation_language(self) -> None:
         for path in DOCS.glob("*.html"):
             text = path.read_text(encoding="utf-8").lower()
