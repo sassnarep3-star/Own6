@@ -4505,7 +4505,7 @@
           "gate_id": "G08",
           "gate": "Multiplicity control",
           "status": "fail",
-          "observed": "min adjusted p=1.7898 across 3 candidates",
+          "observed": "min adjusted p=1.0000 across 3 candidates",
           "threshold": "Bonferroni-adjusted p < 0.05",
           "note": "The family is every candidate tested, including failures.",
           "source": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm"
@@ -4605,7 +4605,7 @@
           "gate_id": "G08",
           "gate": "Multiplicity control",
           "status": "fail",
-          "observed": "min adjusted p=1.7898 across 3 candidates",
+          "observed": "min adjusted p=1.0000 across 3 candidates",
           "threshold": "Bonferroni-adjusted p < 0.05",
           "note": "The family is every candidate tested, including failures.",
           "source": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm"
@@ -4705,7 +4705,7 @@
           "gate_id": "G08",
           "gate": "Multiplicity control",
           "status": "fail",
-          "observed": "min adjusted p=1.7898 across 3 candidates",
+          "observed": "min adjusted p=1.0000 across 3 candidates",
           "threshold": "Bonferroni-adjusted p < 0.05",
           "note": "The family is every candidate tested, including failures.",
           "source": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm"
@@ -4805,7 +4805,7 @@
           "gate_id": "G08",
           "gate": "Multiplicity control",
           "status": "fail",
-          "observed": "min adjusted p=1.7898 across 3 candidates",
+          "observed": "min adjusted p=1.0000 across 3 candidates",
           "threshold": "Bonferroni-adjusted p < 0.05",
           "note": "The family is every candidate tested, including failures.",
           "source": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm"
@@ -4905,7 +4905,7 @@
           "gate_id": "G08",
           "gate": "Multiplicity control",
           "status": "fail",
-          "observed": "min adjusted p=1.7898 across 3 candidates",
+          "observed": "min adjusted p=1.0000 across 3 candidates",
           "threshold": "Bonferroni-adjusted p < 0.05",
           "note": "The family is every candidate tested, including failures.",
           "source": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm"
@@ -5005,7 +5005,7 @@
           "gate_id": "G08",
           "gate": "Multiplicity control",
           "status": "fail",
-          "observed": "min adjusted p=1.7898 across 3 candidates",
+          "observed": "min adjusted p=1.0000 across 3 candidates",
           "threshold": "Bonferroni-adjusted p < 0.05",
           "note": "The family is every candidate tested, including failures.",
           "source": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm"
@@ -5105,7 +5105,7 @@
           "gate_id": "G08",
           "gate": "Multiplicity control",
           "status": "fail",
-          "observed": "min adjusted p=1.7898 across 3 candidates",
+          "observed": "min adjusted p=1.0000 across 3 candidates",
           "threshold": "Bonferroni-adjusted p < 0.05",
           "note": "The family is every candidate tested, including failures.",
           "source": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm"
@@ -5205,7 +5205,7 @@
           "gate_id": "G08",
           "gate": "Multiplicity control",
           "status": "fail",
-          "observed": "min adjusted p=1.7898 across 3 candidates",
+          "observed": "min adjusted p=1.0000 across 3 candidates",
           "threshold": "Bonferroni-adjusted p < 0.05",
           "note": "The family is every candidate tested, including failures.",
           "source": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm"

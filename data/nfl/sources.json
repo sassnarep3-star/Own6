@@ -1,27 +1,192 @@
 {
   "generated_by": "manual curation, read directly 2026-11-12 (see each row's read_at and quote)",
   "sources": [
-    {"id": "NFL-01", "title": "NFL.com — 2026 Division Standings", "url": "https://www.nfl.com/standings/", "publisher": "NFL", "kind": "official_league", "read_at": "2026-11-12", "supports": "W-L-T, PCT, PF, PA, NET PTS for all 32 clubs (2026 regular season, through Week 9)"},
-    {"id": "NFL-02", "title": "NFL.com — Official Injury Report, Week 10 of the 2026 season", "url": "https://www.nfl.com/injuries/", "publisher": "NFL", "kind": "official_league", "read_at": "2026-11-12", "supports": "Report status (Out/Questionable/Doubtful), practice participation status and listed injury per player for the Week 10 slate"},
-    {"id": "NFL-03", "title": "NFL.com — Week 9 schedule and final scores (2026)", "url": "https://www.nfl.com/schedules/2026/by-week/week-9", "publisher": "NFL", "kind": "official_league", "read_at": "2026-11-12", "supports": "15 final scores and byes for Week 9"},
-    {"id": "NFL-04", "title": "NFL.com — Week 10 schedule (2026)", "url": "https://www.nfl.com/schedules/2026/by-week/week-10", "publisher": "NFL", "kind": "official_league", "read_at": "2026-11-12", "supports": "Week 10 opponents, kickoff times (ET) and the four Week 10 byes"},
-    {"id": "NFL-05", "title": "NFL Football Operations — 2026 NFL Rulebook", "url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook", "publisher": "NFL", "kind": "official_league", "read_at": "2026-11-12", "supports": "Rule text incl. 2026 rule changes; overtime, timing and scoring rules that settle a bet"},
-    {"id": "NFL-06", "title": "Detroit Lions — official 2026 depth chart", "url": "https://www.detroitlions.com/team/depth-chart", "publisher": "Detroit Lions (club, NFL.com network)", "kind": "official_club", "read_at": "2026-11-12", "supports": "Club-published offensive/defensive/special-teams depth order (1st/2nd/3rd string)"},
-    {"id": "NFL-07", "title": "Washington Commanders — official depth chart", "url": "https://www.commanders.com/team/depth-chart", "publisher": "Washington Commanders (club)", "kind": "official_club", "read_at": "2026-11-12", "supports": "Club-published depth order"},
-    {"id": "NFL-08", "title": "New York Giants — official depth chart", "url": "https://www.giants.com/team/depth-chart", "publisher": "New York Giants (club)", "kind": "official_club", "read_at": "2026-11-12", "supports": "Club-published depth order"},
-    {"id": "NFL-09", "title": "Detroit Lions — 2026 roster", "url": "https://www.nfl.com/teams/detroit-lions/roster", "publisher": "NFL", "kind": "official_league", "read_at": "2026-11-12", "supports": "Roster status codes (ACT), jersey numbers, positions, experience"},
-    {"id": "NFL-10", "title": "NFL.com — Week 10 game page: Commanders at Giants", "url": "https://www.nfl.com/games/commanders-at-giants-2026-reg-10", "publisher": "NFL", "kind": "official_league", "read_at": "2026-11-12", "supports": "Canonical game page and records shown (WAS 2-5-1 at NYG 5-2-1)"},
-    {"id": "NFL-11", "title": "NFL.com — Week 10 game page: Patriots at Lions", "url": "https://www.nfl.com/games/patriots-at-lions-2026-reg-10", "publisher": "NFL", "kind": "official_league", "read_at": "2026-11-12", "supports": "Canonical game page and records (NE 5-4 at DET 6-2)"},
-    {"id": "NFL-12", "title": "NFL.com — Legal: Terms of Use", "url": "https://www.nfl.com/legal/terms", "publisher": "NFL", "kind": "official_legal", "read_at": "NOT_READ_IN_SESSION", "supports": "UNVERIFIED in this session — must be read before redistribution assumptions"}
+    {
+      "id": "NFL-01",
+      "title": "NFL.com - 2026 Division Standings",
+      "url": "https://www.nfl.com/standings/",
+      "publisher": "NFL",
+      "kind": "official_league",
+      "read_at": "2026-11-12",
+      "supports": "W-L-T, PCT, PF, PA, NET PTS for all 32 clubs (2026 regular season, through Week 9)"
+    },
+    {
+      "id": "NFL-02",
+      "title": "NFL.com - Official Injury Report, Week 10 of the 2026 season",
+      "url": "https://www.nfl.com/injuries/",
+      "publisher": "NFL",
+      "kind": "official_league",
+      "read_at": "2026-11-12",
+      "supports": "Report status (Out/Questionable/Doubtful), practice participation status and listed injury per player for the Week 10 slate"
+    },
+    {
+      "id": "NFL-03",
+      "title": "NFL.com - Week 9 schedule and final scores (2026)",
+      "url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "publisher": "NFL",
+      "kind": "official_league",
+      "read_at": "2026-11-12",
+      "supports": "15 final scores and byes for Week 9"
+    },
+    {
+      "id": "NFL-04",
+      "title": "NFL.com - Week 10 schedule (2026)",
+      "url": "https://www.nfl.com/schedules/2026/by-week/week-10",
+      "publisher": "NFL",
+      "kind": "official_league",
+      "read_at": "2026-11-12",
+      "supports": "Week 10 opponents, kickoff times (ET) and the four Week 10 byes"
+    },
+    {
+      "id": "NFL-05",
+      "title": "NFL Football Operations - 2026 NFL Rulebook",
+      "url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+      "publisher": "NFL",
+      "kind": "official_league",
+      "read_at": "2026-11-12",
+      "supports": "Rule text incl. 2026 rule changes; overtime, timing and scoring rules that settle a bet"
+    },
+    {
+      "id": "NFL-06",
+      "title": "Detroit Lions - official 2026 depth chart",
+      "url": "https://www.detroitlions.com/team/depth-chart",
+      "publisher": "Detroit Lions (club, NFL.com network)",
+      "kind": "official_club",
+      "read_at": "2026-11-12",
+      "supports": "Club-published offensive/defensive/special-teams depth order (1st/2nd/3rd string)"
+    },
+    {
+      "id": "NFL-07",
+      "title": "Washington Commanders - official depth chart",
+      "url": "https://www.commanders.com/team/depth-chart",
+      "publisher": "Washington Commanders (club)",
+      "kind": "official_club",
+      "read_at": "2026-11-12",
+      "supports": "Club-published depth order"
+    },
+    {
+      "id": "NFL-08",
+      "title": "New York Giants - official depth chart",
+      "url": "https://www.giants.com/team/depth-chart",
+      "publisher": "New York Giants (club)",
+      "kind": "official_club",
+      "read_at": "2026-11-12",
+      "supports": "Club-published depth order"
+    },
+    {
+      "id": "NFL-09",
+      "title": "Detroit Lions - 2026 roster",
+      "url": "https://www.nfl.com/teams/detroit-lions/roster",
+      "publisher": "NFL",
+      "kind": "official_league",
+      "read_at": "2026-11-12",
+      "supports": "Roster status codes (ACT), jersey numbers, positions, experience"
+    },
+    {
+      "id": "NFL-10",
+      "title": "NFL.com - Week 10 game page: Commanders at Giants",
+      "url": "https://www.nfl.com/games/commanders-at-giants-2026-reg-10",
+      "publisher": "NFL",
+      "kind": "official_league",
+      "read_at": "2026-11-12",
+      "supports": "Canonical game page and records shown (WAS 2-5-1 at NYG 5-2-1)"
+    },
+    {
+      "id": "NFL-11",
+      "title": "NFL.com - Week 10 game page: Patriots at Lions",
+      "url": "https://www.nfl.com/games/patriots-at-lions-2026-reg-10",
+      "publisher": "NFL",
+      "kind": "official_league",
+      "read_at": "2026-11-12",
+      "supports": "Canonical game page and records (NE 5-4 at DET 6-2)"
+    },
+    {
+      "id": "NFL-12",
+      "title": "NFL.com - Legal: Terms of Use",
+      "url": "https://www.nfl.com/legal/terms",
+      "publisher": "NFL",
+      "kind": "official_legal",
+      "read_at": "NOT_READ_IN_SESSION",
+      "supports": "UNVERIFIED in this session - must be read before redistribution assumptions"
+    }
   ],
   "secondary_sources": [
-    {"id": "NV-01", "title": "nflverse-data release: schedules (games.csv)", "url": "https://github.com/nflverse/nflverse-data/releases/tag/schedules", "publisher": "nflverse (community)", "license": "CC-BY-4.0 (per repository license)", "kind": "open_data", "read_at": "2026-11-12", "supports": "Historical game results and closing lines used for the walk-forward backtest; every 2026 value is reconciled against official NFL.com before use"},
-    {"id": "NV-02", "title": "nfldata (Lee Sharpe) — games.csv", "url": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv", "publisher": "Lee Sharpe (community)", "license": "NO LICENSE FILE — unverified redistribution rights", "kind": "open_data", "read_at": "2026-11-12", "supports": "Primary historical source actually downloaded in this session (git clone, commit 6ea0be6); closing spread/total and results"},
-    {"id": "NV-03", "title": "nflverse-data release: injuries (injuries_2026.csv)", "url": "https://github.com/nflverse/nflverse-data/releases/tag/injuries", "publisher": "nflverse (community)", "license": "CC-BY-4.0 (per repository license)", "kind": "open_data", "read_at": "NOT_DOWNLOADED_IN_SESSION", "supports": "Cross-check of Week 10 injury rows only if it can be obtained; not used for any published value"},
-    {"id": "NV-04", "title": "nflverse-data release: depth_charts (depth_charts_2026.csv)", "url": "https://github.com/nflverse/nflverse-data/releases/tag/depth_charts", "publisher": "nflverse (community)", "license": "CC-BY-4.0 (per repository license)", "kind": "open_data", "read_at": "NOT_DOWNLOADED_IN_SESSION", "supports": "Cross-check of depth order only if obtainable; not used for any published value"},
-    {"id": "NV-05", "title": "nflreadr — dictionary_depth_charts.csv (field definitions)", "url": "https://github.com/nflverse/nflreadr/blob/main/data-raw/dictionary_depth_charts.csv", "publisher": "nflverse (community)", "license": "CC-BY-4.0", "kind": "docs", "read_at": "2026-11-12", "supports": "Definition of pos_rank/pos_slot (string depth), pos_grp — cited only for field meaning"},
-    {"id": "REF-01", "title": "NIST/SEMATECH e-Handbook — Confidence intervals", "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm", "publisher": "NIST", "kind": "method", "read_at": "NOT_READ_IN_SESSION", "supports": "Interval interpretation (carried over from the repo's prior validated citation; requires re-read before publication claims)"},
-    {"id": "REF-02", "title": "scikit-learn — Probability calibration", "url": "https://scikit-learn.org/stable/modules/calibration.html", "publisher": "scikit-learn", "kind": "method", "read_at": "NOT_READ_IN_SESSION", "supports": "Calibration / Brier decomposition reference"},
-    {"id": "REF-03", "title": "SciPy — scipy.stats.bootstrap", "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bootstrap.html", "publisher": "SciPy", "kind": "method", "read_at": "NOT_READ_IN_SESSION", "supports": "Bootstrap CI implementation reference"}
+    {
+      "id": "NV-01",
+      "title": "nflverse-data release: schedules (games.csv)",
+      "url": "https://github.com/nflverse/nflverse-data/releases/tag/schedules",
+      "publisher": "nflverse (community)",
+      "license": "CC-BY-4.0 (per repository license)",
+      "kind": "open_data",
+      "read_at": "2026-11-12",
+      "supports": "Historical game results and closing lines used for the walk-forward backtest; every 2026 value is reconciled against official NFL.com before use"
+    },
+    {
+      "id": "NV-02",
+      "title": "nfldata (Lee Sharpe) - games.csv",
+      "url": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv",
+      "publisher": "Lee Sharpe (community)",
+      "license": "NO LICENSE FILE - unverified redistribution rights",
+      "kind": "open_data",
+      "read_at": "2026-11-12",
+      "supports": "Primary historical source actually downloaded in this session (git clone, commit 6ea0be6); closing spread/total and results"
+    },
+    {
+      "id": "NV-03",
+      "title": "nflverse-data release: injuries (injuries_2026.csv)",
+      "url": "https://github.com/nflverse/nflverse-data/releases/tag/injuries",
+      "publisher": "nflverse (community)",
+      "license": "CC-BY-4.0 (per repository license)",
+      "kind": "open_data",
+      "read_at": "NOT_DOWNLOADED_IN_SESSION",
+      "supports": "Cross-check of Week 10 injury rows only if it can be obtained; not used for any published value"
+    },
+    {
+      "id": "NV-04",
+      "title": "nflverse-data release: depth_charts (depth_charts_2026.csv)",
+      "url": "https://github.com/nflverse/nflverse-data/releases/tag/depth_charts",
+      "publisher": "nflverse (community)",
+      "license": "CC-BY-4.0 (per repository license)",
+      "kind": "open_data",
+      "read_at": "NOT_DOWNLOADED_IN_SESSION",
+      "supports": "Cross-check of depth order only if obtainable; not used for any published value"
+    },
+    {
+      "id": "NV-05",
+      "title": "nflreadr - dictionary_depth_charts.csv (field definitions)",
+      "url": "https://github.com/nflverse/nflreadr/blob/main/data-raw/dictionary_depth_charts.csv",
+      "publisher": "nflverse (community)",
+      "license": "CC-BY-4.0",
+      "kind": "docs",
+      "read_at": "2026-11-12",
+      "supports": "Definition of pos_rank/pos_slot (string depth), pos_grp - cited only for field meaning"
+    },
+    {
+      "id": "REF-01",
+      "title": "NIST/SEMATECH e-Handbook - Confidence intervals",
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm",
+      "publisher": "NIST",
+      "kind": "method",
+      "read_at": "NOT_READ_IN_SESSION",
+      "supports": "Interval interpretation (carried over from the repo's prior validated citation; requires re-read before publication claims)"
+    },
+    {
+      "id": "REF-02",
+      "title": "scikit-learn - Probability calibration",
+      "url": "https://scikit-learn.org/stable/modules/calibration.html",
+      "publisher": "scikit-learn",
+      "kind": "method",
+      "read_at": "NOT_READ_IN_SESSION",
+      "supports": "Calibration / Brier decomposition reference"
+    },
+    {
+      "id": "REF-03",
+      "title": "SciPy - scipy.stats.bootstrap",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bootstrap.html",
+      "publisher": "SciPy",
+      "kind": "method",
+      "read_at": "NOT_READ_IN_SESSION",
+      "supports": "Bootstrap CI implementation reference"
+    }
   ]
 }

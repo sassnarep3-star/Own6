@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NFL lines lab - dashboard - Own6 NFL Lab</title>
+<link rel="stylesheet" href="assets/style.css"></head>
+<body>
+<header class="top"><div class="brand">OWN6 <span>/ NFL LINES LAB</span></div>
+<nav class="main" aria-label="NFL lab sections"><a href="index.html" class="on">Dashboard</a><a href="lines.html">Own lines</a><a href="strategies.html">Strategies</a><a href="validation.html">Validation gates</a><a href="correlations.html">Correlation</a><a href="leaderboard.html">Leaderboard</a><a href="injuries.html">Injuries</a><a href="depth.html">Depth</a><a href="questions.html">Questions</a><a href="suggestions.html">Suggestions</a><a href="findings.html">Findings</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged</a><a href="audit.html">Repo review</a></nav></header>
+<main>
+<p class="eyebrow">NFL RESEARCH LAB - EVIDENCE STATE 2026-11-12</p>
+<h1>NFL lines lab - dashboard</h1>
+
+<p class="lead">A working lab for originating your own NFL lines: singles, parlays and player-prop combos, each
+scored against frozen validation gates. The lab publishes its own lines for the Week 10 slate, the full gate board
+with the losing results, the dependence tests that decide whether a combo may be priced, and the injury/depth
+deficiency board. <strong>Nothing here is a pick or a claim of profit.</strong></p>
+<div class="cards"><div class="card"><b>89</b><span>official-value checks, 0 discrepancies</span></div><div class="card"><b>0</b><span>qualified strategies (of 8 frozen candidates)</span></div><div class="card"><b>14</b><span>Week 10 own lines published, market cells blank</span></div><div class="card"><b>275</b><span>injury rows transcribed from NFL.com</span></div><div class="card"><b>8</b><span>open questions blocking a decision</span></div><div class="card"><b>15</b><span>reviewable suggestions (none auto-applied)</span></div></div>
+
+<h2>What is live, and what it proves</h2>
+<div class="table-wrap"><table class=""><thead><tr><th scope="col">Area</th><th scope="col">What you can see</th><th scope="col">Evidence status</th><th scope="col">Source</th></tr></thead><tbody><tr><td>Own lines</td><td>14 Week 10 games: model spread, total, moneyline, win probability, and the uncertainty band</td><td><span class="tag warn">model only, no market input</span></td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-10">NFL Week 10 schedule</a> / <a href="lines.html">own lines</a></td></tr><tr><td>Validation</td><td>10 gates, the frozen thresholds, and the board for every candidate</td><td><span class="tag bad">0 qualify</span></td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/src/nfllab/validation.py">validation.py</a> / <a href="validation.html">gate board</a></td></tr><tr><td>Correlation</td><td>Measured dependence for spread/over, cross-game pairs, margin/total</td><td><span class="tag ok">measured</span></td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/nfl/model/correlations.json">correlations.json</a> / <a href="correlations.html">dependence</a></td></tr><tr><td>Injuries</td><td>275 Week 10 rows with report status, practice status and injury</td><td><span class="tag ok">official read</span></td><td><a href="https://www.nfl.com/injuries/">NFL injury report</a> / <a href="injuries.html">injury table</a> / <a href="https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm">method</a></td></tr><tr><td>Depth</td><td>13 starter-level deficiencies for WAS / NYG / DET from official depth charts</td><td><span class="tag warn">3 of 32 clubs</span></td><td><a href="https://www.detroitlions.com/team/depth-chart">DET depth chart</a> / <a href="depth.html">depth board</a></td></tr><tr><td>Questions</td><td>18 questions with the exact evidence that would close each one</td><td><span class="tag mut">register</span></td><td><a href="questions.html">Questions</a> / <a href="https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm">method</a></td></tr><tr><td>Suggestions</td><td>15 ranked suggestions with impact/confidence/effort/risk</td><td><span class="tag mut">review before apply</span></td><td><a href="suggestions.html">Suggestions</a> / <a href="https://github.com/sassnarep3-star/Own6/blob/main/data/nfl/suggestions.json">register</a> / <a href="https://github.com/sassnarep3-star/Own6/blob/main/COORDINATION.md">board</a></td></tr></tbody></table></div>
+
+<h2>How to use this section</h2>
+<div class="grid2">
+<div class="panel"><h3>1. Start with the decision, not the table</h3>
+<p class="small">Every page that changes a decision (lines, strategies, leaderboard) opens with the gate that would
+have to pass for the number to matter. The <a href="questions.html">Questions</a> page lists what is unknown and
+what would resolve it; the <a href="suggestions.html">Suggestions</a> page ranks what to build next.</p></div>
+<div class="panel"><h3>2. Trust the blanks</h3>
+<p class="small">Where a market price is not licensed and verified, the cell is empty. No row is filled to look
+complete. The <a href="flagged.html">Flagged for Review</a> page lists each blank with the source that would
+settle it.</p></div>
+<div class="panel"><h3>3. The model is allowed to lose</h3>
+<p class="small">The 2025 holdout is published with its losses: spread bets -1.2% (interval -12.3% to +10.4%),
+totals -3.7%, moneyline dogs -7.5%. That is the point. A method that cannot show its failures cannot show skill.</p></div>
+<div class="panel"><h3>4. Combos are priced from measured dependence</h3>
+<p class="small">The <a href="correlations.html">Correlation</a> page reports phi and a clustered interval for
+same-game cover+over, and the observed-vs-independent multiplier. Independence is never assumed silently.</p></div>
+</div>
+
+<h2>Executive summary</h2>
+<div class="panel">
+<ul class="tight">
+<li><strong>The signal fails.</strong> A transparent, opponent-adjusted efficiency rating does not beat the closing spread on a season it never saw. Only the downside is statistically distinguishable from zero.</li>
+<li><strong>The data is honest but thin.</strong> 89 official-value checks pass against verbatim NFL.com reads; the historical backtest leans on a community file with no licence (F-N02).</li>
+<li><strong>Most of the combo space is data-blocked, not model-blocked.</strong> 3 of 8 candidates can be tested at all; props, opening lines and historical injuries are missing.</li>
+<li><strong>The path forward is a capture problem.</strong> Licensed prices, player props, daily depth charts and dated injury archives are the four blockers. Until they exist, no strategy can qualify.</li>
+</ul></div>
+
+<footer>Research only. No wagers, stakes, picks or profitability claims. Blank = unverified; never inferred.
+Sources are official NFL / club pages unless a row says otherwise. Methods cite NIST, SciPy and scikit-learn for
+definitions only. <a href="flagged.html">Flagged for Review</a> lists every unresolved item.</footer>
+</main></body></html>

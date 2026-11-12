@@ -124,7 +124,9 @@ def gate_clv(clv: float | None, clv_ci: tuple[float, float] | None, source_url: 
 def gate_multiplicity(p_values: list[float], source_url: str) -> GateResult:
     if not p_values:
         return GateResult("G08", "Multiplicity control", None, "no tested candidates", f"Bonferroni across {ALPHA_FAMILY}/{len(p_values)}", source=source_url)
-    p_adj = min(p * len(p_values) for p in p_values)
+    # Bonferroni multiplies by the family size and clamps at 1: an adjusted
+    # p-value above 1 is not a p-value and mis-reports the evidence.
+    p_adj = min(1.0, min(p * len(p_values) for p in p_values))
     return GateResult("G08", "Multiplicity control", p_adj < ALPHA_FAMILY,
                       f"min adjusted p={p_adj:.4f} across {len(p_values)} candidates",
                       f"Bonferroni-adjusted p < {ALPHA_FAMILY}",

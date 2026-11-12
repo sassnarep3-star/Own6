@@ -15,7 +15,7 @@
       "question": "May this project legally store, derive from and publish NFL-derived statistics and lines?",
       "status": "partial",
       "blocking": "yes",
-      "have": "NFL.com Terms updated 2024-05-16 \u00a71.3 permits use of NFL.com Services 'solely for your own individual non-commercial and informational purposes' and prohibits systematic retrieval to compile a database without written consent. NFL.com is a Service, so that clause governs reading it; it is quoted on the Sources page.",
+      "have": "NFL.com Terms updated 2024-05-16 section 1.3 permits use of NFL.com Services 'solely for your own individual non-commercial and informational purposes' and prohibits systematic retrieval to compile a database without written consent. NFL.com is a Service, so that clause governs reading it; it is quoted on the Sources page.",
       "missing": "Written consent from NFL Enterprises for any systematic collection, and a licence review for the community data used for the backtest (no license file found).",
       "would_close": "A signed licence or written permission; or a switch to a licensed data provider with an auditable contract.",
       "owner": "project owner (legal)",
@@ -67,7 +67,7 @@
       "missing": "A season where the lower bound clears zero after paying vig, which the current signal family does not produce.",
       "would_close": "A validated signal (gate G05-G10 all pass) on a new holdout season.",
       "owner": "research",
-      "source": "data/nfl/model/backtest.json"
+      "source": "https://github.com/sassnarep3-star/Own6/blob/main/data/nfl/model/backtest.json"
     },
     {
       "id": "Q06",
@@ -91,7 +91,7 @@
       "missing": "A season of same-game player-prop outcomes to test real prop combos, which is where dependence is usually large.",
       "would_close": "Licensed player-level prop history paired by game.",
       "owner": "research",
-      "source": "data/nfl/model/correlations.json"
+      "source": "https://github.com/sassnarep3-star/Own6/blob/main/data/nfl/model/correlations.json"
     },
     {
       "id": "Q08",
@@ -175,7 +175,7 @@
       "missing": "Nothing; the current board is empty because no candidate passes.",
       "would_close": "n/a",
       "owner": "research",
-      "source": "data/nfl/model/backtest.json"
+      "source": "https://github.com/sassnarep3-star/Own6/blob/main/data/nfl/model/backtest.json"
     },
     {
       "id": "Q15",
@@ -187,7 +187,7 @@
       "missing": "A written policy for what a Tier A pass authorises, who reviews it, and how long it stays valid.",
       "would_close": "Owner decision documented in Suggestions (SG-06).",
       "owner": "project owner",
-      "source": "data/nfl/model/backtest.json"
+      "source": "https://github.com/sassnarep3-star/Own6/blob/main/data/nfl/model/backtest.json"
     },
     {
       "id": "Q16",
@@ -199,7 +199,7 @@
       "missing": "Nothing.",
       "would_close": "n/a",
       "owner": "automation",
-      "source": "scripts/check_nfl_lab.py"
+      "source": "https://github.com/sassnarep3-star/Own6/blob/main/scripts/check_nfl_lab.py"
     },
     {
       "id": "Q17",
@@ -211,7 +211,7 @@
       "missing": "Nothing.",
       "would_close": "n/a",
       "owner": "automation",
-      "source": "scripts/nfl_analysis.py"
+      "source": "https://github.com/sassnarep3-star/Own6/blob/main/scripts/nfl_analysis.py"
     },
     {
       "id": "Q18",
@@ -223,7 +223,7 @@
       "missing": "Each item above, in order of blocking severity.",
       "would_close": "Q01-Q03, Q08, Q10, Q18 close last.",
       "owner": "project owner",
-      "source": "docs/nfl/lab/flagged.html"
+      "source": "https://sassnarep3-star.github.io/Own6/nfl/lab/flagged.html"
     }
   ]
 }

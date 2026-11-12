@@ -23,10 +23,10 @@
       "effort": 1,
       "risk": 1,
       "owner": "research",
-      "evidence": "data/nfl/model/backtest.json; holdout ROI -1.2% / -3.7% / -7.5%",
+      "evidence": "https://github.com/sassnarep3-star/Own6/blob/main/data/nfl/model/backtest.json; holdout ROI -1.2% / -3.7% / -7.5%",
       "reversible": "yes",
       "blocks_decision": "no",
-      "source": "data/nfl/model/backtest.json",
+      "source": "https://github.com/sassnarep3-star/Own6/blob/main/data/nfl/model/backtest.json",
       "priority": 25.0
     },
     {
@@ -45,7 +45,7 @@
       "evidence": "Q15 open; validation.leaderboard reward tiers",
       "reversible": "yes",
       "blocks_decision": "no",
-      "source": "data/nfl/model/backtest.json",
+      "source": "https://github.com/sassnarep3-star/Own6/blob/main/data/nfl/model/backtest.json",
       "priority": 20.0
     },
     {
@@ -64,7 +64,7 @@
       "evidence": "C1 ratio 1.023 with phi CI spanning 0; data/nfl/model/correlations.json",
       "reversible": "yes",
       "blocks_decision": "no",
-      "source": "data/nfl/model/correlations.json",
+      "source": "https://github.com/sassnarep3-star/Own6/blob/main/data/nfl/model/correlations.json",
       "priority": 20.0
     },
     {
@@ -83,7 +83,7 @@
       "evidence": "week10.json model_margin_se 5.98 on the Thursday game",
       "reversible": "yes",
       "blocks_decision": "no",
-      "source": "data/nfl/model/week10.json",
+      "source": "https://github.com/sassnarep3-star/Own6/blob/main/data/nfl/model/week10.json",
       "priority": 20.0
     },
     {
@@ -118,7 +118,7 @@
       "effort": 2,
       "risk": 1,
       "owner": "automation",
-      "evidence": "data/nfl/model/week10.json published 2026-11-12, before the first kickoff (20:15 ET)",
+      "evidence": "https://github.com/sassnarep3-star/Own6/blob/main/data/nfl/model/week10.json published 2026-11-12, before the first kickoff (20:15 ET)",
       "reversible": "yes",
       "blocks_decision": "no",
       "source": "https://www.nfl.com/schedules/2026/by-week/week-10",
@@ -140,7 +140,7 @@
       "evidence": "D-01 (main CI red on clean checkout), D-02 (community file missing AZ rows), D-03 (assumed -110 price)",
       "reversible": "yes",
       "blocks_decision": "no",
-      "source": "docs/nfl/lab/audit.html",
+      "source": "https://sassnarep3-star.github.io/Own6/nfl/lab/audit.html",
       "priority": 12.0
     },
     {
@@ -156,7 +156,7 @@
       "effort": 1,
       "risk": 1,
       "owner": "project owner",
-      "evidence": "NFL.com Terms \u00a71.3 (non-commercial, no systematic retrieval) quoted on the Sources page",
+      "evidence": "NFL.com Terms section 1.3 (non-commercial, no systematic retrieval) quoted on the Sources page",
       "reversible": "yes",
       "blocks_decision": "no",
       "source": "https://www.nfl.com/legal/terms",
@@ -194,10 +194,10 @@
       "effort": 2,
       "risk": 1,
       "owner": "research",
-      "evidence": "data/nfl/questions.json would_close column",
+      "evidence": "https://github.com/sassnarep3-star/Own6/blob/main/data/nfl/questions.json would_close column",
       "reversible": "yes",
       "blocks_decision": "no",
-      "source": "data/nfl/questions.json",
+      "source": "https://github.com/sassnarep3-star/Own6/blob/main/data/nfl/questions.json",
       "priority": 8.0
     },
     {
@@ -216,7 +216,7 @@
       "evidence": "S1/S2/S3 (singles) vs S6/S7 (blocked parlay candidates) in backtest.json",
       "reversible": "yes",
       "blocks_decision": "no",
-      "source": "data/nfl/model/backtest.json",
+      "source": "https://github.com/sassnarep3-star/Own6/blob/main/data/nfl/model/backtest.json",
       "priority": 8.0
     },
     {
@@ -232,7 +232,7 @@
       "effort": 2,
       "risk": 1,
       "owner": "automation",
-      "evidence": "data/nfl/raw/*.csv carry read_at; reconciliation currently 89/89",
+      "evidence": "https://github.com/sassnarep3-star/Own6/blob/main/data/nfl/raw/*.csv carry read_at; reconciliation currently 89/89",
       "reversible": "yes",
       "blocks_decision": "no",
       "source": "https://www.nfl.com/standings/",
@@ -251,10 +251,10 @@
       "effort": 1,
       "risk": 2,
       "owner": "integration",
-      "evidence": "COORDINATION.md scope note 16:40Z",
+      "evidence": "https://github.com/sassnarep3-star/Own6/blob/main/COORDINATION.md scope note 16:40Z",
       "reversible": "yes",
       "blocks_decision": "no",
-      "source": "COORDINATION.md",
+      "source": "https://github.com/sassnarep3-star/Own6/blob/main/COORDINATION.md",
       "priority": 6.0
     },
     {
@@ -270,7 +270,7 @@
       "effort": 3,
       "risk": 2,
       "owner": "automation",
-      "evidence": "data/nfl/model/availability.json clubs_missing_depth_chart",
+      "evidence": "https://github.com/sassnarep3-star/Own6/blob/main/data/nfl/model/availability.json clubs_missing_depth_chart",
       "reversible": "yes",
       "blocks_decision": "no",
       "source": "https://www.detroitlions.com/team/depth-chart",
@@ -289,7 +289,7 @@
       "effort": 5,
       "risk": 3,
       "owner": "project owner",
-      "evidence": "data/nfl/model/backtest.json configuration.bet_price_assumption; gate G07 blocked on all candidates",
+      "evidence": "https://github.com/sassnarep3-star/Own6/blob/main/data/nfl/model/backtest.json configuration.bet_price_assumption; gate G07 blocked on all candidates",
       "reversible": "yes (contract)",
       "blocks_decision": "yes",
       "source": "https://github.com/leesharpe/nfldata",

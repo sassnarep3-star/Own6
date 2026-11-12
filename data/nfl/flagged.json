@@ -28,7 +28,7 @@
       "item": "NFL.com Terms restrict systematic retrieval and commercial use.",
       "detail": "Section 1.3: use is limited to 'your own individual non-commercial and informational purposes'; systematic retrieval to create a database is prohibited without written consent. This site therefore stores only verbatim transcriptions of pages it needs for verification, with URLs.",
       "source": "https://www.nfl.com/legal/terms",
-      "status": "open \u2014 needs legal review"
+      "status": "open - needs legal review"
     },
     {
       "id": "F-N04",
@@ -36,7 +36,7 @@
       "topic": "Backtest price",
       "item": "Historical bets are priced at an assumed -110.",
       "detail": "No vig, no per-book price. Real prices differ by several cents, which is the same order of magnitude as the edge being tested.",
-      "source": "data/nfl/model/backtest.json",
+      "source": "https://github.com/sassnarep3-star/Own6/blob/main/data/nfl/model/backtest.json",
       "status": "open"
     },
     {
@@ -45,7 +45,7 @@
       "topic": "Community file lag",
       "item": "The community file was missing three 2026 rows that NFL.com shows.",
       "detail": "Arizona season totals, AZ@SEA Week 9, LA@AZ Week 10. Reported by scripts/nfl_reconcile.py, not filled in. A documented club-code alias (ARI in the file, AZ on NFL.com) is applied.",
-      "source": "data/nfl/model/reconciliation.json",
+      "source": "https://github.com/sassnarep3-star/Own6/blob/main/data/nfl/model/reconciliation.json",
       "status": "open"
     },
     {
@@ -73,7 +73,7 @@
       "item": "Only 6 of 275 transcribed injury rows carry an explicit game status on the day read.",
       "detail": "Practice participation is not a game status. Rows without a status are published with a blank game status.",
       "source": "https://www.nfl.com/injuries/",
-      "status": "open \u2014 resolves when final game statuses are published (Saturday)"
+      "status": "open - resolves when final game statuses are published (Saturday)"
     },
     {
       "id": "F-N09",
@@ -90,7 +90,7 @@
       "topic": "Site duplication",
       "item": "A second NFL section was merged (PR #66) while this lab was being built.",
       "detail": "The two sections use disjoint files and do not overwrite each other. Readers may see two NFL entry points until an integration session adds one nav link.",
-      "source": "COORDINATION.md",
+      "source": "https://github.com/sassnarep3-star/Own6/blob/main/COORDINATION.md",
       "status": "needs review"
     },
     {
@@ -108,7 +108,7 @@
       "topic": "Coverage",
       "item": "The model is evaluated on one completed holdout season plus one prior-season check.",
       "detail": "Two seasons is enough to show the signal fails; it is not enough to prove a different signal works. The site says so on every results table.",
-      "source": "data/nfl/model/backtest.json",
+      "source": "https://github.com/sassnarep3-star/Own6/blob/main/data/nfl/model/backtest.json",
       "status": "open"
     }
   ]

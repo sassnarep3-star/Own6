@@ -104,6 +104,15 @@ def test_clustered_ci_is_wide_when_clusters_disagree():
 
 
 # ------------------------------------------------------------ validation
+def test_adjusted_p_value_is_never_above_one():
+    """Bonferroni multiplies by the family size; the result must stay a probability."""
+    g = validation.gate_multiplicity([0.6, 0.9, 0.5, 0.8], "https://www.nist.gov/")
+    assert g.as_row()["status"] == "fail"
+    observed = g.observed
+    value = float(observed.split("p=")[1].split()[0])
+    assert 0.0 <= value <= 1.0, f"adjusted p of {value} is not a probability"
+
+
 def test_gate_registry_is_complete_and_ordered():
     ids = validation.GATE_IDS
     assert ids == [f"G{i:02d}" for i in range(1, 11)]
