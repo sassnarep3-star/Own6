@@ -1287,7 +1287,7 @@ The initial checkout was behind concurrent PR #66. After fetching `origin/main`,
 
 | Task | Status | Owner | Exclusive scope |
 |---|---|---|---|
-| N10 Verify the merged NFL live URL; log the README path correction for its prior owner; refresh stale assurance inventory after final coordination edits; rerun release checks | in progress | `arena/9e78abc5-own6` | `COORDINATION.md`, generated `data/assurance/**` and `docs/assurance/**` |
+| N10 Verify the merged NFL live URL; log the README path correction for its prior owner; refresh stale assurance inventory after final coordination edits; rerun release checks | complete | `arena/9e78abc5-own6` | `COORDINATION.md`, generated `data/assurance/**` and `docs/assurance/**` |
 
 ### Initial findings (before N10 changes)
 - GitHub Pages API reports source branch `main`, path `/`. Live `https://sassnarep3-star.github.io/Own6/docs/nfl/` returns the NFL dashboard, while `https://sassnarep3-star.github.io/Own6/nfl/` returns 404. The merged README and earlier handoff text used the latter URL; N10 records a correction request for the prior owner and does not edit that owner's file.
@@ -1304,8 +1304,9 @@ The initial checkout was behind concurrent PR #66. After fetching `origin/main`,
 N10 verification will regenerate `data/assurance/**` and `docs/assurance/**` after this append so committed hashes describe the final tree. No edits to the merged NFL sources, metrics, or pages are made under this advisory.
 
 ### N10 local validation (before PR)
-- Updated repository assurance artifacts after the final coordination append: `scripts/audit_repo.py` scanned 350 files / 26,351 lines and reviewed 1,888 data records; `scripts/build_assurance.py` regenerated 9 pages; `scripts/check_assurance.py` passes (2,368 official-HTTPS sourced table rows).
+- Updated repository assurance artifacts after the final coordination append: `scripts/audit_repo.py` scanned 350 files / 26,352 lines and reviewed 1,888 data records; `scripts/build_assurance.py` regenerated 9 pages; `scripts/check_assurance.py` passes (2,368 official-HTTPS sourced table rows).
 - NFL builder/checker: `scripts/build_nfl.py` built 13 pages; `scripts/check_nfl.py` reports 13 pages, 0 structural/link/source-marker issues. Independent manual checks above identify 404/redirect/source-read limitations that the current structural checker does not catch and have been logged as owner requests.
 - Full Python suite: 151 passed, 6 subtests passed (`.venv/bin/python -m pytest -q tests`). Lab: zero authorized observations; report is `not_run`, empty leaderboard; `check_lab`, `check_report`, and build-review checks pass.
 - Site/release: `tools/check_site.py` 13 strict pages / 0 errors; `scripts/check_site.py` 9 pages / no broken internal links; `scripts/linkcheck.py` 7 pages / 240 of 240 table rows sourced; `tools/release_gate.py` 0 issues. NFL Pages path `/docs/nfl/` returned the dashboard; `/nfl/` returned 404. GitHub Pages API reports `main:/` and latest build `built` at commit `788febc`.
 - Root cause of prior assurance/lab failures: generated assurance hashes/row counts did not include final `COORDINATION.md` additions. Rebuilding artifacts in this branch resolves the local stale-hash assertion and generated-artifacts diff; PR checks will be re-run before merge.
+- Pull request #67 CI for pushed commit `cd841d4` finished green: all ten checks passed (`Line-by-line verification gates`, `Verification ledger and published pages`, `assurance`, `daily`, `hub`, `hub-references`, `lab`, `parlay-safety`, `published-html`, `source-coverage`). No merge was performed during this validation step.
