@@ -5,7 +5,7 @@ docs/assurance/flagged.html,fc0ee0a6d146777dc4bc148c5b5202f29a8ade3e5e0df230de1c
 docs/assurance/index.html,ecc1538f1bb6449e4ca5b9a2187887a0bd3c51e8e3c125408f28924b59420d62,4,0,4,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/index.html
 docs/assurance/leaderboard.html,84deb8de2e9ec81e7255d469a43548dbde5aa46ac562f7fb540f9c9633ed68e7,1,1,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/leaderboard.html
 docs/assurance/lines.html,2d5b7828dba3bd886311890c89d73be0e2297f2deeb00cc48171ef4d4b00744c,6,6,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/lines.html
-docs/assurance/repo-audit.html,9a363d785af714794cbd23207d9f15ca59aaa1645343bb373285988c55bfb66a,3207,2398,809,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/repo-audit.html
+docs/assurance/repo-audit.html,593bcc0e2d07c978705985a5cd9fa9f94fe68008246e4c51f14f3957d37ea39c,2823,2398,425,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/repo-audit.html
 docs/assurance/sources.html,9ba30cd3ba03ccc6d3664ecef7854d570f0de1514b6e2dd34f3d53cb989cc1bc,22,21,1,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/sources.html
 docs/assurance/strategies.html,ac8dbe0d3c5e918cabb8cc6387499d049217007b6fc1db5077ee84db5a3f765e,6,6,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/strategies.html
 docs/assurance/validation.html,fd125c702155effff9a982837b3321f1ef465d0d8038b21ca3ae50e4165cf319,10,9,1,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/validation.html
@@ -75,7 +75,7 @@ docs/nfl-origination/flagged.html,c612d0fbd9e0c788c3dcd8c0c89254a08428ff08f9ac87
 docs/nfl-origination/index.html,120a240c98bfde077db8b5eaabb58d5667ff4aca4c1d91b47aeb42d6d4f1eda4,59,0,0,59,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-origination/index.html
 docs/nfl-origination/injuries-depth.html,309faa227e476d2b2315696e7a7e1279d8519859a2ea975c04bccf288ff49ac4,24,0,0,24,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-origination/injuries-depth.html
 docs/nfl-origination/repo-audit.html,ff6f6c5c726f0e679a4826f8d1e40aacfab2bd9d45948ca4f52d00b284b93a24,16,0,16,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-origination/repo-audit.html
-docs/nfl-origination/requirements.html,6594d2c64d32b68473f8344e35c6a47b180a86df08c90b6fd571b60e67b7624f,16,5,5,6,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-origination/requirements.html
+docs/nfl-origination/requirements.html,ef807d1d12dd6431f32f6a4651243ab6ab6e3d8b546eb2a1a41a345c6347962b,16,5,5,6,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-origination/requirements.html
 docs/nfl-origination/strategies-leaderboard.html,087a6e5bbfff153993041ac311ec68cb6df5bfb4b4898f5bcfdc7d763b31c6c5,16,3,0,13,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-origination/strategies-leaderboard.html
 docs/nfl-origination/suggestions.html,6cf4a73db11acc4de31380b1921f06cf61c32757b24f4bb5571463d4f22b396d,14,3,5,6,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-origination/suggestions.html
 docs/nfl-origination/validation-gates.html,39eeb37098ebf11e7e5663cf6708ec84d22a6eb7a02b8b2b53ef88a17335ccb5,12,5,1,6,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-origination/validation-gates.html
