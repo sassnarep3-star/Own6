@@ -1278,3 +1278,35 @@ Arena platform constraint fixes this session to branch `arena/05a657f4-own6` (cr
 
 Pages source is legacy `main:/`. After merge, fetch `https://sassnarep3-star.github.io/Own6/nfl/index.html` returned HTTP 200 (or cached building status). The NFL Lab is additive and does not hide prior NBA/rental dashboards. Flagged irregularities F-NFL-01…12 remain on `docs/nfl/flagged.html` for owner review and do not block publication.
 
+
+---
+
+## Session `arena/9e78abc5-own6` — post-merge Pages/CI integration repair (2026-11-12)
+
+The initial checkout was behind concurrent PR #66. After fetching `origin/main`, the NFL task was already merged by `arena/efebf74f-own6` (merge `ec64cb9`; current main then advanced to `788febc`). To prevent a duplicate integration, all overlapping NFL data/pages/research/build/checker files in this branch were resolved in favor of `origin/main`; this branch will not replace the merged NFL implementation.
+
+| Task | Status | Owner | Exclusive scope |
+|---|---|---|---|
+| N10 Verify the merged NFL live URL; log the README path correction for its prior owner; refresh stale assurance inventory after final coordination edits; rerun release checks | complete | `arena/9e78abc5-own6` | `COORDINATION.md`, generated `data/assurance/**` and `docs/assurance/**` |
+
+### Initial findings (before N10 changes)
+- GitHub Pages API reports source branch `main`, path `/`. Live `https://sassnarep3-star.github.io/Own6/docs/nfl/` returns the NFL dashboard, while `https://sassnarep3-star.github.io/Own6/nfl/` returns 404. The merged README and earlier handoff text used the latter URL; N10 records a correction request for the prior owner and does not edit that owner's file.
+- GitHub Pages build for `788febcc91320c5c872030a7f2720d4ca0551e45` reports `built` (run 43260083172). The preceding transient build error was followed by a successful build; direct live rendering verified on `/docs/nfl/`.
+- CI on `788febc` shows `Lab CI` failing at the `Run tests` step and `Assurance CI` failing at `Generated assurance artifacts are committed`. N10 will regenerate assurance artifacts after the final coordination edits, rerun pytest and the release checks, then record results. The README correction is logged as a request because it is within the completed N9 owner's file scope. No merged NFL data, page, or model implementation is being rewritten.
+
+### Independent source/path review advisory (arena/9e78abc5-own6; request to N9 owner, no `data/nfl/**` or `docs/nfl/**` edits)
+- **S-NFL-09 / F-NFL-01 terms URL:** direct fetch of `https://www.nfl.com/terms/` landed on `https://www.nfl.com/legal/subscriptions_terms`, whose body scopes subscription/authentication/mobile products. The general NFL.com Terms page directly read in this session is `https://www.nfl.com/legal/terms/` (updated May 16, 2024; §1.3 states individual non-commercial informational use only and requires prior express written consent for systematic retrieval to compile a database). Request the source register/rights flag to cite the general Terms URL and retain the exact scope limitation; legal applicability still needs counsel.
+- **S-NFL-07 broken rules reference:** `https://www.nfl.com/official-nfl-rules/` returned an official NFL 404 page when fetched on 2026-11-12. Directly read official replacement: `https://operations.nfl.com/rules-officiating/2026-nfl-rulebook`. Request all affected strategy/requirements/FAQ rows be pointed to a live rulebook page or the actual relevant rule section; do not treat the 404 URL as verification.
+- **S-NFL-06 injury policy provenance:** the linked `https://operations.nfl.com/media/2683/2017-nfl-injury-report-policy.pdf` returned empty parsed content in this review; the source register itself describes discovery as “identified via … search context” while labeling it `verified_direct`. Request status be downgraded to link-only/partial until the content is readable and the policy is checked. The directly reviewed `https://www.nfl.com/injuries/` page on 2026-11-12 confirms report columns `Player`, `Position`, `Injuries`, `Practice Status`, `Game Status` for Week 10, but not the 2017 policy’s publication cadence or every threshold claim.
+- **`/nfl/` vs `/docs/nfl/`:** Pages API says source `main:/`; `https://sassnarep3-star.github.io/Own6/nfl/` returned 404, while `https://sassnarep3-star.github.io/Own6/docs/nfl/` returned the NFL dashboard. Request the prior `README.md` live URL and old handoff target be corrected by its owner; navigation from `docs/index.html` resolves under `/docs/` and is live.
+- **Unmeasured proposals:** the `expected_sign` entries in `data/nfl/correlations.csv`, fixed floors such as 200 observations/60 slates, and depth flags such as `>0.5` / `>0.6` are design hypotheses/policy thresholds, not official NFL findings. Request they be explicitly labeled proposed—not observed/verified—on the table and flagged page; no empirical coefficient/value was confirmed.
+
+N10 verification will regenerate `data/assurance/**` and `docs/assurance/**` after this append so committed hashes describe the final tree. No edits to the merged NFL sources, metrics, or pages are made under this advisory.
+
+### N10 local validation (before PR)
+- Updated repository assurance artifacts after the final coordination append: `scripts/audit_repo.py` scanned 350 files / 26,352 lines and reviewed 1,888 data records; `scripts/build_assurance.py` regenerated 9 pages; `scripts/check_assurance.py` passes (2,368 official-HTTPS sourced table rows).
+- NFL builder/checker: `scripts/build_nfl.py` built 13 pages; `scripts/check_nfl.py` reports 13 pages, 0 structural/link/source-marker issues. Independent manual checks above identify 404/redirect/source-read limitations that the current structural checker does not catch and have been logged as owner requests.
+- Full Python suite: 151 passed, 6 subtests passed (`.venv/bin/python -m pytest -q tests`). Lab: zero authorized observations; report is `not_run`, empty leaderboard; `check_lab`, `check_report`, and build-review checks pass.
+- Site/release: `tools/check_site.py` 13 strict pages / 0 errors; `scripts/check_site.py` 9 pages / no broken internal links; `scripts/linkcheck.py` 7 pages / 240 of 240 table rows sourced; `tools/release_gate.py` 0 issues. NFL Pages path `/docs/nfl/` returned the dashboard; `/nfl/` returned 404. GitHub Pages API reports `main:/` and latest build `built` at commit `788febc`.
+- Root cause of prior assurance/lab failures: generated assurance hashes/row counts did not include final `COORDINATION.md` additions. Rebuilding artifacts in this branch resolves the local stale-hash assertion and generated-artifacts diff; PR checks will be re-run before merge.
+- Pull request #67 CI for pushed commit `cd841d4` finished green: all ten checks passed (`Line-by-line verification gates`, `Verification ledger and published pages`, `assurance`, `daily`, `hub`, `hub-references`, `lab`, `parlay-safety`, `published-html`, `source-coverage`). No merge was performed during this validation step.
