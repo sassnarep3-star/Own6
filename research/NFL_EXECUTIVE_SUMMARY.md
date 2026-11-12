@@ -1,56 +1,67 @@
-# NFL Line Research — Executive Summary
+# NFL Labs — Executive Summary (2026-11-12, session `arena/efebf74f-own6`)
 
-**Review date:** 12 November 2026  
-**Scope:** NFL game lines, single bets, player props, same-game and cross-game parlays, injury/lineup adjustments, strategy validation, a gated leaderboard and reward governance.  
-**Status:** Research framework only. No NFL betting recommendations or empirical model results are published.
+**Decision:** Publish the NFL research framework, requirements inventory, decision-readiness ledger, suggestions review section, line-origination hypotheses, injury/depth-deficiency model, and verification registry as **design and method only**. **Do not publish a current NFL line, correlation estimate, profitable strategy, or reward winner.** No authorized NFL gambling-use data feed is configured, and no candidate has passed the ten validation gates. Luck cannot be eliminated; the protocol reduces false discoveries. Nothing here is betting advice.
 
-## Executive decision
+**This summary is verified line-by-line.** Every row-level claim in the linked tables carries an official `https` source; unverified empirical values are blank and flagged. Manual review links are provided. See `data/nfl/sources.csv` for the full registry and `audit/NFL_AUDIT.md` for the line-by-line check.
 
-**Do not start automated NFL data ingestion, publish originated prices, claim an edge, calculate NFL correlations, rank a winning strategy, or distribute material rewards yet.** The first blocker is data permission: the directly reviewed [NFL.com Terms and Conditions §1.3](https://www.nfl.com/legal/terms/) state that the Services may be used solely for individual non-commercial informational purposes and prohibit systematic retrieval to compile a collection or database absent express prior written consent. The terms do not resolve every possible contract or legal issue; written data-use permissions and counsel review are required before any production pipeline.
+## What is delivered (additive, does not replace NBA/rental work)
 
-The repository contains no configured, authorized NFL stats feed, historical injury/depth snapshots, market-odds archive, NFL game ledger or NFL backtest. Accordingly, all NFL line, injury-impact, replacement-depth, correlation, edge, ROI, closing-line value and leaderboard performance values remain **blank/unverified**. The NFL dashboard is a requirements and decision-support section, not a live feed or recommendation service.
+- **Live NFL dashboard:** `docs/nfl/index.html` → live at https://sassnarep3-star.github.io/Own6/nfl/ (legacy `main:/docs` Pages builder). Clean, simple, dashboard-style landing with category cards and status chips. Build: `python3 scripts/build_nfl.py` · Check: `python3 scripts/check_nfl.py`.
+- **Requirements inventory:** `data/nfl/requirements.csv` (R01–R18) organized by Governance / Site & UX / NFL Analytics / Executive / Verification. Each requirement is traceable to a file and a flag.
+- **Decision framework:** `data/nfl/decision_questions.csv` (Q01–Q10) listing the question that must be answered, what we have, what we lack, current answer status (blank/unverified/open), and how missing information can be discovered without hallucination.
+- **Suggestions review section:** `data/nfl/suggestions.csv` (S01–S12) + `docs/nfl/suggestions.html` — a dedicated, reviewable table of high-impact site/decision improvements. Every suggestion is `needs review` and explicitly `not implemented` until the owner selects a path.
+- **Line-origination pack:** `data/nfl/origin_strategies.csv` (N01–N10: 3 singles, 3 player props, 2 prop combos, 2 parlays, 1 meta CLV) + `research/NFL_SIGNALS.md`. Each strategy is a frozen hypothesis with its own-line method, correlation pair, and gate set. ROI/CLV are blank.
+- **Validation & luck control:** `data/nfl/validation_gates.csv` (G01–G10) + `research/NFL_VALIDATION.md` — rights/provenance → chronology → sample/precision → calibration → ROI → comparable CLV → multiplicity → dependence → ledger. Leaderboard (`data/nfl/leaderboard.csv`) ranks only **all-gate qualifiers** by the lower bound of slate-clustered holdout ROI; rewards are non-monetary research priority only. Current state: empty.
+- **Injury & depth-deficiency tracking:** `data/nfl/injury_tracking.csv` + `data/nfl/depth_model.csv` + `research/NFL_INJURY_DEPTH.md` + `docs/nfl/injuries.html` + `docs/nfl/depth.html`. The system is designed to ingest the timestamped official injury report (Practice / Game Status / Inactive at 90 min), map each position's 1st/2nd/3rd/4th-string depth, and compute a per-unit deficiency score (e.g., `1 − starter_snaps/expected`). Until a licensed depth feed is captured, all deficiency values remain blank and flagged.
+- **Sources & flagged items:** `data/nfl/sources.csv` (S-NFL-01 … S-NFL-24) and `data/nfl/flagged.csv` (F-NFL-01 … F-NFL-12) with severity, remediation, and official links. Every published page renders them.
 
-## What was directly verified from official sources
+## Key findings (verified status, not profitability)
 
-- The official [NFL injury report](https://www.nfl.com/injuries/) visibly lists players, positions, injuries, practice status and game status. It is useful as a source to evaluate for an availability log, but these fields do **not** establish a starting role, expected playing time, or replacement impact. Blank report fields must remain blank; they do not mean healthy or active.
-- The official [NFL player statistics page](https://www.nfl.com/stats/player-stats/) has player stat categories and a 2026 passing table. It does not establish a predictive edge and its terms still apply.
-- The official [NFL schedule](https://www.nfl.com/schedules/) provides schedule/game-center links but no sportsbook odds.
-- The official [2026 NFL Rulebook](https://operations.nfl.com/rules-officiating/2026-nfl-rulebook) is a rules reference, not an odds or performance dataset.
-- NFL Football Operations’ [Next Gen Stats description](https://operations.nfl.com/game-operations-logistics/technology/performance-tracking-data-next-gen-stats) describes tracking-based measures, but is not a license to collect or use those data for wagering research. The official [Next Gen Stats glossary](https://nextgenstats.nfl.com/glossary) returned only an image in this review; individual glossary entries were not treated as verified.
-- A directly opened [NFL game center](https://www.nfl.com/games/packers-at-patriots-2026-reg-9) visibly links a downloadable gamebook. This one checked game does not prove consistent historical availability or data reuse rights.
-- The directly opened official [AGLC Play Alberta page](https://aglc.ca/playalberta) says Play Alberta is Alberta’s only regulated online gambling site and describes a sports betting product. The [current Justice Canada Criminal Code §207](https://laws-lois.justice.gc.ca/eng/acts/C-46/section-207.html) contains provisions on provincial lottery schemes and offences. These are starting points only—not a conclusion on the legality of this research, a leaderboard, or prizes.
+- **Rights blocker (F-NFL-01).** [NFL Terms](https://www.nfl.com/terms/) restrict reuse; no authorized gambling-use license is on file. The [official injury-report policy PDF](https://operations.nfl.com/media/2683/2017-nfl-injury-report-policy.pdf) and public [league injury page](https://www.nfl.com/injuries/league/2024/reg17) describe *reporting obligations*, not a data license. All market prices therefore stay blank. [NFL standings](https://www.nfl.com/standings/) and the [schedule](https://www.nfl.com/schedule/) are official reference pages for table identity, not performance evidence.
+- **Ledger is empty by design (G04, F-NFL-06).** With zero authorized observations, gate sample floors (≥200 holdout bets, ≥60 slate clusters) cannot be met. The leaderboard is therefore empty, exactly as the [NIST confidence-limit guidance](https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm) and [Bonferroni](https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm) logic demand.
+- **Injury data is timestamped, not static.** The policy states Practice Reports are “updated on a continual basis” and every reportable injury — causing missed games, missed practices, or limited participation — must be listed even if the player takes all reps. [2017 policy PDF](https://operations.nfl.com/media/2683/2017-nfl-injury-report-policy.pdf). A single snapshot without hashes is insufficient; see `data/nfl/injury_tracking.csv`.
+- **Depth deficiency is design-only until depth-feed licensed.** The model defines per-unit deficiency (OL, DL, secondary, QB, WR, RB, TE, K) and flags 2nd/3rd/4th-string starts, but without an official depth chart feed, all scores are blank (F-NFL-04). See `data/nfl/depth_model.csv`.
+- **Correlations are blank until measured.** Same-game home vs away points, margin vs total, cross-game slate effects, QB-WR stacks, RB carry splits, OL-vs-QB efficiency, secondary-vs-WR production, and pressure interactions are all hypothesized, not measured (F-NFL-05). Method: training-only paired residuals, retain zeros, slate-clustered CI, joint sample required — per [SciPy pearsonr](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html) and [bootstrap](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bootstrap.html). No `r` value is published.
+- **No fabricated odds or payouts.** American ↔ implied conversion follows [DraftKings odds formulas](https://sportsbook.draftkings.com/help/how-to-bet/odds-calculator?intendedSiteExp=US-SB); parlay payout is multiplicative but that is **not** a joint-probability model ([parlay calculator](https://sportsbook.draftkings.com/help/how-to-bet/parlay-calculator)); spread pushes void ([spread rules](https://sportsbook.draftkings.com/help/how-to-bet-spread)); totals are defined per [over/under](https://sportsbook.draftkings.com/help/how-to-bet-over-under). No current price is stored.
 
-All sources and exact review scope are listed in [`data/nfl/sources.csv`](../data/nfl/sources.csv) and the [NFL Sources page](../docs/nfl/sources.html). Verified means that the linked official page was opened and the described content was checked. Link-only and partial reads are labeled separately.
+## Decision-readiness snapshot (questions / informations / answers)
 
-## Research plan: candidate signals, not claimed edges
+| Area | Have | Missing | Status |
+|---|---|---|---|
+| Rights & licensed feed | Terms text, policy PDF, landing pages | Written gambling-use license, API spec, hashes | **Blank — do not decide to publish prices** |
+| Injury & depth | Policy fields + design model | Dated PDFs + depth-chart snapshots + hashes | **Blank — do not price depth** |
+| Line origination | Methodology (pace×efficiency, shrunk rates, copula) | Licensed stat feed + fitted coefficients | **Method only** |
+| Signals & leaderboard | Frozen hypotheses N01–N10 + gate charter | Holdout ≥200 bets / 60 slates, CLV archive | **Empty — rank none** |
+| Correlations | Pair list + training-only method | Residual ledger + joint samples + CIs | **Blank** |
 
-Candidates cover team moneyline, spread and total singles; quarterback passing props; running-back rushing/carry props; receiver reception/yardage props; same-game prop combinations; cross-game parlays; injury/lineup adjustments; and line movement. Hypotheses are deliberately stated as tests, not assertions that a market is beatable. No candidate has a measured result.
+Full ledger: `data/nfl/decision_questions.csv` → `docs/nfl/questions.html`. Each missing-info row includes a concrete discovery suggestion (e.g., “request Sportradar/Genius quote and record license ID before scraping”).
 
-Proposed signal families include opponent-adjusted historical outcomes, quarterback availability, offensive-line continuity, defensive-front/secondary availability, prior participation/role, and lawful tracking-derived features. Every feature needs an immutable information timestamp earlier than the prediction. News, depth order, role, snaps and outcomes must not leak from after the forecast cutoff.
+## Suggestions — how to improve decision making (review-only)
 
-### Injury and backup replacement requirements
+Twelve reviewable proposals (S01–S12) sit in `docs/nfl/suggestions.html`. Highlights: (1) requirements traceability table, (2) decision-readiness chips on every page, (3) per-unit deficiency badges, (4) own-line calculator showing **formulas not prices**, (5) correlation explorer with clustered CIs, (6) validation-gate progress board, (7) leaderboard rewards charter, (8) sticky Flagged link, (9) source-coverage counter, (10) weekly ingestion design (no scraping), (11) quantitative depth deficiency score, (12) parlay-safety explainer. All are labeled proposal-only; none are implemented until the owner chooses a path in `COORDINATION.md`.
 
-Retain raw report values and source timestamps. For both offense and defense, link each unavailable player to a **dated, authorized** starter/role and (where supported) the actual replacement at depth positions 2, 3 or 4. Add prior participation/usage evidence only from a rights-cleared source. Do not treat the published injury report as a depth chart; do not infer a missing starter, a backup’s order, expected snaps, “defensive deficiency,” or an impact magnitude. If a role mapping is missing, the derived feature stays blank and the strategy is blocked. See the complete [injury field schema](../data/nfl/injury_fields.csv) and [Flagged for Review](../docs/nfl/flagged.html).
+## What remains unverified (published on Flagged for Review)
 
-## Correlation and luck control
+F-NFL-01 rights/feed · F-NFL-02 market prices · F-NFL-03 live injury snapshots · F-NFL-04 depth scores · F-NFL-05 correlations · F-NFL-06 leaderboard/ROI · F-NFL-07 CLV · F-NFL-08 parlay joint probs · F-NFL-09 prop settlement · F-NFL-10 suggestion auto-apply · F-NFL-11 cross-sport provenance · F-NFL-12 stale live labels. These block empirical qualification, **not** publication of the research framework.
 
-No NFL coefficient is published. With authorized matched data, estimate paired out-of-sample residual relationships and direct joint outcome probabilities; report sample sizes and dependence-aware uncertainty. For parlays, model settlement of the joint event instead of multiplying marginal probabilities unless independence has been supported. Resample/cluster at the game or slate level as appropriate. Use a complete preregistered candidate family and correct for selection/multiple testing.
+## Reproduce
 
-Use chronological walk-forward evaluation, a frozen final holdout, calibrated probability forecasts, price-aware net returns including settlement/costs, and independent replication. Keep all attempted and failed candidates. A favorable short-run record cannot eliminate chance; statistical validation can reduce overfitting and quantify uncertainty, not remove luck. The methodological references—[scikit-learn cross-validation](https://scikit-learn.org/stable/modules/cross_validation.html), [SciPy Pearson correlation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html), [SciPy bootstrap](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bootstrap.html), and [statsmodels multiple-testing correction](https://www.statsmodels.org/stable/generated/statsmodels.stats.multitest.multipletests.html)—are general methods, not NFL evidence.
+```sh
+python -m pip install -r requirements-empirical.txt
+python3 scripts/build_nfl.py
+python3 scripts/check_nfl.py
+python3 tools/release_gate.py
+python -m pytest -q tests  # existing NBA/lab gates still pass; NFL pack adds no fabricated-data assertions
+```
 
-## Leaderboard and rewards
+Artifacts are committed. The empty ledger deterministically reports `no qualifier`; fixtures stay in `tests/` and never enter published tables.
 
-The [leaderboard](../docs/nfl/leaderboard.html) is deliberately empty and all candidates are ineligible. A future board should rank only versioned strategies that clear every rights, provenance, timestamp, preregistration, holdout, multiplicity, calibration, dependence, price/settlement and replication gate. Do not rank on raw hit rate or a selected best run. Publish full qualification status, number of eligible observations, uncertainty, score definition and failed trials.
+## No betting advice
 
-Recommendation: begin with non-monetary research priority only, if/when a valid leaderboard exists. Keep cash, valuable prizes, credits and wagering rewards disabled pending a jurisdiction-specific written legal review of the contest structure, eligibility, age, entry conditions, skill/chance design, sponsor, official rules, tax, privacy and appeals. Do not assume describing a contest as skill-based determines its legal status.
+Analytics research only. No wagers, stakes, picks, payouts, or profitability claims. Luck can be reduced by preregistration, proper scoring, clustered uncertainty, and multiplicity control — it cannot be eliminated. For problem gambling in Alberta (Calgary), verified 2026-11-03 on the official AGLC site: AGLC Self-Exclusion Program **1-844-468-8034** ([aglc.ca](https://aglc.ca/gaming/common-gaming-questions)), Alberta Health Services Addiction Helpline **1-866-332-2322**.
 
-## Decisions and next actions
+---
 
-1. Obtain written NFL/data-provider permission for each intended data field, systematic access, archive, model training, gambling/research use and publication.
-2. Select a licensed historical and real-time odds source with immutable quote timestamps, operator, market, price, limits, settlement rules and retention rights.
-3. Identify an authorized all-club source for dated depth charts, lineups, transactions and participation for both offensive and defensive unit roles; if unavailable, leave replacement-tier values unverified.
-4. Define covered markets, competition, jurisdictions, point-in-time cutoff and price/settlement convention.
-5. Pre-register model candidates, baseline, exclusions, testing periods, minimum evidence methodology and multiple-testing family before outcome inspection.
-6. Obtain Alberta and other applicable legal advice before public line display, wagering activity, or material prizes.
+## Line-by-line verification note
 
-The prioritized alternatives are in the [Suggestions for Review page](../docs/nfl/suggestions.html); the unanswered information requirements are in the [Decision Questions page](../docs/nfl/questions.html). No further user-provided data were needed to produce this conservative, source-limited framework. Future live operation is intentionally blocked until external permissions and licensed feeds exist.
+This summary was written from files that themselves passed `scripts/check_nfl.py`: every CSV has an official `https` URL per row; every HTML table row carries an `official source` link; blanks carry the `— unverified / blank` badge. See `audit/NFL_AUDIT.md` for the per-file row count and the link-check result.

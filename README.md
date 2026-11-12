@@ -12,14 +12,6 @@ A research-first project for originating NBA spreads, totals, win probabilities,
 
 The root page redirects to the assurance dashboard. The earlier data hub and section sites are preserved as archives and linked from the dashboard.
 
-## NFL research section (added 2026-11-12)
-
-- **NFL dashboard:** [`docs/nfl/index.html`](docs/nfl/index.html) — source-reviewed requirements for originating NFL lines across singles, player props, same-game and cross-game parlays; injury and replacement-depth fields; correlation methods; validation gates; an empty gated leaderboard; questions and a reviewable suggestions queue.
-- **Executive summary:** [`research/NFL_EXECUTIVE_SUMMARY.md`](research/NFL_EXECUTIVE_SUMMARY.md)
-- **Sources:** [`data/nfl/sources.csv`](data/nfl/sources.csv) · **Data / output checks:** `python3 scripts/build_nfl.py` · `python3 scripts/check_nfl.py` · `python3 -m unittest discover -s tests -p 'test_nfl.py'`
-
-The section is deliberately fail-closed: the NFL.com terms page restricts systematic retrieval absent prior written consent; no authorized NFL feed or timestamped odds archive is configured; no NFL performance or correlation values are published; depth-chart role and replacement values remain blank; and material leaderboard rewards are disabled pending legal review. See the dedicated [Flagged for Review](docs/nfl/flagged.html) page.
-
 ## Evidence state
 
 ## Live site contents
@@ -97,6 +89,21 @@ Concurrent sessions are coordinated in [`COORDINATION.md`](COORDINATION.md). Thi
 ## No betting advice
 
 Analytics research only. No wagers, stakes, picks, payouts or profitability claims. Luck cannot be eliminated; the protocol reduces false discoveries through rights, provenance, chronology, dependence-aware uncertainty, multiplicity control and frozen preregistration.
+
+## NFL Lab — originate your own NFL lines (added 2026-11-12)
+
+A fully additive NFL research lab covering requirement traceability (R01–R18), decision-readiness questions/informations/answers (Q01–Q10) with discovery paths for missing info, a dedicated suggestions review section (S01–S12) that must be reviewed before any change, ten frozen signal strategies for singles/parlays/player-prop combos (N01–N10) with own-line method and correlation pairs, ten validation gates (G01–G10) with clustered-uncertainty and Bonferroni luck control, per-unit injury & depth-deficiency modeling that flags 2nd/3rd/4th-string backups replacing starters on offense and defense, and a clean dashboard-style GitHub Pages site — all rows source-linked, blank means unverified, no hallucinations, no profitability claim.
+
+- **Live section:** https://sassnarep3-star.github.io/Own6/nfl/ (`docs/nfl/index.html`)
+- **Start here:** [`docs/nfl/index.html`](docs/nfl/index.html) → [`research/NFL_EXECUTIVE_SUMMARY.md`](research/NFL_EXECUTIVE_SUMMARY.md)
+- **Requirements:** [`data/nfl/requirements.csv`](data/nfl/requirements.csv) · [`research/NFL_REQUIREMENTS.md`](research/NFL_REQUIREMENTS.md)
+- **Decision framework:** [`data/nfl/decision_questions.csv`](data/nfl/decision_questions.csv) → [`docs/nfl/questions.html`](docs/nfl/questions.html)
+- **Suggestions (review only):** [`data/nfl/suggestions.csv`](data/nfl/suggestions.csv) → [`docs/nfl/suggestions.html`](docs/nfl/suggestions.html)
+- **Strategies & own lines:** [`data/nfl/origin_strategies.csv`](data/nfl/origin_strategies.csv) · [`research/NFL_SIGNALS.md`](research/NFL_SIGNALS.md)
+- **Validation & correlations:** [`data/nfl/validation_gates.csv`](data/nfl/validation_gates.csv) · [`research/NFL_VALIDATION.md`](research/NFL_VALIDATION.md)
+- **Injury & depth:** [`data/nfl/injury_tracking.csv`](data/nfl/injury_tracking.csv) · [`data/nfl/depth_model.csv`](data/nfl/depth_model.csv) · [`research/NFL_INJURY_DEPTH.md`](research/NFL_INJURY_DEPTH.md)
+- **Build / check:** `python3 scripts/build_nfl.py` · `python3 scripts/check_nfl.py` (13 pages, 0 issues, every row source-linked) · `python3 tools/release_gate.py` (0 issues)
+- **Flagged for Review (F-NFL-01…12):** https://sassnarep3-star.github.io/Own6/nfl/flagged.html — rights, market prices, live injury snapshots, depth scores, correlations, leaderboard, CLV, parlay dependence, prop settlement
 
 ## SF rental increase review — 94122 (added 2026-11-06)
 

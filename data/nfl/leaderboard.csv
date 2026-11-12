@@ -1,11 +1,2 @@
-strategy_id,market,rank,score,qualification,performance result,reward status,source_id
-S01,Moneyline,,,not eligible,,,NFL02
-S02,Point spread,,,not eligible,,,NFL03
-S03,Game total,,,not eligible,,,NFL03
-S04,Quarterback passing props,,,not eligible,,,NFL01
-S05,Running-back rushing props,,,not eligible,,,NFL02
-S06,Receiver props,,,not eligible,,,NFL02
-S07,Same-game parlays,,,not eligible,,,STAT02
-S08,Cross-game parlays,,,not eligible,,,STAT03
-S09,Injury adjustment signal,,,not eligible,,,NFL01
-S10,Line movement signal,,,not eligible,,,NFL06
+rank,strategy_id,family,market,holdout_bets,holdout_roi_lower_bound,holdout_brier_skill,clv_mean,eligibility,reward,status,source_url
+—,—,—,—,—,—,—,—,No qualifier — all gates open and ledger empty,Research priority only (non-monetary); no payout,unverified,https://scikit-learn.org/stable/modules/calibration.html
