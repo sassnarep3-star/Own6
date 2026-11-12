@@ -122,10 +122,17 @@ class RowParser(html.parser.HTMLParser):
         self.badge_buf: list[str] = []
         self.rows: list[dict] = []
         self.tables = 0
+        self.in_head = False
+        self.row_cells = 0
+        self.header_width: dict[int, int] = {}
+        self.header_cells: list[int] = []
+        self.completed_rows: list[dict] = []
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
         cls = (a.get("class") or "").split()
+        if tag == "th" and self.in_head and self.header_cells:
+            self.header_width[self.header_cells[-1]] += 1
         if tag == "h1":
             self.h1 += 1
         elif tag == "input":
@@ -135,14 +142,22 @@ class RowParser(html.parser.HTMLParser):
         for key in ("href", "src"):
             if a.get(key):
                 self.links.append(a[key])
-        if tag == "tbody":
+        if tag == "thead":
+            self.in_head = True
+        elif tag == "tbody":
             self.in_tbody = True
+        elif tag == "tr" and self.in_head and not self.in_tbody:
+            self.header_width[self.tables] = 0
+            self.header_cells = [self.tables]
         elif tag == "tr" and self.in_tbody:
             self.in_row = True
             self.row_links = []
             self.row_badges = []
             self.row_empty_cells = 0
+            self.row_cells = 0
         elif self.in_row:
+            if tag in ("td", "th"):
+                self.row_cells += 1
             if tag == "a" and a.get("href"):
                 self.row_links.append(a["href"])
             elif tag == "td" and "empty-cell" in cls:
@@ -174,9 +189,18 @@ class RowParser(html.parser.HTMLParser):
                 "badges": list(self.row_badges),
                 "empty_cells": self.row_empty_cells,
             })
+            self.completed_rows.append({
+                "links": list(self.row_links),
+                "badges": list(self.row_badges),
+                "empty_cells": self.row_empty_cells,
+                "cells": self.row_cells,
+                "table": self.tables,
+            })
             self.in_row = False
         elif tag == "tbody":
             self.in_tbody = False
+        elif tag == "thead":
+            self.in_head = False
 
 
 def _host(url: str) -> str:
@@ -565,6 +589,13 @@ def check_pages(root: Path) -> tuple[list[str], dict[str, int]]:
                 target = unquote(parsed.path)
                 if target and not (docs / target).resolve().is_file():
                     errors.append(f"{rel}: broken relative link {href}")
+
+        for index, info in enumerate(parser.completed_rows, 1):
+            expected_cells = parser.header_width.get(info["table"])
+            if expected_cells is not None and info["cells"] != expected_cells:
+                errors.append(
+                    f"{rel}: table row {index} has {info['cells']} cells but the header declares {expected_cells}"
+                )
 
         for index, info in enumerate(parser.rows, 1):
             total_rows += 1
