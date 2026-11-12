@@ -1227,8 +1227,17 @@ Arena fixes this work to branch `arena/9e78abc5-own6`; no `session-*` branch is 
 
 | Task | Status | Owner | Exclusive file scope |
 |---|---|---|---|
-| NFL strategy/research framework, evidence boundaries and decision questions | in progress | `arena/9e78abc5-own6` | `research/NFL_EXECUTIVE_SUMMARY.md`, `data/nfl/`, `scripts/check_nfl.py`, `tests/test_nfl.py` |
-| NFL dedicated dashboard pages and source-linked flagged items | in progress | `arena/9e78abc5-own6` | `docs/nfl/` |
-| Final integration: nav, complete-site checks, PR and Pages verification | unclaimed | `arena/9e78abc5-own6` | `docs/index.html`, `COORDINATION.md` final record |
+| NFL strategy/research framework, evidence boundaries and decision questions | done | `arena/9e78abc5-own6` | `research/NFL_EXECUTIVE_SUMMARY.md`, `data/nfl/`, `scripts/check_nfl.py`, `tests/test_nfl.py` |
+| NFL dedicated dashboard pages and source-linked flagged items | done | `arena/9e78abc5-own6` | `docs/nfl/`, `scripts/build_nfl.py` |
+| Final integration: nav, complete-site checks, PR and Pages verification | in progress | `arena/9e78abc5-own6` | `docs/index.html`, `docs/assurance/index.html`, `README.md`, `COORDINATION.md` final record |
+
+### NFL task completion record (2026-11-12)
+
+- Sources directly opened and checked: NFL injury reports (`https://www.nfl.com/injuries/`), NFL 2026 player stats (`https://www.nfl.com/stats/player-stats/`), NFL schedule (`https://www.nfl.com/schedules/`), NFL Football Operations 2026 rulebook (`https://operations.nfl.com/rules-officiating/2026-nfl-rulebook`), Next Gen Stats tracking description (`https://operations.nfl.com/game-operations-logistics/technology/performance-tracking-data-next-gen-stats`), NFL terms (`https://www.nfl.com/legal/terms/`, §1.3), one NFL game center (`https://www.nfl.com/games/packers-at-patriots-2026-reg-9`), AGLC Play Alberta (`https://aglc.ca/playalberta`), current Justice Canada Criminal Code §207 (`https://laws-lois.justice.gc.ca/eng/acts/C-46/section-207.html`), scikit-learn chronological validation guidance, SciPy correlation/bootstrap documentation, statsmodels multiple-testing documentation and the NIST binomial reference. Each direct-read status, scope and limitation is recorded in `data/nfl/sources.csv`; NFL NGS glossary is only a partial read, and the team directory is link-only.
+- Verification performed: `python3 scripts/build_nfl.py`; `python3 scripts/check_nfl.py` (18 source records, 96 evidence rows, 104 rendered table rows all source-linked to approved official HTTPS hosts, internal links resolve); `python3 -m unittest discover -s tests -p 'test_nfl.py' -v` (4 tests pass). Numeric NFL signals, prop correlations, market prices, depth-order values, strategy results and rewards are blank/unverified. Flags NFL-F01–NFL-F10 are published in `docs/nfl/flagged.html`.
+- Irregularities / blockers: NFL.com Terms §1.3 requires express prior written consent for systematic collection to compile data collections/databases and restricts service use to noncommercial informational purposes; no authorized NFL/odds feed or written license was found/configured. No official all-club depth/lineup source was reviewed; injured report fields do not prove depth order or playing time. Prize/reward legal status is unresolved; no material reward is enabled. See NFL-F01–F10.
+
 
 Claim source review: existing `COORDINATION.md` task inventory (searched for NFL/football; no NFL task or active NFL owner found). Scope is additive and does not edit existing shared datasets or generators.
+
+NFL scope extension: add only `.github/workflows/nfl-research.yml` as a dedicated, path-filtered regression workflow for the previously claimed NFL build/check/tests. No existing workflow file is changed.
