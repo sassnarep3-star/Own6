@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>12 Validation Gates &amp; Luck-Removal Architecture — Own6 NFL Origination &amp; Verification Pack</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand-row">
+        <div>
+          <div class="brand-title">Own6 · NFL Fair-Line Origination, Depth-Deficiency &amp; Skill-Gated Leaderboard</div>
+          <div class="brand-sub">Verified 2026 Regular Season (Entering Week 10 · Nov 12, 2026) · Zero Manual Input · Pure-Stdlib Engine</div>
+        </div>
+        <div class="brand-sub">
+          <a href="../index.html" style="color:#93c5fd;">Repo Docs Hub</a> ·
+          <a href="../assurance/index.html" style="color:#93c5fd;">NBA Assurance</a> ·
+          <a href="../sf-94122/index.html" style="color:#93c5fd;">SF 94122</a>
+        </div>
+      </div>
+      <nav class="nav-tabs" aria-label="NFL Origination sections">
+        <a href="index.html">Overview &amp; Wk 10 Slate</a>
+        <a href="executive-summary.html">Executive Summary</a>
+        <a href="requirements.html">Requirements</a>
+        <a href="suggestions.html">Suggestions (Review)</a>
+        <a href="decision-qa.html">Decision Q&amp;A</a>
+        <a href="strategies-leaderboard.html">Origination &amp; Leaderboard</a>
+        <a href="validation-gates.html" class="active">Validation &amp; Luck</a>
+        <a href="correlations.html">Correlations &amp; Combos</a>
+        <a href="injuries-depth.html">Injuries &amp; 1–4 Depth</a>
+        <a href="repo-audit.html">Repo Audit</a>
+        <a href="flagged.html">Flagged for Review</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <div class="gate-banner">
+      <strong>DECISION-READINESS GATE STATUS:</strong> Engine Math &amp; 2026 NFL Rules/Standings/Depth Chains <strong>VERIFIED</strong> ·
+      Live Line Publication &amp; Strategy Qualification <strong>FAIL-CLOSED (0 / 10 Qualified)</strong> pending licensed NFL play-by-play &amp; timestamped sportsbook closing feeds (<code>Gate NFL-G01</code>, <code>NFL-G07</code>, <code>NFL-G11</code>). Unconfirmed empirical cells are intentionally left blank.
+    </div>
+    <section class="hero">
+      <h1>12 Validation Gates &amp; Luck-Removal Architecture</h1>
+      <p>Mandatory 12-gate validation pipeline and anti-luck statistical controls separating repeatable origination skill from NFL variance.</p>
+    </section>
+
+    <section class="section-card">
+      <h2>How Luck Is Removed From NFL Leaderboard Qualification</h2>
+      <p class="lead">In a 272-game NFL regular season, single-game turnover luck (fumble bounces, tipped interceptions, upright kicks) creates a <code>~6.03%</code> ROI standard error at <code>N = 250</code> binary bets. Our engine eliminates luck from strategy promotion via four orthogonal statistical barriers:</p>
+      <div class="callout-grid">
+        <div class="callout">
+          <h3>1. Same-Line De-Vigged CLV (<code>t &gt;= 2.50</code>)</h3>
+          <p><code>Gate NFL-G07</code> measures whether originated prices consistently beat the vig-free closing line on the <em>exact same spread/total number</em> — a pre-kickoff skill signal with 3x–4x tighter variance than binary game outcomes.</p>
+        </div>
+        <div class="callout">
+          <h3>2. Strictly Proper Scoring Dominance</h3>
+          <p><code>Gate NFL-G06</code> requires out-of-sample <code>Brier</code> AND <code>LogLoss</code> to beat the de-vigged closing market on identical games, disqualifying lucky longshot parlay hits that lack calibration.</p>
+        </div>
+        <div class="callout">
+          <h3>3. NFL Week-Clustered Block Bootstrap</h3>
+          <p><code>Gate NFL-G08</code> resamples entire NFL slate weeks together (<code>n_resamples = 4,000</code>) so correlated Sunday wind troughs or slate-wide injury shocks cannot understate confidence-interval width.</p>
+        </div>
+        <div class="callout">
+          <h3>4. Holm-Bonferroni Family-Wise Error Control</h3>
+          <p><code>Gate NFL-G09</code> adjusts raw p-values across all <code>M &gt;= 10</code> registered strategies and feature variants so testing multiple NFL hypotheses cannot sneak a false positive onto the leaderboard.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <h2>All 12 Mandatory NFL Validation Gates (<code>NFL-G01</code>..<code>NFL-G12</code>)</h2>
+      <p class="lead">Every strategy must pass <code>12 / 12</code> gates simultaneously; missing evidence always evaluates to <code>BLOCKED</code>.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Gate ID</th><th>Gate Name</th><th>Quantitative Threshold Rule</th><th>Failure Mode / Luck Mechanism Blocked</th><th>Code Module</th><th>Current State</th><th>Source</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><code>NFL-G01</code></td><td><strong>Data Rights &amp; Terms Gate</strong></td><td>Signed commercial/betting license JSON verified on disk; zero unlicensed scraping of NFL.com</td><td>Violating NFL.com Terms §§1.3 &amp; 12 or relying on unverified third-party media scrapes without executable timestamps</td><td><code>src/nfl_origination/gates.py</code></td><td><span class="badge badge-bad">BLOCKED (0 licensed feeds configured)</span></td><td><a class="src-link" href="https://support.nfl.com/hc/en-us/articles/35869743904916-NFL-com-Terms-and-Conditions" rel="noopener noreferrer">Primary Spec</a></td></tr><tr><td><code>NFL-G02</code></td><td><strong>90-Minute Inactive &amp; Timestamp Gate</strong></td><td>Immutable feature_ts &lt; bet_ts &lt;= kickoff_ts - 5400s (for early models) or verified post-inactive window</td><td>Hindsight leakage from retroactively updated injury statuses or post-kickoff snap counts bleeding into historical features</td><td><code>src/nfl_origination/gates.py</code></td><td><span class="badge badge-bad">BLOCKED (awaiting timestamped feed)</span></td><td><a class="src-link" href="https://www.nfl.com/news/nfl-emergency-third-quarterback-rule-questions-and-answers" rel="noopener noreferrer">Primary Spec</a></td></tr><tr><td><code>NFL-G03</code></td><td><strong>Regime-Consistent Walk-Forward Gate</strong></td><td>Strict expanding TimeSeriesSplit by NFL week; 2025+ Dynamic Kickoff (35-yd TB) &amp; 10-min both-possess OT modeled explicitly</td><td>In-sample overfitting and structural bias from pooling pre-2025 25-yd touchbacks or sudden-death walk-off OT margins</td><td><code>src/nfl_origination/lines.py &amp; gates.py</code></td><td><span class="badge badge-ok">ENGINE_READY / AWAITING_DATA</span></td><td><a class="src-link" href="https://operations.nfl.com/rules-officiating/featured-rules" rel="noopener noreferrer">Primary Spec</a></td></tr><tr><td><code>NFL-G04</code></td><td><strong>Sample Floor &amp; Slate Breadth Gate</strong></td><td>N &gt;= 250 settled single bets or N &gt;= 400 prop/parlay combos across &gt;= 18 distinct NFL slate weeks</td><td>Small-sample coin-flip heaters (e.g. going 14-4 over 2 NFL Sundays by pure binomial variance)</td><td><code>src/nfl_origination/gates.py</code></td><td><span class="badge badge-bad">BLOCKED (N = 0 observations)</span></td><td><a class="src-link" href="https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm" rel="noopener noreferrer">Primary Spec</a></td></tr><tr><td><code>NFL-G05</code></td><td><strong>Key-Number &amp; Push-Exact Settlement Gate</strong></td><td>Exact integer-margin push mass on 3 7 6 10 14 and regular-season OT ties (`p_win + p_loss + p_push == 1`)</td><td>Continuous Gaussian CDF errors that misvalue half-points on 3 and 7 by 150-350 bps of expected value</td><td><code>src/nfl_origination/pricing.py &amp; lines.py</code></td><td><span class="badge badge-ok">ENGINE_VERIFIED_UNIT_TESTED</span></td><td><a class="src-link" href="https://operations.nfl.com/rules-officiating/2026-nfl-rulebook" rel="noopener noreferrer">Primary Spec</a></td></tr><tr><td><code>NFL-G06</code></td><td><strong>Strictly Proper Scoring Rules Gate</strong></td><td>Holdout Brier(model) &lt; Brier(closing_devig) AND LogLoss(model) &lt; LogLoss(closing_devig) on identical games</td><td>Uncalibrated high-variance longshot picking that temporarily profits from 1 lucky +600 parlay while losing probability accuracy</td><td><code>src/nfl_origination/gates.py</code></td><td><span class="badge badge-bad">BLOCKED (blank closing prices)</span></td><td><a class="src-link" href="https://scikit-learn.org/stable/modules/calibration.html" rel="noopener noreferrer">Primary Spec</a></td></tr><tr><td><code>NFL-G07</code></td><td><strong>De-Vigged Same-Line CLV Gate</strong></td><td>Mean same-line de-vigged CLV &gt; 0 with NFL week-clustered t-statistic &gt;= 2.50 (moved lines excluded/blanked)</td><td>Post-snap NFL turnover luck (fumble bounce recoveries tipped interceptions missed kicks) masquerading as origination skill</td><td><code>src/nfl_origination/pricing.py &amp; gates.py</code></td><td><span class="badge badge-bad">BLOCKED (blank closing prices)</span></td><td><a class="src-link" href="https://www.nfl.com/news/nfl-draftkings-fanduel-fanatics-sports-betting-partners" rel="noopener noreferrer">Primary Spec</a></td></tr><tr><td><code>NFL-G08</code></td><td><strong>NFL Week-Clustered Bootstrap ROI Gate</strong></td><td>95% week-block bootstrap CI (`n_resamples &gt;= 4000`) lower bound strictly &gt; 0.0 on out-of-sample holdout</td><td>Understated IID standard errors that ignore correlated Sunday wind/weather shocks or shared injury news across a slate</td><td><code>src/nfl_origination/gates.py</code></td><td><span class="badge badge-bad">BLOCKED (N = 0 observations)</span></td><td><a class="src-link" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bootstrap.html" rel="noopener noreferrer">Primary Spec</a></td></tr><tr><td><code>NFL-G09</code></td><td><strong>Family-Wise Multiple-Testing Gate</strong></td><td>One-step Bonferroni and Holm step-down adjusted p &lt; 0.05 across all M &gt;= 10 candidate strategies &amp; hyperparameter trials</td><td>Data-snooping / p-hacking where testing 20 NFL trends yields 1 &#x27;significant&#x27; p=0.04 winner purely by chance</td><td><code>src/nfl_origination/gates.py</code></td><td><span class="badge badge-ok">ENGINE_VERIFIED_M_EQUALS_10</span></td><td><a class="src-link" href="https://www.statsmodels.org/stable/generated/statsmodels.stats.multitest.multipletests.html" rel="noopener noreferrer">Primary Spec</a></td></tr><tr><td><code>NFL-G10</code></td><td><strong>Starter/Backup Depth Reconciliation Gate</strong></td><td>4-way reconciliation of NFL.com injury report club depth tiers PS elevations and 47/48 active OL rules</td><td>Blindly trusting club-site &#x27;unofficial&#x27; writer depth charts or ignoring trade-deadline QB/defender arrivals</td><td><code>src/nfl_origination/depth.py</code></td><td><span class="badge badge-info">24_WEEK10_CASES_RECONCILED</span></td><td><a class="src-link" href="https://operations.nfl.com/calendar-events/nfl-free-agency/contract-language" rel="noopener noreferrer">Primary Spec</a></td></tr><tr><td><code>NFL-G11</code></td><td><strong>Joint Residual Correlation &amp; Copula Gate</strong></td><td>Positive-definite training-only paired residual correlation matrix (Cholesky pivot &gt; 1e-12) + week-block CI; independence banned</td><td>Catastrophic mispricing of negatively correlated combos or overpaying sportsbook SGP &#x27;correlation taxes&#x27; on popular stacks</td><td><code>src/nfl_origination/correlations.py</code></td><td><span class="badge badge-bad">BLOCKED (empirical correlations blank)</span></td><td><a class="src-link" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.multivariate_normal.html" rel="noopener noreferrer">Primary Spec</a></td></tr><tr><td><code>NFL-G12</code></td><td><strong>Immutable Pre-Kickoff Ledger Audit Gate</strong></td><td>SHA-256 pre-kickoff observation digest config digest and reviewer signature bound before kickoff</td><td>Retroactive deletion of losing bets selective backtest window cherry-picking or unverified self-asserted booleans</td><td><code>src/nfl_origination/gates.py</code></td><td><span class="badge badge-info">FAIL_CLOSED_ENFORCED</span></td><td><a class="src-link" href="https://github.com/sassnarep3-star/Own6" rel="noopener noreferrer">Primary Spec</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        <strong>Verification &amp; Compliance Notice:</strong> All rows link directly to primary official sources retrieved on <code>2026-11-12</code>
+        (<code>nfl.com</code>, <code>operations.nfl.com</code>, <code>support.nfl.com</code>, official NFL club sites, <code>scipy.org</code>, <code>scikit-learn.org</code>, <code>statsmodels.org</code>, <code>nist.gov</code>, <code>aglc.ca</code>, and <code>github.com/sassnarep3-star/Own6</code>).
+        Analytical research &amp; software verification only — no wagering solicitation or unlicensed data scraping.
+        Responsible gambling support (Alberta, CA): AGLC GameSense / Self-Exclusion <code>1-844-468-8034</code> (<a href="https://aglc.ca/gaming/common-gaming-questions">aglc.ca</a>).
+      </p>
+    </footer>
+  </main>
+</body>
+</html>

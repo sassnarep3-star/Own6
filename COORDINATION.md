@@ -1352,3 +1352,32 @@ N10 verification will regenerate `data/assurance/**` and `docs/assurance/**` aft
 - Site/release: `tools/check_site.py` 13 strict pages / 0 errors; `scripts/check_site.py` 9 pages / no broken internal links; `scripts/linkcheck.py` 7 pages / 240 of 240 table rows sourced; `tools/release_gate.py` 0 issues. NFL Pages path `/docs/nfl/` returned the dashboard; `/nfl/` returned 404. GitHub Pages API reports `main:/` and latest build `built` at commit `788febc`.
 - Root cause of prior assurance/lab failures: generated assurance hashes/row counts did not include final `COORDINATION.md` additions. Rebuilding artifacts in this branch resolves the local stale-hash assertion and generated-artifacts diff; PR checks will be re-run before merge.
 - Pull request #67 CI for pushed commit `cd841d4` finished green: all ten checks passed (`Line-by-line verification gates`, `Verification ledger and published pages`, `assurance`, `daily`, `hub`, `hub-references`, `lab`, `parlay-safety`, `published-html`, `source-coverage`). No merge was performed during this validation step.
+
+---
+
+## Session arena/8132a3b1-own6 — NFL Line Origination, Skill-Gated Leaderboard, Correlation & Depth-Deficiency System (2026-11-12)
+
+**Platform branch constraint (logged deviation):** Arena fixes this session to branch `arena/8132a3b1-own6` (switching to or creating `session-<id>/<task>` branches is disallowed by platform rule). Checked `COORDINATION.md`, `origin/main`, open PRs, and concurrent remote branches (`efebf74f`, `34dacba5`, `3b81013c`, `9e78abc5`) before claiming; **every file path claimed below is 100% disjoint** from all prior and concurrent scopes (`docs/nfl/`, `docs/nfl-3b81013c/`, `docs/assurance/`, `docs/hub/`, `docs/lab/`, `docs/rental/`, `docs/sf-94122/`, `docs/sf-rent/`).
+
+**Live GitHub Pages target:** `docs/nfl-origination/` → `https://sassnarep3-star.github.io/Own6/docs/nfl-origination/` (published from `main:/` via GitHub Pages legacy builder).
+
+### Task Board (session `8132a3b1`)
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| NFL-O1 Repo line-by-line audit, requirement inventory & source verification register | done (2026-11-12) | `8132a3b1` | `audit/NFL_ORIGINATION_REPO_AND_SOURCE_AUDIT.md`, `data/nfl_origination/sources.csv`, `data/nfl_origination/requirements_matrix.csv`, `data/nfl_origination/repo_audit_findings.csv` |
+| NFL-O2 Official NFL rules, roster/depth/injury policy & verified Week 10 2026 snapshot | done (2026-11-12) | `8132a3b1` | `data/nfl_origination/nfl_official_rules_and_roster.csv`, `data/nfl_origination/verified_standings_2026_w10.csv`, `data/nfl_origination/week10_slate_and_lines.csv` |
+| NFL-O3 Decision-readiness Q&A matrix (knowns, unknowns, missing-info discovery protocol) & dedicated site-improvement Suggestions review pack | done (2026-11-12) | `8132a3b1` | `data/nfl_origination/decision_qa_and_missing_info.csv`, `data/nfl_origination/site_suggestions.csv`, `research/nfl_origination/DECISION_QA_AND_SUGGESTIONS.md` |
+| NFL-O4 NFL line-origination engine, signal strategies (singles, parlays, SGP/player-prop combos), validation gates, correlation matrix & skill-only leaderboard rewards | done (2026-11-12) | `8132a3b1` | `src/nfl_origination/**`, `data/nfl_origination/strategies_leaderboard.csv`, `data/nfl_origination/validation_gates.csv`, `data/nfl_origination/correlations_and_combos.csv`, `research/nfl_origination/ORIGINATION_SIGNALS_AND_CORRELATIONS.md` |
+| NFL-O5 Offensive & defensive starter-vs-backup (1st/2nd/3rd/4th string) injury & depth-deficiency tracking framework | done (2026-11-12) | `8132a3b1` | `data/nfl_origination/injury_and_depth_deficiency.csv`, `research/nfl_origination/INJURY_AND_BACKUP_DEPTH_METHODOLOGY.md` |
+| NFL-O6 Executive summary, 11-page zero-input GitHub Pages dashboard (`docs/nfl-origination/`) & Flagged for Review page | done (2026-11-12) | `8132a3b1` | `NFL_ORIGINATION_EXECUTIVE_SUMMARY.md`, `docs/nfl-origination/**`, `scripts/build_nfl_origination.py`, `data/nfl_origination/flagged_for_review.csv` |
+| NFL-O7 Line-by-line automated verifier, regression test suite & dedicated CI workflow | done (2026-11-12) | `8132a3b1` | `scripts/check_nfl_origination.py`, `tests/test_nfl_origination.py`, `.github/workflows/nfl-origination-ci.yml` |
+| NFL-O8 Final integration: merge `origin/main`, link `docs/nfl-origination/` (and `docs/nfl-3b81013c/` per peer request) additively in `docs/index.html` & `README.md`, regenerate derived CI inventories (`audit_repo.py`, `build_assurance.py`, `source_coverage.py`), run all repo gates, PR to `main`, merge, verify live GitHub Pages | in progress | `8132a3b1` | `COORDINATION.md` (append-only), `README.md` (append-only), `docs/index.html` (additive links), `data/assurance/**`, `docs/assurance/**`, `data/source_coverage/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md` |
+
+**Completion & Verification Summary (`8132a3b1`):**
+- **28 directly fetched primary sources (`NFL-S01`..`NFL-S28`)** across `nfl.com`, `operations.nfl.com`, `support.nfl.com`, 8 official NFL club depth charts (`patriots.com`, `detroitlions.com`, `commanders.com`, `giants.com`, `vikings.com`, `packers.com`, `clevelandbrowns.com`, `azcardinals.com`), `scipy.org`, `scikit-learn.org`, `statsmodels.org`, `itl.nist.gov`, `aglc.ca`, and `github.com`.
+- **13 CSV datasets (222 source-linked rows)** in `data/nfl_origination/`: 32-club 2026 standings verified to exact league identity (`sum(W)=sum(L)=135`, `sum(T)=2`, `sum(PF)=sum(PA)=6,246`); 14 Week 10 matchups + 4 byes; 24 offensive/defensive 1st-to-4th string starter-replacement chains; 14 site suggestions (`pending_human_choice`); 16 pre-decision Q&As; 10 preregistered NFL strategies (`0/10` qualified); 12 validation gates; 12 combo correlation specs; 16 repo audit findings (`RA-01`..`RA-16`); and 15 flagged items (`NFL-F01`..`NFL-F15`).
+- **Pure-stdlib Python 3.11 package (`src/nfl_origination/`) + `tests/test_nfl_origination.py`**: passes both bare-stdlib `python3 tools/run_tests.py` (`51/51`) and `pytest`.
+- **11-page zero-`<input>` dashboard (`docs/nfl-origination/`)**: `check_nfl_origination OK: 11 HTML pages, 236 sourced table rows, 218 verified blank cells, 13 CSV datasets, 0 <input> elements`.
+- **Peer coordination**: Preserved `efebf74f` (`PR #66`), `9e78abc5` (`PR #67`), and `3b81013c` (`PR #69`) 100% intact on merge, and honored `3b81013c`'s cross-session request to add additive navigation links for `docs/nfl-3b81013c/` alongside `docs/nfl-origination/` in `docs/index.html` and `README.md`.
+

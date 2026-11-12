@@ -126,3 +126,15 @@ An anonymized, zero-inference compliance dashboard and dataset suite covering Sa
 - **Line-by-Line Repo & Source Audit:** [`audit/SF_94122_REPO_AND_SOURCE_AUDIT.md`](audit/SF_94122_REPO_AND_SOURCE_AUDIT.md)
 - **CSV Datasets & Verifier:** [`data/sf_94122/`](data/sf_94122/) · `python3 scripts/build_sf_94122.py --check` · `python3 scripts/check_sf_94122.py`
 
+## NFL Fair-Line Origination, Depth-Deficiency & Skill-Gated Leaderboard (`docs/nfl-origination/`)
+
+A pure-stdlib Python 3.11 NFL fair-line origination, starter-vs-backup (`1st`–`4th` string) offensive/defensive depth-deficiency, Gaussian copula combo-correlation, and 12-gate anti-luck leaderboard suite verified against 28 primary sources on `2026-11-12` (reconciling all 32 NFL clubs' 2026 standings `135W–135L–2T`, `6,246 PF = 6,246 PA`, all 14 Week 10 matchups + 4 byes including Munich neutral site, and 24 Week 10 injury/depth chains while leaving unconfirmed sportsbook lines, empirical EPA drop-offs, and paired correlations strictly blank).
+
+- **Live Dashboard (11 pages):** [`docs/nfl-origination/index.html`](docs/nfl-origination/index.html) (`https://sassnarep3-star.github.io/Own6/docs/nfl-origination/`)
+- **Suggestions for Review & Decision Q&A:** [`docs/nfl-origination/suggestions.html`](docs/nfl-origination/suggestions.html) · [`docs/nfl-origination/decision-qa.html`](docs/nfl-origination/decision-qa.html)
+- **Flagged for Review (`NFL-F01`..`NFL-F15`):** [`docs/nfl-origination/flagged.html`](docs/nfl-origination/flagged.html)
+- **Executive Summary & Repo Audit:** [`NFL_ORIGINATION_EXECUTIVE_SUMMARY.md`](NFL_ORIGINATION_EXECUTIVE_SUMMARY.md) · [`audit/NFL_ORIGINATION_REPO_AND_SOURCE_AUDIT.md`](audit/NFL_ORIGINATION_REPO_AND_SOURCE_AUDIT.md)
+- **Engine, Datasets & Verifier:** [`src/nfl_origination/`](src/nfl_origination/) · [`data/nfl_origination/`](data/nfl_origination/) · `python3 scripts/build_nfl_origination.py --check` · `python3 scripts/check_nfl_origination.py`
+- **Peer NFL Week 10 Verification Pack (`3b81013c`):** [`docs/nfl-3b81013c/index.html`](docs/nfl-3b81013c/index.html) (`https://sassnarep3-star.github.io/Own6/docs/nfl-3b81013c/`)
+
+
