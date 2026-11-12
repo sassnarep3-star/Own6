@@ -1,0 +1,106 @@
+{
+  "C1_same_game_cover_over": {
+    "available": true,
+    "n": 2792,
+    "clusters": 570,
+    "p_cover": 0.4888968481375358,
+    "p_over": 0.4874641833810888,
+    "joint_observed": 0.2439111747851003,
+    "joint_if_independent": 0.2383197028349521,
+    "ratio_observed_to_independent": 1.0234620632857223,
+    "phi": 0.02237843887457145,
+    "phi_ci": [
+      -0.009995785243873605,
+      0.05597943808605409
+    ],
+    "fisher_ci": [
+      -0.014729568581768611,
+      0.059424887332642416
+    ],
+    "frechet_bounds": [
+      0.0,
+      0.4874641833810888
+    ],
+    "fisher_exact": {
+      "n11": 681,
+      "n10": 684,
+      "n01": 680,
+      "n00": 747,
+      "odds_ratio": 1.0937113003095975,
+      "p_value": 0.240582934329547
+    },
+    "verdict": "independence not rejected \u2014 multiplication still disclosed, not assumed"
+  },
+  "C2_cross_game_pairs": {
+    "available": true,
+    "n": 234,
+    "clusters": 234,
+    "phi": 0.09879178611317435,
+    "phi_ci": [
+      -0.029992067972699713,
+      0.2276645290123079
+    ],
+    "fisher_exact": {
+      "n11": 56,
+      "n10": 49,
+      "n01": 56,
+      "n00": 73,
+      "odds_ratio": 1.489795918367347,
+      "p_value": 0.1486165232524757
+    },
+    "note": "Cross-game legs cannot share game mechanics; any apparent dependence here is noise."
+  },
+  "C3_abs_margin_total": {
+    "available": true,
+    "n": 2895,
+    "r": 0.03409431228209094,
+    "clustered_ci": [
+      -0.0016068427314625173,
+      0.06830173114134315
+    ],
+    "fisher_ci": [
+      -0.0023383860205387196,
+      0.07043662047740964
+    ],
+    "interpretation": "Absolute margin vs total points scored, all games in the window."
+  },
+  "window": {
+    "seasons": "2015-2025",
+    "games": 2895
+  },
+  "combo_pricing_example": [
+    {
+      "method": "independence (only if tested)",
+      "joint": 0.28600000000000003,
+      "fair_american": 250.0,
+      "ev_at_offered": {
+        "2.61": -0.25354,
+        "2.7": -0.2277999999999999
+      }
+    },
+    {
+      "method": "copula with measured rho",
+      "joint": null,
+      "fair_american": null,
+      "ev_at_offered": null
+    },
+    {
+      "method": "Frechet max (best case)",
+      "joint": 0.52,
+      "fair_american": -108.0,
+      "ev_at_offered": {
+        "2.61": 0.35719999999999996,
+        "2.7": 0.40400000000000014
+      }
+    },
+    {
+      "method": "Frechet min (worst case)",
+      "joint": 0.07000000000000006,
+      "fair_american": 1329.0,
+      "ev_at_offered": {
+        "2.61": -0.8172999999999999,
+        "2.7": -0.8109999999999998
+      }
+    }
+  ]
+}

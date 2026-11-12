@@ -1,0 +1,5325 @@
+{
+  "test_season": 2025,
+  "prior_season_check": 2024,
+  "package_version": "1.0.0",
+  "data_input": {
+    "file": "data/nfl/model/games_2015_2026.csv",
+    "sha256": "9fe5bd67210691255cf90af21e39cc242b606f253dbc65198b7915565ce83090",
+    "rows": 3167,
+    "source": "https://github.com/leesharpe/nfldata",
+    "commit": "6ea0be6dd9bfc95c818c05568753bc70f1986ea2",
+    "license": "NO LICENSE FILE FOUND in the source repository at retrieval time",
+    "license_status": "unverified"
+  },
+  "reconciliation": {
+    "checks": 89,
+    "failed": 0
+  },
+  "configuration": {
+    "market_anchor": 0.35,
+    "shrink_to_market": 0.5,
+    "min_edge_points": 1.5,
+    "sigma_margin": 13.8882,
+    "sigma_total": 14.7215,
+    "season_decay": 0.55,
+    "shrink_games": 6.0,
+    "bet_price_assumption": "-110 for historical spread/total bets (NOT a verified price)",
+    "holdout": "2025 regular season; fit window 2015-2024 only"
+  },
+  "results": {
+    "S1": {
+      "n_bets": 172,
+      "n_events": 172,
+      "n_clusters": 45,
+      "roi": -0.012156448202959835,
+      "roi_ci": [
+        -0.12253765623330841,
+        0.10354851822841772
+      ],
+      "win_rate": 0.5174418604651163
+    },
+    "S2": {
+      "n_bets": 111,
+      "n_events": 111,
+      "n_clusters": 34,
+      "roi": -0.036855036855036834,
+      "roi_ci": [
+        -0.24331189478248297,
+        0.17329545454545456
+      ],
+      "win_rate": 0.5045045045045045
+    },
+    "S3": {
+      "n_bets": 219,
+      "n_events": 219,
+      "n_clusters": 50,
+      "roi": -0.07499021526418785,
+      "roi_ci": [
+        -0.2799220911949685,
+        0.15285805860805862
+      ],
+      "win_rate": 0.3013698630136986
+    }
+  },
+  "prior_season_results": {
+    "S1": {
+      "n_bets": 189,
+      "n_events": 189,
+      "n_clusters": 46,
+      "roi": -0.0808080808080808,
+      "roi_ci": [
+        -0.24501521571648688,
+        0.07693809258226428
+      ],
+      "win_rate": 0.48148148148148145
+    },
+    "S2": {
+      "n_bets": 106,
+      "n_events": 106,
+      "n_clusters": 34,
+      "roi": -0.027444253859348185,
+      "roi_ci": [
+        -0.21903159157557986,
+        0.16454545454545458
+      ],
+      "win_rate": 0.5094339622641509
+    },
+    "S3": {
+      "n_bets": 225,
+      "n_events": 225,
+      "n_clusters": 52,
+      "roi": -0.20543492063492066,
+      "roi_ci": [
+        -0.37818251342642323,
+        -0.028316253159377604
+      ],
+      "win_rate": 0.27555555555555555
+    }
+  },
+  "calibration": {
+    "brier_model": 0.278329579290298,
+    "brier_market": 0.25,
+    "bss": -0.113318317161192,
+    "n": 205,
+    "ece": 0.11648562417142168,
+    "note": "Market probability is taken as 0.5 at the closing line; this understates the market's own information and is disclosed as a limitation, not a result."
+  },
+  "reliability": [
+    {
+      "bin": "0.0-0.1",
+      "n": 2,
+      "mean_predicted": 0.09045591683166443,
+      "observed_rate": 1.0,
+      "gap": 0.9095440831683356
+    },
+    {
+      "bin": "0.1-0.2",
+      "n": 12,
+      "mean_predicted": 0.1384623371606908,
+      "observed_rate": 0.6666666666666666,
+      "gap": 0.5282043295059758
+    },
+    {
+      "bin": "0.2-0.3",
+      "n": 20,
+      "mean_predicted": 0.25285776585512154,
+      "observed_rate": 0.45,
+      "gap": 0.19714223414487847
+    },
+    {
+      "bin": "0.3-0.4",
+      "n": 28,
+      "mean_predicted": 0.3504337578414384,
+      "observed_rate": 0.35714285714285715,
+      "gap": 0.006709099301418775
+    },
+    {
+      "bin": "0.4-0.5",
+      "n": 48,
+      "mean_predicted": 0.45212038897364987,
+      "observed_rate": 0.4583333333333333,
+      "gap": 0.006212944359683448
+    },
+    {
+      "bin": "0.5-0.6",
+      "n": 44,
+      "mean_predicted": 0.5534941410707945,
+      "observed_rate": 0.4318181818181818,
+      "gap": -0.12167595925261271
+    },
+    {
+      "bin": "0.6-0.7",
+      "n": 29,
+      "mean_predicted": 0.6467146935900175,
+      "observed_rate": 0.5517241379310345,
+      "gap": -0.09499055565898307
+    },
+    {
+      "bin": "0.7-0.8",
+      "n": 16,
+      "mean_predicted": 0.7420171893592343,
+      "observed_rate": 0.6875,
+      "gap": -0.05451718935923433
+    },
+    {
+      "bin": "0.8-0.9",
+      "n": 5,
+      "mean_predicted": 0.850611902159673,
+      "observed_rate": 0.4,
+      "gap": -0.45061190215967295
+    },
+    {
+      "bin": "0.9-1.0",
+      "n": 1,
+      "mean_predicted": 0.9407108196406191,
+      "observed_rate": 1.0,
+      "gap": 0.05928918035938091
+    }
+  ],
+  "bets_logged": 502,
+  "detail_sample": [
+    {
+      "strategy": "S1",
+      "game_id": "2025_01_DAL_PHI",
+      "side": "away",
+      "line": -8.5,
+      "model_margin": 0.39,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_01_DAL_PHI",
+      "side": "away",
+      "line": 330.0,
+      "model_edge_pp": 0.2706,
+      "result": "loss",
+      "price_used": 330.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_01_KC_LAC",
+      "side": "home",
+      "line": 3.0,
+      "model_margin": 0.57,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_01_KC_LAC",
+      "side": "over",
+      "line": 47.5,
+      "model_total": 43.47,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_01_KC_LAC",
+      "side": "home",
+      "line": 145.0,
+      "model_edge_pp": 0.094,
+      "result": "win",
+      "price_used": 145.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_01_CIN_CLE",
+      "side": "home",
+      "line": 5.5,
+      "model_margin": 0.1,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_01_CIN_CLE",
+      "side": "home",
+      "line": 195.0,
+      "model_edge_pp": 0.1494,
+      "result": "loss",
+      "price_used": 195.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_01_MIA_IND",
+      "side": "away",
+      "line": -108.0,
+      "model_edge_pp": 0.031,
+      "result": "loss",
+      "price_used": -108.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_01_CAR_JAX",
+      "side": "away",
+      "line": 170.0,
+      "model_edge_pp": 0.087,
+      "result": "loss",
+      "price_used": 170.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_01_LV_NE",
+      "side": "over",
+      "line": 44.5,
+      "model_total": 40.48,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_01_LV_NE",
+      "side": "away",
+      "line": 130.0,
+      "model_edge_pp": 0.0756,
+      "result": "win",
+      "price_used": 130.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_01_ARI_NO",
+      "side": "home",
+      "line": 6.0,
+      "model_margin": 3.88,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_01_ARI_NO",
+      "side": "home",
+      "line": 220.0,
+      "model_edge_pp": 0.2832,
+      "result": "loss",
+      "price_used": 220.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_01_PIT_NYJ",
+      "side": "home",
+      "line": 130.0,
+      "model_edge_pp": 0.0345,
+      "result": "loss",
+      "price_used": 130.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_01_NYG_WAS",
+      "side": "away",
+      "line": -6.0,
+      "model_margin": 2.03,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_01_NYG_WAS",
+      "side": "away",
+      "line": 240.0,
+      "model_edge_pp": 0.1623,
+      "result": "loss",
+      "price_used": 240.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_01_TEN_DEN",
+      "side": "away",
+      "line": -8.5,
+      "model_margin": 2.11,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_01_TEN_DEN",
+      "side": "away",
+      "line": 350.0,
+      "model_edge_pp": 0.2316,
+      "result": "loss",
+      "price_used": 350.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_01_SF_SEA",
+      "side": "under",
+      "line": 43.5,
+      "model_total": 46.53,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_01_HOU_LA",
+      "side": "away",
+      "line": 140.0,
+      "model_edge_pp": 0.0457,
+      "result": "loss",
+      "price_used": 140.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_01_BAL_BUF",
+      "side": "home",
+      "line": 1.5,
+      "model_margin": 1.81,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_01_BAL_BUF",
+      "side": "home",
+      "line": 110.0,
+      "model_edge_pp": 0.0613,
+      "result": "win",
+      "price_used": 110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_02_CLE_BAL",
+      "side": "away",
+      "line": -12.5,
+      "model_margin": 3.79,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_02_CLE_BAL",
+      "side": "away",
+      "line": 600.0,
+      "model_edge_pp": 0.264,
+      "result": "loss",
+      "price_used": 600.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_02_JAX_CIN",
+      "side": "away",
+      "line": 160.0,
+      "model_edge_pp": 0.0304,
+      "result": "loss",
+      "price_used": 160.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_02_NYG_DAL",
+      "side": "away",
+      "line": 195.0,
+      "model_edge_pp": 0.0585,
+      "result": "loss",
+      "price_used": 195.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_02_CHI_DET",
+      "side": "away",
+      "line": 220.0,
+      "model_edge_pp": 0.0788,
+      "result": "loss",
+      "price_used": 220.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_02_SF_NO",
+      "side": "under",
+      "line": 40.5,
+      "model_total": 44.85,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_02_SF_NO",
+      "side": "home",
+      "line": 140.0,
+      "model_edge_pp": 0.0659,
+      "result": "loss",
+      "price_used": 140.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_02_BUF_NYJ",
+      "side": "home",
+      "line": 235.0,
+      "model_edge_pp": 0.0794,
+      "result": "loss",
+      "price_used": 235.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_02_SEA_PIT",
+      "side": "away",
+      "line": -3.5,
+      "model_margin": 0.21,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_02_SEA_PIT",
+      "side": "away",
+      "line": 160.0,
+      "model_edge_pp": 0.1236,
+      "result": "win",
+      "price_used": 160.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_02_LA_TEN",
+      "side": "home",
+      "line": 5.5,
+      "model_margin": -0.18,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_02_LA_TEN",
+      "side": "home",
+      "line": 205.0,
+      "model_edge_pp": 0.1527,
+      "result": "loss",
+      "price_used": 205.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_02_CAR_ARI",
+      "side": "away",
+      "line": -7.0,
+      "model_margin": 2.85,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_02_CAR_ARI",
+      "side": "away",
+      "line": 250.0,
+      "model_edge_pp": 0.1474,
+      "result": "loss",
+      "price_used": 250.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_02_PHI_KC",
+      "side": "home",
+      "line": 1.5,
+      "model_margin": 1.97,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_02_PHI_KC",
+      "side": "home",
+      "line": 102.0,
+      "model_edge_pp": 0.047,
+      "result": "loss",
+      "price_used": 102.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_02_TB_HOU",
+      "side": "away",
+      "line": -2.5,
+      "model_margin": -2.97,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_02_TB_HOU",
+      "side": "under",
+      "line": 42.5,
+      "model_total": 45.55,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_02_TB_HOU",
+      "side": "away",
+      "line": 114.0,
+      "model_edge_pp": 0.1318,
+      "result": "win",
+      "price_used": 114.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_02_LAC_LV",
+      "side": "home",
+      "line": 164.0,
+      "model_edge_pp": 0.0891,
+      "result": "loss",
+      "price_used": 164.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_03_MIA_BUF",
+      "side": "away",
+      "line": -12.5,
+      "model_margin": 1.35,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_03_MIA_BUF",
+      "side": "away",
+      "line": 550.0,
+      "model_edge_pp": 0.3217,
+      "result": "loss",
+      "price_used": 550.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_03_ATL_CAR",
+      "side": "home",
+      "line": 5.5,
+      "model_margin": 0.03,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_03_ATL_CAR",
+      "side": "home",
+      "line": 185.0,
+      "model_edge_pp": 0.1355,
+      "result": "win",
+      "price_used": 185.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_03_GB_CLE",
+      "side": "home",
+      "line": 8.5,
+      "model_margin": -0.68,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_03_GB_CLE",
+      "side": "home",
+      "line": 360.0,
+      "model_edge_pp": 0.2487,
+      "result": "win",
+      "price_used": 360.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_03_HOU_JAX",
+      "side": "away",
+      "line": 105.0,
+      "model_edge_pp": 0.0393,
+      "result": "loss",
+      "price_used": 105.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_03_CIN_MIN",
+      "side": "under",
+      "line": 41.5,
+      "model_total": 49.24,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_03_CIN_MIN",
+      "side": "away",
+      "line": 136.0,
+      "model_edge_pp": 0.0652,
+      "result": "loss",
+      "price_used": 136.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_03_PIT_NE",
+      "side": "over",
+      "line": 44.5,
+      "model_total": 37.0,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_03_LA_PHI",
+      "side": "away",
+      "line": 164.0,
+      "model_edge_pp": 0.0645,
+      "result": "loss",
+      "price_used": 164.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_03_NYJ_TB",
+      "side": "away",
+      "line": 275.0,
+      "model_edge_pp": 0.1469,
+      "result": "loss",
+      "price_used": 275.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_03_IND_TEN",
+      "side": "home",
+      "line": 6.0,
+      "model_margin": 2.19,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_03_IND_TEN",
+      "side": "home",
+      "line": 200.0,
+      "model_edge_pp": 0.2151,
+      "result": "loss",
+      "price_used": 200.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_03_LV_WAS",
+      "side": "under",
+      "line": 43.5,
+      "model_total": 47.34,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_03_LV_WAS",
+      "side": "away",
+      "line": 130.0,
+      "model_edge_pp": 0.0377,
+      "result": "loss",
+      "price_used": 130.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_03_DEN_LAC",
+      "side": "away",
+      "line": 130.0,
+      "model_edge_pp": 0.0561,
+      "result": "loss",
+      "price_used": 130.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_03_NO_SEA",
+      "side": "away",
+      "line": -7.5,
+      "model_margin": -0.8,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_03_NO_SEA",
+      "side": "away",
+      "line": 295.0,
+      "model_edge_pp": 0.2841,
+      "result": "loss",
+      "price_used": 295.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_03_DAL_CHI",
+      "side": "over",
+      "line": 49.5,
+      "model_total": 44.64,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_03_KC_NYG",
+      "side": "over",
+      "line": 44.5,
+      "model_total": 39.55,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_03_KC_NYG",
+      "side": "home",
+      "line": 260.0,
+      "model_edge_pp": 0.1142,
+      "result": "loss",
+      "price_used": 260.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_03_DET_BAL",
+      "side": "away",
+      "line": -4.5,
+      "model_margin": 0.74,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_03_DET_BAL",
+      "side": "away",
+      "line": 200.0,
+      "model_edge_pp": 0.1599,
+      "result": "win",
+      "price_used": 200.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_04_MIN_PIT",
+      "side": "home",
+      "line": 2.5,
+      "model_margin": 1.0,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_04_MIN_PIT",
+      "side": "home",
+      "line": 124.0,
+      "model_edge_pp": 0.0678,
+      "result": "win",
+      "price_used": 124.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_04_WAS_ATL",
+      "side": "under",
+      "line": 43.5,
+      "model_total": 48.23,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_04_WAS_ATL",
+      "side": "away",
+      "line": 120.0,
+      "model_edge_pp": 0.0721,
+      "result": "loss",
+      "price_used": 120.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_04_NO_BUF",
+      "side": "away",
+      "line": -15.5,
+      "model_margin": 0.84,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_04_NO_BUF",
+      "side": "away",
+      "line": 800.0,
+      "model_edge_pp": 0.3792,
+      "result": "loss",
+      "price_used": 800.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_04_CLE_DET",
+      "side": "away",
+      "line": -10.0,
+      "model_margin": 3.63,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_04_CLE_DET",
+      "side": "under",
+      "line": 44.5,
+      "model_total": 48.83,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_04_CLE_DET",
+      "side": "away",
+      "line": 410.0,
+      "model_edge_pp": 0.2151,
+      "result": "loss",
+      "price_used": 410.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_04_TEN_HOU",
+      "side": "away",
+      "line": -7.5,
+      "model_margin": 0.28,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_04_TEN_HOU",
+      "side": "away",
+      "line": 340.0,
+      "model_edge_pp": 0.279,
+      "result": "loss",
+      "price_used": 340.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_04_CAR_NE",
+      "side": "away",
+      "line": -5.5,
+      "model_margin": 2.04,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_04_CAR_NE",
+      "side": "away",
+      "line": 215.0,
+      "model_edge_pp": 0.1384,
+      "result": "loss",
+      "price_used": 215.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_04_LAC_NYG",
+      "side": "home",
+      "line": 6.0,
+      "model_margin": -1.53,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_04_LAC_NYG",
+      "side": "over",
+      "line": 43.5,
+      "model_total": 40.12,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_04_LAC_NYG",
+      "side": "home",
+      "line": 230.0,
+      "model_edge_pp": 0.1386,
+      "result": "win",
+      "price_used": 230.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_04_PHI_TB",
+      "side": "home",
+      "line": 3.5,
+      "model_margin": 1.7,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_04_PHI_TB",
+      "side": "under",
+      "line": 44.5,
+      "model_total": 48.55,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_04_PHI_TB",
+      "side": "home",
+      "line": 154.0,
+      "model_edge_pp": 0.1405,
+      "result": "loss",
+      "price_used": 154.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_04_IND_LA",
+      "side": "away",
+      "line": 154.0,
+      "model_edge_pp": 0.0563,
+      "result": "loss",
+      "price_used": 154.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_04_BAL_KC",
+      "side": "home",
+      "line": 124.0,
+      "model_edge_pp": 0.0535,
+      "result": "win",
+      "price_used": 124.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_04_CHI_LV",
+      "side": "over",
+      "line": 47.5,
+      "model_total": 41.43,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_04_GB_DAL",
+      "side": "home",
+      "line": 7.0,
+      "model_margin": 1.77,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_04_GB_DAL",
+      "side": "home",
+      "line": 275.0,
+      "model_edge_pp": 0.2696,
+      "result": "loss",
+      "price_used": 275.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_04_CIN_DEN",
+      "side": "away",
+      "line": -7.5,
+      "model_margin": -1.4,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_04_CIN_DEN",
+      "side": "away",
+      "line": 360.0,
+      "model_edge_pp": 0.3371,
+      "result": "loss",
+      "price_used": 360.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_05_SF_LA",
+      "side": "away",
+      "line": -8.5,
+      "model_margin": -3.41,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_05_SF_LA",
+      "side": "away",
+      "line": 340.0,
+      "model_edge_pp": 0.384,
+      "result": "win",
+      "price_used": 340.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_05_MIN_CLE",
+      "side": "under",
+      "line": 35.5,
+      "model_total": 43.32,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_05_MIN_CLE",
+      "side": "home",
+      "line": 164.0,
+      "model_edge_pp": 0.0707,
+      "result": "loss",
+      "price_used": 164.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_05_HOU_BAL",
+      "side": "home",
+      "line": 2.5,
+      "model_margin": 8.17,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_05_HOU_BAL",
+      "side": "under",
+      "line": 41.5,
+      "model_total": 46.09,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_05_HOU_BAL",
+      "side": "home",
+      "line": 124.0,
+      "model_edge_pp": 0.261,
+      "result": "loss",
+      "price_used": 124.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_05_LV_IND",
+      "side": "away",
+      "line": -7.0,
+      "model_margin": -1.08,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_05_LV_IND",
+      "side": "away",
+      "line": 285.0,
+      "model_edge_pp": 0.2856,
+      "result": "loss",
+      "price_used": 285.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_05_DAL_NYJ",
+      "side": "away",
+      "line": -1.5,
+      "model_margin": -2.51,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_05_DAL_NYJ",
+      "side": "over",
+      "line": 48.5,
+      "model_total": 44.52,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_05_DAL_NYJ",
+      "side": "away",
+      "line": -105.0,
+      "model_edge_pp": 0.0739,
+      "result": "win",
+      "price_used": -105.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_05_DEN_PHI",
+      "side": "away",
+      "line": 180.0,
+      "model_edge_pp": 0.0982,
+      "result": "win",
+      "price_used": 180.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_05_TEN_ARI",
+      "side": "away",
+      "line": -7.5,
+      "model_margin": 0.81,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_05_TEN_ARI",
+      "side": "away",
+      "line": 330.0,
+      "model_edge_pp": 0.2585,
+      "result": "win",
+      "price_used": 330.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_05_TB_SEA",
+      "side": "away",
+      "line": -3.5,
+      "model_margin": -1.74,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_05_TB_SEA",
+      "side": "away",
+      "line": 150.0,
+      "model_edge_pp": 0.1643,
+      "result": "win",
+      "price_used": 150.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_05_DET_CIN",
+      "side": "home",
+      "line": 10.5,
+      "model_margin": 2.21,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_05_DET_CIN",
+      "side": "under",
+      "line": 49.5,
+      "model_total": 54.75,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_05_DET_CIN",
+      "side": "home",
+      "line": 425.0,
+      "model_edge_pp": 0.3585,
+      "result": "loss",
+      "price_used": 425.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_05_NE_BUF",
+      "side": "over",
+      "line": 49.5,
+      "model_total": 44.64,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_05_NE_BUF",
+      "side": "away",
+      "line": 310.0,
+      "model_edge_pp": 0.1173,
+      "result": "win",
+      "price_used": 310.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_06_PHI_NYG",
+      "side": "home",
+      "line": 7.0,
+      "model_margin": -2.78,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_06_PHI_NYG",
+      "side": "home",
+      "line": 310.0,
+      "model_edge_pp": 0.1625,
+      "result": "win",
+      "price_used": 310.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_06_DEN_NYJ",
+      "side": "home",
+      "line": 7.5,
+      "model_margin": 0.56,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_06_DEN_NYJ",
+      "side": "over",
+      "line": 43.5,
+      "model_total": 40.0,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_06_DEN_NYJ",
+      "side": "home",
+      "line": 310.0,
+      "model_edge_pp": 0.2578,
+      "result": "loss",
+      "price_used": 310.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_06_LA_BAL",
+      "side": "home",
+      "line": 7.0,
+      "model_margin": 7.98,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_06_LA_BAL",
+      "side": "under",
+      "line": 43.5,
+      "model_total": 46.61,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_06_LA_BAL",
+      "side": "home",
+      "line": 280.0,
+      "model_edge_pp": 0.4398,
+      "result": "loss",
+      "price_used": 280.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_06_ARI_IND",
+      "side": "away",
+      "line": -8.5,
+      "model_margin": -2.66,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_06_ARI_IND",
+      "side": "away",
+      "line": 360.0,
+      "model_edge_pp": 0.373,
+      "result": "loss",
+      "price_used": 360.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_06_SEA_JAX",
+      "side": "over",
+      "line": 47.5,
+      "model_total": 44.24,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_06_LAC_MIA",
+      "side": "home",
+      "line": 3.5,
+      "model_margin": 1.48,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_06_LAC_MIA",
+      "side": "home",
+      "line": 170.0,
+      "model_edge_pp": 0.1577,
+      "result": "loss",
+      "price_used": 170.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_06_NE_NO",
+      "side": "home",
+      "line": 3.5,
+      "model_margin": 4.34,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_06_NE_NO",
+      "side": "over",
+      "line": 46.5,
+      "model_total": 39.25,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_06_NE_NO",
+      "side": "home",
+      "line": 160.0,
+      "model_edge_pp": 0.2236,
+      "result": "loss",
+      "price_used": 160.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_06_CLE_PIT",
+      "side": "away",
+      "line": -5.5,
+      "model_margin": 1.96,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_06_CLE_PIT",
+      "side": "away",
+      "line": 225.0,
+      "model_edge_pp": 0.1505,
+      "result": "loss",
+      "price_used": 225.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_06_TEN_LV",
+      "side": "away",
+      "line": 154.0,
+      "model_edge_pp": 0.0876,
+      "result": "loss",
+      "price_used": 154.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_06_CIN_GB",
+      "side": "away",
+      "line": -14.0,
+      "model_margin": -1.79,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_06_CIN_GB",
+      "side": "under",
+      "line": 44.5,
+      "model_total": 49.59,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_06_CIN_GB",
+      "side": "away",
+      "line": 650.0,
+      "model_edge_pp": 0.4324,
+      "result": "loss",
+      "price_used": 650.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_06_SF_TB",
+      "side": "away",
+      "line": -3.5,
+      "model_margin": -0.04,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_06_SF_TB",
+      "side": "away",
+      "line": 160.0,
+      "model_edge_pp": 0.1308,
+      "result": "loss",
+      "price_used": 160.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_06_DET_KC",
+      "side": "away",
+      "line": 120.0,
+      "model_edge_pp": 0.0662,
+      "result": "loss",
+      "price_used": 120.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_06_CHI_WAS",
+      "side": "away",
+      "line": -5.5,
+      "model_margin": 0.08,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_06_CHI_WAS",
+      "side": "over",
+      "line": 49.5,
+      "model_total": 44.69,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_06_CHI_WAS",
+      "side": "away",
+      "line": 210.0,
+      "model_edge_pp": 0.1896,
+      "result": "win",
+      "price_used": 210.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_07_PIT_CIN",
+      "side": "home",
+      "line": 5.5,
+      "model_margin": 3.71,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_07_PIT_CIN",
+      "side": "home",
+      "line": 200.0,
+      "model_edge_pp": 0.2576,
+      "result": "win",
+      "price_used": 200.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_07_LA_JAX",
+      "side": "home",
+      "line": 140.0,
+      "model_edge_pp": 0.051,
+      "result": "loss",
+      "price_used": 140.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_07_NO_CHI",
+      "side": "away",
+      "line": -4.5,
+      "model_margin": -1.52,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_07_NO_CHI",
+      "side": "over",
+      "line": 43.5,
+      "model_total": 40.2,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_07_NO_CHI",
+      "side": "away",
+      "line": 185.0,
+      "model_edge_pp": 0.2071,
+      "result": "loss",
+      "price_used": 185.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_07_MIA_CLE",
+      "side": "away",
+      "line": -2.5,
+      "model_margin": -2.03,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_07_MIA_CLE",
+      "side": "under",
+      "line": 34.5,
+      "model_total": 43.9,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_07_MIA_CLE",
+      "side": "away",
+      "line": 124.0,
+      "model_edge_pp": 0.1261,
+      "result": "loss",
+      "price_used": 124.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_07_LV_KC",
+      "side": "away",
+      "line": -13.5,
+      "model_margin": 1.44,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_07_LV_KC",
+      "side": "away",
+      "line": 625.0,
+      "model_edge_pp": 0.3352,
+      "result": "loss",
+      "price_used": 625.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_07_PHI_MIN",
+      "side": "home",
+      "line": 2.5,
+      "model_margin": 0.86,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_07_PHI_MIN",
+      "side": "under",
+      "line": 43.5,
+      "model_total": 47.07,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_07_PHI_MIN",
+      "side": "home",
+      "line": 124.0,
+      "model_edge_pp": 0.064,
+      "result": "loss",
+      "price_used": 124.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_07_NE_TEN",
+      "side": "home",
+      "line": 6.5,
+      "model_margin": 2.73,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_07_NE_TEN",
+      "side": "home",
+      "line": 235.0,
+      "model_edge_pp": 0.265,
+      "result": "loss",
+      "price_used": 235.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_07_NYG_DEN",
+      "side": "away",
+      "line": -7.5,
+      "model_margin": 3.16,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_07_NYG_DEN",
+      "side": "away",
+      "line": 330.0,
+      "model_edge_pp": 0.1919,
+      "result": "loss",
+      "price_used": 330.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_07_GB_ARI",
+      "side": "home",
+      "line": 7.0,
+      "model_margin": 0.2,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_07_GB_ARI",
+      "side": "home",
+      "line": 310.0,
+      "model_edge_pp": 0.2474,
+      "result": "loss",
+      "price_used": 310.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_07_WAS_DAL",
+      "side": "over",
+      "line": 54.5,
+      "model_total": 50.55,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_07_ATL_SF",
+      "side": "home",
+      "line": -1.5,
+      "model_margin": 4.53,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_07_TB_DET",
+      "side": "away",
+      "line": -6.0,
+      "model_margin": 0.78,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_07_TB_DET",
+      "side": "away",
+      "line": 225.0,
+      "model_edge_pp": 0.1842,
+      "result": "loss",
+      "price_used": 225.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_07_HOU_SEA",
+      "side": "away",
+      "line": 140.0,
+      "model_edge_pp": 0.0458,
+      "result": "loss",
+      "price_used": 140.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_08_MIN_LAC",
+      "side": "away",
+      "line": -3.0,
+      "model_margin": -0.07,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_08_MIN_LAC",
+      "side": "away",
+      "line": 142.0,
+      "model_edge_pp": 0.1031,
+      "result": "loss",
+      "price_used": 142.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_08_MIA_ATL",
+      "side": "away",
+      "line": -7.0,
+      "model_margin": -3.05,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_08_MIA_ATL",
+      "side": "away",
+      "line": 280.0,
+      "model_edge_pp": 0.338,
+      "result": "win",
+      "price_used": 280.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_08_CHI_BAL",
+      "side": "home",
+      "line": -2.5,
+      "model_margin": 6.61,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_08_BUF_CAR",
+      "side": "home",
+      "line": 310.0,
+      "model_edge_pp": 0.0806,
+      "result": "loss",
+      "price_used": 310.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_08_NYJ_CIN",
+      "side": "away",
+      "line": 210.0,
+      "model_edge_pp": 0.1131,
+      "result": "win",
+      "price_used": 210.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_08_SF_HOU",
+      "side": "away",
+      "line": -2.5,
+      "model_margin": -3.07,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_08_SF_HOU",
+      "side": "under",
+      "line": 41.5,
+      "model_total": 45.42,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_08_SF_HOU",
+      "side": "away",
+      "line": 130.0,
+      "model_edge_pp": 0.167,
+      "result": "loss",
+      "price_used": 130.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_08_CLE_NE",
+      "side": "away",
+      "line": -7.0,
+      "model_margin": -1.1,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_08_CLE_NE",
+      "side": "away",
+      "line": 300.0,
+      "model_edge_pp": 0.2958,
+      "result": "loss",
+      "price_used": 300.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_08_NYG_PHI",
+      "side": "away",
+      "line": 300.0,
+      "model_edge_pp": 0.1147,
+      "result": "loss",
+      "price_used": 300.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_08_TB_NO",
+      "side": "home",
+      "line": 4.5,
+      "model_margin": 0.51,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_08_TB_NO",
+      "side": "home",
+      "line": 180.0,
+      "model_edge_pp": 0.1432,
+      "result": "loss",
+      "price_used": 180.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_08_DAL_DEN",
+      "side": "away",
+      "line": -3.5,
+      "model_margin": 0.13,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_08_DAL_DEN",
+      "side": "over",
+      "line": 51.5,
+      "model_total": 45.98,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_08_DAL_DEN",
+      "side": "away",
+      "line": 160.0,
+      "model_edge_pp": 0.1259,
+      "result": "loss",
+      "price_used": 160.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_08_TEN_IND",
+      "side": "away",
+      "line": -15.5,
+      "model_margin": -2.96,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_08_TEN_IND",
+      "side": "away",
+      "line": 950.0,
+      "model_edge_pp": 0.5034,
+      "result": "loss",
+      "price_used": 950.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_08_GB_PIT",
+      "side": "home",
+      "line": 3.0,
+      "model_margin": 0.0,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_08_GB_PIT",
+      "side": "over",
+      "line": 46.5,
+      "model_total": 41.61,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_08_GB_PIT",
+      "side": "home",
+      "line": 130.0,
+      "model_edge_pp": 0.0509,
+      "result": "loss",
+      "price_used": 130.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_08_WAS_KC",
+      "side": "away",
+      "line": -10.5,
+      "model_margin": 1.43,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_08_WAS_KC",
+      "side": "away",
+      "line": 500.0,
+      "model_edge_pp": 0.3066,
+      "result": "loss",
+      "price_used": 500.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_09_BAL_MIA",
+      "side": "home",
+      "line": 7.5,
+      "model_margin": -0.54,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_09_BAL_MIA",
+      "side": "over",
+      "line": 51.5,
+      "model_total": 48.0,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_09_BAL_MIA",
+      "side": "home",
+      "line": 350.0,
+      "model_edge_pp": 0.248,
+      "result": "loss",
+      "price_used": 350.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_09_CHI_CIN",
+      "side": "home",
+      "line": 3.0,
+      "model_margin": 4.76,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_09_CHI_CIN",
+      "side": "over",
+      "line": 51.5,
+      "model_total": 45.92,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_09_CHI_CIN",
+      "side": "home",
+      "line": 136.0,
+      "model_edge_pp": 0.1961,
+      "result": "loss",
+      "price_used": 136.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_09_MIN_DET",
+      "side": "away",
+      "line": -9.5,
+      "model_margin": 0.04,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_09_MIN_DET",
+      "side": "under",
+      "line": 47.5,
+      "model_total": 50.93,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_09_MIN_DET",
+      "side": "away",
+      "line": 410.0,
+      "model_edge_pp": 0.3171,
+      "result": "win",
+      "price_used": 410.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_09_CAR_GB",
+      "side": "away",
+      "line": -12.5,
+      "model_margin": 4.46,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_09_CAR_GB",
+      "side": "away",
+      "line": 650.0,
+      "model_edge_pp": 0.2551,
+      "result": "win",
+      "price_used": 650.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_09_DEN_HOU",
+      "side": "away",
+      "line": 105.0,
+      "model_edge_pp": 0.0675,
+      "result": "win",
+      "price_used": 105.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_09_ATL_NE",
+      "side": "away",
+      "line": -5.5,
+      "model_margin": -1.13,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_09_ATL_NE",
+      "side": "over",
+      "line": 45.5,
+      "model_total": 41.38,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_09_ATL_NE",
+      "side": "away",
+      "line": 205.0,
+      "model_edge_pp": 0.219,
+      "result": "loss",
+      "price_used": 205.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_09_SF_NYG",
+      "side": "over",
+      "line": 47.5,
+      "model_total": 42.15,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_09_IND_PIT",
+      "side": "home",
+      "line": 3.5,
+      "model_margin": 4.68,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_09_IND_PIT",
+      "side": "over",
+      "line": 51.5,
+      "model_total": 43.32,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_09_IND_PIT",
+      "side": "home",
+      "line": 154.0,
+      "model_edge_pp": 0.2239,
+      "result": "win",
+      "price_used": 154.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_09_LAC_TEN",
+      "side": "home",
+      "line": 10.0,
+      "model_margin": 0.56,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_09_LAC_TEN",
+      "side": "home",
+      "line": 470.0,
+      "model_edge_pp": 0.3263,
+      "result": "loss",
+      "price_used": 470.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_09_NO_LA",
+      "side": "away",
+      "line": -14.0,
+      "model_margin": -2.9,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_09_NO_LA",
+      "side": "away",
+      "line": 750.0,
+      "model_edge_pp": 0.4793,
+      "result": "loss",
+      "price_used": 750.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_09_JAX_LV",
+      "side": "home",
+      "line": 2.5,
+      "model_margin": 2.83,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_09_JAX_LV",
+      "side": "home",
+      "line": 110.0,
+      "model_edge_pp": 0.0901,
+      "result": "loss",
+      "price_used": 110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_09_KC_BUF",
+      "side": "home",
+      "line": 2.5,
+      "model_margin": 3.82,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_09_KC_BUF",
+      "side": "over",
+      "line": 53.5,
+      "model_total": 47.64,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_09_KC_BUF",
+      "side": "home",
+      "line": 114.0,
+      "model_edge_pp": 0.1267,
+      "result": "win",
+      "price_used": 114.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_09_SEA_WAS",
+      "side": "home",
+      "line": 2.5,
+      "model_margin": 1.1,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_09_SEA_WAS",
+      "side": "home",
+      "line": 124.0,
+      "model_edge_pp": 0.0709,
+      "result": "loss",
+      "price_used": 124.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_09_ARI_DAL",
+      "side": "over",
+      "line": 53.5,
+      "model_total": 48.69,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_09_ARI_DAL",
+      "side": "away",
+      "line": 145.0,
+      "model_edge_pp": 0.0595,
+      "result": "win",
+      "price_used": 145.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_10_LV_DEN",
+      "side": "away",
+      "line": -9.5,
+      "model_margin": 0.67,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_10_LV_DEN",
+      "side": "away",
+      "line": 380.0,
+      "model_edge_pp": 0.2869,
+      "result": "loss",
+      "price_used": 380.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_10_ATL_IND",
+      "side": "away",
+      "line": -6.5,
+      "model_margin": -1.13,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_10_ATL_IND",
+      "side": "away",
+      "line": 250.0,
+      "model_edge_pp": 0.2609,
+      "result": "loss",
+      "price_used": 250.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_10_NO_CAR",
+      "side": "away",
+      "line": -5.5,
+      "model_margin": -5.16,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_10_NO_CAR",
+      "side": "under",
+      "line": 38.5,
+      "model_total": 43.92,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_10_NO_CAR",
+      "side": "away",
+      "line": 200.0,
+      "model_edge_pp": 0.326,
+      "result": "win",
+      "price_used": 200.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_10_NYG_CHI",
+      "side": "over",
+      "line": 45.5,
+      "model_total": 37.49,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_10_NYG_CHI",
+      "side": "away",
+      "line": 180.0,
+      "model_edge_pp": 0.1048,
+      "result": "loss",
+      "price_used": 180.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_10_JAX_HOU",
+      "side": "home",
+      "line": 1.5,
+      "model_margin": 3.0,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_10_JAX_HOU",
+      "side": "under",
+      "line": 37.5,
+      "model_total": 43.12,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_10_JAX_HOU",
+      "side": "home",
+      "line": -105.0,
+      "model_edge_pp": 0.0591,
+      "result": "win",
+      "price_used": -105.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_10_BUF_MIA",
+      "side": "home",
+      "line": 8.5,
+      "model_margin": -0.19,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_10_BUF_MIA",
+      "side": "home",
+      "line": 350.0,
+      "model_edge_pp": 0.2579,
+      "result": "win",
+      "price_used": 350.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_10_BAL_MIN",
+      "side": "home",
+      "line": 4.5,
+      "model_margin": -0.26,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_10_BAL_MIN",
+      "side": "home",
+      "line": 190.0,
+      "model_edge_pp": 0.1334,
+      "result": "loss",
+      "price_used": 190.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_10_CLE_NYJ",
+      "side": "home",
+      "line": 1.5,
+      "model_margin": 1.51,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_10_CLE_NYJ",
+      "side": "home",
+      "line": 110.0,
+      "model_edge_pp": 0.0528,
+      "result": "win",
+      "price_used": 110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_10_NE_TB",
+      "side": "over",
+      "line": 48.5,
+      "model_total": 42.62,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_10_ARI_SEA",
+      "side": "away",
+      "line": -7.0,
+      "model_margin": -0.12,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_10_ARI_SEA",
+      "side": "away",
+      "line": 270.0,
+      "model_edge_pp": 0.2476,
+      "result": "loss",
+      "price_used": 270.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_10_LA_SF",
+      "side": "home",
+      "line": 5.5,
+      "model_margin": 4.92,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_10_LA_SF",
+      "side": "over",
+      "line": 49.5,
+      "model_total": 45.94,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_10_LA_SF",
+      "side": "home",
+      "line": 210.0,
+      "model_edge_pp": 0.3015,
+      "result": "loss",
+      "price_used": 210.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_10_DET_WAS",
+      "side": "home",
+      "line": 8.5,
+      "model_margin": -0.2,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_10_DET_WAS",
+      "side": "under",
+      "line": 49.5,
+      "model_total": 53.51,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_10_DET_WAS",
+      "side": "home",
+      "line": 350.0,
+      "model_edge_pp": 0.2577,
+      "result": "loss",
+      "price_used": 350.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_10_PIT_LAC",
+      "side": "over",
+      "line": 45.5,
+      "model_total": 40.58,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_10_PIT_LAC",
+      "side": "away",
+      "line": 136.0,
+      "model_edge_pp": 0.0593,
+      "result": "loss",
+      "price_used": 136.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_11_NYJ_NE",
+      "side": "away",
+      "line": -12.5,
+      "model_margin": -2.73,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_11_NYJ_NE",
+      "side": "over",
+      "line": 43.5,
+      "model_total": 37.71,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_11_NYJ_NE",
+      "side": "away",
+      "line": 625.0,
+      "model_edge_pp": 0.4543,
+      "result": "loss",
+      "price_used": 625.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_11_CAR_ATL",
+      "side": "under",
+      "line": 42.5,
+      "model_total": 46.05,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_11_CAR_ATL",
+      "side": "away",
+      "line": 180.0,
+      "model_edge_pp": 0.0749,
+      "result": "win",
+      "price_used": 180.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_11_TB_BUF",
+      "side": "away",
+      "line": -6.0,
+      "model_margin": 1.82,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_11_TB_BUF",
+      "side": "under",
+      "line": 46.5,
+      "model_total": 50.38,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_11_TB_BUF",
+      "side": "away",
+      "line": 230.0,
+      "model_edge_pp": 0.1592,
+      "result": "loss",
+      "price_used": 230.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_11_CHI_MIN",
+      "side": "over",
+      "line": 47.5,
+      "model_total": 42.1,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_11_GB_NYG",
+      "side": "home",
+      "line": 7.5,
+      "model_margin": -2.48,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_11_GB_NYG",
+      "side": "home",
+      "line": 340.0,
+      "model_edge_pp": 0.1875,
+      "result": "loss",
+      "price_used": 340.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_11_CIN_PIT",
+      "side": "away",
+      "line": -5.5,
+      "model_margin": -1.15,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_11_CIN_PIT",
+      "side": "over",
+      "line": 48.5,
+      "model_total": 45.09,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_11_CIN_PIT",
+      "side": "away",
+      "line": 205.0,
+      "model_edge_pp": 0.2194,
+      "result": "loss",
+      "price_used": 205.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_11_HOU_TEN",
+      "side": "home",
+      "line": 5.5,
+      "model_margin": 1.58,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_11_HOU_TEN",
+      "side": "under",
+      "line": 37.5,
+      "model_total": 42.25,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_11_HOU_TEN",
+      "side": "home",
+      "line": 215.0,
+      "model_edge_pp": 0.2135,
+      "result": "loss",
+      "price_used": 215.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_11_SF_ARI",
+      "side": "home",
+      "line": 3.5,
+      "model_margin": -0.43,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_11_SF_ARI",
+      "side": "home",
+      "line": 160.0,
+      "model_edge_pp": 0.0886,
+      "result": "loss",
+      "price_used": 160.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_11_SEA_LA",
+      "side": "over",
+      "line": 49.5,
+      "model_total": 44.38,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_11_SEA_LA",
+      "side": "away",
+      "line": 145.0,
+      "model_edge_pp": 0.0944,
+      "result": "loss",
+      "price_used": 145.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_11_BAL_CLE",
+      "side": "home",
+      "line": 7.5,
+      "model_margin": -2.98,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_11_BAL_CLE",
+      "side": "under",
+      "line": 37.5,
+      "model_total": 45.32,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_11_BAL_CLE",
+      "side": "home",
+      "line": 340.0,
+      "model_edge_pp": 0.1735,
+      "result": "loss",
+      "price_used": 340.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_11_KC_DEN",
+      "side": "home",
+      "line": 3.5,
+      "model_margin": 0.34,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_11_KC_DEN",
+      "side": "home",
+      "line": 180.0,
+      "model_edge_pp": 0.1381,
+      "result": "win",
+      "price_used": 180.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_11_DET_PHI",
+      "side": "under",
+      "line": 46.5,
+      "model_total": 52.58,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_11_DET_PHI",
+      "side": "away",
+      "line": 130.0,
+      "model_edge_pp": 0.0907,
+      "result": "loss",
+      "price_used": 130.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_11_DAL_LV",
+      "side": "home",
+      "line": 3.5,
+      "model_margin": -0.13,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_11_DAL_LV",
+      "side": "home",
+      "line": 164.0,
+      "model_edge_pp": 0.1032,
+      "result": "loss",
+      "price_used": 164.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_12_BUF_HOU",
+      "side": "under",
+      "line": 43.5,
+      "model_total": 47.57,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_12_BUF_HOU",
+      "side": "home",
+      "line": 210.0,
+      "model_edge_pp": 0.0828,
+      "result": "win",
+      "price_used": 210.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_12_NYJ_BAL",
+      "side": "away",
+      "line": -14.0,
+      "model_margin": 3.55,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_12_NYJ_BAL",
+      "side": "away",
+      "line": 675.0,
+      "model_edge_pp": 0.2843,
+      "result": "loss",
+      "price_used": 675.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_12_PIT_CHI",
+      "side": "over",
+      "line": 46.5,
+      "model_total": 37.95,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_12_PIT_CHI",
+      "side": "away",
+      "line": 130.0,
+      "model_edge_pp": 0.1283,
+      "result": "loss",
+      "price_used": 130.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_12_NE_CIN",
+      "side": "home",
+      "line": 7.5,
+      "model_margin": 6.94,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_12_NE_CIN",
+      "side": "over",
+      "line": 50.5,
+      "model_total": 44.97,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_12_NE_CIN",
+      "side": "home",
+      "line": 310.0,
+      "model_edge_pp": 0.4332,
+      "result": "loss",
+      "price_used": 310.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_12_NYG_DET",
+      "side": "away",
+      "line": -14.0,
+      "model_margin": 3.68,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_12_NYG_DET",
+      "side": "over",
+      "line": 50.5,
+      "model_total": 46.32,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_12_NYG_DET",
+      "side": "away",
+      "line": 675.0,
+      "model_edge_pp": 0.2808,
+      "result": "loss",
+      "price_used": 675.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_12_MIN_GB",
+      "side": "away",
+      "line": -6.5,
+      "model_margin": 0.18,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_12_MIN_GB",
+      "side": "under",
+      "line": 41.5,
+      "model_total": 45.77,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_12_MIN_GB",
+      "side": "away",
+      "line": 235.0,
+      "model_edge_pp": 0.2108,
+      "result": "loss",
+      "price_used": 235.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_12_IND_KC",
+      "side": "over",
+      "line": 50.5,
+      "model_total": 46.21,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_12_SEA_TEN",
+      "side": "home",
+      "line": 12.5,
+      "model_margin": 2.45,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_12_SEA_TEN",
+      "side": "home",
+      "line": 625.0,
+      "model_edge_pp": 0.4178,
+      "result": "loss",
+      "price_used": 625.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_12_JAX_ARI",
+      "side": "home",
+      "line": 2.5,
+      "model_margin": 3.89,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_12_JAX_ARI",
+      "side": "home",
+      "line": 114.0,
+      "model_edge_pp": 0.1286,
+      "result": "loss",
+      "price_used": 114.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_12_CLE_LV",
+      "side": "under",
+      "line": 35.5,
+      "model_total": 42.65,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_12_CLE_LV",
+      "side": "away",
+      "line": 136.0,
+      "model_edge_pp": 0.0742,
+      "result": "win",
+      "price_used": 136.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_12_PHI_DAL",
+      "side": "home",
+      "line": 3.0,
+      "model_margin": 0.25,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_12_PHI_DAL",
+      "side": "home",
+      "line": 136.0,
+      "model_edge_pp": 0.069,
+      "result": "win",
+      "price_used": 136.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_12_TB_LA",
+      "side": "away",
+      "line": -7.0,
+      "model_margin": -2.79,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_12_TB_LA",
+      "side": "over",
+      "line": 49.5,
+      "model_total": 46.08,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_12_TB_LA",
+      "side": "away",
+      "line": 295.0,
+      "model_edge_pp": 0.3408,
+      "result": "loss",
+      "price_used": 295.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_12_CAR_SF",
+      "side": "away",
+      "line": 310.0,
+      "model_edge_pp": 0.1135,
+      "result": "loss",
+      "price_used": 310.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_13_GB_DET",
+      "side": "away",
+      "line": 130.0,
+      "model_edge_pp": 0.0417,
+      "result": "win",
+      "price_used": 130.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_13_KC_DAL",
+      "side": "home",
+      "line": 3.5,
+      "model_margin": 0.26,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_13_KC_DAL",
+      "side": "over",
+      "line": 53.5,
+      "model_total": 46.69,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_13_KC_DAL",
+      "side": "home",
+      "line": 154.0,
+      "model_edge_pp": 0.0993,
+      "result": "win",
+      "price_used": 154.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_13_CIN_BAL",
+      "side": "away",
+      "line": -7.0,
+      "model_margin": 2.6,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_13_CIN_BAL",
+      "side": "away",
+      "line": 295.0,
+      "model_edge_pp": 0.1869,
+      "result": "win",
+      "price_used": 295.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_13_CHI_PHI",
+      "side": "away",
+      "line": -7.0,
+      "model_margin": 3.21,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_13_CHI_PHI",
+      "side": "away",
+      "line": 270.0,
+      "model_edge_pp": 0.1526,
+      "result": "win",
+      "price_used": 270.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_13_LA_CAR",
+      "side": "home",
+      "line": 10.0,
+      "model_margin": -0.46,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_13_LA_CAR",
+      "side": "home",
+      "line": 425.0,
+      "model_edge_pp": 0.2819,
+      "result": "win",
+      "price_used": 425.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_13_SF_CLE",
+      "side": "home",
+      "line": 5.5,
+      "model_margin": -1.14,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_13_SF_CLE",
+      "side": "under",
+      "line": 35.5,
+      "model_total": 44.66,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_13_SF_CLE",
+      "side": "home",
+      "line": 205.0,
+      "model_edge_pp": 0.1252,
+      "result": "loss",
+      "price_used": 205.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_13_HOU_IND",
+      "side": "away",
+      "line": -3.0,
+      "model_margin": -0.21,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_13_HOU_IND",
+      "side": "away",
+      "line": 142.0,
+      "model_edge_pp": 0.1071,
+      "result": "win",
+      "price_used": 142.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_13_NO_MIA",
+      "side": "away",
+      "line": -5.5,
+      "model_margin": -0.11,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_13_NO_MIA",
+      "side": "away",
+      "line": 205.0,
+      "model_edge_pp": 0.1896,
+      "result": "loss",
+      "price_used": 205.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_13_ATL_NYJ",
+      "side": "home",
+      "line": 3.0,
+      "model_margin": 1.47,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_13_ATL_NYJ",
+      "side": "under",
+      "line": 38.5,
+      "model_total": 42.2,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_13_ATL_NYJ",
+      "side": "home",
+      "line": 140.0,
+      "model_edge_pp": 0.1113,
+      "result": "win",
+      "price_used": 140.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_13_ARI_TB",
+      "side": "under",
+      "line": 44.5,
+      "model_total": 47.62,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_13_ARI_TB",
+      "side": "away",
+      "line": 164.0,
+      "model_edge_pp": 0.0627,
+      "result": "loss",
+      "price_used": 164.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_13_JAX_TEN",
+      "side": "home",
+      "line": 6.0,
+      "model_margin": 2.96,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_13_JAX_TEN",
+      "side": "home",
+      "line": 220.0,
+      "model_edge_pp": 0.2574,
+      "result": "loss",
+      "price_used": 220.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_13_MIN_SEA",
+      "side": "away",
+      "line": -12.5,
+      "model_margin": -4.41,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_13_MIN_SEA",
+      "side": "away",
+      "line": 600.0,
+      "model_edge_pp": 0.4961,
+      "result": "loss",
+      "price_used": 600.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_13_LV_LAC",
+      "side": "away",
+      "line": -10.0,
+      "model_margin": 0.91,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_13_LV_LAC",
+      "side": "under",
+      "line": 40.5,
+      "model_total": 44.06,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_13_LV_LAC",
+      "side": "away",
+      "line": 440.0,
+      "model_edge_pp": 0.3032,
+      "result": "loss",
+      "price_used": 440.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_13_DEN_WAS",
+      "side": "home",
+      "line": 6.5,
+      "model_margin": 1.9,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_13_DEN_WAS",
+      "side": "home",
+      "line": 250.0,
+      "model_edge_pp": 0.2543,
+      "result": "loss",
+      "price_used": 250.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_13_NYG_NE",
+      "side": "away",
+      "line": -7.0,
+      "model_margin": 0.35,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_13_NYG_NE",
+      "side": "over",
+      "line": 46.5,
+      "model_total": 36.54,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_13_NYG_NE",
+      "side": "away",
+      "line": 295.0,
+      "model_edge_pp": 0.2511,
+      "result": "loss",
+      "price_used": 295.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_14_DAL_DET",
+      "side": "away",
+      "line": 160.0,
+      "model_edge_pp": 0.0461,
+      "result": "loss",
+      "price_used": 160.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_14_SEA_ATL",
+      "side": "home",
+      "line": 7.0,
+      "model_margin": 1.85,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_14_SEA_ATL",
+      "side": "home",
+      "line": 280.0,
+      "model_edge_pp": 0.2753,
+      "result": "loss",
+      "price_used": 280.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_14_PIT_BAL",
+      "side": "away",
+      "line": 220.0,
+      "model_edge_pp": 0.0988,
+      "result": "win",
+      "price_used": 220.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_14_CIN_BUF",
+      "side": "away",
+      "line": -6.0,
+      "model_margin": 2.96,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_14_CIN_BUF",
+      "side": "away",
+      "line": 230.0,
+      "model_edge_pp": 0.127,
+      "result": "loss",
+      "price_used": 230.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_14_TEN_CLE",
+      "side": "away",
+      "line": -4.5,
+      "model_margin": 0.46,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_14_TEN_CLE",
+      "side": "under",
+      "line": 33.5,
+      "model_total": 41.49,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_14_TEN_CLE",
+      "side": "away",
+      "line": 170.0,
+      "model_edge_pp": 0.1308,
+      "result": "win",
+      "price_used": 170.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_14_IND_JAX",
+      "side": "home",
+      "line": 2.5,
+      "model_margin": 1.39,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_14_IND_JAX",
+      "side": "home",
+      "line": 114.0,
+      "model_edge_pp": 0.0583,
+      "result": "win",
+      "price_used": 114.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_14_WAS_MIN",
+      "side": "home",
+      "line": 1.5,
+      "model_margin": 4.17,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_14_WAS_MIN",
+      "side": "under",
+      "line": 43.5,
+      "model_total": 48.01,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_14_WAS_MIN",
+      "side": "home",
+      "line": -105.0,
+      "model_edge_pp": 0.0916,
+      "result": "win",
+      "price_used": -105.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_14_NO_TB",
+      "side": "away",
+      "line": -7.5,
+      "model_margin": 1.0,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_14_NO_TB",
+      "side": "under",
+      "line": 41.5,
+      "model_total": 44.99,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_14_NO_TB",
+      "side": "away",
+      "line": 330.0,
+      "model_edge_pp": 0.2531,
+      "result": "win",
+      "price_used": 330.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_14_DEN_LV",
+      "side": "home",
+      "line": 8.5,
+      "model_margin": 1.55,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_14_DEN_LV",
+      "side": "home",
+      "line": 360.0,
+      "model_edge_pp": 0.3125,
+      "result": "loss",
+      "price_used": 360.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_14_LA_ARI",
+      "side": "home",
+      "line": 9.5,
+      "model_margin": 3.38,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_14_LA_ARI",
+      "side": "over",
+      "line": 49.5,
+      "model_total": 45.33,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_14_LA_ARI",
+      "side": "home",
+      "line": 380.0,
+      "model_edge_pp": 0.3735,
+      "result": "loss",
+      "price_used": 380.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_14_CHI_GB",
+      "side": "away",
+      "line": -6.5,
+      "model_margin": 3.27,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_14_CHI_GB",
+      "side": "away",
+      "line": 245.0,
+      "model_edge_pp": 0.1315,
+      "result": "loss",
+      "price_used": 245.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_14_HOU_KC",
+      "side": "away",
+      "line": 180.0,
+      "model_edge_pp": 0.0422,
+      "result": "win",
+      "price_used": 180.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_14_PHI_LAC",
+      "side": "under",
+      "line": 41.5,
+      "model_total": 46.39,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_15_ATL_TB",
+      "side": "away",
+      "line": -6.0,
+      "model_margin": 2.87,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_15_ATL_TB",
+      "side": "under",
+      "line": 43.5,
+      "model_total": 47.12,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_15_ATL_TB",
+      "side": "away",
+      "line": 225.0,
+      "model_edge_pp": 0.1249,
+      "result": "win",
+      "price_used": 225.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_15_CLE_CHI",
+      "side": "away",
+      "line": -7.5,
+      "model_margin": -0.67,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_15_CLE_CHI",
+      "side": "away",
+      "line": 295.0,
+      "model_edge_pp": 0.2804,
+      "result": "loss",
+      "price_used": 295.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_15_ARI_HOU",
+      "side": "away",
+      "line": -10.5,
+      "model_margin": -2.93,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_15_ARI_HOU",
+      "side": "away",
+      "line": 455.0,
+      "model_edge_pp": 0.4177,
+      "result": "loss",
+      "price_used": 455.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_15_NYJ_JAX",
+      "side": "away",
+      "line": -13.5,
+      "model_margin": -3.48,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_15_NYJ_JAX",
+      "side": "away",
+      "line": 675.0,
+      "model_edge_pp": 0.4843,
+      "result": "loss",
+      "price_used": 675.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_15_LAC_KC",
+      "side": "away",
+      "line": -5.5,
+      "model_margin": 1.11,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_15_LAC_KC",
+      "side": "away",
+      "line": 210.0,
+      "model_edge_pp": 0.1598,
+      "result": "win",
+      "price_used": 210.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_15_BUF_NE",
+      "side": "over",
+      "line": 49.5,
+      "model_total": 44.64,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_15_WAS_NYG",
+      "side": "away",
+      "line": -2.5,
+      "model_margin": -2.44,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_15_WAS_NYG",
+      "side": "over",
+      "line": 46.5,
+      "model_total": 43.4,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_15_WAS_NYG",
+      "side": "away",
+      "line": 124.0,
+      "model_edge_pp": 0.1376,
+      "result": "win",
+      "price_used": 124.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_15_LV_PHI",
+      "side": "away",
+      "line": -12.5,
+      "model_margin": 1.62,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_15_LV_PHI",
+      "side": "under",
+      "line": 37.5,
+      "model_total": 46.4,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_15_LV_PHI",
+      "side": "away",
+      "line": 650.0,
+      "model_edge_pp": 0.3345,
+      "result": "loss",
+      "price_used": 650.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_15_DET_LA",
+      "side": "away",
+      "line": -5.5,
+      "model_margin": -3.87,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_15_DET_LA",
+      "side": "over",
+      "line": 54.5,
+      "model_total": 50.11,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_15_DET_LA",
+      "side": "away",
+      "line": 200.0,
+      "model_edge_pp": 0.2907,
+      "result": "loss",
+      "price_used": 200.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_15_CAR_NO",
+      "side": "home",
+      "line": 2.5,
+      "model_margin": 6.68,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_15_CAR_NO",
+      "side": "home",
+      "line": 124.0,
+      "model_edge_pp": 0.2238,
+      "result": "win",
+      "price_used": 124.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_15_IND_SEA",
+      "side": "away",
+      "line": -13.5,
+      "model_margin": -1.43,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S2",
+      "game_id": "2025_15_IND_SEA",
+      "side": "under",
+      "line": 41.5,
+      "model_total": 47.25,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_15_IND_SEA",
+      "side": "away",
+      "line": 650.0,
+      "model_edge_pp": 0.4219,
+      "result": "loss",
+      "price_used": 650.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_15_TEN_SF",
+      "side": "away",
+      "line": -12.5,
+      "model_margin": 2.0,
+      "result": "loss",
+      "price_used": -110.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S3",
+      "game_id": "2025_15_TEN_SF",
+      "side": "away",
+      "line": 600.0,
+      "model_edge_pp": 0.3142,
+      "result": "loss",
+      "price_used": 600.0,
+      "price_verified": false
+    },
+    {
+      "strategy": "S1",
+      "game_id": "2025_15_MIN_DAL",
+      "side": "away",
+      "line": -5.5,
+      "model_margin": -1.43,
+      "result": "win",
+      "price_used": -110.0,
+      "price_verified": false
+    }
+  ],
+  "team_ratings": [
+    {
+      "team": "ATL",
+      "off": -1.112,
+      "def": 1.489,
+      "games_weighted": 37.48,
+      "off_se": 2.992
+    },
+    {
+      "team": "AZ",
+      "off": -0.216,
+      "def": 1.095,
+      "games_weighted": 37.48,
+      "off_se": 2.992
+    },
+    {
+      "team": "BAL",
+      "off": 4.637,
+      "def": -2.481,
+      "games_weighted": 37.48,
+      "off_se": 2.992
+    },
+    {
+      "team": "BUF",
+      "off": 5.383,
+      "def": -1.745,
+      "games_weighted": 37.18,
+      "off_se": 3.004
+    },
+    {
+      "team": "CAR",
+      "off": -3.467,
+      "def": 4.025,
+      "games_weighted": 37.48,
+      "off_se": 2.992
+    },
+    {
+      "team": "CHI",
+      "off": -2.799,
+      "def": -0.371,
+      "games_weighted": 37.48,
+      "off_se": 2.992
+    },
+    {
+      "team": "CIN",
+      "off": 2.644,
+      "def": 1.328,
+      "games_weighted": 37.18,
+      "off_se": 3.004
+    },
+    {
+      "team": "CLE",
+      "off": -2.709,
+      "def": 0.76,
+      "games_weighted": 37.48,
+      "off_se": 2.992
+    },
+    {
+      "team": "DAL",
+      "off": 1.899,
+      "def": 0.79,
+      "games_weighted": 37.48,
+      "off_se": 2.992
+    },
+    {
+      "team": "DEN",
+      "off": -0.3,
+      "def": -1.529,
+      "games_weighted": 37.48,
+      "off_se": 2.992
+    },
+    {
+      "team": "DET",
+      "off": 5.595,
+      "def": 0.061,
+      "games_weighted": 37.48,
+      "off_se": 2.992
+    },
+    {
+      "team": "GB",
+      "off": 2.313,
+      "def": -1.814,
+      "games_weighted": 37.48,
+      "off_se": 2.992
+    },
+    {
+      "team": "HOU",
+      "off": -1.659,
+      "def": 0.472,
+      "games_weighted": 37.48,
+      "off_se": 2.992
+    },
+    {
+      "team": "IND",
+      "off": -0.298,
+      "def": 2.506,
+      "games_weighted": 37.48,
+      "off_se": 2.992
+    },
+    {
+      "team": "JAX",
+      "off": -2.393,
+      "def": 1.583,
+      "games_weighted": 37.48,
+      "off_se": 2.992
+    },
+    {
+      "team": "KC",
+      "off": 1.728,
+      "def": -2.84,
+      "games_weighted": 37.48,
+      "off_se": 2.992
+    },
+    {
+      "team": "LA",
+      "off": -0.046,
+      "def": -0.62,
+      "games_weighted": 37.41,
+      "off_se": 2.995
+    },
+    {
+      "team": "LAC",
+      "off": 0.665,
+      "def": -1.201,
+      "games_weighted": 37.28,
+      "off_se": 3.0
+    },
+    {
+      "team": "LV",
+      "off": -1.73,
+      "def": 1.211,
+      "games_weighted": 35.78,
+      "off_se": 3.062
+    },
+    {
+      "team": "MIA",
+      "off": 0.508,
+      "def": 0.223,
+      "games_weighted": 37.48,
+      "off_se": 2.992
+    },
+    {
+      "team": "MIN",
+      "off": 1.239,
+      "def": -1.086,
+      "games_weighted": 37.48,
+      "off_se": 2.992
+    },
+    {
+      "team": "NE",
+      "off": -3.737,
+      "def": -0.382,
+      "games_weighted": 37.48,
+      "off_se": 2.992
+    },
+    {
+      "team": "NO",
+      "off": -1.145,
+      "def": -0.606,
+      "games_weighted": 37.48,
+      "off_se": 2.992
+    },
+    {
+      "team": "NYG",
+      "off": -5.077,
+      "def": 0.619,
+      "games_weighted": 37.48,
+      "off_se": 2.992
+    },
+    {
+      "team": "NYJ",
+      "off": -3.605,
+      "def": 0.313,
+      "games_weighted": 37.48,
+      "off_se": 2.992
+    },
+    {
+      "team": "OAK",
+      "off": -0.512,
+      "def": 0.775,
+      "games_weighted": 1.7,
+      "off_se": 14.051
+    },
+    {
+      "team": "PHI",
+      "off": 3.059,
+      "def": -1.256,
+      "games_weighted": 37.48,
+      "off_se": 2.992
+    },
+    {
+      "team": "PIT",
+      "off": -1.73,
+      "def": -2.272,
+      "games_weighted": 37.48,
+      "off_se": 2.992
+    },
+    {
+      "team": "SD",
+      "off": 0.037,
+      "def": 0.123,
+      "games_weighted": 0.21,
+      "off_se": 18.317
+    },
+    {
+      "team": "SEA",
+      "off": 0.114,
+      "def": -0.185,
+      "games_weighted": 37.48,
+      "off_se": 2.992
+    },
+    {
+      "team": "SF",
+      "off": 2.35,
+      "def": -0.862,
+      "games_weighted": 37.48,
+      "off_se": 2.992
+    },
+    {
+      "team": "STL",
+      "off": -0.06,
+      "def": -0.032,
+      "games_weighted": 0.07,
+      "off_se": 18.317
+    },
+    {
+      "team": "TB",
+      "off": 2.347,
+      "def": -0.722,
+      "games_weighted": 37.48,
+      "off_se": 2.992
+    },
+    {
+      "team": "TEN",
+      "off": -3.155,
+      "def": 1.475,
+      "games_weighted": 37.48,
+      "off_se": 2.992
+    },
+    {
+      "team": "WAS",
+      "off": 0.71,
+      "def": 2.03,
+      "games_weighted": 37.48,
+      "off_se": 2.992
+    }
+  ],
+  "hfa": 1.971,
+  "league_mean_points": 22.559,
+  "fitted_rows": 2623,
+  "gates": [
+    {
+      "candidate_id": "S1",
+      "name": "Model spread vs close (home side, |edge| filter)",
+      "market": "spread",
+      "status": "rejected",
+      "gates_passed": 1,
+      "gates_total": 10,
+      "gates": [
+        {
+          "gate_id": "G01",
+          "gate": "Data rights & market-permission audit",
+          "status": "fail",
+          "observed": "license_status=unverified",
+          "threshold": "a verified license for every input series",
+          "note": "Community sources without a license cannot certify redistribution or betting use.",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G02",
+          "gate": "Field-level provenance",
+          "status": "blocked",
+          "observed": "no rows",
+          "threshold": "every row carries a source + hash",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G03",
+          "gate": "Chronological walk-forward",
+          "status": "pass",
+          "observed": "fit seasons 2015-2024 -> test 2025",
+          "threshold": "fit window strictly before the test window",
+          "note": "No test-season value enters the fit.",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G04",
+          "gate": "Sample floor",
+          "status": "fail",
+          "observed": "bets=172, events=172, slates=45",
+          "threshold": ">= 200 bets, >= 200 events, >= 60 slate dates",
+          "note": "Policy minimums, not a power calculation.",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G05",
+          "gate": "Calibration vs market",
+          "status": "blocked",
+          "observed": "not computed",
+          "threshold": "BSS > 0.0 with CI lower bound > 0",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G06",
+          "gate": "Post-vig ROI",
+          "status": "fail",
+          "observed": "ROI=-1.22%, CI -12.25%..+10.35%",
+          "threshold": "slate-clustered ROI lower bound > 0.0",
+          "note": "Breakeven at -110 is +0% only if the price has no vig; this gate uses the actual offered price.",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G07",
+          "gate": "Closing-line value",
+          "status": "blocked",
+          "observed": "no closing probability sidecar",
+          "threshold": "CLV CI lower bound > 0.0",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G08",
+          "gate": "Multiplicity control",
+          "status": "fail",
+          "observed": "min adjusted p=1.0000 across 3 candidates",
+          "threshold": "Bonferroni-adjusted p < 0.05",
+          "note": "The family is every candidate tested, including failures.",
+          "source": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm"
+        },
+        {
+          "gate_id": "G09",
+          "gate": "Dependence & joint sample",
+          "status": "blocked",
+          "observed": "no paired residual sample",
+          "threshold": "correlation CI and joint sample present for every combo leg",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G10",
+          "gate": "Deflated Sharpe ratio",
+          "status": "fail",
+          "observed": "SR=-0.0127/bet, expected max under 8 trials=+1.4590, DSR=0.0000",
+          "threshold": "DSR > 95%",
+          "note": "Penalises the best strategy for the number of trials run.",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        }
+      ]
+    },
+    {
+      "candidate_id": "S2",
+      "name": "Model total vs close (over side, |edge| filter)",
+      "market": "total",
+      "status": "rejected",
+      "gates_passed": 1,
+      "gates_total": 10,
+      "gates": [
+        {
+          "gate_id": "G01",
+          "gate": "Data rights & market-permission audit",
+          "status": "fail",
+          "observed": "license_status=unverified",
+          "threshold": "a verified license for every input series",
+          "note": "Community sources without a license cannot certify redistribution or betting use.",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G02",
+          "gate": "Field-level provenance",
+          "status": "blocked",
+          "observed": "no rows",
+          "threshold": "every row carries a source + hash",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G03",
+          "gate": "Chronological walk-forward",
+          "status": "pass",
+          "observed": "fit seasons 2015-2024 -> test 2025",
+          "threshold": "fit window strictly before the test window",
+          "note": "No test-season value enters the fit.",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G04",
+          "gate": "Sample floor",
+          "status": "fail",
+          "observed": "bets=111, events=111, slates=34",
+          "threshold": ">= 200 bets, >= 200 events, >= 60 slate dates",
+          "note": "Policy minimums, not a power calculation.",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G05",
+          "gate": "Calibration vs market",
+          "status": "blocked",
+          "observed": "not computed",
+          "threshold": "BSS > 0.0 with CI lower bound > 0",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G06",
+          "gate": "Post-vig ROI",
+          "status": "fail",
+          "observed": "ROI=-3.69%, CI -24.33%..+17.33%",
+          "threshold": "slate-clustered ROI lower bound > 0.0",
+          "note": "Breakeven at -110 is +0% only if the price has no vig; this gate uses the actual offered price.",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G07",
+          "gate": "Closing-line value",
+          "status": "blocked",
+          "observed": "no closing probability sidecar",
+          "threshold": "CLV CI lower bound > 0.0",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G08",
+          "gate": "Multiplicity control",
+          "status": "fail",
+          "observed": "min adjusted p=1.0000 across 3 candidates",
+          "threshold": "Bonferroni-adjusted p < 0.05",
+          "note": "The family is every candidate tested, including failures.",
+          "source": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm"
+        },
+        {
+          "gate_id": "G09",
+          "gate": "Dependence & joint sample",
+          "status": "blocked",
+          "observed": "no paired residual sample",
+          "threshold": "correlation CI and joint sample present for every combo leg",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G10",
+          "gate": "Deflated Sharpe ratio",
+          "status": "fail",
+          "observed": "SR=-0.0386/bet, expected max under 8 trials=+1.4590, DSR=0.0000",
+          "threshold": "DSR > 95%",
+          "note": "Penalises the best strategy for the number of trials run.",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        }
+      ]
+    },
+    {
+      "candidate_id": "S3",
+      "name": "Model moneyline vs close (dog only)",
+      "market": "moneyline",
+      "status": "rejected",
+      "gates_passed": 1,
+      "gates_total": 10,
+      "gates": [
+        {
+          "gate_id": "G01",
+          "gate": "Data rights & market-permission audit",
+          "status": "fail",
+          "observed": "license_status=unverified",
+          "threshold": "a verified license for every input series",
+          "note": "Community sources without a license cannot certify redistribution or betting use.",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G02",
+          "gate": "Field-level provenance",
+          "status": "blocked",
+          "observed": "no rows",
+          "threshold": "every row carries a source + hash",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G03",
+          "gate": "Chronological walk-forward",
+          "status": "pass",
+          "observed": "fit seasons 2015-2024 -> test 2025",
+          "threshold": "fit window strictly before the test window",
+          "note": "No test-season value enters the fit.",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G04",
+          "gate": "Sample floor",
+          "status": "fail",
+          "observed": "bets=219, events=219, slates=50",
+          "threshold": ">= 200 bets, >= 200 events, >= 60 slate dates",
+          "note": "Policy minimums, not a power calculation.",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G05",
+          "gate": "Calibration vs market",
+          "status": "blocked",
+          "observed": "not computed",
+          "threshold": "BSS > 0.0 with CI lower bound > 0",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G06",
+          "gate": "Post-vig ROI",
+          "status": "fail",
+          "observed": "ROI=-7.50%, CI -27.99%..+15.29%",
+          "threshold": "slate-clustered ROI lower bound > 0.0",
+          "note": "Breakeven at -110 is +0% only if the price has no vig; this gate uses the actual offered price.",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G07",
+          "gate": "Closing-line value",
+          "status": "blocked",
+          "observed": "no closing probability sidecar",
+          "threshold": "CLV CI lower bound > 0.0",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G08",
+          "gate": "Multiplicity control",
+          "status": "fail",
+          "observed": "min adjusted p=1.0000 across 3 candidates",
+          "threshold": "Bonferroni-adjusted p < 0.05",
+          "note": "The family is every candidate tested, including failures.",
+          "source": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm"
+        },
+        {
+          "gate_id": "G09",
+          "gate": "Dependence & joint sample",
+          "status": "blocked",
+          "observed": "no paired residual sample",
+          "threshold": "correlation CI and joint sample present for every combo leg",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G10",
+          "gate": "Deflated Sharpe ratio",
+          "status": "fail",
+          "observed": "SR=-0.0496/bet, expected max under 8 trials=+1.4590, DSR=0.0000",
+          "threshold": "DSR > 95%",
+          "note": "Penalises the best strategy for the number of trials run.",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        }
+      ]
+    },
+    {
+      "candidate_id": "S4",
+      "name": "Line-move fade (open vs close)",
+      "market": "spread",
+      "status": "rejected",
+      "gates_passed": 0,
+      "gates_total": 10,
+      "gates": [
+        {
+          "gate_id": "G01",
+          "gate": "Data rights & market-permission audit",
+          "status": "fail",
+          "observed": "license_status=unverified",
+          "threshold": "a verified license for every input series",
+          "note": "Community sources without a license cannot certify redistribution or betting use.",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G02",
+          "gate": "Field-level provenance",
+          "status": "blocked",
+          "observed": "no rows",
+          "threshold": "every row carries a source + hash",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G03",
+          "gate": "Chronological walk-forward",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G04",
+          "gate": "Sample floor",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G05",
+          "gate": "Calibration vs market",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G06",
+          "gate": "Post-vig ROI",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G07",
+          "gate": "Closing-line value",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G08",
+          "gate": "Multiplicity control",
+          "status": "fail",
+          "observed": "min adjusted p=1.0000 across 3 candidates",
+          "threshold": "Bonferroni-adjusted p < 0.05",
+          "note": "The family is every candidate tested, including failures.",
+          "source": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm"
+        },
+        {
+          "gate_id": "G09",
+          "gate": "Dependence & joint sample",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G10",
+          "gate": "Deflated Sharpe ratio",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        }
+      ]
+    },
+    {
+      "candidate_id": "S5",
+      "name": "Player prop residual model",
+      "market": "prop",
+      "status": "rejected",
+      "gates_passed": 0,
+      "gates_total": 10,
+      "gates": [
+        {
+          "gate_id": "G01",
+          "gate": "Data rights & market-permission audit",
+          "status": "fail",
+          "observed": "license_status=unverified",
+          "threshold": "a verified license for every input series",
+          "note": "Community sources without a license cannot certify redistribution or betting use.",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G02",
+          "gate": "Field-level provenance",
+          "status": "blocked",
+          "observed": "no rows",
+          "threshold": "every row carries a source + hash",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G03",
+          "gate": "Chronological walk-forward",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G04",
+          "gate": "Sample floor",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G05",
+          "gate": "Calibration vs market",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G06",
+          "gate": "Post-vig ROI",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G07",
+          "gate": "Closing-line value",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G08",
+          "gate": "Multiplicity control",
+          "status": "fail",
+          "observed": "min adjusted p=1.0000 across 3 candidates",
+          "threshold": "Bonferroni-adjusted p < 0.05",
+          "note": "The family is every candidate tested, including failures.",
+          "source": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm"
+        },
+        {
+          "gate_id": "G09",
+          "gate": "Dependence & joint sample",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G10",
+          "gate": "Deflated Sharpe ratio",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        }
+      ]
+    },
+    {
+      "candidate_id": "S6",
+      "name": "Same-game parlay (QB pass yds + WR rec yds)",
+      "market": "sgp",
+      "status": "rejected",
+      "gates_passed": 0,
+      "gates_total": 10,
+      "gates": [
+        {
+          "gate_id": "G01",
+          "gate": "Data rights & market-permission audit",
+          "status": "fail",
+          "observed": "license_status=unverified",
+          "threshold": "a verified license for every input series",
+          "note": "Community sources without a license cannot certify redistribution or betting use.",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G02",
+          "gate": "Field-level provenance",
+          "status": "blocked",
+          "observed": "no rows",
+          "threshold": "every row carries a source + hash",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G03",
+          "gate": "Chronological walk-forward",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G04",
+          "gate": "Sample floor",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G05",
+          "gate": "Calibration vs market",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G06",
+          "gate": "Post-vig ROI",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G07",
+          "gate": "Closing-line value",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G08",
+          "gate": "Multiplicity control",
+          "status": "fail",
+          "observed": "min adjusted p=1.0000 across 3 candidates",
+          "threshold": "Bonferroni-adjusted p < 0.05",
+          "note": "The family is every candidate tested, including failures.",
+          "source": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm"
+        },
+        {
+          "gate_id": "G09",
+          "gate": "Dependence & joint sample",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G10",
+          "gate": "Deflated Sharpe ratio",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        }
+      ]
+    },
+    {
+      "candidate_id": "S7",
+      "name": "Cross-game 2-leg parlay (independent only if tested)",
+      "market": "parlay",
+      "status": "rejected",
+      "gates_passed": 0,
+      "gates_total": 10,
+      "gates": [
+        {
+          "gate_id": "G01",
+          "gate": "Data rights & market-permission audit",
+          "status": "fail",
+          "observed": "license_status=unverified",
+          "threshold": "a verified license for every input series",
+          "note": "Community sources without a license cannot certify redistribution or betting use.",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G02",
+          "gate": "Field-level provenance",
+          "status": "blocked",
+          "observed": "no rows",
+          "threshold": "every row carries a source + hash",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G03",
+          "gate": "Chronological walk-forward",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G04",
+          "gate": "Sample floor",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G05",
+          "gate": "Calibration vs market",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G06",
+          "gate": "Post-vig ROI",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G07",
+          "gate": "Closing-line value",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G08",
+          "gate": "Multiplicity control",
+          "status": "fail",
+          "observed": "min adjusted p=1.0000 across 3 candidates",
+          "threshold": "Bonferroni-adjusted p < 0.05",
+          "note": "The family is every candidate tested, including failures.",
+          "source": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm"
+        },
+        {
+          "gate_id": "G09",
+          "gate": "Dependence & joint sample",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G10",
+          "gate": "Deflated Sharpe ratio",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        }
+      ]
+    },
+    {
+      "candidate_id": "S8",
+      "name": "Injury-shock re-pricing (starter out)",
+      "market": "spread",
+      "status": "rejected",
+      "gates_passed": 0,
+      "gates_total": 10,
+      "gates": [
+        {
+          "gate_id": "G01",
+          "gate": "Data rights & market-permission audit",
+          "status": "fail",
+          "observed": "license_status=unverified",
+          "threshold": "a verified license for every input series",
+          "note": "Community sources without a license cannot certify redistribution or betting use.",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G02",
+          "gate": "Field-level provenance",
+          "status": "blocked",
+          "observed": "no rows",
+          "threshold": "every row carries a source + hash",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G03",
+          "gate": "Chronological walk-forward",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G04",
+          "gate": "Sample floor",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G05",
+          "gate": "Calibration vs market",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G06",
+          "gate": "Post-vig ROI",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G07",
+          "gate": "Closing-line value",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G08",
+          "gate": "Multiplicity control",
+          "status": "fail",
+          "observed": "min adjusted p=1.0000 across 3 candidates",
+          "threshold": "Bonferroni-adjusted p < 0.05",
+          "note": "The family is every candidate tested, including failures.",
+          "source": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm"
+        },
+        {
+          "gate_id": "G09",
+          "gate": "Dependence & joint sample",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        },
+        {
+          "gate_id": "G10",
+          "gate": "Deflated Sharpe ratio",
+          "status": "blocked",
+          "observed": "not run",
+          "threshold": "no authorized observation ledger",
+          "note": "",
+          "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
+        }
+      ]
+    }
+  ],
+  "leaderboard": [
+    {
+      "rank": null,
+      "candidate_id": "S1",
+      "name": "Model spread vs close (home side, |edge| filter)",
+      "market": "spread",
+      "status": "rejected",
+      "gates_passed": 1,
+      "gates_total": 10,
+      "roi_lower": null,
+      "reward": null
+    },
+    {
+      "rank": null,
+      "candidate_id": "S2",
+      "name": "Model total vs close (over side, |edge| filter)",
+      "market": "total",
+      "status": "rejected",
+      "gates_passed": 1,
+      "gates_total": 10,
+      "roi_lower": null,
+      "reward": null
+    },
+    {
+      "rank": null,
+      "candidate_id": "S3",
+      "name": "Model moneyline vs close (dog only)",
+      "market": "moneyline",
+      "status": "rejected",
+      "gates_passed": 1,
+      "gates_total": 10,
+      "roi_lower": null,
+      "reward": null
+    },
+    {
+      "rank": null,
+      "candidate_id": "S4",
+      "name": "Line-move fade (open vs close)",
+      "market": "spread",
+      "status": "rejected",
+      "gates_passed": 0,
+      "gates_total": 10,
+      "roi_lower": null,
+      "reward": null
+    },
+    {
+      "rank": null,
+      "candidate_id": "S5",
+      "name": "Player prop residual model",
+      "market": "prop",
+      "status": "rejected",
+      "gates_passed": 0,
+      "gates_total": 10,
+      "roi_lower": null,
+      "reward": null
+    },
+    {
+      "rank": null,
+      "candidate_id": "S6",
+      "name": "Same-game parlay (QB pass yds + WR rec yds)",
+      "market": "sgp",
+      "status": "rejected",
+      "gates_passed": 0,
+      "gates_total": 10,
+      "roi_lower": null,
+      "reward": null
+    },
+    {
+      "rank": null,
+      "candidate_id": "S7",
+      "name": "Cross-game 2-leg parlay (independent only if tested)",
+      "market": "parlay",
+      "status": "rejected",
+      "gates_passed": 0,
+      "gates_total": 10,
+      "roi_lower": null,
+      "reward": null
+    },
+    {
+      "rank": null,
+      "candidate_id": "S8",
+      "name": "Injury-shock re-pricing (starter out)",
+      "market": "spread",
+      "status": "rejected",
+      "gates_passed": 0,
+      "gates_total": 10,
+      "roi_lower": null,
+      "reward": null
+    }
+  ],
+  "qualifiers": []
+}

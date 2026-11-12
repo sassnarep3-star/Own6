@@ -1,0 +1,276 @@
+team,game,player,position,report_injury,practice_status,game_status,source_url
+WAS,WAS@NYG,John Bates,TE,,Full Participation in Practice,,https://www.nfl.com/injuries/
+WAS,WAS@NYG,Treylon Burks,WR,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+WAS,WAS@NYG,Jayden Daniels,QB,,Full Participation in Practice,,https://www.nfl.com/injuries/
+WAS,WAS@NYG,Matt Gulbin,C,,Full Participation in Practice,,https://www.nfl.com/injuries/
+WAS,WAS@NYG,Chig Okonkwo,TE,,Full Participation in Practice,,https://www.nfl.com/injuries/
+WAS,WAS@NYG,Lucas Patrick,C,Concussion,Did Not Participate In Practice,Out,https://www.nfl.com/injuries/
+WAS,WAS@NYG,Amik Robertson,CB,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+WAS,WAS@NYG,Shy Tuttle,DT,,Full Participation in Practice,,https://www.nfl.com/injuries/
+WAS,WAS@NYG,Colson Yankoff,TE,Knee,Did Not Participate In Practice,Out,https://www.nfl.com/injuries/
+NYG,WAS@NYG,Abdul Carter,LB,,Full Participation in Practice,,https://www.nfl.com/injuries/
+NYG,WAS@NYG,Jermaine Eluemunor,T,,Full Participation in Practice,,https://www.nfl.com/injuries/
+NYG,WAS@NYG,Malik Harrison,LB,Groin,Limited Participation in Practice,Questionable,https://www.nfl.com/injuries/
+NYG,WAS@NYG,Colton Hood,CB,,Full Participation in Practice,,https://www.nfl.com/injuries/
+NYG,WAS@NYG,Theo Johnson,TE,,Full Participation in Practice,,https://www.nfl.com/injuries/
+NYG,WAS@NYG,Charlie Jones,WR,,Full Participation in Practice,,https://www.nfl.com/injuries/
+NYG,WAS@NYG,J.J. McCarthy,QB,,Full Participation in Practice,,https://www.nfl.com/injuries/
+NYG,WAS@NYG,Darnell Mooney,WR,,Full Participation in Practice,,https://www.nfl.com/injuries/
+NYG,WAS@NYG,Malik Nabers,WR,,Full Participation in Practice,,https://www.nfl.com/injuries/
+NYG,WAS@NYG,Cam Skattebo,RB,,Full Participation in Practice,,https://www.nfl.com/injuries/
+NYG,WAS@NYG,Andrew Thomas,T,,Full Participation in Practice,,https://www.nfl.com/injuries/
+NE,NE@DET,Ben Brown,C,Knee,Did Not Participate In Practice,Out,https://www.nfl.com/injuries/
+NE,NE@DET,A.J. Brown,WR,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+NE,NE@DET,Kevin Byard,S,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+NE,NE@DET,Carlton Davis III,CB,Knee,Did Not Participate In Practice,Out,https://www.nfl.com/injuries/
+NE,NE@DET,Reggie Gilliam,FB,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+NE,NE@DET,TreVeyon Henderson,RB,Illness,Did Not Participate In Practice,Out,https://www.nfl.com/injuries/
+NE,NE@DET,Hunter Henry,TE,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+NE,NE@DET,Cameron Latu,TE,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+NE,NE@DET,Drake Maye,QB,,Full Participation in Practice,,https://www.nfl.com/injuries/
+NE,NE@DET,Morgan Moses,T,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+NE,NE@DET,Walter Rouse,T,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+NE,NE@DET,Brenden Schooler,S,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+NE,NE@DET,Rhamondre Stevenson,RB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+NE,NE@DET,Greg Van Roten,G,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+NE,NE@DET,Charles Woods,CB,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+DET,NE@DET,Brian Branch,S,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+DET,NE@DET,Jared Goff,QB,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+DET,NE@DET,Kerby Joseph,S,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+DET,NE@DET,Cade Mays,C,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+DET,NE@DET,D.J. Reed,CB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+DET,NE@DET,Jacob Saylors,RB,,Full Participation in Practice,,https://www.nfl.com/injuries/
+DET,NE@DET,Amon-Ra St. Brown,WR,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+DET,NE@DET,Sione Vaki,RB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+DET,NE@DET,DJ Wonnum,DE,,Full Participation in Practice,,https://www.nfl.com/injuries/
+KC,KC@ATL,Jeffrey Bassa,LB,,Full Participation in Practice,,https://www.nfl.com/injuries/
+KC,KC@ATL,Mansoor Delane,CB,,Full Participation in Practice,,https://www.nfl.com/injuries/
+KC,KC@ATL,Justin Fields,QB,,Full Participation in Practice,,https://www.nfl.com/injuries/
+KC,KC@ATL,Jaden Hicks,S,,Full Participation in Practice,,https://www.nfl.com/injuries/
+KC,KC@ATL,Travis Kelce,TE,,Full Participation in Practice,,https://www.nfl.com/injuries/
+KC,KC@ATL,Patrick Mahomes,QB,,Full Participation in Practice,,https://www.nfl.com/injuries/
+KC,KC@ATL,Jaylon Moore,T,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+KC,KC@ATL,Omarr Norman-Lott,DT,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+KC,KC@ATL,Rashee Rice,WR,,Full Participation in Practice,,https://www.nfl.com/injuries/
+KC,KC@ATL,Peter Woods,DT,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+KC,KC@ATL,Xavier Worthy,WR,,Full Participation in Practice,,https://www.nfl.com/injuries/
+ATL,KC@ATL,Zachariah Branch,WR,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+ATL,KC@ATL,Divine Deablo,LB,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+ATL,KC@ATL,Gervon Dexter Sr.,DT,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+ATL,KC@ATL,James Pearce Jr.,DE,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+ATL,KC@ATL,Za'Darius Smith,DE,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+ATL,KC@ATL,Josh Woods,LB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+MIN,MIN@GB,Blake Cashman,LB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+MIN,MIN@GB,T.J. Hockenson,TE,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+MIN,MIN@GB,Tyrion Ingram-Dawkins,DT,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+MIN,MIN@GB,Theo Jackson,S,,Full Participation in Practice,,https://www.nfl.com/injuries/
+MIN,MIN@GB,Jauan Jennings,WR,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+MIN,MIN@GB,Kyler Murray,QB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+MIN,MIN@GB,Kyle Van Noy,LB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+MIN,MIN@GB,Jay Ward,S,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+MIN,MIN@GB,Carson Wentz,QB,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+GB,MIN@GB,Aaron Banks,G,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+GB,MIN@GB,Chris Brooks,RB,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+GB,MIN@GB,Javon Bullard,S,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+GB,MIN@GB,Zaire Franklin,LB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+GB,MIN@GB,Travis Glover,G,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+GB,MIN@GB,Ty'Ron Hopper,LB,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+GB,MIN@GB,Josh Jacobs,RB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+GB,MIN@GB,Bo Melton,WR,,Full Participation in Practice,,https://www.nfl.com/injuries/
+GB,MIN@GB,Skyy Moore,WR,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+GB,MIN@GB,Micah Parsons,LB,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+GB,MIN@GB,Sean Rhyan,C,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+GB,MIN@GB,Trey Smack,K,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+GB,MIN@GB,Lukas Van Ness,LB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+GB,MIN@GB,Josh Whyle,TE,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+GB,MIN@GB,Savion Williams,WR,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+GB,MIN@GB,Kevin Zeitler,G,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+JAX,JAX@TEN,Jessie Bates,S,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+JAX,JAX@TEN,Ezra Cleveland,G,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+JAX,JAX@TEN,Branson Combs,LB,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+JAX,JAX@TEN,Jordan Davis,DT,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+JAX,JAX@TEN,Robert Hainsey,C,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+JAX,JAX@TEN,Antonio Johnson,S,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+JAX,JAX@TEN,Jakobi Meyers,WR,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+JAX,JAX@TEN,Chris Rodriguez Jr.,RB,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+JAX,JAX@TEN,Bhayshul Tuten,RB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+JAX,JAX@TEN,Travon Walker,DE,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+TEN,JAX@TEN,Cody Barton,LB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+TEN,JAX@TEN,John Franklin-Myers,DE,,Full Participation in Practice,,https://www.nfl.com/injuries/
+TEN,JAX@TEN,Marcus Harris,CB,,Full Participation in Practice,,https://www.nfl.com/injuries/
+TEN,JAX@TEN,Anthony Hill Jr.,LB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+TEN,JAX@TEN,Jaylon Jones,CB,,Full Participation in Practice,,https://www.nfl.com/injuries/
+TEN,JAX@TEN,JC Latham,T,,Full Participation in Practice,,https://www.nfl.com/injuries/
+TEN,JAX@TEN,Tony Pollard,RB,,Full Participation in Practice,,https://www.nfl.com/injuries/
+TEN,JAX@TEN,Peter Skoronski,G,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+TEN,JAX@TEN,Tyjae Spears,RB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+TEN,JAX@TEN,Carnell Tate,WR,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+TEN,JAX@TEN,Tommy Townsend,P,,Full Participation in Practice,,https://www.nfl.com/injuries/
+TEN,JAX@TEN,Kevin Winston Jr.,S,,Full Participation in Practice,,https://www.nfl.com/injuries/
+BUF,BUF@NYJ,Christian Benford,CB,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+BUF,BUF@NYJ,Spencer Brown,T,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+BUF,BUF@NYJ,Dion Dawkins,T,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+BUF,BUF@NYJ,Greg Gaines,DT,,Full Participation in Practice,,https://www.nfl.com/injuries/
+BUF,BUF@NYJ,Jordan Hancock,CB,,Full Participation in Practice,,https://www.nfl.com/injuries/
+BUF,BUF@NYJ,Dalton Kincaid,TE,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+BUF,BUF@NYJ,Connor McGovern,C,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+BUF,BUF@NYJ,Ar'maj Reed-Adams,G,,Full Participation in Practice,,https://www.nfl.com/injuries/
+BUF,BUF@NYJ,T.J. Sanders,DE,,Full Participation in Practice,,https://www.nfl.com/injuries/
+BUF,BUF@NYJ,Tyrell Shavers,WR,,Full Participation in Practice,,https://www.nfl.com/injuries/
+NYJ,BUF@NYJ,Omar Cooper Jr.,WR,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+NYJ,BUF@NYJ,Joseph Ossai,DE,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+NYJ,BUF@NYJ,VJ Payne,S,,Full Participation in Practice,,https://www.nfl.com/injuries/
+NYJ,BUF@NYJ,Harrison Phillips,DT,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+NYJ,BUF@NYJ,Trevin Wallace,LB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+NYJ,BUF@NYJ,Garrett Wilson,WR,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+NYJ,BUF@NYJ,Nahshon Wright,CB,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+MIA,MIA@IND,Tucker Addington,LS,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+MIA,MIA@IND,Kaytron Allen,RB,,Full Participation in Practice,,https://www.nfl.com/injuries/
+MIA,MIA@IND,Darrell Baker Jr.,CB,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+MIA,MIA@IND,Chris Bell,WR,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+MIA,MIA@IND,Aaron Brewer,C,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+MIA,MIA@IND,Malik Herring,DE,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+MIA,MIA@IND,Will Kacmarek,TE,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+MIA,MIA@IND,Michael Taaffe,S,,Full Participation in Practice,,https://www.nfl.com/injuries/
+MIA,MIA@IND,Dante Trader Jr.,S,,Full Participation in Practice,,https://www.nfl.com/injuries/
+MIA,MIA@IND,Jaylen Wright,RB,,Full Participation in Practice,,https://www.nfl.com/injuries/
+IND,MIA@IND,Mo Alie-Cox,TE,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+IND,MIA@IND,Jaylon Carlies,LB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+IND,MIA@IND,Akeem Davis-Gaither,LB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+IND,MIA@IND,A.J. Haulcy,S,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+IND,MIA@IND,Arden Key,DE,,Full Participation in Practice,,https://www.nfl.com/injuries/
+IND,MIA@IND,Luke Rhodes,LS,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+IND,MIA@IND,Jonathan Taylor,RB,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+IND,MIA@IND,Jerry Tillery,DT,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+IND,MIA@IND,Jalen Travis,T,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+IND,MIA@IND,Justin Walley,CB,,Full Participation in Practice,,https://www.nfl.com/injuries/
+IND,MIA@IND,Charvarius Ward,CB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+CAR,CAR@NO,Jonathon Brooks,RB,,Full Participation in Practice,,https://www.nfl.com/injuries/
+CAR,CAR@NO,Brady Christensen,G,,Full Participation in Practice,,https://www.nfl.com/injuries/
+CAR,CAR@NO,Trevor Etienne,RB,,Full Participation in Practice,,https://www.nfl.com/injuries/
+CAR,CAR@NO,Chuba Hubbard,RB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+CAR,CAR@NO,Lee Hunter,DT,,Full Participation in Practice,,https://www.nfl.com/injuries/
+CAR,CAR@NO,Mike Jackson,CB,,Full Participation in Practice,,https://www.nfl.com/injuries/
+CAR,CAR@NO,Will Lee III,CB,,Full Participation in Practice,,https://www.nfl.com/injuries/
+CAR,CAR@NO,Xavier Legette,WR,,Full Participation in Practice,,https://www.nfl.com/injuries/
+CAR,CAR@NO,Damien Lewis,G,,Full Participation in Practice,,https://www.nfl.com/injuries/
+CAR,CAR@NO,Bobby Okereke,LB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+CAR,CAR@NO,Jaelan Phillips,LB,,Full Participation in Practice,,https://www.nfl.com/injuries/
+CAR,CAR@NO,Torricelli Simpkins III,G,,Full Participation in Practice,,https://www.nfl.com/injuries/
+NO,CAR@NO,Kelvin Banks Jr.,T,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+NO,CAR@NO,CJ Donaldson,RB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+NO,CAR@NO,David Edwards,G,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+NO,CAR@NO,Martin Emerson,CB,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+NO,CAR@NO,Travis Etienne,RB,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+NO,CAR@NO,Noah Fant,TE,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+NO,CAR@NO,Alvin Kamara,RB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+NO,CAR@NO,Erik McCoy,C,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+NO,CAR@NO,Christen Miller,DT,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+NO,CAR@NO,Asim Richards,T,,Full Participation in Practice,,https://www.nfl.com/injuries/
+HOU,HOU@CLE,Azeez Al-Shaair,LB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+HOU,HOU@CLE,Reed Blankenship,S,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+HOU,HOU@CLE,Tank Dell,WR,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+HOU,HOU@CLE,Blake Fisher,T,,Full Participation in Practice,,https://www.nfl.com/injuries/
+HOU,HOU@CLE,Marvin Harrison Jr.,WR,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+HOU,HOU@CLE,Jacob Hummel,LB,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+HOU,HOU@CLE,Brevin Jordan,TE,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+HOU,HOU@CLE,Woody Marks,RB,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+HOU,HOU@CLE,David Montgomery,RB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+HOU,HOU@CLE,Keylan Rutledge,G,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+HOU,HOU@CLE,Jaylin Smith,CB,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+HOU,HOU@CLE,Wyatt Teller,G,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+HOU,HOU@CLE,Tommy Togiai,DT,,Full Participation in Practice,,https://www.nfl.com/injuries/
+CLE,HOU@CLE,Austin Barber,T,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+CLE,HOU@CLE,Denzel Boston,WR,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+CLE,HOU@CLE,Michael Burton,FB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+CLE,HOU@CLE,Maliek Collins,DT,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+CLE,HOU@CLE,Harold Fannin Jr.,TE,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+CLE,HOU@CLE,Ronnie Hickman Jr.,S,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+CLE,HOU@CLE,Tytus Howard,T,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+CLE,HOU@CLE,Elgton Jenkins,C,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+CLE,HOU@CLE,Carson Schwesinger,LB,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+CLE,HOU@CLE,Denzel Ward,CB,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+CLE,HOU@CLE,Quincy Williams,LB,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+LA,LA@AZ,Davis Allen,TE,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+LA,LA@AZ,Steve Avila,G,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+LA,LA@AZ,Joe Cardona,LS,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+LA,LA@AZ,Kam Curl,S,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+LA,LA@AZ,Terrance Ferguson,TE,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+LA,LA@AZ,Myles Garrett,LB,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+LA,LA@AZ,Trent McDuffie,CB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+LA,LA@AZ,Puka Nacua,WR,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+LA,LA@AZ,Colby Parkinson,TE,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+LA,LA@AZ,Matthew Stafford,QB,,Full Participation in Practice,,https://www.nfl.com/injuries/
+AZ,LA@AZ,Budda Baker,S,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+AZ,LA@AZ,Zachary Carter,DT,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+AZ,LA@AZ,Hjalte Froholdt,C,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+AZ,LA@AZ,Jon Gaines II,G,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+AZ,LA@AZ,Bam Knight,RB,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+AZ,LA@AZ,Hunter Long,TE,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+AZ,LA@AZ,Roy Lopez,DT,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+AZ,LA@AZ,Max Melton,CB,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+AZ,LA@AZ,Isaac Seumalo,G,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+AZ,LA@AZ,Dante Stills,DT,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+AZ,LA@AZ,Josh Sweat,LB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+AZ,LA@AZ,Jayden Williams,T,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+AZ,LA@AZ,Mack Wilson,LB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+AZ,LA@AZ,Andrew Wingard,S,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+SEA,SEA@LV,AJ Barner,TE,,Full Participation in Practice,,https://www.nfl.com/injuries/
+SEA,SEA@LV,Anthony Bradford,G,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+SEA,SEA@LV,Charles Cross,T,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+SEA,SEA@LV,Sam Darnold,QB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+SEA,SEA@LV,Derick Hall,LB,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+SEA,SEA@LV,Drew Lock,QB,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+SEA,SEA@LV,Quenton Nelson,G,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+SEA,SEA@LV,Uchenna Nwosu,LB,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+SEA,SEA@LV,Patrick O'Connell,LB,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+SEA,SEA@LV,Connor O'Toole,LB,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+SEA,SEA@LV,Brandon Pili,DT,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+SEA,SEA@LV,Jarran Reed,DT,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+SEA,SEA@LV,Rashid Shaheed,WR,,Full Participation in Practice,,https://www.nfl.com/injuries/
+SEA,SEA@LV,Jaxon Smith-Njigba,WR,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+SEA,SEA@LV,Leonard Williams,DT,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+LV,SEA@LV,Thomas Booker,DT,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+LV,SEA@LV,Foley Fatukasi,DT,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+LV,SEA@LV,Ian Thomas,TE,,Full Participation in Practice,,https://www.nfl.com/injuries/
+LV,SEA@LV,Trey Zuhn III,C,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+SF,SF@DAL,Mike Evans,WR,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+SF,SF@DAL,Renardo Green,CB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+SF,SF@DAL,Dre Greenlaw,LB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+SF,SF@DAL,Nate Hobbs,CB,,Full Participation in Practice,,https://www.nfl.com/injuries/
+SF,SF@DAL,Deommodore Lenoir,CB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+SF,SF@DAL,Christian McCaffrey,RB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+SF,SF@DAL,Siran Neal,S,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+SF,SF@DAL,Demarcus Robinson,WR,,Full Participation in Practice,,https://www.nfl.com/injuries/
+SF,SF@DAL,Deebo Samuel Sr.,WR,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+SF,SF@DAL,Upton Stout,CB,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+SF,SF@DAL,C.J. West,DT,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+SF,SF@DAL,Trent Williams,T,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+DAL,SF@DAL,Jonathan Bullard,DT,,Full Participation in Practice,,https://www.nfl.com/injuries/
+DAL,SF@DAL,Donovan Ezeiruaku,LB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+DAL,SF@DAL,Jake Ferguson,TE,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+DAL,SF@DAL,Tyler Goodson,RB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+DAL,SF@DAL,Malik Hooker,S,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+DAL,SF@DAL,Marist Liufau,LB,,Full Participation in Practice,,https://www.nfl.com/injuries/
+DAL,SF@DAL,P.J. Locke,S,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+DAL,SF@DAL,Von Miller,LB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+DAL,SF@DAL,Jonathan Mingo,WR,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+DAL,SF@DAL,Devin Moore,CB,,Full Participation in Practice,,https://www.nfl.com/injuries/
+DAL,SF@DAL,DeMarvion Overshown,LB,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+DAL,SF@DAL,George Pickens,WR,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+DAL,SF@DAL,Joey Porter Jr.,CB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+DAL,SF@DAL,Luke Schoonmaker,TE,,Full Participation in Practice,,https://www.nfl.com/injuries/
+DAL,SF@DAL,Brevyn Spann-Ford,TE,,Full Participation in Practice,,https://www.nfl.com/injuries/
+DAL,SF@DAL,KaVontae Turpin,WR,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+PIT,PIT@CIN,Brandin Echols,CB,,Full Participation in Practice,,https://www.nfl.com/injuries/
+PIT,PIT@CIN,DeShon Elliott,S,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+PIT,PIT@CIN,Derrick Harmon,DT,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+PIT,PIT@CIN,Cameron Heyward,DT,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+PIT,PIT@CIN,Ben Skowronek,WR,,Full Participation in Practice,,https://www.nfl.com/injuries/
+PIT,PIT@CIN,Doneiko Slaughter,CB,,Full Participation in Practice,,https://www.nfl.com/injuries/
+PIT,PIT@CIN,Darnell Washington,TE,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+PIT,PIT@CIN,T.J. Watt,LB,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+CIN,PIT@CIN,Jonathan Allen,DT,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+CIN,PIT@CIN,Kyle Dugger,S,,Did Not Participate In Practice,,https://www.nfl.com/injuries/
+CIN,PIT@CIN,Dylan Fairchild,G,,Limited Participation in Practice,,https://www.nfl.com/injuries/
+CIN,PIT@CIN,DJ Turner II,CB,,Limited Participation in Practice,,https://www.nfl.com/injuries/

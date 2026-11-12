@@ -1,0 +1,102 @@
+{
+  "generated_by": "https://github.com/sassnarep3-star/Own6/blob/main/research/nfl lessons; each row cites the artifact or official page that produced it",
+  "as_of": "2026-11-12",
+  "lessons": [
+    {
+      "id": "L-01",
+      "area": "Signals",
+      "finding": "A transparent efficiency rating (points for/against, opponent-adjusted, home field, season decay) does NOT beat the closing spread.",
+      "evidence": "2025 holdout: 172 spread bets, ROI -1.2% (CI -12.3% to +10.4%); 2024 check: 189 bets, -8.1%.",
+      "implication": "Signal design must add information the closing line already lacks, not re-derive team strength.",
+      "source": "https://github.com/sassnarep3-star/Own6/blob/main/data/nfl/model/backtest.json"
+    },
+    {
+      "id": "L-02",
+      "area": "Signals",
+      "finding": "Totals are harder than spreads with this model.",
+      "evidence": "2025: 111 total bets, ROI -3.7% (CI -24.3% to +17.3%), win rate 50.4%.",
+      "implication": "Totals need a different feature set (pace, weather, pace-of-play, red-zone), not a margin model.",
+      "source": "https://github.com/sassnarep3-star/Own6/blob/main/data/nfl/model/backtest.json"
+    },
+    {
+      "id": "L-03",
+      "area": "Signals",
+      "finding": "Betting underdogs on a model edge loses at this calibration level.",
+      "evidence": "2025: 219 moneyline dogs, ROI -7.5%, win rate 30.1%; 2024: -20.2% with a CI that excludes zero on the downside.",
+      "implication": "Probability edges in the tail (dogs) need much larger samples and better calibration than a normal-approximation model provides.",
+      "source": "https://github.com/sassnarep3-star/Own6/blob/main/data/nfl/model/backtest.json"
+    },
+    {
+      "id": "L-04",
+      "area": "Correlation",
+      "finding": "Spread cover and total over are close to independent in the historical sample.",
+      "evidence": "2,792 games: phi +0.022 (clustered CI -0.010..+0.056), joint 24.39% vs 23.83% independent (ratio 1.023).",
+      "implication": "For this pair, an independence price is defensible, but the ratio must be shown and re-tested each season.",
+      "source": "https://github.com/sassnarep3-star/Own6/blob/main/data/nfl/model/correlations.json"
+    },
+    {
+      "id": "L-05",
+      "area": "Correlation",
+      "finding": "Cross-game legs show apparent dependence of +0.099 that is not significant at n=234.",
+      "evidence": "phi +0.099 (CI -0.030..+0.228), Fisher exact p=0.15.",
+      "implication": "This is what noise looks like at parlay sample sizes; any 'parlay edge' below ~0.1 correlation is invisible without thousands of pairs.",
+      "source": "https://github.com/sassnarep3-star/Own6/blob/main/data/nfl/model/correlations.json"
+    },
+    {
+      "id": "L-06",
+      "area": "Injuries",
+      "finding": "Only 6 of 275 Week 10 injury rows carry an explicit game status on the day read.",
+      "evidence": "Official Week 10 report, read 2026-11-12.",
+      "implication": "Practice participation is not a status. Any injury model must carry a 'status not yet set' state, or it will overstate certainty.",
+      "source": "https://www.nfl.com/injuries/"
+    },
+    {
+      "id": "L-07",
+      "area": "Injuries",
+      "finding": "Depth deficiency is computable for any club that publishes a depth chart, and the clubs do publish them on their own domains.",
+      "evidence": "WAS/NYG/DET charts read; 13 starter-level deficiencies derived; e.g. WAS CB Amik Robertson limited -> Mike Sainristil (string 2).",
+      "implication": "League-wide tracking is a capture problem, not a data-permission problem.",
+      "source": "https://www.commanders.com/team/depth-chart"
+    },
+    {
+      "id": "L-08",
+      "area": "Data",
+      "finding": "Community game logs can lag the official pages by a day (three 2026 rows missing).",
+      "evidence": "AZ season totals, AZ@SEA (W9), LA@AZ (W10) missing from the file on 2026-11-12 while NFL.com shows them.",
+      "implication": "Never let a community file drive a published official claim; reconcile first, publish second.",
+      "source": "https://github.com/sassnarep3-star/Own6/blob/main/data/nfl/model/reconciliation.json"
+    },
+    {
+      "id": "L-09",
+      "area": "Data",
+      "finding": "One of the two community sources has no license file.",
+      "evidence": "GitHub metadata: leesharpe/nfldata license = null (2026-11-12); nflverse-data is CC-BY-4.0.",
+      "implication": "A backtest built on unlicensed data cannot support a public profitability claim.",
+      "source": "https://github.com/leesharpe/nfldata"
+    },
+    {
+      "id": "L-10",
+      "area": "Process",
+      "finding": "A model that is 60% right on margin sign still loses money after vig.",
+      "evidence": "2025 model sign accuracy 59.9% vs the market's 85.3% (market covers when it agrees with the result).",
+      "implication": "Directional accuracy is a vanity metric; only post-vig ROI with a lower bound matters.",
+      "source": "https://github.com/sassnarep3-star/Own6/blob/main/data/nfl/model/backtest.json"
+    },
+    {
+      "id": "L-11",
+      "area": "Process",
+      "finding": "Five of the eight frozen candidates cannot be tested at all with the data the project holds.",
+      "evidence": "S4 (no opening lines), S5 (no props), S6/S7 (no prop outcomes/prices), S8 (no injury archive).",
+      "implication": "Most of the 'combo/parlay strategy' space is data-blocked, not model-blocked.",
+      "source": "https://github.com/sassnarep3-star/Own6/blob/main/data/nfl/model/backtest.json"
+    },
+    {
+      "id": "L-12",
+      "area": "Process",
+      "finding": "The 2025 holdout throws away three of the five signals as soon as the price assumption is honest.",
+      "evidence": "-110 is assumed for historical bets; real prices vary from -105 to -115.",
+      "implication": "A 1-2 cent price error is the same order as the entire edge being hunted.",
+      "source": "https://github.com/sassnarep3-star/Own6/blob/main/data/nfl/model/backtest.json"
+    }
+  ]
+}

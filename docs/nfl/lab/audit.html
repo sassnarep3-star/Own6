@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Repository review - line by line - Own6 NFL Lab</title>
+<link rel="stylesheet" href="assets/style.css"></head>
+<body>
+<header class="top"><div class="brand">OWN6 <span>/ NFL LINES LAB</span></div>
+<nav class="main" aria-label="NFL lab sections"><a href="index.html">Dashboard</a><a href="lines.html">Own lines</a><a href="strategies.html">Strategies</a><a href="validation.html">Validation gates</a><a href="correlations.html">Correlation</a><a href="leaderboard.html">Leaderboard</a><a href="injuries.html">Injuries</a><a href="depth.html">Depth</a><a href="questions.html">Questions</a><a href="suggestions.html">Suggestions</a><a href="findings.html">Findings</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged</a><a href="audit.html" class="on">Repo review</a></nav></header>
+<main>
+<p class="eyebrow">NFL RESEARCH LAB - EVIDENCE STATE 2026-11-12</p>
+<h1>Repository review - line by line</h1>
+
+<p class="lead">A line-by-line review of the repository and of every value this lab publishes. It records what was
+checked, what was found, and what was fixed or flagged. Defects found elsewhere in the repository are listed
+too, because a reader deserves to know the state of the whole tree.</p>
+<h2>Data reconciliation: 89 official-value checks</h2>
+<div class="cards">
+<div class="card"><b>89</b><span>checks run</span></div>
+<div class="card"><b>0</b><span>discrepancies after reconciliation</span></div>
+<div class="card"><b>136</b><span>final 2026 games reconciled</span></div>
+<div class="card"><b>275</b><span>injury rows transcribed</span></div>
+</div>
+<p class="small">Method: every standings row is re-derived from all final games in the community log (wins, losses,
+ties, points for, points against); every Week 9 score is compared to the official page; every Week 10 opponent and
+kickoff time is compared. A missing row is reported, never filled. Club-code alias ARI (community file) = AZ
+(NFL.com) is the only normalisation applied and it is documented.</p>
+<div class="note">No discrepancies remained after the documented alias. The three raw discrepancies found before the alias (Arizona season totals, AZ@SEA Week 9, LA@AZ Week 10) are recorded in <a href="flagged.html">F-N05</a>.</div>
+<h2>Repository review - line by line</h2>
+<div class="table-wrap"><table class=""><thead><tr><th scope="col">ID</th><th scope="col">Severity</th><th scope="col">Finding</th><th scope="col">Evidence</th><th scope="col">Status</th><th scope="col">Source</th></tr></thead><tbody><tr><td>D-01</td><td>medium</td><td>The full test suite fails on a clean checkout of main (1 test in tests/assurance/test_audit.py) before any NFL file is added.</td><td>Reproduced in a fresh worktree at b41bc81: the stored SHA-256 for .gitignore does not match after checkout.</td><td>needs review - not caused by this work, not fixed here</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/tests/assurance/test_audit.py">test_audit.py</a></td></tr><tr><td>D-02</td><td>medium</td><td>The community game log lacked three 2026 rows the official pages show.</td><td>AZ season totals, AZ@SEA (W9), LA@AZ (W10) - reported by the reconciliation, not filled.</td><td>flagged F-N05</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-9">week 9</a></td></tr><tr><td>D-03</td><td>medium</td><td>Historical bets are priced at an assumed -110 with no book and no vig.</td><td>backtest.json configuration.bet_price_assumption.</td><td>flagged F-N04 - blocks any performance claim</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/nfl/model/backtest.json">backtest.json</a></td></tr><tr><td>D-04</td><td>low</td><td>Two NFL sections exist after PR #66 merged during this build.</td><td>Disjoint files; readers may see two entry points.</td><td>flagged F-N10 - request R-2 logged</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/COORDINATION.md">COORDINATION.md</a></td></tr><tr><td>D-05</td><td>info</td><td>The lab depends on a Python environment with numpy and scipy.</td><td>requirements-empirical.txt already pins both.</td><td>ok</td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/requirements-empirical.txt">requirements</a></td></tr></tbody></table></div>
+<h2>What this review verified</h2>
+<ul class="tight">
+<li>NFL-01: all 32 standings rows re-derived from 136 final games - <a href="https://www.nfl.com/standings/">NFL standings</a>.</li>
+<li>15 Week 9 finals compared one by one - <a href="https://www.nfl.com/schedules/2026/by-week/week-9">Week 9 schedule</a>.</li>
+<li>14 Week 10 games compared for opponents, dates and kickoff times - <a href="https://www.nfl.com/schedules/2026/by-week/week-10">Week 10 schedule</a>.</li>
+<li>275 injury rows transcribed across 26 clubs - <a href="https://www.nfl.com/injuries/">injury report</a>.</li>
+<li>Three club depth charts transcribed slot by slot, published blanks preserved - <a href="https://www.commanders.com/team/depth-chart">WAS</a>, <a href="https://www.giants.com/team/depth-chart">NYG</a>, <a href="https://www.detroitlions.com/team/depth-chart">DET</a>.</li>
+<li>The 2026 rule-change table and the Terms section 1.3 quoted verbatim - <a href="https://operations.nfl.com/rules-officiating/2026-nfl-rulebook">rulebook</a>, <a href="https://www.nfl.com/legal/terms">terms</a>.</li>
+</ul>
+<h2>Reproduce</h2>
+<div class="panel"><p class="small">
+<code>python3 scripts/nfl_reconcile.py</code> -> re-runs the 89 checks<br>
+<code>python3 scripts/nfl_analysis.py</code> -> rebuilds every model artefact<br>
+<code>python3 scripts/build_nfl_lab.py</code> -> rebuilds these pages<br>
+<code>python3 scripts/check_nfl_lab.py</code> -> fails on a missing source, a filled blank, a broken link or a drifted count<br>
+<code>python3 -m pytest -q tests/test_nfl_lab.py</code> -> 12 adversarial unit tests
+</p>
+<p class="small">Input hash: <code>9fe5bd67210691255cf90af21e39cc24...</code> - 3167 rows, 523,913 bytes,
+source <a href="https://github.com/leesharpe/nfldata/commit/6ea0be6dd9bfc95c818c05568753bc70f1986ea2">nfldata@6ea0be6d</a>.</p></div>
+
+<footer>Research only. No wagers, stakes, picks or profitability claims. Blank = unverified; never inferred.
+Sources are official NFL / club pages unless a row says otherwise. Methods cite NIST, SciPy and scikit-learn for
+definitions only. <a href="flagged.html">Flagged for Review</a> lists every unresolved item.</footer>
+</main></body></html>

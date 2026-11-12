@@ -1,0 +1,26 @@
+{
+  "generated_by": "scripts/nfl_reconcile.py",
+  "inputs": {
+    "community": "data/nfl/model/games_2015_2026.csv",
+    "official_reads": [
+      "data/nfl/raw/standings_2026_read.csv",
+      "data/nfl/raw/week9_results_read.csv",
+      "data/nfl/raw/slate_week10_read.csv",
+      "data/nfl/raw/injuries_week10_read.csv"
+    ]
+  },
+  "checks_run": 89,
+  "checks_failed": 0,
+  "discrepancies": [],
+  "stats": {
+    "final_games_2026_in_community_file": 136,
+    "standings_rows_confirmed_by_game_log": 32,
+    "week9_games_official": 15,
+    "week10_games_official": 14,
+    "injury_rows_transcribed": 275,
+    "injury_teams_transcribed": 26,
+    "week10_teams_with_no_injuries_reported": 2
+  },
+  "what_this_proves": "The 2026 rows the site uses for official standings, Week 9 results and the Week 10 slate are consistent with the verbatim NFL.com reads stored in data/nfl/raw/. It does not prove any historical row, closing line, or correlation value.",
+  "what_this_does_not_prove": "Community-file correctness for 2015-2025, spread/total accuracy, or any predictive edge."
+}
