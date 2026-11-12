@@ -1220,3 +1220,35 @@ Arena platform constraint fixes this session to branch `arena/05a657f4-own6` (cr
   - `https://sassnarep3-star.github.io/Own6/docs/sf-94122/notice-and-reasons.html`
   - `https://sassnarep3-star.github.io/Own6/docs/sf-94122/tenant-scrutiny-and-fairness.html`
   - `https://sassnarep3-star.github.io/Own6/docs/sf-94122/flagged.html`
+
+---
+
+## Session arena/efebf74f-own6 — NFL lines research lab (2026-11-12)
+
+**Branch rule (platform deviation logged):** Session is fixed to `arena/efebf74f-own6` by Arena; `session-<id>/<task>` naming is not permitted. All NFL work is isolated to non-overlapping paths below so parallel NBA/rental sessions remain untouched.
+
+**Objective:** Fulfill NFL directive — collect/organize/analyze full requirement list, build suggestions/dedicated review section, provide clear questions/informations/answers and discovery path for missing info, originate own NFL lines as a leaderboard competition (singles, parlays, player-prop combos), enforce all validation gates, determine correlation values with luck control, track injuries and offensive/defensive depth deficiencies (2nd/3rd/4th string backups replacing starters), create executive summary, verify every table row against official trusted sources with links (blank if unverified), and publish a clean, simple dashboard-style GitHub Pages site. No hallucinations, no manual input required.
+
+**Live site target:** `docs/nfl/` → https://sassnarep3-star.github.io/Own6/nfl/ (published from `main:/docs` via legacy Pages builder; root `docs/index.html` adds one additive navigation link at integration only).
+
+### Task board (session efebf74f)
+
+| Task | Status | Owner | Exclusive file scope | Notes |
+|---|---|---|---|---|
+| N1 Requirements inventory | unclaimed | — | `data/nfl/requirements.csv`, `research/NFL_REQUIREMENTS.md` | Full user-requirement capture, organization, analysis |
+| N2 Executive summary & decision-framework (questions / informations / answers, missing-info discovery) | unclaimed | — | `research/NFL_EXECUTIVE_SUMMARY.md`, `data/nfl/decision_questions.csv`, `docs/nfl/index.html` | Every claim source-linked; no profitability claim |
+| N3 Suggestions & improvement review section | unclaimed | — | `data/nfl/suggestions.csv`, `docs/nfl/suggestions.html`, `research/NFL_SUGGESTIONS.md` | Dedicated reviewable suggestions, no auto-apply |
+| N4 Line origination & signal strategies (singles, parlays, prop combos, leaderboard/rewards design) | unclaimed | — | `data/nfl/origin_strategies.csv`, `data/nfl/leaderboard.csv`, `docs/nfl/strategies.html`, `docs/nfl/leaderboard.html`, `research/NFL_SIGNALS.md` | Frozen hypotheses; 0 qualified at launch |
+| N5 Validation gates, luck control & correlations | unclaimed | — | `data/nfl/validation_gates.csv`, `data/nfl/correlations.csv`, `docs/nfl/validation.html`, `docs/nfl/correlations.html`, `research/NFL_VALIDATION.md` | Training-only residuals, slate-clustered CIs, Bonferroni, CLV, proper scores |
+| N6 Injury & depth-deficiency tracking (offense/defense, starters vs 2nd/3rd/4th string) | unclaimed | — | `data/nfl/injury_tracking.csv`, `data/nfl/depth_model.csv`, `docs/nfl/injuries.html`, `docs/nfl/depth.html`, `research/NFL_INJURY_DEPTH.md` | Timestamped official injury report; depth chart deficiency model |
+| N7 Site creation (clean dashboard, category subpages, tables, analysis & findings) | unclaimed | — | `docs/nfl/**`, `scripts/build_nfl.py`, `scripts/check_nfl.py` | 10+ pages, simple readable tables, every row source-linked, responsive style |
+| N8 Line-by-line verification & flagged items | unclaimed | — | `audit/NFL_AUDIT.md`, `data/nfl/sources.csv`, `data/nfl/flagged.csv`, `docs/nfl/flagged.html`, `docs/nfl/sources.html` | Every row has official https source; blank = unverified |
+| N9 Final integration, checks, PR to main, merge, Pages deploy confirmation | unclaimed | — | `COORDINATION.md` (append-only), `docs/index.html` (one additive nav link), `README.md` (one additive NFL paragraph), `data/assurance/**`, `docs/assurance/**` (regenerated only) | Merge only when `scripts/check_nfl.py`, `tools/release_gate.py`, and all CI workflows pass; record PR link & deploy status |
+
+**Status legend:** `unclaimed` · `in progress` · `done` · `needs review` (published on Flagged for Review; does not block)
+
+**Shared-file rule:** Only N9 edits shared outputs (`docs/index.html` nav, `README.md`, `COORDINATION.md`, regenerated `data/assurance`/`docs/assurance`). Other tasks log cross-file requests here instead of editing.
+
+**Claim log:**
+- 2026-11-12: session efebf74f reads board, git log, existing docs, and claims N1–N9 (see completion records below). Commit and push claim immediately.
+
