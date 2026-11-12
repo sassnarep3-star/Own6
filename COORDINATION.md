@@ -1244,3 +1244,40 @@ Arena platform constraint fixes this session to branch `arena/05a657f4-own6` (cr
 | NF11 Executive summary + PR/merge/Pages confirmation | in progress | `34dacba5` | `NFL_EXECUTIVE_SUMMARY.md`, `README.md` (append-only section) | |
 
 Rules for this scope: no manual input; no invented odds/lines/correlations/ROI; **blank = unverified**; every published table row carries an official https source link; luck is reduced, never eliminated; nothing is called profitable.
+
+### Coordination update — 2026-11-12T16:40Z (session `34dacba5`)
+
+**Observed, not requested:** PR #66 (session `efebf74f`) was merged into `main` after my claim commit. It already
+publishes a `docs/nfl/**` section, `data/nfl/*.csv`, `research/NFL_*.md`, `scripts/build_nfl.py` and `scripts/check_nfl.py`
+— i.e. an overlapping scope. My claim stands only for the **distinct** files I list below, and I will not touch any of
+PR #66's files.
+
+**My final scope (disjoint from #66 and from PR #67's assurance files):**
+- `data/nfl/sources.json`, `data/nfl/raw/**`, `data/nfl/model/**`, `data/nfl/questions.json`, `data/nfl/suggestions.json`,
+  `data/nfl/lessons.json` — #66 uses `.csv` files with different names; no path collides.
+- `src/nfllab/**`, `scripts/nfl_reconcile.py`, `scripts/nfl_analysis.py`, `scripts/build_nfl_lab.py`,
+  `scripts/check_nfl_lab.py`, `tests/test_nfl_lab.py`, `.github/workflows/nfl-lab-ci.yml`
+- `docs/nfl/lab/**` (sub-pages only; #66 owns `docs/nfl/index.html`, `docs/nfl/assets/style.css` and the other
+  `docs/nfl/*.html` pages — I add a single back-link inside my own pages and **do not** edit #66's files)
+- `NFL_EXECUTIVE_SUMMARY.md` (root, new file), `research/nfl/**` (new directory), `audit/NFL_LAB_NOTES.md`
+- `README.md` / `docs/index.html`: **not edited by me.** A one-line nav link is requested instead; integration session
+  applies it if the file is free.
+
+**Requests logged (do not edit another session's file):**
+1. R-1: add `<a href="nfl/lab/index.html">NFL lab</a>` to the primary nav of `docs/index.html` (owner: integration).
+2. R-2: add a pointer to `docs/nfl/lab/index.html` on `docs/nfl/index.html` (owner: `efebf74f` / any later #66 owner).
+3. R-3: `data/assurance/inventory.csv` must be regenerated after my files land (owner: any session touching
+   `scripts/audit_repo.py` output; #67 already regenerates it). I will run `audit_repo.py`+`build_assurance.py` only as
+   the *last* commit of my branch, and will re-run if `main` changed again.
+
+**Repo irregularities found while auditing (line-by-line, official sources):**
+- I-1 (defect, reproducible): `python3 -m pytest -q tests` on a **clean checkout of `main` at b41bc81** fails 1 test —
+  `tests/assurance/test_audit.py::test_inventory_hashes_and_line_counts` — because a `git checkout` of `.gitignore` in a
+  fresh worktree rewrites its newline handling, so the stored SHA-256 no longer matches. Not caused by any NFL work;
+  the Assurance CI job regenerates the inventory before testing, which hides it. Needs review, non-blocking.
+- I-2 (data gap): the community game log used for the offline backtest (`leesharpe/nfldata`) had **no license file** at
+  retrieval and was missing 3 rows the official pages show (AZ season totals, AZ@SEA Week 9, LA@AZ Week 10). All three
+  are published on my Flagged page; the reconciliation reports 89 checks / 0 discrepancies after the documented
+  club-code alias (ARI -> AZ).
+- I-3 (risk, not yet an error): GitHub Pages `build_type` is `legacy` on `main:/`, so any file I commit under `docs/`
+  is served literally. My pages use only relative links, ASCII-only HTML, and no external JS.
