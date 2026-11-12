@@ -1,0 +1,109 @@
+name: NFL lines lab
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/nfllab/**"
+      - "data/nfl/**"
+      - "scripts/nfl_*.py"
+      - "scripts/build_nfl_lab.py"
+      - "scripts/check_nfl_lab.py"
+      - "docs/nfl/lab/**"
+      - "tests/test_nfl_lab.py"
+      - "requirements-empirical.txt"
+      - ".github/workflows/nfl-lab-ci.yml"
+  pull_request:
+    paths:
+      - "src/nfllab/**"
+      - "data/nfl/**"
+      - "scripts/nfl_*.py"
+      - "scripts/build_nfl_lab.py"
+      - "scripts/check_nfl_lab.py"
+      - "docs/nfl/lab/**"
+      - "tests/test_nfl_lab.py"
+      - "requirements-empirical.txt"
+      - ".github/workflows/nfl-lab-ci.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: nfl-lab-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy pytest
+
+      - name: Unit tests (24 adversarial checks)
+        run: python -m pytest -q tests/test_nfl_lab.py
+
+      - name: Reconcile official reads against the community game log
+        run: python scripts/nfl_reconcile.py
+
+      - name: Rebuild every model artefact from the committed inputs
+        run: python scripts/nfl_analysis.py
+
+      - name: Artefacts must be reproducible byte-for-byte
+        run: |
+          if ! git diff --quiet -- data/nfl/model; then
+            echo "::error::data/nfl/model changed when rebuilt - commit the regenerated artefacts"
+            git --no-pager diff --stat -- data/nfl/model
+            exit 1
+          fi
+
+      - name: Rebuild the pages
+        run: python scripts/build_nfl_lab.py
+
+      - name: Pages must be reproducible byte-for-byte
+        run: |
+          if ! git diff --quiet -- docs/nfl/lab; then
+            echo "::error::docs/nfl/lab changed when rebuilt - commit the regenerated pages"
+            git --no-pager diff --stat -- docs/nfl/lab
+            exit 1
+          fi
+
+      - name: Page guard rails (row source, blanks, links, drift)
+        run: python scripts/check_nfl_lab.py
+
+      - name: Pages are ASCII and self-contained
+        run: |
+          python - <<'EOF'
+          import pathlib, sys
+          bad = []
+          for p in sorted(pathlib.Path("docs/nfl/lab").glob("*.html")):
+              try:
+                  p.read_text(encoding="ascii")
+              except UnicodeDecodeError as e:
+                  bad.append(f"{p}: {e}")
+          for p in sorted(pathlib.Path("docs/nfl/lab").glob("*.html")):
+              t = p.read_text()
+              if "http://" in t.replace("http://www.w3.org", ""):
+                  bad.append(f"{p}: insecure http link")
+          if bad:
+              print("\n".join(bad)); sys.exit(1)
+          print("14 pages ASCII-clean, no insecure links")
+          EOF
+
+      - name: Upload pages for inspection
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nfl-lab-pages
+          path: docs/nfl/lab
+          retention-days: 7

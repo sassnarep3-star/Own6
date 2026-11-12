@@ -97,83 +97,83 @@
     }
   },
   "calibration": {
-    "brier_model": 0.2917711663074487,
+    "brier_model": 0.278329579290298,
     "brier_market": 0.25,
-    "bss": -0.16708466522979482,
+    "bss": -0.113318317161192,
     "n": 205,
-    "ece": 0.16821009597852005,
+    "ece": 0.11648562417142168,
     "note": "Market probability is taken as 0.5 at the closing line; this understates the market's own information and is disclosed as a limitation, not a result."
   },
   "reliability": [
     {
       "bin": "0.0-0.1",
-      "n": 0,
-      "mean_predicted": null,
-      "observed_rate": null,
-      "gap": null
+      "n": 2,
+      "mean_predicted": 0.09045591683166443,
+      "observed_rate": 1.0,
+      "gap": 0.9095440831683356
     },
     {
       "bin": "0.1-0.2",
-      "n": 1,
-      "mean_predicted": 0.18536810023144434,
-      "observed_rate": 1.0,
-      "gap": 0.8146318997685557
+      "n": 12,
+      "mean_predicted": 0.1384623371606908,
+      "observed_rate": 0.6666666666666666,
+      "gap": 0.5282043295059758
     },
     {
       "bin": "0.2-0.3",
-      "n": 11,
-      "mean_predicted": 0.2631436735206191,
-      "observed_rate": 0.6363636363636364,
-      "gap": 0.37321996284301723
+      "n": 20,
+      "mean_predicted": 0.25285776585512154,
+      "observed_rate": 0.45,
+      "gap": 0.19714223414487847
     },
     {
       "bin": "0.3-0.4",
-      "n": 32,
-      "mean_predicted": 0.35012448704228194,
-      "observed_rate": 0.5,
-      "gap": 0.14987551295771806
+      "n": 28,
+      "mean_predicted": 0.3504337578414384,
+      "observed_rate": 0.35714285714285715,
+      "gap": 0.006709099301418775
     },
     {
       "bin": "0.4-0.5",
-      "n": 31,
-      "mean_predicted": 0.4488397217530433,
-      "observed_rate": 0.45161290322580644,
-      "gap": 0.00277318147276312
+      "n": 48,
+      "mean_predicted": 0.45212038897364987,
+      "observed_rate": 0.4583333333333333,
+      "gap": 0.006212944359683448
     },
     {
       "bin": "0.5-0.6",
-      "n": 34,
-      "mean_predicted": 0.541743937173495,
-      "observed_rate": 0.5294117647058824,
-      "gap": -0.012332172467612645
+      "n": 44,
+      "mean_predicted": 0.5534941410707945,
+      "observed_rate": 0.4318181818181818,
+      "gap": -0.12167595925261271
     },
     {
       "bin": "0.6-0.7",
-      "n": 49,
-      "mean_predicted": 0.6525793872225858,
-      "observed_rate": 0.4489795918367347,
-      "gap": -0.2035997953858511
+      "n": 29,
+      "mean_predicted": 0.6467146935900175,
+      "observed_rate": 0.5517241379310345,
+      "gap": -0.09499055565898307
     },
     {
       "bin": "0.7-0.8",
-      "n": 33,
-      "mean_predicted": 0.7414979100020878,
-      "observed_rate": 0.3939393939393939,
-      "gap": -0.34755851606269383
+      "n": 16,
+      "mean_predicted": 0.7420171893592343,
+      "observed_rate": 0.6875,
+      "gap": -0.05451718935923433
     },
     {
       "bin": "0.8-0.9",
-      "n": 14,
-      "mean_predicted": 0.8439941625984143,
-      "observed_rate": 0.6428571428571429,
-      "gap": -0.2011370197412714
+      "n": 5,
+      "mean_predicted": 0.850611902159673,
+      "observed_rate": 0.4,
+      "gap": -0.45061190215967295
     },
     {
       "bin": "0.9-1.0",
-      "n": 0,
-      "mean_predicted": null,
-      "observed_rate": null,
-      "gap": null
+      "n": 1,
+      "mean_predicted": 0.9407108196406191,
+      "observed_rate": 1.0,
+      "gap": 0.05928918035938091
     }
   ],
   "bets_logged": 502,
@@ -4522,9 +4522,9 @@
         {
           "gate_id": "G10",
           "gate": "Deflated Sharpe ratio",
-          "status": "pass",
+          "status": "fail",
           "observed": "SR=-0.0127/bet, expected max under 8 trials=+1.4590, DSR=0.0000",
-          "threshold": "DSR > 0.0",
+          "threshold": "DSR > 95%",
           "note": "Penalises the best strategy for the number of trials run.",
           "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
         }
@@ -4622,9 +4622,9 @@
         {
           "gate_id": "G10",
           "gate": "Deflated Sharpe ratio",
-          "status": "pass",
+          "status": "fail",
           "observed": "SR=-0.0386/bet, expected max under 8 trials=+1.4590, DSR=0.0000",
-          "threshold": "DSR > 0.0",
+          "threshold": "DSR > 95%",
           "note": "Penalises the best strategy for the number of trials run.",
           "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
         }
@@ -4722,9 +4722,9 @@
         {
           "gate_id": "G10",
           "gate": "Deflated Sharpe ratio",
-          "status": "pass",
+          "status": "fail",
           "observed": "SR=-0.0496/bet, expected max under 8 trials=+1.4590, DSR=0.0000",
-          "threshold": "DSR > 0.0",
+          "threshold": "DSR > 95%",
           "note": "Penalises the best strategy for the number of trials run.",
           "source": "https://github.com/leesharpe/nfldata/blob/master/data/games.csv"
         }

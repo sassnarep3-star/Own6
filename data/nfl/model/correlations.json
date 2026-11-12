@@ -72,7 +72,7 @@
     {
       "method": "independence (only if tested)",
       "joint": 0.28600000000000003,
-      "fair_american": 249.65034965034963,
+      "fair_american": 250.0,
       "ev_at_offered": {
         "2.61": -0.25354,
         "2.7": -0.2277999999999999
@@ -85,18 +85,18 @@
       "ev_at_offered": null
     },
     {
-      "method": "Fr\u00e9chet max (best case)",
+      "method": "Frechet max (best case)",
       "joint": 0.52,
-      "fair_american": 92.30769230769229,
+      "fair_american": -108.0,
       "ev_at_offered": {
         "2.61": 0.35719999999999996,
         "2.7": 0.40400000000000014
       }
     },
     {
-      "method": "Fr\u00e9chet min (worst case)",
+      "method": "Frechet min (worst case)",
       "joint": 0.07000000000000006,
-      "fair_american": 1328.5714285714273,
+      "fair_american": 1329.0,
       "ev_at_offered": {
         "2.61": -0.8172999999999999,
         "2.7": -0.8109999999999998
