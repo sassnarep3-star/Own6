@@ -1,0 +1,807 @@
+{
+  "games": [
+    {
+      "gameday": "2026-11-12",
+      "kickoff_et": "20:15",
+      "away": "WAS",
+      "away_club": "Washington Commanders",
+      "home": "NYG",
+      "home_club": "New York Giants",
+      "game_url": "https://www.nfl.com/games/commanders-at-giants-2026-reg-10",
+      "model_margin_home": -2.41,
+      "model_margin_se": 5.98,
+      "model_total": 43.4,
+      "own_spread_home": 2.5,
+      "own_total": 43.5,
+      "own_ml_home": 139.9,
+      "own_ml_away": -124.4,
+      "p_home_win": 0.4169,
+      "p_tie": 0.0287,
+      "spread_interval": [
+        -24.8,
+        29.6
+      ],
+      "total_interval": [
+        14.5,
+        72.3
+      ],
+      "alt_lines": {
+        "2.5": {
+          "p_home": 0.3619,
+          "p_away": 0.6381,
+          "push": 0.0
+        },
+        "-3.0": {
+          "p_home": 0.5027,
+          "p_away": 0.4686,
+          "push": 0.0287
+        },
+        "-2.5": {
+          "p_home": 0.5027,
+          "p_away": 0.4973,
+          "push": 0.0
+        },
+        "3.0": {
+          "p_home": 0.3352,
+          "p_away": 0.6382,
+          "push": 0.0266
+        }
+      },
+      "market_spread": "",
+      "market_total": "",
+      "market_source": "",
+      "market_status": "blank_unverified: no official NFL line feed; see Flagged for Review",
+      "notes": "Own line = model expectation only. Not a recommendation, not validated."
+    },
+    {
+      "gameday": "2026-11-15",
+      "kickoff_et": "09:30",
+      "away": "NE",
+      "away_club": "New England Patriots",
+      "home": "DET",
+      "home_club": "Detroit Lions",
+      "game_url": "https://www.nfl.com/games/patriots-at-lions-2026-reg-10",
+      "model_margin_home": 10.86,
+      "model_margin_se": 5.98,
+      "model_total": 46.66,
+      "own_spread_home": -11.0,
+      "own_total": 46.5,
+      "own_ml_home": -332.0,
+      "own_ml_away": 393.2,
+      "p_home_win": 0.7685,
+      "p_tie": 0.0287,
+      "spread_interval": [
+        -38.1,
+        16.4
+      ],
+      "total_interval": [
+        17.8,
+        75.5
+      ],
+      "alt_lines": {
+        "-11.0": {
+          "p_home": 0.9381,
+          "p_away": 0.0536,
+          "push": 0.0083
+        },
+        "-3.0": {
+          "p_home": 0.8321,
+          "p_away": 0.1504,
+          "push": 0.0175
+        },
+        "-2.5": {
+          "p_home": 0.832,
+          "p_away": 0.168,
+          "push": 0.0
+        },
+        "2.5": {
+          "p_home": 0.7264,
+          "p_away": 0.2736,
+          "push": 0.0
+        },
+        "3.0": {
+          "p_home": 0.702,
+          "p_away": 0.2735,
+          "push": 0.0245
+        }
+      },
+      "market_spread": "",
+      "market_total": "",
+      "market_source": "",
+      "market_status": "blank_unverified: no official NFL line feed; see Flagged for Review",
+      "notes": "Own line = model expectation only. Not a recommendation, not validated."
+    },
+    {
+      "gameday": "2026-11-15",
+      "kickoff_et": "13:00",
+      "away": "KC",
+      "away_club": "Kansas City Chiefs",
+      "home": "ATL",
+      "home_club": "Atlanta Falcons",
+      "game_url": "https://www.nfl.com/games/chiefs-at-falcons-2026-reg-10",
+      "model_margin_home": -5.2,
+      "model_margin_se": 5.98,
+      "model_total": 44.38,
+      "own_spread_home": 5.0,
+      "own_total": 44.5,
+      "own_ml_home": 194.4,
+      "own_ml_away": -171.4,
+      "p_home_win": 0.3397,
+      "p_tie": 0.0287,
+      "spread_interval": [
+        -22.0,
+        32.4
+      ],
+      "total_interval": [
+        15.5,
+        73.2
+      ],
+      "alt_lines": {
+        "5.0": {
+          "p_home": 0.2204,
+          "p_away": 0.7577,
+          "push": 0.0219
+        },
+        "-3.0": {
+          "p_home": 0.4229,
+          "p_away": 0.5487,
+          "push": 0.0284
+        },
+        "-2.5": {
+          "p_home": 0.423,
+          "p_away": 0.577,
+          "push": 0.0
+        },
+        "2.5": {
+          "p_home": 0.2897,
+          "p_away": 0.7103,
+          "push": 0.0
+        },
+        "3.0": {
+          "p_home": 0.2654,
+          "p_away": 0.7105,
+          "push": 0.0241
+        }
+      },
+      "market_spread": "",
+      "market_total": "",
+      "market_source": "",
+      "market_status": "blank_unverified: no official NFL line feed; see Flagged for Review",
+      "notes": "Own line = model expectation only. Not a recommendation, not validated."
+    },
+    {
+      "gameday": "2026-11-15",
+      "kickoff_et": "13:00",
+      "away": "HOU",
+      "away_club": "Houston Texans",
+      "home": "CLE",
+      "home_club": "Cleveland Browns",
+      "game_url": "https://www.nfl.com/games/texans-at-browns-2026-reg-10",
+      "model_margin_home": 0.63,
+      "model_margin_se": 5.98,
+      "model_total": 41.98,
+      "own_spread_home": -0.5,
+      "own_total": 42.0,
+      "own_ml_home": -101.5,
+      "own_ml_away": 113.9,
+      "p_home_win": 0.5038,
+      "p_tie": 0.0287,
+      "spread_interval": [
+        -27.9,
+        26.6
+      ],
+      "total_interval": [
+        13.1,
+        70.8
+      ],
+      "alt_lines": {
+        "-0.5": {
+          "p_home": 0.5325,
+          "p_away": 0.4675,
+          "push": 0.0
+        },
+        "-3.0": {
+          "p_home": 0.5893,
+          "p_away": 0.3829,
+          "push": 0.0278
+        },
+        "-2.5": {
+          "p_home": 0.5892,
+          "p_away": 0.4108,
+          "push": 0.0
+        },
+        "2.5": {
+          "p_home": 0.4465,
+          "p_away": 0.5535,
+          "push": 0.0
+        },
+        "3.0": {
+          "p_home": 0.4182,
+          "p_away": 0.5535,
+          "push": 0.0283
+        }
+      },
+      "market_spread": "",
+      "market_total": "",
+      "market_source": "",
+      "market_status": "blank_unverified: no official NFL line feed; see Flagged for Review",
+      "notes": "Own line = model expectation only. Not a recommendation, not validated."
+    },
+    {
+      "gameday": "2026-11-15",
+      "kickoff_et": "13:00",
+      "away": "MIN",
+      "away_club": "Minnesota Vikings",
+      "home": "GB",
+      "home_club": "Green Bay Packers",
+      "game_url": "https://www.nfl.com/games/vikings-at-packers-2026-reg-10",
+      "model_margin_home": 3.77,
+      "model_margin_se": 5.98,
+      "model_total": 45.77,
+      "own_spread_home": -4.0,
+      "own_total": 46.0,
+      "own_ml_home": -145.5,
+      "own_ml_away": 164.1,
+      "p_home_win": 0.5927,
+      "p_tie": 0.0287,
+      "spread_interval": [
+        -31.0,
+        23.4
+      ],
+      "total_interval": [
+        16.9,
+        74.6
+      ],
+      "alt_lines": {
+        "-4.0": {
+          "p_home": 0.6999,
+          "p_away": 0.2756,
+          "push": 0.0246
+        },
+        "-3.0": {
+          "p_home": 0.6744,
+          "p_away": 0.3001,
+          "push": 0.0255
+        },
+        "-2.5": {
+          "p_home": 0.6742,
+          "p_away": 0.3258,
+          "push": 0.0
+        },
+        "2.5": {
+          "p_home": 0.5365,
+          "p_away": 0.4635,
+          "push": 0.0
+        },
+        "3.0": {
+          "p_home": 0.5078,
+          "p_away": 0.4635,
+          "push": 0.0287
+        }
+      },
+      "market_spread": "",
+      "market_total": "",
+      "market_source": "",
+      "market_status": "blank_unverified: no official NFL line feed; see Flagged for Review",
+      "notes": "Own line = model expectation only. Not a recommendation, not validated."
+    },
+    {
+      "gameday": "2026-11-15",
+      "kickoff_et": "13:00",
+      "away": "MIA",
+      "away_club": "Miami Dolphins",
+      "home": "IND",
+      "home_club": "Indianapolis Colts",
+      "game_url": "https://www.nfl.com/games/dolphins-at-colts-2026-reg-10",
+      "model_margin_home": -1.12,
+      "model_margin_se": 5.98,
+      "model_total": 48.06,
+      "own_spread_home": 1.0,
+      "own_total": 48.0,
+      "own_ml_home": 120.5,
+      "own_ml_away": -107.3,
+      "p_home_win": 0.4536,
+      "p_tie": 0.0287,
+      "spread_interval": [
+        -26.1,
+        28.3
+      ],
+      "total_interval": [
+        19.2,
+        76.9
+      ],
+      "alt_lines": {
+        "1.0": {
+          "p_home": 0.4252,
+          "p_away": 0.5464,
+          "push": 0.0284
+        },
+        "-3.0": {
+          "p_home": 0.5397,
+          "p_away": 0.4319,
+          "push": 0.0285
+        },
+        "-2.5": {
+          "p_home": 0.5396,
+          "p_away": 0.4604,
+          "push": 0.0
+        },
+        "2.5": {
+          "p_home": 0.3972,
+          "p_away": 0.6028,
+          "push": 0.0
+        },
+        "3.0": {
+          "p_home": 0.3697,
+          "p_away": 0.6028,
+          "push": 0.0275
+        }
+      },
+      "market_spread": "",
+      "market_total": "",
+      "market_source": "",
+      "market_status": "blank_unverified: no official NFL line feed; see Flagged for Review",
+      "notes": "Own line = model expectation only. Not a recommendation, not validated."
+    },
+    {
+      "gameday": "2026-11-15",
+      "kickoff_et": "13:00",
+      "away": "CAR",
+      "away_club": "Carolina Panthers",
+      "home": "NO",
+      "home_club": "New Orleans Saints",
+      "game_url": "https://www.nfl.com/games/panthers-at-saints-2026-reg-10",
+      "model_margin_home": 8.92,
+      "model_margin_se": 5.98,
+      "model_total": 43.92,
+      "own_spread_home": -9.0,
+      "own_total": 44.0,
+      "own_ml_home": -264.1,
+      "own_ml_away": 306.7,
+      "p_home_win": 0.7254,
+      "p_tie": 0.0287,
+      "spread_interval": [
+        -36.1,
+        18.3
+      ],
+      "total_interval": [
+        15.1,
+        72.8
+      ],
+      "alt_lines": {
+        "-9.0": {
+          "p_home": 0.8953,
+          "p_away": 0.0922,
+          "push": 0.0125
+        },
+        "-3.0": {
+          "p_home": 0.7948,
+          "p_away": 0.1854,
+          "push": 0.0199
+        },
+        "-2.5": {
+          "p_home": 0.7946,
+          "p_away": 0.2054,
+          "push": 0.0
+        },
+        "2.5": {
+          "p_home": 0.6781,
+          "p_away": 0.3219,
+          "push": 0.0
+        },
+        "3.0": {
+          "p_home": 0.652,
+          "p_away": 0.3218,
+          "push": 0.0262
+        }
+      },
+      "market_spread": "",
+      "market_total": "",
+      "market_source": "",
+      "market_status": "blank_unverified: no official NFL line feed; see Flagged for Review",
+      "notes": "Own line = model expectation only. Not a recommendation, not validated."
+    },
+    {
+      "gameday": "2026-11-15",
+      "kickoff_et": "13:00",
+      "away": "BUF",
+      "away_club": "Buffalo Bills",
+      "home": "NYJ",
+      "home_club": "New York Jets",
+      "game_url": "https://www.nfl.com/games/bills-at-jets-2026-reg-10",
+      "model_margin_home": -9.07,
+      "model_margin_se": 6.0,
+      "model_total": 45.46,
+      "own_spread_home": 9.0,
+      "own_total": 45.5,
+      "own_ml_home": 312.6,
+      "own_ml_away": -268.9,
+      "p_home_win": 0.2424,
+      "p_tie": 0.0287,
+      "spread_interval": [
+        -18.1,
+        36.3
+      ],
+      "total_interval": [
+        16.6,
+        74.3
+      ],
+      "alt_lines": {
+        "9.0": {
+          "p_home": 0.0904,
+          "p_away": 0.8973,
+          "push": 0.0123
+        },
+        "-3.0": {
+          "p_home": 0.3179,
+          "p_away": 0.656,
+          "push": 0.0261
+        },
+        "-2.5": {
+          "p_home": 0.318,
+          "p_away": 0.682,
+          "push": 0.0
+        },
+        "2.5": {
+          "p_home": 0.2023,
+          "p_away": 0.7977,
+          "push": 0.0
+        },
+        "3.0": {
+          "p_home": 0.1825,
+          "p_away": 0.7979,
+          "push": 0.0197
+        }
+      },
+      "market_spread": "",
+      "market_total": "",
+      "market_source": "",
+      "market_status": "blank_unverified: no official NFL line feed; see Flagged for Review",
+      "notes": "Own line = model expectation only. Not a recommendation, not validated."
+    },
+    {
+      "gameday": "2026-11-15",
+      "kickoff_et": "13:00",
+      "away": "JAX",
+      "away_club": "Jacksonville Jaguars",
+      "home": "TEN",
+      "home_club": "Tennessee Titans",
+      "game_url": "https://www.nfl.com/games/jaguars-at-titans-2026-reg-10",
+      "model_margin_home": 1.32,
+      "model_margin_se": 5.98,
+      "model_total": 42.63,
+      "own_spread_home": -1.5,
+      "own_total": 42.5,
+      "own_ml_home": -109.8,
+      "own_ml_away": 123.3,
+      "p_home_win": 0.5234,
+      "p_tie": 0.0287,
+      "spread_interval": [
+        -28.5,
+        25.9
+      ],
+      "total_interval": [
+        13.8,
+        71.5
+      ],
+      "alt_lines": {
+        "-1.5": {
+          "p_home": 0.5804,
+          "p_away": 0.4196,
+          "push": 0.0
+        },
+        "-3.0": {
+          "p_home": 0.6084,
+          "p_away": 0.3643,
+          "push": 0.0274
+        },
+        "-2.5": {
+          "p_home": 0.6083,
+          "p_away": 0.3917,
+          "push": 0.0
+        },
+        "2.5": {
+          "p_home": 0.4661,
+          "p_away": 0.5339,
+          "push": 0.0
+        },
+        "3.0": {
+          "p_home": 0.4375,
+          "p_away": 0.534,
+          "push": 0.0285
+        }
+      },
+      "market_spread": "",
+      "market_total": "",
+      "market_source": "",
+      "market_status": "blank_unverified: no official NFL line feed; see Flagged for Review",
+      "notes": "Own line = model expectation only. Not a recommendation, not validated."
+    },
+    {
+      "gameday": "2026-11-15",
+      "kickoff_et": "16:05",
+      "away": "LA",
+      "away_club": "Los Angeles Rams",
+      "home": "AZ",
+      "home_club": "Arizona Cardinals",
+      "game_url": "https://www.nfl.com/games/rams-at-cardinals-2026-reg-10",
+      "model_margin_home": 0.09,
+      "model_margin_se": 5.99,
+      "model_total": 45.33,
+      "own_spread_home": 0.0,
+      "own_total": 45.5,
+      "own_ml_home": 104.9,
+      "own_ml_away": 107.0,
+      "p_home_win": 0.4881,
+      "p_tie": 0.0287,
+      "spread_interval": [
+        -27.3,
+        27.1
+      ],
+      "total_interval": [
+        16.5,
+        74.2
+      ],
+      "alt_lines": {
+        "0.0": {
+          "p_home": 0.4881,
+          "p_away": 0.4832,
+          "push": 0.0287
+        },
+        "-3.0": {
+          "p_home": 0.5739,
+          "p_away": 0.3981,
+          "push": 0.028
+        },
+        "-2.5": {
+          "p_home": 0.5739,
+          "p_away": 0.4261,
+          "push": 0.0
+        },
+        "2.5": {
+          "p_home": 0.431,
+          "p_away": 0.569,
+          "push": 0.0
+        },
+        "3.0": {
+          "p_home": 0.4029,
+          "p_away": 0.569,
+          "push": 0.0281
+        }
+      },
+      "market_spread": "",
+      "market_total": "",
+      "market_source": "",
+      "market_status": "blank_unverified: no official NFL line feed; see Flagged for Review",
+      "notes": "Own line = model expectation only. Not a recommendation, not validated."
+    },
+    {
+      "gameday": "2026-11-15",
+      "kickoff_et": "16:05",
+      "away": "SEA",
+      "away_club": "Seattle Seahawks",
+      "home": "LV",
+      "home_club": "Las Vegas Raiders",
+      "game_url": "https://www.nfl.com/games/seahawks-at-raiders-2026-reg-10",
+      "model_margin_home": -1.27,
+      "model_margin_se": 6.05,
+      "model_total": 44.53,
+      "own_spread_home": 1.5,
+      "own_total": 44.5,
+      "own_ml_home": 122.6,
+      "own_ml_away": -109.2,
+      "p_home_win": 0.4492,
+      "p_tie": 0.0287,
+      "spread_interval": [
+        -26.0,
+        28.5
+      ],
+      "total_interval": [
+        15.7,
+        73.4
+      ],
+      "alt_lines": {
+        "1.5": {
+          "p_home": 0.421,
+          "p_away": 0.579,
+          "push": 0.0
+        },
+        "-3.0": {
+          "p_home": 0.5353,
+          "p_away": 0.4362,
+          "push": 0.0285
+        },
+        "-2.5": {
+          "p_home": 0.5353,
+          "p_away": 0.4647,
+          "push": 0.0
+        },
+        "2.5": {
+          "p_home": 0.393,
+          "p_away": 0.607,
+          "push": 0.0
+        },
+        "3.0": {
+          "p_home": 0.3655,
+          "p_away": 0.6071,
+          "push": 0.0274
+        }
+      },
+      "market_spread": "",
+      "market_total": "",
+      "market_source": "",
+      "market_status": "blank_unverified: no official NFL line feed; see Flagged for Review",
+      "notes": "Own line = model expectation only. Not a recommendation, not validated."
+    },
+    {
+      "gameday": "2026-11-15",
+      "kickoff_et": "16:25",
+      "away": "SF",
+      "away_club": "San Francisco 49ers",
+      "home": "DAL",
+      "home_club": "Dallas Cowboys",
+      "game_url": "https://www.nfl.com/games/49ers-at-cowboys-2026-reg-10",
+      "model_margin_home": -0.13,
+      "model_margin_se": 5.98,
+      "model_total": 49.29,
+      "own_spread_home": 0.0,
+      "own_total": 49.5,
+      "own_ml_home": 107.5,
+      "own_ml_away": 104.3,
+      "p_home_win": 0.4818,
+      "p_tie": 0.0287,
+      "spread_interval": [
+        -27.1,
+        27.4
+      ],
+      "total_interval": [
+        20.4,
+        78.1
+      ],
+      "alt_lines": {
+        "0.0": {
+          "p_home": 0.4818,
+          "p_away": 0.4894,
+          "push": 0.0287
+        },
+        "-3.0": {
+          "p_home": 0.5677,
+          "p_away": 0.4042,
+          "push": 0.0281
+        },
+        "-2.5": {
+          "p_home": 0.5677,
+          "p_away": 0.4323,
+          "push": 0.0
+        },
+        "2.5": {
+          "p_home": 0.4248,
+          "p_away": 0.5752,
+          "push": 0.0
+        },
+        "3.0": {
+          "p_home": 0.3968,
+          "p_away": 0.5752,
+          "push": 0.028
+        }
+      },
+      "market_spread": "",
+      "market_total": "",
+      "market_source": "",
+      "market_status": "blank_unverified: no official NFL line feed; see Flagged for Review",
+      "notes": "Own line = model expectation only. Not a recommendation, not validated."
+    },
+    {
+      "gameday": "2026-11-15",
+      "kickoff_et": "20:20",
+      "away": "PIT",
+      "away_club": "Pittsburgh Steelers",
+      "home": "CIN",
+      "home_club": "Cincinnati Bengals",
+      "game_url": "https://www.nfl.com/games/steelers-at-bengals-2026-reg-10",
+      "model_margin_home": 2.74,
+      "model_margin_se": 6.0,
+      "model_total": 45.09,
+      "own_spread_home": -2.5,
+      "own_total": 45.0,
+      "own_ml_home": -129.3,
+      "own_ml_away": 145.5,
+      "p_home_win": 0.564,
+      "p_tie": 0.0287,
+      "spread_interval": [
+        -30.0,
+        24.5
+      ],
+      "total_interval": [
+        16.2,
+        73.9
+      ],
+      "alt_lines": {
+        "-2.5": {
+          "p_home": 0.6471,
+          "p_away": 0.3529,
+          "push": 0.0
+        },
+        "-3.0": {
+          "p_home": 0.6472,
+          "p_away": 0.3264,
+          "push": 0.0264
+        },
+        "2.5": {
+          "p_home": 0.507,
+          "p_away": 0.493,
+          "push": 0.0
+        },
+        "3.0": {
+          "p_home": 0.4783,
+          "p_away": 0.493,
+          "push": 0.0287
+        }
+      },
+      "market_spread": "",
+      "market_total": "",
+      "market_source": "",
+      "market_status": "blank_unverified: no official NFL line feed; see Flagged for Review",
+      "notes": "Own line = model expectation only. Not a recommendation, not validated."
+    },
+    {
+      "gameday": "2026-11-16",
+      "kickoff_et": "20:15",
+      "away": "LAC",
+      "away_club": "Los Angeles Chargers",
+      "home": "BAL",
+      "home_club": "Baltimore Ravens",
+      "game_url": "https://www.nfl.com/games/chargers-at-ravens-2026-reg-10",
+      "model_margin_home": 7.22,
+      "model_margin_se": 5.99,
+      "model_total": 46.74,
+      "own_spread_home": -7.0,
+      "own_total": 46.5,
+      "own_ml_home": -216.6,
+      "own_ml_away": 248.3,
+      "p_home_win": 0.6841,
+      "p_tie": 0.0287,
+      "spread_interval": [
+        -34.4,
+        20.0
+      ],
+      "total_interval": [
+        17.9,
+        75.6
+      ],
+      "alt_lines": {
+        "-7.0": {
+          "p_home": 0.8386,
+          "p_away": 0.1444,
+          "push": 0.017
+        },
+        "-3.0": {
+          "p_home": 0.7582,
+          "p_away": 0.2199,
+          "push": 0.0219
+        },
+        "-2.5": {
+          "p_home": 0.7581,
+          "p_away": 0.2419,
+          "push": 0.0
+        },
+        "2.5": {
+          "p_home": 0.6331,
+          "p_away": 0.3669,
+          "push": 0.0
+        },
+        "3.0": {
+          "p_home": 0.6058,
+          "p_away": 0.3668,
+          "push": 0.0274
+        }
+      },
+      "market_spread": "",
+      "market_total": "",
+      "market_source": "",
+      "market_status": "blank_unverified: no official NFL line feed; see Flagged for Review",
+      "notes": "Own line = model expectation only. Not a recommendation, not validated."
+    }
+  ],
+  "as_of": "2026-11-12"
+}

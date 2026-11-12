@@ -1,0 +1,20 @@
+{
+  "generated_by": "scripts/nfl_analysis.py",
+  "as_of": "2026-11-12",
+  "reconciliation": {
+    "checks": 89,
+    "discrepancies": 0
+  },
+  "holdout_season": 2025,
+  "candidates": 8,
+  "testable_candidates": 3,
+  "qualified_strategies": 0,
+  "leaderboard_entries": 0,
+  "own_lines_published": 14,
+  "own_lines_with_market_cell_blank": 14,
+  "injury_rows_published": 275,
+  "depth_rows_published": 178,
+  "availability_rows": 13,
+  "dependence_studies_available": 3,
+  "no_profitability_claim": true
+}
