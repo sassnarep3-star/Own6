@@ -422,7 +422,7 @@ def build_pages() -> dict[str, str]:
             ["Page", "What it holds", "Rows", "Read it when", "Governing source"],
             [
                 f'<tr><td>{link("lines.html", "Originated Lines")}</td><td>Fourteen Week 10 games with an originated spread, total and moneyline, plus the 32 club season records the arithmetic uses.</td><td class="num">{len(lines)} + {len(records)}</td><td>You want the model output and exactly which inputs it used.</td><td>{terms_link()}</td></tr>',
-                f'<tr><td>{link("depth.html", "Injuries &amp; Depth")}</td><td>Every starter-level entry on the official Week 10 injury report, with the verified replacement where one exists.</td><td class="num">{len(injuries)}</td><td>You want to know who is out and who replaces them.</td><td>0</td><td>{terms_link()}</td></tr>',
+                f'<tr><td>{link("depth.html", "Injuries &amp; Depth")}</td><td>Every starter-level entry on the official Week 10 injury report, with the verified replacement where one exists.</td><td class="num">{len(injuries)}</td><td>You want to know who is out and who replaces them.</td><td>{terms_link()}</td></tr>',
                 f'<tr><td>{link("deficiencies.html", "Depth Deficiency")}</td><td>Per club and per unit, how many starters are unavailable and how much of that exposure is actually verified.</td><td class="num">{len(deficiencies)}</td><td>You want the compounding effect of multiple absences in one unit.</td><td>{terms_link()}</td></tr>',
                 f'<tr><td>{link("strategies.html", "Strategies &amp; Gates")}</td><td>Ten signal hypotheses, the ten validation gates, and the pricing methods with worked numbers.</td><td class="num">{len(strategies)} + {len(gates)} + {len(pricing)}</td><td>You want to review the competition rules before any result exists.</td><td>{terms_link()}</td></tr>',
                 f'<tr><td>{link("leaderboard.html", "Leaderboard")}</td><td>The reward structure and an empty ranking, with the reason each strategy is quarantined.</td><td class="num">{len(leaderboard)}</td><td>You want to see what a qualifying strategy would have to prove.</td><td>{terms_link()}</td></tr>',
@@ -803,7 +803,7 @@ def build_pages() -> dict[str, str]:
         )
         + '<h2>Suggestions for discovering the missing information</h2>'
         + table(
-            ["Ref", "Missing item", "Concrete discovery route", "Cost signal", "Starting point", "Governing terms"],
+            ["Ref", "Missing item", "Concrete discovery route", "Cost signal", "Starting point"],
             [
                 '<tr><td class="id-cell">DG-01</td><td>A right to use NFL data beyond personal reading</td><td class="detail-cell">Write to NFL Media licensing for a data-use agreement, or contract a licensed vendor. Record the contract identifier in the register before any commercial use.</td><td>contract negotiation</td><td>' + link("https://www.nfl.com/legal/terms/", "NFL.com Terms of Use \u2197") + ' ' + terms_link() + '</td></tr>',
                 '<tr><td class="id-cell">DG-02</td><td>Timestamped opening and closing prices</td><td class="detail-cell">Contract a licensed odds provider whose terms permit research use, and require an execution audit: the price must have been genuinely available at the recorded time.</td><td>paid subscription</td><td>' + link("https://www.nfl.com/legal/terms/", "NFL.com Terms of Use \u2197") + ' ' + terms_link() + '</td></tr>',
@@ -951,7 +951,7 @@ def build_pages() -> dict[str, str]:
             f'<td class="mono">{escape(row.get("id", ""))}</td>'
             f'<td>{escape(row.get("item") or row.get("question") or row.get("suggestion") or row.get("gate_name") or row.get("strategy_name") or row.get("method") or row.get("method_or_law") or row.get("pair_id") or "")}</td>'
             f'<td class="empty-cell"></td>'
-            f"{badge(row['verification_status'])}"
+            f"<td>{badge(row['verification_status'])}</td>"
             f'<td class="detail-cell">{escape((row.get("what_is_missing") or row.get("detail_and_limits") or row.get("derivation_or_detail") or ""))[:520]}</td>'
             f"{source_cell(row)}</tr>"
         )

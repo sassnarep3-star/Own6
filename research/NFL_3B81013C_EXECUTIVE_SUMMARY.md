@@ -143,7 +143,7 @@ prop against the team interception total — and must be excluded by rule, not c
 
 ## 6. Questions that must be answered before any decision
 
-Eighteen questions are registered: ten answered from official sources, eight open. The eight open
+Eighteen questions are registered: eleven answered from official sources, seven open. The seven open
 questions are, in priority order:
 
 1. **What home-field advantage and margin spread should the model use?** No official page publishes
