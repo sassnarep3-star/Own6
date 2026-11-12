@@ -1220,3 +1220,34 @@ Arena platform constraint fixes this session to branch `arena/05a657f4-own6` (cr
   - `https://sassnarep3-star.github.io/Own6/docs/sf-94122/notice-and-reasons.html`
   - `https://sassnarep3-star.github.io/Own6/docs/sf-94122/tenant-scrutiny-and-fairness.html`
   - `https://sassnarep3-star.github.io/Own6/docs/sf-94122/flagged.html`
+
+---
+
+## Session arena/3b81013c-own6 — NFL Lines Origination, Skill-Gated Leaderboard, Correlation & Injury/Depth-Deficiency Pack (2026-11-12)
+
+**Branch constraint (platform deviation logged):** Arena platform rule fixes this session to branch `arena/3b81013c-own6` (creating or switching to `session-<id>/<task>` branches is disallowed by platform rule). Checked `COORDINATION.md`, `origin/main`, open PRs (`#48`, `#52`, `#54`, `#56`), and concurrent remote branches (`efebf74f`, `34dacba5`, `8132a3b1`) before claiming. To guarantee zero file-scope overlap with any past or concurrent session (`docs/nfl/`, `data/nfl/`, `src/nfllab/`, `docs/nfl-origination/`, `data/nfl_origination/`, `src/nfl_origination/`), all exclusive files for this session live under `docs/nfl-3b81013c/`, `data/nfl_3b81013c/`, `src/nfl_3b81013c/`, `scripts/*_nfl_3b81013c.py`, `tests/test_nfl_3b81013c.py`, `research/NFL_3B81013C_EXECUTIVE_SUMMARY.md`, and `audit/NFL_3B81013C_REPO_AND_SOURCE_AUDIT.md`.
+
+**Live GitHub Pages target:** `docs/nfl-3b81013c/` → `https://sassnarep3-star.github.io/Own6/docs/nfl-3b81013c/` (published from `main:/` via GitHub Pages).
+
+### Task Board (session `3b81013c`)
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| NFL-3B1 Repo line-by-line audit, full requirements matrix & official-source registry | in progress | `3b81013c` | `audit/NFL_3B81013C_REPO_AND_SOURCE_AUDIT.md`, `data/nfl_3b81013c/sources.csv`, `data/nfl_3b81013c/requirements_matrix.csv`, `data/nfl_3b81013c/repo_irregularities.csv` |
+| NFL-3B2 Decision-readiness Q&A register (knowns, unknowns, missing-info discovery protocol) & dedicated site Suggestions review pack | in progress | `3b81013c` | `data/nfl_3b81013c/decision_questions.csv`, `data/nfl_3b81013c/site_suggestions.csv` |
+| NFL-3B3 Official NFL rules, CBA/roster/depth/injury governance & verified Week 10 (Nov 12, 2026) NFL snapshot | in progress | `3b81013c` | `data/nfl_3b81013c/nfl_rules_and_governance.csv`, `data/nfl_3b81013c/nfl_week10_verified_snapshot.csv` |
+| NFL-3B4 NFL line-origination engine, signal strategies (singles, parlays, player-prop combos), validation gates, correlation matrix & skill-only leaderboard rewards | in progress | `3b81013c` | `src/nfl_3b81013c/**`, `data/nfl_3b81013c/strategies_catalog.csv`, `data/nfl_3b81013c/validation_gates.csv`, `data/nfl_3b81013c/correlations_matrix.csv`, `data/nfl_3b81013c/leaderboard_competition.csv` |
+| NFL-3B5 Offensive & defensive starter-vs-backup (1st, 2nd, 3rd, 4th string) injury & depth-deficiency tracking system | in progress | `3b81013c` | `data/nfl_3b81013c/injury_depth_deficiencies.csv`, `data/nfl_3b81013c/positional_tier_dropoffs.csv` |
+| NFL-3B6 Executive summary & 10-page zero-input GitHub Pages dashboard (`docs/nfl-3b81013c/`) + Flagged for Review page | in progress | `3b81013c` | `research/NFL_3B81013C_EXECUTIVE_SUMMARY.md`, `docs/nfl-3b81013c/**`, `scripts/build_nfl_3b81013c.py` |
+| NFL-3B7 Automated line-by-line verifier & regression test suite | in progress | `3b81013c` | `scripts/check_nfl_3b81013c.py`, `tests/test_nfl_3b81013c.py` |
+| NFL-3B8 Final integration: merge `origin/main`, regenerate derived CI inventories (`audit_repo.py`, `build_assurance.py`), run all repo gates, PR to `main`, merge, verify live GitHub Pages | unclaimed (final step) | `3b81013c` | `COORDINATION.md` (append-only), `data/assurance/**`, `docs/assurance/**` (derived CI sync) |
+
+**Rules & Evidence Boundaries (`3b81013c`):**
+- Zero manual input required from user; deterministic offline build and verification scripts.
+- Every published HTML table row carries an `https://` link to a directly verified official source.
+- Unconfirmed values (live sportsbook odds, empirical NFL residual correlations, unverified backup snap counts, unverified historical ROI/CLV) are strictly left **blank (`""`)** and flagged on `docs/nfl-3b81013c/flagged.html` (`needs review`, non-blocking).
+- Cross-file request logged: shared `docs/index.html` and `README.md` are claimed by concurrent session `efebf74f` (`N9`) / `8132a3b1` (`NFL-O8`); per coordination rule, `3b81013c` logs a request here for the integration owner to link `docs/nfl-3b81013c/index.html` rather than editing shared navigation directly unless integrating cleanly.
+
+**Claim log:**
+- `2026-11-12`: Session `3b81013c` read `COORDINATION.md`, `origin/main`, open PRs, and concurrent remote branches (`efebf74f`, `34dacba5`, `8132a3b1`), claimed `NFL-3B1`..`NFL-3B8` with 100% disjoint file scopes, and pushed claim immediately.
+
