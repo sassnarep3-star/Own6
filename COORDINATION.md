@@ -1220,3 +1220,27 @@ Arena platform constraint fixes this session to branch `arena/05a657f4-own6` (cr
   - `https://sassnarep3-star.github.io/Own6/docs/sf-94122/notice-and-reasons.html`
   - `https://sassnarep3-star.github.io/Own6/docs/sf-94122/tenant-scrutiny-and-fairness.html`
   - `https://sassnarep3-star.github.io/Own6/docs/sf-94122/flagged.html`
+
+---
+
+## Session arena/34dacba5-own6 — NFL lines lab (singles / parlays / prop combos) — 2026-11-12
+
+**Claim first, build second.** Arena platform rule fixes this session to `arena/34dacba5-own6` (the brief's `session-<id>/<task>` branch naming is not permitted by the platform; logged as deviation, same as earlier sessions). Before claiming I read this board end-to-end, `git log origin/main`, open PRs (#48/#52/#54/#56 — none touch the scope below) and used `gh workflow list`; **all new files are additive and disjoint** from every earlier session.
+
+### Task board (session `34dacba5`)
+
+| Task | Status | Owner | Exclusive file scope | Notes |
+|---|---|---|---|---|
+| NF1 Repo review (this session) + irregularities | in progress | `34dacba5` | `COORDINATION.md` (append-only), `docs/nfl/flagged.html` (generated) | line-by-line, official sources |
+| NF2 Official-source registry (NFL.com, NFL Rules, NFLPA CBA, nflverse, Pro Football Reference) | in progress | `34dacba5` | `data/nfl/sources.json` | every row source-linked |
+| NF3 Official standings + Week 10 injuries snapshot, read directly from NFL.com | in progress | `34dacba5` | `data/nfl/standings_2026.json`, `data/nfl/injuries_2026_w10.json` | values only what the page shows |
+| NF4 Line-origination engine (EPA/play, opponent-adjusted, HFA, SD, fair odds) + validation gates + leaderboard | in progress | `34dacba5` | `src/nfllab/**` | numpy/scipy only |
+| NF5 Correlation engine (singles, SGP, parlay, prop combos) with luck-controlled backtest | in progress | `34dacba5` | `src/nfllab/correlation.py` | bootstrap + permutation |
+| NF6 Injury / depth-chart availability model (starter vs backup, 2nd–4th string) | in progress | `34dacba5` | `src/nfllab/availability.py` | official depth charts |
+| NF7 Questions / missing-information register (what blocks a decision) | in progress | `34dacba5` | `data/nfl/questions.json` | each with owner + blocking reason |
+| NF8 Suggestions section + decision matrix (review before implementing) | in progress | `34dacba5` | `data/nfl/suggestions.json`, `docs/nfl/suggestions.html` | scored, reversible, ordered |
+| NF9 Site: `docs/nfl/**` dashboard + subpages + Flagged for Review | in progress | `34dacba5` | `docs/nfl/**`, `scripts/build_nfl.py`, `scripts/check_nfl.py` | no manual input |
+| NF10 CI + tests | in progress | `34dacba5` | `.github/workflows/nfl-ci.yml`, `tests/test_nfl.py` | |
+| NF11 Executive summary + PR/merge/Pages confirmation | in progress | `34dacba5` | `NFL_EXECUTIVE_SUMMARY.md`, `README.md` (append-only section) | |
+
+Rules for this scope: no manual input; no invented odds/lines/correlations/ROI; **blank = unverified**; every published table row carries an official https source link; luck is reduced, never eliminated; nothing is called profitable.
