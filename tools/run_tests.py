@@ -15,9 +15,15 @@ import traceback
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
+# This runner exists so tests still run where pytest/numpy/scipy are unavailable.
+# Test modules that declare a third-party requirement are owned by a runner that
+# installs it (see .github/workflows/nfl-lab-ci.yml for tests/test_nfl_lab.py).
+NEEDS_THIRD_PARTY = {"test_nfl_lab.py"}
+
 
 def main() -> int:
-    test_files = sorted((ROOT / "tests").glob("test_*.py"))
+    test_files = sorted(p for p in (ROOT / "tests").glob("test_*.py")
+                        if p.name not in NEEDS_THIRD_PARTY)
     if not test_files:
         print("FAIL: no test files found", file=sys.stderr)
         return 1
@@ -49,6 +55,9 @@ def main() -> int:
             else:
                 print(f"PASS {path.name}::{name}")
                 passed += 1
+    for skipped in sorted(NEEDS_THIRD_PARTY):
+        if (ROOT / "tests" / skipped).exists():
+            print(f"SKIP {skipped}: requires numpy/scipy/pytest; covered by the NFL lab workflow")
     total = passed + failed
     print(f"RESULT: {passed}/{total} tests passed")
     return 0 if failed == 0 and total > 0 else 1
