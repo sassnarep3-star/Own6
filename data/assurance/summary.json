@@ -2,9 +2,9 @@
   "baseline_commit": "86eca0f",
   "data_records_reviewed": 1773,
   "external_source_policy": "Direct source reads are recorded separately. A URL, checksum or internal consistency check does not verify an external fact or grant rights.",
-  "files_inventoried": 316,
+  "files_inventoried": 350,
   "findings": 17,
-  "lines_scanned": 25200,
+  "lines_scanned": 26309,
   "open_findings_at_baseline": 4,
   "record_categories": {
     "legacy_data": 1486,
@@ -20,7 +20,7 @@
   },
   "resolved_in_session": 9,
   "resolved_upstream": 4,
-  "reviewed_on": "2026-11-03",
+  "reviewed_on": "2026-11-12",
   "rights_status": "No authorized gambling-use data feed or license is configured.",
   "structural_anomalies": []
 }

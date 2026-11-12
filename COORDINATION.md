@@ -1220,3 +1220,50 @@ Arena platform constraint fixes this session to branch `arena/05a657f4-own6` (cr
   - `https://sassnarep3-star.github.io/Own6/docs/sf-94122/notice-and-reasons.html`
   - `https://sassnarep3-star.github.io/Own6/docs/sf-94122/tenant-scrutiny-and-fairness.html`
   - `https://sassnarep3-star.github.io/Own6/docs/sf-94122/flagged.html`
+
+---
+
+## Session arena/efebf74f-own6 — NFL lines research lab (2026-11-12)
+
+**Branch rule (platform deviation logged):** Session is fixed to `arena/efebf74f-own6` by Arena; `session-<id>/<task>` naming is not permitted. All NFL work is isolated to non-overlapping paths below so parallel NBA/rental sessions remain untouched.
+
+**Objective:** Fulfill NFL directive — collect/organize/analyze full requirement list, build suggestions/dedicated review section, provide clear questions/informations/answers and discovery path for missing info, originate own NFL lines as a leaderboard competition (singles, parlays, player-prop combos), enforce all validation gates, determine correlation values with luck control, track injuries and offensive/defensive depth deficiencies (2nd/3rd/4th string backups replacing starters), create executive summary, verify every table row against official trusted sources with links (blank if unverified), and publish a clean, simple dashboard-style GitHub Pages site. No hallucinations, no manual input required.
+
+**Live site target:** `docs/nfl/` → https://sassnarep3-star.github.io/Own6/nfl/ (published from `main:/docs` via legacy Pages builder; root `docs/index.html` adds one additive navigation link at integration only).
+
+### Task board (session efebf74f)
+
+| Task | Status | Owner | Exclusive file scope | Notes |
+|---|---|---|---|---|
+| N1 Requirements inventory | done | efebf74f | `data/nfl/requirements.csv`, `research/NFL_REQUIREMENTS.md` | Full user-requirement capture, organization, analysis |
+| N2 Executive summary & decision-framework (questions / informations / answers, missing-info discovery) | done | efebf74f | `research/NFL_EXECUTIVE_SUMMARY.md`, `data/nfl/decision_questions.csv`, `docs/nfl/index.html` | Every claim source-linked; no profitability claim |
+| N3 Suggestions & improvement review section | done | efebf74f | `data/nfl/suggestions.csv`, `docs/nfl/suggestions.html`, `research/NFL_SUGGESTIONS.md` | Dedicated reviewable suggestions, no auto-apply |
+| N4 Line origination & signal strategies (singles, parlays, prop combos, leaderboard/rewards design) | done | efebf74f | `data/nfl/origin_strategies.csv`, `data/nfl/leaderboard.csv`, `docs/nfl/strategies.html`, `docs/nfl/leaderboard.html`, `research/NFL_SIGNALS.md` | Frozen hypotheses; 0 qualified at launch |
+| N5 Validation gates, luck control & correlations | done | efebf74f | `data/nfl/validation_gates.csv`, `data/nfl/correlations.csv`, `docs/nfl/validation.html`, `docs/nfl/correlations.html`, `research/NFL_VALIDATION.md` | Training-only residuals, slate-clustered CIs, Bonferroni, CLV, proper scores |
+| N6 Injury & depth-deficiency tracking (offense/defense, starters vs 2nd/3rd/4th string) | done | efebf74f | `data/nfl/injury_tracking.csv`, `data/nfl/depth_model.csv`, `docs/nfl/injuries.html`, `docs/nfl/depth.html`, `research/NFL_INJURY_DEPTH.md` | Timestamped official injury report; depth chart deficiency model |
+| N7 Site creation (clean dashboard, category subpages, tables, analysis & findings) | done | efebf74f | `docs/nfl/**`, `scripts/build_nfl.py`, `scripts/check_nfl.py` | 10+ pages, simple readable tables, every row source-linked, responsive style |
+| N8 Line-by-line verification & flagged items | done | efebf74f | `audit/NFL_AUDIT.md`, `data/nfl/sources.csv`, `data/nfl/flagged.csv`, `docs/nfl/flagged.html`, `docs/nfl/sources.html` | Every row has official https source; blank = unverified |
+| N9 Final integration, checks, PR to main, merge, Pages deploy confirmation | in progress | efebf74f | `COORDINATION.md` (append-only), `docs/index.html` (one additive nav link), `README.md` (one additive NFL paragraph), `data/assurance/**`, `docs/assurance/**` (regenerated only) | Merge only when `scripts/check_nfl.py`, `tools/release_gate.py`, and all CI workflows pass; record PR link & deploy status |
+
+**Status legend:** `unclaimed` · `in progress` · `done` · `needs review` (published on Flagged for Review; does not block)
+
+**Shared-file rule:** Only N9 edits shared outputs (`docs/index.html` nav, `README.md`, `COORDINATION.md`, regenerated `data/assurance`/`docs/assurance`). Other tasks log cross-file requests here instead of editing.
+
+**Claim log:**
+- 2026-11-12: session efebf74f reads board, git log, existing docs, and claims N1–N9 (see completion records below). Commit and push claim immediately.
+
+
+### Completion records (session efebf74f)
+
+- **N1 done.** `data/nfl/requirements.csv` (R01–R18) created, 18 rows, each with official `https` source; `research/NFL_REQUIREMENTS.md` with collection/organization/analysis and traceability matrix.
+- **N2 done.** `research/NFL_EXECUTIVE_SUMMARY.md` (verified line-by-line, no profitability claim) published; `data/nfl/decision_questions.csv` (Q01–Q10) with have/lack/discovery suggestion per row; `docs/nfl/index.html` landing + requirements + questions pages built via `scripts/build_nfl.py`.
+- **N3 done.** `data/nfl/suggestions.csv` (S01–S12) dedicated review inventory with effort/impact/risk; `research/NFL_SUGGESTIONS.md` rationale; `docs/nfl/suggestions.html` standalone review section — all labeled `needs review` / `Proposal only — not implemented` (F-NFL-10).
+- **N4 done.** `data/nfl/origin_strategies.csv` (N01–N10: 3 singles, 3 props, 2 prop-combos, 2 parlays, 1 meta CLV) + `research/NFL_SIGNALS.md` + `docs/nfl/strategies.html`, `docs/nfl/lines.html`, `docs/nfl/leaderboard.html` (`data/nfl/leaderboard.csv` empty by design, non-monetary rewards only).
+- **N5 done.** `data/nfl/validation_gates.csv` (G01–G10) + `data/nfl/correlations.csv` (C01–C08) + `research/NFL_VALIDATION.md` (ten gates, clustered bootstraps, Bonferroni, CLV, proper scores); `docs/nfl/validation.html`, `docs/nfl/correlations.html` — all values blank until measured, method cited to `scikit-learn`/`NIST`/`SciPy`.
+- **N6 done.** `data/nfl/injury_tracking.csv` (10 fields) + `data/nfl/depth_model.csv` (9 units, per-unit deficiency `1 − starter_snaps/expected`, 2nd/3rd/4th-string flag) + `research/NFL_INJURY_DEPTH.md` + `docs/nfl/injuries.html`, `docs/nfl/depth.html` — offense & defense tracked symmetrically; all deficiency scores blank until licensed depth-chart + timestamped injury PDFs exist (F-NFL-03/04).
+- **N7 done.** `docs/nfl/` (13 pages + 1 CSS) built from `data/nfl/*.csv` via `scripts/build_nfl.py`; clean dashboard UI (hero, category cards, KPI tiles, readable tables); `scripts/check_nfl.py` passes (13 pages, 0 issues, every `<tr>` source-linked, internal links resolve, no manual input).
+- **N8 done.** `data/nfl/sources.csv` (S-NFL-01…24) registry + `data/nfl/flagged.csv` (F-NFL-01…12) + `audit/NFL_AUDIT.md` (137 CSV rows + ~130 HTML rows verified line-by-line, 0 issues) + `docs/nfl/sources.html`, `docs/nfl/flagged.html`.
+- **N9 in progress.** Final integration: see record below. Shared outputs updated additively: `docs/index.html` nav (+1 NFL link +1 category card +1 archive link), `README.md` (+NFL Lab paragraph), `COORDINATION.md` (append-only).
+
+### Final integration & PR (session efebf74f — 2026-11-12)
+
