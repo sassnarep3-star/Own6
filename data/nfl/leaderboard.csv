@@ -1,0 +1,2 @@
+rank,strategy_id,family,market,holdout_bets,holdout_roi_lower_bound,holdout_brier_skill,clv_mean,eligibility,reward,status,source_url
+—,—,—,—,—,—,—,—,No qualifier — all gates open and ledger empty,Research priority only (non-monetary); no payout,unverified,https://scikit-learn.org/stable/modules/calibration.html
