@@ -1380,3 +1380,43 @@ N10 verification will regenerate `data/assurance/**` and `docs/assurance/**` aft
   - **GitHub Pages Deployment**: `pages-build-deployment` run `43267040828` (Pages API build `1363779241`) completed with `status: built` (`2026-11-12T17:13:33Z`, `error: null`); all 12 post-merge `main` CI workflows succeeded.
   - **Live URLs Verified**: `https://sassnarep3-star.github.io/Own6/docs/nfl-origination/index.html`, `suggestions.html`, `flagged.html`, and `https://sassnarep3-star.github.io/Own6/docs/index.html` fetched and verified live.
 
+
+---
+
+## Session `arena/44136693-own6` — NFL consolidated review, verification & final integration (2026-11-13)
+
+**Branch rule (platform deviation logged):** Arena fixes this session to branch `arena/44136693-own6`; creating or switching to `session-<id>/<task>` branches is disallowed by the platform rule. All work is done on that branch. **Every file path claimed below is 100% disjoint** from all prior and concurrent scopes (`docs/nfl/**` [efebf74f], `docs/nfl-3b81013c/**` [3b81013c], `docs/nfl-origination/**` [8132a3b1], `docs/nfl/lab/**` + `data/nfl/model/**` [34dacba5, PR #68 open], `src/nfllab/**`, `data/nfl/**` data files owned by efebf74f/34dacba5).
+
+**Live GitHub Pages target (this session):** `docs/nfl-review/` → `https://sassnarep3-star.github.io/Own6/docs/nfl-review/` (Pages source is legacy `main:/`).
+
+**Session role:** final-integration session for the NFL directive. Three NFL packs are already merged (`docs/nfl/`, `docs/nfl-3b81013c/`, `docs/nfl-origination/`) and two NFL PRs remain open (#68 lab, #72 coordination-only). This session therefore does **not** re-implement those packs. It (a) re-verifies the published NFL content line by line against official sources read live in this session, (b) publishes one consolidated decision pack that answers the brief's questions / informations / answers and missing-information-discovery requirement and gives a single ranked **Suggestions** review path, (c) independently verifies the open lab PR's data provenance and backtest arithmetic, and (d) integrates, merges and publishes.
+
+### Task board (session `44136693`)
+
+| Task | Status | Owner session | Exclusive file scope | Depends on |
+|---|---|---|---|---|
+| NFLR-1 Repo + NFL pack line-by-line audit, irregularity log | in progress | `44136693` | `audit/NFL_REVIEW_2026_11_13.md`, `data/nfl_review/irregularities.csv` | — |
+| NFLR-2 Independent official-source re-verification + reconciliation of published NFL values (standings, slate, injuries, roster/CBA, rules, partners, terms) | in progress | `44136693` | `data/nfl_review/official_reads.csv`, `data/nfl_review/value_reconciliation.csv`, `scripts/verify_nfl_review.py` | NFLR-1 |
+| NFLR-3 Independent verification of open PR #68 lab (data provenance via commit+sha256, transformation, backtest/correlation recomputation) and merge decision | in progress | `44136693` | `data/nfl_review/pr68_verification.csv`, `audit/NFL_REVIEW_2026_11_13.md` | NFLR-2 |
+| NFLR-4 Consolidated decision pack: requirement coverage, Q&A + missing-info discovery, ranked Suggestions, strategy/gate/leaderboard status, injury/depth status, verification ledger, flagged, sources | in progress | `44136693` | `docs/nfl-review/**`, `data/nfl_review/**`, `scripts/build_nfl_review.py`, `scripts/check_nfl_review.py`, `tests/test_nfl_review.py`, `.github/workflows/nfl-review-ci.yml` | NFLR-1..3 |
+| NFLR-5 Executive summary (NFL initiative, decision-ready) | in progress | `44136693` | `research/NFL_REVIEW_EXECUTIVE_SUMMARY.md` | NFLR-4 |
+| NFLR-6 Integration: resolve/merge open NFL PRs, regenerate derived inventories, run all repo gates, PR to `main`, merge, confirm live GitHub Pages, record result | in progress | `44136693` | `COORDINATION.md` (append-only), `docs/index.html` (additive link only), `README.md` (additive section only), `data/assurance/**`, `docs/assurance/**`, `data/source_coverage/**`, `docs/coverage/**` (regenerated only) | NFLR-1..5 |
+
+**Status legend:** `unclaimed` · `in progress` · `done` · `needs review` (published on the Flagged for Review page; does not block anything).
+
+### Evidence boundaries (session `44136693`)
+- A number is published only when it was read from the official page linked on that row during this session, or it is a labelled computation from data committed in this repository. Blank (`""`) always means *not confirmed from an official source* and is flagged.
+- No sportsbook price, implied probability, ROI, CLV, correlation coefficient, "skill" claim or reward payout is invented. Statistical validation can reduce luck; it cannot eliminate it, and the site says so.
+- Community-sourced or unlicensed historical data (used by the open lab PR #68) is **not** an official source. It may be published only as a clearly labelled computation with its upstream commit, checksum, and licence status, and never as an official NFL figure.
+- NFL.com Terms of Use and the NFL Operations rulebook/CBA pages are read directly; applicability of any gambling-related use is flagged for qualified counsel, not asserted here.
+
+### Claim log
+- `2026-11-13`: session `44136693` read this board in full, `git log`, the open PR list (#68, #72) and the GitHub Pages API; confirmed three merged NFL packs and two open NFL PRs; claimed NFLR-1..NFLR-6 with disjoint scopes; claim committed and pushed before implementation.
+
+### Coordination requests to other owners (logged, not edited here)
+| Request | Target owner | Requested change |
+|---|---|---|
+| NFLR-REQ-01 | owner of `docs/nfl/**` + `README.md` live-URL line (session `efebf74f`, correction already logged by `9e78abc5`) | The README publishes `https://sassnarep3-star.github.io/Own6/nfl/` while the Pages source is `main:/` and the live path is `https://sassnarep3-star.github.io/Own6/docs/nfl/`. Please correct the README URL. This session edits `README.md` only additively, so it does not silently rewrite another owner's line; the correction is requested here. |
+| NFLR-REQ-02 | owner of `data/nfl/sources.csv` (session `efebf74f`) | `S-NFL-07` cites `https://www.nfl.com/official-nfl-rules/`, which returned an official NFL 404 page when read on 2026-11-12 by session `9e78abc5`. Please re-point those rows at a live official rulebook page (e.g. `https://operations.nfl.com/rules-officiating/2026-nfl-rulebook`) and re-verify. |
+| NFLR-REQ-03 | owner of `data/nfl/sources.csv` (session `efebf74f`) | `S-NFL-09` should cite the general Terms page `https://www.nfl.com/legal/terms/`; `https://www.nfl.com/terms/` resolves to the subscription-terms page, which is a different scope. |
+| NFLR-REQ-04 | owner of `data/nfl/sources.csv` (session `efebf74f`) | `S-NFL-06` is labelled `verified_direct` but the linked 2017 injury-report policy PDF did not return readable text on 2026-11-12. Please downgrade to link-only until the text is read. |
