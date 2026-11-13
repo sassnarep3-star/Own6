@@ -1,0 +1,9 @@
+correlation_id,x_variable,y_variable,method,n,coefficient,p_value,ci95_low,ci95_high,bootstrap_ci95_low,bootstrap_ci95_high,status,official_source_url
+NFL3-COR-01,Points for per game,Win percentage,pearson,32,0.6984,8.80942e-06,0.4622,0.8420,0.4204,0.8716,measured_from_verified_official_data,https://www.nfl.com/standings/
+NFL3-COR-02,Points against per game,Win percentage,pearson,32,-0.6636,3.46861e-05,-0.8221,-0.4097,-0.7925,-0.5187,measured_from_verified_official_data,https://www.nfl.com/standings/
+NFL3-COR-03,Net points per game,Win percentage,pearson,32,0.8781,4.07501e-11,0.7630,0.9392,0.7808,0.9425,measured_from_verified_official_data,https://www.nfl.com/standings/
+NFL3-COR-04,Points for per game,Points against per game,pearson,32,-0.2041,0.262602,-0.5160,0.1557,-0.5298,0.1348,measured_from_verified_official_data,https://www.nfl.com/standings/
+NFL3-COR-05,Net points per game,Win percentage,spearman,32,0.8658,1.57729e-10,0.7407,0.9329,0.7087,0.9403,measured_from_verified_official_data,https://www.nfl.com/standings/
+NFL3-COR-06,Home win percentage,Overall win percentage,pearson,32,0.8863,1.50703e-11,0.7781,0.9434,0.8221,0.9373,measured_from_verified_official_data,https://www.nfl.com/standings/
+NFL3-COR-07,Division win percentage,Overall win percentage,pearson,32,0.3084,0.0858706,-0.0451,0.5933,-0.0605,0.6484,measured_from_verified_official_data,https://www.nfl.com/standings/
+NFL3-COR-08,Points for per game,Net points per game,pearson,32,0.8019,3.4498e-08,0.6291,0.8992,0.6137,0.9070,measured_from_verified_official_data,https://www.nfl.com/standings/

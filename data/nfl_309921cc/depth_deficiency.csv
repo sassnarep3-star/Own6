@@ -1,0 +1,46 @@
+team_abbr,unit,position_slot,first_string,active_string,active_player,active_game_status,next_available_backup,next_backup_string,ruled_out_in_slot,questionable_in_slot,deficiency_score,score_kind,official_source_url,injury_report_url
+NE,Offense,WR,A.J. Brown,1,A.J. Brown,Questionable,Efton Chism III,2,,A.J. Brown,0.35,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
+NE,Offense,LT,Will Campbell,1,Will Campbell,not_on_injury_report,Dametrious Crownover,2,,,0.00,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
+NE,Offense,LG,Ben Brown,2,Walter Rouse,Questionable,,,Ben Brown,Walter Rouse,0.85,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
+NE,Offense,C,Jared Wilson,1,Jared Wilson,not_on_injury_report,Ben Brown,2,Ben Brown,,0.00,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
+NE,Offense,RG,Matt Pryor,1,Matt Pryor,not_on_injury_report,Walter Rouse,2,,Walter Rouse,0.00,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
+NE,Offense,RT,Morgan Moses,1,Morgan Moses,no_designation_published,Caleb Lomu,2,,,0.00,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
+NE,Offense,TE,Hunter Henry,1,Hunter Henry,no_designation_published,Eli Raridon,2,,Cameron Latu,0.00,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
+NE,Offense,WR,DeMario Douglas,1,DeMario Douglas,not_on_injury_report,Kyle Williams,2,,,0.00,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
+NE,Offense,WR,Efton Chism III,1,Efton Chism III,not_on_injury_report,Kyle Williams,2,,,0.00,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
+NE,Offense,RB,Rhamondre Stevenson,1,Rhamondre Stevenson,Questionable,TreVeyon Henderson,2,TreVeyon Henderson,Rhamondre Stevenson,0.35,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
+NE,Offense,QB,Drake Maye,1,Drake Maye,no_designation_published,Tommy DeVito,2,,,0.00,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
+NE,Defense,OLB,Dre'Mont Jones,1,Dre'Mont Jones,not_on_injury_report,Gabe Jacas,2,,,0.00,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
+NE,Defense,DT,Christian Barmore,1,Christian Barmore,not_on_injury_report,Leonard Taylor III,2,,,0.00,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
+NE,Defense,DT,Cory Durden,1,Cory Durden,not_on_injury_report,DaQuan Jones,2,,,0.00,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
+NE,Defense,DT,Milton Williams,1,Milton Williams,not_on_injury_report,Joshua Farmer,2,,,0.00,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
+NE,Defense,OLB,Elijah Ponder,1,Elijah Ponder,not_on_injury_report,Gabe Jacas,2,,,0.00,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
+NE,Defense,LB,Robert Spillane,1,Robert Spillane,not_on_injury_report,Darius Muasau,2,,,0.00,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
+NE,Defense,LB,Christian Elliss,1,Christian Elliss,not_on_injury_report,Namdi Obiazor,2,,,0.00,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
+NE,Defense,CB,Carlton Davis III,2,Channing Canada,not_on_injury_report,,,Carlton Davis III,,0.65,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
+NE,Defense,S,Craig Woodson,1,Craig Woodson,not_on_injury_report,Mike Brown,2,,,0.00,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
+NE,Defense,S,Kevin Byard III,1,Kevin Byard III,not_on_injury_report,Jaylen Reed,2,,Brenden Schooler,0.00,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
+NE,Defense,CB,Marcus Jones,1,Marcus Jones,not_on_injury_report,Charles Woods,2,,Charles Woods,0.00,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
+NE,Defense,CB,Christian Gonzalez,1,Christian Gonzalez,not_on_injury_report,Karon Prunty,2,,,0.00,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
+DET,Offense,WR,Jameson Williams,1,Jameson Williams,not_on_injury_report,,,,,0.00,proposed_weight_not_observed,https://www.detroitlions.com/team/depth-chart,https://www.nfl.com/injuries/
+DET,Offense,WR,Amon-Ra St. Brown,1,Amon-Ra St. Brown,no_designation_published,DeAndre Carter,2,,,0.00,proposed_weight_not_observed,https://www.detroitlions.com/team/depth-chart,https://www.nfl.com/injuries/
+DET,Offense,LT,Penei Sewell,1,Penei Sewell,not_on_injury_report,,,,,0.00,proposed_weight_not_observed,https://www.detroitlions.com/team/depth-chart,https://www.nfl.com/injuries/
+DET,Offense,LG,Christian Mahogany,1,Christian Mahogany,not_on_injury_report,Miles Frazier,2,,,0.00,proposed_weight_not_observed,https://www.detroitlions.com/team/depth-chart,https://www.nfl.com/injuries/
+DET,Offense,C,Cade Mays,2,Juice Scruggs,not_on_injury_report,,,Cade Mays,,0.65,proposed_weight_not_observed,https://www.detroitlions.com/team/depth-chart,https://www.nfl.com/injuries/
+DET,Offense,RG,Tate Ratledge,1,Tate Ratledge,not_on_injury_report,Seth McLaughlin,2,,,0.00,proposed_weight_not_observed,https://www.detroitlions.com/team/depth-chart,https://www.nfl.com/injuries/
+DET,Offense,RT,Blake Miller,1,Blake Miller,not_on_injury_report,Larry Borom,2,,,0.00,proposed_weight_not_observed,https://www.detroitlions.com/team/depth-chart,https://www.nfl.com/injuries/
+DET,Offense,TE,Sam LaPorta,1,Sam LaPorta,not_on_injury_report,Brock Wright,2,,,0.00,proposed_weight_not_observed,https://www.detroitlions.com/team/depth-chart,https://www.nfl.com/injuries/
+DET,Offense,WR,Isaac TeSlaa,1,Isaac TeSlaa,not_on_injury_report,Tay Martin,2,,,0.00,proposed_weight_not_observed,https://www.detroitlions.com/team/depth-chart,https://www.nfl.com/injuries/
+DET,Offense,QB,Jared Goff,1,Jared Goff,no_designation_published,Joshua Dobbs,2,,,0.00,proposed_weight_not_observed,https://www.detroitlions.com/team/depth-chart,https://www.nfl.com/injuries/
+DET,Offense,RB,Jahmyr Gibbs,1,Jahmyr Gibbs,not_on_injury_report,Sione Vaki,2,,,0.00,proposed_weight_not_observed,https://www.detroitlions.com/team/depth-chart,https://www.nfl.com/injuries/
+DET,Defense,EDGE,Aidan Hutchinson,1,Aidan Hutchinson,not_on_injury_report,Derrick Moore,2,,,0.00,proposed_weight_not_observed,https://www.detroitlions.com/team/depth-chart,https://www.nfl.com/injuries/
+DET,Defense,DL,Alim McNeill,1,Alim McNeill,not_on_injury_report,Skyler Gill-Howard,2,,,0.00,proposed_weight_not_observed,https://www.detroitlions.com/team/depth-chart,https://www.nfl.com/injuries/
+DET,Defense,DL,Tyleik Williams,1,Tyleik Williams,not_on_injury_report,Levi Onwuzurike,2,,,0.00,proposed_weight_not_observed,https://www.detroitlions.com/team/depth-chart,https://www.nfl.com/injuries/
+DET,Defense,EDGE,DJ Wonnum,1,DJ Wonnum,no_designation_published,Tyler Lacy,2,,,0.00,proposed_weight_not_observed,https://www.detroitlions.com/team/depth-chart,https://www.nfl.com/injuries/
+DET,Defense,LB,Derrick Barnes,1,Derrick Barnes,not_on_injury_report,Joe Bachie,2,,,0.00,proposed_weight_not_observed,https://www.detroitlions.com/team/depth-chart,https://www.nfl.com/injuries/
+DET,Defense,LB,Malcolm Rodriguez,1,Malcolm Rodriguez,not_on_injury_report,K.J. Britt,2,,,0.00,proposed_weight_not_observed,https://www.detroitlions.com/team/depth-chart,https://www.nfl.com/injuries/
+DET,Defense,LB,Trevor Nowaske,1,Trevor Nowaske,not_on_injury_report,Amen Ogbongbemiga,2,,,0.00,proposed_weight_not_observed,https://www.detroitlions.com/team/depth-chart,https://www.nfl.com/injuries/
+DET,Defense,CB,D.J. Reed,2,Rock Ya-Sin,not_on_injury_report,Khalil Dorsey,3,D.J. Reed,,0.65,proposed_weight_not_observed,https://www.detroitlions.com/team/depth-chart,https://www.nfl.com/injuries/
+DET,Defense,CB,Roger McCreary,1,Roger McCreary,not_on_injury_report,Ennis Rakestraw Jr.,2,,,0.00,proposed_weight_not_observed,https://www.detroitlions.com/team/depth-chart,https://www.nfl.com/injuries/
+DET,Defense,S,Chuck Clark,1,Chuck Clark,not_on_injury_report,,,,,0.00,proposed_weight_not_observed,https://www.detroitlions.com/team/depth-chart,https://www.nfl.com/injuries/
+DET,Defense,S,Brian Branch,1,Brian Branch,no_designation_published,Christian Izien,2,,,0.00,proposed_weight_not_observed,https://www.detroitlions.com/team/depth-chart,https://www.nfl.com/injuries/

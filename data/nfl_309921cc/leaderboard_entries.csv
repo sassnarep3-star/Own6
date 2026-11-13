@@ -1,0 +1,11 @@
+strategy_id,family,market,selections_graded,gates_open,gates_blocked,tier,reward_awarded,status,official_source_url
+NFL3-ST-01,Single bet,Spread,0,"G01,G05,G11,G12","G02,G03,G04,G06,G10",unqualified,not_awarded,preregistered_not_qualified,https://www.nfl.com/schedules
+NFL3-ST-02,Single bet,Total (over/under),0,"G01,G05,G11,G12","G02,G03,G04,G06,G07,G10",unqualified,not_awarded,preregistered_not_qualified,https://www.nfl.com/schedules
+NFL3-ST-03,Single bet,Moneyline,0,"G01,G05,G11,G12","G02,G03,G04,G06,G07,G10",unqualified,not_awarded,blocked_missing_parameter,https://www.nfl.com/schedules
+NFL3-ST-04,Player prop,Player performance markets,0,"G01,G05,G11,G12","G02,G03,G04,G06,G09,G10",unqualified,not_awarded,preregistered_not_qualified,https://www.nfl.com/news/nfl-draftkings-fanduel-fanatics-sports-betting-partners
+NFL3-ST-05,Player prop,Depth-driven usage props,0,"G01,G05,G11,G12","G02,G03,G04,G06,G09,G10",unqualified,not_awarded,preregistered_not_qualified,https://www.nfl.com/news/nfl-draftkings-fanduel-fanatics-sports-betting-partners
+NFL3-ST-06,Prop combo (SGP),Same-game quarterback + receiver stack,0,"G01,G05,G11,G12","G02,G03,G04,G06,G07,G09,G10",unqualified,not_awarded,preregistered_not_qualified,https://www.nfl.com/schedules
+NFL3-ST-07,Prop combo (SGP),Same-game running back + team total,0,"G01,G05,G11,G12","G02,G03,G04,G06,G07,G09,G10",unqualified,not_awarded,preregistered_not_qualified,https://www.nfl.com/schedules
+NFL3-ST-08,Parlay,Cross-game spread parlay,0,"G01,G05,G11,G12","G02,G03,G04,G06,G07,G09,G10",unqualified,not_awarded,preregistered_not_qualified,https://www.nfl.com/schedules
+NFL3-ST-09,Parlay,Same-game spread + total parlay,0,"G01,G05,G11,G12","G02,G03,G04,G06,G07,G09,G10",unqualified,not_awarded,preregistered_not_qualified,https://www.nfl.com/schedules
+NFL3-ST-10,Meta,Closing-line value (CLV) diagnostic,0,"G01,G05,G11,G12","G02,G03,G04,G08,G10",unqualified,not_awarded,blocked_missing_data,https://www.nfl.com/schedules
