@@ -229,9 +229,9 @@
         <p>Flags are non-blocking for publishing the research framework; they block any claim that needs the missing evidence.</p>
       </div>
       <div class="review-box">
-        <h3>Week 10 bye row needs clean, row-level verification</h3>
-        <p>The combined-tree review recorded that <code>W10-BYE</code> places four clubs in one matchup row and that Chicago and Tampa Bay were not confirmed in that review. The row is left as-is; individual bye records must be checked against the official schedule before being treated as verified.</p>
-        <p>Source for manual review: <a href="https://www.nfl.com/schedules/2026/by-week/week-10">NFL.com 2026 Week 10 schedule ↗</a>. The follow-up review is recorded in <a href="COORDINATION.md">COORDINATION.md</a>; the source-linked NFL registers are available from the <a href="docs/nfl-origination/flagged.html">main Flagged for Review page</a>.</p>
+        <h3>Week 10 bye values are confirmed; the combined row format remains a review item</h3>
+        <p>The 13 Nov official-source re-verification confirmed the four bye clubs. The data still packs them into one <code>W10-BYE</code> row with mixed record formatting. This is a presentation/schema issue, not an unverified bye value; split it only with a matching data/build/check update.</p>
+        <p>Review the <a href="data/nfl_origination/week10_slate_and_lines.csv">current slate row</a>, the <a href="https://www.nfl.com/schedules/2026/by-week/week-10">NFL.com Week 10 schedule ↗</a>, and the <a href="audit/NFL_LIVE_REVERIFICATION_2026_11_13.md">13 Nov reconciliation record</a>.</p>
       </div>
       <div class="review-box">
         <h3>Do not mistake worked line calculations for verified prices</h3>
@@ -244,9 +244,9 @@
         <p>Review the <a href="docs/nfl-origination/suggestions.html">Suggestions page</a> and the source row in <a href="data/nfl_origination/site_suggestions.csv">site_suggestions.csv</a>.</p>
       </div>
       <div class="review-box">
-        <h3>Older NFL Lab citations need source-level rechecking</h3>
-        <p>A prior independent review reported that the legacy NFL rule URL used by rows in <a href="docs/nfl/lines.html">NFL Lab → Own Lines</a> returned an official NFL 404 page. That review also found a general-terms URL redirecting to subscription terms, and an injury-policy PDF whose content could not be read. This session did not re-fetch those pages or edit the older pack.</p>
-        <p>Manual source review: <a href="https://operations.nfl.com/rules-officiating/2026-nfl-rulebook">NFL Operations 2026 rulebook ↗</a> · <a href="https://www.nfl.com/legal/terms/">NFL general terms ↗</a> · <a href="https://www.nfl.com/injuries/">NFL injury report ↗</a> · <a href="https://operations.nfl.com/media/2683/2017-nfl-injury-report-policy.pdf">reported injury-policy PDF ↗</a>. The prior findings and evidence boundary are recorded in <a href="COORDINATION.md">COORDINATION.md</a>.</p>
+        <h3>Policy and rule-version evidence remains flagged</h3>
+        <p>The 13 Nov source-register repair corrected older NFL Lab citations that had been dead, redirected, or from the 2024 season. The same live review reported that the 2017 injury-policy PDF returns 404 with no live replacement. A later check also flagged 2026 Origination rule claims citing <code>featured-rules</code>, whose cited page showed 2025 content (NFL-F25). Do not treat unsupported injury-report timing or 2026 rule effects as established from those references.</p>
+        <p>Review the <a href="docs/nfl/flagged.html">NFL Lab flags</a>, <a href="docs/nfl-origination/flagged.html">Origination flags</a>, <a href="https://operations.nfl.com/rules-officiating/2026-nfl-rulebook">NFL Operations 2026 rulebook ↗</a>, <a href="https://www.nfl.com/injuries/">NFL injury report ↗</a>, and <a href="https://operations.nfl.com/media/2683/2017-nfl-injury-report-policy.pdf">policy PDF under review ↗</a>. Session verification limits and links are recorded in <a href="COORDINATION.md">COORDINATION.md</a>.</p>
       </div>
       <p class="fine-print">These notes identify items to re-check; they do not certify that the current bye row, source links, or model assumptions are accurate. Market spreads, totals, fair lines, empirical returns, player-prop outcomes, and measured correlations remain blank unless a specific value is verified and its evidence is recorded.</p>
     </section>
@@ -271,7 +271,7 @@
   <footer>
     <div class="shell">
       <p><strong>Research &amp; software verification only.</strong> This dashboard does not provide picks, betting advice, or a guarantee that skill can remove luck.</p>
-      <p>Start at the <a href="docs/nfl-origination/index.html">NFL Origination dashboard</a>, review <a href="docs/nfl-origination/suggestions.html">suggestions</a> before project changes, and check the <a href="docs/nfl-origination/flagged.html">Flagged for Review register</a> before relying on any value. See the <a href="https://github.com/sassnarep3-star/Own6/blob/main/audit/NFL_FINAL_REVIEW_709D3C80.md">independent final review</a> for audit limits and integration findings.</p>
+      <p>Start at the <a href="docs/nfl-origination/index.html">NFL Origination dashboard</a>, review <a href="docs/nfl-origination/suggestions.html">suggestions</a> before project changes, and check the <a href="docs/nfl-origination/flagged.html">Flagged for Review register</a> before relying on any value. See the <a href="https://github.com/sassnarep3-star/Own6/blob/main/audit/NFL_FINAL_REVIEW_709D3C80.md">independent final review</a> for audit limits and integration findings; the <a href="docs/coverage/index.html">repository-wide source coverage audit</a> checks reference links only, not factual accuracy.</p>
     </div>
   </footer>
 </body>
