@@ -12,11 +12,11 @@ It is not “which team will win?” but “does this model price a selection be
 
 ### 1. Team-level spreads / moneylines / totals (N01–N03)
 
-1. **Possession basis.** Project possessions from recent pace and game-control features defined per [Next Gen Stats methodology](https://operations.nfl.com/gameday/technology/nfl-next-gen-stats/) — possessions per game, not NBA's per-48. Fit on a licensed game log; never hard-code.
-2. **Efficiency core.** Offensive and defensive efficiencies (points per drive, EPA per play) per [official rules](https://www.nfl.com/official-nfl-rules/); Net efficiency = Off − Def. Derive expected points = possessions × efficiency.
+1. **Possession basis.** Project possessions from recent pace and game-control features defined per [Next Gen Stats methodology](https://operations.nfl.com/game-operations-logistics/technology/performance-tracking-data-next-gen-stats) — possessions per game, not NBA's per-48. Fit on a licensed game log; never hard-code.
+2. **Efficiency core.** Offensive and defensive efficiencies (points per drive, EPA per play) per [official rules](https://operations.nfl.com/rules-officiating/2026-nfl-rulebook); Net efficiency = Off − Def. Derive expected points = possessions × efficiency.
 3. **Margin distribution.** Expected home margin = home-adjusted efficiency difference. Fit home advantage and margin SD from the same licensed log. Convert to win probability via logistic/normal margin CDF.
 4. **Fair price without invented margin.** Convert win probability → fair American / decimal price with **no invented vig**. De-vig any market comparison on the *same line*; moved lines stay blank. Arithmetic per [DraftKings odds formulas](https://sportsbook.draftkings.com/help/how-to-bet/odds-calculator?intendedSiteExp=US-SB).
-5. **Total distribution.** Possessions × matchup efficiencies yields a scoring distribution, not a point estimate. Overtime rules (per [official rules](https://www.nfl.com/official-nfl-rules/)) must be explicit in settlement.
+5. **Total distribution.** Possessions × matchup efficiencies yields a scoring distribution, not a point estimate. Overtime rules (per [official rules](https://operations.nfl.com/rules-officiating/2026-nfl-rulebook)) must be explicit in settlement.
 
 ### 2. Player props (N04–N05)
 
@@ -30,13 +30,13 @@ Joint probability is **not** the product of marginals. Estimating `P(over₁ ∧
 
 | ID | Family | Market | Signal hypothesis (not proven) | Gate trigger | Status | Official reference |
 |---|---|---|---|---|---|---|
-| N01 | Single bet | Spread | Own fair spread deviates from licensed market spread beyond frozen edge → mispricing | \|edge\| ≥ threshold & G01–G10 | unverified | [Official rules](https://www.nfl.com/official-nfl-rules/) |
-| N02 | Single bet | Total | Pace-blend extremes vs market-implied pace → total mispricing | Over-prob edge ≥ threshold | unverified | [Next Gen Stats](https://operations.nfl.com/gameday/technology/nfl-next-gen-stats/) |
+| N01 | Single bet | Spread | Own fair spread deviates from licensed market spread beyond frozen edge → mispricing | \|edge\| ≥ threshold & G01–G10 | unverified | [Official rules](https://operations.nfl.com/rules-officiating/2026-nfl-rulebook) |
+| N02 | Single bet | Total | Pace-blend extremes vs market-implied pace → total mispricing | Over-prob edge ≥ threshold | unverified | [Next Gen Stats](https://operations.nfl.com/game-operations-logistics/technology/performance-tracking-data-next-gen-stats) |
 | N03 | Single bet | Win prob | Calibrated own win prob beats de-vigged market on same line | Calibrated edge ≥ threshold | unverified | [Calibration](https://scikit-learn.org/stable/modules/calibration.html) |
-| N04 | Player prop | Passing yards | Shrunk YPA × projected dropbacks beats line when QB/OL available | QB status Full & deficiency < flag | unverified | [Injury page](https://www.nfl.com/injuries/league/2024/reg17) |
+| N04 | Player prop | Passing yards | Shrunk YPA × projected dropbacks beats line when QB/OL available | QB status Full & deficiency < flag | unverified | [Injury page](https://www.nfl.com/injuries/) |
 | N05 | Player prop | Rushing yards | Workload × shrunk YPC captures backup-RB opportunity misprice | RB Full & starter share ≥ threshold | unverified | [Standings](https://www.nfl.com/standings/) |
 | N06 | Prop combo | Same-player receiving+rushing | Same-player counting stats share touches; joint ≠ product | Joint sample n≥60 slates | unverified | [Pearson](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html) |
-| N07 | Prop combo | QB+WR stack | QB and WR yards positively correlated via target share | Paired residual CI exists | unverified | [Official rules](https://www.nfl.com/official-nfl-rules/) |
+| N07 | Prop combo | QB+WR stack | QB and WR yards positively correlated via target share | Paired residual CI exists | unverified | [Official rules](https://operations.nfl.com/rules-officiating/2026-nfl-rulebook) |
 | N08 | Parlay | Same-game spread+total | Pace and margin couple spread and total | Correlation CI excludes independence misuse | unverified | [Pearson](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html) |
 | N09 | Parlay | Cross-game 2-leg | Cross-game independence must be tested not assumed | Slate-level cross-game test | unverified | [Bootstrap](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.bootstrap.html) |
 | N10 | Meta | CLV-first | Strategies beating same-line de-vigged close persist better than raw win rate | CLV gate t & CI pass | unverified | [Odds formulas](https://sportsbook.draftkings.com/help/how-to-bet/odds-calculator?intendedSiteExp=US-SB) |
@@ -61,10 +61,21 @@ The authorized observation ledger is empty. Therefore the site publishes **blank
 
 ## Sources
 
-- NFL schedule/standings identity: [schedule](https://www.nfl.com/schedule/) · [standings](https://www.nfl.com/standings/)
-- Injury-report existence and vocabulary: [league injury page](https://www.nfl.com/injuries/league/2024/reg17) · [policy PDF](https://operations.nfl.com/media/2683/2017-nfl-injury-report-policy.pdf)
-- NFL rules and possessions: [official rules](https://www.nfl.com/official-nfl-rules/)
-- Next Gen Stats methodology: [operations.nfl.com](https://operations.nfl.com/gameday/technology/nfl-next-gen-stats/)
+- NFL schedule/standings identity: [schedule](https://www.nfl.com/schedules) · [standings](https://www.nfl.com/standings/)
+- Injury-report existence and vocabulary: [league injury page](https://www.nfl.com/injuries/) · [policy PDF](https://operations.nfl.com/media/2683/2017-nfl-injury-report-policy.pdf)
+- NFL rules and possessions: [official rules](https://operations.nfl.com/rules-officiating/2026-nfl-rulebook)
+- Next Gen Stats methodology: [operations.nfl.com](https://operations.nfl.com/game-operations-logistics/technology/performance-tracking-data-next-gen-stats)
 - Validation methodology: [scikit-learn CV](https://scikit-learn.org/stable/modules/cross_validation.html) · [calibration](https://scikit-learn.org/stable/modules/calibration.html) · [NIST CI](https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm) · [NIST Bonferroni](https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm) · [SciPy pearsonr](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html) · [DraftKings arithmetic](https://sportsbook.draftkings.com/help/how-to-bet/odds-calculator?intendedSiteExp=US-SB)
 
 Research only. No betting advice.
+
+---
+
+## 2026-11-13 source correction (session 5a49ead3, NFL-R1)
+
+Re-checked against live official pages on 2026-11-13. Corrections are in `data/nfl/sources.csv` and `data/nfl/flagged.csv` (flag F-NFL-13):
+
+- The rules link is now the 2026 rulebook, `https://operations.nfl.com/rules-officiating/2026-nfl-rulebook`. The previous `nfl.com/official-nfl-rules/` link returns 404.
+- The injury link is now the live 2026 Week 10 report, `https://www.nfl.com/injuries/`. The previous `/injuries/league/2024/reg17` link is a 2024 page, retained only as S-NFL-25.
+- The terms link is now `https://www.nfl.com/legal/terms/` (general terms). The previous `nfl.com/terms/` link redirects to subscription terms.
+- The 2017 injury-policy PDF (`operations.nfl.com/media/2683/2017-nfl-injury-report-policy.pdf`) returns 404. Any timing or definition claim that relies only on it is **unverified** until a live copy is located (F-NFL-03).
