@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Correlation register with preregistered signs">
+<title>Correlations — Own6 NFL Week pack</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="top"><div class="row"><span class="brand">OWN6 <span>/ NFL WEEK PACK</span></span>
+<span class="tag">built 2026-11-13 · zero manual input · every row source-linked</span></div></header>
+<nav class="pages" aria-label="Section navigation"><a href="index.html">Overview</a><a href="slate.html">Week 10 slate</a><a href="standings.html">Standings</a><a href="own-lines.html">Own lines</a><a href="injuries.html">Injuries &amp; depth</a><a href="strategies.html">Strategies</a><a href="gates.html">Validation gates</a><a href="correlations.html" aria-current=page>Correlations</a><a href="leaderboard.html">Leaderboard</a><a href="questions.html">Decision Q&amp;A</a><a href="suggestions.html">Suggestions</a><a href="flagged.html">Flagged for review</a><a href="sources.html">Sources</a></nav>
+<main>
+
+<p class="eyebrow">Category · dependence</p>
+<h1>Correlations: signs preregistered, coefficients withheld until they can be measured</h1>
+<p class="lede">Parlay and prop-combo pricing collapses if the legs are treated as independent. The honest way to handle that is to
+state the expected direction before looking, then measure it on paired data. The register below does the first part. There is no
+paired data, so all eight coefficients are blank.</p>
+
+<div class="note"><strong>Why nothing is filled in.</strong> A correlation needs two variables measured on the same unit — the
+same game, or the same player-game. The verified inputs in this repository are season totals per club, which cannot produce a
+pair. Any number entered here would be invented, and it would then propagate into every parlay price.</div>
+
+<h2>Register</h2>
+<div class="tablewrap"><table><thead><tr><th scope="col">ID</th><th scope="col">Pair</th><th scope="col">Expected sign</th><th scope="col">Rationale</th><th scope="col">r</th><th scope="col">95% low</th><th scope="col">95% high</th><th scope="col">Why blank</th><th scope="col">Method</th></tr></thead><tbody><tr><td>C-01</td><td>Home points vs away points (same game)</td><td><span class="chip proposed">positive</span></td><td>Pace couples the two sides of the same game; both overs share a game-level shock.</td><td class="num empty" aria-label="blank, unverified"></td><td class="num empty" aria-label="blank, unverified"></td><td class="num empty" aria-label="blank, unverified"></td><td>No paired licensed outcome history exists, so no coefficient can be computed.</td><td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html" rel="noopener">method</a></td></tr><tr><td>C-02</td><td>Margin vs total (same game)</td><td><span class="chip proposed">near zero</span></td><td>A cover and an over share little information once both are centred, but the coupling is not exactly zero.</td><td class="num empty" aria-label="blank, unverified"></td><td class="num empty" aria-label="blank, unverified"></td><td class="num empty" aria-label="blank, unverified"></td><td>No paired licensed outcome history exists, so no coefficient can be computed.</td><td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html" rel="noopener">method</a></td></tr><tr><td>C-03</td><td>Same-slate cross-game margins</td><td><span class="chip proposed">weak positive</span></td><td>Slate-level shocks (weather, travel, officiating crews) can couple games played on the same day.</td><td class="num empty" aria-label="blank, unverified"></td><td class="num empty" aria-label="blank, unverified"></td><td class="num empty" aria-label="blank, unverified"></td><td>No paired licensed outcome history exists, so no coefficient can be computed.</td><td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html" rel="noopener">method</a></td></tr><tr><td>C-04</td><td>QB passing yards vs WR1 receiving yards (same game)</td><td><span class="chip proposed">positive, strong</span></td><td>A receiver&#x27;s yardage is a share of the quarterback&#x27;s yardage, so the sign is structural.</td><td class="num empty" aria-label="blank, unverified"></td><td class="num empty" aria-label="blank, unverified"></td><td class="num empty" aria-label="blank, unverified"></td><td>No paired licensed outcome history exists, so no coefficient can be computed.</td><td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html" rel="noopener">method</a></td></tr><tr><td>C-05</td><td>RB rushing yards vs team total (same game)</td><td><span class="chip proposed">positive</span></td><td>Positive game script raises both.</td><td class="num empty" aria-label="blank, unverified"></td><td class="num empty" aria-label="blank, unverified"></td><td class="num empty" aria-label="blank, unverified"></td><td>No paired licensed outcome history exists, so no coefficient can be computed.</td><td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html" rel="noopener">method</a></td></tr><tr><td>C-06</td><td>Team total vs opponent team total (same game)</td><td><span class="chip proposed">positive via pace</span></td><td>Pace couples both team totals.</td><td class="num empty" aria-label="blank, unverified"></td><td class="num empty" aria-label="blank, unverified"></td><td class="num empty" aria-label="blank, unverified"></td><td>No paired licensed outcome history exists, so no coefficient can be computed.</td><td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html" rel="noopener">method</a></td></tr><tr><td>C-07</td><td>First-string offensive-line loss vs team total</td><td><span class="chip proposed">negative</span></td><td>A lost first-string lineman should reduce the team total.</td><td class="num empty" aria-label="blank, unverified"></td><td class="num empty" aria-label="blank, unverified"></td><td class="num empty" aria-label="blank, unverified"></td><td>No paired licensed outcome history exists, so no coefficient can be computed.</td><td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html" rel="noopener">method</a></td></tr><tr><td>C-08</td><td>Two-leg same-game parlay (over + favourite)</td><td><span class="chip proposed">positive</span></td><td>Script coupling.</td><td class="num empty" aria-label="blank, unverified"></td><td class="num empty" aria-label="blank, unverified"></td><td class="num empty" aria-label="blank, unverified"></td><td>No paired licensed outcome history exists, so no coefficient can be computed.</td><td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html" rel="noopener">method</a></td></tr></tbody></table></div>
+
+<h2>How a coefficient will be computed when the data arrives</h2>
+<ol>
+<li>Build paired residuals: for each game, the model residual for each leg, so a shared pace shock is not double-counted.</li>
+<li>Compute Pearson r on the paired residuals (<code>src/nfl_wk/model.py: pearson</code>).</li>
+<li>Report a Fisher-z 95% interval beside it (<code>fisher_ci</code>), and refuse to use the coefficient unless the interval
+excludes zero.</li>
+<li>Cluster by slate where games share a week, because games in the same week are not independent observations.</li>
+<li>Feed the joint probability, not the product of marginals, into any combo price.</li>
+</ol>
+<p class="lede">Method source: <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html" rel="noopener">SciPy pearsonr documentation</a>.</p>
+
+</main>
+<footer>
+<p>Generated by scripts/build_nfl_wk.py from the CSVs in data/nfl_wk/. Every input row carries an official source link; every computed row says so.</p>
+<p>Research only. No wagers, no picks service, no guarantee of skill. Statistical validation reduces uncertainty; it does not remove luck.
+Read the <a href="https://www.nfl.com/legal/terms/">NFL Terms of Use</a> and the <a href="flagged.html">flagged-for-review register</a> before using anything here.</p>
+<p>Back to <a href="../index.html">the repository dashboard</a>.</p>
+</footer>
+</body></html>

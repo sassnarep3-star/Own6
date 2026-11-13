@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Originated NFL lines computed from official standings">
+<title>Own lines — Own6 NFL Week pack</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="top"><div class="row"><span class="brand">OWN6 <span>/ NFL WEEK PACK</span></span>
+<span class="tag">built 2026-11-13 · zero manual input · every row source-linked</span></div></header>
+<nav class="pages" aria-label="Section navigation"><a href="index.html">Overview</a><a href="slate.html">Week 10 slate</a><a href="standings.html">Standings</a><a href="own-lines.html" aria-current=page>Own lines</a><a href="injuries.html">Injuries &amp; depth</a><a href="strategies.html">Strategies</a><a href="gates.html">Validation gates</a><a href="correlations.html">Correlations</a><a href="leaderboard.html">Leaderboard</a><a href="questions.html">Decision Q&amp;A</a><a href="suggestions.html">Suggestions</a><a href="flagged.html">Flagged for review</a><a href="sources.html">Sources</a></nav>
+<main>
+
+<p class="eyebrow">Category · origination</p>
+<h1>Originated lines: what our own numbers say, and what they deliberately do not</h1>
+<p class="lede">Every unplayed Week 10 game gets four numbers computed only from the official standings: a total, a home spread,
+a home win probability and a fair American price. The market columns are empty because no licensed price exists.</p>
+
+<h2>The method, in full</h2>
+<div class="grid2">
+<div class="card"><h3>Inputs (official)</h3><p>Each club's points-for per game and points-against per game from
+<a href="https://www.nfl.com/standings/" rel="noopener">nfl.com/standings</a>, plus the fixture from <a href="https://www.nfl.com/schedules/2026/by-week/week-10" rel="noopener">nfl.com Week 10 schedule</a>.
+Nothing else.</p></div>
+<div class="card"><h3>Formulas</h3><p><code>own_total = mean(hPF, hPA, aPF, aPA)</code><br>
+<code>own_spread = ((hPF + aPA) - (aPF + hPA)) / 2</code><br>
+<code>P(home win) = Phi(own_spread / 5.9044)</code><br>
+<code>fair price = fair American odds for that probability, no margin</code></p></div>
+<div class="card"><h3>Deliberately omitted</h3><p><strong>No home-field advantage.</strong> The official standings do not publish a
+home-field parameter and inventing one would be fabrication. <strong>No opponent adjustment.</strong> Adjusting requires
+play-by-play or an efficiency feed that is not licensed here. <strong>No market comparison.</strong> No price exists.</p></div>
+<div class="card"><h3>What this means</h3><p>Treat these as a transparent baseline, not a forecast. A model that ignores home field
+will systematically under-rate home clubs, and that bias is large enough to swamp any edge a naive comparison would show.</p></div>
+</div>
+
+<h2>Originated lines (13 unplayed Week 10 games)</h2>
+<div class="tablewrap"><table><thead><tr><th scope="col">Game</th><th scope="col">Matchup</th><th scope="col">Away PF/PA per game</th><th scope="col">Home PF/PA per game</th><th scope="col">Own total</th><th scope="col">Own home spread</th><th scope="col">Home win prob</th><th scope="col">Fair home ML</th><th scope="col">Fair away ML</th><th scope="col">Market spread</th><th scope="col">Market total</th><th scope="col">Edge</th><th scope="col">Source</th></tr></thead><tbody><tr><td>W10-01</td><td>Commanders at Giants</td><td class="num">21.7778 / 24.7778</td><td class="num">22.5556 / 21.7778</td><td class="num">45.44</td><td class="num">1.89</td><td class="num">0.6255</td><td class="num">-167</td><td class="num">167</td><td class="empty" aria-label="blank, unverified"></td><td class="empty" aria-label="blank, unverified"></td><td class="empty" aria-label="blank, unverified"></td><td><a href="https://www.nfl.com/standings/" rel="noopener">standings</a></td></tr><tr><td>W10-02</td><td>Patriots at Lions</td><td class="num">23.4444 / 23.0000</td><td class="num">27.7500 / 23.6250</td><td class="num">48.91</td><td class="num">1.84</td><td class="num">0.6224</td><td class="num">-165</td><td class="num">165</td><td class="empty" aria-label="blank, unverified"></td><td class="empty" aria-label="blank, unverified"></td><td class="empty" aria-label="blank, unverified"></td><td><a href="https://www.nfl.com/standings/" rel="noopener">standings</a></td></tr><tr><td>W10-03</td><td>Chiefs at Falcons</td><td class="num">25.2500 / 17.8750</td><td class="num">20.8889 / 24.7778</td><td class="num">44.40</td><td class="num">-5.63</td><td class="num">0.1701</td><td class="num">488</td><td class="num">-488</td><td class="empty" aria-label="blank, unverified"></td><td class="empty" aria-label="blank, unverified"></td><td class="empty" aria-label="blank, unverified"></td><td><a href="https://www.nfl.com/standings/" rel="noopener">standings</a></td></tr><tr><td>W10-04</td><td>Texans at Browns</td><td class="num">26.1250 / 24.0000</td><td class="num">17.8889 / 21.7778</td><td class="num">44.90</td><td class="num">-3.01</td><td class="num">0.3053</td><td class="num">228</td><td class="num">-228</td><td class="empty" aria-label="blank, unverified"></td><td class="empty" aria-label="blank, unverified"></td><td class="empty" aria-label="blank, unverified"></td><td><a href="https://www.nfl.com/standings/" rel="noopener">standings</a></td></tr><tr><td>W10-05</td><td>Vikings at Packers</td><td class="num">18.2500 / 14.5000</td><td class="num">24.0000 / 21.2222</td><td class="num">38.99</td><td class="num">-0.49</td><td class="num">0.4672</td><td class="num">114</td><td class="num">-114</td><td class="empty" aria-label="blank, unverified"></td><td class="empty" aria-label="blank, unverified"></td><td class="empty" aria-label="blank, unverified"></td><td><a href="https://www.nfl.com/standings/" rel="noopener">standings</a></td></tr><tr><td>W10-06</td><td>Dolphins at Colts</td><td class="num">15.7500 / 25.0000</td><td class="num">20.4444 / 27.6667</td><td class="num">44.43</td><td class="num">1.01</td><td class="num">0.5682</td><td class="num">-132</td><td class="num">132</td><td class="empty" aria-label="blank, unverified"></td><td class="empty" aria-label="blank, unverified"></td><td class="empty" aria-label="blank, unverified"></td><td><a href="https://www.nfl.com/standings/" rel="noopener">standings</a></td></tr><tr><td>W10-07</td><td>Panthers at Saints</td><td class="num">24.8750 / 27.3750</td><td class="num">23.1250 / 27.0000</td><td class="num">51.19</td><td class="num">-0.69</td><td class="num">0.4537</td><td class="num">120</td><td class="num">-120</td><td class="empty" aria-label="blank, unverified"></td><td class="empty" aria-label="blank, unverified"></td><td class="empty" aria-label="blank, unverified"></td><td><a href="https://www.nfl.com/standings/" rel="noopener">standings</a></td></tr><tr><td>W10-08</td><td>Jaguars at Titans</td><td class="num">28.6250 / 15.1250</td><td class="num">18.0000 / 24.8750</td><td class="num">43.31</td><td class="num">-10.19</td><td class="num">0.0422</td><td class="num">2268</td><td class="num">-2268</td><td class="empty" aria-label="blank, unverified"></td><td class="empty" aria-label="blank, unverified"></td><td class="empty" aria-label="blank, unverified"></td><td><a href="https://www.nfl.com/standings/" rel="noopener">standings</a></td></tr><tr><td>W10-09</td><td>Bills at Jets</td><td class="num">32.0000 / 23.3750</td><td class="num">20.2222 / 24.7778</td><td class="num">50.19</td><td class="num">-6.59</td><td class="num">0.1322</td><td class="num">657</td><td class="num">-657</td><td class="empty" aria-label="blank, unverified"></td><td class="empty" aria-label="blank, unverified"></td><td class="empty" aria-label="blank, unverified"></td><td><a href="https://www.nfl.com/standings/" rel="noopener">standings</a></td></tr><tr><td>W10-10</td><td>Rams at Cardinals</td><td class="num">23.7778 / 20.1111</td><td class="num">19.7778 / 28.3333</td><td class="num">46.00</td><td class="num">-6.11</td><td class="num">0.1503</td><td class="num">565</td><td class="num">-565</td><td class="empty" aria-label="blank, unverified"></td><td class="empty" aria-label="blank, unverified"></td><td class="empty" aria-label="blank, unverified"></td><td><a href="https://www.nfl.com/standings/" rel="noopener">standings</a></td></tr><tr><td>W10-11</td><td>Seahawks at Raiders</td><td class="num">22.4444 / 18.0000</td><td class="num">26.4444 / 29.7778</td><td class="num">48.33</td><td class="num">-3.89</td><td class="num">0.2551</td><td class="num">292</td><td class="num">-292</td><td class="empty" aria-label="blank, unverified"></td><td class="empty" aria-label="blank, unverified"></td><td class="empty" aria-label="blank, unverified"></td><td><a href="https://www.nfl.com/standings/" rel="noopener">standings</a></td></tr><tr><td>W10-12</td><td>49ers at Cowboys</td><td class="num">29.3750 / 19.5000</td><td class="num">27.3333 / 26.2222</td><td class="num">51.22</td><td class="num">-4.38</td><td class="num">0.2290</td><td class="num">337</td><td class="num">-337</td><td class="empty" aria-label="blank, unverified"></td><td class="empty" aria-label="blank, unverified"></td><td class="empty" aria-label="blank, unverified"></td><td><a href="https://www.nfl.com/standings/" rel="noopener">standings</a></td></tr><tr><td>W10-13</td><td>Steelers at Bengals</td><td class="num">22.5000 / 18.0000</td><td class="num">30.0000 / 21.8750</td><td class="num">46.19</td><td class="num">1.81</td><td class="num">0.6206</td><td class="num">-164</td><td class="num">164</td><td class="empty" aria-label="blank, unverified"></td><td class="empty" aria-label="blank, unverified"></td><td class="empty" aria-label="blank, unverified"></td><td><a href="https://www.nfl.com/standings/" rel="noopener">standings</a></td></tr><tr><td>W10-14</td><td>Chargers at Ravens</td><td class="num">15.1250 / 27.3750</td><td class="num">21.0000 / 26.2222</td><td class="num">44.86</td><td class="num">3.51</td><td class="num">0.7241</td><td class="num">-262</td><td class="num">262</td><td class="empty" aria-label="blank, unverified"></td><td class="empty" aria-label="blank, unverified"></td><td class="empty" aria-label="blank, unverified"></td><td><a href="https://www.nfl.com/standings/" rel="noopener">standings</a></td></tr></tbody></table></div>
+
+<div class="note danger"><strong>The three empty columns are the point.</strong> Without a licensed, timestamped market price
+there is no edge to compute. Every strategy on the <a href="strategies.html">strategy page</a> that depends on comparing
+these numbers with a market is therefore blocked at gate VG-03, and the pack refuses to show a ranking it cannot support.</div>
+
+<h2>Sanity checks a reviewer can run</h2>
+<ul>
+<li>The fair home and away moneylines must be consistent: their implied probabilities sum to 1.000 with no vig.</li>
+<li>The own total should sit near the league average of 45.92 points per game; large deviations follow directly from the two clubs' rates.</li>
+<li>A club with a <em>negative</em> points differential per game should receive a spread against it in most matchups.</li>
+</ul>
+<p class="lede">All three checks are implemented in <code>tests/test_nfl_wk.py</code> and run in CI.</p>
+
+</main>
+<footer>
+<p>Generated by scripts/build_nfl_wk.py from the CSVs in data/nfl_wk/. Every input row carries an official source link; every computed row says so.</p>
+<p>Research only. No wagers, no picks service, no guarantee of skill. Statistical validation reduces uncertainty; it does not remove luck.
+Read the <a href="https://www.nfl.com/legal/terms/">NFL Terms of Use</a> and the <a href="flagged.html">flagged-for-review register</a> before using anything here.</p>
+<p>Back to <a href="../index.html">the repository dashboard</a>.</p>
+</footer>
+</body></html>

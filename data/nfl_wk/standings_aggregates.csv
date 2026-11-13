@@ -1,0 +1,9 @@
+id,item,value,unit,derivation,verification_status,official_source,official_source_url
+AGG-01,League games played (sum of club games),137.0000,games,"Two clubs play each game, so the sum of club games played is divided by 2.",computed,NFL.com 2026 Division Standings (read 2026-11-13),https://www.nfl.com/standings/
+AGG-02,Total points scored in the league,6291,points,Sum of PF across all 32 clubs.,computed,NFL.com 2026 Division Standings (read 2026-11-13),https://www.nfl.com/standings/
+AGG-03,Mean points per team-game,22.9599,points / team-game,Sum of PF divided by sum of club games played.,computed,NFL.com 2026 Division Standings (read 2026-11-13),https://www.nfl.com/standings/
+AGG-04,Mean points allowed per team-game,22.9599,points / team-game,Sum of PA divided by sum of club games played. Equals the PF mean when the league is closed.,computed,NFL.com 2026 Division Standings (read 2026-11-13),https://www.nfl.com/standings/
+AGG-05,League points per game (two clubs),45.9197,points / game,Two team-games per game.,computed,NFL.com 2026 Division Standings (read 2026-11-13),https://www.nfl.com/standings/
+AGG-06,Spread of club scoring (SD of points per game),4.1751,points / team-game,Population standard deviation of each club's points per game.,computed,NFL.com 2026 Division Standings (read 2026-11-13),https://www.nfl.com/standings/
+AGG-07,Mean club point differential per game,0.0000,points / team-game,Sum of (PF - PA) over sum of club games; 0 in a closed league.,computed,NFL.com 2026 Division Standings (read 2026-11-13),https://www.nfl.com/standings/
+AGG-08,Implied single-game margin SD (MODEL ASSUMPTION),5.9044,points,"sqrt(2) x the club-level scoring SD. This is a modelling assumption, not an NFL statistic.",computed,NFL.com 2026 Division Standings (read 2026-11-13),https://www.nfl.com/standings/
