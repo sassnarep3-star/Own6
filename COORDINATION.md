@@ -1468,3 +1468,16 @@ Replacement official pages read directly on 2026-11-13: `https://www.nfl.com/inj
 - The Flagged page's "Alberta resources" lines (AGLC helpline numbers and an `aglc.ca/training/...` link for the AHS helpline) were not re-verified in this session.
 - PR #68 (`34dacba5`) remains open and CONFLICTING; it was not touched.
 - The 2017 injury-policy PDF has no located live replacement; F-NFL-03 stays open.
+
+## Session arena/4fc2fd57-own6 — NFL live re-verification, stale-data correction and close-out (2026-11-13)
+
+Arena fixes this session to branch `arena/4fc2fd57-own6` (no `session-*` branch created). Branch base: `main` @ `d18f495` (PR #73 merged). The NFL packs from sessions `efebf74f`, `3b81013c`, `8132a3b1` are already merged. This session does **not** duplicate them; it re-reads the official pages live, corrects values that changed, and records what was and was not verified.
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| X1 Live re-read of nfl.com standings (32 clubs), Week 10 schedule and injury report (2026-11-13) and reconciliation to `data/nfl_origination/` | in progress | `4fc2fd57` | `data/nfl_origination/verified_standings_2026_w10.csv`, `data/nfl_origination/week10_slate_and_lines.csv`, new `data/nfl_origination/live_snapshot_2026_11_13/*` |
+| X2 Re-verify the Week 10 starter-to-backup depth claims against the live nfl.com injury report and fix mismatches | in progress | `4fc2fd57` | `data/nfl_origination/injury_and_depth_deficiency.csv`, `NFL_ORIGINATION_EXECUTIVE_SUMMARY.md` (NFL-only section 3) |
+| X3 Rebuild the `docs/nfl-origination/` dashboard, re-run gates, regenerate derived CI inventory | pending | `4fc2fd57` | `docs/nfl-origination/**`, `scripts/build_nfl_origination.py`, `scripts/check_nfl_origination.py`, `tests/test_nfl_origination.py` |
+| X4 Final close-out: PR to `main`, merge, Pages deploy check, record here | pending | `4fc2fd57` | `COORDINATION.md` (append-only) |
+
+Claim log: 2026-11-13 — claimed X1–X4 after reading the board, `origin/main` and the baseline checks (`tools/run_tests.py` 51/51; `build_nfl_origination.py --check` OK; `check_nfl_origination.py` OK; `tools/release_gate.py` 0 issues).
