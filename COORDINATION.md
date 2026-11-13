@@ -1811,3 +1811,72 @@ requirements-empirical.txt` before `pytest`.
 - Zero manual input required from the user; deterministic offline builder, checker and unit tests (pure Python 3.11 stdlib, no network).
 - Every published table row carries an `https://` link to the official page actually read for that row. Facts not confirmed on an official page are left blank (`""`) and listed on `docs/nfl-decision-desk/flagged.html`.
 - Model assumptions (variance, key-number mass, home-field points) are labelled `MODEL ASSUMPTION` in-cell, never presented as verified values, and are excluded from every gate.
+
+### Completion record — session `baa41d14` (2026-11-13)
+
+**Tasks D1–D10: done.** Everything claimed below is on this branch and reproducible offline.
+
+| Deliverable | Path | State |
+|---|---|---|
+| Verified input registers | `data/nfl_desk/*.csv` (12 files) + `data/nfl_desk/raw/injury_report_week10_read.psv` | 32 clubs × 2 seasons, 14-game slate + 4 byes, 326-row injury read, 107 published injury rows, 6 bulletins, 14 sources |
+| Derived registers (regenerated, never hand-edited) | `data/nfl_desk/derived/*.csv` (12 files, 788 rows) | facts 25, correlations 9, Fréchet 4, lines 13, sensitivity 64, depth 77, gates 16, strategies 12, leaderboard 12, rewards 4, ledger 544, repo audit 8 |
+| Engine | `src/nfl_desk/` (10 modules) | league, model, pricing, correlation, luck, depth, gates, leaderboard, audit, derive |
+| Site section | `docs/nfl-decision-desk/` (18 pages + `assets/style.css`) | landing page, one page per category, every table row source-linked |
+| Governance | `data/nfl_desk/requirements.csv` (18), `questions.csv` (16), `suggestions.csv` (14), `flagged.csv` (24), `github_state.csv` (4) | suggestions are **proposals only** — none implemented |
+| Builder / gate / tests / CI | `scripts/build_nfl_desk.py`, `scripts/check_nfl_desk.py`, `tests/test_nfl_desk.py`, `.github/workflows/nfl-desk-ci.yml` | `--check` byte equality enforced; 33 unit tests; gate runs on push to main and on PRs |
+| Summaries | `NFL_DECISION_DESK_EXECUTIVE_SUMMARY.md`, `research/NFL_DECISION_DESK_METHOD.md` | numbers in the summary are pinned to the registers by a test |
+
+**Sources read for this pack (all 2026-11-13, recorded per row in the registers):**
+`nfl.com/standings/division/2026/REG` (read twice — the second read is what caught FL-24),
+`nfl.com/standings/division/2025/REG`, `nfl.com/schedules/2026/by-week/week-10`,
+`nfl.com/scores/2026/week-10`, `nfl.com/injuries/`, six `nfl.com/news/...` bulletins,
+`operations.nfl.com/rules-officiating/featured-rules`, `nfl.com/legal/terms/`,
+`support.nfl.com` (report cadence), `api.github.com` (Pages build, check runs, PR #71),
+plus method references `docs.scipy.org`, `itl.nist.gov`, `docs.python.org` — labelled
+`methodology_reference`, contributing no numeric input. `www.nfl.com` is unreachable from this sandbox by
+`curl` (HTTP 000); every NFL fact came through the page reader, not a shell fetch.
+
+**Verification result.** 544 field-by-field comparisons of `data/nfl_origination/{verified_standings_2026_w10,week10_slate_and_lines,injury_and_depth_deficiency}.csv`
+and `data/nfl_3b81013c/team_season_records.csv` against today's official read: **480 verified, 64 needing review**
+(16 forecast-labelled rows, 15 provenance mismatches, 14 venue labels declined, 8 status drifts, 7 broadcast
+disagreements *between two official pages*, 3 unmatched names, 1 pending Friday designation, plus 2 self-check and
+3 name-normalised rows). Peer registers are stale on exactly two clubs — they predate Thursday's Commanders 24,
+Giants 21 — so the league ledger is now 136-136-1 with PF = PA = 6,291 and league average 22.9599 (was 22.9632).
+
+**Irregularities found and flagged (not silently fixed).**
+1. **This pack's own error, corrected:** four `win_pct` cells had been computed as wins ÷ (wins + losses), which
+   drops ties. The standings page prints 0.611 / 0.389 (NYG, WAS) and 0.441 / 0.559 (DAL, GB). Corrected in place,
+   recorded as `FL-24` with confirming reads `S-13` / `S-14`, and now asserted by the checker and a unit test.
+2. `src/own6/lines.py` uses `erf()` — a continuous normal has no push or tie mass, so no NFL line should be priced
+   with it (structural finding RA-05; `src/nfl_desk/model.py` uses an exact discrete convolution instead).
+3. Root `docs/index.html` framed the whole repository as NBA research while three NFL dashboards were live; this
+   session added its own nav entry and card only (additive; other sessions' rows untouched).
+4. No root `LICENSE`, so reuse terms for every register in this repo are undefined (RA-03, `FL-21`).
+5. Committed CSVs mix CRLF and LF; a prior audit's count of 16 is stale (now 25 non-`nfl_desk` CRLF files). This
+   pack's files are LF throughout and the checker enforces it. Normalising other sessions' files is `SUG-09`.
+6. Club key instability: the standings page prints `LA`, the injury report prints `LAR` (RA-07, `FL-10`); a naive
+   join drops the Rams silently, so the audit resolves the alias explicitly rather than editing the peer register.
+7. `data/nfl/injury_tracking.csv` is a 10-row field dictionary with blank examples, not tracked data (RA-08).
+8. Six open PRs (#72, #68, #56, #54, #52, #48) have head branches that no longer exist on `origin` (`FL-22`).
+   Not touched by this session.
+
+**Cross-scope requests logged instead of edited:** the peer `nfl_origination` injury register should add the
+injury-report URL as the source for participation/game-status fields (15 rows cite club depth-chart pages, which
+do not carry those fields); the peer standings register should be superseded or reconciled for NYG/WAS;
+`src/own6/lines.py` should not be used for NFL pricing. Nothing outside this session's claimed scope was modified.
+
+**Zero manual input required from the user**, per the directive: no question was asked, no approval was waited for.
+</think>
+
+**Integration (`baa41d14`, final integration step for this pack).** Shared files touched additively only:
+`docs/index.html` (one nav entry + one card), and the derived audit artifacts `data/source_coverage/**`,
+`docs/coverage/**`, `audit/SOURCE_COVERAGE.md` regenerated by their own scripts (153 → 171 pages, 5,688 → 6,883
+data rows) so the repository's coverage register includes this section. `data/assurance/**` and
+`docs/assurance/**` were rebuilt and are byte-identical, i.e. nothing else's evidence changed.
+Offline gate list, all green: `tools/run_tests.py` (84/84), `scripts/build_nfl_desk.py --check`,
+`scripts/check_nfl_desk.py`, `scripts/check_nfl_origination.py`, `scripts/check_nfl_3b81013c.py`,
+`scripts/build_nfl.py` + `check_nfl.py`, `scripts/{audit_repo,build_assurance,check_assurance,source_coverage,check_site}.py`,
+`scripts/linkcheck.py`, `tools/{check_site,hub_reference_gate,release_gate}.py`, `scripts/audit_integration.py`,
+`scripts/check_{lab,hub,verify,daily,origin,rental,sf_94122}.py`. Two scripts fail identically on the base commit
+and are not caused by this pack: `scripts/audit_repo.py` and `scripts/audit_sources.py` (both `git show`/`ls-tree`
+against a hard-coded commit that is not reachable from `main`).
