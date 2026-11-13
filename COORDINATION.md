@@ -1779,3 +1779,35 @@ requirements-empirical.txt` before `pytest`.
   `docs/nfl-309921cc/repo-review.html` with official source links for manual review.
 - **Tasks C1–C9 are complete and this session's claimed scope is closed.** No other session's owned
   files were edited; `docs/index.html` and `README.md` received additive insertions only.
+## Session arena/baa41d14-own6 — NFL decision desk: independent re-verification, unified site section & origination model (2026-11-13)
+
+**Platform branch constraint (deviation logged):** Arena fixes this session to branch `arena/baa41d14-own6`; `session-<id>/<task>` naming is not permitted. All work is isolated to the non-overlapping paths claimed below.
+
+**Read before claiming:** `COORDINATION.md` (1,382 lines), `origin/main` @ `d18f495` (merge of PR #73), Pages API (`legacy`, `main:/`, status `built`), open PR list, and the three merged NFL packs (`docs/nfl/`, `docs/nfl-3b81013c/`, `docs/nfl-origination/`). No remote session branch is currently receiving commits.
+
+**Objective:** Re-verify the published NFL registers line by line against official sources read today (2026-11-13), publish an independent verification ledger with per-row disposition (confirmed / drifted / blank-unverified), and ship one clean unified dashboard section covering requirements, decision questions & answers, a dedicated suggestions-review section, own-line origination from verified official inputs only, validation gates, correlation values, a skill-gated leaderboard with rewards, injury & 2nd/3rd/4th-string depth-deficiency tracking, an executive summary, and a Flagged for Review page. Zero manual input from the user; nothing inferred or filled in.
+
+### Task board (session `baa41d14`)
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| D0 Coordination claim & conflict scan | done (2026-11-13) | `baa41d14` | `COORDINATION.md` (append-only) |
+| D1 Official-source re-read: 2026 standings, Week 10 slate, injury report, league rules/roster policy | in progress | `baa41d14` | `data/nfl_desk/official_read_2026_11_13.csv`, `data/nfl_desk/sources.csv` |
+| D2 Line-by-line verification ledger of the three published NFL registers | in progress | `baa41d14` | `data/nfl_desk/verification_ledger.csv` |
+| D3 Requirements inventory & decision Q&A (knowns, unknowns, missing-info discovery paths) | in progress | `baa41d14` | `data/nfl_desk/requirements.csv`, `data/nfl_desk/questions.csv` |
+| D4 Site-improvement suggestions with option paths for human choice | in progress | `baa41d14` | `data/nfl_desk/suggestions.csv` |
+| D5 Origination model on verified official inputs + luck-exclusion statistics (package, registers, worked slate) | in progress | `baa41d14` | `src/nfl_desk/**`, `data/nfl_desk/originated_lines.csv`, `data/nfl_desk/model_facts.csv`, `data/nfl_desk/sensitivity.csv` |
+| D6 Strategy competition: leaderboard, reward tiers, validation gates, correlation register | in progress | `baa41d14` | `data/nfl_desk/strategies.csv`, `data/nfl_desk/leaderboard.csv`, `data/nfl_desk/validation_gates.csv`, `data/nfl_desk/correlations.csv` |
+| D7 Injury & depth-deficiency tracking register (offence + defence, 1st-to-4th string) | in progress | `baa41d14` | `data/nfl_desk/injuries.csv`, `data/nfl_desk/depth_deficiency.csv` |
+| D8 Repo audit & irregularities | in progress | `baa41d14` | `data/nfl_desk/repo_audit.csv`, `data/nfl_desk/flagged.csv` |
+| D9 GitHub Pages section `docs/nfl-decision-desk/` (15 pages) + builder/checker/CI + executive summary | in progress | `baa41d14` | `docs/nfl-decision-desk/**`, `scripts/build_nfl_desk.py`, `scripts/check_nfl_desk.py`, `tests/test_nfl_desk.py`, `.github/workflows/nfl-desk-ci.yml`, `NFL_DECISION_DESK_EXECUTIVE_SUMMARY.md`, `research/NFL_DECISION_DESK_METHOD.md` |
+| D10 Final integration: additive nav links, regenerated derived assurance/coverage artifacts, PR to `main`, merge, live Pages confirmation | unclaimed (held for `baa41d14` after D1-D9) | `baa41d14` | `docs/index.html` (additive), `README.md` (additive), `data/assurance/**`, `docs/assurance/**`, `data/source_coverage/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md`, `COORDINATION.md` (append-only) |
+
+**Boundaries (this session):** no edits to `data/nfl/**`, `data/nfl_3b81013c/**`, `data/nfl_origination/**`, their `docs/` sites, `src/nfl_origination/**`, `src/nfl_3b81013c/**`, `src/own6/**`, `nba_lab/**`, or any rental/SF pack. Shared files (`docs/index.html`, `README.md`, derived assurance artifacts) are touched only in D10, additively.
+
+**Stale pull requests observed at claim time (not owned, not merged):** #72 (`arena/3b81013c-own6`, coordination-record append only), #68 (`arena/34dacba5-own6`, parallel NFL lab pack), #56, #54, #52, #48 (2026-11-05 close-outs). Head branches no longer exist on `origin`. Logged for owner review; this session merges only its own integration PR.
+
+**Rules & evidence boundaries (`baa41d14`):**
+- Zero manual input required from the user; deterministic offline builder, checker and unit tests (pure Python 3.11 stdlib, no network).
+- Every published table row carries an `https://` link to the official page actually read for that row. Facts not confirmed on an official page are left blank (`""`) and listed on `docs/nfl-decision-desk/flagged.html`.
+- Model assumptions (variance, key-number mass, home-field points) are labelled `MODEL ASSUMPTION` in-cell, never presented as verified values, and are excluded from every gate.
