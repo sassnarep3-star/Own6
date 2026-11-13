@@ -1380,3 +1380,13 @@ N10 verification will regenerate `data/assurance/**` and `docs/assurance/**` aft
   - **GitHub Pages Deployment**: `pages-build-deployment` run `43267040828` (Pages API build `1363779241`) completed with `status: built` (`2026-11-12T17:13:33Z`, `error: null`); all 12 post-merge `main` CI workflows succeeded.
   - **Live URLs Verified**: `https://sassnarep3-star.github.io/Own6/docs/nfl-origination/index.html`, `suggestions.html`, `flagged.html`, and `https://sassnarep3-star.github.io/Own6/docs/index.html` fetched and verified live.
 
+
+---
+
+## Session arena/c1125799-own6 — NFL origination line-by-line spot verification (claimed 2026-11-13)
+
+Read `COORDINATION.md` and `origin/main` (d18f495) and open PRs before claiming. Existing NFL pack (`8132a3b1`, PR #71/#73) is done; this session does not duplicate it.
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| NFL-V1 Spot-verify standings & Week 10 slate/injury rows against nfl.com; correct any mismatch; rebuild and re-check | in progress | `c1125799` | `data/nfl_origination/week10_slate_and_lines.csv`, `docs/nfl-origination/**` (regenerated), `scripts/build_nfl_origination.py` (only if needed) |
