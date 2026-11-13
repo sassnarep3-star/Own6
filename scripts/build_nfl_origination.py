@@ -398,7 +398,72 @@ def _layout(filename: str, page_title: str, subtitle: str, body_html: str) -> st
 """
 
 
+def _live_standings_summary() -> dict:
+    """Post-Thursday (13 Nov 2026) official standings, read from data/nfl_origination/standings_live_2026_11_13.csv."""
+    st = _read_csv("standings_live_2026_11_13.csv")
+    return {
+        "n": len(st),
+        "w": sum(int(r["w"]) for r in st),
+        "l": sum(int(r["l"]) for r in st),
+        "t": sum(int(r["t"]) for r in st),
+        "pf": sum(int(r["pf"]) for r in st),
+        "pa": sum(int(r["pa"]) for r in st),
+        "changed": [r["abbr"] for r in st if r["changed_since_w9_snapshot"] == "true"],
+    }
+
+
+def _live_check_counts() -> dict:
+    counts: dict = {}
+    for r in _read_csv("live_check_2026_11_13.csv"):
+        counts[r["result"]] = counts.get(r["result"], 0) + 1
+    return counts
+
+
+def _build_live_check_html() -> str:
+    checks = _read_csv("live_check_2026_11_13.csv")
+    counts = _live_check_counts()
+    summary = " · ".join(f"{k} {v}" for k, v in sorted(counts.items(), key=lambda kv: (-kv[1], kv[0])))
+    rows = []
+    for r in checks:
+        rows.append(
+            "<tr>"
+            f"<td><code>{_esc(r['check_id'])}</code></td>"
+            f"<td><code>{_esc(r['case_id'])}</code></td>"
+            f"<td><strong>{_esc(r['player'])}</strong><br><small>{_esc(r['team'])}</small></td>"
+            f"{_td(r['repo_claim'])}"
+            f"{_td(r['nfl_com_listed'])}"
+            f"{_td(r['nfl_com_injury'])}"
+            f"{_td(r['nfl_com_practice_status'])}"
+            f"{_td(r['nfl_com_game_status'])}"
+            f"<td>{_badge(r['result'])}</td>"
+            f"{_td(r['corrected_status'])}"
+            f"{_td(r['note'])}"
+            f"{_src_cell(r['official_source_url'], 'NFL.com')}"
+            "</tr>"
+        )
+    return f"""
+    <section class="section-card">
+      <h2>Live Re-Verification, 13 Nov 2026: Line-by-Line Check of {len(checks)} Named Players</h2>
+      <p class="lead">Each named player in the depth table was compared with the nfl.com Week 10 injury report (read 13 Nov 2026) and, where stated, the nfl.com news item for the same day. Results: {_esc(summary)}. <strong>NOT_ON_OFFICIAL_REPORT</strong> means the report lists no injury for that player, so no active status is claimed for them. Full reasoning is in <code>data/nfl_origination/live_check_2026_11_13.csv</code>.</p>
+      <details>
+        <summary>Show all {len(checks)} line-by-line checks</summary>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Check</th><th>Case</th><th>Player &amp; Club</th><th>Repo Claim (before)</th><th>Listed on Wk 10 Report</th><th>Injury</th><th>Practice</th><th>Game Status</th><th>Result</th><th>Corrected Status</th><th>Note</th><th>Official Source</th></tr>
+            </thead>
+            <tbody>
+              {"".join(rows)}
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </section>
+"""
+
+
 def _build_index() -> str:
+    n_flags = len(_read_csv("flagged_for_review.csv"))
     standings = _read_csv("verified_standings_2026_w10.csv")
     slate = _read_csv("week10_slate_and_lines.csv")
     rules = _read_csv("nfl_official_rules_and_roster.csv")
@@ -469,6 +534,11 @@ def _build_index() -> str:
         <div class="kpi-note">All 32 clubs reconciled · <code>6,246 PF = 6,246 PA</code> across 136 games</div>
       </div>
       <div class="kpi-card">
+        <div class="kpi-label">Live Re-Check, 13 Nov 2026 (after WAS 24–NYG 21, FINAL)</div>
+        <div class="kpi-value">{_live_standings_summary()["w"]}W–{_live_standings_summary()["l"]}L–{_live_standings_summary()["t"]}T</div>
+        <div class="kpi-note">{_live_standings_summary()["pf"]:,} PF = {_live_standings_summary()["pa"]:,} PA · {len(_live_standings_summary()["changed"])} clubs changed (NYG, WAS) · <a href="injuries-depth.html">see line-by-line check</a></div>
+      </div>
+      <div class="kpi-card">
         <div class="kpi-label">Week 10 Slate &amp; Byes</div>
         <div class="kpi-value">14 Games + 4 Byes</div>
         <div class="kpi-note">Includes Munich neutral site (<code>NE vs DET</code>) · Lines left blank</div>
@@ -491,7 +561,7 @@ def _build_index() -> str:
       <div class="kpi-card">
         <div class="kpi-label">Primary Verification</div>
         <div class="kpi-value">28 Official Sources</div>
-        <div class="kpi-note">100% row-linked · 15 items on <a href="flagged.html">Flagged for Review</a></div>
+        <div class="kpi-note">100% row-linked · {n_flags} items on <a href="flagged.html">Flagged for Review</a></div>
       </div>
     </div>
 
@@ -521,7 +591,7 @@ def _build_index() -> str:
           <ul>
             <li><a href="injuries-depth.html">Week 10 Injuries &amp; 1st–4th String Offensive/Defensive Depth</a></li>
             <li><a href="repo-audit.html">Line-by-Line Existing Repository Audit (RA-01..RA-16)</a></li>
-            <li><a href="flagged.html">Flagged for Review Page (NFL-F01..NFL-F15 — Non-Blocking)</a></li>
+            <li><a href="flagged.html">Flagged for Review Page (NFL-F01..NFL-F{n_flags:02d} — Non-Blocking)</a></li>
           </ul>
         </div>
       </div>
@@ -602,6 +672,10 @@ def _build_exec_summary() -> str:
     <section class="section-card">
       <h2>Executive Summary — Key Architecture &amp; Findings</h2>
       <p class="lead">Companion Markdown deliverable: <a href="../../NFL_ORIGINATION_EXECUTIVE_SUMMARY.md"><code>NFL_ORIGINATION_EXECUTIVE_SUMMARY.md</code></a>.</p>
+      <div class="callout">
+        <h3>Live re-verification, 13 Nov 2026</h3>
+        <p>The Thursday game is <strong>final: Commanders 24, Giants 21</strong>. League totals are now <strong>136W–136L–2T</strong> and <strong>6,291 PF = PA</strong> (through-Week-9 snapshot kept below for provenance). The line-by-line check of named players found <strong>17 depth/injury statuses contradicted by the official report</strong>; they are corrected on the <a href="injuries-depth.html">injuries &amp; depth page</a>. Audit: <a href="https://github.com/sassnarep3-star/Own6/blob/arena/4fc2fd57-own6/audit/NFL_LIVE_REVERIFICATION_2026_11_13.md"><code>audit/NFL_LIVE_REVERIFICATION_2026_11_13.md</code></a>.</p>
+      </div>
       <div class="callout-grid">
         <div class="callout">
           <h3>Verified 2026 NFL Baseline</h3>
@@ -1021,6 +1095,7 @@ def _build_correlations() -> str:
 
 def _build_injuries_depth() -> str:
     cases = _read_csv("injury_and_depth_deficiency.csv")
+    live_html = _build_live_check_html()
     rows_html = []
     for r in cases:
         casc = "CASCADE ALERT" if r["cascading_cluster_alert"] == "true" else "Single / Contained"
@@ -1077,7 +1152,7 @@ def _build_injuries_depth() -> str:
         </table>
       </div>
     </section>
-"""
+{live_html}"""
     return _layout("injuries-depth.html", NAV_PAGES[8][2], "Week 10 NFL offensive and defensive 1st-to-4th string replacement tracking, cascading unit-cluster alerts, and 48-OL / Emergency-QB3 compliance.", body)
 
 
@@ -1120,6 +1195,7 @@ def _build_repo_audit() -> str:
 
 def _build_flagged() -> str:
     flags = _read_csv("flagged_for_review.csv")
+    n_flags = len(flags)
     rows_html = []
     for r in flags:
         rows_html.append(
@@ -1137,8 +1213,8 @@ def _build_flagged() -> str:
         )
     body = f"""
     <section class="section-card">
-      <h2>Flagged for Review — Unverified Blank Cells &amp; Repository Irregularities (<code>NFL-F01</code>..<code>NFL-F15</code>)</h2>
-      <p class="lead">Per strict anti-hallucination governance, unconfirmed empirical values are never guessed or interpolated. All 15 items below are published transparently with direct links for manual human review and do not block PR merge.</p>
+      <h2>Flagged for Review — Unverified Blank Cells &amp; Repository Irregularities (<code>NFL-F01</code>..<code>NFL-F{n_flags:02d}</code>)</h2>
+      <p class="lead">Per strict anti-hallucination governance, unconfirmed empirical values are never guessed or interpolated. All {n_flags} items below are published transparently with direct links for manual human review and do not block PR merge.</p>
       <div class="table-wrap">
         <table>
           <thead>

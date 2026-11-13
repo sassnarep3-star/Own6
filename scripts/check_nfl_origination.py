@@ -10,8 +10,10 @@ Enforces:
 5. Every `<td class="empty">` cell has literally empty text content (`""`).
 6. Every relative internal link resolves inside `ROOT`, and every `github.com/sassnarep3-star/Own6/blob/main/...`
    URL points to an existing repository file.
-7. All 13 CSV datasets in `data/nfl_origination/` pass schema, blank-cell, and 32-club 2026 NFL
-   league accounting checks (`135W == 135L`, `2T`, `6,246 PF == 6,246 PA`).
+7. Every CSV dataset in `data/nfl_origination/` passes schema and blank-cell checks. The through-Week-9
+   snapshot (`verified_standings_2026_w10.csv`) passes 32-club league accounting (`135W == 135L`, `2T`,
+   `6,246 PF == 6,246 PA`). The live 13 Nov standings (`standings_live_2026_11_13.csv`) pass
+   136W == 136L, 2T, 6,291 PF == 6,291 PA, with only NYG and WAS changed.
 """
 from __future__ import annotations
 
@@ -230,6 +232,23 @@ def verify_all() -> tuple[list[str], dict[str, int]]:
             errors.append(
                 f"Standings league identity mismatch: W={w_sum}, L={l_sum}, T={t_sum}, PF={pf_sum}, PA={pa_sum}"
             )
+
+    live_path = DATA_DIR / "standings_live_2026_11_13.csv"
+    if live_path.is_file():
+        with live_path.open(newline="", encoding="utf-8") as fh:
+            live = list(csv.DictReader(fh))
+        if len(live) != 32:
+            errors.append(f"standings_live_2026_11_13.csv: expected 32 clubs, got {len(live)}")
+        lw = sum(int(x["w"]) for x in live)
+        ll = sum(int(x["l"]) for x in live)
+        lt = sum(int(x["t"]) for x in live)
+        lpf = sum(int(x["pf"]) for x in live)
+        lpa = sum(int(x["pa"]) for x in live)
+        if not (lw == ll == 136 and lt == 2 and lpf == lpa == 6291):
+            errors.append(f"Live 13 Nov standings identity mismatch: W={lw}, L={ll}, T={lt}, PF={lpf}, PA={lpa}")
+        changed = sorted(x["abbr"] for x in live if x["changed_since_w9_snapshot"] == "true")
+        if changed != ["NYG", "WAS"]:
+            errors.append(f"Unexpected club changes since the Week 9 snapshot: {changed}")
 
     return errors, stats
 
