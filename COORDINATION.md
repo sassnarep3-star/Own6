@@ -1753,3 +1753,29 @@ requirements-empirical.txt` before `pytest`.
   `secondary_reference_only` (and 17 as `repository_reference_only`); only the 21 rows citing NIST
   register as official. This is logged as `NFL3-RF-15` / `NFL3-F17`. This session did **not** edit
   that shared script — it only asks the owner to add the NFL publishers the repository already cites.
+
+### PR and merge record — session `arena/309921cc-own6` (2026-11-13)
+
+- **PR:** https://github.com/sassnarep3-star/Own6/pull/82 — "nfl-309921cc: NFL decision-readiness, line
+  origination, skill-gated strategies & depth-deficiency dashboard", `arena/309921cc-own6` → `main`.
+- **Merge result:** **MERGED** 2026-11-13T22:10:26Z as `46391f1fe1362a0dc376e81f14694c1c1362a91b`
+  (merge commit, no squash, no rebase).
+- **Pre-merge checks (all 12 green):** `Line-by-line verification gates`, `Verification ledger and
+  published pages`, `assurance`, `daily`, `hub`, `hub-references`, `lab`, `parlay-safety`,
+  `published-html`, `source-coverage`, `verify-nfl-309921cc`, `verify-nfl-origination`.
+- **Post-merge CI on `main` (all 11 green):** Hub CI, Independent hub references, Independent
+  verification ledger, Verify site and engine, Sitewide source coverage, Daily verified snapshot,
+  Lab CI, Assurance CI, NFL 309921CC Verification Gate, Legacy parlay safety, Release integrity.
+- **GitHub Pages:** `pages build and deployment` run 43517065033 on `main` — **success** (29s).
+- **Live paths confirmed present on `main` via the GitHub contents API** (this session cannot reach
+  `*.github.io` directly): `docs/nfl-309921cc/` contains `.nojekyll`, `assets/` and 14 pages —
+  `index.html`, `standings.html`, `slate.html`, `injuries.html`, `depth.html`,
+  `decision-ledger.html`, `suggestions.html`, `lines.html`, `strategies.html`, `validation.html`,
+  `correlations.html`, `leaderboard.html`, `sources.html`, `executive-summary.html`,
+  `repo-review.html`, `flagged.html`.
+- **Public URL:** `https://sassnarep3-star.github.io/Own6/docs/nfl-309921cc/`
+- **Nothing was blocked by the flagged items.** All 17 flags (F01–F17) and all 15 repo findings
+  (RF-01…RF-15) are published on `docs/nfl-309921cc/flagged.html` and
+  `docs/nfl-309921cc/repo-review.html` with official source links for manual review.
+- **Tasks C1–C9 are complete and this session's claimed scope is closed.** No other session's owned
+  files were edited; `docs/index.html` and `README.md` received additive insertions only.
