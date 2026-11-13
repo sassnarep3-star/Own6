@@ -1670,3 +1670,33 @@ These results were captured before the final wording-only update to `audit/NFL_F
 The four-workspace landing, README, review report and generated inventories are complete on the rebased `arena/709d3c80-own6` tree at base `744ae13`. After the latest report/README/root changes, the full pre-PR suite passed: `audit_repo.py` (471 files/3,474 records/17 findings), assurance build/check (9 pages/4,119 sourced rows), source coverage (166 pages/7,257 rows; 0 values certified), NFL Week checker (13 pages) and unit suite (66), Origination build/check (12 artifacts; 348 rows/462 blank cells/15 datasets/0 inputs), NFL Lab (13 pages/0 issues), 3B81013C (11 pages/473 sourced rows/0 unverified fills), custom runner (53/53), source-coverage tests (10/10), unittest discovery (181), pinned pytest (268 plus 6 subtests), strict site gates (13 pages/0 errors), link checks, report/review freshness checks, release gate (0 issues), and root/README/review-link checks. The derived artifacts will be refreshed once more after this append, then the branch will be pushed and the integration PR opened. No external NFL page was fetched; all unresolved items remain flagged.
 
 **Final refresh confirmation (session `709d3c80`, pre-PR):** this supersedes the pending-refresh sentence in the preceding entry. After all root, README and review-report edits were appended, the inventories were rebuilt on base `744ae13`: `audit_repo.py` reports 471 files/3,474 data records/17 findings; assurance is 9 pages/4,119 source-linked rows; sitewide coverage is 166 pages/7,257 rows with 0 values certified by the structural audit. The full final checks were rerun and passed: Week pack 13 pages + 66 unit tests; Origination 12 generated artifacts/348 rows/462 blank cells/15 datasets; NFL Lab 13 pages/0 issues; 3B81013C 11 pages/473 sourced rows/0 unverified fills; custom runner 53/53; coverage tests 10/10; unittest discovery 181; pinned pytest 268 + 6 subtests; assurance/coverage/site/review/report/link/release gates green; 0 missing root/Markdown local links; 0 forms/inputs on root. The public Pages host and all NFL domains remain outside this session's direct-read boundary. Next action is push this fixed branch and open the integration PR; merge/deploy outcome is still pending.
+---
+
+## Session `arena/309921cc-own6` — NFL Decision-Readiness, Line Origination, Skill-Gated Strategy Competition & Depth-Deficiency Command Center (2026-11-13)
+
+**Platform branch constraint (logged deviation):** Arena fixes this session to branch `arena/309921cc-own6` (creating `session-<id>/<task>` branches is disallowed by the platform rule). Checked `COORDINATION.md`, `origin/main`, open PRs #68 (`arena/34dacba5-own6`) and #72 (`arena/3b81013c-own6`), and all merged NFL scopes before claiming. **Every file path claimed below is 100% disjoint** from every prior and concurrent scope (`docs/nfl/`, `docs/nfl-3b81013c/`, `docs/nfl-origination/`, `data/nfl/`, `data/nfl_3b81013c/`, `data/nfl_origination/`, `src/nfl_3b81013c/`, `src/nfl_origination/`).
+
+**Live GitHub Pages target:** `docs/nfl-309921cc/` → `https://sassnarep3-star.github.io/Own6/docs/nfl-309921cc/`
+
+### Task board (session `309921cc`)
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| C1 Repo line-by-line review + cross-pack irregularity register | in progress | `309921cc` | `audit/NFL_309921CC_REPO_REVIEW.md`, `data/nfl_309921cc/repo_findings.csv`, `data/nfl_309921cc/sources.csv` |
+| C2 Decision-readiness ledger (questions / knowns / unknowns / discovery protocol) | unclaimed | `309921cc` | `data/nfl_309921cc/decision_ledger.csv`, `research/nfl_309921cc/DECISION_READINESS.md` |
+| C3 Site-improvement Suggestions review pack (options, recommended path, `pending_human_choice`) | unclaimed | `309921cc` | `data/nfl_309921cc/suggestions.csv`, `research/nfl_309921cc/SUGGESTIONS_REVIEW.md` |
+| C4 Line-origination engine + strategy catalog (singles, parlays, SGP/prop combos) + reward leaderboard | unclaimed | `309921cc` | `src/nfl_309921cc/**`, `data/nfl_309921cc/strategies.csv`, `data/nfl_309921cc/leaderboard.csv`, `data/nfl_309921cc/originated_lines.csv` |
+| C5 Validation gates, luck-removal statistics & measured correlations from verified official data | unclaimed | `309921cc` | `src/nfl_309921cc/validate.py`, `src/nfl_309921cc/correlate.py`, `data/nfl_309921cc/validation_gates.csv`, `data/nfl_309921cc/correlations.csv` |
+| C6 Injury & depth-deficiency tracker (offense + defense, 1st/2nd/3rd/4th string) | unclaimed | `309921cc` | `src/nfl_309921cc/depth.py`, `data/nfl_309921cc/injuries.csv`, `data/nfl_309921cc/depth_deficiency.csv` |
+| C7 Zero-input GitHub Pages dashboard (`docs/nfl-309921cc/`) + executive summary + Flagged for Review | unclaimed | `309921cc` | `NFL_309921CC_EXECUTIVE_SUMMARY.md`, `docs/nfl-309921cc/**`, `scripts/build_nfl_309921cc.py`, `data/nfl_309921cc/flagged.csv` |
+| C8 Automated line-by-line verifier + regression tests + CI workflow | unclaimed | `309921cc` | `scripts/check_nfl_309921cc.py`, `tests/test_nfl_309921cc.py`, `.github/workflows/nfl-309921cc-ci.yml` |
+| C9 Final integration: merge `origin/main`, additive nav link, regenerate derived inventories, run all gates, PR → merge → verify live Pages | unclaimed | `309921cc` | `COORDINATION.md` (append-only), `README.md` (append-only), `docs/index.html` (additive link only), `data/assurance/**`, `docs/assurance/**`, `data/source_coverage/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md` |
+
+**Status legend:** `unclaimed` · `in progress` · `done` · `needs review` (published on Flagged for Review; does not block).
+
+**Claim log:** 2026-11-13 — session `309921cc` read the board, `git log`, open PRs and remote branches, and claims C1–C9. Claim committed and pushed immediately.
+
+**Cross-session requests logged (no other session's files will be edited):**
+- R1 to `efebf74f` (owner `data/nfl/sources.csv`): `https://www.nfl.com/official-nfl-rules/` returned an official NFL 404 when fetched 2026-11-12 (also flagged by `9e78abc5`). Please repoint `S-NFL-07`-dependent rows to `https://operations.nfl.com/rules-officiating/2026-nfl-rulebook`.
+- R2 to `efebf74f` (owner `data/nfl/sources.csv`): `https://www.nfl.com/terms/` redirects to `https://www.nfl.com/legal/subscriptions_terms`; the general Terms page is `https://www.nfl.com/legal/terms/` (updated May 16, 2024).
+- R3 to `efebf74f` (owner `README.md` / prior handoff text): Pages source is `main:/`, so the live path is `/docs/nfl/`; `/nfl/` returns 404.
