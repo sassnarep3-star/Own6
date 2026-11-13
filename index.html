@@ -1,1 +1,278 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Own6 — NBA Research Assurance</title><meta http-equiv="refresh" content="0; url=docs/assurance/"><link rel="canonical" href="docs/assurance/"></head><body><p><a href="docs/assurance/">Open the Own6 assurance dashboard →</a></p></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Own6 NFL decision dashboard: source-linked requirements, line origination, validation, injury and depth review, suggestions, and flagged evidence gaps.">
+  <meta name="theme-color" content="#10263c">
+  <title>Own6 | NFL Decision Dashboard</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #13283b;
+      --muted: #526477;
+      --navy: #10263c;
+      --navy-2: #173b55;
+      --teal: #087e79;
+      --mint: #a8f0d3;
+      --gold: #f2b84b;
+      --paper: #f4f7f8;
+      --white: #fff;
+      --line: #d8e1e5;
+      --soft: #e9f2f2;
+      --warn: #fff3d8;
+      --warn-ink: #704500;
+      --shadow: 0 16px 38px rgba(16, 38, 60, .09);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--ink); background: var(--paper); line-height: 1.55; }
+    a { color: var(--teal); text-underline-offset: .18em; }
+    a:hover { color: #075b58; }
+    a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
+    .skip { position: absolute; left: -9999px; top: .5rem; z-index: 10; padding: .7rem 1rem; background: var(--white); color: var(--ink); }
+    .skip:focus { left: .5rem; }
+    .shell { width: min(1160px, calc(100% - 2rem)); margin-inline: auto; }
+    .topbar { background: var(--navy); color: var(--white); }
+    .topbar-inner { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 1.25rem; }
+    .brand { color: var(--white); text-decoration: none; font-weight: 850; letter-spacing: .09em; }
+    .brand span { color: var(--mint); font-size: .78rem; font-weight: 650; letter-spacing: .12em; margin-left: .45rem; }
+    .topnav { display: flex; flex-wrap: wrap; gap: .35rem 1.15rem; }
+    .topnav a { color: #e1edf1; text-decoration: none; font-size: .9rem; }
+    .topnav a:hover { color: var(--mint); }
+    .hero { padding: clamp(3.3rem, 7vw, 6.1rem) 0 2.5rem; color: var(--white); background: radial-gradient(ellipse at 87% 10%, rgba(8,126,121,.38), transparent 32%), linear-gradient(135deg, var(--navy), var(--navy-2)); }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(260px, .65fr); align-items: end; gap: clamp(2rem, 6vw, 5.5rem); }
+    .eyebrow { margin: 0 0 .8rem; color: var(--mint); font-size: .75rem; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 760px; margin-bottom: 1rem; font-size: clamp(2.6rem, 6.2vw, 5.1rem); line-height: .99; letter-spacing: -.055em; }
+    h1 em { color: var(--mint); font-style: normal; }
+    .lead { max-width: 700px; margin-bottom: 1.7rem; color: #e2edf1; font-size: clamp(1.05rem, 1.8vw, 1.22rem); }
+    .actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: .7rem 1rem; border: 1px solid transparent; border-radius: 8px; font-weight: 750; text-decoration: none; }
+    .button.primary { color: var(--navy); background: var(--mint); }
+    .button.primary:hover { background: #d0fae9; }
+    .button.ghost { color: var(--white); border-color: rgba(255,255,255,.4); background: rgba(255,255,255,.04); }
+    .button.ghost:hover { background: rgba(255,255,255,.12); }
+    .hero-note { padding: 1.25rem; border: 1px solid rgba(255,255,255,.2); border-radius: 12px; background: rgba(255,255,255,.08); }
+    .hero-note strong { display: block; margin-bottom: .4rem; color: var(--mint); font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; }
+    .hero-note p { margin-bottom: 0; color: #e2edf1; font-size: .94rem; }
+    main { padding-bottom: 4rem; }
+    .status-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: -1.2rem; position: relative; }
+    .stat { padding: 1.15rem 1.25rem; border: 1px solid var(--line); border-radius: 10px; background: var(--white); box-shadow: var(--shadow); }
+    .stat .label { display: block; margin-bottom: .25rem; color: var(--muted); font-size: .78rem; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; }
+    .stat strong { display: block; color: var(--navy); font-size: 1.17rem; }
+    .stat small { display: block; margin-top: .28rem; color: var(--muted); font-size: .83rem; }
+    .section { padding-top: 4rem; }
+    .section-head { max-width: 760px; margin-bottom: 1.4rem; }
+    .section-head .eyebrow { color: var(--teal); }
+    h2 { margin-bottom: .5rem; color: var(--navy); font-size: clamp(1.75rem, 3vw, 2.35rem); line-height: 1.1; letter-spacing: -.03em; }
+    .section-head p:not(.eyebrow) { margin-bottom: 0; color: var(--muted); }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+    .card { display: flex; flex-direction: column; min-height: 190px; padding: 1.25rem; border: 1px solid var(--line); border-radius: 10px; background: var(--white); box-shadow: 0 6px 18px rgba(16,38,60,.04); text-decoration: none; transition: transform .15s ease, box-shadow .15s ease; }
+    .card:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .card .tag { align-self: flex-start; margin-bottom: .75rem; padding: .18rem .5rem; border-radius: 999px; color: var(--teal); background: var(--soft); font-size: .72rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+    .card h3 { margin-bottom: .45rem; color: var(--navy); font-size: 1.12rem; }
+    .card p { margin-bottom: 1rem; color: var(--muted); font-size: .92rem; }
+    .card .more { margin-top: auto; font-weight: 750; font-size: .9rem; }
+    .decision-panel { display: grid; grid-template-columns: 1.1fr .9fr; gap: 1.5rem; padding: clamp(1.3rem, 3vw, 2rem); border: 1px solid #b8d8d6; border-radius: 12px; background: linear-gradient(135deg, #eaf7f5, #f9fcfc); }
+    .decision-panel h2 { font-size: clamp(1.5rem, 2.4vw, 2rem); }
+    .decision-panel p { color: var(--muted); }
+    .checklist { margin: 0; padding-left: 1.2rem; color: var(--ink); }
+    .checklist li + li { margin-top: .5rem; }
+    .packs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .pack { padding: 1.2rem; border: 1px solid var(--line); border-radius: 10px; background: var(--white); }
+    .pack .pack-id { color: var(--teal); font-size: .75rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .pack h3 { margin: .45rem 0; color: var(--navy); }
+    .pack p { min-height: 4.1rem; margin-bottom: .8rem; color: var(--muted); font-size: .9rem; }
+    .review-box { padding: 1.35rem; border: 1px solid #e5c98e; border-left: 5px solid #c98200; border-radius: 9px; background: var(--warn); }
+    .review-box + .review-box { margin-top: .8rem; }
+    .review-box h3 { margin-bottom: .45rem; color: var(--warn-ink); }
+    .review-box p { margin-bottom: .75rem; color: #594219; }
+    .review-box p:last-child { margin-bottom: 0; }
+    .plain-link { font-weight: 750; }
+    .fine-print { margin-top: 1rem; color: var(--muted); font-size: .86rem; }
+    footer { padding: 2rem 0; color: #dce8ec; background: var(--navy); font-size: .88rem; }
+    footer p { margin-bottom: .5rem; }
+    footer a { color: var(--mint); }
+    @media (max-width: 820px) {
+      .hero-grid, .decision-panel { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .packs { grid-template-columns: 1fr; }
+      .pack p { min-height: 0; }
+    }
+    @media (max-width: 560px) {
+      .topbar-inner { align-items: flex-start; flex-direction: column; padding: 1rem 0; }
+      .topnav { gap: .4rem .8rem; }
+      .topnav a { font-size: .84rem; }
+      .status-row, .grid { grid-template-columns: 1fr; }
+      .status-row { margin-top: 1rem; }
+      .stat { box-shadow: none; }
+      .hero { padding-top: 3.2rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to main content</a>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <a class="brand" href="index.html" aria-label="Own6 NFL dashboard home">OWN6 <span>/ NFL DECISION LAB</span></a>
+      <nav class="topnav" aria-label="Primary navigation">
+        <a href="#workspaces">Workspaces</a>
+        <a href="#decisions">Decision tools</a>
+        <a href="#suggestions">Suggestions</a>
+        <a href="#review">Flagged for Review</a>
+        <a href="docs/assurance/index.html">All-project assurance</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="shell hero-grid">
+      <div>
+        <p class="eyebrow">NFL · evidence-first research</p>
+        <h1 id="hero-title">Originate the line.<br><em>Prove the signal.</em></h1>
+        <p class="lead">One review-first entry point for NFL requirements, missing information, fair-line methods, injury and depth context, correlations, validation gates, and the strategy leaderboard.</p>
+        <div class="actions">
+          <a class="button primary" href="docs/nfl-origination/index.html">Open the NFL dashboard <span aria-hidden="true">&nbsp;→</span></a>
+          <a class="button ghost" href="docs/nfl-origination/suggestions.html">Review suggestions</a>
+        </div>
+      </div>
+      <aside class="hero-note" aria-label="Research status">
+        <strong>Decision status</strong>
+        <p>Research framework only. No strategy is qualified, no live market feed is configured, and the site does not publish picks or a demonstrated betting edge.</p>
+      </aside>
+    </div>
+  </section>
+
+  <main id="main" class="shell">
+    <section class="status-row" aria-label="Current NFL research status">
+      <div class="stat"><span class="label">Strategy board</span><strong>0 of 10 qualified</strong><small>All candidates remain unqualified pending licensed evidence.</small></div>
+      <div class="stat"><span class="label">Observed correlations</span><strong>Blank · unverified</strong><small>Combo examples are illustrative, not measured NFL coefficients.</small></div>
+      <div class="stat"><span class="label">Injury &amp; depth</span><strong>Static snapshot</strong><small>No connected real-time injury or depth feed is configured.</small></div>
+    </section>
+
+    <section id="decisions" class="section" aria-labelledby="decisions-title">
+      <div class="section-head">
+        <p class="eyebrow">Decision tools</p>
+        <h2 id="decisions-title">Start with what must be known</h2>
+        <p>Use the source-linked tables to separate confirmed inputs, model design, computed values, and information that is still missing. Unknowns are blank and flagged rather than estimated.</p>
+      </div>
+      <div class="grid">
+        <a class="card" href="docs/nfl-origination/requirements.html"><span class="tag">01 · Scope</span><h3>Requirements</h3><p>Trace the request into an itemized checklist and see which records, feeds, rights, and reviews are still prerequisites.</p><span class="more">Open requirements →</span></a>
+        <a class="card" href="docs/nfl-origination/decision-qa.html"><span class="tag">02 · Readiness</span><h3>Questions &amp; missing information</h3><p>Review what is known, what is not established, and the suggested discovery path before making a decision.</p><span class="more">Open decision Q&amp;A →</span></a>
+        <a class="card" href="docs/nfl-origination/strategies-leaderboard.html"><span class="tag">03 · Signals</span><h3>Singles, parlays &amp; player props</h3><p>Compare preregistered strategy hypotheses. Entries stay off the leaderboard until every validation gate is met.</p><span class="more">Open strategies &amp; leaderboard →</span></a>
+        <a class="card" href="docs/nfl-3b81013c/lines.html"><span class="tag">Line methods · caveat</span><h3>Line origination examples</h3><p>Open the separate Week 10 worked example. Its numeric outputs are model calculations with uncalibrated assumptions—not sportsbook prices or verified edges.</p><span class="more">Review the method and assumptions →</span></a>
+        <a class="card" href="docs/nfl-origination/validation-gates.html"><span class="tag">04 · Evidence</span><h3>Validation gates</h3><p>See the fail-closed checks that separate a testable idea from a strategy that has demonstrated skill.</p><span class="more">Review the gates →</span></a>
+        <a class="card" href="docs/nfl-origination/correlations.html"><span class="tag">05 · Dependence</span><h3>Parlay &amp; prop correlation</h3><p>Review joint-outcome methods and the exact reason empirical NFL correlations remain blank until paired data exists.</p><span class="more">Review dependence methods →</span></a>
+        <a class="card" href="docs/nfl-origination/injuries-depth.html"><span class="tag">06 · Availability</span><h3>Injuries &amp; replacement depth</h3><p>Track offense and defense availability through first-, second-, third-, and fourth-string roles; distinguish reports from projections.</p><span class="more">Open injury &amp; depth tables →</span></a>
+        <a class="card" href="docs/nfl-origination/executive-summary.html"><span class="tag">07 · Provenance</span><h3>Sources &amp; verification</h3><p>Review the official-source register, recorded read dates, direct-read status, and evidence limits.</p><span class="more">Open source register →</span></a>
+        <a class="card" href="docs/nfl-origination/flagged.html"><span class="tag">08 · Review</span><h3>Flagged for Review</h3><p>See unverified odds, missing licensed data, unresolved source limits, and other issues that must not be treated as findings.</p><span class="more">Open the review register →</span></a>
+        <a class="card" href="docs/nfl-origination/executive-summary.html"><span class="tag">09 · Overview</span><h3>Executive summary</h3><p>Read the current scope, evidence boundary, model design, and the most important blockers in one place.</p><span class="more">Read the summary →</span></a>
+        <a class="card" href="docs/nfl-origination/repo-audit.html"><span class="tag">10 · Repository</span><h3>Line-by-line repo audit</h3><p>Review the source-linked code, math, CI, link, and repository findings before relying on an implementation.</p><span class="more">Open repo audit →</span></a>
+      </div>
+    </section>
+
+    <section id="suggestions" class="section" aria-labelledby="suggestions-title">
+      <div class="decision-panel">
+        <div>
+          <p class="eyebrow">Review before changing the system</p>
+          <h2 id="suggestions-title">Suggestions are proposals—not automatic changes.</h2>
+          <p>The dedicated Suggestions page lays out alternatives, trade-offs, prerequisites, effort, and review status. All 14 entries are marked <code>pending_human_choice</code>; no proposal is silently applied by this landing page.</p>
+          <a class="plain-link" href="docs/nfl-origination/suggestions.html">Open the Suggestions review page →</a>
+        </div>
+        <ol class="checklist">
+          <li>Compare the available paths and their reversibility.</li>
+          <li>Check the prerequisites and evidence each path needs.</li>
+          <li>Keep model and data changes blocked until required evidence is available.</li>
+          <li>Record a choice in the project review process before implementing it.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="workspaces" class="section" aria-labelledby="workspaces-title">
+      <div class="section-head">
+        <p class="eyebrow">Project map</p>
+        <h2 id="workspaces-title">NFL workspaces, clearly separated</h2>
+        <p>These sections preserve separate audit trails. Use the Origination dashboard as the main entry point; the other packs are supporting views, not additional performance records.</p>
+      </div>
+      <div class="packs">
+        <article class="pack">
+          <span class="pack-id">Main entry point</span>
+          <h3>NFL Origination &amp; Depth</h3>
+          <p>Expanded 12-gate framework, 10 strategy candidates, sourced Week 10 snapshot, suggestions, and review flags.</p>
+          <a class="plain-link" href="docs/nfl-origination/index.html">Open Origination dashboard →</a>
+        </article>
+        <article class="pack">
+          <span class="pack-id">Supporting strategy pack</span>
+          <h3>NFL Lab</h3>
+          <p>Requirements, questions, signals, correlations, validation, injury/depth, and a separate flagged register.</p>
+          <a class="plain-link" href="docs/nfl/index.html">Open NFL Lab →</a>
+        </article>
+        <article class="pack">
+          <span class="pack-id">Supporting verification pack</span>
+          <h3>Week 10 verification</h3>
+          <p>Independent NFL Week 10 input, standings, depth, and correlation audit trail. Its separate line page is an illustrative model output with uncalibrated assumptions.</p>
+          <a class="plain-link" href="docs/nfl-3b81013c/index.html">Open Week 10 pack →</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="review" class="section" aria-labelledby="review-title">
+      <div class="section-head">
+        <p class="eyebrow">Flagged for Review</p>
+        <h2 id="review-title">Do not treat these gaps as resolved findings</h2>
+        <p>Flags are non-blocking for publishing the research framework; they block any claim that needs the missing evidence.</p>
+      </div>
+      <div class="review-box">
+        <h3>Week 10 bye row needs clean, row-level verification</h3>
+        <p>The combined-tree review recorded that <code>W10-BYE</code> places four clubs in one matchup row and that Chicago and Tampa Bay were not confirmed in that review. The row is left as-is; individual bye records must be checked against the official schedule before being treated as verified.</p>
+        <p>Source for manual review: <a href="https://www.nfl.com/schedules/2026/by-week/week-10">NFL.com 2026 Week 10 schedule ↗</a>. The follow-up review is recorded in <a href="COORDINATION.md">COORDINATION.md</a>; the source-linked NFL registers are available from the <a href="docs/nfl-origination/flagged.html">main Flagged for Review page</a>.</p>
+      </div>
+      <div class="review-box">
+        <h3>Do not mistake worked line calculations for verified prices</h3>
+        <p>The supporting Week 10 pack explicitly describes its originated lines as calculations using uncalibrated priors. They are not official values, market quotes, or evidence of a profitable edge. The main origination leaderboard remains unqualified while licensed data and validation are absent.</p>
+        <p>Review the <a href="docs/nfl-3b81013c/lines.html">worked line page</a>, its <a href="docs/nfl-3b81013c/flagged.html">Flagged for Review register</a>, and the <a href="https://www.nfl.com/standings/division/2026/reg">official NFL standings input ↗</a>.</p>
+      </div>
+      <div class="review-box">
+        <h3>Suggestions register needs a post-integration state check</h3>
+        <p>This requested integration replaces the former root redirect with an NFL-focused portal. The Suggestions source row <code>SUG-01</code> still describes the old redirect and remains marked pending. That register/page has not been edited here; its owner should reconcile the stated current repository state before treating the suggestion status as current.</p>
+        <p>Review the <a href="docs/nfl-origination/suggestions.html">Suggestions page</a> and the source row in <a href="data/nfl_origination/site_suggestions.csv">site_suggestions.csv</a>.</p>
+      </div>
+      <div class="review-box">
+        <h3>Older NFL Lab citations need source-level rechecking</h3>
+        <p>A prior independent review reported that the legacy NFL rule URL used by rows in <a href="docs/nfl/lines.html">NFL Lab → Own Lines</a> returned an official NFL 404 page. That review also found a general-terms URL redirecting to subscription terms, and an injury-policy PDF whose content could not be read. This session did not re-fetch those pages or edit the older pack.</p>
+        <p>Manual source review: <a href="https://operations.nfl.com/rules-officiating/2026-nfl-rulebook">NFL Operations 2026 rulebook ↗</a> · <a href="https://www.nfl.com/legal/terms/">NFL general terms ↗</a> · <a href="https://www.nfl.com/injuries/">NFL injury report ↗</a> · <a href="https://operations.nfl.com/media/2683/2017-nfl-injury-report-policy.pdf">reported injury-policy PDF ↗</a>. The prior findings and evidence boundary are recorded in <a href="COORDINATION.md">COORDINATION.md</a>.</p>
+      </div>
+      <p class="fine-print">These notes identify items to re-check; they do not certify that the current bye row, source links, or model assumptions are accurate. Market spreads, totals, fair lines, empirical returns, player-prop outcomes, and measured correlations remain blank unless a specific value is verified and its evidence is recorded.</p>
+    </section>
+
+    <section class="section" aria-labelledby="readiness-title">
+      <div class="decision-panel">
+        <div>
+          <p class="eyebrow">Release gate</p>
+          <h2 id="readiness-title">The system is designed to fail closed.</h2>
+          <p>Calculations and synthetic tests demonstrate software behavior only. They do not establish a real NFL edge, profitable strategy, or a correlation coefficient.</p>
+        </div>
+        <ul class="checklist">
+          <li>No licensed timestamped odds archive or NFL play-by-play feed is configured.</li>
+          <li>Empirical line, ROI, CLV, and combo-correlation results are not available.</li>
+          <li>Injury and depth tables are a dated snapshot, not a live lineup service.</li>
+          <li>Rewards remain disabled until a strategy clears every required gate.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell">
+      <p><strong>Research &amp; software verification only.</strong> This dashboard does not provide picks, betting advice, or a guarantee that skill can remove luck.</p>
+      <p>Start at the <a href="docs/nfl-origination/index.html">NFL Origination dashboard</a>, review <a href="docs/nfl-origination/suggestions.html">suggestions</a> before project changes, and check the <a href="docs/nfl-origination/flagged.html">Flagged for Review register</a> before relying on any value. See the <a href="https://github.com/sassnarep3-star/Own6/blob/main/audit/NFL_FINAL_REVIEW_709D3C80.md">independent final review</a> for audit limits and integration findings.</p>
+    </div>
+  </footer>
+</body>
+</html>

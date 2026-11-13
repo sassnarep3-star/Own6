@@ -1,23 +1,24 @@
-# Own6 — NBA Lines Research Lab
+# Own6 — NFL Decision & Research Dashboard
 
-A research-first project for originating NBA spreads, totals, win probabilities, player props, prop combos and parlays. **Nothing in this repository demonstrates a profitable edge.** No current line, correlation, ROI or reward winner is published without authorized, timestamped, out-of-sample evidence.
+An evidence-first research repository with an NFL line-origination and validation program, plus preserved NBA and San Francisco housing research. The NFL site organizes requirements, decision questions, source records, injury/depth context, line methods, single/parlay/player-prop strategy hypotheses, correlation methods, validation gates, suggestions, and review flags. **Nothing in this repository demonstrates a profitable NFL edge.** Model calculations are not market prices, and unverified facts remain blank or explicitly marked as computed/unverified.
 
 ## Start here
 
-- **Live assurance dashboard:** https://sassnarep3-star.github.io/Own6/ — clean no-input overview, strategies, lines/props, correlations, leaderboard, validation gates, official sources, Flagged for Review and full repo audit.
-- **Executive summary:** [`research/EXECUTIVE_SUMMARY.md`](research/EXECUTIVE_SUMMARY.md)
-- **Signal research:** [`research/SIGNALS.md`](research/SIGNALS.md)
-- **Validation protocol v2:** [`research/VALIDATION_v2.md`](research/VALIDATION_v2.md)
-- **Source assurance:** [`research/ASSURANCE.md`](research/ASSURANCE.md)
+- **Live NFL landing page:** https://sassnarep3-star.github.io/Own6/ — no-input overview with clear links to the decision tools, workspaces, suggestions, and Flagged for Review.
+- **Main NFL Origination dashboard:** [`docs/nfl-origination/index.html`](docs/nfl-origination/index.html) — the 12-gate research framework and 10 preregistered strategy candidates.
+- **Suggestions (review before project changes):** [`docs/nfl-origination/suggestions.html`](docs/nfl-origination/suggestions.html)
+- **Flagged for Review:** [`docs/nfl-origination/flagged.html`](docs/nfl-origination/flagged.html)
+- **NFL executive summary:** [`docs/nfl-origination/executive-summary.html`](docs/nfl-origination/executive-summary.html)
+- **Other research domains:** [NBA assurance](docs/assurance/index.html) · [all sections hub](docs/index.html)
 
-The root page redirects to the assurance dashboard. The earlier data hub and section sites are preserved as archives and linked from the dashboard.
+The repository root now opens an NFL-focused portal. The separate `docs/` dashboard and NBA, NFL, and housing research packs remain available; they have separate evidence boundaries and should not be read as multiple independent performance records.
 
 ## Evidence state
 
 ## Live site contents
 
 **Verification ledger (2026-11-03):** [`docs/verify/`](docs/verify/index.html) records every value that was re-read against an official page this session — 15/15 final scores and 30/30 standings rows match (54/54 ledger checks), with the NBA Terms of Use and 국민체육진흥법 제26조 quoted verbatim. Items that could not be confirmed are blank and listed with a reason. Build/check: `python3 scripts/build_verify.py` · `python3 scripts/check_verify.py`.
-GitHub Pages publishes the organized site from [`docs/`](docs/index.html): dashboard/calculator, strategy catalog, validation gates, correlation methodology, leaderboard design, sources registry and Flagged for Review. See [`EXECUTIVE_SUMMARY.md`](EXECUTIVE_SUMMARY.md).
+GitHub Pages serves the NFL-focused portal from the repository root; the organized multi-section site under [`docs/`](docs/index.html) preserves the dashboard/calculator, strategy catalog, validation gates, correlation methodology, leaderboard design, sources registry, and Flagged for Review. See [`EXECUTIVE_SUMMARY.md`](EXECUTIVE_SUMMARY.md) for the NBA assurance summary.
 
 | Area | Status | Source |
 |---|---|---|
@@ -84,7 +85,7 @@ These archives are preserved for provenance. Their historical claims are not pro
 
 ## Coordination
 
-Concurrent sessions are coordinated in [`COORDINATION.md`](COORDINATION.md). This session works on the fixed Arena branch `arena/74d27b5d-own6`, preserves other sessions' work, and records sources, verification and irregularities there. Flagged items are published on the site's **Flagged for Review** page and do not block publication of the research framework.
+Concurrent sessions are coordinated in [`COORDINATION.md`](COORDINATION.md). Each session's fixed Arena branch, file scope, source trail, verification performed, and irregularities are recorded there. Shared tables and navigation are changed only by the integration owner; flagged items remain visible on a **Flagged for Review** page and do not block publication of the research framework.
 
 ## No betting advice
 
@@ -94,7 +95,7 @@ Analytics research only. No wagers, stakes, picks, payouts or profitability clai
 
 A fully additive NFL research lab covering requirement traceability (R01–R18), decision-readiness questions/informations/answers (Q01–Q10) with discovery paths for missing info, a dedicated suggestions review section (S01–S12) that must be reviewed before any change, ten frozen signal strategies for singles/parlays/player-prop combos (N01–N10) with own-line method and correlation pairs, ten validation gates (G01–G10) with clustered-uncertainty and Bonferroni luck control, per-unit injury & depth-deficiency modeling that flags 2nd/3rd/4th-string backups replacing starters on offense and defense, and a clean dashboard-style GitHub Pages site — all rows source-linked, blank means unverified, no hallucinations, no profitability claim.
 
-- **Live section:** https://sassnarep3-star.github.io/Own6/nfl/ (`docs/nfl/index.html`)
+- **Live section:** https://sassnarep3-star.github.io/Own6/docs/nfl/ (`docs/nfl/index.html`)
 - **Start here:** [`docs/nfl/index.html`](docs/nfl/index.html) → [`research/NFL_EXECUTIVE_SUMMARY.md`](research/NFL_EXECUTIVE_SUMMARY.md)
 - **Requirements:** [`data/nfl/requirements.csv`](data/nfl/requirements.csv) · [`research/NFL_REQUIREMENTS.md`](research/NFL_REQUIREMENTS.md)
 - **Decision framework:** [`data/nfl/decision_questions.csv`](data/nfl/decision_questions.csv) → [`docs/nfl/questions.html`](docs/nfl/questions.html)
@@ -103,7 +104,7 @@ A fully additive NFL research lab covering requirement traceability (R01–R18),
 - **Validation & correlations:** [`data/nfl/validation_gates.csv`](data/nfl/validation_gates.csv) · [`research/NFL_VALIDATION.md`](research/NFL_VALIDATION.md)
 - **Injury & depth:** [`data/nfl/injury_tracking.csv`](data/nfl/injury_tracking.csv) · [`data/nfl/depth_model.csv`](data/nfl/depth_model.csv) · [`research/NFL_INJURY_DEPTH.md`](research/NFL_INJURY_DEPTH.md)
 - **Build / check:** `python3 scripts/build_nfl.py` · `python3 scripts/check_nfl.py` (13 pages, 0 issues, every row source-linked) · `python3 tools/release_gate.py` (0 issues)
-- **Flagged for Review (F-NFL-01…12):** https://sassnarep3-star.github.io/Own6/nfl/flagged.html — rights, market prices, live injury snapshots, depth scores, correlations, leaderboard, CLV, parlay dependence, prop settlement
+- **Flagged for Review (F-NFL-01…12):** https://sassnarep3-star.github.io/Own6/docs/nfl/flagged.html — rights, market prices, live injury snapshots, depth scores, correlations, leaderboard, CLV, parlay dependence, prop settlement
 
 ## SF rental increase review — 94122 (added 2026-11-06)
 
@@ -134,6 +135,7 @@ A pure-stdlib Python 3.11 NFL fair-line origination, starter-vs-backup (`1st`–
 - **Suggestions for Review & Decision Q&A:** [`docs/nfl-origination/suggestions.html`](docs/nfl-origination/suggestions.html) · [`docs/nfl-origination/decision-qa.html`](docs/nfl-origination/decision-qa.html)
 - **Flagged for Review (`NFL-F01`..`NFL-F15`):** [`docs/nfl-origination/flagged.html`](docs/nfl-origination/flagged.html)
 - **Executive Summary & Repo Audit:** [`NFL_ORIGINATION_EXECUTIVE_SUMMARY.md`](NFL_ORIGINATION_EXECUTIVE_SUMMARY.md) · [`audit/NFL_ORIGINATION_REPO_AND_SOURCE_AUDIT.md`](audit/NFL_ORIGINATION_REPO_AND_SOURCE_AUDIT.md)
+- **Independent Final Review (2026-11-13):** [`audit/NFL_FINAL_REVIEW_709D3C80.md`](audit/NFL_FINAL_REVIEW_709D3C80.md) — local checks, source-access boundary, and flagged integration issues.
 - **Engine, Datasets & Verifier:** [`src/nfl_origination/`](src/nfl_origination/) · [`data/nfl_origination/`](data/nfl_origination/) · `python3 scripts/build_nfl_origination.py --check` · `python3 scripts/check_nfl_origination.py`
 - **Peer NFL Week 10 Verification Pack (`3b81013c`):** [`docs/nfl-3b81013c/index.html`](docs/nfl-3b81013c/index.html) (`https://sassnarep3-star.github.io/Own6/docs/nfl-3b81013c/`)
 
