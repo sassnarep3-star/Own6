@@ -124,6 +124,37 @@ An anonymized, zero-inference compliance dashboard and dataset suite covering Sa
 - **Line-by-Line Repo & Source Audit:** [`audit/SF_94122_REPO_AND_SOURCE_AUDIT.md`](audit/SF_94122_REPO_AND_SOURCE_AUDIT.md)
 - **CSV Datasets & Verifier:** [`data/sf_94122/`](data/sf_94122/) · `python3 scripts/build_sf_94122.py --check` · `python3 scripts/check_sf_94122.py`
 
+## NFL Decision, Origination & Depth-Deficiency Command Center (`docs/nfl-309921cc/`) — added 2026-11-13
+
+Session `arena/309921cc-own6`. Built only from pages read directly on official NFL and club sites on
+2026-11-13. A value with no official source is left blank and flagged, never filled in.
+
+- **Live dashboard (16 pages):** [`docs/nfl-309921cc/index.html`](docs/nfl-309921cc/index.html)
+  (`https://sassnarep3-star.github.io/Own6/docs/nfl-309921cc/`)
+- **Decision ledger:** [`data/nfl_309921cc/decision_ledger.csv`](data/nfl_309921cc/decision_ledger.csv) →
+  [`docs/nfl-309921cc/decision-ledger.html`](docs/nfl-309921cc/decision-ledger.html) — 16 questions:
+  what we have, what we lack, how to discover it
+- **Suggestions (review only, nothing auto-applied):** [`data/nfl_309921cc/suggestions.csv`](data/nfl_309921cc/suggestions.csv) →
+  [`docs/nfl-309921cc/suggestions.html`](docs/nfl-309921cc/suggestions.html) — 14 items, all `pending_human_choice`
+- **Measured correlations & luck index:** `data/nfl_309921cc/correlations.csv` ·
+  `data/nfl_309921cc/luck_index.csv` → [`docs/nfl-309921cc/correlations.html`](docs/nfl-309921cc/correlations.html)
+- **Originated lines:** [`data/nfl_309921cc/originated_lines.csv`](data/nfl_309921cc/originated_lines.csv) →
+  [`docs/nfl-309921cc/lines.html`](docs/nfl-309921cc/lines.html)
+- **Injury & depth (1st–4th string, offense and defense):** `data/nfl_309921cc/week10_injuries.csv` (326 rows) ·
+  `data/nfl_309921cc/depth_deficiency.csv` → [`docs/nfl-309921cc/depth.html`](docs/nfl-309921cc/depth.html)
+- **Strategies, gates, leaderboard:** `data/nfl_309921cc/strategies.csv` · `validation_gates.csv` ·
+  `leaderboard_tiers.csv` — 10 preregistered strategies, 12 gates, **0 qualified**
+- **Repository review & flagged items:** `data/nfl_309921cc/repo_findings.csv` (15) ·
+  `data/nfl_309921cc/flagged.csv` (17) → [`docs/nfl-309921cc/flagged.html`](docs/nfl-309921cc/flagged.html)
+- **Engine, datasets, verifier:** [`src/nfl_309921cc/`](src/nfl_309921cc/) ·
+  `python3 scripts/build_nfl_309921cc.py` · `python3 scripts/check_nfl_309921cc.py`
+- **Executive summary:** [`NFL_309921CC_EXECUTIVE_SUMMARY.md`](NFL_309921CC_EXECUTIVE_SUMMARY.md) ·
+  **Repo review:** [`audit/NFL_309921CC_REPO_REVIEW.md`](audit/NFL_309921CC_REPO_REVIEW.md)
+
+**Verified counts:** 32 clubs (sum W = sum L = 136, sum T = 2, sum PF = sum PA = 6,291) · 14 Week 10 games
++ 4 byes · 326 official injury-report rows · 8 correlations measured from the verified standings ·
+16 pages, 695 sourced table rows, 0 `<input>` elements.
+
 ## NFL Fair-Line Origination, Depth-Deficiency & Skill-Gated Leaderboard (`docs/nfl-origination/`)
 
 A pure-stdlib Python 3.11 NFL fair-line origination, starter-vs-backup (`1st`–`4th` string) offensive/defensive depth-deficiency, combo-correlation, and 12-gate anti-luck leaderboard suite. Its official-source register has 28 entries with read dates and scope. A prior 13 Nov 2026 live re-verification recorded all 32 clubs' standings (`136W–136L–2T`, `6,291 PF = 6,291 PA` after WAS 24–NYG 21), a 102-row injury/depth reconciliation and the Week 10 schedule; these are dated source snapshots, not a live feed. All unverified sportsbook prices, calibrated NFL fair lines, empirical outcomes, and paired correlations remain blank. The four bye clubs were confirmed in that review, but their combined slate row remains a formatting/schema issue.

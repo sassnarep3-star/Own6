@@ -473,15 +473,15 @@ if any("Path" not in s["option_paths_for_review"] for s in sug):
 else:
     ok("every suggestion offers at least two option paths")
 flags = read_csv("flagged.csv")
-if len(flags) != 16:
-    err(f"{len(flags)} flags, expected 16")
+if len(flags) != 17:
+    err(f"{len(flags)} flags, expected 17")
 else:
-    ok("16 flagged items")
+    ok("17 flagged items")
 findings = read_csv("repo_findings.csv")
-if len(findings) != 14:
-    err(f"{len(findings)} repo findings, expected 14")
+if len(findings) != 15:
+    err(f"{len(findings)} repo findings, expected 15")
 else:
-    ok("14 repository findings")
+    ok("15 repository findings")
 srcs = read_csv("sources.csv")
 if len(srcs) != 11:
     err(f"{len(srcs)} sources, expected 11")

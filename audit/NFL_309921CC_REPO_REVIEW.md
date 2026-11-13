@@ -33,6 +33,23 @@ Findings that belong to another session's files are logged as requests in `COORD
 | RF-12 | Coordination file size | Low | `COORDINATION.md` is 194,096 bytes; the live task board is buried above many past session sections. |
 | RF-13 | Verification coverage | High | `scripts/check_nfl.py`, `scripts/check_nfl_origination.py` and `scripts/check_site.py` validate link shape and internal resolution; none fetches the external URL. |
 | RF-14 | Data rights | High | NFL.com Terms §1.3 prohibits systematic retrieval to compile a database without express prior written consent. This repository is a compiled database of official tables. |
+| RF-15 | Coverage tooling | Medium | `scripts/source_coverage.py` declares a publisher allowlist with no NFL or NFL-club domain, so 655 of this pack's 693 NFL-sourced rows are reported as coverage gaps. |
+
+## Regeneration note
+
+`scripts/source_coverage.py` scans every `docs/**/*.html` page except its own `docs/coverage/`
+output, and `scripts/audit_repo.py` writes `data/assurance/*` which `scripts/build_assurance.py`
+then renders into `docs/assurance/*`. The three generators therefore depend on each other's output.
+The committed artefacts were produced by iterating the sequence
+`build_nfl_309921cc → build_lab → run_lab → build_assurance → source_coverage → audit_repo`
+until two consecutive passes produced byte-identical files, then verifying with
+`source_coverage.py --check`, `check_assurance.py`, `release_gate.py`, `check_nfl_309921cc.py` and
+the full `pytest` suite.
+
+The coverage tool classifies 655 of this pack's 693 rows as `secondary_reference_only` and 17 as
+`repository_reference_only`, because its PUBLISHERS allowlist contains no NFL domain. Only 21 rows
+register as official, and those are the rows citing NIST. This is logged as NFL3-RF-15 and is a
+request to the tool's owner; this session does not edit that shared script.
 
 ## Verification performed on the official sources
 

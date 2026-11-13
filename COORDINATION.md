@@ -1682,15 +1682,15 @@ The four-workspace landing, README, review report and generated inventories are 
 
 | Task | Status | Owner | Exclusive file scope |
 |---|---|---|---|
-| C1 Repo line-by-line review + cross-pack irregularity register | in progress | `309921cc` | `audit/NFL_309921CC_REPO_REVIEW.md`, `data/nfl_309921cc/repo_findings.csv`, `data/nfl_309921cc/sources.csv` |
-| C2 Decision-readiness ledger (questions / knowns / unknowns / discovery protocol) | unclaimed | `309921cc` | `data/nfl_309921cc/decision_ledger.csv`, `research/nfl_309921cc/DECISION_READINESS.md` |
-| C3 Site-improvement Suggestions review pack (options, recommended path, `pending_human_choice`) | unclaimed | `309921cc` | `data/nfl_309921cc/suggestions.csv`, `research/nfl_309921cc/SUGGESTIONS_REVIEW.md` |
-| C4 Line-origination engine + strategy catalog (singles, parlays, SGP/prop combos) + reward leaderboard | unclaimed | `309921cc` | `src/nfl_309921cc/**`, `data/nfl_309921cc/strategies.csv`, `data/nfl_309921cc/leaderboard.csv`, `data/nfl_309921cc/originated_lines.csv` |
-| C5 Validation gates, luck-removal statistics & measured correlations from verified official data | unclaimed | `309921cc` | `src/nfl_309921cc/validate.py`, `src/nfl_309921cc/correlate.py`, `data/nfl_309921cc/validation_gates.csv`, `data/nfl_309921cc/correlations.csv` |
-| C6 Injury & depth-deficiency tracker (offense + defense, 1st/2nd/3rd/4th string) | unclaimed | `309921cc` | `src/nfl_309921cc/depth.py`, `data/nfl_309921cc/injuries.csv`, `data/nfl_309921cc/depth_deficiency.csv` |
-| C7 Zero-input GitHub Pages dashboard (`docs/nfl-309921cc/`) + executive summary + Flagged for Review | unclaimed | `309921cc` | `NFL_309921CC_EXECUTIVE_SUMMARY.md`, `docs/nfl-309921cc/**`, `scripts/build_nfl_309921cc.py`, `data/nfl_309921cc/flagged.csv` |
-| C8 Automated line-by-line verifier + regression tests + CI workflow | unclaimed | `309921cc` | `scripts/check_nfl_309921cc.py`, `tests/test_nfl_309921cc.py`, `.github/workflows/nfl-309921cc-ci.yml` |
-| C9 Final integration: merge `origin/main`, additive nav link, regenerate derived inventories, run all gates, PR → merge → verify live Pages | unclaimed | `309921cc` | `COORDINATION.md` (append-only), `README.md` (append-only), `docs/index.html` (additive link only), `data/assurance/**`, `docs/assurance/**`, `data/source_coverage/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md` |
+| C1 Repo line-by-line review + cross-pack irregularity register | done | `309921cc` | `audit/NFL_309921CC_REPO_REVIEW.md`, `data/nfl_309921cc/repo_findings.csv`, `data/nfl_309921cc/sources.csv` |
+| C2 Decision-readiness ledger (questions / knowns / unknowns / discovery protocol) | done | `309921cc` | `data/nfl_309921cc/decision_ledger.csv`, `research/nfl_309921cc/DECISION_READINESS.md` |
+| C3 Site-improvement Suggestions review pack (options, recommended path, `pending_human_choice`) | done | `309921cc` | `data/nfl_309921cc/suggestions.csv`, `research/nfl_309921cc/SUGGESTIONS_REVIEW.md` |
+| C4 Line-origination engine + strategy catalog (singles, parlays, SGP/prop combos) + reward leaderboard | done | `309921cc` | `src/nfl_309921cc/**`, `data/nfl_309921cc/strategies.csv`, `data/nfl_309921cc/leaderboard.csv`, `data/nfl_309921cc/originated_lines.csv` |
+| C5 Validation gates, luck-removal statistics & measured correlations from verified official data | done | `309921cc` | `src/nfl_309921cc/validate.py`, `src/nfl_309921cc/correlate.py`, `data/nfl_309921cc/validation_gates.csv`, `data/nfl_309921cc/correlations.csv` |
+| C6 Injury & depth-deficiency tracker (offense + defense, 1st/2nd/3rd/4th string) | done | `309921cc` | `src/nfl_309921cc/depth.py`, `data/nfl_309921cc/injuries.csv`, `data/nfl_309921cc/depth_deficiency.csv` |
+| C7 Zero-input GitHub Pages dashboard (`docs/nfl-309921cc/`) + executive summary + Flagged for Review | done | `309921cc` | `NFL_309921CC_EXECUTIVE_SUMMARY.md`, `docs/nfl-309921cc/**`, `scripts/build_nfl_309921cc.py`, `data/nfl_309921cc/flagged.csv` |
+| C8 Automated line-by-line verifier + regression tests + CI workflow | done | `309921cc` | `scripts/check_nfl_309921cc.py`, `tests/test_nfl_309921cc.py`, `.github/workflows/nfl-309921cc-ci.yml` |
+| C9 Final integration: merge `origin/main`, additive nav link, regenerate derived inventories, run all gates, PR → merge → verify live Pages | done | `309921cc` | `COORDINATION.md` (append-only), `README.md` (append-only), `docs/index.html` (additive link only), `data/assurance/**`, `docs/assurance/**`, `data/source_coverage/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md` |
 
 **Status legend:** `unclaimed` · `in progress` · `done` · `needs review` (published on Flagged for Review; does not block).
 
@@ -1700,3 +1700,56 @@ The four-workspace landing, README, review report and generated inventories are 
 - R1 to `efebf74f` (owner `data/nfl/sources.csv`): `https://www.nfl.com/official-nfl-rules/` returned an official NFL 404 when fetched 2026-11-12 (also flagged by `9e78abc5`). Please repoint `S-NFL-07`-dependent rows to `https://operations.nfl.com/rules-officiating/2026-nfl-rulebook`.
 - R2 to `efebf74f` (owner `data/nfl/sources.csv`): `https://www.nfl.com/terms/` redirects to `https://www.nfl.com/legal/subscriptions_terms`; the general Terms page is `https://www.nfl.com/legal/terms/` (updated May 16, 2024).
 - R3 to `efebf74f` (owner `README.md` / prior handoff text): Pages source is `main:/`, so the live path is `/docs/nfl/`; `/nfl/` returns 404.
+
+### Handoff — session `arena/309921cc-own6` (final, 2026-11-13)
+
+**All nine tasks C1–C9 are `done`.** Branch `arena/309921cc-own6` was rebased onto `origin/main`
+(`744ae13`) before the final integration; the rebase conflicted only in `COORDINATION.md`, and the
+other session's section was preserved in full (mine was re-appended below it).
+
+**Delivered**
+
+| Area | Artefact | Verified count |
+| --- | --- | --- |
+| Decision-readiness ledger | `research/nfl_309921cc/DECISION_READINESS.md`, `data/nfl_309921cc/decision_ledger.csv` | answered / missing / discovery-protocol split |
+| Suggestions review (human chooses; nothing auto-applied) | `research/nfl_309921cc/SUGGESTIONS_REVIEW.md`, `data/nfl_309921cc/suggestions.csv` | every option `pending_human_choice` |
+| Line origination + strategy catalog + reward leaderboard | `src/nfl_309921cc/originate.py`, `strategies.csv`, `leaderboard.csv`, `originated_lines.csv` | singles, parlays, SGP/prop combos |
+| Validation gates, luck removal, correlations | `src/nfl_309921cc/validate.py`, `correlate.py`, `validation_gates.csv`, `correlations.csv` | fail-closed: 0 strategies certified, leaderboard empty |
+| Injury & depth deficiency (1st–4th string, offense + defense) | `src/nfl_309921cc/depth.py`, `depth.py`/`dataset.py`, `depth_deficiency.csv` | 6 non-zero deficiencies; see correction note below |
+| Zero-input dashboard | `docs/nfl-309921cc/` | 16 pages, 695 sourced table rows, 0 `<input>` elements |
+| Executive summary | `NFL_309921CC_EXECUTIVE_SUMMARY.md` | — |
+| Repo review | `audit/NFL_309921CC_REPO_REVIEW.md`, `repo_findings.csv` | 15 verified irregularities (RF-01…RF-15) |
+| Flagged for Review | `data/nfl_309921cc/flagged.csv`, `docs/nfl-309921cc/flagged.html` | 17 items (F01–F17) |
+
+**Correction shipped during validation (do not revert).** The "next available backup" resolver in
+`src/nfl_309921cc/dataset.py` originally returned the very next listed string even when that player
+was ruled `Out`. It now requires `designation != "Out"`. Corrected NE RB row: active = 1st
+(Rhamondre Stevenson, Questionable), next available = **3rd string Corey Kiner** (2nd TreVeyon
+Henderson is Out), 4th = Lan Larison. Regression test:
+`tests/test_nfl_309921cc.py::test_second_string_out_behind_questionable_starter`.
+
+**Shared generated artefacts regenerated (C9 integration).** The generators depend on each other's
+output (`audit_repo → build_assurance → source_coverage → audit_repo`), so the committed files were
+produced by iterating `build_nfl_309921cc → build_lab → run_lab → build_assurance →
+source_coverage → audit_repo` until two consecutive passes were byte-identical. Touched:
+`data/assurance/**`, `docs/assurance/**`, `data/source_coverage/**`, `docs/coverage/**`,
+`audit/SOURCE_COVERAGE.md`, plus an additive nav link / category card / archive entry in
+`docs/index.html` and a new README section.
+
+**Gates run locally, all green:** `check_nfl_309921cc.py` (75 checks) · `source_coverage.py --check` ·
+`check_assurance.py` (9 pages, 4,850 rows, all official HTTPS) · `check_lab.py` · `check_report.py` ·
+`audit_repo.py` (523 files / 47,351 lines / 4,135 records / 17 findings) · `tools/release_gate.py`
+(0 issues) · `pytest -q tests` (302 passed).
+
+**Sandboxed-environment note for the next session.** The clone is shallow by default;
+`scripts/audit_repo.py` needs `git fetch --unshallow origin` or it fails on
+`git show 86eca0f:scripts/model.py`. System `pip` is PEP 668 managed, so
+`scripts/run_lab.py` needs `python3 -m venv .venv && .venv/bin/python -m pip install -r
+requirements-empirical.txt` before `pytest`.
+
+**New cross-session request:**
+- R4 to the owner of `scripts/source_coverage.py`: the tool's declared `PUBLISHERS` allowlist
+  contains no NFL or NFL-club domain, so 655 of this pack's 693 NFL-sourced rows are reported as
+  `secondary_reference_only` (and 17 as `repository_reference_only`); only the 21 rows citing NIST
+  register as official. This is logged as `NFL3-RF-15` / `NFL3-F17`. This session did **not** edit
+  that shared script — it only asks the owner to add the NFL publishers the repository already cites.

@@ -30,9 +30,9 @@ easiest way to mistake luck for skill.
 | **Measured** correlations and luck index | `correlations.csv`, `luck_index.csv` | 8 correlations + 32-row luck decomposition |
 | Originated fair spread and total | `originated_lines.csv` | 13 scheduled games modelled |
 | Leaderboard and rewards | `leaderboard_tiers.csv`, `leaderboard_entries.csv` | 4 tiers, 10 entries, 0 rewards awarded |
-| Repository review | `repo_findings.csv` | 14 verified irregularities |
-| Flagged for review | `flagged.csv` | 16 blank or unresolved items |
-| Zero-input dashboard | `docs/nfl-309921cc/` | 16 pages, 693 sourced table rows, 0 `<input>` elements |
+| Repository review | `repo_findings.csv` | 15 verified irregularities |
+| Flagged for review | `flagged.csv` | 17 blank or unresolved items |
+| Zero-input dashboard | `docs/nfl-309921cc/` | 16 pages, 695 sourced table rows, 0 `<input>` elements |
 
 ## 3. Verified numbers (read from official pages, not modelled)
 
@@ -125,7 +125,7 @@ Every one is `pending_human_choice`. The highest-impact ones:
 
 ## 8. Repository review — irregularities found
 
-Fourteen findings, each with evidence and a link. The four that change what should happen next:
+Fifteen findings, each with evidence and a link. The four that change what should happen next:
 
 1. **NFL3-RF-14 (High) — rights.** NFL.com Terms §1.3 permits individual non-commercial
    informational use and prohibits systematic retrieval to compile a database without express prior
@@ -138,6 +138,11 @@ Fourteen findings, each with evidence and a link. The four that change what shou
    final, but the standings table still shows both clubs with pre-game records.
 4. **NFL3-RF-13 (High) — checkers validate link shape, not liveness.** No existing checker fetches
    the external URL, which is how 71 dead citations reached publication.
+
+5. **NFL3-RF-15 (Medium) — the shared coverage tool has no NFL publisher.** `scripts/source_coverage.py`
+   declares a publisher allowlist that contains no NFL or NFL-club domain, so rebuilding the coverage
+   artifacts classifies 655 of this pack's 693 NFL-sourced rows as `secondary_reference_only`. The
+   label is a policy gap in the shared tool, not missing evidence in this pack.
 
 Also logged: the NBA-only root redirect, four competing NFL packs, the subscription-terms page
 cited as the general terms, an unreadable injury-policy PDF, proposed thresholds published in value
