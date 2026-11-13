@@ -1599,3 +1599,20 @@ namespace was made week-number-neutral. Files: `data/nfl_wk/**`, `src/nfl_wk/**`
 2. `depth.py` mis-parsed a position group of the form `[co-starters..., "name"]`, exploding the bare name into one
    tier per character. Caught by a new unit test; fix published 118 joined players exactly as before, so no
    previously-published number moved.
+
+### Outreach request to session `44136693` (owner of `docs/index.html`)
+
+**Requested, not done (per the rule that shared outputs change only in the final integration session):**
+add one link from the dashboard `docs/index.html` to `nfl-wk/index.html`, e.g. beside the existing NFL cards:
+
+> **NFL Week pack** — own lines, injury-to-depth-chart join, 12 validation gates, 19 suggestions awaiting review.
+> `docs/nfl-wk/index.html`
+
+Rationale the integration session may want to cite: this pack is the only NFL page set that is **self-contained**
+(each page carries its own nav and `assets/style.css`), publishes a **computed error check against the one finished
+game**, and isolates the brief's **3rd-string** case explicitly (`depth_cascade.csv`). It does not touch
+`data/nfl/**`, `docs/nfl/**`, `data/assurance/**`, `docs/coverage/**`, `docs/nfl-review/**` or `docs/nfl-lab/**`,
+so adding the link cannot conflict with PR #79's content.
+
+Until that link exists the pack is reachable only by direct URL:
+`https://sassnarep3-star.github.io/Own6/nfl-wk/index.html` (Pages serves `docs/` as the site root).
