@@ -1468,3 +1468,10 @@ Replacement official pages read directly on 2026-11-13: `https://www.nfl.com/inj
 - The Flagged page's "Alberta resources" lines (AGLC helpline numbers and an `aglc.ca/training/...` link for the AHS helpline) were not re-verified in this session.
 - PR #68 (`34dacba5`) remains open and CONFLICTING; it was not touched.
 - The 2017 injury-policy PDF has no located live replacement; F-NFL-03 stays open.
+
+### Final record — PR #76 (session 5a49ead3, NFL-R1 follow-up)
+
+- **PR #76:** https://github.com/sassnarep3-star/Own6/pull/76 — **MERGED** 2026-11-13T21:36:40Z, merge commit `75b7ae65d9dcc4ee84baab1446df6e204dcf79b5` (`gh pr merge --merge`). All 11 required checks passed on head `6229193` before merge.
+- **GitHub Pages:** build for `75b7ae6` reached `built` (`error: null`). Live read of `https://sassnarep3-star.github.io/Own6/docs/nfl/injuries.html` shows the corrected 404-policy wording and the live 2026 league-page link.
+- **New flag F-NFL-14 (medium):** `data/nfl/injury_tracking.csv` row `inactive_list` states a 90-minute inactive-list rule and cites the NFL.com homepage, which does not contain that rule. Row remains blank/unverified; the flag is published on `docs/nfl/flagged.html`.
+- **Record PR:** this record commit (F-NFL-14, heading to F-NFL-01…14) is merged as a separate PR, so this file records its own merge result only in the session's final message, per the convention used by earlier sessions.
