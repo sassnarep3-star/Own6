@@ -151,7 +151,7 @@
 
   <main id="main" class="shell">
     <section class="status-row" aria-label="Current NFL research status">
-      <div class="stat"><span class="label">Strategy board</span><strong>0 of 10 qualified</strong><small>All candidates remain unqualified pending licensed evidence.</small></div>
+      <div class="stat"><span class="label">Main Origination board</span><strong>0 of 10 qualified</strong><small>All primary candidates remain unqualified pending licensed evidence.</small></div>
       <div class="stat"><span class="label">Observed correlations</span><strong>Blank · unverified</strong><small>Combo examples are illustrative, not measured NFL coefficients.</small></div>
       <div class="stat"><span class="label">Injury &amp; depth</span><strong>Static snapshot</strong><small>No connected real-time injury or depth feed is configured.</small></div>
     </section>
@@ -182,8 +182,9 @@
         <div>
           <p class="eyebrow">Review before changing the system</p>
           <h2 id="suggestions-title">Suggestions are proposals—not automatic changes.</h2>
-          <p>The dedicated Suggestions page lays out alternatives, trade-offs, prerequisites, effort, and review status. All 14 entries are marked <code>pending_human_choice</code>; no proposal is silently applied by this landing page.</p>
-          <a class="plain-link" href="docs/nfl-origination/suggestions.html">Open the Suggestions review page →</a>
+          <p>The main Origination Suggestions page lays out alternatives, trade-offs, prerequisites, effort, and review status; its 14 entries remain <code>pending_human_choice</code>. The separate NFL Week pack has its own 19 suggestions. Neither register auto-applies proposals.</p>
+          <a class="plain-link" href="docs/nfl-origination/suggestions.html">Review Origination suggestions →</a><br>
+          <a class="plain-link" href="docs/nfl-wk/suggestions.html">Review NFL Week pack suggestions →</a>
         </div>
         <ol class="checklist">
           <li>Compare the available paths and their reversibility.</li>
@@ -215,9 +216,15 @@
         </article>
         <article class="pack">
           <span class="pack-id">Supporting verification pack</span>
-          <h3>Week 10 verification</h3>
-          <p>Independent NFL Week 10 input, standings, depth, and correlation audit trail. Its separate line page is an illustrative model output with uncalibrated assumptions.</p>
-          <a class="plain-link" href="docs/nfl-3b81013c/index.html">Open Week 10 pack →</a>
+          <h3>NFL 3B81013C</h3>
+          <p>Independent Week 10 input, standings, depth, and correlation audit trail. Its line page uses declared uncalibrated assumptions; outputs are not market prices.</p>
+          <a class="plain-link" href="docs/nfl-3b81013c/index.html">Open 3B81013C pack →</a>
+        </article>
+        <article class="pack">
+          <span class="pack-id">Supporting self-contained week pack</span>
+          <h3>NFL Week pack</h3>
+          <p>A separate 13-page workspace with its own source register, originated lines, injury-to-depth join, questions, suggestions, and 12 validation gates. Its 11 strategy candidates remain quarantined; no market prices are published.</p>
+          <a class="plain-link" href="docs/nfl-wk/index.html">Open NFL Week pack →</a>
         </article>
       </div>
     </section>
@@ -234,9 +241,9 @@
         <p>Review the <a href="data/nfl_origination/week10_slate_and_lines.csv">current slate row</a>, the <a href="https://www.nfl.com/schedules/2026/by-week/week-10">NFL.com Week 10 schedule ↗</a>, and the <a href="audit/NFL_LIVE_REVERIFICATION_2026_11_13.md">13 Nov reconciliation record</a>.</p>
       </div>
       <div class="review-box">
-        <h3>Do not mistake worked line calculations for verified prices</h3>
-        <p>The supporting Week 10 pack explicitly describes its originated lines as calculations using uncalibrated priors. They are not official values, market quotes, or evidence of a profitable edge. The main origination leaderboard remains unqualified while licensed data and validation are absent.</p>
-        <p>Review the <a href="docs/nfl-3b81013c/lines.html">worked line page</a>, its <a href="docs/nfl-3b81013c/flagged.html">Flagged for Review register</a>, and the <a href="https://www.nfl.com/standings/division/2026/reg">official NFL standings input ↗</a>.</p>
+        <h3>Do not mistake model-generated lines for market prices</h3>
+        <p>The 3B81013C pack labels its worked lines as calculations from uncalibrated priors; the separate NFL Week pack reports line estimates computed from official standings for unplayed games. Neither pack publishes sportsbook quotes or establishes a profitable edge. The main Origination leaderboard remains 0/10 qualified, and the Week pack's 11 strategies remain quarantined.</p>
+        <p>Review the <a href="docs/nfl-3b81013c/lines.html">3B81013C worked lines</a>, <a href="docs/nfl-wk/own-lines.html">NFL Week own lines</a>, <a href="docs/nfl-wk/flagged.html">Week pack flags</a>, and the <a href="https://www.nfl.com/standings/division/2026/reg">official NFL standings ↗</a>.</p>
       </div>
       <div class="review-box">
         <h3>Suggestions register needs a post-integration state check</h3>
