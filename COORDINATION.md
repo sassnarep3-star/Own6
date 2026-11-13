@@ -1536,3 +1536,32 @@ Claim log: 2026-11-13 — claimed X1–X4 after reading the board, `origin/main`
 **Follow-up (docs/data only, same session):** W10-G01 records corrected to 3-5-1 / 5-3-1 from the nfl.com schedule page (`line_status` now marks records as post-game); this entry reaches `main` through the follow-up docs PR titled "record PR #77 merge and W10-G01 final records (session 4fc2fd57)".
 
 **Open items carried forward (non-blocking):** Puka Nacua row (no official row source); Brissett acquisition (NFL-F22, press only); Seahawks 53-man QB3 (not re-read); NFL-F24 (broadcast cells and Munich venue wording, owner `c1125799`); NFL-F25 (rules citations resolve to 2025 content, owner `8132a3b1`); W10-BYE four-club row packing (format); the Assurance and lab checks passed on `main` for `8450f1e`.
+## Session `arena/0a988733-own6` — NFL Week 11 live-verified pack, own-line engine, skill gates & suggestions review (2026-11-13)
+
+**Platform branch constraint (logged deviation):** Arena fixes this session to branch `arena/0a988733-own6`
+(creating `session-<id>/<task>` branches is disallowed). Base commit at claim time: `d18f495` (= `origin/main`).
+
+**Concurrency check before claiming:** open PR **#68** (`arena/34dacba5-own6`) owns `data/nfl/**`,
+`docs/nfl/**`, `data/assurance/**`, `data/source_coverage/**`, `docs/coverage/**`, `NFL_EXECUTIVE_SUMMARY.md`;
+open PR **#72** (`arena/3b81013c-own6`) owns `COORDINATION.md`, `data/assurance/**`, `data/source_coverage/**`,
+`docs/coverage/**`, `docs/assurance/repo-audit.html`. **This session therefore edits none of those paths.**
+It reads `data/nfl/**` and `docs/nfl/**` read-only and builds a new, disjoint namespace.
+
+### Claim (recorded before any work)
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| W1 Coordination claim (this block) committed and pushed before work | in progress | `0a988733` | `COORDINATION.md` (append-only) |
+| W2 Fresh official-source read: 2026 Week 11 slate, 32-club standings, Week 11 injury report, NFL terms, injury policy, roster/rules pages | unclaimed → claimed | `0a988733` | `data/nfl_w11/sources.csv` |
+| W3 Verified Week 11 slate + standings datasets (every row source-linked) | claimed | `0a988733` | `data/nfl_w11/week11_slate.csv`, `data/nfl_w11/standings_2026_w11.csv` |
+| W4 Week 11 injury report + offensive/defensive starter-vs-backup depth-deficiency analysis | claimed | `0a988733` | `data/nfl_w11/injuries_week11.csv`, `data/nfl_w11/depth_deficiency.csv` |
+| W5 Own-line origination (spread/total/win-prob) computed from official inputs; luck-vs-skill decomposition | claimed | `0a988733` | `data/nfl_w11/own_lines.csv`, `data/nfl_w11/luck_skill.csv`, `src/nfl_w11/**` |
+| W6 Strategy competition: singles, parlays, player-prop combos; validation gates; correlation specs; leaderboard + rewards | claimed | `0a988733` | `data/nfl_w11/strategies.csv`, `data/nfl_w11/validation_gates.csv`, `data/nfl_w11/correlations.csv`, `data/nfl_w11/leaderboard.csv` |
+| W7 Decision-readiness Q&A (what we know / do not know / how to discover it) + requirement trace | claimed | `0a988733` | `data/nfl_w11/decision_qa.csv`, `data/nfl_w11/requirements_trace.csv` |
+| W8 Dedicated Suggestions review section with an explicit choose-before-implement workflow | claimed | `0a988733` | `data/nfl_w11/suggestions.csv` |
+| W9 Zero-manual-input dashboard `docs/nfl-w11/` + builder/checker/tests/CI + executive summary | claimed | `0a988733` | `docs/nfl-w11/**`, `scripts/build_nfl_w11.py`, `scripts/check_nfl_w11.py`, `tests/test_nfl_w11.py`, `.github/workflows/nfl-w11-ci.yml`, `NFL_W11_EXECUTIVE_SUMMARY.md`, `research/nfl_w11/**` |
+| W10 Final integration: additive nav links only, PR to `main`, merge, live Pages confirmation, record result | unclaimed | `0a988733` | `COORDINATION.md` (append-only), `README.md` (append-only), `docs/index.html` (additive link only) |
+
+**Rules this session follows:** no value is published unless it was read from an official source during this
+session or computed by committed code from such values; unconfirmed cells stay blank and appear on
+`docs/nfl-w11/flagged.html`; no market price, ROI, CLV or reward payout is invented.
