@@ -5,7 +5,7 @@ docs/assurance/flagged.html,4f8df26a6a187a95ba6e872be8b9a16cae0b9fdbe94849121186
 docs/assurance/index.html,c3f4fb01c9f947a9d4e64cc16ec6014bda9a8a58c7ee73d1d824dad4e990799a,4,0,4,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/index.html
 docs/assurance/leaderboard.html,84deb8de2e9ec81e7255d469a43548dbde5aa46ac562f7fb540f9c9633ed68e7,1,1,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/leaderboard.html
 docs/assurance/lines.html,2d5b7828dba3bd886311890c89d73be0e2297f2deeb00cc48171ef4d4b00744c,6,6,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/lines.html
-docs/assurance/repo-audit.html,6562fe4f2bda25e499495130b6b72e9866ec538aebe01d5fece52544486061c3,2826,2401,425,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/repo-audit.html
+docs/assurance/repo-audit.html,1dd310998503228ded2d699b8016b959843088daec48ee85543e5246af840c5e,2826,2401,425,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/repo-audit.html
 docs/assurance/sources.html,9ba30cd3ba03ccc6d3664ecef7854d570f0de1514b6e2dd34f3d53cb989cc1bc,22,21,1,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/sources.html
 docs/assurance/strategies.html,ac8dbe0d3c5e918cabb8cc6387499d049217007b6fc1db5077ee84db5a3f765e,6,6,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/strategies.html
 docs/assurance/validation.html,fd125c702155effff9a982837b3321f1ef465d0d8038b21ca3ae50e4165cf319,10,9,1,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/validation.html
@@ -46,14 +46,14 @@ docs/lab/strategies.html,30d244bb2a5e7149563a7701e413c448a21af7cf0e35ee2276a6487
 docs/leaderboard.html,3e75fe4ae9dbc859c40a0a04461b218886b5599fdd20125c516335c834d92d5a,1,1,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/leaderboard.html
 docs/nfl/correlations.html,f55ab0a7c6b500140576152f8748ff6f510ad6f15e868ec9ac2a2048e5daf1af,8,3,0,5,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl/correlations.html
 docs/nfl/depth.html,489d0823aac5cb9e917b9f151f0fbe3b6485445285924d52188ee605d89ea396,9,0,0,9,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl/depth.html
-docs/nfl/flagged.html,1e4aaca45550abf085c01aef0d798e6aa5600b12b7d1caa4e5ab73cf5480187e,13,7,0,6,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl/flagged.html
-docs/nfl/index.html,85f94090993085b7266031f3978531e62f709a8e71e96343a9f44551186c9a5a,16,7,0,9,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl/index.html
-docs/nfl/injuries.html,f88f934b20122d247cf7368650a4a46353d239b0b3dd4a92677912c4472e9ffd,10,0,0,10,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl/injuries.html
+docs/nfl/flagged.html,0a536eea8e92ac70c01d97431678b994baf6f0ebab1a4e7395cf7836e67cdd0c,13,7,0,6,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl/flagged.html
+docs/nfl/index.html,ac16c34fb99acbb7656b5a47b377222d33d76220e6ba1943febc34f970aad0c9,16,7,0,9,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl/index.html
+docs/nfl/injuries.html,45c9a887f7ae08573fcdc458113ba9e839114c144e36a8a91e1f6affe61215b5,10,0,0,10,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl/injuries.html
 docs/nfl/leaderboard.html,fec785c80cc13cae06b306db42a12c129dcd17aa66bbb6adb867938bb006e4d3,1,1,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl/leaderboard.html
 docs/nfl/lines.html,e2b7733abc550efe3e646370ca2f750baca9a2ad421c58fc28419096b74ca63a,10,5,0,5,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl/lines.html
 docs/nfl/questions.html,8d1f931e6acc9d3b7d6dfc4ae1d6583b87a810eaf18c368b647a751704573095,10,4,0,6,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl/questions.html
 docs/nfl/requirements.html,11649d5b15909375e2b44655f43d16636b7b8bd039067ba669c5a6484cb5ee8b,18,5,0,13,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl/requirements.html
-docs/nfl/sources.html,f68f1d80c864458a21cd6c0e14499ff52574fe1b09d5f9ccb6a150ad3443fb91,26,12,0,14,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl/sources.html
+docs/nfl/sources.html,ee1afeb13c9d3232d9a6b469d5b1c1ae864bfab48efb86f2601186925d3e9d64,26,12,0,14,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl/sources.html
 docs/nfl/strategies.html,7a1712fd7d7b8d10167e8098b989c6bd7d6578963de2f2fe97ff261209c58a8d,10,5,0,5,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl/strategies.html
 docs/nfl/suggestions.html,e121e09945d14e0ce43451ae080f04009bfd759eca245ee81ebc9957da015dd1,3,0,0,3,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl/suggestions.html
 docs/nfl/validation.html,005599908582170d6ee1ad2ad12157663089ba3e536c189c4897c340aba42fa3,10,8,0,2,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl/validation.html
