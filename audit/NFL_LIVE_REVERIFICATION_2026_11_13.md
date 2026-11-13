@@ -25,7 +25,7 @@
   - **43 named backups not on the report**, so the "Active Expected" label was not supported and was removed.
   - **1 starter omitted** (Arizona's Carson Beck, headline only).
   - **1 press-only claim** (Brissett, below).
-  - **2 unverified and not re-read** (Kirk Cousins trade; the Seahawks 53-man QB3).
+  - **1 unverified and not re-read** (the Seahawks 53-man QB3). The Kirk Cousins trade is now `NEWS_SUPPORTED` by an nfl.com article read on 13 Nov (LC-044; NFL-F23).
 - **Lamar Jackson.** The repo said "minimum 4 games". The 13 Nov roundup reports coach Jesse Minter saying he is expected to miss **6–10 weeks** after surgery on a broken and dislocated right thumb. The repo now records the coach's statement.
 - **Sam Darnold.** nfl.com's news headline says he was ruled out; the report table lists him as DNP with no game status. The two official items conflict, so the conflict is recorded (NFL-F20).
 
@@ -47,7 +47,17 @@
 | NFL-F20 | medium | nfl.com's news headline and report table disagree on Darnold. |
 | NFL-F21 | medium | Starting QB for Arizona (Carson Beck, headline only) missing from the depth table. |
 | NFL-F22 | high | Brissett's Baltimore move is press-only; no official transaction page was read. |
-| NFL-F23 | medium | Kirk Cousins trade not re-read. |
+| NFL-F23 | low | Kirk Cousins trade confirmed by an nfl.com article (13 Nov); exact date and depth slot not confirmed. |
+| NFL-F24 | medium | W10-G02, G05, G12 broadcast cells (NFL-V1) and W10-G02 venue wording not supported by the nfl.com pages read; not edited here. |
+| NFL-F25 | low | The featured-rules link resolves, but its content is the 2025 rules page (10 citations in the pack). |
+
+## 4a. Post-rebase checks (13 Nov, after `origin/main` 05f93ac)
+
+- **Schedule page, all three chunks read.** The 14 Week 10 games match the repo. The "Teams on Bye" block lists CHI 7-2, DEN 7-2, PHI 2-7, and TB 3-6, which matches `W10-BYE`. NFL-V1's open item on CHI and TB is resolved. The malformed packing of four clubs into one row is a format issue and remains open.
+- **Broadcasts.** The schedule page shows FOX for MIN@GB and SF@DAL, and FOX "+1" for NE@DET and SF@DAL. The nfl.com "How to watch" article says the Munich game is on NFL Network. Neither page names "FOX One". NFL-F24 records the conflict, and the cells are left for their owner to correct.
+- **Rules citations.** `operations.nfl.com/rules-officiating/featured-rules` resolves, but it shows the 2025 rules changes (NFL-F25). The 2026 rulebook link is separate.
+- **Emergency 3rd QB and contract-language pages** resolve. Used only for rule definitions; the contract page's pay amounts are for 2025 and are not used in the pack.
+- **Cousins.** The nfl.com "How to watch" article says the Vikings acquired QB Kirk Cousins from the Raiders at the trade deadline and that he is "in line to start" (LC-044, NFL-F23).
 
 ## 5. What was not verified in this session (carried forward honestly)
 
