@@ -1616,3 +1616,15 @@ so adding the link cannot conflict with PR #79's content.
 
 Until that link exists the pack is reachable only by direct URL:
 `https://sassnarep3-star.github.io/Own6/nfl-wk/index.html` (Pages serves `docs/` as the site root).
+
+## Session arena/709d3c80-own6 — NFL independent final review and root landing integration (2026-11-13)
+
+**Branch constraint:** Arena fixes this session to `arena/709d3c80-own6`; no other branch or worktree will be created or used. The checkout starts at `d18f495` (`origin/main`). The NFL data, research, model, verifier, and three dashboards have already been completed by the sessions above; this session will not duplicate or overwrite those files.
+
+### Claim (before work)
+
+| Task | Status | Owner | Exclusive scope |
+|---|---|---|---|
+| NFL-FI1 Independent combined-tree audit; root GitHub Pages landing integration; correct stale NFL live-path documentation; publish an evidence-bounded release review | in progress | `709d3c80` | `audit/NFL_FINAL_REVIEW_709D3C80.md` (new), `index.html` (root Pages integration only), `README.md` (append-only/correct NFL links), `COORDINATION.md` (append-only) |
+
+**Claim boundaries:** Treat already-completed owners' `data/nfl*`, `src/nfl*`, `research/NFL*`, `docs/nfl*`, and build/checker files as read-only. Do not change any published source-linked value without a direct official-source verification. If evidence cannot be re-read from the allowed environment, record that limitation and request review rather than infer a replacement. Shared root landing integration is undertaken only after confirming the prior task boards are complete; every existing dashboard remains linked and preserved.
