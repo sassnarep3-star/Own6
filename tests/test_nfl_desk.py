@@ -502,11 +502,32 @@ def test_ledger_reconciles_the_settled_thursday_result_exactly() -> None:
     assert pct and all(r["disposition"] == "SUPERSEDED_RECONCILED" for r in pct)
 
 
+def test_repo_audit_reports_the_base_pin_whether_or_not_this_clone_is_shallow() -> None:
+    """RA-09 must not blink: the coupling exists either way, only its severity tracks the environment."""
+    real = audit._audit_base_state
+    try:
+        audit._audit_base_state = lambda: [{"script": "scripts/audit_repo.py", "ref": "86eca0f" * 5,
+                                           "reachable": False}]
+        rows = [r for r in audit.repo_checks() if r["finding_id"] == "RA-09"]
+        assert len(rows) == 1 and rows[0]["severity"] == "medium", rows
+        assert "not present in this clone" in rows[0]["evidence_computed_here"]
+        audit._audit_base_state = lambda: [{"script": "scripts/audit_repo.py", "ref": "86eca0f" * 5,
+                                            "reachable": True}]
+        rows = [r for r in audit.repo_checks() if r["finding_id"] == "RA-09"]
+        assert len(rows) == 1 and rows[0]["severity"] == "low", rows
+        assert "full clone" in rows[0]["finding"]
+        audit._audit_base_state = lambda: []
+        assert not [r for r in audit.repo_checks() if r["finding_id"] == "RA-09"], \
+            "a repo with no BASE pin must not invent the finding"
+    finally:
+        audit._audit_base_state = real
+
+
 def test_repo_checks_are_computed_not_transcribed() -> None:
     rows = audit.repo_checks()
     assert len(rows) == 9
     by_id = {r["finding_id"]: r for r in rows}
-    assert "BASE=" in by_id["RA-09"]["evidence_computed_here"], (
+    assert "BASE=" in by_id["RA-09"]["evidence_computed_here"] and "clone" in by_id["RA-09"]["evidence_computed_here"], (  # noqa: E501
         "the unreachable-base finding is computed from the scripts and the clone, so it must name a ref")
     for r in rows:
         assert r["read_date"] == "2026-11-13"

@@ -457,17 +457,40 @@ def repo_checks() -> list[dict]:
     add("info", "data/nfl/injury_tracking.csv", "Prior 'injury tracking' register is a field dictionary, not tracked data",
         f"{len(dup)} rows, all defining capture rules with blank example values; no per-player Week 10 designations "
         "existed anywhere in the repo before this pack", "verified_by_code_read")
-    stale = _unreachable_audit_bases()
-    if stale:
-        add("medium", "scripts", "Two audit scripts diff against commits that are not reachable from this branch",
-            "; ".join(stale) + " - both exit with CalledProcessError instead of reporting, so a gate that looks "
-            "like it is comparing against a baseline is in fact not running", "flagged")
+    state = _audit_base_state()
+    if state:
+        unreachable = [x for x in state if not x["reachable"]]
+        detail = "; ".join(
+            f"{x['script']} pins BASE={x['ref'][:12]} - " + ("not present in this clone" if not x["reachable"]
+                                                             else "present here, but only because this clone is complete")
+            for x in state)
+        if unreachable:
+            add("medium", "scripts",
+                "Two audit scripts diff against commits that are not reachable from this branch",
+                detail + " - both exit with CalledProcessError instead of reporting, so a gate that looks like it "
+                "is comparing against a baseline is in fact not running. The refs exist in the remote, so any "
+                "shallow clone (the default `actions/checkout` depth, and this sandbox before it was unshallowed) "
+                "silently skips the audit; CI passes only because that workflow fetches depth 0",
+                "flagged")
+        else:
+            add("low", "scripts",
+                "Two audit scripts are only reproducible in a full clone, because they diff against one hard-coded commit",
+                detail + " - a shallow clone makes both crash instead of reporting, so the assurance figures they "
+                "write (data/assurance/**) can only be regenerated where history is complete. This pack's clone "
+                "was unshallowed on 2026-11-13 so scripts/audit_repo.py could regenerate the committed inventory, "
+                "which CI then requires to be current",
+                "flagged")
     return out
 
 
-def _unreachable_audit_bases() -> list[str]:
-    """BASE refs in the repo's own audit scripts, checked against this clone."""
-    out: list[str] = []
+def _audit_base_state() -> list[dict]:
+    """BASE refs in the repo's own audit scripts, checked against this clone.
+
+    The finding is reported either way: what changes with the environment is the severity, not whether the
+    coupling exists. A register row that appears and disappears depending on how deep the reader's clone happens
+    to be is worse than one that states its own conditions.
+    """
+    out: list[dict] = []
     for script in ("scripts/audit_repo.py", "scripts/audit_sources.py"):
         path = ROOT / script
         if not path.exists():
@@ -478,8 +501,7 @@ def _unreachable_audit_bases() -> list[str]:
         ref = base.group(1)
         probe = subprocess.run(["git", "cat-file", "-e", f"{ref}^{{commit}}"], cwd=ROOT,
                                capture_output=True, text=True)
-        if probe.returncode != 0:
-            out.append(f"{script} pins BASE={ref[:12]}, which this clone does not contain")
+        out.append({"script": script, "ref": ref, "reachable": probe.returncode == 0})
     return out
 
 

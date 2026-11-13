@@ -102,8 +102,11 @@ Nine further findings come from the working tree itself (`repo-audit.html`), inc
 re-computed rather than copied: the committed CSVs mix CRLF and LF line endings (a prior audit's count of 16
 is stale), there is still no root `LICENSE` so reuse terms for the registers are undefined, the root landing
 page framed the whole repository as NBA research while four NFL sections are live, and two of the repo's own
-audit scripts diff against hard-coded commits that this clone cannot reach — so `scripts/audit_repo.py` and
-`scripts/audit_sources.py` crash instead of reporting, which looks like a passing gate and is not one.
+audit scripts are only reproducible in a **full** clone: `scripts/audit_repo.py` and `scripts/audit_sources.py`
+diff against one hard-coded `BASE` commit, so a shallow clone (the default checkout depth) makes them crash
+instead of reporting, and the generated `data/assurance/**` inventory they write silently goes stale. This pack
+hit both halves of that — the clone was unshallowed so the inventory could be regenerated for CI, and while it
+could not be, the scripts looked like a failing gate rather than a missing input.
 
 ## 4. The two failing gates, in plain words
 
