@@ -1380,3 +1380,15 @@ N10 verification will regenerate `data/assurance/**` and `docs/assurance/**` aft
   - **GitHub Pages Deployment**: `pages-build-deployment` run `43267040828` (Pages API build `1363779241`) completed with `status: built` (`2026-11-12T17:13:33Z`, `error: null`); all 12 post-merge `main` CI workflows succeeded.
   - **Live URLs Verified**: `https://sassnarep3-star.github.io/Own6/docs/nfl-origination/index.html`, `suggestions.html`, `flagged.html`, and `https://sassnarep3-star.github.io/Own6/docs/index.html` fetched and verified live.
 
+---
+
+## Session `arena/545f7155-own6` — NFL current-source/path recheck & corrective integration (2026-11-13)
+
+### Task board (claim)
+| Task | Status | Owner | Exclusive files / integration scope |
+|---|---|---|---|
+| F1 Independently recheck published NFL source URLs and whether they support the linked claims; record current official-source evidence, unsupported claims, and required blank/flag handling | in progress | `545f7155` | `audit/NFL_FOLLOWUP_545F7155.md`, `data/nfl_followup_545f7155/official_source_audit.csv`, `docs/nfl-followup-545f7155/**`, `scripts/check_nfl_followup_545f7155.py`, `tests/test_nfl_followup_545f7155.py` |
+| F2 Final integration: publish the review page, correct the known broken NFL README URL, add one additive link from the shared Docs landing, rerun relevant repository/site checks, and record PR/Pages outcome | in progress | `545f7155` | Integration-only shared edits: one NFL live-URL correction in `README.md`, one additive link in `docs/index.html`, append-only `COORDINATION.md`; F1-owned files above |
+
+**Claim record:** Read the coordination board, audited the existing NFL deliverables and live Pages path, and inspected open PRs before claiming. Existing NFL work on `main` already covers the requested line-origination framework, decision Q&A, review-only suggestions, validation, injury/depth tracking, executive summary and Flags page; this session will independently recheck source-to-claim support and live paths rather than duplicate those packs. The stale README NFL URL is `https://sassnarep3-star.github.io/Own6/nfl/` (the current Pages source is `main:/`, so the repository's `/docs/nfl/` page is the published path). Open PR #68 has an unsuccessful `build-and-verify` check; PR #72 is conflicting and contains only coordination/derived-coverage reconciliation. No files in either PR's exclusive scope are claimed or edited by this session.
+
