@@ -6,7 +6,7 @@ No statistical method removes randomness from betting. This protocol reduces avo
 
 ## 1. Rights and data boundary (G01)
 
-[NFL Terms](https://www.nfl.com/terms/) and the landing at [nfl.com](https://www.nfl.com/) make clear that NFL Content is subject to reuse limits; no gambling-use analytics license is implied. The [injury-report policy](https://operations.nfl.com/media/2683/2017-nfl-injury-report-policy.pdf) describes reporting obligations; it is not a data license. Therefore no authorized feed is configured and the observation ledger is empty. The engine does not scrape or invent a substitute.
+[NFL Terms](https://www.nfl.com/legal/terms/) and the landing at [nfl.com](https://www.nfl.com/) make clear that NFL Content is subject to reuse limits; no gambling-use analytics license is implied. The [injury-report policy](https://operations.nfl.com/media/2683/2017-nfl-injury-report-policy.pdf) describes reporting obligations; it is not a data license. Therefore no authorized feed is configured and the observation ledger is empty. The engine does not scrape or invent a substitute.
 
 ## 2. Observation contract and chronology (G02–G03)
 
@@ -64,3 +64,14 @@ Each gate row in `data/nfl/validation_gates.csv` carries an official `source_url
 ## No betting advice
 
 Research framework only. No profitability claim. See `audit/NFL_AUDIT.md`.
+
+---
+
+## 2026-11-13 source correction (session 5a49ead3, NFL-R1)
+
+Re-checked against live official pages on 2026-11-13. Corrections are in `data/nfl/sources.csv` and `data/nfl/flagged.csv` (flag F-NFL-13):
+
+- The rules link is now the 2026 rulebook, `https://operations.nfl.com/rules-officiating/2026-nfl-rulebook`. The previous `nfl.com/official-nfl-rules/` link returns 404.
+- The injury link is now the live 2026 Week 10 report, `https://www.nfl.com/injuries/`. The previous `/injuries/league/2024/reg17` link is a 2024 page, retained only as S-NFL-25.
+- The terms link is now `https://www.nfl.com/legal/terms/` (general terms). The previous `nfl.com/terms/` link redirects to subscription terms.
+- The 2017 injury-policy PDF (`operations.nfl.com/media/2683/2017-nfl-injury-report-policy.pdf`) returns 404. Any timing or definition claim that relies only on it is **unverified** until a live copy is located (F-NFL-03).

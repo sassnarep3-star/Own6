@@ -17,7 +17,7 @@
 
 ## Key findings (verified status, not profitability)
 
-- **Rights blocker (F-NFL-01).** [NFL Terms](https://www.nfl.com/terms/) restrict reuse; no authorized gambling-use license is on file. The [official injury-report policy PDF](https://operations.nfl.com/media/2683/2017-nfl-injury-report-policy.pdf) and public [league injury page](https://www.nfl.com/injuries/league/2024/reg17) describe *reporting obligations*, not a data license. All market prices therefore stay blank. [NFL standings](https://www.nfl.com/standings/) and the [schedule](https://www.nfl.com/schedule/) are official reference pages for table identity, not performance evidence.
+- **Rights blocker (F-NFL-01).** [NFL Terms](https://www.nfl.com/legal/terms/) restrict reuse; no authorized gambling-use license is on file. The [official injury-report policy PDF](https://operations.nfl.com/media/2683/2017-nfl-injury-report-policy.pdf) and public [league injury page](https://www.nfl.com/injuries/) describe *reporting obligations*, not a data license. All market prices therefore stay blank. [NFL standings](https://www.nfl.com/standings/) and the [schedule](https://www.nfl.com/schedules) are official reference pages for table identity, not performance evidence.
 - **Ledger is empty by design (G04, F-NFL-06).** With zero authorized observations, gate sample floors (≥200 holdout bets, ≥60 slate clusters) cannot be met. The leaderboard is therefore empty, exactly as the [NIST confidence-limit guidance](https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm) and [Bonferroni](https://www.itl.nist.gov/div898/handbook/prc/section4/prc473.htm) logic demand.
 - **Injury data is timestamped, not static.** The policy states Practice Reports are “updated on a continual basis” and every reportable injury — causing missed games, missed practices, or limited participation — must be listed even if the player takes all reps. [2017 policy PDF](https://operations.nfl.com/media/2683/2017-nfl-injury-report-policy.pdf). A single snapshot without hashes is insufficient; see `data/nfl/injury_tracking.csv`.
 - **Depth deficiency is design-only until depth-feed licensed.** The model defines per-unit deficiency (OL, DL, secondary, QB, WR, RB, TE, K) and flags 2nd/3rd/4th-string starts, but without an official depth chart feed, all scores are blank (F-NFL-04). See `data/nfl/depth_model.csv`.
@@ -65,3 +65,14 @@ Analytics research only. No wagers, stakes, picks, payouts, or profitability cla
 ## Line-by-line verification note
 
 This summary was written from files that themselves passed `scripts/check_nfl.py`: every CSV has an official `https` URL per row; every HTML table row carries an `official source` link; blanks carry the `— unverified / blank` badge. See `audit/NFL_AUDIT.md` for the per-file row count and the link-check result.
+
+---
+
+## 2026-11-13 source correction (session 5a49ead3, NFL-R1)
+
+Re-checked against live official pages on 2026-11-13. Corrections are in `data/nfl/sources.csv` and `data/nfl/flagged.csv` (flag F-NFL-13):
+
+- The rules link is now the 2026 rulebook, `https://operations.nfl.com/rules-officiating/2026-nfl-rulebook`. The previous `nfl.com/official-nfl-rules/` link returns 404.
+- The injury link is now the live 2026 Week 10 report, `https://www.nfl.com/injuries/`. The previous `/injuries/league/2024/reg17` link is a 2024 page, retained only as S-NFL-25.
+- The terms link is now `https://www.nfl.com/legal/terms/` (general terms). The previous `nfl.com/terms/` link redirects to subscription terms.
+- The 2017 injury-policy PDF (`operations.nfl.com/media/2683/2017-nfl-injury-report-policy.pdf`) returns 404. Any timing or definition claim that relies only on it is **unverified** until a live copy is located (F-NFL-03).

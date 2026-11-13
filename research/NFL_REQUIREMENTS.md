@@ -50,11 +50,11 @@ Each requirement ID maps 1→1 to rows in the decision ledger (Q01–Q10), the s
 
 - NFL site identity and navigation: [nfl.com](https://www.nfl.com/)
 - NFL standings (official reference for table identity): [nfl.com/standings](https://www.nfl.com/standings/)
-- NFL schedule (official slate identity): [nfl.com/schedule](https://www.nfl.com/schedule/)
-- NFL injury report league page: [nfl.com/injuries/league/2024/reg17](https://www.nfl.com/injuries/league/2024/reg17)
+- NFL schedule (official slate identity): [nfl.com/schedule](https://www.nfl.com/schedules)
+- NFL injury report league page: [nfl.com/injuries/league/2024/reg17](https://www.nfl.com/injuries/)
 - NFL injury-report policy PDF (reportable-injury definition): [operations.nfl.com/media/2683/2017-nfl-injury-report-policy.pdf](https://operations.nfl.com/media/2683/2017-nfl-injury-report-policy.pdf)
-- NFL official rules (possessions/scoring/overtime): [nfl.com/official-nfl-rules](https://www.nfl.com/official-nfl-rules/)
-- Next Gen Stats methodology (pace/efficiency): [operations.nfl.com/gameday/technology/nfl-next-gen-stats](https://operations.nfl.com/gameday/technology/nfl-next-gen-stats/)
+- NFL official rules (possessions/scoring/overtime): [nfl.com/official-nfl-rules](https://operations.nfl.com/rules-officiating/2026-nfl-rulebook)
+- Next Gen Stats methodology (pace/efficiency): [operations.nfl.com/gameday/technology/nfl-next-gen-stats](https://operations.nfl.com/game-operations-logistics/technology/performance-tracking-data-next-gen-stats)
 - Cross-validation (chronology gate): [scikit-learn CV](https://scikit-learn.org/stable/modules/cross_validation.html)
 - Calibration (proper scores): [scikit-learn calibration](https://scikit-learn.org/stable/modules/calibration.html)
 - Confidence intervals: [NIST](https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm)
@@ -64,3 +64,14 @@ Each requirement ID maps 1→1 to rows in the decision ledger (Q01–Q10), the s
 - Parlay payout ≠ joint probability: [DraftKings parlay calculator](https://sportsbook.draftkings.com/help/how-to-bet/parlay-calculator)
 
 Research only. No betting advice. Blank = unverified.
+
+---
+
+## 2026-11-13 source correction (session 5a49ead3, NFL-R1)
+
+Re-checked against live official pages on 2026-11-13. Corrections are in `data/nfl/sources.csv` and `data/nfl/flagged.csv` (flag F-NFL-13):
+
+- The rules link is now the 2026 rulebook, `https://operations.nfl.com/rules-officiating/2026-nfl-rulebook`. The previous `nfl.com/official-nfl-rules/` link returns 404.
+- The injury link is now the live 2026 Week 10 report, `https://www.nfl.com/injuries/`. The previous `/injuries/league/2024/reg17` link is a 2024 page, retained only as S-NFL-25.
+- The terms link is now `https://www.nfl.com/legal/terms/` (general terms). The previous `nfl.com/terms/` link redirects to subscription terms.
+- The 2017 injury-policy PDF (`operations.nfl.com/media/2683/2017-nfl-injury-report-policy.pdf`) returns 404. Any timing or definition claim that relies only on it is **unverified** until a live copy is located (F-NFL-03).
