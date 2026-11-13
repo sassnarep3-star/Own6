@@ -1389,4 +1389,25 @@ Read `COORDINATION.md` and `origin/main` (d18f495) and open PRs before claiming.
 
 | Task | Status | Owner | Exclusive file scope |
 |---|---|---|---|
-| NFL-V1 Spot-verify standings & Week 10 slate/injury rows against nfl.com; correct any mismatch; rebuild and re-check | in progress | `c1125799` | `data/nfl_origination/week10_slate_and_lines.csv`, `docs/nfl-origination/**` (regenerated), `scripts/build_nfl_origination.py` (only if needed) |
+| NFL-V1 Spot-verify standings & Week 10 slate/injury rows against nfl.com; correct any mismatch; rebuild and re-check | done (2026-11-13) | `c1125799` | `data/nfl_origination/week10_slate_and_lines.csv`, `docs/nfl-origination/**` (regenerated), `scripts/build_nfl_origination.py` (only if needed) |
+
+**Sources read (2026-11-13):** [NFL 2026 division standings](https://www.nfl.com/standings/division/2026/reg) (both chunks read for the AFC/NFC East rows and for the team records used below); [NFL.com Week 10 injury report & game listing](https://www.nfl.com/news/nfl-week-10-injury-report-2026-season) (both chunks read; all 14 games: kickoff ET, venue, broadcast, records); [NFL International Games 2026](https://operations.nfl.com/programs-initiatives/international-growth/nfl-international-games) (cited by W10-G02, not re-read this session).
+
+**Verification performed (line by line, Week 10 file, 14 games + bye row):**
+- Kickoff times, dates, venues, and team records: all 14 games match the official page, except the venue wording for W10-G02 (fixed, see below).
+- Broadcasts: 3 mismatches corrected. W10-G02 NE@DET was `NFL Network, FOX, NFL+` and is now `FOX, FOX One, NFL+`; W10-G05 MIN@GB and W10-G12 SF@DAL were `FOX, NFL+` and are now `FOX, FOX One, NFL+`. Source: NFL.com Week 10 page.
+- Standings: BUF 7-1 (256 PF / 187 PA), NE 5-4 (211/207), NYJ 2-7 (182/223), MIA 1-7 (126/200), and the other AFC/NFC East rows checked match `verified_standings_2026_w10.csv`.
+- Re-generated `docs/nfl-origination/` from data; `build_nfl_origination.py --check` OK; `check_nfl_origination.py` OK (236 rows, 0 inputs); `tools/run_tests.py` 51/51.
+
+**Corrections made:**
+- `W10-G02` venue `FC Bayern Munich Arena` → `FC Bayern Munich Stadium` (wording per NFL.com).
+- Three broadcast cells (above).
+
+**Irregularities flagged for review (not changed in this session; outside claimed scope or not confirmable on the sources read):**
+1. `W10-BYE` row is malformed: it packs four bye clubs (CHI 7-2, DEN 7-2, PHI 2-7, TB 3-6) into single away/home fields with mixed record formats (`7-2-0`, `2-7 / 3-6`). Only DEN 7-2 and PHI 2-7 were seen on the official pages read; CHI and TB bye status and records were NOT confirmed this session. Suggest splitting into four rows after confirming on nfl.com/schedule.
+2. The Week 10 injury page lists player statuses; `week10_slate_and_lines.csv` has no per-game injury columns, so the injury-to-line linkage is still not populated (blank by design).
+3. Market lines and originated fair lines remain blank (unverified). No odds source was used.
+4. Non-NFL-domain citation for W10-G02 broadcast (`operations.nfl.com` international page) does not itself state the broadcast; the broadcast now matches the nfl.com game listing, which should be the cited source for that cell.
+
+**Git note:** During this session an accidental `git checkout -b` created a temporary local branch; it was deleted immediately (`__tmp_check`, at d18f495). No other branch was pushed.
+
