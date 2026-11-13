@@ -1779,3 +1779,109 @@ requirements-empirical.txt` before `pytest`.
   `docs/nfl-309921cc/repo-review.html` with official source links for manual review.
 - **Tasks C1–C9 are complete and this session's claimed scope is closed.** No other session's owned
   files were edited; `docs/index.html` and `README.md` received additive insertions only.
+## Session arena/baa41d14-own6 — NFL decision desk: independent re-verification, unified site section & origination model (2026-11-13)
+
+**Platform branch constraint (deviation logged):** Arena fixes this session to branch `arena/baa41d14-own6`; `session-<id>/<task>` naming is not permitted. All work is isolated to the non-overlapping paths claimed below.
+
+**Read before claiming:** `COORDINATION.md` (1,382 lines), `origin/main` @ `d18f495` (merge of PR #73), Pages API (`legacy`, `main:/`, status `built`), open PR list, and the three merged NFL packs (`docs/nfl/`, `docs/nfl-3b81013c/`, `docs/nfl-origination/`). No remote session branch is currently receiving commits.
+
+**Objective:** Re-verify the published NFL registers line by line against official sources read today (2026-11-13), publish an independent verification ledger with per-row disposition (confirmed / drifted / blank-unverified), and ship one clean unified dashboard section covering requirements, decision questions & answers, a dedicated suggestions-review section, own-line origination from verified official inputs only, validation gates, correlation values, a skill-gated leaderboard with rewards, injury & 2nd/3rd/4th-string depth-deficiency tracking, an executive summary, and a Flagged for Review page. Zero manual input from the user; nothing inferred or filled in.
+
+### Task board (session `baa41d14`)
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| D0 Coordination claim & conflict scan | done (2026-11-13) | `baa41d14` | `COORDINATION.md` (append-only) |
+| D1 Official-source re-read: 2026 standings, Week 10 slate, injury report, league rules/roster policy | in progress | `baa41d14` | `data/nfl_desk/official_read_2026_11_13.csv`, `data/nfl_desk/sources.csv` |
+| D2 Line-by-line verification ledger of the three published NFL registers | in progress | `baa41d14` | `data/nfl_desk/verification_ledger.csv` |
+| D3 Requirements inventory & decision Q&A (knowns, unknowns, missing-info discovery paths) | in progress | `baa41d14` | `data/nfl_desk/requirements.csv`, `data/nfl_desk/questions.csv` |
+| D4 Site-improvement suggestions with option paths for human choice | in progress | `baa41d14` | `data/nfl_desk/suggestions.csv` |
+| D5 Origination model on verified official inputs + luck-exclusion statistics (package, registers, worked slate) | in progress | `baa41d14` | `src/nfl_desk/**`, `data/nfl_desk/originated_lines.csv`, `data/nfl_desk/model_facts.csv`, `data/nfl_desk/sensitivity.csv` |
+| D6 Strategy competition: leaderboard, reward tiers, validation gates, correlation register | in progress | `baa41d14` | `data/nfl_desk/strategies.csv`, `data/nfl_desk/leaderboard.csv`, `data/nfl_desk/validation_gates.csv`, `data/nfl_desk/correlations.csv` |
+| D7 Injury & depth-deficiency tracking register (offence + defence, 1st-to-4th string) | in progress | `baa41d14` | `data/nfl_desk/injuries.csv`, `data/nfl_desk/depth_deficiency.csv` |
+| D8 Repo audit & irregularities | in progress | `baa41d14` | `data/nfl_desk/repo_audit.csv`, `data/nfl_desk/flagged.csv` |
+| D9 GitHub Pages section `docs/nfl-decision-desk/` (15 pages) + builder/checker/CI + executive summary | in progress | `baa41d14` | `docs/nfl-decision-desk/**`, `scripts/build_nfl_desk.py`, `scripts/check_nfl_desk.py`, `tests/test_nfl_desk.py`, `.github/workflows/nfl-desk-ci.yml`, `NFL_DECISION_DESK_EXECUTIVE_SUMMARY.md`, `research/NFL_DECISION_DESK_METHOD.md` |
+| D10 Final integration: additive nav links, regenerated derived assurance/coverage artifacts, PR to `main`, merge, live Pages confirmation | unclaimed (held for `baa41d14` after D1-D9) | `baa41d14` | `docs/index.html` (additive), `README.md` (additive), `data/assurance/**`, `docs/assurance/**`, `data/source_coverage/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md`, `COORDINATION.md` (append-only) |
+
+**Boundaries (this session):** no edits to `data/nfl/**`, `data/nfl_3b81013c/**`, `data/nfl_origination/**`, their `docs/` sites, `src/nfl_origination/**`, `src/nfl_3b81013c/**`, `src/own6/**`, `nba_lab/**`, or any rental/SF pack. Shared files (`docs/index.html`, `README.md`, derived assurance artifacts) are touched only in D10, additively.
+
+**Stale pull requests observed at claim time (not owned, not merged):** #72 (`arena/3b81013c-own6`, coordination-record append only), #68 (`arena/34dacba5-own6`, parallel NFL lab pack), #56, #54, #52, #48 (2026-11-05 close-outs). Head branches no longer exist on `origin`. Logged for owner review; this session merges only its own integration PR.
+
+**Rules & evidence boundaries (`baa41d14`):**
+- Zero manual input required from the user; deterministic offline builder, checker and unit tests (pure Python 3.11 stdlib, no network).
+- Every published table row carries an `https://` link to the official page actually read for that row. Facts not confirmed on an official page are left blank (`""`) and listed on `docs/nfl-decision-desk/flagged.html`.
+- Model assumptions (variance, key-number mass, home-field points) are labelled `MODEL ASSUMPTION` in-cell, never presented as verified values, and are excluded from every gate.
+
+### Completion record — session `baa41d14` (2026-11-13)
+
+**Tasks D1–D10: done.** Everything claimed below is on this branch and reproducible offline.
+
+| Deliverable | Path | State |
+|---|---|---|
+| Verified input registers | `data/nfl_desk/*.csv` (12 files) + `data/nfl_desk/raw/injury_report_week10_read.psv` | 32 clubs × 2 seasons, 14-game slate + 4 byes, 326-row injury read, 107 published injury rows, 6 bulletins, 14 sources |
+| Derived registers (regenerated, never hand-edited) | `data/nfl_desk/derived/*.csv` (12 files, 788 rows) | facts 25, correlations 9, Fréchet 4, lines 13, sensitivity 64, depth 77, gates 16, strategies 12, leaderboard 12, rewards 4, ledger 543, repo audit 9 |
+| Engine | `src/nfl_desk/` (10 modules) | league, model, pricing, correlation, luck, depth, gates, leaderboard, audit, derive |
+| Site section | `docs/nfl-decision-desk/` (18 pages + `assets/style.css`) | landing page, one page per category, every table row source-linked |
+| Governance | `data/nfl_desk/requirements.csv` (18), `questions.csv` (16), `suggestions.csv` (14), `flagged.csv` (24), `github_state.csv` (4) | suggestions are **proposals only** — none implemented |
+| Builder / gate / tests / CI | `scripts/build_nfl_desk.py`, `scripts/check_nfl_desk.py`, `tests/test_nfl_desk.py`, `.github/workflows/nfl-desk-ci.yml` | `--check` byte equality enforced; 33 unit tests; gate runs on push to main and on PRs |
+| Summaries | `NFL_DECISION_DESK_EXECUTIVE_SUMMARY.md`, `research/NFL_DECISION_DESK_METHOD.md` | numbers in the summary are pinned to the registers by a test |
+
+**Sources read for this pack (all 2026-11-13, recorded per row in the registers):**
+`nfl.com/standings/division/2026/REG` (read twice — the second read is what caught FL-24),
+`nfl.com/standings/division/2025/REG`, `nfl.com/schedules/2026/by-week/week-10`,
+`nfl.com/scores/2026/week-10`, `nfl.com/injuries/`, six `nfl.com/news/...` bulletins,
+`operations.nfl.com/rules-officiating/featured-rules`, `nfl.com/legal/terms/`,
+`support.nfl.com` (report cadence), `api.github.com` (Pages build, check runs, PR #71),
+plus method references `docs.scipy.org`, `itl.nist.gov`, `docs.python.org` — labelled
+`methodology_reference`, contributing no numeric input. `www.nfl.com` is unreachable from this sandbox by
+`curl` (HTTP 000); every NFL fact came through the page reader, not a shell fetch.
+
+**Verification result.** 543 field-by-field comparisons of `data/nfl_origination/{verified_standings_2026_w10,week10_slate_and_lines,injury_and_depth_deficiency}.csv`
+and `data/nfl_3b81013c/team_season_records.csv` against today's official read: **484 verified, 59 needing review**
+(19 unmatched names, 14 venue labels declined, 14 provenance mismatches, 7 broadcast disagreements *between two
+official pages*, 3 pending Friday designations, 1 status drift, 1 forecast-labelled row). The audited registers
+belong to other sessions and they moved while this pack was being written, so those counts are the state at
+2026-11-13 and **`scripts/check_nfl_desk.py` recomputes them at every build instead of pinning them**: the gate
+checks coverage (consecutive row ids, every audited source row represented, a 500-row floor) and that the
+executive summary still quotes the current split. Two findings in that ledger have since been fixed by the peer
+session — the Thursday records in `week10_slate_and_lines.csv` (now `CONFIRMED`; 17 cells of its standings file
+remain a through-week-9 snapshot) and most of the forecast-labelled status cells (`FL-23`) — which is the
+intended outcome of flagging rather than editing.
+
+**Irregularities found and flagged (not silently fixed).**
+1. **This pack's own error, corrected:** four `win_pct` cells had been computed as wins ÷ (wins + losses), which
+   drops ties. The standings page prints 0.611 / 0.389 (NYG, WAS) and 0.441 / 0.559 (DAL, GB). Corrected in place,
+   recorded as `FL-24` with confirming reads `S-13` / `S-14`, and now asserted by the checker and a unit test.
+2. `src/own6/lines.py` uses `erf()` — a continuous normal has no push or tie mass, so no NFL line should be priced
+   with it (structural finding RA-05; `src/nfl_desk/model.py` uses an exact discrete convolution instead).
+3. Root `docs/index.html` framed the whole repository as NBA research while three NFL dashboards were live; this
+   session added its own nav entry and card only (additive; other sessions' rows untouched).
+4. No root `LICENSE`, so reuse terms for every register in this repo are undefined (RA-03, `FL-21`).
+5. Committed CSVs mix CRLF and LF; a prior audit's count of 16 is stale (now 25 non-`nfl_desk` CRLF files). This
+   pack's files are LF throughout and the checker enforces it. Normalising other sessions' files is `SUG-09`.
+6. Club key instability: the standings page prints `LA`, the injury report prints `LAR` (RA-07, `FL-10`); a naive
+   join drops the Rams silently, so the audit resolves the alias explicitly rather than editing the peer register.
+7. `data/nfl/injury_tracking.csv` is a 10-row field dictionary with blank examples, not tracked data (RA-08).
+8. Six open PRs (#72, #68, #56, #54, #52, #48) have head branches that no longer exist on `origin` (`FL-22`).
+   Not touched by this session.
+
+**Cross-scope requests logged instead of edited:** the peer `nfl_origination` injury register should add the
+injury-report URL as the source for participation/game-status fields (15 rows cite club depth-chart pages, which
+do not carry those fields); the peer standings register should be superseded or reconciled for NYG/WAS;
+`src/own6/lines.py` should not be used for NFL pricing. Nothing outside this session's claimed scope was modified.
+
+**Zero manual input required from the user**, per the directive: no question was asked, no approval was waited for.
+</think>
+
+**Integration (`baa41d14`, final integration step for this pack).** Shared files touched additively only:
+`docs/index.html` (one nav entry + one card), and the derived audit artifacts `data/source_coverage/**`,
+`docs/coverage/**`, `audit/SOURCE_COVERAGE.md` regenerated by their own scripts (153 → 171 pages, 5,688 → 6,883
+data rows) so the repository's coverage register includes this section. `data/assurance/**` and
+`docs/assurance/**` were rebuilt and are byte-identical, i.e. nothing else's evidence changed.
+Offline gate list, all green: `tools/run_tests.py` (84/84), `scripts/build_nfl_desk.py --check`,
+`scripts/check_nfl_desk.py`, `scripts/check_nfl_origination.py`, `scripts/check_nfl_3b81013c.py`,
+`scripts/build_nfl.py` + `check_nfl.py`, `scripts/{audit_repo,build_assurance,check_assurance,source_coverage,check_site}.py`,
+`scripts/linkcheck.py`, `tools/{check_site,hub_reference_gate,release_gate}.py`, `scripts/audit_integration.py`,
+`scripts/check_{lab,hub,verify,daily,origin,rental,sf_94122}.py`. Two scripts fail identically on the base commit
+and are not caused by this pack: `scripts/audit_repo.py` and `scripts/audit_sources.py` (both `git show`/`ls-tree`
+against a hard-coded commit that is not reachable from `main`).

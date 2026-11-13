@@ -1,0 +1,108 @@
+row_id,club,player,position,listed_injury,practice_status_abbrev,practice_status_verbatim,game_status,inclusion_rule,source_url,read_date,verification_status
+INJ-001,Washington Commanders,Treylon Burks,WR,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-002,Washington Commanders,Lucas Patrick,C,Concussion,DNP,Did Not Participate In Practice,Out,game_status_designated,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-003,Washington Commanders,Colson Yankoff,TE,Knee,DNP,Did Not Participate In Practice,Out,game_status_designated,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-004,New York Giants,Malik Harrison,LB,Groin,Limited,Limited Participation in Practice,Questionable,game_status_designated,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-005,New England Patriots,Ben Brown,C,Knee,DNP,Did Not Participate In Practice,Out,game_status_designated,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-006,New England Patriots,A.J. Brown,WR,Ankle; Knee,Limited,Limited Participation in Practice,Questionable,game_status_designated,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-007,New England Patriots,Kevin Byard,S,Chest,Full,Full Participation in Practice,Questionable,game_status_designated,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-008,New England Patriots,Carlton Davis III,CB,Knee,DNP,Did Not Participate In Practice,Out,game_status_designated,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-009,New England Patriots,Reggie Gilliam,FB,Knee,Limited,Limited Participation in Practice,Questionable,game_status_designated,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-010,New England Patriots,TreVeyon Henderson,RB,Illness,DNP,Did Not Participate In Practice,Out,game_status_designated,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-011,New England Patriots,Cameron Latu,TE,Back,Limited,Limited Participation in Practice,Questionable,game_status_designated,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-012,New England Patriots,Walter Rouse,T,Concussion,Limited,Limited Participation in Practice,Questionable,game_status_designated,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-013,New England Patriots,Brenden Schooler,S,Hamstring,Limited,Limited Participation in Practice,Questionable,game_status_designated,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-014,New England Patriots,Rhamondre Stevenson,RB,Knee,Limited,Limited Participation in Practice,Questionable,game_status_designated,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-015,New England Patriots,Greg Van Roten,G,Hamstring,Full,Full Participation in Practice,Questionable,game_status_designated,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-016,New England Patriots,Charles Woods,CB,Hamstring,Full,Full Participation in Practice,Questionable,game_status_designated,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-017,Detroit Lions,Kerby Joseph,S,Knee,Full,Full Participation in Practice,Out,game_status_designated,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-018,Detroit Lions,Cade Mays,C,Ankle,DNP,Did Not Participate In Practice,Out,game_status_designated,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-019,Detroit Lions,D.J. Reed,CB,Hip,DNP,Did Not Participate In Practice,Out,game_status_designated,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-020,Detroit Lions,Sione Vaki,RB,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-021,Kansas City Chiefs,Jaylon Moore,T,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-022,Kansas City Chiefs,Peter Woods,DT,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-023,Atlanta Falcons,Zachariah Branch,WR,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-024,Atlanta Falcons,Divine Deablo,LB,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-025,Atlanta Falcons,Jawaan Taylor,T,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-026,Minnesota Vikings,T.J. Hockenson,TE,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-027,Minnesota Vikings,Tyrion Ingram-Dawkins,DT,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-028,Minnesota Vikings,Jauan Jennings,WR,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-029,Minnesota Vikings,Kyler Murray,QB,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-030,Green Bay Packers,Javon Bullard,S,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-031,Green Bay Packers,Zaire Franklin,LB,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-032,Green Bay Packers,Josh Jacobs,RB,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-033,Green Bay Packers,Sean Rhyan,C,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-034,Green Bay Packers,Lukas Van Ness,LB,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-035,Green Bay Packers,Josh Whyle,TE,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-036,Jacksonville Jaguars,Jessie Bates,S,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-037,Jacksonville Jaguars,Jordan Davis,DT,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-038,Jacksonville Jaguars,Bhayshul Tuten,RB,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-039,Tennessee Titans,Cody Barton,LB,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-040,Tennessee Titans,Anthony Hill Jr.,LB,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-041,Tennessee Titans,Tony Pollard,RB,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-042,Tennessee Titans,Peter Skoronski,G,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-043,Tennessee Titans,Carnell Tate,WR,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-044,Buffalo Bills,Spencer Brown,T,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-045,New York Jets,Jarvis Brownlee Jr.,CB,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-046,New York Jets,Harrison Phillips,DT,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-047,New York Jets,Trevin Wallace,LB,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-048,Miami Dolphins,Chris Bell,WR,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-049,Miami Dolphins,Aaron Brewer,C,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-050,Indianapolis Colts,Mo Alie-Cox,TE,Groin,DNP,Did Not Participate In Practice,Out,game_status_designated,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-051,Indianapolis Colts,Jaylon Carlies,LB,Neck,DNP,Did Not Participate In Practice,Out,game_status_designated,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-052,Indianapolis Colts,Akeem Davis-Gaither,LB,Knee,DNP,Did Not Participate In Practice,Out,game_status_designated,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-053,Indianapolis Colts,Arden Key,DE,Hamstring,Full,Full Participation in Practice,Questionable,game_status_designated,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-054,Indianapolis Colts,Luke Rhodes,LS,Hamstring,DNP,Did Not Participate In Practice,Out,game_status_designated,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-055,Indianapolis Colts,Jerry Tillery,DT,Calf,DNP,Did Not Participate In Practice,Out,game_status_designated,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-056,Indianapolis Colts,Jalen Travis,T,Knee,DNP,Did Not Participate In Practice,Out,game_status_designated,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-057,Carolina Panthers,Bobby Okereke,LB,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-058,New Orleans Saints,CJ Donaldson,RB,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-059,New Orleans Saints,Erik McCoy,C,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-060,New Orleans Saints,Christen Miller,DT,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-061,Houston Texans,Azeez Al-Shaair,LB,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-062,Houston Texans,Marvin Harrison Jr.,WR,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-063,Houston Texans,Brevin Jordan,TE,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-064,Houston Texans,Woody Marks,RB,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-065,Houston Texans,Keylan Rutledge,G,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-066,Cleveland Browns,Denzel Boston,WR,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-067,Cleveland Browns,Michael Burton,FB,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-068,Cleveland Browns,Ronnie Hickman Jr.,S,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-069,Los Angeles Rams,Davis Allen,TE,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-070,Los Angeles Rams,Steve Avila,G,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-071,Los Angeles Rams,Kam Curl,S,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-072,Los Angeles Rams,Terrance Ferguson,TE,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-073,Los Angeles Rams,Trent McDuffie,CB,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-074,Los Angeles Rams,Puka Nacua,WR,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-075,Arizona Cardinals,Hjalte Froholdt,C,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-076,Arizona Cardinals,Jon Gaines II,G,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-077,Arizona Cardinals,Andrew Wingard,S,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-078,Seattle Seahawks,Sam Darnold,QB,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-079,Seattle Seahawks,Quenton Nelson,G,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-080,Seattle Seahawks,Connor O'Toole,LB,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-081,Seattle Seahawks,Brandon Pili,DT,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-082,Seattle Seahawks,Jarran Reed,DT,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-083,Seattle Seahawks,Leonard Williams,DT,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-084,San Francisco 49ers,Mike Evans,WR,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-085,San Francisco 49ers,Renardo Green,CB,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-086,San Francisco 49ers,Deommodore Lenoir,CB,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-087,Dallas Cowboys,Alijah Clark,S,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-088,Dallas Cowboys,Donovan Ezeiruaku,LB,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-089,Dallas Cowboys,Jake Ferguson,TE,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-090,Dallas Cowboys,Tyler Goodson,RB,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-091,Dallas Cowboys,Malik Hooker,S,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-092,Dallas Cowboys,P.J. Locke,S,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-093,Dallas Cowboys,Von Miller,LB,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-094,Dallas Cowboys,Jonathan Mingo,WR,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-095,Dallas Cowboys,Joey Porter Jr.,CB,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-096,Pittsburgh Steelers,Cameron Heyward,DT,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-097,Cincinnati Bengals,Jonathan Allen,DT,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-098,Cincinnati Bengals,Kyle Dugger,S,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-099,Los Angeles Chargers,Justin Eboigbe,DE,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-100,Los Angeles Chargers,Daiyan Henley,LB,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-101,Los Angeles Chargers,Khalil Mack,LB,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-102,Los Angeles Chargers,Ladd McConkey,WR,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-103,Los Angeles Chargers,Trey Pipkins,T,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-104,Los Angeles Chargers,Branson Taylor,G,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-105,Los Angeles Chargers,Brenen Thompson,WR,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-106,Los Angeles Chargers,Isas Waxter,CB,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read
+INJ-107,Los Angeles Chargers,Kendall Williamson,S,,DNP,Did Not Participate In Practice,,did_not_participate,https://www.nfl.com/injuries/,2026-11-13,verified_direct_official_read

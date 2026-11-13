@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Executive summary | NFL Decision Desk</title>
+<meta name="description" content="Important details of the NFL decision desk, every figure traceable to a register row and an official page read.">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="canonical" href="https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-decision-desk/executive-summary.html">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead">
+  <div class="brand"><a href="index.html">NFL DECISION DESK</a><span>verified inputs only &middot; snapshot 2026-11-13</span></div>
+  <p class="tagline">Own-line origination, skill gates, injury and depth tracking. No picks, no profitability claim.</p>
+</header>
+<nav class="sections" aria-label="Section navigation"><a href="index.html">Overview</a><a class=on href="executive-summary.html">Executive summary</a><a href="requirements.html">Requirements</a><a href="questions.html">Questions &amp; answers</a><a href="suggestions.html">Suggestions</a><a href="standings.html">Verified data</a><a href="slate.html">Week 10 slate</a><a href="origination.html">Originated lines</a><a href="correlations.html">Correlations</a><a href="validation.html">Validation gates</a><a href="strategies.html">Strategy lab</a><a href="leaderboard.html">Leaderboard &amp; rewards</a><a href="injuries.html">Injury tracking</a><a href="depth.html">Depth deficiency</a><a href="verification.html">Verification ledger</a><a href="repo-audit.html">Repo audit</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for review</a></nav>
+<main id="main">
+  <p class="eyebrow">SUMMARY</p>
+  <h1>Executive summary</h1>
+  <p class="lede">Important details of the NFL decision desk, every figure traceable to a register row and an official page read.</p>
+  <div class="table-wrap"><table id="headline"><caption>Headline results from verified data <span class="rowcount">8 rows</span></caption><thead><tr><th scope="col">measure</th><th scope="col">Value</th><th scope="col">why it matters</th></tr></thead><tbody><tr><td><span class="badge b-scoring-environment-2026">Scoring environment 2026</span></td><td>22.9599 points per team-game over 137 games</td><td>the whole model is anchored on this; 2025 finished at 23.0129</td></tr><tr><td><span class="badge b-home-advantage,-win-share">Home advantage, win share</span></td><td>48.91% in 2026 vs 53.68% in 2025</td><td>home clubs are below .500 this season - the model publishes a zero-point home assumption by default rather than importing last year&#x27;s number</td></tr><tr><td><span class="badge b-tied-games">Tied games</span></td><td>0.0073 of games in 2026 vs 0.0037 in 2025</td><td>tie mass is priced explicitly; the model&#x27;s regulation-tie mass is 0.0484, so overtime resolution is the missing calibration (FL-16)</td></tr><tr><td><span class="badge b-skill-measured-from-scoring">Skill measured from scoring</span></td><td>R-squared 0.7488 (2026) and 0.8485 (2025)</td><td>fitted exponent 3.370 / 3.045; points-based expectation explains most of the spread in wins</td></tr><tr><td><span class="badge b-luck-does-not-persist">Luck does not persist</span></td><td>r = -0.0077 (p = 0.9675)</td><td>wins above expectation in 2025 say nothing about 2026, which is the quantitative reason records-only strategies are refused here</td></tr><tr><td><span class="badge b-prior-season-information">Prior-season information</span></td><td>r = 0.4973, 95% CI [0.254, 0.709], p = 0.0047</td><td>about a quarter of last season&#x27;s scoring differential carries over - enough to use as a weak prior, not enough to price a line from</td></tr><tr><td><span class="badge b-offence-and-defence-independence">Offence and defence independence</span></td><td>r = -0.2041, 95% CI [-0.531, 0.136], p = 0.2574</td><td>the interval spans zero, so a total and a side carry largely separate information on this data</td></tr><tr><td><span class="badge b-gates">Gates</span></td><td>7 pass, 2 fail, 7 blocked</td><td>the two fails are &#x27;no settled selections&#x27; and &#x27;the favoured side is not robust on two near-pick games&#x27; - the second is a model finding, not a data gap</td></tr></tbody></table></div>
+<section id="new"><h2>What this pack adds over the three published NFL packs</h2><ul><li>An actual re-verification: 544 field-by-field comparisons of the prior registers against today's official read, with a disposition for each.</li><li>Originated lines that are computed rather than deferred: fair spread, total, win and push probability for all 13 unsettled games, from verified scoring only.</li><li>Luck instrumented with numbers: Pythagorean fit, residual variance against a binomial floor, and a cross-season persistence test.</li><li>Correlations measured where they can be, and bounded where they cannot - no invented coefficients.</li><li>The full Week 10 injury report for 28 clubs, transcribed and scored into 77 club-unit deficiency records.</li><li>A leaderboard that separates readiness (rankable today) from performance (empty until the evidence gates pass), with the reward ladder published before anyone competes.</li></ul></section>
+<section id="decisions"><h2>The two decisions that unblock the most</h2><ol><li><strong>Start the weekly snapshot job</strong> (SUG-03). Four dated, hashed captures per slate unlock DG-04, and after roughly eight slates DG-06 and DG-15 as well. It needs no licence and no money.</li><li><strong>Answer the rights question in writing</strong> (SUG-04, Q-01). A licensed quote feed is the only way to DG-03, DG-07, DG-08 and DG-13 - and a documented refusal is a legitimate outcome, because it converts an invisible blocker into a scope decision.</li></ol><p>Both are cheap; neither is urgent until a third of the site's value depends on them, which is exactly where the project now sits.</p></section>
+<section id="boundaries"><h2>Boundaries this pack will not cross</h2><ul><li>No line, vig, ROI, CLV or skill score is published without an authorized source - those cells are blank and listed on the <a href="flagged.html">flagged page</a>.</li><li>Model assumptions (Poisson law, zero home points, ordinal depth weights) are labelled in-cell and are excluded from every gate.</li><li>Nothing here is a pick. The desk prices an internal estimate and states the evidence still missing before that estimate deserves trust.</li></ul></section>
+</main>
+<footer>
+  <p>Every table row links to the official page actually read for it. A blank cell means no confirmed value exists,
+  not zero. Values labelled <span class="badge b-model-assumption">model assumption</span> are the model's own dials
+  and are never presented as facts. Problem gambling help (verified from the regulator's own page on 2026-11-03 by a
+  prior session, <a href="https://aglc.ca/gaming/common-gaming-questions" rel="noopener">aglc.ca</a>): Alberta Addicted Help Centre
+  <strong>1-866-332-2322</strong>.</p>
+  <p class="build">Register hashes and page build note: see <a href="sources.html">Sources</a>.</p>
+</footer>
+</body>
+</html>

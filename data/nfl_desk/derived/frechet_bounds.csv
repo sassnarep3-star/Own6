@@ -1,0 +1,5 @@
+combo_id,leg_1_prob,leg_2_prob,independent_product,frechet_lower_bound,frechet_upper_bound,fair_american_at_lower,fair_american_at_independent,fair_american_at_upper,worst_case_overcharge_vs_bounds,note,status,source_url,flag_id
+FR-01,0.50,0.50,0.2500,0.0000,0.5000,,+300,+100,1.0000,"price range an unadjusted parlay could be hiding; the desk publishes bounds, not a point estimate",computed_bounds,https://docs.scipy.org/doc/scipy/reference/stats.html,FL-08
+FR-02,0.35,0.35,0.1225,0.0000,0.3500,,+716,+186,1.0000,"price range an unadjusted parlay could be hiding; the desk publishes bounds, not a point estimate",computed_bounds,https://docs.scipy.org/doc/scipy/reference/stats.html,FL-08
+FR-03,0.60,0.60,0.3600,0.2000,0.6000,+400,+178,-150,0.4444,"price range an unadjusted parlay could be hiding; the desk publishes bounds, not a point estimate",computed_bounds,https://docs.scipy.org/doc/scipy/reference/stats.html,FL-08
+FR-04,0.30,0.55,0.1650,0.0000,0.3000,,+506,+233,1.0000,"price range an unadjusted parlay could be hiding; the desk publishes bounds, not a point estimate",computed_bounds,https://docs.scipy.org/doc/scipy/reference/stats.html,FL-08

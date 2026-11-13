@@ -1,0 +1,41 @@
+name: NFL Decision Desk Gate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/nfl_desk/**"
+      - "data/nfl_desk/**"
+      - "docs/nfl-decision-desk/**"
+      - "scripts/build_nfl_desk.py"
+      - "scripts/check_nfl_desk.py"
+      - "tests/test_nfl_desk.py"
+      - "research/NFL_DECISION_DESK_METHOD.md"
+      - "NFL_DECISION_DESK_EXECUTIVE_SUMMARY.md"
+      - ".github/workflows/nfl-desk-ci.yml"
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify-nfl-decision-desk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Unit tests (pure stdlib)
+        run: python3 tools/run_tests.py
+
+      - name: Derived registers and pages must reproduce byte-for-byte
+        run: python3 scripts/build_nfl_desk.py --check
+
+      - name: Sourcing, invariants and page-structure gate
+        run: python3 scripts/check_nfl_desk.py
+
+      - name: Register loader self-check (every derived number re-derived)
+        run: python3 -m unittest tests.test_nfl_desk -v
+
+      - name: Repository release gate
+        run: python3 tools/release_gate.py

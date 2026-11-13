@@ -1,0 +1,33 @@
+record_id,club,abbr,conference,division,games_played,wins,losses,ties,win_pct,points_for,points_against,net_points,home_w,home_l,home_t,road_w,road_l,road_t,div_w,div_l,div_t,conf_w,conf_l,conf_t,streak,source_url,read_date,verification_status
+REC-2025REG-01,New England Patriots,NE,AFC,East,17,14,3,0,0.824,490,320,170,6,3,0,8,0,0,5,1,0,9,3,0,3W,https://www.nfl.com/standings/division/2025/REG,2026-11-13,verified_direct_official_read
+REC-2025REG-02,Buffalo Bills,BUF,AFC,East,17,12,5,0,0.706,481,365,116,7,2,0,5,3,0,4,2,0,9,3,0,1W,https://www.nfl.com/standings/division/2025/REG,2026-11-13,verified_direct_official_read
+REC-2025REG-03,Miami Dolphins,MIA,AFC,East,17,7,10,0,0.412,347,424,-77,5,4,0,2,6,0,3,3,0,3,9,0,1L,https://www.nfl.com/standings/division/2025/REG,2026-11-13,verified_direct_official_read
+REC-2025REG-04,New York Jets,NYJ,AFC,East,17,3,14,0,0.176,300,503,-203,2,7,0,1,7,0,0,6,0,2,10,0,5L,https://www.nfl.com/standings/division/2025/REG,2026-11-13,verified_direct_official_read
+REC-2025REG-05,Pittsburgh Steelers,PIT,AFC,North,17,10,7,0,0.588,397,387,10,6,3,0,4,4,0,4,2,0,8,4,0,1W,https://www.nfl.com/standings/division/2025/REG,2026-11-13,verified_direct_official_read
+REC-2025REG-06,Baltimore Ravens,BAL,AFC,North,17,8,9,0,0.471,424,398,26,3,6,0,5,3,0,3,3,0,5,7,0,1L,https://www.nfl.com/standings/division/2025/REG,2026-11-13,verified_direct_official_read
+REC-2025REG-07,Cincinnati Bengals,CIN,AFC,North,17,6,11,0,0.353,414,492,-78,3,6,0,3,5,0,3,3,0,5,7,0,1L,https://www.nfl.com/standings/division/2025/REG,2026-11-13,verified_direct_official_read
+REC-2025REG-08,Cleveland Browns,CLE,AFC,North,17,5,12,0,0.294,279,379,-100,3,6,0,2,6,0,2,4,0,4,8,0,2W,https://www.nfl.com/standings/division/2025/REG,2026-11-13,verified_direct_official_read
+REC-2025REG-09,Jacksonville Jaguars,JAX,AFC,South,17,13,4,0,0.765,474,336,138,7,2,0,6,2,0,5,1,0,10,2,0,8W,https://www.nfl.com/standings/division/2025/REG,2026-11-13,verified_direct_official_read
+REC-2025REG-10,Houston Texans,HOU,AFC,South,17,12,5,0,0.706,404,295,109,7,2,0,5,3,0,5,1,0,10,2,0,9W,https://www.nfl.com/standings/division/2025/REG,2026-11-13,verified_direct_official_read
+REC-2025REG-11,Indianapolis Colts,IND,AFC,South,17,8,9,0,0.471,466,412,54,6,3,0,2,6,0,2,4,0,6,6,0,7L,https://www.nfl.com/standings/division/2025/REG,2026-11-13,verified_direct_official_read
+REC-2025REG-12,Tennessee Titans,TEN,AFC,South,17,3,14,0,0.176,284,478,-194,1,8,0,2,6,0,0,6,0,2,10,0,2L,https://www.nfl.com/standings/division/2025/REG,2026-11-13,verified_direct_official_read
+REC-2025REG-13,Denver Broncos,DEN,AFC,West,17,14,3,0,0.824,401,311,90,8,1,0,6,2,0,5,1,0,9,3,0,2W,https://www.nfl.com/standings/division/2025/REG,2026-11-13,verified_direct_official_read
+REC-2025REG-14,Los Angeles Chargers,LAC,AFC,West,17,11,6,0,0.647,368,340,28,6,3,0,5,3,0,5,1,0,8,4,0,2L,https://www.nfl.com/standings/division/2025/REG,2026-11-13,verified_direct_official_read
+REC-2025REG-15,Kansas City Chiefs,KC,AFC,West,17,6,11,0,0.353,362,328,34,5,4,0,1,7,0,1,5,0,3,9,0,6L,https://www.nfl.com/standings/division/2025/REG,2026-11-13,verified_direct_official_read
+REC-2025REG-16,Las Vegas Raiders,LV,AFC,West,17,3,14,0,0.176,241,432,-191,2,7,0,1,7,0,1,5,0,3,9,0,1W,https://www.nfl.com/standings/division/2025/REG,2026-11-13,verified_direct_official_read
+REC-2025REG-17,Philadelphia Eagles,PHI,NFC,East,17,11,6,0,0.647,379,325,54,5,3,0,6,3,0,3,3,0,8,4,0,1L,https://www.nfl.com/standings/division/2025/REG,2026-11-13,verified_direct_official_read
+REC-2025REG-18,Dallas Cowboys,DAL,NFC,East,17,7,9,1,0.441,471,511,-40,4,3,1,3,6,0,4,2,0,4,7,1,1L,https://www.nfl.com/standings/division/2025/REG,2026-11-13,verified_direct_official_read
+REC-2025REG-19,Washington Commanders,WAS,NFC,East,17,5,12,0,0.294,356,451,-95,2,6,0,3,6,0,3,3,0,3,9,0,1W,https://www.nfl.com/standings/division/2025/REG,2026-11-13,verified_direct_official_read
+REC-2025REG-20,New York Giants,NYG,NFC,East,17,4,13,0,0.235,381,439,-58,3,5,0,1,8,0,2,4,0,2,10,0,2W,https://www.nfl.com/standings/division/2025/REG,2026-11-13,verified_direct_official_read
+REC-2025REG-21,Chicago Bears,CHI,NFC,North,17,11,6,0,0.647,441,415,26,6,2,0,5,4,0,2,4,0,7,5,0,2L,https://www.nfl.com/standings/division/2025/REG,2026-11-13,verified_direct_official_read
+REC-2025REG-22,Green Bay Packers,GB,NFC,North,17,9,7,1,0.559,391,360,31,5,3,0,4,4,1,4,2,0,7,4,1,4L,https://www.nfl.com/standings/division/2025/REG,2026-11-13,verified_direct_official_read
+REC-2025REG-23,Minnesota Vikings,MIN,NFC,North,17,9,8,0,0.529,344,333,11,4,4,0,5,4,0,4,2,0,7,5,0,5W,https://www.nfl.com/standings/division/2025/REG,2026-11-13,verified_direct_official_read
+REC-2025REG-24,Detroit Lions,DET,NFC,North,17,9,8,0,0.529,481,413,68,5,3,0,4,5,0,2,4,0,6,6,0,1W,https://www.nfl.com/standings/division/2025/REG,2026-11-13,verified_direct_official_read
+REC-2025REG-25,Carolina Panthers,CAR,NFC,South,17,8,9,0,0.471,311,380,-69,5,3,0,3,6,0,3,3,0,6,6,0,2L,https://www.nfl.com/standings/division/2025/REG,2026-11-13,verified_direct_official_read
+REC-2025REG-26,Tampa Bay Buccaneers,TB,NFC,South,17,8,9,0,0.471,380,411,-31,4,4,0,4,5,0,3,3,0,6,6,0,1W,https://www.nfl.com/standings/division/2025/REG,2026-11-13,verified_direct_official_read
+REC-2025REG-27,Atlanta Falcons,ATL,NFC,South,17,8,9,0,0.471,353,401,-48,4,4,0,4,5,0,3,3,0,7,5,0,4W,https://www.nfl.com/standings/division/2025/REG,2026-11-13,verified_direct_official_read
+REC-2025REG-28,New Orleans Saints,NO,NFC,South,17,6,11,0,0.353,306,383,-77,3,5,0,3,6,0,3,3,0,4,8,0,1L,https://www.nfl.com/standings/division/2025/REG,2026-11-13,verified_direct_official_read
+REC-2025REG-29,Seattle Seahawks,SEA,NFC,West,17,14,3,0,0.824,483,292,191,6,2,0,8,1,0,4,2,0,9,3,0,7W,https://www.nfl.com/standings/division/2025/REG,2026-11-13,verified_direct_official_read
+REC-2025REG-30,Los Angeles Rams,LA,NFC,West,17,12,5,0,0.706,518,346,172,7,1,0,5,4,0,4,2,0,7,5,0,1W,https://www.nfl.com/standings/division/2025/REG,2026-11-13,verified_direct_official_read
+REC-2025REG-31,San Francisco 49ers,SF,NFC,West,17,12,5,0,0.706,437,371,66,5,3,0,7,2,0,4,2,0,9,3,0,1L,https://www.nfl.com/standings/division/2025/REG,2026-11-13,verified_direct_official_read
+REC-2025REG-32,Arizona Cardinals,AZ,NFC,West,17,3,14,0,0.176,355,488,-133,1,7,0,2,7,0,0,6,0,3,9,0,9L,https://www.nfl.com/standings/division/2025/REG,2026-11-13,verified_direct_official_read
