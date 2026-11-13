@@ -1,0 +1,44 @@
+name: verify-nfl-wk
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/nfl_wk/**'
+      - 'docs/nfl-wk/**'
+      - 'src/nfl_wk/**'
+      - 'scripts/build_nfl_wk.py'
+      - 'scripts/check_nfl_wk.py'
+      - 'tests/test_nfl_wk.py'
+      - '.github/workflows/nfl-wk-ci.yml'
+  pull_request:
+    paths:
+      - 'data/nfl_wk/**'
+      - 'docs/nfl-wk/**'
+      - 'src/nfl_wk/**'
+      - 'scripts/build_nfl_wk.py'
+      - 'scripts/check_nfl_wk.py'
+      - 'tests/test_nfl_wk.py'
+      - '.github/workflows/nfl-wk-ci.yml'
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Build from the verified CSVs
+        run: python3 scripts/build_nfl_wk.py
+      - name: Check structure, sources, gates and determinism
+        run: python3 scripts/check_nfl_wk.py
+      - name: Unit tests (stdlib only, no dependencies)
+        run: python3 -m unittest tests.test_nfl_wk -v
+      - name: Fail if the build is not committed
+        run: |
+          if [ -n "$(git status --porcelain -- data/nfl_wk docs/nfl-wk)" ]; then
+            echo "::error::Generated artefacts are stale. Run 'python3 scripts/build_nfl_wk.py' and commit the result."
+            git status --porcelain -- data/nfl_wk docs/nfl-wk
+            exit 1
+          fi

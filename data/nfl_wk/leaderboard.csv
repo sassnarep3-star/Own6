@@ -1,0 +1,12 @@
+rank,strategy_id,name,family,gates_passed,holdout_bets,roi,clv,brier_skill,eligibility,tier,research_units,reward_paid,status_note
+—,NFL-W11-01,Own-line vs market-line disagreement (single),Single bet,0/12,,,,,QUARANTINED,Tier 0,0,no,No qualifying strategy: every gate that needs licensed data is blocked.
+—,NFL-W11-02,Pace-and-efficiency total (single),Single bet,0/12,,,,,QUARANTINED,Tier 0,0,no,No qualifying strategy: every gate that needs licensed data is blocked.
+—,NFL-W11-03,Calibrated win probability from own margin (single),Single bet,0/12,,,,,QUARANTINED,Tier 0,0,no,No qualifying strategy: every gate that needs licensed data is blocked.
+—,NFL-W11-04,Verified first-string loss on the offensive line (single),Single bet,0/12,,,,,QUARANTINED,Tier 0,0,no,No qualifying strategy: every gate that needs licensed data is blocked.
+—,NFL-W11-05,Secondary-cluster deficiency fade (single),Single bet,0/12,,,,,QUARANTINED,Tier 0,0,no,No qualifying strategy: every gate that needs licensed data is blocked.
+—,NFL-W11-06,Quarterback cascade (single),Single bet,0/12,,,,,QUARANTINED,Tier 0,0,no,No qualifying strategy: every gate that needs licensed data is blocked.
+—,NFL-W11-07,Correlated same-game two-leg (parlay),Parlay,0/12,,,,,QUARANTINED,Tier 0,0,no,No qualifying strategy: every gate that needs licensed data is blocked.
+—,NFL-W11-08,Cross-game slate parlay (parlay),Parlay,0/12,,,,,QUARANTINED,Tier 0,0,no,No qualifying strategy: every gate that needs licensed data is blocked.
+—,NFL-W11-09,Quarterback prop with confirmed depth cascade (prop),Player prop,0/12,,,,,QUARANTINED,Tier 0,0,no,No qualifying strategy: every gate that needs licensed data is blocked.
+—,NFL-W11-10,Same-game prop combo (prop combo),Player prop combination,0/12,,,,,QUARANTINED,Tier 0,0,no,No qualifying strategy: every gate that needs licensed data is blocked.
+—,NFL-W11-11,Game-script combo (prop combo),Player prop combination,0/12,,,,,QUARANTINED,Tier 0,0,no,No qualifying strategy: every gate that needs licensed data is blocked.

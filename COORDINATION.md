@@ -1536,3 +1536,83 @@ Claim log: 2026-11-13 — claimed X1–X4 after reading the board, `origin/main`
 **Follow-up (docs/data only, same session):** W10-G01 records corrected to 3-5-1 / 5-3-1 from the nfl.com schedule page (`line_status` now marks records as post-game); this entry reaches `main` through the follow-up docs PR titled "record PR #77 merge and W10-G01 final records (session 4fc2fd57)".
 
 **Open items carried forward (non-blocking):** Puka Nacua row (no official row source); Brissett acquisition (NFL-F22, press only); Seahawks 53-man QB3 (not re-read); NFL-F24 (broadcast cells and Munich venue wording, owner `c1125799`); NFL-F25 (rules citations resolve to 2025 content, owner `8132a3b1`); W10-BYE four-club row packing (format); the Assurance and lab checks passed on `main` for `8450f1e`.
+## Session `arena/0a988733-own6` — NFL Week 11 live-verified pack, own-line engine, skill gates & suggestions review (2026-11-13)
+
+**Platform branch constraint (logged deviation):** Arena fixes this session to branch `arena/0a988733-own6`
+(creating `session-<id>/<task>` branches is disallowed). Base commit at claim time: `d18f495` (= `origin/main`).
+
+**Concurrency check before claiming:** open PR **#68** (`arena/34dacba5-own6`) owns `data/nfl/**`,
+`docs/nfl/**`, `data/assurance/**`, `data/source_coverage/**`, `docs/coverage/**`, `NFL_EXECUTIVE_SUMMARY.md`;
+open PR **#72** (`arena/3b81013c-own6`) owns `COORDINATION.md`, `data/assurance/**`, `data/source_coverage/**`,
+`docs/coverage/**`, `docs/assurance/repo-audit.html`. **This session therefore edits none of those paths.**
+It reads `data/nfl/**` and `docs/nfl/**` read-only and builds a new, disjoint namespace.
+
+### Claim (recorded before any work)
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| W1 Coordination claim (this block) committed and pushed before work | in progress | `0a988733` | `COORDINATION.md` (append-only) |
+| W2 Fresh official-source read: 2026 Week 11 slate, 32-club standings, Week 11 injury report, NFL terms, injury policy, roster/rules pages | unclaimed → claimed | `0a988733` | `data/nfl_w11/sources.csv` |
+| W3 Verified Week 11 slate + standings datasets (every row source-linked) | claimed | `0a988733` | `data/nfl_w11/week11_slate.csv`, `data/nfl_w11/standings_2026_w11.csv` |
+| W4 Week 11 injury report + offensive/defensive starter-vs-backup depth-deficiency analysis | claimed | `0a988733` | `data/nfl_w11/injuries_week11.csv`, `data/nfl_w11/depth_deficiency.csv` |
+| W5 Own-line origination (spread/total/win-prob) computed from official inputs; luck-vs-skill decomposition | claimed | `0a988733` | `data/nfl_w11/own_lines.csv`, `data/nfl_w11/luck_skill.csv`, `src/nfl_w11/**` |
+| W6 Strategy competition: singles, parlays, player-prop combos; validation gates; correlation specs; leaderboard + rewards | claimed | `0a988733` | `data/nfl_w11/strategies.csv`, `data/nfl_w11/validation_gates.csv`, `data/nfl_w11/correlations.csv`, `data/nfl_w11/leaderboard.csv` |
+| W7 Decision-readiness Q&A (what we know / do not know / how to discover it) + requirement trace | claimed | `0a988733` | `data/nfl_w11/decision_qa.csv`, `data/nfl_w11/requirements_trace.csv` |
+| W8 Dedicated Suggestions review section with an explicit choose-before-implement workflow | claimed | `0a988733` | `data/nfl_w11/suggestions.csv` |
+| W9 Zero-manual-input dashboard `docs/nfl-w11/` + builder/checker/tests/CI + executive summary | claimed | `0a988733` | `docs/nfl-w11/**`, `scripts/build_nfl_w11.py`, `scripts/check_nfl_w11.py`, `tests/test_nfl_w11.py`, `.github/workflows/nfl-w11-ci.yml`, `NFL_W11_EXECUTIVE_SUMMARY.md`, `research/nfl_w11/**` |
+| W10 Final integration: additive nav links only, PR to `main`, merge, live Pages confirmation, record result | unclaimed | `0a988733` | `COORDINATION.md` (append-only), `README.md` (append-only), `docs/index.html` (additive link only) |
+
+**Rules this session follows:** no value is published unless it was read from an official source during this
+session or computed by committed code from such values; unconfirmed cells stay blank and appear on
+`docs/nfl-w11/flagged.html`; no market price, ROI, CLV or reward payout is invented.
+
+### Scope note: `nfl_w11` → `nfl_wk` (recorded 2026-11-13)
+
+All W2–W9 artefacts shipped under the namespace **`nfl_wk`**, not `nfl_w11` as written in the claim table above.
+The rename happened early for a factual reason: nfl.com numbers the 12–16 November slate **Week 10**, not Week 11
+(Week 11 is 19–23 November). Keeping `w11` in the path would have put a wrong week number in every URL, so the
+namespace was made week-number-neutral. Files: `data/nfl_wk/**`, `src/nfl_wk/**`, `docs/nfl-wk/**`,
+`scripts/{build,check}_nfl_wk.py`, `tests/test_nfl_wk.py`, `.github/workflows/nfl-wk-ci.yml`,
+`NFL_WEEK_EXECUTIVE_SUMMARY.md`, `research/nfl_wk/**`. No other session's scope was touched by the rename.
+
+### W1–W9 result (2026-11-13)
+
+| Task | Status | Verification |
+|---|---|---|
+| W1 Claim | done | Committed and pushed before any work (`6b17f50`, rebased to `efffd48`) |
+| W2 Sources | done | 32 registered sources, each with a read date, a verbatim excerpt and an explicit does-not-support column |
+| W3 Slate + standings | done | 27 fixtures (14 Week 10 + 13 Week 11), 32 clubs; five league identities reconcile to zero |
+| W4 Injuries + depth | done (partial) | 326 injury rows joined to 14 official club charts (12 clubs on the report); 21 cells deliberately blank |
+| W5 Own lines | done | 13 unplayed Week 10 games; no market price exists, so every market/edge cell is blank |
+| W6 Strategies/gates | done | 11 preregistered strategies, 12 gates, only the pre-registration gate passes; leaderboard empty by design |
+| W7 Decision Q&A + requirements | done | 22 questions, 20 requirement lines |
+| W8 Suggestions review | done | 19 suggestions with an empty decision column for the human reviewer |
+| W9 Site + CI + summary | done | 13 pages, checker green, 66 unit tests, CI workflow, executive summary |
+
+**Two corrections made during the re-verification pass, recorded because they changed published content:**
+
+1. The origination page said **13** unplayed games while `own_lines.csv` held **14** rows. The extra row was the
+   already-finished Thursday game. Fixed properly rather than by editing the caption: `slate.csv` gained
+   `played_status` / `final_score`, the origination engine now prices only unplayed games, and the one finished game
+   is instead published as an error check (total error — see below). The checker now re-derives every prose count
+   from the CSV so this class of drift fails CI.
+2. `depth.py` mis-parsed a position group of the form `[co-starters..., "name"]`, exploding the bare name into one
+   tier per character. Caught by a new unit test; fix published 118 joined players exactly as before, so no
+   previously-published number moved.
+
+### Outreach request to session `44136693` (owner of `docs/index.html`)
+
+**Requested, not done (per the rule that shared outputs change only in the final integration session):**
+add one link from the dashboard `docs/index.html` to `nfl-wk/index.html`, e.g. beside the existing NFL cards:
+
+> **NFL Week pack** — own lines, injury-to-depth-chart join, 12 validation gates, 19 suggestions awaiting review.
+> `docs/nfl-wk/index.html`
+
+Rationale the integration session may want to cite: this pack is the only NFL page set that is **self-contained**
+(each page carries its own nav and `assets/style.css`), publishes a **computed error check against the one finished
+game**, and isolates the brief's **3rd-string** case explicitly (`depth_cascade.csv`). It does not touch
+`data/nfl/**`, `docs/nfl/**`, `data/assurance/**`, `docs/coverage/**`, `docs/nfl-review/**` or `docs/nfl-lab/**`,
+so adding the link cannot conflict with PR #79's content.
+
+Until that link exists the pack is reachable only by direct URL:
+`https://sassnarep3-star.github.io/Own6/nfl-wk/index.html` (Pages serves `docs/` as the site root).
