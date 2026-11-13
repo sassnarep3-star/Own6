@@ -126,6 +126,22 @@ An anonymized, zero-inference compliance dashboard and dataset suite covering Sa
 - **Line-by-Line Repo & Source Audit:** [`audit/SF_94122_REPO_AND_SOURCE_AUDIT.md`](audit/SF_94122_REPO_AND_SOURCE_AUDIT.md)
 - **CSV Datasets & Verifier:** [`data/sf_94122/`](data/sf_94122/) · `python3 scripts/build_sf_94122.py --check` · `python3 scripts/check_sf_94122.py`
 
+## NFL Consolidated Review & Final Integration (`docs/nfl-review/`) — added 2026-11-13
+
+One canonical, evidence-bounded review surface across all four NFL packs in this repository. Every published NFL value was re-read against official NFL sources on `2026-11-13` and reconciled row by row: **336 compared values — 240 match, 34 differ, 55 not checked, 6 not found in the capture, 1 with no player named**; **18 official pages read**; **20 irregularities flagged for review**; **27 registered strategies, 0 qualified, 0 leaderboard entries**. Blank always means *not confirmed from an official source*. The community-sourced 2015-2026 game log used by the lines lab reproduces **byte-for-byte** (SHA-256 `9fe5bd67…3090`, upstream commit `6ea0be6…`), but the upstream repository declares **no licence**, so it is labelled community/non-official everywhere and is never published as a first-party source. No profitability is claimed anywhere.
+
+- **Live dashboard (9 pages):** [`docs/nfl-review/index.html`](docs/nfl-review/index.html) (`https://sassnarep3-star.github.io/Own6/docs/nfl-review/`)
+- **Executive summary:** [`research/NFL_REVIEW_EXECUTIVE_SUMMARY.md`](research/NFL_REVIEW_EXECUTIVE_SUMMARY.md)
+- **Line-by-line audit & provenance record:** [`audit/NFL_REVIEW_2026_11_13.md`](audit/NFL_REVIEW_2026_11_13.md)
+- **Requirements register (16):** [`data/nfl_review/requirement_coverage.csv`](data/nfl_review/requirement_coverage.csv) → [`docs/nfl-review/requirements.html`](docs/nfl-review/requirements.html)
+- **Decision Q&A with discovery steps (16):** [`data/nfl_review/decision_questions.csv`](data/nfl_review/decision_questions.csv) → [`docs/nfl-review/questions.html`](docs/nfl-review/questions.html)
+- **Suggestions — proposals only, none implemented (18):** [`data/nfl_review/suggestions.csv`](data/nfl_review/suggestions.csv) → [`docs/nfl-review/suggestions.html`](docs/nfl-review/suggestions.html)
+- **Strategies, gates & leaderboard:** [`data/nfl_review/strategy_status.csv`](data/nfl_review/strategy_status.csv) · [`data/nfl_review/gate_status.csv`](data/nfl_review/gate_status.csv) · [`data/nfl_review/leaderboard_status.csv`](data/nfl_review/leaderboard_status.csv) → [`docs/nfl-review/strategies.html`](docs/nfl-review/strategies.html)
+- **Official Week 10 injury report + depth status:** [`data/nfl_review/injury_report_week10_read_2026_11_13.csv`](data/nfl_review/injury_report_week10_read_2026_11_13.csv) (326 player rows, all 28 clubs) · [`data/nfl_review/depth_status.csv`](data/nfl_review/depth_status.csv) → [`docs/nfl-review/injuries.html`](docs/nfl-review/injuries.html)
+- **Verification ledger (336 rows) & PR #68 provenance (7 checks):** [`data/nfl_review/value_reconciliation.csv`](data/nfl_review/value_reconciliation.csv) · [`data/nfl_review/pr68_verification.csv`](data/nfl_review/pr68_verification.csv) → [`docs/nfl-review/verification.html`](docs/nfl-review/verification.html)
+- **Flagged for Review (20):** [`docs/nfl-review/flagged.html`](docs/nfl-review/flagged.html) · **Sources read (18):** [`docs/nfl-review/sources.html`](docs/nfl-review/sources.html)
+- **Build / check / test:** `python3 scripts/build_nfl_review.py` · `python3 scripts/check_nfl_review.py` (9 pages, 969 table rows, 0 issues) · `python3 scripts/verify_nfl_review.py --check` · `python3 -m unittest discover -s tests -p test_nfl_review.py`
+
 ## NFL Fair-Line Origination, Depth-Deficiency & Skill-Gated Leaderboard (`docs/nfl-origination/`)
 
 A pure-stdlib Python 3.11 NFL fair-line origination, starter-vs-backup (`1st`–`4th` string) offensive/defensive depth-deficiency, Gaussian copula combo-correlation, and 12-gate anti-luck leaderboard suite verified against 28 primary sources on `2026-11-12` (reconciling all 32 NFL clubs' 2026 standings `135W–135L–2T`, `6,246 PF = 6,246 PA`, all 14 Week 10 matchups + 4 byes including Munich neutral site, and 24 Week 10 injury/depth chains while leaving unconfirmed sportsbook lines, empirical EPA drop-offs, and paired correlations strictly blank).

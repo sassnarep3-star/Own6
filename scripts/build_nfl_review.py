@@ -26,6 +26,7 @@ OUT = os.path.join(ROOT, "docs", "nfl-review")
 ASSETS = os.path.join(OUT, "assets")
 
 SELF = "https://sassnarep3-star.github.io/Own6/docs/nfl-review/"
+BASE = "https://sassnarep3-star.github.io/Own6/docs/"
 
 NAV = [
     ("index.html", "Overview"),
@@ -193,10 +194,10 @@ the sixteen decisions that must be settled before any strategy can be judged.</d
 </tbody></table>
 <h2>The four NFL sections in this repository</h2>
 <table><thead><tr><th>Section</th><th>What it holds</th><th>Status</th><th>Source</th></tr></thead><tbody>
-<tr><td><a href="../nfl/index.html">NFL Lab</a></td><td>Requirement traceability R01-R18, decision questions Q01-Q10, suggestions S01-S12, ten frozen strategies N01-N10, ten gates G01-G10, correlation specifications C01-C08, injury and depth model</td><td>published 2026-11-12</td><td>{link(SELF + "nfl/index.html", "live section")}</td></tr>
-<tr><td><a href="../nfl-origination/index.html">NFL Origination</a></td><td>Requirements matrix, decision Q&amp;A (16), site suggestions (14), ten preregistered strategies, twelve gates, twelve combo correlation specifications, 24 verified Week 10 depth chains, executive summary</td><td>published 2026-11-12</td><td>{link(SELF + "nfl-origination/index.html", "live section")}</td></tr>
-<tr><td><a href="../nfl-3b81013c/index.html">NFL Week 10 pack</a></td><td>Verified Week 10 registers, 14 originated lines, 49 injury and depth rows, 34 depth groups, 12 correlation bound sets, open questions</td><td>published 2026-11-12</td><td>{link(SELF + "nfl-3b81013c/index.html", "live section")}</td></tr>
-<tr><td><a href="../nfl/lab/index.html">NFL lines lab</a></td><td>Reproducible pipeline on a community 2015-2026 game log: model lines, backtests with clustered intervals, correlation estimates, availability model</td><td>published 2026-11-13 (open PR #68, independently verified)</td><td>{link(SELF + "nfl/lab/index.html", "live section")}</td></tr>
+<tr><td><a href="../nfl/index.html">NFL Lab</a></td><td>Requirement traceability R01-R18, decision questions Q01-Q10, suggestions S01-S12, ten frozen strategies N01-N10, ten gates G01-G10, correlation specifications C01-C08, injury and depth model</td><td>published 2026-11-12</td><td>{link(BASE + "nfl/index.html", "live section")}</td></tr>
+<tr><td><a href="../nfl-origination/index.html">NFL Origination</a></td><td>Requirements matrix, decision Q&amp;A (16), site suggestions (14), ten preregistered strategies, twelve gates, twelve combo correlation specifications, 24 verified Week 10 depth chains, executive summary</td><td>published 2026-11-12</td><td>{link(BASE + "nfl-origination/index.html", "live section")}</td></tr>
+<tr><td><a href="../nfl-3b81013c/index.html">NFL Week 10 pack</a></td><td>Verified Week 10 registers, 14 originated lines, 49 injury and depth rows, 34 depth groups, 12 correlation bound sets, open questions</td><td>published 2026-11-12</td><td>{link(BASE + "nfl-3b81013c/index.html", "live section")}</td></tr>
+<tr><td><a href="../nfl/lab/index.html">NFL lines lab</a></td><td>Reproducible pipeline on a community 2015-2026 game log: model lines, backtests with clustered intervals, correlation estimates, availability model</td><td>published 2026-11-13 (PR #68, independently verified and merged into the review branch)</td><td>{link(BASE + "nfl/lab/index.html", "live section")}</td></tr>
 </tbody></table>
 <div class="note"><strong>Why four sections exist.</strong> Three parallel sessions each built an NFL pack before
 the work was coordinated. Merging them is possible but is a decision, not a cleanup: suggestion S-05 proposes one
@@ -372,6 +373,22 @@ def build_injuries():
             '<span class="badge b-bad">blank - not computable</span>',
             esc(r["why_the_value_is_blank"]), link(r["official_source_url"], "source"),
         ])
+    report = load("injury_report_week10_read_2026_11_13.csv")
+    report_rows = []
+    for r in report:
+        if r["game_status"]:
+            kind = "bad" if r["game_status"].lower() == "out" else "warn"
+        elif "Did Not Participate" in r["practice_status"]:
+            kind = "warn"
+        else:
+            kind = "info"
+        report_rows.append([
+            esc(r["team"]), esc(r["player"]), esc(r["position"]),
+            esc(r["injury"]) if r["injury"] else '<span class="badge b-info">no injury listed</span>',
+            esc(r["practice_status"]), esc(r["game_status"]) if r["game_status"]
+            else '<span class="badge b-info">no designation</span>',
+            link(r["official_source_url"], "source"),
+        ])
     body = (
         "<p class=\"lede\">The official Week 10 availability read taken on 2026-11-13, and the state of the "
         "starter-versus-backup depth tracking for all 32 clubs. The league publishes who is limited, doubtful or "
@@ -379,6 +396,12 @@ def build_injuries():
         "for every club.</p>"
         + "<h2>Official Week 10 availability (read 2026-11-13)</h2>"
         + table(["Club", "Player", "Position", "Official designation", "Detail", "Source label", "Source"], rows)
+        + "<h2>Official Week 10 league injury report, every listed player</h2>"
+        + "<p>The table below is the full per-club listing from the official Week 10 league injury report read on "
+          "2026-11-13: " + str(len(report_rows)) + " player rows covering all 28 clubs that play in Week 10. A blank "
+          "game-status cell means the league published no designation for that player at the time of the read; it "
+          "does not mean the player is healthy.</p>"
+        + table(["Club", "Player", "Position", "Injury", "Practice status", "Game designation", "Source"], report_rows)
         + "<h2>Depth-deficiency coverage by club</h2>"
         + table(["Club", "Abbr", "Official injury report", "Club depth chart", "Depth order known",
                  "Replacement chain published", "Deficiency index", "Why the value is blank", "Source"], drows)

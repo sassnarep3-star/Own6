@@ -23,6 +23,9 @@ OFFICIAL_HOSTS = (
     "docs.scipy.org", "scikit-learn.org", "www.statsmodels.org", "aglc.ca",
     "github.com", "api.github.com", "codeload.github.com", "docs.github.com",
     "sassnarep3-star.github.io",
+    # official NFL club depth-chart pages (official club sources)
+    "www.patriots.com", "www.detroitlions.com", "www.commanders.com", "www.giants.com",
+    "www.vikings.com", "www.packers.com", "www.clevelandbrowns.com", "www.azcardinals.com",
 )
 
 
@@ -104,6 +107,18 @@ class TestPublicationRules(unittest.TestCase):
                     self.assertTrue(any(host == h or host.endswith("." + h) for h in OFFICIAL_HOSTS),
                                     f"{name}: {key} points at a non-official host {host}")
 
+    def test_official_club_depth_chart_hosts_are_accepted(self):
+        """Official club depth-chart pages are official sources for depth order."""
+        club_hosts = {
+            "www.patriots.com", "www.detroitlions.com", "www.commanders.com", "www.giants.com",
+            "www.vikings.com", "www.packers.com", "www.clevelandbrowns.com", "www.azcardinals.com",
+        }
+        for r in rows("depth_status.csv"):
+            host = re.sub(r"^https?://([^/]+).*$", r"\1", r["official_source_url"])
+            if host.endswith("nfl.com"):
+                continue
+            self.assertIn(host, club_hosts, f"unexpected non-official depth source host {host}")
+
 
 class TestLedgerCoverage(unittest.TestCase):
     def test_ledger_covers_every_published_injury_row(self):
@@ -168,13 +183,26 @@ class TestOfficialRead(unittest.TestCase):
         for r in rows("injury_status_read_2026_11_13.csv"):
             self.assertIn(r["designation"], allowed)
 
-    def test_injury_capture_covers_both_teams_of_each_week_10_game(self):
+    def test_official_league_report_covers_every_club_that_plays(self):
         sl = [r for r in rows("slate_week10_read_2026_11_13.csv") if not r["slot_id"].startswith("W10-BYE")]
-        inj = rows("injury_status_read_2026_11_13.csv")
-        clubs = {r["team"] for r in inj}
+        rep = rows("injury_report_week10_read_2026_11_13.csv")
+        clubs = {r["team"] for r in rep}
+        self.assertEqual(len(clubs), 28)
         for game in sl:
             self.assertIn(game["away_team"], clubs)
             self.assertIn(game["home_team"], clubs)
+
+    def test_official_league_report_uses_the_official_vocabulary(self):
+        for r in rows("injury_report_week10_read_2026_11_13.csv"):
+            self.assertIn(r["practice_status"], (
+                "Full Participation in Practice", "Limited Participation in Practice",
+                "Did Not Participate In Practice"))
+            self.assertIn(r["game_status"], ("", "Out", "Questionable", "Doubtful"))
+
+    def test_official_league_report_is_published(self):
+        html = open(os.path.join(SITE, "injuries.html"), encoding="utf-8").read()
+        for r in rows("injury_report_week10_read_2026_11_13.csv"):
+            self.assertIn(r["player"], html)
 
 
 class TestDecisionRegisters(unittest.TestCase):

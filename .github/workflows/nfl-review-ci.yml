@@ -1,0 +1,48 @@
+name: NFL Review Verification Gate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/nfl_review/**"
+      - "docs/nfl-review/**"
+      - "research/NFL_REVIEW_EXECUTIVE_SUMMARY.md"
+      - "audit/NFL_REVIEW_2026_11_13.md"
+      - "scripts/build_nfl_review.py"
+      - "scripts/check_nfl_review.py"
+      - "scripts/verify_nfl_review.py"
+      - "tests/test_nfl_review.py"
+      - ".github/workflows/nfl-review-ci.yml"
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-nfl-review:
+    name: NFL consolidated review
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Rebuild the consolidated review pages from the committed registers
+        run: |
+          python3 scripts/build_nfl_review.py
+          git diff --exit-code -- docs/nfl-review
+      - name: Reconciliation and PR #68 provenance ledgers reproduce
+        run: |
+          python3 scripts/verify_nfl_review.py --write
+          git diff --exit-code -- data/nfl_review/value_reconciliation.csv data/nfl_review/pr68_verification.csv
+          python3 scripts/verify_nfl_review.py --check
+      - name: Source-link, blank-value, table-shape and no-input gate
+        run: python3 scripts/check_nfl_review.py
+      - name: NFL review regression tests
+        run: python3 -m unittest discover -s tests -p test_nfl_review.py -v
+      - name: Repo-wide published HTML gate
+        run: python3 tools/release_gate.py

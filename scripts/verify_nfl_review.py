@@ -269,21 +269,52 @@ def _clean_player(name):
 
 
 def reconcile_injuries(rows):
-    read = _read(os.path.join(REVIEW, "injury_status_read_2026_11_13.csv"))
+    """Compare published NFL injury and depth claims with the official reads.
+
+    The authoritative read is the official Week 10 league injury report
+    (https://www.nfl.com/injuries/league/2026/reg10), captured row by row in
+    ``data/nfl_review/injury_report_week10_read_2026_11_13.csv``. It lists every
+    player of every club with a reportable status, the practice participation
+    status and the game designation. The Friday Nov 13 league roundup capture is
+    kept as a second official read because it names designations that the
+    report tables do not (for example a player placed on injured reserve).
+    """
+    report = _read(os.path.join(REVIEW, "injury_report_week10_read_2026_11_13.csv"))
+    roundup = _read(os.path.join(REVIEW, "injury_status_read_2026_11_13.csv"))
     practice_read = _read(os.path.join(REVIEW, "injury_practice_read_2026_11_13.csv"))
+
     by_player = {}
-    for r in read:
-        by_player.setdefault((r["team"], _clean_player(r["player"])), []).append(r)
+    for r in report:
+        key = (r["team"], _clean_player(r["player"]))
+        by_player.setdefault(key, []).append({
+            "practice_from_table": r["practice_status"],
+            "game_from_table": r["game_status"],
+            "designation": r["game_status"],
+            "practice_note": "",
+            "read_origin": "official Week 10 league injury report",
+        })
+    for r in roundup:
+        key = (r["team"], _clean_player(r["player"]))
+        if key in by_player:
+            continue
+        by_player[key] = [{
+            "practice_note": r["practice_note"],
+            "designation": r["designation"],
+            "practice_from_table": "",
+            "game_from_table": r["designation"],
+            "read_origin": "official NFL.com Friday Nov 13 league roundup",
+        }]
     for r in practice_read:
         key = (r["team"], _clean_player(r["player"]))
-        if key not in by_player:
-            by_player[key] = [{"practice_note": "", "designation": "",
-                               "practice_from_table": r["practice_status"],
-                               "game_from_table": r["game_status"]}]
-        else:
-            # keep the designation row but remember the practice status read from the report table
-            by_player[key][0].setdefault("practice_from_table", r["practice_status"])
-            by_player[key][0].setdefault("game_from_table", r["game_status"])
+        if key in by_player:
+            continue
+        by_player[key] = [{
+            "practice_note": "",
+            "designation": "",
+            "practice_from_table": r["practice_status"],
+            "game_from_table": r["game_status"],
+            "read_origin": "official Week 10 practice-report table",
+        }]
     n = 0
 
     # 3a. data/nfl_3b81013c/injuries_and_depth.csv
@@ -297,26 +328,26 @@ def reconcile_injuries(rows):
                  "official_report_status", p["official_report_status"], "",
                  "unverified_no_player_named",
                  "The published row names no player, so no player-level claim can be confirmed.",
-                 "https://www.nfl.com/injuries/")
+                 "https://www.nfl.com/injuries/league/2026/reg10")
             continue
         hits = by_player.get((team, player), [])
         if not hits:
             _rec(rows, f"IN-{n:03d}", "data/nfl_3b81013c/injuries_and_depth.csv", p["id"],
                  "official_report_status", p["official_report_status"], "",
                  "not_found_in_2026_11_13_capture",
-                 "The player does not appear in the decision-relevant capture taken from the official Week 10 "
-                 "report on 2026-11-13 (every player carrying an official designation, plus the full per-club "
-                 "listings read for the clubs named by the published packs). This is not evidence that the "
-                 "published claim is wrong: the report is republished continuously and a club lists only players "
-                 "with a reportable status. Flagged for review.",
-                 "https://www.nfl.com/injuries/")
+                 "The player does not appear in the official Week 10 league injury report read on 2026-11-13 "
+                 "(which lists every player of every club with a reportable status) or in the Friday Nov 13 "
+                 "league roundup. This is not evidence that the published claim is wrong: the report is "
+                 "republished continuously and a club lists only players with a reportable status. "
+                 "Flagged for review.",
+                 "https://www.nfl.com/injuries/league/2026/reg10")
             continue
         hit = hits[0]
         practice = _practice_bucket(hit.get("practice_from_table") or hit.get("practice_note", ""))
         game = _game_bucket(hit.get("game_from_table") or hit.get("designation", "")) or hit.get("game_from_table", "")
         if pub in ("OUT", "DNP", "LIMITED", "FULL") and pub == practice:
             result, offv = "match", practice
-        elif pub in ("OUT",) and game == "OUT":
+        elif pub == "OUT" and game == "OUT":
             result, offv = "match", game
         elif pub == "ACTIVE_EXPECTED":
             result = "not_checked"
@@ -333,7 +364,7 @@ def reconcile_injuries(rows):
             note = "The published status is an expectation rather than an official designation; nothing to reconcile."
         _rec(rows, f"IN-{n:03d}", "data/nfl_3b81013c/injuries_and_depth.csv", p["id"],
              "official_report_status", p["official_report_status"], offv, result, note,
-             "https://www.nfl.com/injuries/")
+             "https://www.nfl.com/injuries/league/2026/reg10")
 
     # 3b. data/nfl_origination/injury_and_depth_deficiency.csv starter status
     for p in _read(DEPTH_PUBLISHED):
@@ -358,11 +389,11 @@ def reconcile_injuries(rows):
             _rec(rows, f"DP-{n:03d}", "data/nfl_origination/injury_and_depth_deficiency.csv", p["case_id"],
                  "starter_week10_status", p["starter_week10_status"], "",
                  "not_found_in_2026_11_13_capture",
-                 "The named starter does not appear in the decision-relevant capture taken from the official Week 10 "
-                 "report on 2026-11-13. The report lists only players with a reportable status and is republished "
-                 "continuously, so absence from the capture is not proof that the published claim was wrong. "
-                 "Flagged for review.",
-                 "https://www.nfl.com/injuries/")
+                 "The named starter does not appear in the official Week 10 league injury report read on "
+                 "2026-11-13, which lists every player of every club with a reportable status. The report "
+                 "is republished continuously, so absence from the capture is not proof that the published "
+                 "claim was wrong. Flagged for review.",
+                 "https://www.nfl.com/injuries/league/2026/reg10")
             continue
         hit = hits[0]
         practice = _practice_bucket(hit.get("practice_from_table") or hit.get("practice_note", ""))
@@ -380,7 +411,7 @@ def reconcile_injuries(rows):
                     "official report is republished continuously. Flagged for review.")
         _rec(rows, f"DP-{n:03d}", "data/nfl_origination/injury_and_depth_deficiency.csv", p["case_id"],
              "starter_week10_status", p["starter_week10_status"], offv, result, note,
-             "https://www.nfl.com/injuries/")
+             "https://www.nfl.com/injuries/league/2026/reg10")
     return n
 
 
@@ -475,7 +506,7 @@ def main(argv=None):
     ap.add_argument("--check", action="store_true", help="verify the committed CSVs match a fresh run")
     args = ap.parse_args(argv)
 
-    rows, pr68, total = build()
+    rows, pr68, _total = build()
     if args.write:
         write(rows, pr68)
         print(f"wrote {os.path.relpath(OUT_CSV, ROOT)} ({len(rows)} compared values)")
@@ -495,7 +526,7 @@ def main(argv=None):
     counts = {}
     for r in rows:
         counts[r[6]] = counts.get(r[6], 0) + 1
-    print(f"{total} published values compared against the 2026-11-13 official read")
+    print(f"{len(rows)} published values compared against the 2026-11-13 official read")
     for k in sorted(counts):
         print(f"  {k}: {counts[k]}")
     print(f"PR #68 dataset checks: " + ", ".join(f"{c[0]}={c[4]}" for c in pr68))
