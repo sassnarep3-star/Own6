@@ -1737,8 +1737,8 @@ source_coverage → audit_repo` until two consecutive passes were byte-identical
 `docs/index.html` and a new README section.
 
 **Gates run locally, all green:** `check_nfl_309921cc.py` (75 checks) · `source_coverage.py --check` ·
-`check_assurance.py` (9 pages, 4,850 rows, all official HTTPS) · `check_lab.py` · `check_report.py` ·
-`audit_repo.py` (523 files / 47,351 lines / 4,135 records / 17 findings) · `tools/release_gate.py`
+`check_assurance.py` (9 pages, 4,851 rows, all official HTTPS) · `check_lab.py` · `check_report.py` ·
+`audit_repo.py` (524 files / 47,840 lines / 4,135 records / 17 findings) · `tools/release_gate.py`
 (0 issues) · `pytest -q tests` (302 passed).
 
 **Sandboxed-environment note for the next session.** The clone is shallow by default;
