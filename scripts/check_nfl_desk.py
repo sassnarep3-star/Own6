@@ -17,6 +17,7 @@ Two sourcing tiers, because they mean different things:
 """
 from __future__ import annotations
 
+import collections
 import csv
 import re
 import subprocess
@@ -97,6 +98,12 @@ def audit_disposition_status(disp: str) -> str:
 def review_dispositions() -> set[str]:
     """Dispositions whose state is needs_review - read from the module that defines them."""
     return {d for d, st in _audit_disposition_status().items() if st == "needs_review"}
+
+
+def _rec(text: str) -> tuple[int, int, int] | None:
+    """'3 - 5 - 1' and '3-5-1' to a triple; None when the cell is not a record."""
+    parts = [x for x in re.split(r"[^0-9]+", str(text).strip()) if x != ""]
+    return (int(parts[0]), int(parts[1]), int(parts[2])) if len(parts) == 3 else None
 
 
 def _same_value(a: str, b: str) -> bool:
@@ -430,7 +437,9 @@ def check_derived(c: Checker) -> dict:
     for a, b in zip(ready, ready[1:]):
         c.check(a >= b, "readiness must be non-increasing down the board")
     led = reg["verification_ledger.csv"]
-    c.check(len(led) == 544, f"verification ledger: expected 544 rows, found {len(led)}")
+    # the ledger's size is a function of files other sessions own, so the gate does not pin an exact count:
+    # it pins coverage (no audited row silently disappears) and a plausible floor
+    c.check(len(led) >= 500, f"verification ledger: {len(led)} rows is below the 500-row floor")
     c.check(len({r["row_id"] for r in led}) == len(led), "ledger row ids must be globally unique")
     regs = {r["register_audited"] for r in led}
     prior_regs = {x for x in regs if x != "this pack"}
@@ -462,12 +471,34 @@ def check_derived(c: Checker) -> dict:
                 f"ledger {r['row_id']}: every non-trivial row needs an explanation")
 
     n_review = sum(1 for r in led if r["verification_status"] == "needs_review")
-    # 64 is the measured state at the 2026-11-13 read: 3 unmatched names, 7 broadcast disagreements between two
-    # official pages, 14 venue labels, 15 provenance mismatches, 8 status drifts, 16 forecast rows, 1 pending
-    # designation and 1 pending... it is asserted so that a change is a decision, not an accident.
-    c.check(n_review == 64, f"expected 64 ledger rows flagged for review, found {n_review}")
-    c.check(sum(1 for r in led if r["verification_status"] == "verified") == 480,
-            "480 ledger rows are verified at this read")
+    c.check(n_review > 0, "a re-verification of another session's registers that finds nothing to review has "
+                          "almost certainly stopped comparing")
+    # coverage: every row of every audited register must be represented in the ledger, so a re-verification
+    # cannot quietly drop the awkward source rows. Subject strings are compound ("ATL W-L-T"), so coverage is
+    # measured per row rather than per team, and peer registers that grow are allowed to.
+    covered = collections.Counter(r["register_audited"] for r in led)
+    for name in prior_regs:
+        path = ROOT / "data" / name
+        if not path.exists():
+            continue
+        rows_a = read_csv(path)
+        c.check(covered.get(name, 0) >= len(rows_a),
+                f"{name}: {len(rows_a)} source rows but only {covered.get(name, 0)} ledger rows reference it")
+    ids = [r["row_id"] for r in led]
+    c.check(len(set(ids)) == len(ids), "ledger row ids are not unique")
+    c.check(ids == [f"VL-{i:04d}" for i in range(1, len(ids) + 1)],
+            "ledger row ids must be consecutive: a gap means a row was dropped rather than re-audited")
+    # dispositions that reconcile a difference must state the arithmetic that reconciles it
+    for r in led:
+        if r["disposition"] == "SUPERSEDED_RECONCILED" and r["field"].endswith("_record"):
+            pr, mr = _rec(r["prior_value"]), _rec(r["official_value_2026_11_13"])
+            c.check(pr and mr and tuple(x - y for x, y in zip(mr, pr)) in ((1, 0, 0), (0, 1, 0)),
+                    f"ledger {r['row_id']}: a reconciled record must differ by exactly one win or loss")
+    # the summary prose quotes these counts, so it is checked rather than trusted
+    summary = (ROOT / "NFL_DECISION_DESK_EXECUTIVE_SUMMARY.md").read_text(encoding="utf-8")
+    for token in (f"{len(led)} rows", f"{len(led) - n_review} verified", f"{n_review} needing review"):
+        c.check(token in summary, f"executive summary must state the current ledger counts ({token}); "
+                                 "the registers moved and the prose has not caught up")
     ra = reg["repo_audit.csv"]
     c.check(len(ra) == 9, f"repo_audit: expected 9 findings, found {len(ra)}")
     for r in ra:

@@ -453,7 +453,9 @@ def test_holm_bonferroni_is_monotone_and_capped() -> None:
 
 def test_disposition_vocabulary_is_closed_and_self_consistent() -> None:
     rows = audit.ledger_rows()
-    assert len(rows) == 544
+    # the audited registers belong to other sessions, so the row count moves under us: pin the invariants that
+    # must hold whatever they contain, and a floor that catches a register silently dropping out
+    assert len(rows) >= 500, f"the ledger fell to {len(rows)} rows: an audited register is probably no longer read"
     assert len({r[0] for r in rows}) == len(rows), "ledger row ids must be globally unique"
     seen: set[str] = set()
     for row in rows:
@@ -464,17 +466,25 @@ def test_disposition_vocabulary_is_closed_and_self_consistent() -> None:
         assert row[1] and row[2] and row[3], f"{row[0]}: register, subject and field are all required"
         seen.add(disp)
     assert {"CONFIRMED", "PROVENANCE_MISMATCH", "DRIFT_STATUS_CHANGED"} <= seen
-    assert sum(1 for r in rows if r[10] == "needs_review") == 64
+    assert 0 < sum(1 for r in rows if r[10] == "needs_review"), "a re-verification that finds nothing has stopped comparing"
 
 
 def test_ledger_reconciles_the_settled_thursday_result_exactly() -> None:
     rows = [dict(zip(audit.LEDGER_HDR, r)) for r in audit.ledger_rows()]
     records = [r for r in rows if r["field"] in ("away_record", "home_record") and r["subject"] == "W10-G01"]
     assert len(records) == 2
+    # the settled Thursday result was 24-21, so Washington +1 win / New York +1 loss. Whether that shows up as a
+    # reconciliation or as a match depends on whether the peer register has since been updated, so both branches
+    # are allowed here - but only those two, and each with its arithmetic stated.
     for r in records:
-        assert r["disposition"] == "SUPERSEDED_RECONCILED", r
         prior, now = audit._parse_rec(r["prior_value"]), audit._parse_rec(r["official_value_2026_11_13"])
-        assert tuple(x - y for x, y in zip(now, prior)) in ((1, 0, 0), (0, 1, 0)), r
+        expect = (1, 0, 0) if r["field"] == "away_record" else (0, 1, 0)
+        diff = tuple(x - y for x, y in zip(now, prior))
+        if diff == (0, 0, 0):
+            assert r["disposition"] == "CONFIRMED", r
+        else:
+            assert diff == expect, f"{r['row_id']}: {prior} -> {now} is neither a match nor the settled delta"
+            assert r["disposition"] == "SUPERSEDED_RECONCILED", r
     moved = {(club, field): (prior, now) for club, field, prior, now in (
         ("New York Giants", "l", "2", "3"), ("Washington Commanders", "w", "2", "3"),
         ("New York Giants", "w", "5", "5"), ("Washington Commanders", "l", "5", "5"))}
@@ -665,7 +675,12 @@ def test_executive_summary_numbers_match_the_registers() -> None:
         assert token and token in text, f"{token} is in the register but not in the summary"
     corr = {r["corr_id"]: r for r in derive.correlation_register()}
     assert corr["CR-06"]["pearson_r"] in text and corr["CR-03"]["pearson_r"] in text
-    assert "137 games" in text and "544" in text and "2026-11-13" in text
+    assert "137 games" in text and "2026-11-13" in text
+    led = [dict(zip(audit.LEDGER_HDR, r)) for r in audit.ledger_rows()]
+    verified = sum(1 for r in led if r["verification_status"] == "verified")
+    # the summary quotes the ledger's size and split; recompute them rather than trusting the prose
+    for token in (f"{len(led)} rows", f"{verified} verified", f"{len(led) - verified} needing review"):
+        assert token in text, f"summary is stale: it should say {token!r}"
 
 
 def load_tests(loader, tests, pattern):  # noqa: ARG001 - lets unittest discover collect these functions

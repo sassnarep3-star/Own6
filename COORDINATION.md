@@ -1819,7 +1819,7 @@ requirements-empirical.txt` before `pytest`.
 | Deliverable | Path | State |
 |---|---|---|
 | Verified input registers | `data/nfl_desk/*.csv` (12 files) + `data/nfl_desk/raw/injury_report_week10_read.psv` | 32 clubs × 2 seasons, 14-game slate + 4 byes, 326-row injury read, 107 published injury rows, 6 bulletins, 14 sources |
-| Derived registers (regenerated, never hand-edited) | `data/nfl_desk/derived/*.csv` (12 files, 788 rows) | facts 25, correlations 9, Fréchet 4, lines 13, sensitivity 64, depth 77, gates 16, strategies 12, leaderboard 12, rewards 4, ledger 544, repo audit 8 |
+| Derived registers (regenerated, never hand-edited) | `data/nfl_desk/derived/*.csv` (12 files, 788 rows) | facts 25, correlations 9, Fréchet 4, lines 13, sensitivity 64, depth 77, gates 16, strategies 12, leaderboard 12, rewards 4, ledger 543, repo audit 9 |
 | Engine | `src/nfl_desk/` (10 modules) | league, model, pricing, correlation, luck, depth, gates, leaderboard, audit, derive |
 | Site section | `docs/nfl-decision-desk/` (18 pages + `assets/style.css`) | landing page, one page per category, every table row source-linked |
 | Governance | `data/nfl_desk/requirements.csv` (18), `questions.csv` (16), `suggestions.csv` (14), `flagged.csv` (24), `github_state.csv` (4) | suggestions are **proposals only** — none implemented |
@@ -1836,12 +1836,17 @@ plus method references `docs.scipy.org`, `itl.nist.gov`, `docs.python.org` — l
 `methodology_reference`, contributing no numeric input. `www.nfl.com` is unreachable from this sandbox by
 `curl` (HTTP 000); every NFL fact came through the page reader, not a shell fetch.
 
-**Verification result.** 544 field-by-field comparisons of `data/nfl_origination/{verified_standings_2026_w10,week10_slate_and_lines,injury_and_depth_deficiency}.csv`
-and `data/nfl_3b81013c/team_season_records.csv` against today's official read: **480 verified, 64 needing review**
-(16 forecast-labelled rows, 15 provenance mismatches, 14 venue labels declined, 8 status drifts, 7 broadcast
-disagreements *between two official pages*, 3 unmatched names, 1 pending Friday designation, plus 2 self-check and
-3 name-normalised rows). Peer registers are stale on exactly two clubs — they predate Thursday's Commanders 24,
-Giants 21 — so the league ledger is now 136-136-1 with PF = PA = 6,291 and league average 22.9599 (was 22.9632).
+**Verification result.** 543 field-by-field comparisons of `data/nfl_origination/{verified_standings_2026_w10,week10_slate_and_lines,injury_and_depth_deficiency}.csv`
+and `data/nfl_3b81013c/team_season_records.csv` against today's official read: **484 verified, 59 needing review**
+(19 unmatched names, 14 venue labels declined, 14 provenance mismatches, 7 broadcast disagreements *between two
+official pages*, 3 pending Friday designations, 1 status drift, 1 forecast-labelled row). The audited registers
+belong to other sessions and they moved while this pack was being written, so those counts are the state at
+2026-11-13 and **`scripts/check_nfl_desk.py` recomputes them at every build instead of pinning them**: the gate
+checks coverage (consecutive row ids, every audited source row represented, a 500-row floor) and that the
+executive summary still quotes the current split. Two findings in that ledger have since been fixed by the peer
+session — the Thursday records in `week10_slate_and_lines.csv` (now `CONFIRMED`; 17 cells of its standings file
+remain a through-week-9 snapshot) and most of the forecast-labelled status cells (`FL-23`) — which is the
+intended outcome of flagging rather than editing.
 
 **Irregularities found and flagged (not silently fixed).**
 1. **This pack's own error, corrected:** four `win_pct` cells had been computed as wins ÷ (wins + losses), which

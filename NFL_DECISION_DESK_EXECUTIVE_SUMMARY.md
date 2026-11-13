@@ -24,7 +24,7 @@ licensed market data — and it says so in the cell where that number would have
 | Prior-season carry-over that *does* exist | net rating 2025→2026 r = 0.4973, 95% CI [0.254, 0.709], p = 0.0047 | `CR-03` |
 | Lines originated | 13 games; 11 keep the same favoured side across the published home-field grid | `originated_lines.csv` |
 | Validation gates | 7 pass, 2 fail, 7 blocked of 16 | `validation_gates.csv` |
-| Prior registers re-verified | 544 field-by-field rows: 480 verified, 64 needing review | `verification_ledger.csv` |
+| Prior registers re-verified | 543 field-by-field rows: 484 verified, 59 needing review | `verification_ledger.csv` |
 | Depth records | 77 club-unit records, 19 cascading-cluster alerts, worst single gap Dallas secondary (score 8) | `depth_deficiency.csv` |
 | Break-even at −110 | 0.523810 (11/21) — the hurdle any claimed edge must clear | `MF-19` |
 
@@ -70,7 +70,7 @@ independence number as if it were a price would be the single largest error avai
 ## 3. What was checked in the repository
 
 The three previously published NFL registers were re-compared field by field against today's official read:
-**544 rows, 480 verified, 64 needing review.** Nothing in another session's files was edited; findings are
+**543 rows, 484 verified, 59 needing review.** Nothing in another session's files was edited; findings are
 reported.
 
 * 426 `CONFIRMED`, 28 `CONFIRMED_LABEL_VARIANT` (same claim, different notation), 19 `SUPERSEDED_RECONCILED`,
@@ -85,12 +85,18 @@ reported.
   reason `DG-04` demands archived snapshots rather than live reads.
 * 7 broadcast rows disagree **between two official pages** (schedule page vs injury-report slot header). The
   desk publishes the schedule-page string and flags the conflict instead of choosing (`FL-19`).
-* 3 names on a prior register match no row on today's report (Micah McFadden, Ivan Pace Jr., Jager Burton) —
-  identity cannot be resolved from an official page that prints no player id (`FL-11`).
-* 1 game designation (Sam Darnold, DNP) is consistent with the claim but the club's Friday status column was
-  not yet posted at read time; it is reported as pending, not as confirmed.
-* The peer standings register is stale on exactly two clubs — it predates Thursday's Commanders 24, Giants 21 —
-  and its 135-135 league invariant is now 136-136; the league average moves 22.9632 → 22.9599.
+* 19 rows on a prior injury/depth register name a player who does not appear on today's report for that club —
+  Micah McFadden, Ivan Pace Jr. and Jager Burton among them (`FL-11`). Identity cannot be resolved from an
+  official page that prints no player id, so the row is reported as unmatched rather than corrected. The count
+  grew from 3 at this session's first read because the owning session expanded its own register; the ledger
+  recomputes it at every build.
+* 3 game designations (Sam Darnold among them) are consistent with the claim but the club's Friday status column
+  was not yet posted at read time; they are reported as pending, not confirmed.
+* The peer standings register is a through-week-9 snapshot, so against today's read it is one game stale on
+  exactly two clubs — New York Giants and Washington, who played Thursday night — across 17 cells, and its
+  135-135 league invariant is now 136-136 (league average 22.9632 → 22.9599). Every such cell is labelled
+  `SUPERSEDED_RECONCILED` with the arithmetic shown, and no peer file was edited (`FL-24` covers the same class
+  of error inside this pack's own registers).
 
 Nine further findings come from the working tree itself (`repo-audit.html`), including three that were
 re-computed rather than copied: the committed CSVs mix CRLF and LF line endings (a prior audit's count of 16

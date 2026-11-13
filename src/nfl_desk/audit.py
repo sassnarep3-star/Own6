@@ -231,8 +231,11 @@ def slate_ledger() -> list[dict]:
                 winner_gained_a_win = (field == "away_record") == (pa > ph)
                 want = (1, 0, 0) if winner_gained_a_win else (0, 1, 0)
                 record_diff = tuple(x - y for x, y in zip(mr, pr)) == want
-                if not record_diff:
-                    print(f"[audit] W10-G01 {field}: {pr} -> {mr} is not the settled result", file=sys.stderr)
+                if not record_diff and a != b:
+                    # only a real, unexplained difference is worth a warning: matching cells take the
+                    # CONFIRMED branch below and are not a problem
+                    print(f"[audit] {m['game_id']} {field}: prior {pr} vs official {mr} is not the settled result",
+                          file=sys.stderr)
             if a == b:
                 disp, expl = "CONFIRMED", "identical to the official Week 10 schedule as read 2026-11-13"
             elif label_only:
