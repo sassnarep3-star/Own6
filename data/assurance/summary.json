@@ -2,9 +2,9 @@
   "baseline_commit": "86eca0f",
   "data_records_reviewed": 3474,
   "external_source_policy": "Direct source reads are recorded separately. A URL, checksum or internal consistency check does not verify an external fact or grant rights.",
-  "files_inventoried": 470,
+  "files_inventoried": 471,
   "findings": 17,
-  "lines_scanned": 41465,
+  "lines_scanned": 41902,
   "open_findings_at_baseline": 4,
   "record_categories": {
     "legacy_data": 3101,

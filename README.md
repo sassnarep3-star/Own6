@@ -1,36 +1,34 @@
-# Own6 — NBA Lines Research Lab
+# Own6 — NFL Decision & Research Dashboard
 
-A research-first project for originating NBA spreads, totals, win probabilities, player props, prop combos and parlays. **Nothing in this repository demonstrates a profitable edge.** No current line, correlation, ROI or reward winner is published without authorized, timestamped, out-of-sample evidence.
+An evidence-first research repository with an NFL line-origination and validation program, plus preserved NBA and San Francisco housing research. The NFL site organizes requirements, decision questions, source records, injury/depth context, line methods, single/parlay/player-prop strategy hypotheses, correlation methods, validation gates, suggestions, and review flags. **Nothing in this repository demonstrates a profitable NFL edge.** Model calculations are not market prices, and unverified facts remain blank or explicitly marked as computed/unverified.
 
 ## Start here
 
-- **Live assurance dashboard:** https://sassnarep3-star.github.io/Own6/ — clean no-input overview, strategies, lines/props, correlations, leaderboard, validation gates, official sources, Flagged for Review and full repo audit.
-- **Executive summary:** [`research/EXECUTIVE_SUMMARY.md`](research/EXECUTIVE_SUMMARY.md)
-- **Signal research:** [`research/SIGNALS.md`](research/SIGNALS.md)
-- **Validation protocol v2:** [`research/VALIDATION_v2.md`](research/VALIDATION_v2.md)
-- **Source assurance:** [`research/ASSURANCE.md`](research/ASSURANCE.md)
+- **Live NFL landing page:** https://sassnarep3-star.github.io/Own6/ — no-input overview with clear links to the decision tools, workspaces, suggestions, and Flagged for Review.
+- **Main NFL Origination dashboard:** [`docs/nfl-origination/index.html`](docs/nfl-origination/index.html) — the 12-gate research framework and 10 preregistered strategy candidates.
+- **Suggestions (review before project changes):** [`docs/nfl-origination/suggestions.html`](docs/nfl-origination/suggestions.html)
+- **Flagged for Review:** [`docs/nfl-origination/flagged.html`](docs/nfl-origination/flagged.html)
+- **NFL executive summary:** [`docs/nfl-origination/executive-summary.html`](docs/nfl-origination/executive-summary.html)
+- **Additional self-contained NFL Week pack:** [`docs/nfl-wk/index.html`](docs/nfl-wk/index.html) — separate input snapshots and quarantined strategy candidates; not combined with the main leaderboard.
+- **Other research domains:** [NBA assurance](docs/assurance/index.html) · [all sections hub](docs/index.html)
 
-The root page redirects to the assurance dashboard. The earlier data hub and section sites are preserved as archives and linked from the dashboard.
+The repository root now opens an NFL-focused portal. The separate `docs/` dashboard and NBA, NFL, and housing research packs remain available; they have separate evidence boundaries and should not be read as multiple independent performance records.
 
-## Evidence state
+## NFL evidence state
 
-## Live site contents
+- **Qualification:** the Origination leaderboard has 10 preregistered candidates and 0 qualified strategies; it remains empty until authorized timestamped market/outcome data and every validation artifact exist. This is not evidence of an edge or profitability. See the [leaderboard specification](data/nfl_origination/strategies_leaderboard.csv), [validation gates](data/nfl_origination/validation_gates.csv), and [official NFL data-partner information](https://www.nfl.com/news/nfl-draftkings-fanduel-fanatics-sports-betting-partners).
+- **Current values:** market prices, NFL fair-line calibration, ROI, CLV, player-prop results, and measured parlay/prop correlations are blank where unverified. A separate worked-line page contains computations from explicitly uncalibrated assumptions, not market quotes or a verified edge. Review the [worked lines](docs/nfl-3b81013c/lines.html) and the [NFL terms page](https://www.nfl.com/legal/terms/) before any data-use conclusion; public availability alone does not establish usage rights.
+- **Dated source review:** PR #77 records direct reads of NFL standings, Week 10 schedule and injury report on 2026-11-13; the resulting [standings snapshot](data/nfl_origination/standings_live_2026_11_13.csv) contains 32 clubs and the [injury/depth reconciliation](data/nfl_origination/live_check_2026_11_13.csv) contains 102 named checks. The review recorded the Thursday final as WAS 24–NYG 21 and standings totals as 136 W / 136 L / 2 T, 6,291 PF = PA. These are dated snapshot facts from that prior review, not a live feed or a new verification by this README edit. See the [official NFL standings](https://www.nfl.com/standings/division/2026/reg), [Week 10 schedule](https://www.nfl.com/schedules/2026/by-week/week-10), [injury report](https://www.nfl.com/injuries/), [13 Nov reconciliation record](audit/NFL_LIVE_REVERIFICATION_2026_11_13.md), and [PR #77](https://github.com/sassnarep3-star/Own6/pull/77).
+- **Review items:** 25 rows are present in the Origination Flagged for Review register. The four bye clubs were confirmed by the later official schedule review, but remain packed into one irregular row; NFL-F25 records that a cited rule-change page showed 2025 content. The older 2017 injury-policy PDF is reported as 404, so unsupported policy timing/cadence claims stay unverified. See [Flagged for Review](docs/nfl-origination/flagged.html), the [NFL Lab flags](docs/nfl/flagged.html), and [COORDINATION.md](COORDINATION.md).
+- **Suggestions:** the main Origination register has 14 proposals and the separate NFL Week pack has 19; both are review-only, not auto-implemented. `SUG-01` still describes the former root redirect and needs its owner to reconcile the current site state. Review [Origination suggestions](docs/nfl-origination/suggestions.html) and [NFL Week suggestions](docs/nfl-wk/suggestions.html) before proposing further project changes.
+- **Repository-wide audit:** the [source-coverage ledger](audit/SOURCE_COVERAGE.md) measures reference-link coverage, not factual correctness. A URL, passing test, checksum, model calculation, or source register status is not by itself proof that a linked source supports every claim.
 
-**Verification ledger (2026-11-03):** [`docs/verify/`](docs/verify/index.html) records every value that was re-read against an official page this session — 15/15 final scores and 30/30 standings rows match (54/54 ledger checks), with the NBA Terms of Use and 국민체육진흥법 제26조 quoted verbatim. Items that could not be confirmed are blank and listed with a reason. Build/check: `python3 scripts/build_verify.py` · `python3 scripts/check_verify.py`.
-GitHub Pages publishes the organized site from [`docs/`](docs/index.html): dashboard/calculator, strategy catalog, validation gates, correlation methodology, leaderboard design, sources registry and Flagged for Review. See [`EXECUTIVE_SUMMARY.md`](EXECUTIVE_SUMMARY.md).
+## Preserved NBA assurance archives
 
-| Area | Status | Source |
-|---|---|---|
-| Authorized empirical observations | 0 | [Project report](https://github.com/sassnarep3-star/Own6/blob/main/data/empirical/report.csv) |
-| Qualified strategies | 0 | [Project report](https://github.com/sassnarep3-star/Own6/blob/main/data/empirical/report.csv) |
-| Current correlations / edge / ROI / CLV | Blank · unverified | [NBA Terms §9](https://www.nba.com/termsofuse#nba-statistics) |
-| Legacy data archives | Preserved but unverified in the current assurance review | [Row audit](https://github.com/sassnarep3-star/Own6/blob/main/data/assurance/row_audit.csv) |
-| Official source register | 20 direct reads, 2 partial reads | [Source register](https://github.com/sassnarep3-star/Own6/blob/main/data/assurance/sources.csv) |
-
-**No authorized NBA gambling-use data feed is configured.** [NBA Terms §9](https://www.nba.com/termsofuse#nba-statistics) restricts gambling use of NBA Statistics, and §1 restricts public reuse. The [NBA Stats FAQ](https://www.nba.com/stats/help/faq) says statistics are not available for download. The project does not scrape, republish or invent NBA statistics, odds, correlations or returns.
+Earlier NBA research and its assurance artifacts remain available as a separate project area. Their zero-observation, data-rights, verification-ledger and historical-snapshot claims apply to the NBA artifacts only; they are not NFL evidence. Start with the [NBA assurance dashboard](docs/assurance/index.html), [NBA verification ledger](docs/verify/index.html), [NBA research summary](EXECUTIVE_SUMMARY.md), and [legacy row audit](data/assurance/row_audit.csv). GitHub Pages serves the NFL-focused portal from the repository root; [`docs/`](docs/index.html) retains the older multi-section site.
 
 
-## Verified snapshot — 5 November 2026 (`docs/daily/`)
+## Historical NBA snapshot — 5 November 2026 (`docs/daily/`)
 
 A dated, official-source snapshot with its own checker: 121 committed final scores reconciled
 30/30 to today's `nba.com/standings` **and** 30/30 to the previous 3 November snapshot; the 14
@@ -43,12 +41,12 @@ Build and check: `python3 scripts/daily_analysis.py` · `python3 scripts/build_d
 `python3 scripts/check_daily.py` · `python3 -m unittest discover -s tests -p test_daily.py`.
 Per-row verification record: [`audit/SESSION_27fdbe09.md`](audit/SESSION_27fdbe09.md).
 
-## Sources and evidence boundaries
+## NBA archive sources and evidence boundaries
 Official NBA sources used for metric definitions: [NBA Stats Glossary](https://www.nba.com/stats/help/glossary) and [NBA Inside the Game Stat Glossary](https://www.nba.com/news/inside-the-game-stat-glossary). These sources do **not** verify predictive value, odds, correlation estimates or profitability. Unconfirmed values must remain blank and be flagged.
 
 The repository does contain historical legacy CSV/JSON archives and earlier dashboards. Those are **not** the authorized empirical ledger. The current assurance review leaves their numeric values unverified unless separately matched to an authorized official snapshot. Internal consistency checks are not official-source verification.
 
-## What was hardened
+## NBA assurance methods preserved
 
 - Fair American odds conversion no longer invents a margin.
 - Strategy/market identity, frozen edge and conservative EV thresholds are enforced.
@@ -58,7 +56,7 @@ The repository does contain historical legacy CSV/JSON archives and earlier dash
 - Bonferroni covers the actual qualification statistics across the frozen candidate family; the independent-trial win-count test is diagnostic only.
 - The leaderboard ranks only all-gate qualifiers by the lower bound of slate-clustered holdout ROI. Rewards are non-monetary research priority only.
 
-## Reproduce
+## Reproduce the NBA assurance artifacts
 
 ```sh
 python -m pip install -r requirements-empirical.txt
@@ -84,7 +82,7 @@ These archives are preserved for provenance. Their historical claims are not pro
 
 ## Coordination
 
-Concurrent sessions are coordinated in [`COORDINATION.md`](COORDINATION.md). This session works on the fixed Arena branch `arena/74d27b5d-own6`, preserves other sessions' work, and records sources, verification and irregularities there. Flagged items are published on the site's **Flagged for Review** page and do not block publication of the research framework.
+Concurrent sessions are coordinated in [`COORDINATION.md`](COORDINATION.md). Each session's fixed Arena branch, file scope, source trail, verification performed, and irregularities are recorded there. Shared tables and navigation are changed only by the integration owner; flagged items remain visible on a **Flagged for Review** page and do not block publication of the research framework.
 
 ## No betting advice
 
@@ -92,9 +90,9 @@ Analytics research only. No wagers, stakes, picks, payouts or profitability clai
 
 ## NFL Lab — originate your own NFL lines (added 2026-11-12)
 
-A fully additive NFL research lab covering requirement traceability (R01–R18), decision-readiness questions/informations/answers (Q01–Q10) with discovery paths for missing info, a dedicated suggestions review section (S01–S12) that must be reviewed before any change, ten frozen signal strategies for singles/parlays/player-prop combos (N01–N10) with own-line method and correlation pairs, ten validation gates (G01–G10) with clustered-uncertainty and Bonferroni luck control, per-unit injury & depth-deficiency modeling that flags 2nd/3rd/4th-string backups replacing starters on offense and defense, and a clean dashboard-style GitHub Pages site — all rows source-linked, blank means unverified, no hallucinations, no profitability claim.
+A fully additive NFL research lab covering requirement traceability (R01–R18), decision-readiness questions (Q01–Q10) with discovery paths, a suggestions review section (S01–S12) that must be reviewed before changes, ten frozen signal strategies for singles/parlays/player-prop combos (N01–N10), own-line methods, ten validation gates (G01–G10), correlation pairs, and offensive/defensive injury-depth review through fourth-string replacements. Its source-linked rows are not all fresh or value-verified; the source register records read dates and limits, unconfirmed values stay blank, and nothing establishes profitability.
 
-- **Live section:** https://sassnarep3-star.github.io/Own6/nfl/ (`docs/nfl/index.html`)
+- **Live section:** https://sassnarep3-star.github.io/Own6/docs/nfl/ (`docs/nfl/index.html`)
 - **Start here:** [`docs/nfl/index.html`](docs/nfl/index.html) → [`research/NFL_EXECUTIVE_SUMMARY.md`](research/NFL_EXECUTIVE_SUMMARY.md)
 - **Requirements:** [`data/nfl/requirements.csv`](data/nfl/requirements.csv) · [`research/NFL_REQUIREMENTS.md`](research/NFL_REQUIREMENTS.md)
 - **Decision framework:** [`data/nfl/decision_questions.csv`](data/nfl/decision_questions.csv) → [`docs/nfl/questions.html`](docs/nfl/questions.html)
@@ -103,7 +101,7 @@ A fully additive NFL research lab covering requirement traceability (R01–R18),
 - **Validation & correlations:** [`data/nfl/validation_gates.csv`](data/nfl/validation_gates.csv) · [`research/NFL_VALIDATION.md`](research/NFL_VALIDATION.md)
 - **Injury & depth:** [`data/nfl/injury_tracking.csv`](data/nfl/injury_tracking.csv) · [`data/nfl/depth_model.csv`](data/nfl/depth_model.csv) · [`research/NFL_INJURY_DEPTH.md`](research/NFL_INJURY_DEPTH.md)
 - **Build / check:** `python3 scripts/build_nfl.py` · `python3 scripts/check_nfl.py` (13 pages, 0 issues, every row source-linked) · `python3 tools/release_gate.py` (0 issues)
-- **Flagged for Review (F-NFL-01…12):** https://sassnarep3-star.github.io/Own6/nfl/flagged.html — rights, market prices, live injury snapshots, depth scores, correlations, leaderboard, CLV, parlay dependence, prop settlement
+- **Flagged for Review (F-NFL-01…13):** https://sassnarep3-star.github.io/Own6/docs/nfl/flagged.html — includes the legacy rule/terms/2024-source corrections and the unresolved injury-policy PDF, market-data, depth, correlation, CLV, parlay-dependence and prop-settlement limits
 
 ## SF rental increase review — 94122 (added 2026-11-06)
 
@@ -128,13 +126,15 @@ An anonymized, zero-inference compliance dashboard and dataset suite covering Sa
 
 ## NFL Fair-Line Origination, Depth-Deficiency & Skill-Gated Leaderboard (`docs/nfl-origination/`)
 
-A pure-stdlib Python 3.11 NFL fair-line origination, starter-vs-backup (`1st`–`4th` string) offensive/defensive depth-deficiency, Gaussian copula combo-correlation, and 12-gate anti-luck leaderboard suite verified against 28 primary sources on `2026-11-12` (reconciling all 32 NFL clubs' 2026 standings `135W–135L–2T`, `6,246 PF = 6,246 PA`, all 14 Week 10 matchups + 4 byes including Munich neutral site, and 24 Week 10 injury/depth chains while leaving unconfirmed sportsbook lines, empirical EPA drop-offs, and paired correlations strictly blank).
+A pure-stdlib Python 3.11 NFL fair-line origination, starter-vs-backup (`1st`–`4th` string) offensive/defensive depth-deficiency, combo-correlation, and 12-gate anti-luck leaderboard suite. Its official-source register has 28 entries with read dates and scope. A prior 13 Nov 2026 live re-verification recorded all 32 clubs' standings (`136W–136L–2T`, `6,291 PF = 6,291 PA` after WAS 24–NYG 21), a 102-row injury/depth reconciliation and the Week 10 schedule; these are dated source snapshots, not a live feed. All unverified sportsbook prices, calibrated NFL fair lines, empirical outcomes, and paired correlations remain blank. The four bye clubs were confirmed in that review, but their combined slate row remains a formatting/schema issue.
 
 - **Live Dashboard (11 pages):** [`docs/nfl-origination/index.html`](docs/nfl-origination/index.html) (`https://sassnarep3-star.github.io/Own6/docs/nfl-origination/`)
 - **Suggestions for Review & Decision Q&A:** [`docs/nfl-origination/suggestions.html`](docs/nfl-origination/suggestions.html) · [`docs/nfl-origination/decision-qa.html`](docs/nfl-origination/decision-qa.html)
-- **Flagged for Review (`NFL-F01`..`NFL-F15`):** [`docs/nfl-origination/flagged.html`](docs/nfl-origination/flagged.html)
+- **Flagged for Review (`NFL-F01`..`NFL-F25`):** [`docs/nfl-origination/flagged.html`](docs/nfl-origination/flagged.html)
+- **Live 13 Nov snapshot & reconciliation:** [`standings_live_2026_11_13.csv`](data/nfl_origination/standings_live_2026_11_13.csv) · [`live_check_2026_11_13.csv`](data/nfl_origination/live_check_2026_11_13.csv) · [`audit/NFL_LIVE_REVERIFICATION_2026_11_13.md`](audit/NFL_LIVE_REVERIFICATION_2026_11_13.md)
 - **Executive Summary & Repo Audit:** [`NFL_ORIGINATION_EXECUTIVE_SUMMARY.md`](NFL_ORIGINATION_EXECUTIVE_SUMMARY.md) · [`audit/NFL_ORIGINATION_REPO_AND_SOURCE_AUDIT.md`](audit/NFL_ORIGINATION_REPO_AND_SOURCE_AUDIT.md)
+- **Independent Final Review (2026-11-13):** [`audit/NFL_FINAL_REVIEW_709D3C80.md`](audit/NFL_FINAL_REVIEW_709D3C80.md) — local checks, source-access boundary, and flagged integration issues.
 - **Engine, Datasets & Verifier:** [`src/nfl_origination/`](src/nfl_origination/) · [`data/nfl_origination/`](data/nfl_origination/) · `python3 scripts/build_nfl_origination.py --check` · `python3 scripts/check_nfl_origination.py`
 - **Peer NFL Week 10 Verification Pack (`3b81013c`):** [`docs/nfl-3b81013c/index.html`](docs/nfl-3b81013c/index.html) (`https://sassnarep3-star.github.io/Own6/docs/nfl-3b81013c/`)
-
+- **Additional self-contained NFL Week pack (PR #80):** [`docs/nfl-wk/index.html`](docs/nfl-wk/index.html) · [`data/nfl_wk/sources.csv`](data/nfl_wk/sources.csv) · [`data/nfl_wk/flagged.csv`](data/nfl_wk/flagged.csv). PR #80 describes 11 candidates as quarantined, 19 suggestions awaiting choice, and its originated lines as calculations from official standings with all market/edge/ROI/correlation cells blank. These are pack-reported statuses, not new source reads by this integration or results to combine with the main 10-candidate leaderboard. Manual source review: [Week 10 schedule](https://www.nfl.com/schedules/2026/by-week/week-10) · [Week 11 schedule](https://www.nfl.com/schedules/2026/by-week/week-11).
 
