@@ -51,4 +51,15 @@ Until that selection is recorded, the current dedicated review page fully satisf
 
 ## Sources per row
 
-S01 [nfl.com](https://www.nfl.com/) · S02 [injury policy PDF](https://operations.nfl.com/media/2683/2017-nfl-injury-report-policy.pdf) · S03 [league injury page](https://www.nfl.com/injuries/league/2024/reg17) · S04 [Next Gen Stats](https://operations.nfl.com/gameday/technology/nfl-next-gen-stats/) · S05 [SciPy pearsonr](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html) · S06 [scikit-learn CV](https://scikit-learn.org/stable/modules/cross_validation.html) · S07 [nfl.com legal](https://www.nfl.com/legal/privacy/) · S08 [nfl.com terms](https://www.nfl.com/terms/) · S09 [GitHub Pages docs](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site) · S10 [policy PDF](https://operations.nfl.com/media/2683/2017-nfl-injury-report-policy.pdf) · S11 [official rules](https://www.nfl.com/official-nfl-rules/) · S12 [parlay calculator](https://sportsbook.draftkings.com/help/how-to-bet/parlay-calculator)
+S01 [nfl.com](https://www.nfl.com/) · S02 [injury policy PDF](https://operations.nfl.com/media/2683/2017-nfl-injury-report-policy.pdf) · S03 [league injury page](https://www.nfl.com/injuries/) · S04 [Next Gen Stats](https://operations.nfl.com/game-operations-logistics/technology/performance-tracking-data-next-gen-stats) · S05 [SciPy pearsonr](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html) · S06 [scikit-learn CV](https://scikit-learn.org/stable/modules/cross_validation.html) · S07 [nfl.com legal](https://www.nfl.com/legal/privacy/) · S08 [nfl.com terms](https://www.nfl.com/legal/terms/) · S09 [GitHub Pages docs](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site) · S10 [policy PDF](https://operations.nfl.com/media/2683/2017-nfl-injury-report-policy.pdf) · S11 [official rules](https://operations.nfl.com/rules-officiating/2026-nfl-rulebook) · S12 [parlay calculator](https://sportsbook.draftkings.com/help/how-to-bet/parlay-calculator)
+
+---
+
+## 2026-11-13 source correction (session 5a49ead3, NFL-R1)
+
+Re-checked against live official pages on 2026-11-13. Corrections are in `data/nfl/sources.csv` and `data/nfl/flagged.csv` (flag F-NFL-13):
+
+- The rules link is now the 2026 rulebook, `https://operations.nfl.com/rules-officiating/2026-nfl-rulebook`. The previous `nfl.com/official-nfl-rules/` link returns 404.
+- The injury link is now the live 2026 Week 10 report, `https://www.nfl.com/injuries/`. The previous `/injuries/league/2024/reg17` link is a 2024 page, retained only as S-NFL-25.
+- The terms link is now `https://www.nfl.com/legal/terms/` (general terms). The previous `nfl.com/terms/` link redirects to subscription terms.
+- The 2017 injury-policy PDF (`operations.nfl.com/media/2683/2017-nfl-injury-report-policy.pdf`) returns 404. Any timing or definition claim that relies only on it is **unverified** until a live copy is located (F-NFL-03).

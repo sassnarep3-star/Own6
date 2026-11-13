@@ -80,3 +80,30 @@ Verifying policy pages and method docs says nothing about beating a market. With
 - Data: `data/nfl/*.csv` × 11
 
 All pages are reachable via `docs/nfl/index.html` → `suggestions.html` (dedicated review) → `flagged.html`.
+
+---
+
+## Addendum 2026-11-13 — source re-verification (session 5a49ead3, NFL-R1)
+
+Scope: `data/nfl/sources.csv` (all 24 rows re-read or re-classified), plus the URL propagation into `data/nfl/*.csv`, `docs/nfl/*.html`, and `research/NFL_*.md`.
+
+| Row | Result on 2026-11-13 | Action |
+|---|---|---|
+| S-NFL-02 standings | 2026 season page read | re-dated |
+| S-NFL-03 schedule | `/schedule/` redirects to `/schedules`; 2026 season; Week 10 Thu Nov 12 final read | URL updated, re-dated |
+| S-NFL-04 injury report | was `/injuries/league/2024/reg17` (2024 page; title/body mismatch) | URL → `https://www.nfl.com/injuries/` (2026 Week 10), re-dated; old URL kept as S-NFL-25 |
+| S-NFL-05 2024 injury article | 2024 season content | status → `archive_2024_not_current` |
+| S-NFL-06 2017 injury-policy PDF | **404** | status → `broken_404`; policy claims marked unverified (F-NFL-03) |
+| S-NFL-07 official rules | `/official-nfl-rules/` **404** | URL → `https://operations.nfl.com/rules-officiating/2026-nfl-rulebook` (2026 rulebook read) |
+| S-NFL-08 NGS technology | old URL redirects | URL → final destination; re-dated |
+| S-NFL-09 terms | `/terms/` redirects to subscription terms | URL → `https://www.nfl.com/legal/terms/` (general terms, §1.3 read) |
+| S-NFL-10 privacy | live, updated 2026-03-16 | re-dated |
+| S-NFL-23 placeholder | no evidence content | status → `placeholder_unverified` |
+| S-NFL-25 (new) | 2024 URL retained for audit trail | `stale_2024_mismatch` |
+| S-NFL-26 (new) | `/terms/` redirect record | `redirect_to_subscription_terms` |
+
+Not re-read this session: S-NFL-01 (homepage), S-NFL-11 to S-NFL-22 (DraftKings, scikit-learn, SciPy, NIST, statsmodels, GitHub Docs), and S-NFL-24 (AGLC). Their rows keep their original 2026-11-12 dates and are not re-verified here.
+
+Derived CI inventories regenerated (`audit_repo.py`, `build_assurance.py`, `source_coverage.py`). `source_coverage.py --check --strict` reports 1,418 legacy rows lacking external reference coverage (the base commit already had 1,415; the step is `continue-on-error` in CI).
+
+Local gates on this branch: `scripts/check_nfl.py` (13 pages, 0 issues); `tools/release_gate.py` (0 issues); `scripts/check_assurance.py` (2,980 rows sourced); `scripts/check_site.py` (no broken internal links); `tools/check_site.py` (13 strict pages, 0 errors); `tests` for NFL and source coverage (42 + 10 pass); `tools/run_tests.py` (51/51).

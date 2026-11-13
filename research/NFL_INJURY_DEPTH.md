@@ -8,7 +8,7 @@ The [NFL Injury Report Policy PDF](https://operations.nfl.com/media/2683/2017-nf
 
 > “All players who have reportable injuries must be listed on the Practice Report, even if the player takes all the reps in practice, and even if the team is certain that he will play in the upcoming game.”
 
-Reportable injuries include any injury that (a) causes a missed game, (b) prevents finishing a game, (c) causes a missed practice (DNP), (d) limits participation (Limited), or (e) prevents finishing a practice. The league also publishes a weekly league-wide report with `Player | Position | Injuries | Practice Status | Game Status` ([league injury page](https://www.nfl.com/injuries/league/2024/reg17)) and a per-week aggregation of `OUT / DOUBTFUL / QUESTIONABLE` ([Week 10 example](https://www.nfl.com/news/week-10-injury-report-for-2024-nfl-season)). Clubs also file an in-game report and a pre-kick inactive list (90 minutes before kickoff). The [NFL standings](https://www.nfl.com/standings/) and [schedule](https://www.nfl.com/schedule/) provide the official team identity and slate context for those reports.
+Reportable injuries include any injury that (a) causes a missed game, (b) prevents finishing a game, (c) causes a missed practice (DNP), (d) limits participation (Limited), or (e) prevents finishing a practice. The league also publishes a weekly league-wide report with `Player | Position | Injuries | Practice Status | Game Status` ([league injury page](https://www.nfl.com/injuries/)) and a per-week aggregation of `OUT / DOUBTFUL / QUESTIONABLE` ([Week 10 example](https://www.nfl.com/news/week-10-injury-report-for-2024-nfl-season)). Clubs also file an in-game report and a pre-kick inactive list (90 minutes before kickoff). The [NFL standings](https://www.nfl.com/standings/) and [schedule](https://www.nfl.com/schedules) provide the official team identity and slate context for those reports.
 
 These sources define **when** a player becomes reportable, not the data license. This document defines how to *use* those reports to estimate depth deficiency once a licensed feed exists.
 
@@ -17,7 +17,7 @@ These sources define **when** a player becomes reportable, not the data license.
 | Capture | Frequency | Fields | Hash rule | Source |
 |---|---|---|---|---|
 | Practice Report | Wed / Thu / Fri per week | `Player, Position, Injury, Practice Status (DNP/LP/FP)` | SHA-256 per team per day + ET timestamp | [Policy PDF](https://operations.nfl.com/media/2683/2017-nfl-injury-report-policy.pdf) |
-| Game Status Report | Usually Friday | `Out / Doubtful / Questionable / —` | Same hash rule | [League page](https://www.nfl.com/injuries/league/2024/reg17) |
+| Game Status Report | Usually Friday | `Out / Doubtful / Questionable / —` | Same hash rule | [League page](https://www.nfl.com/injuries/) |
 | Inactive List | 90 min pre-kick | Dressed vs inactive | ET timestamp after deadline | [nfl.com](https://www.nfl.com/) gameday |
 
 Each file is stored with `feature_asof`, `forecast`, `event_start` timestamps satisfying `feature_asof ≤ forecast < event_start`. Any observation whose injury snapshot is newer than its forecast is rejected (look-ahead).
@@ -81,7 +81,7 @@ The requirement explicitly asks: “the system should be tracking injuries and k
 |---|---|
 | Official injury-report PDFs with hashes | Weekly capture described above; store in `data/nfl/official_YYYYWW/` with hashes in a `manifest.csv` |
 | Official depth-chart feed | Request quote from NFL licensed distributor (Sportradar/Genius) for weekly depth chart snapshots; record license ID |
-| Snap-weighted deficiency (actual snaps) | Next Gen Stats player-tracking [operations page](https://operations.nfl.com/gameday/technology/nfl-next-gen-stats/) describes tracking technology; confirm licensed feed before using snap counts |
+| Snap-weighted deficiency (actual snaps) | Next Gen Stats player-tracking [operations page](https://operations.nfl.com/game-operations-logistics/technology/performance-tracking-data-next-gen-stats) describes tracking technology; confirm licensed feed before using snap counts |
 | Market line to compare against | Licensed odds archive with capture times and hashes; de-vig same line per [DraftKings](https://sportsbook.draftkings.com/help/how-to-bet/odds-calculator?intendedSiteExp=US-SB) |
 
 Until those files exist with hashes, the site correctly shows blanks and flags, and `scripts/check_nfl.py` enforces that no blank row carries a fabricated numeric value.
@@ -89,3 +89,14 @@ Until those files exist with hashes, the site correctly shows blanks and flags, 
 ## No inference
 
 This document never infers a player's status. If a report is not captured, its field is blank. If a depth chart is not licensed, its deficiency is blank. That is an evidence boundary, not a zero.
+
+---
+
+## 2026-11-13 source correction (session 5a49ead3, NFL-R1)
+
+Re-checked against live official pages on 2026-11-13. Corrections are in `data/nfl/sources.csv` and `data/nfl/flagged.csv` (flag F-NFL-13):
+
+- The rules link is now the 2026 rulebook, `https://operations.nfl.com/rules-officiating/2026-nfl-rulebook`. The previous `nfl.com/official-nfl-rules/` link returns 404.
+- The injury link is now the live 2026 Week 10 report, `https://www.nfl.com/injuries/`. The previous `/injuries/league/2024/reg17` link is a 2024 page, retained only as S-NFL-25.
+- The terms link is now `https://www.nfl.com/legal/terms/` (general terms). The previous `nfl.com/terms/` link redirects to subscription terms.
+- The 2017 injury-policy PDF (`operations.nfl.com/media/2683/2017-nfl-injury-report-policy.pdf`) returns 404. Any timing or definition claim that relies only on it is **unverified** until a live copy is located (F-NFL-03).
