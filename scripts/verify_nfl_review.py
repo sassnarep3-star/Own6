@@ -31,6 +31,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 REVIEW = os.path.join(ROOT, "data", "nfl_review")
 
 STANDINGS_PUBLISHED = os.path.join(ROOT, "data", "nfl_origination", "verified_standings_2026_w10.csv")
+STANDINGS_LIVE = os.path.join(ROOT, "data", "nfl_origination", "standings_live_2026_11_13.csv")
 SLATE_PUBLISHED = os.path.join(ROOT, "data", "nfl_origination", "week10_slate_and_lines.csv")
 DEPTH_PUBLISHED = os.path.join(ROOT, "data", "nfl_origination", "injury_and_depth_deficiency.csv")
 INJURY_PUBLISHED = os.path.join(ROOT, "data", "nfl_3b81013c", "injuries_and_depth.csv")
@@ -129,6 +130,29 @@ def reconcile_standings(rows):
             _rec(rows, f"ST-{n:03d}", "data/nfl_origination/verified_standings_2026_w10.csv",
                  p["team"], field, p[pkey], off[pkey],
                  "match" if same else "differs", note, url)
+
+    # 1b. data/nfl_origination/standings_live_2026_11_13.csv - the current
+    # published standings snapshot, read from the official division page.
+    if os.path.exists(STANDINGS_LIVE):
+        for p in _read(STANDINGS_LIVE):
+            abbr = p["abbr"]
+            off = read.get(abbr)
+            for field, pkey in (("wins", "w"), ("losses", "l"), ("ties", "t"),
+                                 ("points_for", "pf"), ("points_against", "pa")):
+                n += 1
+                if off is None:
+                    _rec(rows, f"ST-{n:03d}", "data/nfl_origination/standings_live_2026_11_13.csv",
+                         p["team"], field, p[pkey], "", "not_checked",
+                         "Club not present in the official standings read.", url)
+                    continue
+                same = _norm(p[pkey]) == _norm(off[pkey])
+                note = ""
+                if not same:
+                    note = ("Published live standings differ from the official standings read on "
+                            "2026-11-13. Flagged for review, not corrected.")
+                _rec(rows, f"ST-{n:03d}", "data/nfl_origination/standings_live_2026_11_13.csv",
+                     p["team"], field, p[pkey], off[pkey],
+                     "match" if same else "differs", note, url)
     return n
 
 
@@ -153,10 +177,16 @@ def reconcile_slate(rows):
                  "The official Week 10 page lists Chicago, Denver, Philadelphia and Tampa Bay on bye.",
                  "https://www.nfl.com/schedules/2026/by-week/week-10")
             continue
-        # find the official row by away/home abbreviations
-        away_abbr = p["away_team"].split()[0][:3].upper()
-        home_abbr = p["home_team"].split()[0][:3].upper()
-        cand = [r for r in read.values() if r["away_abbr"] == away_abbr and r["home_abbr"] == home_abbr]
+        # find the official row by club name, then fall back to the abbreviations
+        away_name = p["away_team"].strip()
+        home_name = p["home_team"].strip()
+        cand = [r for r in read.values()
+                if r["away_team"].strip() == away_name and r["home_team"].strip() == home_name]
+        if not cand:
+            away_abbr = _abbr(away_name)
+            home_abbr = _abbr(home_name)
+            cand = [r for r in read.values()
+                    if r["away_abbr"] == away_abbr and r["home_abbr"] == home_abbr]
         off = cand[0] if cand else None
         for field, pkey, okey in (
             ("date", "date_et", "date_et"),
@@ -266,6 +296,25 @@ def _clean_player(name):
         n = n.split("(")[0].strip()
     n = n.replace(" III", "").replace(" Jr.", "").replace(" Jr", "").replace(" Sr.", "").replace(" Sr", "")
     return n.strip()
+
+
+_ABBR = {
+    "arizona cardinals": "ARI", "atlanta falcons": "ATL", "baltimore ravens": "BAL",
+    "buffalo bills": "BUF", "carolina panthers": "CAR", "chicago bears": "CHI",
+    "cincinnati bengals": "CIN", "cleveland browns": "CLE", "dallas cowboys": "DAL",
+    "denver broncos": "DEN", "detroit lions": "DET", "green bay packers": "GB",
+    "houston texans": "HOU", "indianapolis colts": "IND", "jacksonville jaguars": "JAX",
+    "kansas city chiefs": "KC", "las vegas raiders": "LV", "los angeles chargers": "LAC",
+    "los angeles rams": "LAR", "miami dolphins": "MIA", "minnesota vikings": "MIN",
+    "new england patriots": "NE", "new orleans saints": "NO", "new york giants": "NYG",
+    "new york jets": "NYJ", "philadelphia eagles": "PHI", "pittsburgh steelers": "PIT",
+    "san francisco 49ers": "SF", "seattle seahawks": "SEA", "tampa bay buccaneers": "TB",
+    "tennessee titans": "TEN", "washington commanders": "WAS",
+}
+
+
+def _abbr(club):
+    return _ABBR.get(club.strip().lower(), "")
 
 
 def reconcile_injuries(rows):

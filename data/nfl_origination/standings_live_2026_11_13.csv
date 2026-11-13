@@ -1,0 +1,33 @@
+conference,division,team,abbr,w,l,t,pf,pa,w_through_w9,l_through_w9,t_through_w9,pf_through_w9,pa_through_w9,changed_since_w9_snapshot,read_date,official_source_url
+AFC,AFC East,Buffalo Bills,BUF,7,1,0,256,187,7,1,0,256,187,false,2026-11-13,https://www.nfl.com/standings/division/2026/reg
+AFC,AFC East,New England Patriots,NE,5,4,0,211,207,5,4,0,211,207,false,2026-11-13,https://www.nfl.com/standings/division/2026/reg
+AFC,AFC East,New York Jets,NYJ,2,7,0,182,223,2,7,0,182,223,false,2026-11-13,https://www.nfl.com/standings/division/2026/reg
+AFC,AFC East,Miami Dolphins,MIA,1,7,0,126,200,1,7,0,126,200,false,2026-11-13,https://www.nfl.com/standings/division/2026/reg
+AFC,AFC North,Pittsburgh Steelers,PIT,6,2,0,180,144,6,2,0,180,144,false,2026-11-13,https://www.nfl.com/standings/division/2026/reg
+AFC,AFC North,Cincinnati Bengals,CIN,6,2,0,240,175,6,2,0,240,175,false,2026-11-13,https://www.nfl.com/standings/division/2026/reg
+AFC,AFC North,Cleveland Browns,CLE,5,4,0,161,196,5,4,0,161,196,false,2026-11-13,https://www.nfl.com/standings/division/2026/reg
+AFC,AFC North,Baltimore Ravens,BAL,4,5,0,189,236,4,5,0,189,236,false,2026-11-13,https://www.nfl.com/standings/division/2026/reg
+AFC,AFC South,Jacksonville Jaguars,JAX,6,2,0,229,121,6,2,0,229,121,false,2026-11-13,https://www.nfl.com/standings/division/2026/reg
+AFC,AFC South,Houston Texans,HOU,3,5,0,209,192,3,5,0,209,192,false,2026-11-13,https://www.nfl.com/standings/division/2026/reg
+AFC,AFC South,Indianapolis Colts,IND,2,7,0,184,249,2,7,0,184,249,false,2026-11-13,https://www.nfl.com/standings/division/2026/reg
+AFC,AFC South,Tennessee Titans,TEN,1,7,0,144,199,1,7,0,144,199,false,2026-11-13,https://www.nfl.com/standings/division/2026/reg
+AFC,AFC West,Denver Broncos,DEN,7,2,0,198,186,7,2,0,198,186,false,2026-11-13,https://www.nfl.com/standings/division/2026/reg
+AFC,AFC West,Kansas City Chiefs,KC,6,2,0,202,143,6,2,0,202,143,false,2026-11-13,https://www.nfl.com/standings/division/2026/reg
+AFC,AFC West,Las Vegas Raiders,LV,4,5,0,238,268,4,5,0,238,268,false,2026-11-13,https://www.nfl.com/standings/division/2026/reg
+AFC,AFC West,Los Angeles Chargers,LAC,0,8,0,121,219,0,8,0,121,219,false,2026-11-13,https://www.nfl.com/standings/division/2026/reg
+NFC,NFC East,New York Giants,NYG,5,3,1,203,196,5,2,1,182,172,true,2026-11-13,https://www.nfl.com/standings/division/2026/reg
+NFC,NFC East,Dallas Cowboys,DAL,4,5,0,246,236,4,5,0,246,236,false,2026-11-13,https://www.nfl.com/standings/division/2026/reg
+NFC,NFC East,Washington Commanders,WAS,3,5,1,196,223,2,5,1,172,202,true,2026-11-13,https://www.nfl.com/standings/division/2026/reg
+NFC,NFC East,Philadelphia Eagles,PHI,2,7,0,148,221,2,7,0,148,221,false,2026-11-13,https://www.nfl.com/standings/division/2026/reg
+NFC,NFC North,Chicago Bears,CHI,7,2,0,241,184,7,2,0,241,184,false,2026-11-13,https://www.nfl.com/standings/division/2026/reg
+NFC,NFC North,Detroit Lions,DET,6,2,0,222,189,6,2,0,222,189,false,2026-11-13,https://www.nfl.com/standings/division/2026/reg
+NFC,NFC North,Minnesota Vikings,MIN,6,2,0,146,116,6,2,0,146,116,false,2026-11-13,https://www.nfl.com/standings/division/2026/reg
+NFC,NFC North,Green Bay Packers,GB,6,3,0,216,191,6,3,0,216,191,false,2026-11-13,https://www.nfl.com/standings/division/2026/reg
+NFC,NFC South,Carolina Panthers,CAR,3,5,0,199,219,3,5,0,199,219,false,2026-11-13,https://www.nfl.com/standings/division/2026/reg
+NFC,NFC South,New Orleans Saints,NO,3,5,0,185,216,3,5,0,185,216,false,2026-11-13,https://www.nfl.com/standings/division/2026/reg
+NFC,NFC South,Tampa Bay Buccaneers,TB,3,6,0,202,178,3,6,0,202,178,false,2026-11-13,https://www.nfl.com/standings/division/2026/reg
+NFC,NFC South,Atlanta Falcons,ATL,3,6,0,188,223,3,6,0,188,223,false,2026-11-13,https://www.nfl.com/standings/division/2026/reg
+NFC,NFC West,San Francisco 49ers,SF,7,1,0,235,156,7,1,0,235,156,false,2026-11-13,https://www.nfl.com/standings/division/2026/reg
+NFC,NFC West,Seattle Seahawks,SEA,5,4,0,202,162,5,4,0,202,162,false,2026-11-13,https://www.nfl.com/standings/division/2026/reg
+NFC,NFC West,Los Angeles Rams,LAR,5,4,0,214,181,5,4,0,214,181,false,2026-11-13,https://www.nfl.com/standings/division/2026/reg
+NFC,NFC West,Arizona Cardinals,AZ,3,6,0,178,255,3,6,0,178,255,false,2026-11-13,https://www.nfl.com/standings/division/2026/reg

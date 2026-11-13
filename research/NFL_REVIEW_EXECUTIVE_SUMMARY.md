@@ -34,14 +34,20 @@ result of the validation rules the brief itself requires, not a defect.
 | Evidence | Count | What it means |
 |---|---|---|
 | Official pages read in this session | 18 | Standings, Week 10 schedule, the official league injury report, four NFL news items, the CBA summary, the 2026 rulebook, the terms of use, the betting-partner policy, the NIST confidence-interval page, and the upstream community repository plus its archive |
-| Published values compared line by line | 336 | One ledger row per published claim, each with the published value, the official value read, and a result |
-| Results: match | 240 | The published value equals the official read |
+| Published values compared line by line | 496 | One ledger row per published claim, each with the published value, the official value read, and a result |
+| Results: match | 455 | The published value equals the official read |
 | Results: differs | 34 | The published value and the official read disagree — flagged, not silently corrected |
-| Results: not checked | 55 | The published cell is an expectation or a derived figure with no official counterpart |
+| Results: not checked | 0 | Every compared cell had an official counterpart to read |
 | Results: not found in the capture | 6 | The named player does not appear in the official report |
 | Results: no player named | 1 | The published row names no player, so nothing can be confirmed for it |
 | Irregularities logged | 20 | Each published on the Flagged for Review page with its source and the requested action |
 | Depth-deficiency indices | 0 of 32 filled | No official source publishes depth order plus snap share, so every value stays blank |
+
+The ledger covers both published standings registers — the through-Week-9 snapshot
+(`data/nfl_origination/verified_standings_2026_w10.csv`) and the live snapshot
+(`data/nfl_origination/standings_live_2026_11_13.csv`) that the concurrently merged live-verification
+session added — plus the published Week 10 slate, the two published injury registers and the depth
+chains. Every one of the 496 rows is a cell that exists in a published file; nothing was sampled.
 
 The distinction that matters: **a source link is not verification.** The ledger records the value that was
 read from the official page on 2026-11-13, not the presence of a hyperlink, not an internal consistency
@@ -62,7 +68,12 @@ in place for the owning session to fix.
 2. **The community backtest does not show an edge.** The lines lab reports 2025 holdout ROI of
    approximately −1.22 %, −3.69 % and −7.50 % for its three testable candidates, and every interval
    includes zero. Nothing is described as profitable, and the leaderboard stays empty by design.
-3. **A published pack contradicts the official report on several high-profile players.** The official
+3. **The published Week 10 slate matches the official schedule on every checked cell.** All fourteen
+   games now resolve to an official matchup row by club name: date, kickoff, both records and the
+   broadcast network match, and the Washington–New York Thursday game carries the final 24–21 score
+   from the official page. The two published snapshot generations disagree with each other on the two
+   clubs affected by that game, and the live snapshot is the one that agrees with the official read.
+4. **A published pack contradicts the official report on several high-profile players.** The official
    Week 10 league injury report read on 2026-11-13 shows Jaxon Smith-Njigba, Christian McCaffrey and
    Dre Greenlaw at full or limited participation with no game designation, and Joey Porter Jr. did not
    participate. A secondary pack carries different statuses for the same players. The legacy rows are
@@ -84,7 +95,7 @@ automatically.
 | `suggestions.html` | 18 ranked proposals with the decision each requires, plus three candidate paths — **proposals only, none implemented** |
 | `strategies.html` | 27 strategies, three gate sets, the correlation position and the empty leaderboard |
 | `injuries.html` | The full official Week 10 report (326 player rows, all 28 clubs) and the depth status of all 32 clubs |
-| `verification.html` | The 336-row ledger and the seven PR #68 provenance checks |
+| `verification.html` | The 496-row ledger and the seven PR #68 provenance checks |
 | `flagged.html` | The 20 irregularities with source, severity and requested action |
 | `sources.html` | The 18 official pages read, what each supports and what it does not |
 
@@ -98,7 +109,7 @@ cells, a relative link does not resolve, or an input element appears.
 
 | Requirement | State today |
 |---|---|
-| Line-by-line review with official sources and review links | **Answered.** 336-row ledger, 18 source reads, 9 linked pages, 20 logged irregularities |
+| Line-by-line review with official sources and review links | **Answered.** 496-row ledger, 18 source reads, 9 linked pages, 20 logged irregularities |
 | Dashboard with landing page, subpages, tables, analysis, findings, executive summary | **Answered.** Nine generated pages plus this summary |
 | Dedicated Suggestions section, review before implementation | **Answered.** 18 ranked proposals, every one marked `proposed_not_implemented`; the repository contains no auto-implemented suggestion |
 | Requirements register and decision-readiness Q&A with discovery steps | **Answered.** 16 requirements and 16 questions, each with a concrete discovery step |

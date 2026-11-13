@@ -1,29 +1,3 @@
-# COORDINATION — Own6 NBA Lines Project
-
-Session ID: arena-463d936f-own6 (original integration) + arena/d100a9d1-own6 (follow-up evidence/reconciliation)
-
-## Task Board
-| Task | Status | Owner | Files / record |
-|---|---|---|---|
-| Repo audit, executive summary, official-source registry | done | arena-463d936f-own6 | EXECUTIVE_SUMMARY.md, data/sources.csv |
-| Line/prop/parlay model utilities and validation design | done | arena-463d936f-own6 | src/own6/, tests/ |
-| Pages site, table pages, leaderboard design and flagged items | done | arena-463d936f-own6 | docs/ |
-| Follow-up source/evidence review and branch reconciliation | done | arena/d100a9d1-own6 | README.md, COORDINATION.md, .gitignore; preserved merged docs and source files |
-| Final integration and live Pages | done | arena-463d936f-own6 | PR #1 merged, PR #4 merged; live URL below |
-
-## Evidence boundaries
-Official NBA references: https://www.nba.com/stats/help/glossary and https://www.nba.com/news/inside-the-game-stat-glossary. They support metric definitions only, not betting edges, market odds, model performance, correlations, or ROI. Numeric values and empirical claims without verified sources remain blank/unverified and are identified at docs/flagged.html. No profitability claim.
-
-## Verification and irregularities
-- Original integration reports internal links clean, 7/7 pages HTTP 200, five tests pass, and live site at https://sassnarep3-star.github.io/Own6/docs/ (root redirect).
-- Follow-up independently checked local documentation links and Python source syntax; synthetic example runs. `pytest` is not installed in this session, so tests were not rerun here.
-- Pages' GitHub Actions workflow was removed by an upstream merged Pages fix; preserved root redirect and `.nojekyll`, avoiding an alternate publisher.
-- Source history included tracked Python bytecode caches; follow-up added `.gitignore` and removes cached artifacts where possible.
-- PR #3 follow-up opened against main; rebased/merged upstream changes were reconciled while preserving the independent integration and later Pages fixes. (PR URL: https://github.com/sassnarep3-star/Own6/pull/3)
-
-
----
-
 ## Session arena/05e359b8-own6 — verified data + GitHub Pages dashboard (added at integration)
 
 Kept separate from the sections above. Nothing from the other sessions was removed. This session's site lives in `docs/verified/` (not `docs/`), so the two sites do not overwrite each other. The original `docs/` site is unchanged apart from one navigation link added at integration (see T7 below).
@@ -1571,6 +1545,76 @@ naming players not in the table.
 
 **Result.** 0 of 8 candidates qualify. 2025 holdout ROI: S1 -1.22% (CI -12.25% to +10.35%), S2 -3.69%
 (CI -24.33% to +17.33%), S3 -7.50% (CI -27.99% to +15.29%). No interval excludes zero on the upside.
+
+---
+
+## Session arena/4fc2fd57-own6 — NFL live re-verification, stale-data correction and close-out (2026-11-13)
+
+Arena fixes this session to branch `arena/4fc2fd57-own6` (no `session-*` branch created). Branch base: `main` @ `d18f495` (PR #73 merged). The NFL packs from sessions `efebf74f`, `3b81013c`, `8132a3b1` are already merged. This session does **not** duplicate them; it re-reads the official pages live, corrects values that changed, and records what was and was not verified.
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| X1 Live re-read of nfl.com standings (32 clubs), Week 10 schedule and injury report (2026-11-13) and reconciliation to `data/nfl_origination/` | in progress | `4fc2fd57` | `data/nfl_origination/verified_standings_2026_w10.csv`, `data/nfl_origination/week10_slate_and_lines.csv`, new `data/nfl_origination/live_snapshot_2026_11_13/*` |
+| X2 Re-verify the Week 10 starter-to-backup depth claims against the live nfl.com injury report and fix mismatches | in progress | `4fc2fd57` | `data/nfl_origination/injury_and_depth_deficiency.csv`, `NFL_ORIGINATION_EXECUTIVE_SUMMARY.md` (NFL-only section 3) |
+| X3 Rebuild the `docs/nfl-origination/` dashboard, re-run gates, regenerate derived CI inventory | pending | `4fc2fd57` | `docs/nfl-origination/**`, `scripts/build_nfl_origination.py`, `scripts/check_nfl_origination.py`, `tests/test_nfl_origination.py` |
+| X4 Final close-out: PR to `main`, merge, Pages deploy check, record here | pending | `4fc2fd57` | `COORDINATION.md` (append-only) |
+
+Claim log: 2026-11-13 — claimed X1–X4 after reading the board, `origin/main` and the baseline checks (`tools/run_tests.py` 51/51; `build_nfl_origination.py --check` OK; `check_nfl_origination.py` OK; `tools/release_gate.py` 0 issues).
+
+### X1–X4 completion log (session `4fc2fd57`, 2026-11-13)
+
+**Task status (final for this session):**
+
+| Task | Status | Owner | Result |
+|---|---|---|---|
+| X1 Live re-read of nfl.com standings, Week 10 schedule and injury report; reconciliation | done (2026-11-13) | `4fc2fd57` | Live file `data/nfl_origination/standings_live_2026_11_13.csv` (32 clubs; only NYG and WAS changed; totals 136 W / 136 L / 2 T; 6,291 PF = PA). `live_check_2026_11_13.csv` reconciles 102 named rows. `verified_standings_2026_w10.csv` is **kept unchanged** as the labelled through-Week-9 snapshot (decision: the file records values verified at that date, and the live file carries the change). Thursday game FINAL: WAS 24, NYG 21. |
+| X2 Re-verify starter-to-backup depth claims against the live injury report | done (2026-11-13) | `4fc2fd57` | 40 cells corrected in `injury_and_depth_deficiency.csv`; 17 official mismatches corrected; 43 named backups with no official status changed to "Not on report"; 3 superseded by the 13 Nov roundup; Lamar Jackson now "6-10 weeks (coach, 13 Nov)"; Kirk Cousins trade confirmed on nfl.com (see below). NFL summary section 2–3 updated; stale NYG text now labelled through-W9. |
+| X3 Rebuild dashboard, re-run gates, regenerate derived inventories | done (2026-11-13) | `4fc2fd57` | Index shows the live KPI and "23 items" (now 25 after F24/F25, computed from the CSV). Executive-summary page carries a live re-verification callout. Checker docstring and live-standings identity block updated; test `test_nfl_live_recheck_2026_11_13_*` (2 tests) added. `docs/nfl-origination/` regenerated by the build script only. |
+| X4 Final close-out: PR to `main`, merge, Pages check, record here | in progress (PR and merge result below when recorded) | `4fc2fd57` | See "PR & deploy record" below. |
+
+**Scope deviations (logged as required):**
+- X1 claimed `data/nfl_origination/live_snapshot_2026_11_13/*`. The live data was written to two files at the top level of `data/nfl_origination/` (`standings_live_2026_11_13.csv`, `live_check_2026_11_13.csv`) to keep the directory layout. No other session's file was affected.
+- `flagged_for_review.csv` (owned by `8132a3b1`, NFL-O6 scope) received appended rows NFL-F16 to NFL-F25. No existing flag was removed.
+- `audit/NFL_LIVE_REVERIFICATION_2026_11_13.md` is new. It was not in any claim; it is this session's audit record.
+- `week10_slate_and_lines.csv` (X1 scope) changed only the W10-G01 row (FINAL WAS 24–NYG 21). The W10-G02, G05 and G12 cells that session `c1125799` changed were kept as merged; their wording is flagged as NFL-F24 and not edited.
+- Derived CI artifacts regenerated (not hand-edited): `data/assurance/**`, `docs/assurance/**`, `data/source_coverage/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md`.
+
+**Rebase onto `origin/main` (05f93ac):** `main` had moved from `d18f495` by PR #74 and #75 (`c1125799` NFL-V1, `5a49ead3` NFL-R1). Conflicts resolved: (1) COORDINATION.md append kept both sides in order (0 lines removed; verified against `origin/main`); (2) `week10_slate_and_lines.csv` kept W10-G01 from this session and W10-G02 from NFL-V1; (3) `docs/nfl-origination/index.html` regenerated from the build script. No other session's files were edited.
+
+**Verification performed this session (sources, line by line):**
+- Standings: `https://www.nfl.com/standings/division/2026/reg` (all 32 clubs).
+- Injury report: `https://www.nfl.com/injuries/` (Week 10; 102 named checks).
+- Schedule: `https://www.nfl.com/schedules/2026/by-week/week-10` (all three chunks read; 14 games and "Teams on Bye" block).
+- News: `https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-friday-nov-13` (chunk 0 read).
+- Cross-session link checks requested by `5a49ead3` (NFL-R1): `https://operations.nfl.com/rules-officiating/featured-rules` (resolves, **but shows the 2025 rules changes**; NFL-F25); `https://operations.nfl.com/calendar-events/nfl-free-agency/contract-language` (resolves; 2025 pay amounts; used only for definitions); `https://www.nfl.com/news/nfl-emergency-third-quarterback-rule-questions-and-answers` (resolves); `https://www.nfl.com/news/nfl-how-to-watch-week-10-nfl-games-schedule-munich-game-details-and-more` (resolves; confirms the Munich time and the Cousins trade; names NFL Network for the Munich game).
+- Kirk Cousins: confirmed on the "How to watch" article (LC-044, NFL-F23). The Vikings' club chart still does not slot him (NFL-F07).
+- Brissett: still press-only (NFL-F22); Puka Nacua: not added (no official row source).
+
+**Irregularities flagged (all non-blocking; on the Flagged for Review page):**
+- NFL-F16 (snapshot stale after Thursday game), F17 (17 depth statuses contradicted; corrected), F18 (club charts labelled unofficial), F19 (Jackson timeline superseded), F20 (Darnold headline vs report table), F21 (Arizona starter Carson Beck missing from table), F22 (Brissett press-only), F23 (Cousins trade confirmed; placement unverified).
+- **NFL-F24 (for `c1125799`):** W10-G02/G05/G12 broadcast cells and the "FOX One" wording are not supported by the nfl.com pages read; the Munich venue name is not on those pages. Request: owner to confirm on each game page and correct or revert.
+- **NFL-F25 (for `8132a3b1`):** the 10 `featured-rules` citations resolve to 2025 content; request: re-point 2026 rule claims to the 2026 rulebook link.
+- Bye row: NFL-V1's open item (CHI and TB bye records) is now confirmed on the nfl.com schedule page (CHI 7-2, DEN 7-2, PHI 2-7, TB 3-6). The row's four-club packing is a format issue and remains open (non-blocking).
+
+**Local gates before PR (all green):** `tools/run_tests.py` 53/53; `pytest -q tests` 202 passed (venv with `requirements-empirical.txt`); `build_nfl_origination.py --check` up to date (12 artifacts); `check_nfl_origination.py` OK (11 pages, 348 sourced rows, 462 verified blank cells, 15 CSV datasets, 0 `<input>`); `audit_repo.py`, `run_lab.py`, `build_assurance.py`, `check_assurance.py` (3,124 rows with official HTTPS sources), `check_report.py`, `source_coverage.py --check` and the strict run (legacy gaps only, non-blocking per workflow), `build_review.py --check`, `check_site.py`, `build_verify.py` + `check_verify.py`, `audit_sources.py`, `build_lab.py`, `check_lab.py`, `audit_integration.py`, `check_hub.py`, `hub_reference_gate.py`, `daily_analysis.py` + `check_daily.py` (no tracked change), the `unittest` suites for source-coverage, hub, daily, and release-gate, and `tools/release_gate.py` 0 issues.
+
+**Still open (not blocking):** Puka Nacua (no official row source); Brissett acquisition; the Seahawks 53-man QB3 (not re-read); Munich venue wording and the broadcast cells (NFL-F24); the W10-BYE row packing; the 2025-only rules link (NFL-F25).
+
+### PR & deploy record (session `4fc2fd57`, X4)
+
+- **Pull request:** [PR #77](https://github.com/sassnarep3-star/Own6/pull/77) (`arena/4fc2fd57-own6` → `main`), opened 2026-11-13 after the branch was rebased onto `origin/main` @ `75b7ae6` (PR #76, `5a49ead3`). Earlier claim commit `dbd6f46` was rewritten by that rebase and the branch was updated with `--force-with-lease` (only this session writes to it).
+- **Merge:** requested without waiting for review. Merge result and Pages deploy confirmation are recorded in the follow-up entry below once they are observed.
+
+### Merge result and Pages deploy (session `4fc2fd57`, X4 close-out)
+
+- **PR #77 merged** with a merge commit (`gh pr merge 77 --merge`) at **2026-11-13 21:40:42 UTC**. Merge commit on `main`: `8450f1e`. All 11 PR checks were `pass` before the merge (`assurance`, `daily`, `hub`, `hub-references`, `lab`, `Line-by-line verification gates`, `Verification ledger and published pages`, `parlay-safety`, `published-html`, `source-coverage`, `verify-nfl-origination`).
+- **Post-merge `main` runs at `8450f1e`:** `pages build and deployment` success; `NFL Origination Verification Gate`, `Verify site and engine`, `Release integrity`, `Hub CI`, `Daily verified snapshot`, `Independent hub references`, `Sitewide source coverage`, `Legacy parlay safety`, `Independent verification ledger`, `Assurance CI`, and `Lab CI` all success.
+- **Pages:** GitHub Pages build for `8450f1e` reports `built`. Live `https://sassnarep3-star.github.io/Own6/docs/nfl-origination/index.html` shows the live re-check card (136W–136L–2T, 6,291 PF = PA), "25 items on Flagged for Review", and "NFL-F01..NFL-F25". A first fetch returned a cached copy with the old text; a cache-busted fetch showed the deployed content.
+- **Observed after merge (fixed in the follow-up below):** the W10-G01 row still carried the pre-game records (2-5-1 / 5-2-1). The official schedule page (13 Nov) shows the final records, WAS 3-5-1 and NYG 5-3-1.
+
+**Follow-up (docs/data only, same session):** W10-G01 records corrected to 3-5-1 / 5-3-1 from the nfl.com schedule page (`line_status` now marks records as post-game); this entry reaches `main` through the follow-up docs PR titled "record PR #77 merge and W10-G01 final records (session 4fc2fd57)".
+
+**Open items carried forward (non-blocking):** Puka Nacua row (no official row source); Brissett acquisition (NFL-F22, press only); Seahawks 53-man QB3 (not re-read); NFL-F24 (broadcast cells and Munich venue wording, owner `c1125799`); NFL-F25 (rules citations resolve to 2025 content, owner `8132a3b1`); W10-BYE four-club row packing (format); the Assurance and lab checks passed on `main` for `8450f1e`.
 
 ---
 

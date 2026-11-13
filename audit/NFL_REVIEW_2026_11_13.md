@@ -66,15 +66,24 @@ the page-fetch tool.
 | `docs/nfl-review/` | 9 pages | New. Built from the registers in `data/nfl_review/` |
 | `data/nfl_review/` | 12 registers | New. Every row carries a source URL or an explicit reason for being blank |
 
-### 3.1 The 336-row ledger
+### 3.1 The 496-row ledger
 
 `data/nfl_review/value_reconciliation.csv` holds one row per published claim:
 
 `check_id, published_file, published_row_id, field, published_value, official_value_read_2026_11_13,
 result, note, official_source_url`
 
-Results: **240 match · 34 differ · 55 not_checked · 6 not_found_in_2026_11_13_capture ·
+Results: **455 match · 34 differ · 0 not_checked · 6 not_found_in_2026_11_13_capture ·
 1 unverified_no_player_named**.
+
+Coverage. The ledger compares every cell of five published registers against the official reads:
+the through-Week-9 standings snapshot (`data/nfl_origination/verified_standings_2026_w10.csv`, 192
+rows), the live standings snapshot added by the concurrently merged live-verification session
+(`data/nfl_origination/standings_live_2026_11_13.csv`, 160 rows), the published Week 10 slate
+(`data/nfl_origination/week10_slate_and_lines.csv`, 71 rows), the Week 10 pack's injury and depth
+register (`data/nfl_3b81013c/injuries_and_depth.csv`, 49 rows) and the origination pack's depth chains
+(`data/nfl_origination/injury_and_depth_deficiency.csv`, 24 rows). Nothing was sampled: every cell of
+every register is in the ledger.
 
 What each result means:
 
@@ -215,8 +224,8 @@ here as the audit trail for this session's own review, which read the same pages
 | Gate | Command | Result |
 |---|---|---|
 | Rebuild the review pages | `python3 scripts/build_nfl_review.py` | 10 files written, byte-reproducible |
-| Page gate | `python3 scripts/check_nfl_review.py` | 9 pages, 969 table rows, 336 ledger rows, 20 flags, 18 source reads — no problems |
-| Reconciliation gate | `python3 scripts/verify_nfl_review.py --check` | 336 compared values and 7 PR #68 checks reproduce exactly |
+| Page gate | `python3 scripts/check_nfl_review.py` | 9 pages, 1129 table rows, 496 ledger rows, 20 flags, 18 source reads — no problems |
+| Reconciliation gate | `python3 scripts/verify_nfl_review.py --check` | 496 compared values and 7 PR #68 checks reproduce exactly |
 | Regression suite | `python3 -m unittest discover -s tests -p test_nfl_review.py` | 33 tests, all passing |
 | Repository gate | `python3 tools/release_gate.py` | run as part of the final integration |
 
