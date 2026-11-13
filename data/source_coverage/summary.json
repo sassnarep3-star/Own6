@@ -7,7 +7,7 @@
   },
   "data_rows": 12778,
   "independently_value_verified_by_this_audit": 0,
-  "input_manifest_sha256": "04dfb8de075d1faafea9c272db828e7c23b918ccb2ba2ab14364099b767b0c29",
+  "input_manifest_sha256": "b5a3ae140e741548cc6309a0b23f75ece385c1ea501be023ed3b187374557eaa",
   "note": "Zero certified by this structural audit is not a claim that all prior facts are false. Official link presence never verifies a row value.",
   "pages": 176,
   "scope": "root index.html and docs/**/*.html excluding docs/coverage/** (self-generated audit)"
