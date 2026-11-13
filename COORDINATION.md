@@ -1471,6 +1471,109 @@ Replacement official pages read directly on 2026-11-13: `https://www.nfl.com/inj
 
 ---
 
+---
+
+## Session arena/34dacba5-own6 — NFL lines lab (singles / parlays / prop combos) — 2026-11-12
+
+**Claim first, build second.** Arena platform rule fixes this session to `arena/34dacba5-own6` (the brief's `session-<id>/<task>` branch naming is not permitted by the platform; logged as deviation, same as earlier sessions). Before claiming I read this board end-to-end, `git log origin/main`, open PRs (#48/#52/#54/#56 — none touch the scope below) and used `gh workflow list`; **all new files are additive and disjoint** from every earlier session.
+
+### Task board (session `34dacba5`)
+
+| Task | Status | Owner | Exclusive file scope | Notes |
+|---|---|---|---|---|
+| NF1 Repo review (this session) + irregularities | done | `34dacba5` | `audit/NFL_LAB_NOTES.md`, `docs/nfl/lab/audit.html` | line-by-line, official sources |
+| NF2 Official-source registry | done | `34dacba5` | `data/nfl/sources.json`, `data/nfl/source_manifest.json` | every row source-linked |
+| NF3 Official standings + Week 10 injuries snapshot | done | `34dacba5` | `data/nfl/raw/*_read.csv` | raw reads live in one folder |
+| NF4 Line-origination engine + validation gates + leaderboard | done | `34dacba5` | `src/nfllab/**`, `scripts/nfl_analysis.py` | numpy/scipy only |
+| NF5 Correlation engine with luck control | done | `34dacba5` | `src/nfllab/correlation.py`, `src/nfllab/combos.py` | clustered bootstrap + Fisher exact |
+| NF6 Injury / depth-chart availability model | done | `34dacba5` | `src/nfllab/availability.py` | official depth charts, 3 clubs |
+| NF7 Questions / missing-information register | done | `34dacba5` | `data/nfl/questions.json` | 18 questions, 7 blocking |
+| NF8 Suggestions section + decision matrix | done | `34dacba5` | `data/nfl/suggestions.json`, `docs/nfl/lab/suggestions.html` | 15 scored, none auto-applied |
+| NF9 Site: `docs/nfl/lab/**` dashboard + subpages + Flagged for Review | done | `34dacba5` | `docs/nfl/lab/**`, `scripts/build_nfl_lab.py`, `scripts/check_nfl_lab.py` | 14 pages, no manual input |
+| NF10 CI + tests | done | `34dacba5` | `.github/workflows/nfl-lab-ci.yml`, `tests/test_nfl_lab.py` | 25 tests, byte-reproducibility check |
+| NF11 Executive summary + PR/merge/Pages confirmation | in progress | `34dacba5` | `NFL_EXECUTIVE_SUMMARY.md`, `research/nfl/**` | PR next |
+
+Rules for this scope: no manual input; no invented odds/lines/correlations/ROI; **blank = unverified**; every published table row carries an official https source link; luck is reduced, never eliminated; nothing is called profitable.
+
+### Scope reconciliation — 2026-11-12T16:40Z
+
+**Observed, not requested:** PR #66 (session `efebf74f`) was merged into `main` after my claim commit. It already
+publishes a `docs/nfl/**` section, `data/nfl/*.csv`, `research/NFL_*.md`, `scripts/build_nfl.py` and `scripts/check_nfl.py`
+— i.e. an overlapping scope. My claim stands only for the **distinct** files listed above, and I did not touch any of
+PR #66's files.
+
+**My final scope (disjoint from #66 and from PR #67's assurance files):**
+- `data/nfl/sources.json`, `data/nfl/source_manifest.json`, `data/nfl/raw/**`, `data/nfl/model/**`,
+  `data/nfl/questions.json`, `data/nfl/suggestions.json`, `data/nfl/lessons.json`, `data/nfl/flagged.json`
+- `src/nfllab/**`, `scripts/nfl_reconcile.py`, `scripts/nfl_analysis.py`, `scripts/build_nfl_lab.py`,
+  `scripts/check_nfl_lab.py`, `tests/test_nfl_lab.py`, `.github/workflows/nfl-lab-ci.yml`
+- `docs/nfl/lab/**` (sub-pages only; #66 owns `docs/nfl/index.html`, `docs/nfl/assets/style.css` and the other
+  `docs/nfl/*.html` pages)
+- `NFL_EXECUTIVE_SUMMARY.md` (root, new file), `research/nfl/**` (new directory), `audit/NFL_LAB_NOTES.md`
+- `README.md` / `docs/index.html`: **not edited by me.** A one-line nav link is requested instead.
+
+**Requests logged (do not edit another session's file):**
+1. R-1: add `<a href="nfl/lab/index.html">NFL lab</a>` to the primary nav of `docs/index.html` (owner: integration).
+2. R-2: add a pointer to `docs/nfl/lab/index.html` on `docs/nfl/index.html` (owner: `efebf74f` / any later #66 owner).
+3. R-3: `data/assurance/inventory.csv` must be regenerated after my files land (owner: any session touching
+   `scripts/audit_repo.py` output; #67 already regenerates it).
+
+**Conflict log (per the parallel-session rule):** rebasing this branch onto `main` conflicted in `COORDINATION.md`
+because both sessions append to the same file. Resolution: `main`'s version was taken as the base and this section was
+**appended after it**, so every line of the `efebf74f` and `#67` records is preserved unchanged. A first attempt at
+this reconciliation had replaced the `efebf74f` block; it was restored byte-for-byte from `origin/main` and the
+append-only rule is now satisfied (verified: `git diff origin/main --numstat COORDINATION.md` shows additions only).
+
+**Repo irregularities found while auditing (line-by-line, official sources):**
+- I-1 (defect, reproducible): `python3 -m pytest -q tests` on a **clean checkout of `main` at b41bc81** fails 1 test —
+  `tests/assurance/test_audit.py::test_inventory_hashes_and_line_counts` — because a `git checkout` of `.gitignore` in a
+  fresh worktree rewrites its newline handling, so the stored SHA-256 no longer matches. Not caused by any NFL work;
+  the Assurance CI job regenerates the inventory before testing, which hides it. Needs review, non-blocking.
+- I-2 (data gap): the community game log used for the offline backtest (`leesharpe/nfldata`) had **no license file** at
+  retrieval and was missing 3 rows the official pages show (AZ season totals, AZ@SEA Week 9, LA@AZ Week 10). All three
+  are published on my Flagged page; the reconciliation reports 89 checks / 0 discrepancies after the documented
+  club-code alias (ARI -> AZ).
+- I-3 (risk, not yet an error): GitHub Pages `build_type` is `legacy` on `main:/`, so any file committed under `docs/`
+  is served literally. My pages use only relative links, ASCII-only HTML, and no external JS.
+
+### Completion record — session `34dacba5` (2026-11-12)
+
+**What shipped.** 14 pages under `docs/nfl/lab/`, a model library in `src/nfllab/` (ratings, pricing, correlation,
+validation, availability, calibration, combos, harness), four scripts (`nfl_reconcile.py`, `nfl_analysis.py`,
+`build_nfl_lab.py`, `check_nfl_lab.py`), 25 tests, and a CI workflow that fails if a rebuilt artefact or page differs
+by one byte from what is committed. `NFL_EXECUTIVE_SUMMARY.md` and `research/nfl/{NFL_METHOD,NFL_RESULTS}.md` carry the
+findings; `audit/NFL_LAB_NOTES.md` carries the defect log.
+
+**Sources used (all read this session, links on the Sources page):** https://www.nfl.com/standings/ ;
+/schedules/2026/by-week/week-9 ; /week-10 ; /injuries/ ; /legal/terms ;
+https://operations.nfl.com/rules-officiating/2026-nfl-rulebook ;
+https://www.commanders.com/team/depth-chart ; https://www.giants.com/team/depth-chart ;
+https://www.detroitlions.com/team/depth-chart ; https://www.nfl.com/teams/detroit-lions/roster .
+Method definitions only: NIST, SciPy, scikit-learn. Community data: https://github.com/leesharpe/nfldata
+(recorded commit; **no licence file**).
+
+**Verification performed.** `scripts/nfl_reconcile.py` ran 89 official-value checks with 0 discrepancies: all 32
+standings rows re-derived from 136 final games, 15 Week 9 finals compared one by one, 14 Week 10 games compared for
+opponents/date/kickoff, 26 injury-report clubs present, and the documented club-code alias (`ARI` in the community
+file, `AZ` on NFL.com) applied. Nothing missing was filled in.
+
+**Irregularities (also on the Flagged for Review page):** F-N01 no verified market price for any Week 10 game;
+F-N02 community log has no licence file; F-N03 NFL.com Terms section 1.3 limits use to individual non-commercial
+informational purposes; F-N04 historical bets priced at an assumed -110; F-N05 community file lagged NFL.com on 3
+rows; F-N06 depth charts for 3 of 32 clubs; F-N08 6 of 275 injury rows carry a game status as read; F-N10 duplicate
+NFL section; F-N11 pre-existing assurance failure. All are non-blocking for publishing the *framework*; they block
+any claim that depends on them.
+
+**Defects found and fixed before publishing** (each changed a number; details in `audit/NFL_LAB_NOTES.md`):
+spread sign in `pricing.cover_probability`; copula call to a SciPy API removed in 1.9; deflated Sharpe passing on a
+single trial; candidate roll-up calling failures "blocked"; Bonferroni p-value above 1; hand-written depth prose
+naming players not in the table.
+
+**Result.** 0 of 8 candidates qualify. 2025 holdout ROI: S1 -1.22% (CI -12.25% to +10.35%), S2 -3.69%
+(CI -24.33% to +17.33%), S3 -7.50% (CI -27.99% to +15.29%). No interval excludes zero on the upside.
+
+---
+
 ## Session `arena/44136693-own6` — NFL consolidated review, verification & final integration (2026-11-13)
 
 **Branch rule (platform deviation logged):** Arena fixes this session to branch `arena/44136693-own6`; creating or switching to `session-<id>/<task>` branches is disallowed by the platform rule. All work is done on that branch. **Every file path claimed below is 100% disjoint** from all prior and concurrent scopes (`docs/nfl/**` [efebf74f], `docs/nfl-3b81013c/**` [3b81013c], `docs/nfl-origination/**` [8132a3b1], `docs/nfl/lab/**` + `data/nfl/model/**` [34dacba5, PR #68 open], `src/nfllab/**`, `data/nfl/**` data files owned by efebf74f/34dacba5).

@@ -200,7 +200,7 @@ SL-008,data/nfl_origination/week10_slate_and_lines.csv,W10-G02,date,2026-11-15,,
 SL-009,data/nfl_origination/week10_slate_and_lines.csv,W10-G02,kickoff,9:30 AM ET,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
 SL-010,data/nfl_origination/week10_slate_and_lines.csv,W10-G02,away_record,5-4-0,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
 SL-011,data/nfl_origination/week10_slate_and_lines.csv,W10-G02,home_record,6-2-0,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
-SL-012,data/nfl_origination/week10_slate_and_lines.csv,W10-G02,broadcast,"NFL Network, FOX, NFL+",,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-012,data/nfl_origination/week10_slate_and_lines.csv,W10-G02,broadcast,"FOX, FOX One, NFL+",,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
 SL-014,data/nfl_origination/week10_slate_and_lines.csv,W10-G03,date,2026-11-15,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
 SL-015,data/nfl_origination/week10_slate_and_lines.csv,W10-G03,kickoff,1:00 PM ET,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
 SL-016,data/nfl_origination/week10_slate_and_lines.csv,W10-G03,away_record,6-2-0,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
@@ -215,7 +215,7 @@ SL-026,data/nfl_origination/week10_slate_and_lines.csv,W10-G05,date,2026-11-15,,
 SL-027,data/nfl_origination/week10_slate_and_lines.csv,W10-G05,kickoff,1:00 PM ET,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
 SL-028,data/nfl_origination/week10_slate_and_lines.csv,W10-G05,away_record,6-2-0,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
 SL-029,data/nfl_origination/week10_slate_and_lines.csv,W10-G05,home_record,6-3-0,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
-SL-030,data/nfl_origination/week10_slate_and_lines.csv,W10-G05,broadcast,"FOX, NFL+",,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-030,data/nfl_origination/week10_slate_and_lines.csv,W10-G05,broadcast,"FOX, FOX One, NFL+",,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
 SL-032,data/nfl_origination/week10_slate_and_lines.csv,W10-G06,date,2026-11-15,2026-11-15,match,,https://www.nfl.com/games/dolphins-at-colts-2026-reg-10
 SL-033,data/nfl_origination/week10_slate_and_lines.csv,W10-G06,kickoff,1:00 PM ET,1:00 PM ET,match,,https://www.nfl.com/games/dolphins-at-colts-2026-reg-10
 SL-034,data/nfl_origination/week10_slate_and_lines.csv,W10-G06,away_record,1-7-0,1-7,match,,https://www.nfl.com/games/dolphins-at-colts-2026-reg-10
@@ -250,7 +250,7 @@ SL-068,data/nfl_origination/week10_slate_and_lines.csv,W10-G12,date,2026-11-15,,
 SL-069,data/nfl_origination/week10_slate_and_lines.csv,W10-G12,kickoff,4:25 PM ET,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
 SL-070,data/nfl_origination/week10_slate_and_lines.csv,W10-G12,away_record,7-1-0,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
 SL-071,data/nfl_origination/week10_slate_and_lines.csv,W10-G12,home_record,4-5-0,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
-SL-072,data/nfl_origination/week10_slate_and_lines.csv,W10-G12,broadcast,"FOX, NFL+",,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-072,data/nfl_origination/week10_slate_and_lines.csv,W10-G12,broadcast,"FOX, FOX One, NFL+",,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
 SL-074,data/nfl_origination/week10_slate_and_lines.csv,W10-G13,date,2026-11-15,2026-11-15,match,,https://www.nfl.com/games/steelers-at-bengals-2026-reg-10
 SL-075,data/nfl_origination/week10_slate_and_lines.csv,W10-G13,kickoff,8:20 PM ET,8:20 PM ET,match,,https://www.nfl.com/games/steelers-at-bengals-2026-reg-10
 SL-076,data/nfl_origination/week10_slate_and_lines.csv,W10-G13,away_record,6-2-0,6-2,match,,https://www.nfl.com/games/steelers-at-bengals-2026-reg-10

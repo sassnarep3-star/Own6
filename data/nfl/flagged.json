@@ -1,0 +1,115 @@
+{
+  "generated_by": "curated from the audit and the reconciliation output",
+  "as_of": "2026-11-12",
+  "rule": "Blank means unverified. A flag never fills a value; it names what is missing and the source that would settle it.",
+  "flags": [
+    {
+      "id": "F-N01",
+      "severity": "high",
+      "topic": "Market prices",
+      "item": "No verified market line exists for any Week 10 game. Every market cell on the Own Lines page is blank.",
+      "detail": "No official NFL line feed exists and no sportsbook price was fetched. Own lines are model expectations only.",
+      "source": "https://www.nfl.com/schedules/2026/by-week/week-10",
+      "status": "open"
+    },
+    {
+      "id": "F-N02",
+      "severity": "high",
+      "topic": "Data licence",
+      "item": "The community game log used for the historical backtest has no licence file.",
+      "detail": "GitHub metadata for leesharpe/nfldata reports license = null at retrieval (2026-11-12). The backtest is a research diagnostic, not a publishable performance record, until this is resolved.",
+      "source": "https://github.com/leesharpe/nfldata",
+      "status": "open"
+    },
+    {
+      "id": "F-N03",
+      "severity": "high",
+      "topic": "Data rights",
+      "item": "NFL.com Terms restrict systematic retrieval and commercial use.",
+      "detail": "Section 1.3: use is limited to 'your own individual non-commercial and informational purposes'; systematic retrieval to create a database is prohibited without written consent. This site therefore stores only verbatim transcriptions of pages it needs for verification, with URLs.",
+      "source": "https://www.nfl.com/legal/terms",
+      "status": "open - needs legal review"
+    },
+    {
+      "id": "F-N04",
+      "severity": "medium",
+      "topic": "Backtest price",
+      "item": "Historical bets are priced at an assumed -110.",
+      "detail": "No vig, no per-book price. Real prices differ by several cents, which is the same order of magnitude as the edge being tested.",
+      "source": "https://github.com/sassnarep3-star/Own6/blob/main/data/nfl/model/backtest.json",
+      "status": "open"
+    },
+    {
+      "id": "F-N05",
+      "severity": "medium",
+      "topic": "Community file lag",
+      "item": "The community file was missing three 2026 rows that NFL.com shows.",
+      "detail": "Arizona season totals, AZ@SEA Week 9, LA@AZ Week 10. Reported by scripts/nfl_reconcile.py, not filled in. A documented club-code alias (ARI in the file, AZ on NFL.com) is applied.",
+      "source": "https://github.com/sassnarep3-star/Own6/blob/main/data/nfl/model/reconciliation.json",
+      "status": "open"
+    },
+    {
+      "id": "F-N06",
+      "severity": "medium",
+      "topic": "Depth charts",
+      "item": "Only three clubs have an official depth-chart capture (WAS, NYG, DET).",
+      "detail": "The availability model is therefore a demonstrated method, not a league-wide table. 29 clubs are missing; four of them (CHI, DEN, PHI, TB) are on bye in Week 10 and have no injury rows.",
+      "source": "https://www.detroitlions.com/team/depth-chart",
+      "status": "open"
+    },
+    {
+      "id": "F-N07",
+      "severity": "medium",
+      "topic": "Props",
+      "item": "No player-prop history or prop prices exist, so prop singles and prop-combo strategies are untestable.",
+      "detail": "Candidates S5 and S6 are blocked at gate G01 and have no sample.",
+      "source": "https://www.nfl.com/injuries/",
+      "status": "open"
+    },
+    {
+      "id": "F-N08",
+      "severity": "medium",
+      "topic": "Injury status",
+      "item": "Only 6 of 275 transcribed injury rows carry an explicit game status on the day read.",
+      "detail": "Practice participation is not a game status. Rows without a status are published with a blank game status.",
+      "source": "https://www.nfl.com/injuries/",
+      "status": "open - resolves when final game statuses are published (Saturday)"
+    },
+    {
+      "id": "F-N09",
+      "severity": "low",
+      "topic": "Rules",
+      "item": "Bet settlement rules (pushes, ties, stat corrections, voids) are set by each book, not by the NFL.",
+      "detail": "The 2026 Rulebook settles what happened on the field, not how a bet is graded. No book house rules were captured.",
+      "source": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+      "status": "open"
+    },
+    {
+      "id": "F-N10",
+      "severity": "low",
+      "topic": "Site duplication",
+      "item": "A second NFL section was merged (PR #66) while this lab was being built.",
+      "detail": "The two sections use disjoint files and do not overwrite each other. Readers may see two NFL entry points until an integration session adds one nav link.",
+      "source": "https://github.com/sassnarep3-star/Own6/blob/main/COORDINATION.md",
+      "status": "needs review"
+    },
+    {
+      "id": "F-N11",
+      "severity": "low",
+      "topic": "Existing repository defect",
+      "item": "The full test suite is red on a clean checkout of main (1 failure in tests/assurance/test_audit.py).",
+      "detail": "Reproduced in a fresh worktree at b41bc81 before any file was added. The stored inventory hash of .gitignore does not match after checkout, likely a newline/attribute artefact. Not caused by, and not fixed by, this session.",
+      "source": "https://github.com/sassnarep3-star/Own6/blob/main/tests/assurance/test_audit.py",
+      "status": "needs review"
+    },
+    {
+      "id": "F-N12",
+      "severity": "info",
+      "topic": "Coverage",
+      "item": "The model is evaluated on one completed holdout season plus one prior-season check.",
+      "detail": "Two seasons is enough to show the signal fails; it is not enough to prove a different signal works. The site says so on every results table.",
+      "source": "https://github.com/sassnarep3-star/Own6/blob/main/data/nfl/model/backtest.json",
+      "status": "open"
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "generated_by": "scripts/nfl_manifest.py",
+  "as_of": "2026-11-12",
+  "purpose": "Register of every official page read in this session, with what was transcribed from it and how it was checked.",
+  "official_reads": [
+    {
+      "source_id": "NFL-01",
+      "url": "https://www.nfl.com/standings/",
+      "read_at": "2026-11-12",
+      "transcribed_to": "data/nfl/raw/standings_2026_read.csv",
+      "rows": 32,
+      "verification": "reports 32/32 team rows; PF/PA re-summed from all 136 final games in the community log; W-L-T re-derived the same way (scripts/nfl_reconcile.py)"
+    },
+    {
+      "source_id": "NFL-02",
+      "url": "https://www.nfl.com/injuries/",
+      "read_at": "2026-11-12",
+      "transcribed_to": "data/nfl/raw/injuries_week10_read.csv",
+      "rows": 275,
+      "verification": "26 clubs with listed players + 2 clubs shown as 'No Injuries Reported' (LAC, BAL) = 28; 4 byes (CHI, DEN, PHI, TB) correctly absent"
+    },
+    {
+      "source_id": "NFL-03",
+      "url": "https://www.nfl.com/schedules/2026/by-week/week-9",
+      "read_at": "2026-11-12",
+      "transcribed_to": "data/nfl/raw/week9_results_read.csv",
+      "rows": 15,
+      "verification": "15 finals; every score compared to the community log (14 matched, 1 missing and reported)"
+    },
+    {
+      "source_id": "NFL-04",
+      "url": "https://www.nfl.com/schedules/2026/by-week/week-10",
+      "read_at": "2026-11-12",
+      "transcribed_to": "data/nfl/raw/slate_week10_read.csv",
+      "rows": 14,
+      "verification": "14 games; opponents, kickoff times and records compared to the community log"
+    },
+    {
+      "source_id": "NFL-05",
+      "url": "https://operations.nfl.com/rules-officiating/2026-nfl-rulebook",
+      "read_at": "2026-11-12",
+      "transcribed_to": "data/nfl/sources.json (quoted rule changes 6-1-3, 6-1-5, 6-1-6, 19-2)",
+      "rows": 0,
+      "verification": "2026 rule-change table read verbatim"
+    },
+    {
+      "source_id": "NFL-06",
+      "url": "https://www.detroitlions.com/team/depth-chart",
+      "read_at": "2026-11-12",
+      "transcribed_to": "data/nfl/raw/depth_charts_read.csv (team=DET)",
+      "rows": 57,
+      "verification": "offense/defense/special teams slots transcribed in published order"
+    },
+    {
+      "source_id": "NFL-07",
+      "url": "https://www.commanders.com/team/depth-chart",
+      "read_at": "2026-11-12",
+      "transcribed_to": "data/nfl/raw/depth_charts_read.csv (team=WAS)",
+      "rows": 61,
+      "verification": "published blank at LB string 2 preserved as blank, not filled"
+    },
+    {
+      "source_id": "NFL-08",
+      "url": "https://www.giants.com/team/depth-chart",
+      "read_at": "2026-11-12",
+      "transcribed_to": "data/nfl/raw/depth_charts_read.csv (team=NYG)",
+      "rows": 60,
+      "verification": "12 defensive slots incl. NB; offense 11 slots"
+    },
+    {
+      "source_id": "NFL-09",
+      "url": "https://www.nfl.com/teams/detroit-lions/roster",
+      "read_at": "2026-11-12",
+      "transcribed_to": "not transcribed (used to confirm roster status codes ACT)",
+      "rows": 0,
+      "verification": "spot-checked jersey numbers and positions"
+    },
+    {
+      "source_id": "NFL-10",
+      "url": "https://www.nfl.com/games/commanders-at-giants-2026-reg-10",
+      "read_at": "2026-11-12",
+      "transcribed_to": "used as the canonical game URL for the Thursday night game",
+      "rows": 0,
+      "verification": "records shown on the page (2-5-1 at 5-2-1) match the standings read"
+    },
+    {
+      "source_id": "NFL-11",
+      "url": "https://www.nfl.com/games/patriots-at-lions-2026-reg-10",
+      "read_at": "2026-11-12",
+      "transcribed_to": "canonical game URL for the Munich game",
+      "rows": 0,
+      "verification": "records (5-4 at 6-2) match the standings read"
+    },
+    {
+      "source_id": "NFL-12",
+      "url": "https://www.nfl.com/legal/terms",
+      "read_at": "2026-11-12",
+      "transcribed_to": "quoted in data/nfl/sources.json and on the Sources page",
+      "rows": 0,
+      "verification": "section 1.3 quoted verbatim (non-commercial informational use; no systematic retrieval to build a database)"
+    }
+  ]
+}
