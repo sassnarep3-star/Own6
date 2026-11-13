@@ -1525,3 +1525,14 @@ Claim log: 2026-11-13 — claimed X1–X4 after reading the board, `origin/main`
 
 - **Pull request:** [PR #77](https://github.com/sassnarep3-star/Own6/pull/77) (`arena/4fc2fd57-own6` → `main`), opened 2026-11-13 after the branch was rebased onto `origin/main` @ `75b7ae6` (PR #76, `5a49ead3`). Earlier claim commit `dbd6f46` was rewritten by that rebase and the branch was updated with `--force-with-lease` (only this session writes to it).
 - **Merge:** requested without waiting for review. Merge result and Pages deploy confirmation are recorded in the follow-up entry below once they are observed.
+
+### Merge result and Pages deploy (session `4fc2fd57`, X4 close-out)
+
+- **PR #77 merged** with a merge commit (`gh pr merge 77 --merge`) at **2026-11-13 21:40:42 UTC**. Merge commit on `main`: `8450f1e`. All 11 PR checks were `pass` before the merge (`assurance`, `daily`, `hub`, `hub-references`, `lab`, `Line-by-line verification gates`, `Verification ledger and published pages`, `parlay-safety`, `published-html`, `source-coverage`, `verify-nfl-origination`).
+- **Post-merge `main` runs at `8450f1e`:** `pages build and deployment` success; `NFL Origination Verification Gate`, `Verify site and engine`, `Release integrity`, `Hub CI`, `Daily verified snapshot`, `Independent hub references`, `Sitewide source coverage`, `Legacy parlay safety`, `Independent verification ledger`, `Assurance CI`, and `Lab CI` all success.
+- **Pages:** GitHub Pages build for `8450f1e` reports `built`. Live `https://sassnarep3-star.github.io/Own6/docs/nfl-origination/index.html` shows the live re-check card (136W–136L–2T, 6,291 PF = PA), "25 items on Flagged for Review", and "NFL-F01..NFL-F25". A first fetch returned a cached copy with the old text; a cache-busted fetch showed the deployed content.
+- **Observed after merge (fixed in the follow-up below):** the W10-G01 row still carried the pre-game records (2-5-1 / 5-2-1). The official schedule page (13 Nov) shows the final records, WAS 3-5-1 and NYG 5-3-1.
+
+**Follow-up (docs/data only, same session):** W10-G01 records corrected to 3-5-1 / 5-3-1 from the nfl.com schedule page (`line_status` now marks records as post-game); this entry reaches `main` through the follow-up docs PR titled "record PR #77 merge and W10-G01 final records (session 4fc2fd57)".
+
+**Open items carried forward (non-blocking):** Puka Nacua row (no official row source); Brissett acquisition (NFL-F22, press only); Seahawks 53-man QB3 (not re-read); NFL-F24 (broadcast cells and Munich venue wording, owner `c1125799`); NFL-F25 (rules citations resolve to 2025 content, owner `8132a3b1`); W10-BYE four-club row packing (format); the Assurance and lab checks passed on `main` for `8450f1e`.
