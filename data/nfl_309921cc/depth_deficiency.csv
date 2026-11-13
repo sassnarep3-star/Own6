@@ -2,13 +2,13 @@ team_abbr,unit,position_slot,first_string,active_string,active_player,active_gam
 NE,Offense,WR,A.J. Brown,1,A.J. Brown,Questionable,Efton Chism III,2,,A.J. Brown,0.35,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
 NE,Offense,LT,Will Campbell,1,Will Campbell,not_on_injury_report,Dametrious Crownover,2,,,0.00,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
 NE,Offense,LG,Ben Brown,2,Walter Rouse,Questionable,,,Ben Brown,Walter Rouse,0.85,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
-NE,Offense,C,Jared Wilson,1,Jared Wilson,not_on_injury_report,Ben Brown,2,Ben Brown,,0.00,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
+NE,Offense,C,Jared Wilson,1,Jared Wilson,not_on_injury_report,,,Ben Brown,,0.00,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
 NE,Offense,RG,Matt Pryor,1,Matt Pryor,not_on_injury_report,Walter Rouse,2,,Walter Rouse,0.00,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
 NE,Offense,RT,Morgan Moses,1,Morgan Moses,no_designation_published,Caleb Lomu,2,,,0.00,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
 NE,Offense,TE,Hunter Henry,1,Hunter Henry,no_designation_published,Eli Raridon,2,,Cameron Latu,0.00,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
 NE,Offense,WR,DeMario Douglas,1,DeMario Douglas,not_on_injury_report,Kyle Williams,2,,,0.00,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
 NE,Offense,WR,Efton Chism III,1,Efton Chism III,not_on_injury_report,Kyle Williams,2,,,0.00,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
-NE,Offense,RB,Rhamondre Stevenson,1,Rhamondre Stevenson,Questionable,TreVeyon Henderson,2,TreVeyon Henderson,Rhamondre Stevenson,0.35,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
+NE,Offense,RB,Rhamondre Stevenson,1,Rhamondre Stevenson,Questionable,Corey Kiner,3,TreVeyon Henderson,Rhamondre Stevenson,0.35,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
 NE,Offense,QB,Drake Maye,1,Drake Maye,no_designation_published,Tommy DeVito,2,,,0.00,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
 NE,Defense,OLB,Dre'Mont Jones,1,Dre'Mont Jones,not_on_injury_report,Gabe Jacas,2,,,0.00,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/
 NE,Defense,DT,Christian Barmore,1,Christian Barmore,not_on_injury_report,Leonard Taylor III,2,,,0.00,proposed_weight_not_observed,https://www.patriots.com/team/depth-chart,https://www.nfl.com/injuries/

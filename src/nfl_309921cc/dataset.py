@@ -291,7 +291,8 @@ def depth_deficiency_rows() -> List[dict]:
             replacement = ""
             replacement_string = ""
             for j in range(active_idx + 1, len(strings)):
-                if strings[j]:
+                # "available" means listed on the chart and NOT ruled Out.
+                if strings[j] and designations[j] != "Out":
                     replacement = strings[j]
                     replacement_string = str(j + 1)
                     break

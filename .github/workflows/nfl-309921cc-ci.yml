@@ -1,0 +1,42 @@
+name: NFL 309921CC Verification Gate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/nfl_309921cc/**"
+      - "data/nfl_309921cc/**"
+      - "docs/nfl-309921cc/**"
+      - "research/nfl_309921cc/**"
+      - "NFL_309921CC_EXECUTIVE_SUMMARY.md"
+      - "audit/NFL_309921CC_REPO_REVIEW.md"
+      - "scripts/build_nfl_309921cc.py"
+      - "scripts/check_nfl_309921cc.py"
+      - "tests/test_nfl_309921cc.py"
+      - ".github/workflows/nfl-309921cc-ci.yml"
+  pull_request:
+    branches: [main]
+
+jobs:
+  verify-nfl-309921cc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Pure-stdlib unit tests
+        run: python3 -m unittest discover -s tests -p "test_nfl_309921cc.py" -v
+      - name: Rebuild every table and page from source data
+        run: python3 scripts/build_nfl_309921cc.py
+      - name: Line-by-line verifier
+        run: python3 scripts/check_nfl_309921cc.py
+      - name: Rebuilt artefacts must be byte-identical to what is committed
+        run: |
+          git add -A -- data/nfl_309921cc docs/nfl-309921cc
+          git diff --cached --quiet -- data/nfl_309921cc docs/nfl-309921cc \
+            || { echo "::error::committed artefacts differ from a fresh build"; \
+                 git --no-pager diff --cached --stat -- data/nfl_309921cc docs/nfl-309921cc; \
+                 exit 1; }
+      - name: Repository release gate
+        run: python3 tools/release_gate.py
