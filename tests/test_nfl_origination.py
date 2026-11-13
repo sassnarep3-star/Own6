@@ -351,7 +351,7 @@ def test_nfl_origination_csv_datasets_and_blank_integrity() -> None:
                 assert None not in r and all(v is not None for v in r.values()), f"{name}: malformed row"
                 assert r["official_source_url"].startswith("https://"), f"{name}: non-https source"
 
-    # 32-team 2026 NFL Week 10 standings exact league accounting identity
+    # 32-team 2026 NFL through-Week-9 snapshot exact league accounting identity (live 13 Nov standings are checked by test_nfl_live_recheck_2026_11_13_standings_and_slate)
     with (DATA_DIR / "verified_standings_2026_w10.csv").open(newline="", encoding="utf-8") as fh:
         st = list(csv.DictReader(fh))
     assert len(st) == 32
@@ -401,3 +401,66 @@ def test_nfl_origination_dashboard_verifier_passes() -> None:
     assert stats["rows"] >= 230
     assert stats["empty_cells"] >= 210
 
+
+
+def test_nfl_live_recheck_2026_11_13_standings_and_slate() -> None:
+    """Post-Thursday official standings (nfl.com, read 13 Nov 2026) reconcile exactly to one added game."""
+    with (DATA_DIR / "standings_live_2026_11_13.csv").open(newline="", encoding="utf-8") as fh:
+        live = list(csv.DictReader(fh))
+    assert len(live) == 32
+    assert sum(int(r["w"]) for r in live) == sum(int(r["l"]) for r in live) == 136
+    assert sum(int(r["t"]) for r in live) == 2
+    assert sum(int(r["pf"]) for r in live) == sum(int(r["pa"]) for r in live) == 6291
+    # Thursday game WAS 24 - NYG 21 is the only change: 21 + 24 = 45 = 6291 - 6246
+    assert 6291 - 6246 == 21 + 24
+    assert sorted(r["abbr"] for r in live if r["changed_since_w9_snapshot"] == "true") == ["NYG", "WAS"]
+    nyg = next(r for r in live if r["abbr"] == "NYG")
+    was = next(r for r in live if r["abbr"] == "WAS")
+    assert (nyg["w"], nyg["l"], nyg["t"]) == ("5", "3", "1")
+    assert (was["w"], was["l"], was["t"]) == ("3", "5", "1")
+
+    # The through-Week-9 snapshot is preserved unchanged for provenance.
+    with (DATA_DIR / "verified_standings_2026_w10.csv").open(newline="", encoding="utf-8") as fh:
+        snap = {r["abbr"]: r for r in csv.DictReader(fh)}
+    assert (snap["NYG"]["l"], snap["WAS"]["w"]) == ("2", "2")
+
+    with (DATA_DIR / "week10_slate_and_lines.csv").open(newline="", encoding="utf-8") as fh:
+        g1 = next(r for r in csv.DictReader(fh) if r["slot_id"] == "W10-G01")
+    assert g1["line_status"].startswith("FINAL_WAS_24_NYG_21")
+
+
+def test_nfl_live_recheck_2026_11_13_depth_corrections() -> None:
+    """Statuses contradicted by the official report must not survive in the depth table."""
+    with (DATA_DIR / "live_check_2026_11_13.csv").open(newline="", encoding="utf-8") as fh:
+        checks = list(csv.DictReader(fh))
+    assert len(checks) >= 100
+    allowed = {
+        "MATCH", "MISMATCH_CORRECTED", "SUPERSEDED_BY_LATER_OFFICIAL_UPDATE", "NOT_ON_OFFICIAL_REPORT",
+        "NEWS_SUPPORTED", "NEWS_SUPERSEDES", "PRESS_ONLY_UNVERIFIED", "OMITTED_FROM_REPO",
+        "UNVERIFIED_NOT_RECHECKED",
+    }
+    for r in checks:
+        assert r["result"] in allowed, r["check_id"]
+        assert r["official_source_url"].startswith("https://www.nfl.com/"), r["check_id"]
+        assert r["corrected_status"], r["check_id"]
+
+    with (DATA_DIR / "injury_and_depth_deficiency.csv").open(newline="", encoding="utf-8") as fh:
+        depth = {r["case_id"]: r for r in csv.DictReader(fh)}
+    # Stevenson: official report shows Limited / Questionable, not DNP
+    assert "Limited" in depth["DEPTH-02"]["starter_week10_status"]
+    assert "DNP" not in depth["DEPTH-02"]["starter_week10_status"]
+    # Arizona defensive starters: official report shows participation, not DNP
+    assert "Sweat FULL" in depth["DEPTH-22"]["starter_week10_status"]
+    assert "Baker FULL" in depth["DEPTH-22"]["starter_week10_status"]
+    assert "DNP (All 4" not in depth["DEPTH-22"]["starter_week10_status"]
+    # Lamar Jackson: latest official statement is a 6-10 week expected absence
+    assert "6-10 weeks" in depth["DEPTH-24"]["starter_week10_status"]
+    assert "min 4 games" not in depth["DEPTH-24"]["starter_week10_status"]
+    # Brissett is press-only and must be labelled unverified
+    assert "press-only" in depth["DEPTH-24"]["string_3_backup"]
+    # Named backups not on the report are no longer labelled "Active Expected"
+    assert "Active Expected" not in "".join(r["backup_2_status"] for r in depth.values())
+
+    with (DATA_DIR / "flagged_for_review.csv").open(newline="", encoding="utf-8") as fh:
+        flag_ids = {r["flag_id"] for r in csv.DictReader(fh)}
+    assert {"NFL-F16", "NFL-F17", "NFL-F18", "NFL-F22"} <= flag_ids

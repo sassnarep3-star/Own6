@@ -7,6 +7,10 @@
 
 ---
 
+> **Live re-verification, 13 Nov 2026 (session `arena/4fc2fd57-own6`).** The official nfl.com standings, Week 10 injury report and 13 Nov news were re-read. The Thursday game is **final: Commanders 24, Giants 21**. League totals are now **136 W – 136 L – 2 T** and **6,291 PF = PA**. The live check of 102 named players found **17 depth/injury statuses contradicted by the official report** (corrected), 3 superseded by the 13 Nov roundup, and 43 named backups with no injury listed (now labelled "not on report"). Lamar Jackson's official timeline is 6–10 weeks. Brissett's move is press-only. Details: [`audit/NFL_LIVE_REVERIFICATION_2026_11_13.md`](audit/NFL_LIVE_REVERIFICATION_2026_11_13.md) · [`data/nfl_origination/live_check_2026_11_13.csv`](data/nfl_origination/live_check_2026_11_13.csv) · [`Flagged NFL-F16..F23`](docs/nfl-origination/flagged.html).
+
+---
+
 ## 1. Purpose & Scope Overview
 
 This project delivers a complete, self-contained, zero-user-input NFL fair-line origination, signal research, starter-to-backup depth-deficiency, and pre-decision governance suite inside `sassnarep3-star/Own6`:
@@ -22,11 +26,11 @@ This project delivers a complete, self-contained, zero-user-input NFL fair-line 
 
 ## 2. Verified 2026 NFL State Entering Week 10 (Nov 12–16, 2026)
 
-- **League-Wide Standings Exact Reconciliation (`verified_standings_2026_w10.csv`):** Across all 32 NFL clubs verified verbatim from [`nfl.com/standings/division/2026/reg`](https://www.nfl.com/standings/division/2026/reg):
-  - **Total Wins = Total Losses = `135`**, **Total Ties = `2`** (`NYG 5-2-1`, `WAS 2-5-1` — 136 completed regular-season games through Week 9).
+- **League-Wide Standings Exact Reconciliation, through Week 9 (`verified_standings_2026_w10.csv`; superseded for NYG and WAS by `standings_live_2026_11_13.csv`):** Across all 32 NFL clubs verified verbatim from [`nfl.com/standings/division/2026/reg`](https://www.nfl.com/standings/division/2026/reg):
+  - **Total Wins = Total Losses = `135`**, **Total Ties = `2`** (`NYG 5-2-1`, `WAS 2-5-1` — 136 completed regular-season games through Week 9; live totals after the Nov 12 result are 136 W / 136 L / 2 T and 6,291 PF = PA).
   - **Total Points For = Total Points Against = `6,246` points** (`22.96` points/team-game), and `PF - PA == Net Pts` holds identically for all 32 clubs.
-  - Division leaders entering Week 10: **BUF (`7-1`)**, **PIT / CIN (`6-2`)**, **JAX (`6-2`)**, **DEN (`7-2`)** in the AFC; **NYG (`5-2-1`)**, **CHI (`7-2`)**, **CAR / NO (`3-5`)**, **SF (`7-1`)** in the NFC.
-- **Week 10 Schedule (`week10_slate_and_lines.csv`):** 14 games + 4 clubs on bye (`CHI`, `DEN`, `PHI`, `TB`), highlighted by `WAS at NYG` (TNF Nov 12), `NE vs DET` at **FC Bayern Munich Arena, Germany** (Sunday Nov 15, 9:30 a.m. ET — `neutral_site=true`, `HFA=0`), `MIN at GB`, `SF at DAL`, `PIT at CIN` (SNF), and `LAC at BAL` (MNF Nov 16). All sportsbook spreads/totals and empirical originated lines are **intentionally blank (`""`)** under `NFL-F01` / `NFL-G01`.
+  - Division leaders entering Week 10: **BUF (`7-1`)**, **PIT / CIN (`6-2`)**, **JAX (`6-2`)**, **DEN (`7-2`)** in the AFC; **NYG (`5-2-1` through Week 9; now `5-3-1` after the Nov 12 loss to WAS, per `standings_live_2026_11_13.csv`)**, **CHI (`7-2`)**, **CAR / NO (`3-5`)**, **SF (`7-1`)** in the NFC.
+- **Week 10 Schedule (`week10_slate_and_lines.csv`):** 14 games + 4 clubs on bye (`CHI`, `DEN`, `PHI`, `TB`), highlighted by `WAS at NYG` (TNF Nov 12; **FINAL: Commanders 24, Giants 21**, [nfl.com schedule](https://www.nfl.com/schedules/2026/by-week/week-10), read 13 Nov), `NE vs DET` at **FC Bayern Munich Stadium, Germany** (Sunday Nov 15, 9:30 a.m. ET — `neutral_site=true`, `HFA=0`), `MIN at GB`, `SF at DAL`, `PIT at CIN` (SNF), and `LAC at BAL` (MNF Nov 16). All sportsbook spreads/totals and empirical originated lines are **intentionally blank (`""`)** under `NFL-F01` / `NFL-G01`.
 - **2025–2026 Rule Regime Shifts (`nfl_official_rules_and_roster.csv`):**
   1. **Rule 6 Dynamic Kickoff:** Touchback dead-ball spot moved to the **35-yard line**; trailing club may declare an onside kick at any time.
   2. **Rule 16 Regular-Season Overtime:** Aligned with postseason so **both teams are guaranteed an opportunity to possess** within a 10-minute regular-season OT period.
@@ -38,10 +42,11 @@ This project delivers a complete, self-contained, zero-user-input NFL fair-line 
 ## 3. Critical Week 10 Starter-to-Backup Depth Findings (`DEPTH-01`..`DEPTH-24`)
 
 1. **Multi-String Cascading Unit Clusters (Offense & Defense):**
-   - **New England Patriots (vs. DET in Munich):** Simultaneous cascading impairments at Left Guard/Center (`1st LG Ben Brown OUT` + `2nd LG/RG Walter Rouse DNP`), Running Back (`1st RB Rhamondre Stevenson DNP` + `2nd RB TreVeyon Henderson OUT` -> elevates **3rd-string RB Corey Kiner** and **4th-string RB Lan Larison**), and Cornerback (`1st CB Carlton Davis III OUT` -> **2nd-string CB Channing Canada**, with `2nd CB Charles Woods Limited`).
-   - **Baltimore Ravens (vs. LAC MNF):** `1st QB Lamar Jackson` placed on IR (right thumb; minimum 4-game absence) and `2nd QB Tyler Huntley` out for season (turf toe), forcing **3rd-tier replacement QB Jacoby Brissett**.
-   - **Seattle Seahawks (at LV):** `1st QB Sam Darnold` ruled OUT and `2nd QB Drew Lock` listed LIMITED, creating acute mid-game Emergency 3rd QB exposure unless a healthy 3rd QB sits on the 53-man roster.
-   - **Green Bay Packers (vs. MIN) & Arizona Cardinals (vs. LAR):** Severe multi-starter DNP clusters across Packers RB/C/LB/EDGE/Nickel (`Josh Jacobs`, `Sean Rhyan`, `Zaire Franklin`, `Lukas Van Ness`, `Javon Bullard`) and Cardinals interior OL + defensive spine (`Isaac Seumalo`, `Hjalte Froholdt`, `Roy Lopez`, `Josh Sweat`, `Mack Wilson Sr.`, `Budda Baker`).
+   - **New England Patriots (vs. DET in Munich):** Interior OL and backfield impairments: `Ben Brown` (listed C) **OUT** (knee); `Walter Rouse` **Limited, Questionable** (concussion) per the official report (earlier draft said DNP — corrected); Running Back `Rhamondre Stevenson` **Limited, Questionable** (knee; earlier draft said DNP — corrected) and `TreVeyon Henderson` **OUT** (illness) -> the official report lists no injury for 3rd-string RB Corey Kiner or 4th-string RB Lan Larison, so their status is 'not on report'. Cornerback `Carlton Davis III` **OUT** (knee) -> `Channing Canada` is not on the report; `Charles Woods` is **Full, Questionable** (hamstring; earlier draft said Limited — corrected).
+   - **Baltimore Ravens (vs. LAC MNF):** `1st QB Lamar Jackson` on IR (right thumb; surgery) — the coach now says **6–10 weeks** (13 Nov roundup; earlier draft said 'minimum 4 games' — corrected). `2nd QB Tyler Huntley` out for season (turf toe; nfl.com news report headline). Replacement QB **Jacoby Brissett**: **press-only, not officially verified** (flag NFL-F22).
+   - **Seattle Seahawks (at LV):** `1st QB Sam Darnold` — nfl.com's news headline says **ruled out**, but the report table lists him as DNP with no game status (conflict flagged NFL-F20). `2nd QB Drew Lock` is **Limited** and expected to start. Emergency 3rd-QB exposure depends on a healthy 53-man QB3, which was not verified.
+   - **Green Bay Packers (vs. MIN):** Multi-starter DNP cluster confirmed by the official report across RB/C/LB/EDGE/Nickel (`Josh Jacobs` DNP, finger surgery per nfl.com news headline; `Sean Rhyan`, `Zaire Franklin`, `Lukas Van Ness`, `Javon Bullard` DNP).
+   - **Arizona Cardinals (vs. LAR) — claim corrected:** the earlier draft said the interior OL and defensive spine were a DNP cluster. The official report does **not** support that: only `Hjalte Froholdt` (C) is DNP (and the 13 Nov roundup adds concussion, out). `Isaac Seumalo` is **Full**, `Roy Lopez` **Limited**, `Josh Sweat` **Full**, `Mack Wilson` **Full**, `Budda Baker` **Full**, `Andrew Wingard` **DNP**, `Jon Gaines II` **DNP** (ankle, out per 13 Nov). The Arizona starting QB (Carson Beck, per the 11 Nov headline) was missing from the earlier table.
 2. **Proof That Static Club Web Depth Charts Cannot Be Used Unreconciled (`NFL-F07`):**
    - `patriots.com`, `detroitlions.com`, `vikings.com`, and `packers.com` explicitly label their web depth charts **"Unofficial"**.
    - `vikings.com` (as of Nov 12) still lists `1st Kyler Murray (DNP) / 2nd Carson Wentz (Limited) / 3rd Max Brosmer` without integrating trade-deadline acquisition **QB Kirk Cousins** (confirmed by `nfl.com` Nov 11 preview).
