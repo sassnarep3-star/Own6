@@ -1411,3 +1411,7 @@ Read `COORDINATION.md` and `origin/main` (d18f495) and open PRs before claiming.
 
 **Git note:** During this session an accidental `git checkout -b` created a temporary local branch; it was deleted immediately (`__tmp_check`, at d18f495). No other branch was pushed.
 
+
+**PR:** [PR #74](https://github.com/sassnarep3-star/Own6/pull/74) (`arena/c1125799-own6` → `main`). All 11 CI checks passed on the final head commit (`assurance`, `lab`, `daily`, `hub`, `hub-references`, `parlay-safety`, `published-html`, `source-coverage`, `verify-nfl-origination`, `Line-by-line verification gates`, `Verification ledger and published pages`).
+
+**CI notes:** The first run failed `assurance` and `lab` because the derived assurance inventory (`data/assurance/inventory.csv`, `summary.json`, `docs/assurance/repo-audit.html`) no longer matched the edited files. Regenerated with `audit_repo.py` / `build_assurance.py` (commit "Regenerate assurance inventory…") and all checks then passed. Local reproduction of the lab steps (`audit_sources.py`, `run_lab.py`, `build_lab.py`, `check_lab.py`, `tools/build_review.py --check`, `tools/check_site.py`, `scripts/check_site.py`, `scripts/linkcheck.py`) passes. Local clone was shallow and was unshallowed to run `audit_sources.py`; CI already uses `fetch-depth: 0`.
