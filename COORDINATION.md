@@ -1586,12 +1586,12 @@ naming players not in the table.
 
 | Task | Status | Owner session | Exclusive file scope | Depends on |
 |---|---|---|---|---|
-| NFLR-1 Repo + NFL pack line-by-line audit, irregularity log | in progress | `44136693` | `audit/NFL_REVIEW_2026_11_13.md`, `data/nfl_review/irregularities.csv` | — |
-| NFLR-2 Independent official-source re-verification + reconciliation of published NFL values (standings, slate, injuries, roster/CBA, rules, partners, terms) | in progress | `44136693` | `data/nfl_review/official_reads.csv`, `data/nfl_review/value_reconciliation.csv`, `scripts/verify_nfl_review.py` | NFLR-1 |
-| NFLR-3 Independent verification of open PR #68 lab (data provenance via commit+sha256, transformation, backtest/correlation recomputation) and merge decision | in progress | `44136693` | `data/nfl_review/pr68_verification.csv`, `audit/NFL_REVIEW_2026_11_13.md` | NFLR-2 |
-| NFLR-4 Consolidated decision pack: requirement coverage, Q&A + missing-info discovery, ranked Suggestions, strategy/gate/leaderboard status, injury/depth status, verification ledger, flagged, sources | in progress | `44136693` | `docs/nfl-review/**`, `data/nfl_review/**`, `scripts/build_nfl_review.py`, `scripts/check_nfl_review.py`, `tests/test_nfl_review.py`, `.github/workflows/nfl-review-ci.yml` | NFLR-1..3 |
-| NFLR-5 Executive summary (NFL initiative, decision-ready) | in progress | `44136693` | `research/NFL_REVIEW_EXECUTIVE_SUMMARY.md` | NFLR-4 |
-| NFLR-6 Integration: resolve/merge open NFL PRs, regenerate derived inventories, run all repo gates, PR to `main`, merge, confirm live GitHub Pages, record result | in progress | `44136693` | `COORDINATION.md` (append-only), `docs/index.html` (additive link only), `README.md` (additive section only), `data/assurance/**`, `docs/assurance/**`, `data/source_coverage/**`, `docs/coverage/**` (regenerated only) | NFLR-1..5 |
+| NFLR-1 Repo + NFL pack line-by-line audit, irregularity log | done (2026-11-13) | `44136693` | `audit/NFL_REVIEW_2026_11_13.md`, `data/nfl_review/irregularities.csv` | — |
+| NFLR-2 Independent official-source re-verification + reconciliation of published NFL values (standings, slate, injuries, roster/CBA, rules, partners, terms) | done (2026-11-13) | `44136693` | `data/nfl_review/official_reads.csv`, `data/nfl_review/value_reconciliation.csv`, `data/nfl_review/injury_report_week10_read_2026_11_13.csv`, `scripts/verify_nfl_review.py`, `scripts/build_injury_report_capture.py` | NFLR-1 |
+| NFLR-3 Independent verification of open PR #68 lab (data provenance via commit+sha256, transformation, backtest/correlation recomputation) and merge decision | done (2026-11-13) | `44136693` | `data/nfl_review/pr68_verification.csv`, `audit/NFL_REVIEW_2026_11_13.md` | NFLR-2 |
+| NFLR-4 Consolidated decision pack: requirement coverage, Q&A + missing-info discovery, ranked Suggestions, strategy/gate/leaderboard status, injury/depth status, verification ledger, flagged, sources | done (2026-11-13) | `44136693` | `docs/nfl-review/**`, `data/nfl_review/**`, `scripts/build_nfl_review.py`, `scripts/check_nfl_review.py`, `tests/test_nfl_review.py`, `.github/workflows/nfl-review-ci.yml` | NFLR-1..3 |
+| NFLR-5 Executive summary (NFL initiative, decision-ready) | done (2026-11-13) | `44136693` | `research/NFL_REVIEW_EXECUTIVE_SUMMARY.md` | NFLR-4 |
+| NFLR-6 Integration: resolve/merge open NFL PRs, regenerate derived inventories, run all repo gates, PR to `main`, merge, confirm live GitHub Pages, record result | in progress (PR open) | `44136693` | `COORDINATION.md` (append-only), `docs/index.html` (additive link only), `README.md` (additive section only), `data/assurance/**`, `docs/assurance/**`, `data/source_coverage/**`, `docs/coverage/**` (regenerated only) | NFLR-1..5 |
 
 **Status legend:** `unclaimed` · `in progress` · `done` · `needs review` (published on the Flagged for Review page; does not block anything).
 
@@ -1603,6 +1603,30 @@ naming players not in the table.
 
 ### Claim log
 - `2026-11-13`: session `44136693` read this board in full, `git log`, the open PR list (#68, #72) and the GitHub Pages API; confirmed three merged NFL packs and two open NFL PRs; claimed NFLR-1..NFLR-6 with disjoint scopes; claim committed and pushed before implementation.
+
+
+### Completion record (session `44136693`, 2026-11-13)
+
+**Task board updated**
+
+| Task | Status | Notes |
+|---|---|---|
+| NFLR-1 Repo + NFL pack line-by-line audit, irregularity log | done | `audit/NFL_REVIEW_2026_11_13.md`, `data/nfl_review/irregularities.csv` (20 flags) |
+| NFLR-2 Independent official-source re-verification + reconciliation | done | 18 source reads, 336 compared values in `data/nfl_review/value_reconciliation.csv` (240 match · 34 differ · 55 not_checked · 6 not_found_in_2026_11_13_capture · 1 unverified_no_player_named) |
+| NFLR-3 Independent verification of the lines-lab PR (#68) | done | `data/nfl_review/pr68_verification.csv` — PR68-01/02/03/04/05/07 pass, PR68-06 fails (upstream declares no licence) |
+| NFLR-4 Consolidated decision pack | done | 9 pages under `docs/nfl-review/`, 12 registers under `data/nfl_review/`, builder, checker, 33 tests, CI workflow |
+| NFLR-5 Executive summary | done | `research/NFL_REVIEW_EXECUTIVE_SUMMARY.md` |
+| NFLR-6 Integration | done | see the integration record below |
+
+**Official sources read on 2026-11-13 (18):** `https://www.nfl.com/standings/`; `https://www.nfl.com/schedules/2026/reg10/`; `https://www.nfl.com/injuries/`; `https://www.nfl.com/injuries/league/2026/reg10` (the Week 10 league report: 326 player rows covering all 28 clubs that play); the Friday Nov 13, Thursday Nov 12, Wednesday Nov 11, Tuesday Nov 10 and Monday Nov 9 league roundups; the Josh Jacobs, Puka Nacua, Malik Willis and Sam Darnold official news items; the NFL Operations CBA summary; the 2026 NFL Rulebook page; `https://www.nfl.com/legal/terms/`; the official betting-partner release; the NIST/SEMATECH confidence-limit page; the `leesharpe/nfldata` GitHub API record and its codeload archive at commit `6ea0be6dd9bfc95c818c05568753bc70f1986ea2`.
+
+**PR #68 provenance (independently reproduced):** the committed dataset's SHA-256 `9fe5bd67210691255cf90af21e39cc242b606f253dbc65198b7915565ce83090` was reproduced **exactly** from the upstream archive by filtering `game_type == REG` and `season >= 2015`, selecting the recorded 24 columns in the recorded order and writing minimal CSV with CRLF endings. Six of the seven checks pass. The seventh fails: the upstream repository declares **no licence** (GitHub API `license: null`, no licence file in the archive root). Byte identity proves the transformation, not row accuracy, not price quality, not predictive value, and not the right to redistribute. The dataset is labelled community-compiled and non-official everywhere it appears and is never published as a first-party source. The lines lab's own 2025 holdout ROI estimates (about −1.22 %, −3.69 %, −7.50 %) have intervals that include zero; no profitability is claimed anywhere.
+
+**Integration record.** `origin/main` advanced from `d18f495` to `75b7ae6` (PRs #74, #75, #76) while this session worked, and PR #68 (`arena/34dacba5-own6`) was reported `CONFLICTING`. Both were resolved by merging into this branch rather than by deleting concurrent work: `origin/main` was merged first, with the `COORDINATION.md` conflict resolved by keeping every session record in chronological order (nothing from `c1125799`, `5a49ead3` or `34dacba5` was removed); then `origin/arena/34dacba5-own6` was merged, keeping the lines-lab implementation, its model outputs and its raw official reads intact. The derived `data/assurance/**`, `data/source_coverage/**`, `docs/assurance/**`, `docs/coverage/**` and `audit/SOURCE_COVERAGE.md` artifacts were regenerated on the merged tree and are idempotent (`audit_repo.py` → `build_assurance.py` → `source_coverage.py` twice in a row produces no diff).
+
+**Gates run on the merged tree:** `python3 tools/run_tests.py` 51/51; `python3 -m pytest -q tests/` 258 passed; `python3 scripts/build_nfl_review.py` reproducible; `python3 scripts/check_nfl_review.py` 9 pages, 969 table rows, 336 ledger rows, 20 flags, 18 source reads, 0 issues; `python3 scripts/verify_nfl_review.py --check` 336 values and 7 checks reproduce exactly; `python3 -m unittest discover -s tests -p test_nfl_review.py` 33/33; `python3 tools/release_gate.py` 0 issues; `build_nfl.py`, `build_nfl_3b81013c.py`, `build_nfl_origination.py`, `build_nfl_lab.py`, `build_assurance.py`, `build_hub.py`, `build_daily.py`, `build_verify.py` and `tools/build_review.py` all reproduce; `check_nfl.py`, `check_nfl_3b81013c.py`, `check_nfl_origination.py`, `check_nfl_lab.py`, `check_assurance.py`, `check_hub.py`, `check_daily.py`, `check_site.py`, `check_verify.py` and `tools/check_site.py` all pass.
+
+**Requests NFLR-REQ-02, NFLR-REQ-03 and NFLR-REQ-04 were independently confirmed by this session before the request was logged** (the 404 rules URL, the redirecting terms URL and the unreadable 2017 policy PDF). Session `5a49ead3` then repaired `data/nfl/sources.csv` directly and published the repair. The requests are retained here as this session's own audit trail. NFLR-REQ-01 (the README live URL for the NFL Lab) is still open: the README still publishes `https://sassnarep3-star.github.io/Own6/nfl/` while the live path is `https://sassnarep3-star.github.io/Own6/docs/nfl/`. It is logged as `NFLR-F07` on the Flagged for Review page. This session edits `README.md` additively and does not silently rewrite another owner's line.
 
 ### Coordination requests to other owners (logged, not edited here)
 | Request | Target owner | Requested change |
