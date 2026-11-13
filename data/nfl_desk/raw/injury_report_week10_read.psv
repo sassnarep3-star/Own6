@@ -1,0 +1,327 @@
+club|player|position|listed_injury|practice_status|game_status
+Washington Commanders|John Bates|TE||Full|
+Washington Commanders|Treylon Burks|WR||DNP|
+Washington Commanders|Jayden Daniels|QB||Full|
+Washington Commanders|Matt Gulbin|C||Full|
+Washington Commanders|Chig Okonkwo|TE||Full|
+Washington Commanders|Lucas Patrick|C|Concussion|DNP|Out
+Washington Commanders|Amik Robertson|CB||Limited|
+Washington Commanders|Shy Tuttle|DT||Full|
+Washington Commanders|Colson Yankoff|TE|Knee|DNP|Out
+New York Giants|Abdul Carter|LB||Full|
+New York Giants|Jermaine Eluemunor|T||Full|
+New York Giants|Malik Harrison|LB|Groin|Limited|Questionable
+New York Giants|Colton Hood|CB||Full|
+New York Giants|Theo Johnson|TE||Full|
+New York Giants|Charlie Jones|WR||Full|
+New York Giants|J.J. McCarthy|QB||Full|
+New York Giants|Darnell Mooney|WR||Full|
+New York Giants|Malik Nabers|WR||Full|
+New York Giants|Cam Skattebo|RB||Full|
+New York Giants|Andrew Thomas|T||Full|
+New England Patriots|Ben Brown|C|Knee|DNP|Out
+New England Patriots|A.J. Brown|WR|Ankle; Knee|Limited|Questionable
+New England Patriots|Kevin Byard|S|Chest|Full|Questionable
+New England Patriots|Carlton Davis III|CB|Knee|DNP|Out
+New England Patriots|Reggie Gilliam|FB|Knee|Limited|Questionable
+New England Patriots|TreVeyon Henderson|RB|Illness|DNP|Out
+New England Patriots|Hunter Henry|TE||Limited|
+New England Patriots|Cameron Latu|TE|Back|Limited|Questionable
+New England Patriots|Drake Maye|QB||Full|
+New England Patriots|Morgan Moses|T||Full|
+New England Patriots|Walter Rouse|T|Concussion|Limited|Questionable
+New England Patriots|Brenden Schooler|S|Hamstring|Limited|Questionable
+New England Patriots|Rhamondre Stevenson|RB|Knee|Limited|Questionable
+New England Patriots|Greg Van Roten|G|Hamstring|Full|Questionable
+New England Patriots|Charles Woods|CB|Hamstring|Full|Questionable
+Detroit Lions|Brian Branch|S||Full|
+Detroit Lions|Jared Goff|QB||Full|
+Detroit Lions|Kerby Joseph|S|Knee|Full|Out
+Detroit Lions|Cade Mays|C|Ankle|DNP|Out
+Detroit Lions|D.J. Reed|CB|Hip|DNP|Out
+Detroit Lions|Jacob Saylors|RB||Full|
+Detroit Lions|Amon-Ra St. Brown|WR||Limited|
+Detroit Lions|Sione Vaki|RB||DNP|
+Detroit Lions|DJ Wonnum|DE||Full|
+Kansas City Chiefs|Jeffrey Bassa|LB||Full|
+Kansas City Chiefs|Mansoor Delane|CB||Full|
+Kansas City Chiefs|Justin Fields|QB||Full|
+Kansas City Chiefs|Jaden Hicks|S||Full|
+Kansas City Chiefs|Travis Kelce|TE||Full|
+Kansas City Chiefs|Patrick Mahomes|QB||Full|
+Kansas City Chiefs|Jaylon Moore|T||DNP|
+Kansas City Chiefs|Omarr Norman-Lott|DT||Limited|
+Kansas City Chiefs|Jaydn Ott|RB||Limited|
+Kansas City Chiefs|Rashee Rice|WR||Full|
+Kansas City Chiefs|Peter Woods|DT||DNP|
+Kansas City Chiefs|Xavier Worthy|WR||Full|
+Atlanta Falcons|Zachariah Branch|WR||DNP|
+Atlanta Falcons|Kendal Daniels|LB||Limited|
+Atlanta Falcons|Divine Deablo|LB||DNP|
+Atlanta Falcons|Gervon Dexter Sr.|DT||Limited|
+Atlanta Falcons|James Pearce Jr.|DE||Limited|
+Atlanta Falcons|Za'Darius Smith|DE||Full|
+Atlanta Falcons|Jawaan Taylor|T||DNP|
+Atlanta Falcons|Cameron Thomas|DE||Limited|
+Atlanta Falcons|Josh Woods|LB||Limited|
+Minnesota Vikings|Blake Cashman|LB||Limited|
+Minnesota Vikings|T.J. Hockenson|TE||DNP|
+Minnesota Vikings|Tyrion Ingram-Dawkins|DT||DNP|
+Minnesota Vikings|Theo Jackson|S||Full|
+Minnesota Vikings|Jauan Jennings|WR||DNP|
+Minnesota Vikings|Kyler Murray|QB||DNP|
+Minnesota Vikings|Kyle Van Noy|LB||Limited|
+Minnesota Vikings|Jay Ward|S||Full|
+Minnesota Vikings|Carson Wentz|QB||Full|
+Green Bay Packers|Aaron Banks|G||Limited|
+Green Bay Packers|Chris Brooks|RB||Limited|
+Green Bay Packers|Javon Bullard|S||DNP|
+Green Bay Packers|Zaire Franklin|LB||DNP|
+Green Bay Packers|Travis Glover|G||Limited|
+Green Bay Packers|Ty'Ron Hopper|LB||Limited|
+Green Bay Packers|Josh Jacobs|RB||DNP|
+Green Bay Packers|Bo Melton|WR||Full|
+Green Bay Packers|Skyy Moore|WR||Limited|
+Green Bay Packers|Micah Parsons|LB||Limited|
+Green Bay Packers|Sean Rhyan|C||DNP|
+Green Bay Packers|Trey Smack|K||Full|
+Green Bay Packers|Lukas Van Ness|LB||DNP|
+Green Bay Packers|Josh Whyle|TE||DNP|
+Green Bay Packers|Savion Williams|WR||Limited|
+Green Bay Packers|Kevin Zeitler|G||Limited|
+Jacksonville Jaguars|Jessie Bates|S||DNP|
+Jacksonville Jaguars|Ezra Cleveland|G||Limited|
+Jacksonville Jaguars|Branson Combs|LB||Limited|
+Jacksonville Jaguars|Jordan Davis|DT||DNP|
+Jacksonville Jaguars|BJ Green II|DE||Full|
+Jacksonville Jaguars|Robert Hainsey|C||Limited|
+Jacksonville Jaguars|Antonio Johnson|S||Limited|
+Jacksonville Jaguars|Jakobi Meyers|WR||Limited|
+Jacksonville Jaguars|Chris Rodriguez Jr.|RB||Limited|
+Jacksonville Jaguars|Bhayshul Tuten|RB||DNP|
+Jacksonville Jaguars|Travon Walker|DE||Limited|
+Tennessee Titans|Cody Barton|LB||DNP|
+Tennessee Titans|John Franklin-Myers|DE||Full|
+Tennessee Titans|Marcus Harris|CB||Full|
+Tennessee Titans|Anthony Hill Jr.|LB||DNP|
+Tennessee Titans|Jaylon Jones|CB||Full|
+Tennessee Titans|JC Latham|T||Full|
+Tennessee Titans|Tony Pollard|RB||DNP|
+Tennessee Titans|Peter Skoronski|G||DNP|
+Tennessee Titans|Tyjae Spears|RB||Limited|
+Tennessee Titans|Carnell Tate|WR||DNP|
+Tennessee Titans|Tommy Townsend|P||Full|
+Tennessee Titans|Kevin Winston Jr.|S||Limited|
+Buffalo Bills|Alec Anderson|G||Limited|
+Buffalo Bills|Christian Benford|CB||Limited|
+Buffalo Bills|Spencer Brown|T||DNP|
+Buffalo Bills|Dion Dawkins|T||Limited|
+Buffalo Bills|Sam Franklin Jr.|S||Limited|
+Buffalo Bills|Greg Gaines|DT||Full|
+Buffalo Bills|Jordan Hancock|CB||Full|
+Buffalo Bills|Dalton Kincaid|TE||Limited|
+Buffalo Bills|Connor McGovern|C||Limited|
+Buffalo Bills|Ar'maj Reed-Adams|G||Full|
+Buffalo Bills|T.J. Sanders|DE||Full|
+Buffalo Bills|Tyrell Shavers|WR||Full|
+New York Jets|Jarvis Brownlee Jr.|CB||DNP|
+New York Jets|Omar Cooper Jr.|WR||Limited|
+New York Jets|Joseph Ossai|DE||Limited|
+New York Jets|VJ Payne|S||Full|
+New York Jets|Harrison Phillips|DT||DNP|
+New York Jets|Trevin Wallace|LB||DNP|
+New York Jets|Garrett Wilson|WR||Limited|
+New York Jets|Nahshon Wright|CB||Limited|
+Miami Dolphins|Tucker Addington|LS||Limited|
+Miami Dolphins|Kaytron Allen|RB||Full|
+Miami Dolphins|Darrell Baker Jr.|CB||Limited|
+Miami Dolphins|Chris Bell|WR||DNP|
+Miami Dolphins|Aaron Brewer|C||DNP|
+Miami Dolphins|Malik Herring|DE||Limited|
+Miami Dolphins|Will Kacmarek|TE||Limited|
+Miami Dolphins|Michael Taaffe|S||Full|
+Miami Dolphins|Dante Trader Jr.|S||Full|
+Miami Dolphins|Jared Wayne|WR||Limited|
+Miami Dolphins|Jaylen Wright|RB||Full|
+Indianapolis Colts|Mo Alie-Cox|TE|Groin|DNP|Out
+Indianapolis Colts|CJ Allen|LB||Full|
+Indianapolis Colts|Jaylon Carlies|LB|Neck|DNP|Out
+Indianapolis Colts|Akeem Davis-Gaither|LB|Knee|DNP|Out
+Indianapolis Colts|A.J. Haulcy|S||Full|
+Indianapolis Colts|Arden Key|DE|Hamstring|Full|Questionable
+Indianapolis Colts|Luke Rhodes|LS|Hamstring|DNP|Out
+Indianapolis Colts|Grover Stewart|DT||Full|
+Indianapolis Colts|Jonathan Taylor|RB||Full|
+Indianapolis Colts|Jerry Tillery|DT|Calf|DNP|Out
+Indianapolis Colts|Jalen Travis|T|Knee|DNP|Out
+Indianapolis Colts|Justin Walley|CB||Full|
+Indianapolis Colts|Charvarius Ward|CB||Full|
+Carolina Panthers|Jonathon Brooks|RB||Limited|
+Carolina Panthers|Brady Christensen|G||Full|
+Carolina Panthers|Trevor Etienne|RB||Full|
+Carolina Panthers|Chuba Hubbard|RB||Full|
+Carolina Panthers|Lee Hunter|DT||Full|
+Carolina Panthers|Mike Jackson|CB||Limited|
+Carolina Panthers|Will Lee III|CB||Full|
+Carolina Panthers|Xavier Legette|WR||Full|
+Carolina Panthers|Damien Lewis|G||Limited|
+Carolina Panthers|Bobby Okereke|LB||DNP|
+Carolina Panthers|Jaelan Phillips|LB||Limited|
+Carolina Panthers|Torricelli Simpkins III|G||Full|
+New Orleans Saints|Kelvin Banks Jr.|T||Limited|
+New Orleans Saints|CJ Donaldson|RB||DNP|
+New Orleans Saints|David Edwards|G||Limited|
+New Orleans Saints|Martin Emerson|CB||Limited|
+New Orleans Saints|Travis Etienne|RB||Limited|
+New Orleans Saints|Noah Fant|TE||Full|
+New Orleans Saints|Taliese Fuaga|T||Limited|
+New Orleans Saints|Alvin Kamara|RB||Full|
+New Orleans Saints|Erik McCoy|C||DNP|
+New Orleans Saints|Christen Miller|DT||DNP|
+New Orleans Saints|Asim Richards|T||Full|
+New Orleans Saints|Quincy Riley|CB||Limited|
+Houston Texans|Azeez Al-Shaair|LB||DNP|
+Houston Texans|Will Anderson Jr.|DE||Limited|
+Houston Texans|Reed Blankenship|S||Full|
+Houston Texans|Trent Brown|T||Full|
+Houston Texans|Tank Dell|WR||Full|
+Houston Texans|Blake Fisher|T||Full|
+Houston Texans|Marvin Harrison Jr.|WR||DNP|
+Houston Texans|Jacob Hummel|LB||Full|
+Houston Texans|Danielle Hunter|DE||Limited|
+Houston Texans|Brevin Jordan|TE||DNP|
+Houston Texans|Woody Marks|RB||DNP|
+Houston Texans|David Montgomery|RB||Limited|
+Houston Texans|Keylan Rutledge|G||DNP|
+Houston Texans|Jaylin Smith|CB||Full|
+Houston Texans|Wyatt Teller|G||Full|
+Houston Texans|Tommy Togiai|DT||Full|
+Cleveland Browns|Austin Barber|T||Limited|
+Cleveland Browns|Denzel Boston|WR||DNP|
+Cleveland Browns|Michael Burton|FB||DNP|
+Cleveland Browns|Maliek Collins|DT||Limited|
+Cleveland Browns|Harold Fannin Jr.|TE||Limited|
+Cleveland Browns|Ronnie Hickman Jr.|S||DNP|
+Cleveland Browns|Tytus Howard|T||Limited|
+Cleveland Browns|Elgton Jenkins|C||Limited|
+Cleveland Browns|Donovan McMillon|S||Limited|
+Cleveland Browns|Carson Schwesinger|LB||Limited|
+Cleveland Browns|Denzel Ward|CB||Limited|
+Cleveland Browns|Quincy Williams|LB||Limited|
+Los Angeles Rams|Davis Allen|TE||DNP|
+Los Angeles Rams|Steve Avila|G||DNP|
+Los Angeles Rams|Joe Cardona|LS||Limited|
+Los Angeles Rams|Kam Curl|S||DNP|
+Los Angeles Rams|Terrance Ferguson|TE||DNP|
+Los Angeles Rams|Myles Garrett|LB||Limited|
+Los Angeles Rams|Tyler Higbee|TE||Full|
+Los Angeles Rams|Trent McDuffie|CB||DNP|
+Los Angeles Rams|Puka Nacua|WR||DNP|
+Los Angeles Rams|Colby Parkinson|TE||Limited|
+Los Angeles Rams|Matthew Stafford|QB||Full|
+Arizona Cardinals|Budda Baker|S||Full|
+Arizona Cardinals|Zachary Carter|DT||Limited|
+Arizona Cardinals|Hjalte Froholdt|C||DNP|
+Arizona Cardinals|Jon Gaines II|G||DNP|
+Arizona Cardinals|Bam Knight|RB||Full|
+Arizona Cardinals|Hunter Long|TE||Limited|
+Arizona Cardinals|Roy Lopez|DT||Limited|
+Arizona Cardinals|Max Melton|CB||Limited|
+Arizona Cardinals|Darius Robinson|DT||Limited|
+Arizona Cardinals|Isaac Seumalo|G||Full|
+Arizona Cardinals|Dante Stills|DT||Full|
+Arizona Cardinals|Josh Sweat|LB||Full|
+Arizona Cardinals|Jayden Williams|T||Limited|
+Arizona Cardinals|Mack Wilson|LB||Full|
+Arizona Cardinals|Andrew Wingard|S||DNP|
+Seattle Seahawks|AJ Barner|TE||Full|
+Seattle Seahawks|Anthony Bradford|G||Limited|
+Seattle Seahawks|Charles Cross|T||Limited|
+Seattle Seahawks|Sam Darnold|QB||DNP|
+Seattle Seahawks|Derick Hall|LB||Limited|
+Seattle Seahawks|Drew Lock|QB||Limited|
+Seattle Seahawks|Quenton Nelson|G||DNP|
+Seattle Seahawks|Uchenna Nwosu|LB||Limited|
+Seattle Seahawks|Patrick O'Connell|LB||Limited|
+Seattle Seahawks|Connor O'Toole|LB||DNP|
+Seattle Seahawks|Brandon Pili|DT||DNP|
+Seattle Seahawks|Jarran Reed|DT||DNP|
+Seattle Seahawks|Rashid Shaheed|WR||Full|
+Seattle Seahawks|Jaxon Smith-Njigba|WR||Full|
+Seattle Seahawks|Leonard Williams|DT||DNP|
+Las Vegas Raiders|Thomas Booker|DT||Limited|
+Las Vegas Raiders|Foley Fatukasi|DT||Full|
+Las Vegas Raiders|Ian Thomas|TE||Full|
+Las Vegas Raiders|Trey Zuhn III|C||Limited|
+San Francisco 49ers|Mike Evans|WR||DNP|
+San Francisco 49ers|Renardo Green|CB||DNP|
+San Francisco 49ers|Dre Greenlaw|LB||Limited|
+San Francisco 49ers|Nate Hobbs|CB||Full|
+San Francisco 49ers|Deommodore Lenoir|CB||DNP|
+San Francisco 49ers|Christian McCaffrey|RB||Full|
+San Francisco 49ers|Siran Neal|S||Limited|
+San Francisco 49ers|Demarcus Robinson|WR||Full|
+San Francisco 49ers|Deebo Samuel Sr.|WR||Limited|
+San Francisco 49ers|Upton Stout|CB||Limited|
+San Francisco 49ers|C.J. West|DT||Limited|
+San Francisco 49ers|Trent Williams|T||Limited|
+Dallas Cowboys|Jonathan Bullard|DT||Full|
+Dallas Cowboys|Alijah Clark|S||DNP|
+Dallas Cowboys|Donovan Ezeiruaku|LB||DNP|
+Dallas Cowboys|Jake Ferguson|TE||DNP|
+Dallas Cowboys|Tyler Goodson|RB||DNP|
+Dallas Cowboys|Malik Hooker|S||DNP|
+Dallas Cowboys|Marist Liufau|LB||Full|
+Dallas Cowboys|P.J. Locke|S||DNP|
+Dallas Cowboys|Von Miller|LB||DNP|
+Dallas Cowboys|Jonathan Mingo|WR||DNP|
+Dallas Cowboys|Devin Moore|CB||Full|
+Dallas Cowboys|DeMarvion Overshown|LB||Full|
+Dallas Cowboys|George Pickens|WR||Limited|
+Dallas Cowboys|Joey Porter Jr.|CB||DNP|
+Dallas Cowboys|Luke Schoonmaker|TE||Full|
+Dallas Cowboys|Brevyn Spann-Ford|TE||Full|
+Dallas Cowboys|Juanyeh Thomas|S||Limited|
+Dallas Cowboys|KaVontae Turpin|WR||Limited|
+Pittsburgh Steelers|Brandin Echols|CB||Full|
+Pittsburgh Steelers|DeShon Elliott|S||Full|
+Pittsburgh Steelers|Derrick Harmon|DT||Limited|
+Pittsburgh Steelers|Cameron Heyward|DT||DNP|
+Pittsburgh Steelers|Ben Skowronek|WR||Full|
+Pittsburgh Steelers|Doneiko Slaughter|CB||Full|
+Pittsburgh Steelers|Darnell Washington|TE||Full|
+Pittsburgh Steelers|T.J. Watt|LB||Limited|
+Cincinnati Bengals|Jonathan Allen|DT||DNP|
+Cincinnati Bengals|Jalen Davis|CB||Full|
+Cincinnati Bengals|Kyle Dugger|S||DNP|
+Cincinnati Bengals|Dylan Fairchild|G||Full|
+Cincinnati Bengals|B.J. Hill|DT||Limited|
+Cincinnati Bengals|Andrei Iosivas|WR||Full|
+Cincinnati Bengals|Brian Parker II|G||Full|
+Cincinnati Bengals|DJ Turner II|CB||Full|
+Los Angeles Chargers|Kayode Awosika|G||Limited|
+Los Angeles Chargers|Justin Eboigbe|DE||DNP|
+Los Angeles Chargers|Alex Harkey|G||Limited|
+Los Angeles Chargers|Tre Harris|WR||Limited|
+Los Angeles Chargers|Cam Hart|CB||Limited|
+Los Angeles Chargers|Daiyan Henley|LB||DNP|
+Los Angeles Chargers|Deane Leonard|CB||Limited|
+Los Angeles Chargers|Khalil Mack|LB||DNP|
+Los Angeles Chargers|Ladd McConkey|WR||DNP|
+Los Angeles Chargers|Keaton Mitchell|RB||Limited|
+Los Angeles Chargers|David Njoku|TE||Limited|
+Los Angeles Chargers|Denzel Perryman|LB||Limited|
+Los Angeles Chargers|Trey Pipkins|T||DNP|
+Los Angeles Chargers|Rodney Shelley|CB||Limited|
+Los Angeles Chargers|Branson Taylor|G||DNP|
+Los Angeles Chargers|Brenen Thompson|WR||DNP|
+Los Angeles Chargers|Isas Waxter|CB||DNP|
+Los Angeles Chargers|Kendall Williamson|S||DNP|
+Baltimore Ravens|Rasheen Ali|RB||Full|
+Baltimore Ravens|Rashod Bateman|WR||Limited|
+Baltimore Ravens|Kyle Hamilton|S||Full|
+Baltimore Ravens|Jaylinn Hawkins|S||Limited|
+Baltimore Ravens|Matthew Hibner|TE||Full|
+Baltimore Ravens|Olaivavega Ioane|G||Limited|
+Baltimore Ravens|Adam Randall|RB||Full|
+Baltimore Ravens|Nate Wiggins|CB||Full|

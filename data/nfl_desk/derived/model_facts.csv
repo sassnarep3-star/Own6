@@ -1,0 +1,26 @@
+fact_id,category,item,value,unit,derivation_or_definition,status,source_url,flag_id,read_date
+MF-01,Verified league aggregate,clubs in register,32,clubs,row count of the standings register,verified,https://www.nfl.com/standings/,,2026-11-13
+MF-02,Verified league aggregate,games played through Week 10 2026,137,games,sum of club games played / 2,verified,https://www.nfl.com/standings/,,2026-11-13
+MF-03,Verified league aggregate,league points per team-game 2026,22.9599,points,"6,291 points / 274 team-games",verified,https://www.nfl.com/standings/,,2026-11-13
+MF-04,Verified league aggregate,league points per team-game 2025 full season,23.0129,points,"12,519 / 544 team-games",verified,https://www.nfl.com/standings/,,2026-11-13
+MF-05,Verified league aggregate,home club win share 2026,0.4891,share,home clubs 67-69-1,verified,https://www.nfl.com/standings/,,2026-11-13
+MF-06,Verified league aggregate,home club win share 2025,0.5368,share,home clubs 146-125-1,verified,https://www.nfl.com/standings/,,2026-11-13
+MF-07,Verified league aggregate,tied-game share 2026,0.0073,share,ties on the register / games played; one tied game appears as one tie for two clubs,verified,https://www.nfl.com/standings/,,2026-11-13
+MF-08,Verified league aggregate,tied-game share 2025,0.0037,share,same arithmetic on the completed 2025 season,verified,https://www.nfl.com/standings/,,2026-11-13
+MF-09,Verified league aggregate,mean absolute club net points per game 2026,5.2526,points/game,mean of |PF-GP minus PA-GP| over 32 clubs,verified,https://www.nfl.com/standings/,,2026-11-13
+MF-10,Verified league aggregate,standard deviation of club net rating 2026,6.2632,points/game,sample SD over 32 clubs,verified,https://www.nfl.com/standings/,,2026-11-13
+MF-11,Fitted on verified data,"Pythagorean exponent 2026 (grid fit, step 0.001)",3.370,exponent,"minimises squared error of expected vs actual wins, n=32",computed,https://www.nfl.com/standings/,,2026-11-13
+MF-12,Fitted on verified data,"Pythagorean exponent 2025 (grid fit, step 0.001)",3.045,exponent,same fit on the completed season,computed,https://www.nfl.com/standings/,,2026-11-13
+MF-13,Fitted on verified data,R-squared of expected vs actual wins 2026,0.7488,R^2,share of the spread in wins explained by scoring alone,computed,https://www.nfl.com/standings/,,2026-11-13
+MF-14,Fitted on verified data,R-squared of expected vs actual wins 2025,0.8485,R^2,same statistic on the completed season,computed,https://www.nfl.com/standings/,,2026-11-13
+MF-15,Luck decomposition,residual SD in wins 2026,0.9862,wins,SD of (actual - expected) wins after the fit,computed,https://www.nfl.com/standings/,,2026-11-13
+MF-16,Luck decomposition,binomial noise SD in wins 2026,1.3616,wins,sqrt(gp x p x (1-p)) averaged over clubs; the scatter pure chance would produce,computed,https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm,,2026-11-13
+MF-17,Luck decomposition,residual SD in wins 2025,1.3478,wins,same statistic on the completed season,computed,https://www.nfl.com/standings/,,2026-11-13
+MF-18,Luck decomposition,binomial noise SD in wins 2025,1.9459,wins,same statistic on the completed season,computed,https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm,,2026-11-13
+MF-19,Cost arithmetic,break-even win rate at -110,0.523810,probability,1 / (1 + 100/110) = 11/21,computed,https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm,,2026-11-13
+MF-20,Model assumption,game margin standard deviation,,points,no game-level margin data exists in this repository; measured SD would need the 18 official weekly scores pages or a licensed feed,unverified_blank,https://www.nfl.com/scores/2026/week-10,FL-12,2026-11-13
+MF-21,Model assumption,home-field advantage in points,,points,"the register gives venue win-loss splits, not venue scoring splits, so points cannot be measured here; the sensitivity grid publishes the consequence of each value",unverified_blank,https://www.nfl.com/standings/,FL-06,2026-11-13
+MF-22,Model assumption,Poisson point distribution,used,distributional choice,chooses a discrete law so push and key-number mass are explicit; not a measurement,model_assumption,https://docs.scipy.org/doc/scipy/reference/stats.html,,2026-11-13
+MF-23,Model vs measurement,"regulation-tie mass, model (Week 10 slate mean)",0.0484,probability,mean over the 13 scheduled games of P(two Poissons tie),model_assumption,https://docs.scipy.org/doc/scipy/reference/stats.html,FL-16,2026-11-13
+MF-24,Model vs measurement,observed tied-game rate 2026,0.0073,probability,official standings: one tied game in 137,verified,https://www.nfl.com/standings/,,2026-11-13
+MF-25,Model vs measurement,ratio of observed ties to modelled regulation ties,,ratio,"requires the share of regulation ties that survive overtime, which no official page read today publishes",unverified_blank,https://www.nfl.com/standings/,FL-16,2026-11-13
