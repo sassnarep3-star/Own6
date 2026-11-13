@@ -114,7 +114,7 @@ def build_standings_aggregates() -> list[dict]:
 def build_own_lines(aggregates: list[dict]) -> tuple[list[dict], float, float]:
     """Originated spread / total / win probability for every unplayed Week 10 game."""
     standings = {r["team"]: r for r in read_csv("standings_2026_w11.csv")}
-    slate = [r for r in read_csv("slate.csv") if r["week"] == "10"]
+    slate = [r for r in read_csv("slate.csv") if r["week"] == "10" and r.get("played_status") != "final"]
     sigma = float([a for a in aggregates if a["item"].startswith("Implied single-game")][0]["value"])
     league_ppg = float([a for a in aggregates if a["item"].startswith("League points per game")][0]["value"])
     out = []
@@ -148,6 +148,43 @@ def build_own_lines(aggregates: list[dict]) -> tuple[list[dict], float, float]:
             "second_source_url": OFFICIAL_SCHEDULE_10,
         })
     return out, sigma, league_ppg
+
+
+def build_played_game_check(aggregates: list[dict]) -> dict:
+    """Score the one finished Week 10 game against the same formulas, as an honesty check.
+
+    The originated lines are *not* forecasts, so this is not a backtest. But a model that cannot
+    come close on the single game that did finish has no business being extended to the other
+    thirteen, and a reader deserves to see that number before trusting any of the rest.
+    """
+    standings = {r["team"]: r for r in read_csv("standings_2026_w11.csv")}
+    final = [r for r in read_csv("slate.csv") if r.get("played_status") == "final"]
+    if not final:
+        return {}
+    g = final[0]
+    sigma = float([a for a in aggregates if a["item"].startswith("Implied single-game")][0]["value"])
+    a, h = standings[g["away_team"]], standings[g["home_team"]]
+    ag, hg = int(a["w"]) + int(a["l"]) + int(a["t"]), int(h["w"]) + int(h["l"]) + int(h["t"])
+    a_pf, a_pa = int(a["pf"]) / ag, int(a["pa"]) / ag
+    h_pf, h_pa = int(h["pf"]) / hg, int(h["pa"]) / hg
+    own_total = (h_pf + h_pa + a_pf + a_pa) / 2.0
+    own_spread = ((h_pf + a_pa) - (a_pf + h_pa)) / 2.0
+    actual = g.get("final_score", "")
+    try:
+        away_pts, home_pts = [int(x.strip().split()[-1]) for x in actual.split(",")]
+    except (ValueError, IndexError):
+        return {}
+    actual_margin = home_pts - away_pts          # positive = home won
+    actual_total = home_pts + away_pts
+    return {
+        "game": g["matchup"], "score": actual, "date": g["game_date_et"],
+        "model_own_total": fmt(own_total, 2), "actual_total": actual_total,
+        "total_error": fmt(own_total - actual_total, 2),
+        "model_own_spread_home": fmt(own_spread, 2), "actual_margin_home": actual_margin,
+        "spread_error": fmt(own_spread - actual_margin, 2),
+        "pick_correct": "home" if (own_spread > 0) == (actual_margin > 0) else "away",
+        "source": OFFICIAL_SCHEDULE_10,
+    }
 
 
 def build_depth_deficiency() -> tuple[list[dict], list[dict]]:
@@ -343,7 +380,16 @@ def build_strategies() -> tuple[list[dict], list[dict]]:
     return strategies, leaderboard
 
 
+def _coverage() -> tuple[int, int]:
+    """Clubs with at least one player joined to a club chart, and clubs on the report."""
+    rows = read_csv("depth_deficiency.csv")
+    return (len({r["team"] for r in rows if r["chart_status"] == "listed"}),
+            len({r["team"] for r in rows}))
+
+
 def build_requirements() -> list[dict]:
+    charted_clubs, all_clubs = _coverage()
+    n_sources = len(read_csv("sources.csv"))
     rows = [
         ("RQ-01", "Collect, organise and analyse a full requirement list",
          "Requirement inventory with an owner and a status for each line",
@@ -386,7 +432,7 @@ def build_requirements() -> list[dict]:
         ("RQ-12", "Track injuries and know deficiencies when backups replace starters",
          "Injury report joined to club depth charts with 1st/2nd/3rd/4th string classification",
          "data/nfl_wk/depth_deficiency.csv", "done (partial)",
-         "7 of 28 clubs have a chart read; the other 21 are blank, not zero."),
+         f"{charted_clubs} of {all_clubs} clubs have a chart read; the rest are blank, not zero."),
         ("RQ-13", "The same analysis for offensive and defensive starters and backups",
          "Offence/defence split on every deficiency row", "data/nfl_wk/depth_deficiency.csv", "done (partial)",
          "Every row carries unit = offense | defense | special_teams."),
@@ -638,18 +684,21 @@ def render() -> None:
     blank_cells = sum(1 for r in depth_summary for k, v in r.items() if v == "" and k.endswith(("out", "questionable", "string", "score")))
     blocked_gates = sum(1 for g in gates if g["status"] != "PASS")
     output: dict[str, str] = {}
+    unplayed_w10 = len([r for r in slate if r["week"] == "10" and r.get("played_status") != "final"])
+    w11_rows = [r for r in slate if r["week"] == "11"]
 
     # ---------------------------------------------------------------- overview
     stats = [
-        (str(len(slate)), "slate rows (14 unplayed Week 10 games + 13 Week 11)"),
+        (str(len(slate)), f"slate rows ({unplayed_w10} unplayed Week 10 games + {len(w11_rows)} Week 11)"),
         (str(len(standings)), "clubs with a source-linked standings row"),
         (str(len(injury)), "injury-report rows, each source-linked"),
-        (str(len(own)), "originated lines from official inputs"),
+        (str(len(own)), "originated lines from official inputs (unplayed Week 10 games only)"),
         (str(len(strategies)), "preregistered strategies (0 qualified)"),
         (f"{blocked_gates}/{len(gates)}", "gates blocked (fail-closed)"),
         (str(len(flags)), "flagged items for review"),
         (str(len(sugg)), "site suggestions awaiting a decision"),
     ]
+    n_sources = len(read_csv("sources.csv"))
     cards = [
         ("slate.html", "Week 10 slate (live)", "The 14 games on the current official week: 1 played, 13 unplayed. Kickoffs, broadcasters, records and venue. Every row links to nfl.com."),
         ("standings.html", "2026 standings", "All 32 clubs with W-L-T, PCT, PF, PA and home/road splits, plus league aggregates recomputed from them. League identities verified: sum W = sum L, sum PF = sum PA."),
@@ -662,7 +711,7 @@ def render() -> None:
         ("questions.html", "Decision Q&A", "22 questions that must be answered before any real decision, each with what we have, what we lack and how to find it."),
         ("suggestions.html", "Suggestions for review", "19 concrete improvements with effort, impact, risk and an empty decision column for you to choose from."),
         ("flagged.html", "Flagged for review", "16 irregularities with severity and source links, including dead official URLs and unverifiable values."),
-        ("sources.html", "Sources", "24 registered sources with read dates, verbatim excerpts and what each does and does not support."),
+        ("sources.html", "Sources", f"{n_sources} registered sources with read dates, verbatim excerpts and what each does and does not support."),
     ]
     body = f"""
 <p class="eyebrow">NFL · WEEK PACK · 2026-11-13</p>
@@ -804,11 +853,36 @@ risk (FLAG-12).</div>
             "", "", "",
             link(r["official_source_url"], "standings"),
         ])
+    unplayed = len(rows)
+    check = build_played_game_check(aggregates)
+    check_html = ""
+    if check:
+        verdict_total = "close" if abs(float(check["total_error"])) <= 3 else "wide"
+        verdict_spread = "close" if abs(float(check["spread_error"])) <= 3 else "wide"
+        right = (float(check["model_own_spread_home"]) > 0) == (int(check["actual_margin_home"]) > 0)
+        check_html = f"""<h2>The one finished game, scored against these same formulas</h2>
+<p class="lede">Originated lines are descriptive, not forecasts, so this is not a backtest and one game proves nothing
+either way. It is here because a reader should see the model's error on the single game that already has a result before
+trusting any of the other thirteen. {check["game"]}, {check["date"]}: {check["score"]}
+({link(check["source"], "official schedule")}).</p>
+{table(["Quantity", "Our number", "Actual", "Error"], [
+    ["Total points", check["model_own_total"], str(check["actual_total"]), f'<strong>{check["total_error"]}</strong> ({verdict_total})'],
+    ["Home margin (positive = home wins)", check["model_own_spread_home"], f'{check["actual_margin_home"]:+d}', f'<strong>{check["spread_error"]}</strong> ({verdict_spread})'],
+], numeric={1, 2, 3}, empty_cols=set())}
+<div class="note {'danger' if not right else ''}"><strong>The spread was on the wrong side of the result.</strong>
+The formulas had the home club winning by {check["model_own_spread_home"]}; the home club lost by {abs(int(check["actual_margin_home"]))}.
+The total was within {abs(float(check["total_error"]))} point. A single observation cannot separate bias from noise, but it does
+show the direction of the first miss, and it is why the model carries <strong>no</strong> home-field term: adding an invented
+home-field constant would have made this particular miss larger, not smaller.</div>
+""" if not right else f"""<h2>The one finished game, scored against these same formulas</h2>
+<p class="lede">{check["game"]}: {check["score"]}. Total error {check["total_error"]}, margin error {check["spread_error"]}.
+One game is not evidence of anything; it is disclosed so a reviewer can see the scale of the error.</p>"""
+
     body = f"""
 <p class="eyebrow">Category · origination</p>
 <h1>Originated lines: what our own numbers say, and what they deliberately do not</h1>
-<p class="lede">Every unplayed Week 10 game gets four numbers computed only from the official standings: a total, a home spread,
-a home win probability and a fair American price. The market columns are empty because no licensed price exists.</p>
+<p class="lede">Every one of the {unplayed} unplayed Week 10 games gets four numbers computed only from the official standings: a total,
+a home spread, a home win probability and a fair American price. The market columns are empty because no licensed price exists.</p>
 
 <h2>The method, in full</h2>
 <div class="grid2">
@@ -826,7 +900,7 @@ play-by-play or an efficiency feed that is not licensed here. <strong>No market 
 will systematically under-rate home clubs, and that bias is large enough to swamp any edge a naive comparison would show.</p></div>
 </div>
 
-<h2>Originated lines (13 unplayed Week 10 games)</h2>
+<h2>Originated lines ({unplayed} unplayed Week 10 games)</h2>
 {table(["Game", "Matchup", "Away PF/PA per game", "Home PF/PA per game", "Own total",
        "Own home spread", "Home win prob", "Fair home ML", "Fair away ML",
        "Market spread", "Market total", "Edge", "Source"], rows,
@@ -835,6 +909,8 @@ will systematically under-rate home clubs, and that bias is large enough to swam
 <div class="note danger"><strong>The three empty columns are the point.</strong> Without a licensed, timestamped market price
 there is no edge to compute. Every strategy on the <a href="strategies.html">strategy page</a> that depends on comparing
 these numbers with a market is therefore blocked at gate VG-03, and the pack refuses to show a ranking it cannot support.</div>
+
+{check_html}
 
 <h2>Sanity checks a reviewer can run</h2>
 <ul>
@@ -847,6 +923,7 @@ these numbers with a market is therefore blocked at gate VG-03, and the pack ref
     output["own-lines.html"] = page("own-lines.html", "Own lines", body, "Originated NFL lines computed from official standings")
 
     # ---------------------------------------------------------------- injuries
+    clubs = len({d["team"] for d in depth_detail})
     srows = []
     for r in depth_summary:
         blank = "unverified_blank" in r["verification_status"]
@@ -859,6 +936,13 @@ these numbers with a market is therefore blocked at gate VG-03, and the pack ref
             "" if blank else chip("computed"),
             link(r["depth_chart_url"], "club chart") if r["depth_chart_url"] else "",
         ])
+    charted = sorted({d["team"] for d in depth_detail if d["chart_status"] == "listed"})
+    chart_dates = {t: depthmod.CHART_SOURCES[t].get("as_of", "") for t in charted}
+    dated = {t: v for t, v in chart_dates.items() if v}
+    undated = [t for t in charted if not chart_dates[t]]
+    aliased = [d for d in depth_detail if d["name_match_note"]]
+    absent = [d for d in depth_detail if d["chart_status"] == "not_listed_on_club_chart"]
+    games_on_report = len({r["game_id"] for r in injury})
     first_string = [d for d in depth_detail if d["club_chart_depth_string"] == "1"]
     outs = [d for d in first_string if d["game_status"] == "Out"]
     qs = [d for d in first_string if d["game_status"] == "Questionable"]
@@ -871,17 +955,31 @@ these numbers with a market is therefore blocked at gate VG-03, and the pack ref
             esc(d["displacement_note"]),
             link(d["official_source_url"], "injury report") + " · " + (link(d["depth_chart_url"], "chart") if d["depth_chart_url"] else ""),
         ])
+    cascade_rows = read_csv("depth_cascade.csv") if (DATA / "depth_cascade.csv").exists() else cascades
+    cascade_teams = sorted({c["team"] for c in cascade_rows})
+    cascade_teams_note = (
+        "All of them belong to " + ", ".join(cascade_teams) + ", the only club among the "
+        f"{len(charted)} charted clubs where the official chart is thin enough at the top and the injury report "
+        "is heavy enough at the same position to produce this pattern."
+    ) if cascade_rows else "No charted club shows this pattern on the Week 10 report."
+    cascade_table = table(
+        ["Team", "Pos group", "1st on chart", "Status", "2nd on chart", "Status", "Next listed", "Why it matters"],
+        [[esc(c["team"]), esc(c["position_group"]), esc(c["slot_1_player"]), chip(c["slot_1_status"]),
+          esc(c["slot_2_player"]), chip(c["slot_2_status"]),
+          esc(c["next_listed_player"]) or "— not identifiable —", esc(c["note"]) or "Third man is on the chart."]
+         for c in cascade_rows],
+        empty_cols=set()) if cascade_rows else '<p class="note">No cascades found.</p>'
     body = f"""
 <p class="eyebrow">Category · injuries and depth</p>
 <h1>Who is out, and who steps in</h1>
-<p class="lede">The official Week 10 injury report lists {len(injury)} player rows across 14 games. Each row is joined to that
+<p class="lede">The official Week 10 injury report lists {len(injury)} player rows across {games_on_report} games. Each row is joined to that
 club's own depth chart so the pack can say whether a first-string player is unavailable and which string replaces him.
 Where a club chart was not read in this session the cells stay blank — blank means unknown, never zero.</p>
 
 <div class="note"><strong>The join is the hard part.</strong> The league publishes statuses; the clubs publish charts; neither
-publishes a machine-readable crosswalk. Four players are spelled differently in the two official sources and are matched by
-a documented alias list (FLAG-08). Six players on the injury report do not appear on their club's chart at all (FLAG-09), and
-their strings are blank rather than guessed.</div>
+publishes a machine-readable crosswalk. {len(aliased)} players are spelled differently in the two official sources and are
+matched by a documented alias list (FLAG-08). {len(absent)} players on the injury report do not appear on their club's chart at
+all (FLAG-09), and their strings are blank rather than guessed.</div>
 
 <h2>First-string players ruled Out or Questionable ({len(outs)} out, {len(qs)} questionable)</h2>
 <p class="lede">Of the {len(outs)} ruled Out, {sum(1 for d in outs if d["unit"] == "offense")} are on offence and
@@ -899,10 +997,20 @@ into points, and inventing one would be exactly the kind of hallucination this p
        numeric={2, 3, 4, 5, 6, 7, 8, 9, 10},
        empty_cols={2, 3, 4, 5, 6, 7, 8, 9, 10})}
 
-<h2>Clubs with a chart read in this session (7 of 28)</h2>
-<p class="lede">Seven official club charts were fetched on 2026-11-13: Detroit, New England, Seattle, Baltimore, Minnesota,
-Indianapolis and Philadelphia. The remaining 21 clubs are blank in the summary above. Every chart read calls itself
-&quot;unofficial&quot; and none states when it was compiled (FLAG-07).</p>
+<h2>Clubs with a chart read in this session ({len(charted)} of {clubs})</h2>
+<p class="lede">Official club charts were fetched on 2026-11-13 for: {", ".join(charted)}. The other
+{clubs - len(charted)} clubs are blank in the summary above, because a blank is honest and a guess is not.
+{len(dated)} of the {len(charted)} charts state the date they were compiled ({"; ".join(f"{t} {v}" for t, v in sorted(dated.items()))});
+the remaining {len(undated)} do not (FLAG-07). Every chart read calls itself &quot;unofficial&quot;.</p>
+
+<h2>Where two strings are gone at once ({len(cascade_rows)} position groups)</h2>
+<p class="lede">This is the case the brief singles out: a starter and his backup both unavailable, so a third man plays.
+The test is mechanical — the two shallowest slots the club's own chart lists at a position both carry a Week 10 game status
+of Out or Questionable. {cascade_teams_note}</p>
+{cascade_table}
+<p class="lede">A cascade is <em>not</em> a projection. It says the club's own page lists no available man at the top two
+slots; it says nothing about how the third man will play. Where the chart shows only two names, the pack records
+&quot;not identifiable&quot; rather than assuming a promotion from elsewhere on the roster.</p>
 
 <h2>The depth-deficiency method, stated so it can be attacked</h2>
 <ol>
@@ -1264,6 +1372,10 @@ def main() -> int:
                "practice_status", "game_status", "declared_availability_weight", "club_chart_depth_string",
                "club_chart_groups", "chart_status", "name_match_note", "displacement_note",
                "verification_status", "official_source", "official_source_url", "depth_chart_url"])
+    cascades = depthmod.cascade_slots(detail)
+    write_csv("depth_cascade.csv", cascades,
+              ["team", "position_group", "slot_1_player", "slot_1_status", "slot_2_player", "slot_2_status",
+               "next_listed_player", "next_listed_slot", "next_listed_status", "slots_listed_on_chart", "note"])
     write_csv("depth_summary.csv", summary,
               ["team", "matchup", "players_on_official_injury_report", "first_string_listed_on_chart",
                "off_first_string_ruled_out", "off_first_string_questionable", "def_first_string_ruled_out",

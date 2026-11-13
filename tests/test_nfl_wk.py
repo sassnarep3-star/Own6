@@ -110,9 +110,16 @@ class TestDepth(unittest.TestCase):
         self.assertEqual(groups, [])
 
     def test_unread_club_returns_none(self):
-        d, groups = depth.depth_index("KC", "Patrick Mahomes")
+        # Houston's chart is image-only, so it is deliberately not in the registry.
+        self.assertNotIn("HOU", depth.CHART_SOURCES)
+        d, groups = depth.depth_index("HOU", "C.J. Stroud")
         self.assertIsNone(d)
         self.assertEqual(groups, [])
+
+    def test_charted_club_does_resolve(self):
+        d, groups = depth.depth_index("KC", "Patrick Mahomes")
+        self.assertEqual(d, 1)
+        self.assertEqual(groups, ["QB"])
 
     def test_alias_resolution(self):
         self.assertEqual(depth.depth_index("BAL", "Matthew Hibner")[0],
@@ -268,6 +275,125 @@ class TestOwnLineComputation(unittest.TestCase):
                 self.assertGreater(p, 0.5)
             elif sp < 0:
                 self.assertLess(p, 0.5)
+
+
+class TestDepthTiers(unittest.TestCase):
+    """Co-starters must not be forced into a false 1st/2nd ordering."""
+
+    def test_plain_list_is_one_name_per_tier(self):
+        self.assertEqual(depth._tiers(["A", "B", "C"]), [["A"], ["B"], ["C"]])
+
+    def test_nested_tier_puts_both_players_first(self):
+        self.assertEqual(depth._tiers([["A", "B"], "C"]), [["A", "B"], ["C"]])
+
+    def test_co_starter_gets_string_one(self):
+        # Pittsburgh lists Freiermuth and Washington as co-starting tight ends.
+        d1, g1 = depth.depth_index("PIT", "Pat Freiermuth")
+        d2, g2 = depth.depth_index("PIT", "Darnell Washington")
+        self.assertEqual((d1, g1), (1, ["TE"]))
+        self.assertEqual((d2, g2), (1, ["TE"]))
+
+    def test_third_man_behind_co_starters_is_string_two(self):
+        d, g = depth.depth_index("PIT", "Robert Tonyan")
+        self.assertEqual(d, 2)
+
+    def test_arizona_co_listed_outside_linebackers(self):
+        self.assertEqual(depth.depth_index("AZ", "Zaven Collins")[0], 1)
+        self.assertEqual(depth.depth_index("AZ", "Baron Browning")[0], 1)
+
+    def test_empty_group_is_empty(self):
+        self.assertEqual(depth._tiers([]), [])
+        self.assertEqual(depth._tiers(None), [])
+
+    def test_unknown_player_has_no_string(self):
+        d, g = depth.depth_index("KC", "Nobody At All")
+        self.assertIsNone(d)
+        self.assertEqual(g, [])
+
+
+class TestCascadeSlots(unittest.TestCase):
+    """The 3rd-string case only exists when the two men in front are both unavailable."""
+
+    def _row(self, team, group, string, player, status):
+        return {"team": team, "club_chart_groups": group, "club_chart_depth_string": str(string),
+                "player": player, "game_status": status, "position": "X", "chart_status": "listed"}
+
+    def test_single_injury_is_not_a_cascade(self):
+        rows = [self._row("AAA", "RB", 1, "Starter", "Out"),
+                self._row("AAA", "RB", 2, "Backup", ""),
+                self._row("AAA", "RB", 3, "Third", "")]
+        self.assertEqual(depth.cascade_slots(rows), [])
+
+    def test_two_men_down_is_a_cascade_with_next_man(self):
+        rows = [self._row("AAA", "RB", 1, "Starter", "Out"),
+                self._row("AAA", "RB", 2, "Backup", "Questionable"),
+                self._row("AAA", "RB", 3, "Third", "")]
+        out = depth.cascade_slots(rows)
+        self.assertEqual(len(out), 1)
+        self.assertEqual(out[0]["slot_1_player"], "Starter")
+        self.assertEqual(out[0]["slot_2_player"], "Backup")
+        self.assertEqual(out[0]["next_listed_player"], "Third")
+        self.assertEqual(out[0]["next_listed_slot"], "3")
+
+    def test_two_available_players_plus_one_out_is_not_a_cascade(self):
+        rows = [self._row("AAA", "RB", 1, "Starter", ""),
+                self._row("AAA", "RB", 2, "Backup", ""),
+                self._row("AAA", "RB", 3, "Third", "Out")]
+        self.assertEqual(depth.cascade_slots(rows), [])
+
+    def test_thin_chart_reports_no_identifiable_replacement(self):
+        rows = [self._row("AAA", "LG", 1, "Starter", "Out"),
+                self._row("AAA", "LG", 2, "Backup", "Questionable")]
+        out = depth.cascade_slots(rows)
+        self.assertEqual(len(out), 1)
+        self.assertEqual(out[0]["next_listed_player"], "")
+        self.assertIn("not identifiable", out[0]["note"])
+
+    def test_unlisted_rows_are_ignored(self):
+        rows = [{"team": "AAA", "club_chart_groups": "RB", "club_chart_depth_string": "",
+                 "player": "P", "game_status": "Out", "position": "RB",
+                 "chart_status": "not_listed_on_club_chart"}]
+        self.assertEqual(depth.cascade_slots(rows), [])
+
+    def test_published_cascades_all_belong_to_a_charted_club(self):
+        for c in rows("depth_cascade.csv"):
+            self.assertIn(c["team"], depth.CHART_SOURCES)
+
+    def test_published_cascades_have_both_top_slots_unavailable(self):
+        for c in rows("depth_cascade.csv"):
+            self.assertIn(c["slot_1_status"], ("Out", "Questionable"))
+            self.assertIn(c["slot_2_status"], ("Out", "Questionable"))
+
+
+class TestCountsAreDerived(unittest.TestCase):
+    """Prose counts must equal the data they describe, not a hand-typed number."""
+
+    def test_originated_lines_exclude_the_finished_game(self):
+        final = [r for r in rows("slate.csv") if r.get("played_status") == "final"]
+        self.assertEqual(len(final), 1, "expected exactly one finished Week 10 game")
+        for r in rows("own_lines.csv"):
+            self.assertNotEqual(r["game_id"], final[0]["game_id"])
+
+    def test_own_lines_cover_every_unplayed_week10_game(self):
+        slate = [r for r in rows("slate.csv")
+                 if r["week"] == "10" and r.get("played_status") != "final"]
+        self.assertEqual({r["game_id"] for r in rows("own_lines.csv")},
+                         {r["game_id"] for r in slate})
+
+    def test_finished_game_has_a_score_and_unplayed_games_do_not(self):
+        for r in rows("slate.csv"):
+            if r.get("played_status") == "final":
+                self.assertRegex(r["final_score"], r"\d+")
+            else:
+                self.assertEqual(r["final_score"], "")
+
+    def test_every_slate_row_states_whether_it_was_played(self):
+        for r in rows("slate.csv"):
+            self.assertIn(r["played_status"], ("final", "not_played"))
+
+    def test_depth_cascade_csv_matches_the_function(self):
+        self.assertEqual(len(rows("depth_cascade.csv")),
+                         len(depth.cascade_slots(rows("depth_deficiency.csv"))))
 
 
 if __name__ == "__main__":

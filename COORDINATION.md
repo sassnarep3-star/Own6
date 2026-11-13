@@ -1565,3 +1565,37 @@ It reads `data/nfl/**` and `docs/nfl/**` read-only and builds a new, disjoint na
 **Rules this session follows:** no value is published unless it was read from an official source during this
 session or computed by committed code from such values; unconfirmed cells stay blank and appear on
 `docs/nfl-w11/flagged.html`; no market price, ROI, CLV or reward payout is invented.
+
+### Scope note: `nfl_w11` → `nfl_wk` (recorded 2026-11-13)
+
+All W2–W9 artefacts shipped under the namespace **`nfl_wk`**, not `nfl_w11` as written in the claim table above.
+The rename happened early for a factual reason: nfl.com numbers the 12–16 November slate **Week 10**, not Week 11
+(Week 11 is 19–23 November). Keeping `w11` in the path would have put a wrong week number in every URL, so the
+namespace was made week-number-neutral. Files: `data/nfl_wk/**`, `src/nfl_wk/**`, `docs/nfl-wk/**`,
+`scripts/{build,check}_nfl_wk.py`, `tests/test_nfl_wk.py`, `.github/workflows/nfl-wk-ci.yml`,
+`NFL_WEEK_EXECUTIVE_SUMMARY.md`, `research/nfl_wk/**`. No other session's scope was touched by the rename.
+
+### W1–W9 result (2026-11-13)
+
+| Task | Status | Verification |
+|---|---|---|
+| W1 Claim | done | Committed and pushed before any work (`6b17f50`, rebased to `efffd48`) |
+| W2 Sources | done | 32 registered sources, each with a read date, a verbatim excerpt and an explicit does-not-support column |
+| W3 Slate + standings | done | 27 fixtures (14 Week 10 + 13 Week 11), 32 clubs; five league identities reconcile to zero |
+| W4 Injuries + depth | done (partial) | 326 injury rows joined to 14 official club charts (12 clubs on the report); 21 cells deliberately blank |
+| W5 Own lines | done | 13 unplayed Week 10 games; no market price exists, so every market/edge cell is blank |
+| W6 Strategies/gates | done | 11 preregistered strategies, 12 gates, only the pre-registration gate passes; leaderboard empty by design |
+| W7 Decision Q&A + requirements | done | 22 questions, 20 requirement lines |
+| W8 Suggestions review | done | 19 suggestions with an empty decision column for the human reviewer |
+| W9 Site + CI + summary | done | 13 pages, checker green, 66 unit tests, CI workflow, executive summary |
+
+**Two corrections made during the re-verification pass, recorded because they changed published content:**
+
+1. The origination page said **13** unplayed games while `own_lines.csv` held **14** rows. The extra row was the
+   already-finished Thursday game. Fixed properly rather than by editing the caption: `slate.csv` gained
+   `played_status` / `final_score`, the origination engine now prices only unplayed games, and the one finished game
+   is instead published as an error check (total error — see below). The checker now re-derives every prose count
+   from the CSV so this class of drift fails CI.
+2. `depth.py` mis-parsed a position group of the form `[co-starters..., "name"]`, exploding the bare name into one
+   tier per character. Caught by a new unit test; fix published 118 joined players exactly as before, so no
+   previously-published number moved.

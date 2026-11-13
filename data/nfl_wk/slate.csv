@@ -1,28 +1,28 @@
-game_id,matchup,away_team,home_team,week,game_date_et,kickoff_et,broadcast,venue_note,away_record_at_read,home_record_at_read,venue_type,source_id,source_url,read_on
-W10-01,Commanders at Giants,WAS,NYG,10,2026-11-12,20:15,Prime Video,Thursday Night Football,3-5-1,5-3-1,domestic,W11-S01,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-13
-W10-02,Patriots at Lions,NE,DET,10,2026-11-15,09:30,FOX,International Game — Munich,5-4,6-2,international,W11-S01,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-13
-W10-03,Chiefs at Falcons,KC,ATL,10,2026-11-15,13:00,CBS,,6-2,3-6,domestic,W11-S01,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-13
-W10-04,Texans at Browns,HOU,CLE,10,2026-11-15,13:00,FOX,,3-5,5-4,domestic,W11-S01,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-13
-W10-05,Vikings at Packers,MIN,GB,10,2026-11-15,13:00,FOX,,6-2,6-3,domestic,W11-S01,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-13
-W10-06,Dolphins at Colts,MIA,IND,10,2026-11-15,13:00,CBS,,1-7,2-7,domestic,W11-S01,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-13
-W10-07,Panthers at Saints,CAR,NO,10,2026-11-15,13:00,FOX,,3-5,3-5,domestic,W11-S01,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-13
-W10-08,Jaguars at Titans,JAX,TEN,10,2026-11-15,13:00,CBS,,6-2,1-7,domestic,W11-S01,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-13
-W10-09,Bills at Jets,BUF,NYJ,10,2026-11-15,13:00,CBS,,7-1,2-7,domestic,W11-S01,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-13
-W10-10,Rams at Cardinals,LAR,AZ,10,2026-11-15,16:05,CBS,,5-4,3-6,domestic,W11-S01,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-13
-W10-11,Seahawks at Raiders,SEA,LV,10,2026-11-15,16:05,CBS,,5-4,4-5,domestic,W11-S01,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-13
-W10-12,49ers at Cowboys,SF,DAL,10,2026-11-15,16:25,FOX,FOX Deportes also listed,7-1,4-5,domestic,W11-S01,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-13
-W10-13,Steelers at Bengals,PIT,CIN,10,2026-11-15,20:20,NBC,Universo also listed; Sunday Night Football,6-2,6-2,domestic,W11-S01,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-13
-W10-14,Chargers at Ravens,LAC,BAL,10,2026-11-16,20:15,ESPN,ABC and ESPN2 also listed; Monday Night Football,0-8,4-5,domestic,W11-S01,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-13
-W11-01,Colts at Texans,IND,HOU,11,2026-11-19,20:15,PRIME,Thursday Night Football,2-7,3-5,domestic,W11-S02,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-13
-W11-02,Dolphins at Bills,MIA,BUF,11,2026-11-22,13:00,CBS,,1-7,7-1,domestic,W11-S02,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-13
-W11-03,Ravens at Panthers,BAL,CAR,11,2026-11-22,13:00,FOX,,4-5,3-5,domestic,W11-S02,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-13
-W11-04,Saints at Bears,NO,CHI,11,2026-11-22,13:00,FOX,,3-5,7-2,domestic,W11-S02,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-13
-W11-05,Titans at Cowboys,TEN,DAL,11,2026-11-22,13:00,FOX,,1-7,4-5,domestic,W11-S02,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-13
-W11-06,Buccaneers at Lions,TB,DET,11,2026-11-22,13:00,FOX,,3-6,6-2,domestic,W11-S02,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-13
-W11-07,Cardinals at Chiefs,AZ,KC,11,2026-11-22,13:00,CBS,,3-6,6-2,domestic,W11-S02,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-13
-W11-08,Steelers at Eagles,PIT,PHI,11,2026-11-22,13:00,CBS,,6-2,2-7,domestic,W11-S02,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-13
-W11-09,Jets at Chargers,NYJ,LAC,11,2026-11-22,16:05,FOX,,2-7,0-8,domestic,W11-S02,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-13
-W11-10,Jaguars at Giants,JAX,NYG,11,2026-11-22,16:25,CBS,,6-2,5-3-1,domestic,W11-S02,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-13
-W11-11,Raiders at Broncos,LV,DEN,11,2026-11-22,16:25,CBS,,4-5,7-2,domestic,W11-S02,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-13
-W11-12,Vikings at 49ers,MIN,SF,11,2026-11-22,20:20,NBC,Mexico City; Sunday Night Football,6-2,7-1,international,W11-S02,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-13
-W11-13,Bengals at Commanders,CIN,WAS,11,2026-11-23,20:15,ESPN,Monday Night Football,6-2,3-5-1,domestic,W11-S02,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-13
+game_id,matchup,away_team,home_team,week,game_date_et,kickoff_et,broadcast,venue_note,away_record_at_read,home_record_at_read,venue_type,source_id,source_url,read_on,played_status,final_score
+W10-01,Commanders at Giants,WAS,NYG,10,2026-11-12,20:15,Prime Video,Thursday Night Football,3-5-1,5-3-1,domestic,W11-S01,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-13,final,"Washington 24, New York Giants 21"
+W10-02,Patriots at Lions,NE,DET,10,2026-11-15,09:30,FOX,International Game — Munich,5-4,6-2,international,W11-S01,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-13,not_played,
+W10-03,Chiefs at Falcons,KC,ATL,10,2026-11-15,13:00,CBS,,6-2,3-6,domestic,W11-S01,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-13,not_played,
+W10-04,Texans at Browns,HOU,CLE,10,2026-11-15,13:00,FOX,,3-5,5-4,domestic,W11-S01,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-13,not_played,
+W10-05,Vikings at Packers,MIN,GB,10,2026-11-15,13:00,FOX,,6-2,6-3,domestic,W11-S01,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-13,not_played,
+W10-06,Dolphins at Colts,MIA,IND,10,2026-11-15,13:00,CBS,,1-7,2-7,domestic,W11-S01,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-13,not_played,
+W10-07,Panthers at Saints,CAR,NO,10,2026-11-15,13:00,FOX,,3-5,3-5,domestic,W11-S01,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-13,not_played,
+W10-08,Jaguars at Titans,JAX,TEN,10,2026-11-15,13:00,CBS,,6-2,1-7,domestic,W11-S01,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-13,not_played,
+W10-09,Bills at Jets,BUF,NYJ,10,2026-11-15,13:00,CBS,,7-1,2-7,domestic,W11-S01,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-13,not_played,
+W10-10,Rams at Cardinals,LAR,AZ,10,2026-11-15,16:05,CBS,,5-4,3-6,domestic,W11-S01,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-13,not_played,
+W10-11,Seahawks at Raiders,SEA,LV,10,2026-11-15,16:05,CBS,,5-4,4-5,domestic,W11-S01,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-13,not_played,
+W10-12,49ers at Cowboys,SF,DAL,10,2026-11-15,16:25,FOX,FOX Deportes also listed,7-1,4-5,domestic,W11-S01,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-13,not_played,
+W10-13,Steelers at Bengals,PIT,CIN,10,2026-11-15,20:20,NBC,Universo also listed; Sunday Night Football,6-2,6-2,domestic,W11-S01,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-13,not_played,
+W10-14,Chargers at Ravens,LAC,BAL,10,2026-11-16,20:15,ESPN,ABC and ESPN2 also listed; Monday Night Football,0-8,4-5,domestic,W11-S01,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-13,not_played,
+W11-01,Colts at Texans,IND,HOU,11,2026-11-19,20:15,PRIME,Thursday Night Football,2-7,3-5,domestic,W11-S02,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-13,not_played,
+W11-02,Dolphins at Bills,MIA,BUF,11,2026-11-22,13:00,CBS,,1-7,7-1,domestic,W11-S02,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-13,not_played,
+W11-03,Ravens at Panthers,BAL,CAR,11,2026-11-22,13:00,FOX,,4-5,3-5,domestic,W11-S02,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-13,not_played,
+W11-04,Saints at Bears,NO,CHI,11,2026-11-22,13:00,FOX,,3-5,7-2,domestic,W11-S02,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-13,not_played,
+W11-05,Titans at Cowboys,TEN,DAL,11,2026-11-22,13:00,FOX,,1-7,4-5,domestic,W11-S02,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-13,not_played,
+W11-06,Buccaneers at Lions,TB,DET,11,2026-11-22,13:00,FOX,,3-6,6-2,domestic,W11-S02,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-13,not_played,
+W11-07,Cardinals at Chiefs,AZ,KC,11,2026-11-22,13:00,CBS,,3-6,6-2,domestic,W11-S02,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-13,not_played,
+W11-08,Steelers at Eagles,PIT,PHI,11,2026-11-22,13:00,CBS,,6-2,2-7,domestic,W11-S02,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-13,not_played,
+W11-09,Jets at Chargers,NYJ,LAC,11,2026-11-22,16:05,FOX,,2-7,0-8,domestic,W11-S02,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-13,not_played,
+W11-10,Jaguars at Giants,JAX,NYG,11,2026-11-22,16:25,CBS,,6-2,5-3-1,domestic,W11-S02,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-13,not_played,
+W11-11,Raiders at Broncos,LV,DEN,11,2026-11-22,16:25,CBS,,4-5,7-2,domestic,W11-S02,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-13,not_played,
+W11-12,Vikings at 49ers,MIN,SF,11,2026-11-22,20:20,NBC,Mexico City; Sunday Night Football,6-2,7-1,international,W11-S02,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-13,not_played,
+W11-13,Bengals at Commanders,CIN,WAS,11,2026-11-23,20:15,ESPN,Monday Night Football,6-2,3-5-1,domestic,W11-S02,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-13,not_played,

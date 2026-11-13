@@ -246,6 +246,87 @@ def check_determinism() -> None:
         fail(f"build is not deterministic; changed on rebuild: {changed}")
 
 
+def check_counts_match_data() -> None:
+    """Every count stated in prose must equal the row count it describes.
+
+    Hand-typed counts drift from the data. This closes that whole class of bug: the
+    headline count on the origination page is re-derived from own_lines.csv and the
+    standings/slate counts are re-derived from the CSVs, so a caption can only ever
+    state a number the data actually supports.
+    """
+    own = read("own_lines.csv")
+    page = (SITE / "own-lines.html").read_text(encoding="utf-8")
+    m = re.search(r"Originated lines \((\d+) unplayed Week 10 games\)", page)
+    if not m:
+        fail("own-lines.html: originated-lines heading not found")
+    elif int(m.group(1)) != len(own):
+        fail(f"own-lines.html: heading says {m.group(1)} games but own_lines.csv has {len(own)}")
+    m2 = re.search(r"Every one of the (\d+) unplayed", page)
+    if not m2:
+        fail("own-lines.html: lede count not found")
+    elif int(m2.group(1)) != len(own):
+        fail(f"own-lines.html: lede says {m2.group(1)} games but own_lines.csv has {len(own)}")
+
+    slate = read("slate.csv")
+    w10 = [r for r in slate if r["week"] == "10"]
+    w11 = [r for r in slate if r["week"] == "11"]
+    index = (SITE / "index.html").read_text(encoding="utf-8")
+    sm = re.search(r"<b>(\d+)</b><span>slate rows \((\d+) unplayed Week 10 games \+ (\d+) Week 11\)", index)
+    if not sm:
+        fail("index.html: slate row-count line not found")
+    else:
+        if int(sm.group(1)) != len(slate):
+            fail(f"index.html: says {sm.group(1)} slate rows, CSV has {len(slate)}")
+        if int(sm.group(2)) != len([r for r in w10 if r.get("played_status") != "final"]):
+            fail(f"index.html: Week 10 unplayed count {sm.group(2)} does not match slate.csv")
+        if int(sm.group(3)) != len(w11):
+            fail(f"index.html: says {sm.group(3)} Week 11 games, CSV has {len(w11)}")
+
+    charts = list(csv.DictReader(open(DATA / "depth_deficiency.csv", newline="", encoding="utf-8")))
+    joined = [r for r in charts if r["chart_status"] == "listed"]
+    charted = len({r["team"] for r in joined})
+    total_clubs = len({r["team"] for r in charts})
+    inj_page = (SITE / "injuries.html").read_text(encoding="utf-8")
+
+    dm = re.search(r"Clubs with a chart read in this session \((\d+) of (\d+)\)", inj_page)
+    if not dm:
+        fail("injuries.html: charted-club heading not found")
+    else:
+        if int(dm.group(1)) != charted:
+            fail(f"injuries.html: says {dm.group(1)} charted clubs, CSV has {charted}")
+        if int(dm.group(2)) != total_clubs:
+            fail(f"injuries.html: says {dm.group(2)} clubs, CSV has {total_clubs}")
+
+    cm = re.search(r"(\d+) of (\d+) clubs have a chart read", index)
+    if cm and (int(cm.group(1)) != charted or int(cm.group(2)) != total_clubs):
+        fail(f"index.html: says {cm.group(1)} of {cm.group(2)} charted, CSV has {charted} of {total_clubs}")
+
+    sm2 = re.search(r"<p>(\d+) registered sources", index)
+    n_sources = len(read("sources.csv"))
+    if not sm2:
+        fail("index.html: source count not found")
+    elif int(sm2.group(1)) != n_sources:
+        fail(f"index.html: says {sm2.group(1)} sources, sources.csv has {n_sources}")
+
+    cascades = read("depth_cascade.csv")
+    cm2 = re.search(r"Where two strings are gone at once \((\d+) position groups?\)", inj_page)
+    if not cm2:
+        fail("injuries.html: cascade heading not found")
+    elif int(cm2.group(1)) != len(cascades):
+        fail(f"injuries.html: says {cm2.group(1)} cascades, depth_cascade.csv has {len(cascades)}")
+
+    inj_rows = read("injuries_week10.csv")
+    lm = re.search(r"lists (\d+) player rows across (\d+) games", inj_page)
+    if not lm:
+        fail("injuries.html: injury-row lede count not found")
+    else:
+        if int(lm.group(1)) != len(inj_rows):
+            fail(f"injuries.html: says {lm.group(1)} injury rows, CSV has {len(inj_rows)}")
+        games = len({r["game_id"] for r in inj_rows})
+        if int(lm.group(2)) != games:
+            fail(f"injuries.html: says {lm.group(2)} games, CSV has {games}")
+
+
 def check_no_secrets_or_placeholders() -> None:
     for p in SITE.glob("*.html"):
         t = p.read_text(encoding="utf-8")
@@ -264,6 +345,7 @@ def main() -> int:
     check_flags()
     check_qa_and_suggestions()
     check_requirements_coverage()
+    check_counts_match_data()
     check_no_secrets_or_placeholders()
     check_determinism()
 

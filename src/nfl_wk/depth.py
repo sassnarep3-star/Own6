@@ -18,6 +18,7 @@ CHART_SOURCES = {
         "url": "https://www.detroitlions.com/team/depth-chart",
         "label": "2026 Unofficial Depth Chart Compiled by Lions Football Communications",
         "as_of_week": "",
+        "as_of": "",
         "groups": {
             "WR1": ["Jameson Williams"],
             "WR2": ["Amon-Ra St. Brown", "DeAndre Carter"],
@@ -48,6 +49,7 @@ CHART_SOURCES = {
         "url": "https://www.patriots.com/team/depth-chart",
         "label": "New England Patriots Unofficial Depth Chart (published by Patriots.com writers)",
         "as_of_week": "",
+        "as_of": "",
         "groups": {
             "WR1": ["A.J. Brown", "Efton Chism III"],
             "LT": ["Will Campbell", "Dametrious Crownover", "Marcus Bryant"],
@@ -79,6 +81,7 @@ CHART_SOURCES = {
         "url": "https://www.seahawks.com/team/depth-chart",
         "label": "Seattle Seahawks Depth Chart",
         "as_of_week": "",
+        "as_of": "",
         "groups": {
             "WR1": ["Cooper Kupp", "Rashid Shaheed", "Irvin Charles"],
             "LT": ["Charles Cross", "Josh Jones"],
@@ -110,6 +113,7 @@ CHART_SOURCES = {
         "url": "https://www.baltimoreravens.com/team/depth-chart",
         "label": "Baltimore Ravens Depth Chart",
         "as_of_week": "",
+        "as_of": "",
         "groups": {
             "WR1": ["Zay Flowers", "Devontez Walker", "Elijah Sarratt"],
             "WR2": ["Rashod Bateman", "Ja'Kobi Lane", "LaJohntay Wester"],
@@ -141,6 +145,7 @@ CHART_SOURCES = {
         "url": "https://www.vikings.com/team/depth-chart",
         "label": "Minnesota Vikings Depth Chart (2026 Unofficial)",
         "as_of_week": "",
+        "as_of": "",
         "groups": {
             "QB": ["Kyler Murray", "Carson Wentz", "Max Brosmer"],
             "RB": ["Aaron Jones Sr.", "Jordan Mason", "Demond Claiborne", "DeeJay Dallas"],
@@ -172,6 +177,7 @@ CHART_SOURCES = {
         "url": "https://www.colts.com/team/depth-chart",
         "label": "Indianapolis Colts Depth Chart",
         "as_of_week": "",
+        "as_of": "",
         "groups": {
             "WR1": ["Laquon Treadwell", "Nick Westbrook-Ikhine"],
             "LT": ["Bernhard Raimann", "Charlie Heck"],
@@ -202,6 +208,7 @@ CHART_SOURCES = {
         "url": "https://www.philadelphiaeagles.com/team/depth-chart",
         "label": "Philadelphia Eagles Depth Chart (compiled by the Eagles communications department)",
         "as_of_week": "11",
+        "as_of": "",
         "groups": {
             "WR1": ["DeVonta Smith", "Hollywood Brown"],
             "LT": ["Jordan Mailata"],
@@ -226,6 +233,263 @@ CHART_SOURCES = {
             "NCB": ["Cooper DeJean", "Mac McWilliams"],
             "S1": ["Marcus Epps", "Michael Carter II"],
             "S2": ["Andrew Mukuba", "Kenny Moore II"],
+        },
+    },
+    "GB": {
+        "source_id": "W11-S25",
+        "url": "https://www.packers.com/team/depth-chart",
+        "label": "Green Bay Packers Depth Chart",
+        "as_of": "Nov 10, 2026",
+        "as_of_week": "10",
+        "groups": {
+            "WR1": ['Christian Watson', 'Bo Melton'],
+            "WR2": ['Matthew Golden', 'J. Michael Sturdivant'],
+            "LT": ['Jordan Morgan', 'John Williams'],
+            "LG": ['Aaron Banks', 'Travis Glover', 'Donovan Jennings'],
+            "C": ['Sean Rhyan', 'Jager Burton'],
+            "RG": ['Laken Tomlinson', 'Kevin Zeitler'],
+            "RT": ['Anthony Belton', 'Mekhi Becton Sr.'],
+            "TE": ['Tucker Kraft', 'Jonnu Smith', 'Mark Redman', 'Josh Whyle'],
+            "WR3": ['Savion Williams', 'Coleman Owen'],
+            "QB": ['Jordan Love', 'Tyrod Taylor'],
+            "RB": ['Josh Jacobs', 'MarShawn Lloyd', 'Pierre Strong Jr.', 'Kaleb Johnson'],
+            "DT1": ['Karl Brooks', 'Jordon Riley', 'Anthony Campbell'],
+            "DT2": ['Devonte Wyatt', 'Chris McClellan'],
+            "EDGE1": ['Lukas Van Ness', 'Brenton Cox Jr'],
+            "LB1": ['Zaire Franklin', "Ty'Ron Hopper", 'Kristian Welch'],
+            "LB2": ['Isaiah McDuffie', 'Nick Niemann'],
+            "EDGE2": ['Barryn Sorrell', 'Dani Dennis-Sutton'],
+            "CB1": ['Keisean Nixon', 'Carrington Valentine'],
+            "CB2": ['Brandon Cisse', 'Benjamin St-Juste'],
+            "S1": ['Xavier McKinney', 'Kitan Oladapo'],
+            "S2": ['Evan Williams', 'Kitan Oladapo'],
+            "NB": ['Javon Bullard', 'Kamal Hadden'],
+        },
+    },
+    "LV": {
+        "source_id": "W11-S26",
+        "url": "https://www.raiders.com/team/depth-chart",
+        "label": "Las Vegas Raiders Depth Chart, as of November 10 2026, Week 10 vs Seattle",
+        "as_of": "November 10, 2026",
+        "as_of_week": "10",
+        "groups": {
+            "WR1": ['Jalen Nailor', 'Malik Benson', "Dont'e Thornton Jr."],
+            "LT": ['Kolton Miller', 'Charles Grant'],
+            "LG": ['Spencer Burford', 'Bryce Cabeldue'],
+            "C": ['Tyler Linderbaum'],
+            "RG": ['Jackson Powers-Johnson', 'Caleb Rogers'],
+            "RT": ['DJ Glaze', 'Trey Zuhn III'],
+            "TE": ['Brock Bowers', 'Michael Mayer', 'Ian Thomas'],
+            "WR2": ['Tre Tucker', 'Jack Bech', 'Dareke Young'],
+            "QB": ['Fernando Mendoza', "Aidan O'Connell"],
+            "RB": ['Ashton Jeanty', 'Mike Washington Jr.', 'Dylan Laube'],
+            "FB": ['Connor Heyward'],
+            "DE1": ['Maxx Crosby', 'Malcolm Koonce'],
+            "DT1": ['Tonka Hemingway', 'JJ Pegues', 'Tim Keenan III'],
+            "DT2": ['Adam Butler', 'Folorunso Fatukasi', 'Thomas Booker IV'],
+            "EDGE": ['Kwity Paye'],
+            "LB1": ['Nakobe Dean', 'Tommy Eichenberg', 'Segun Olubi'],
+            "LB2": ['Quay Walker', 'Cody Lindenberg'],
+            "CB1": ['Eric Stokes', 'Jermod McCoy', 'Darrell Luter Jr.'],
+            "CB2": ['Darien Porter', 'Hezekiah Masses'],
+            "CB3": ['Taron Johnson'],
+            "FS": ['Treydan Stukes', 'Isaiah Pola-Mao', 'Tristin McCollum'],
+            "SS": ['Jeremy Chinn', 'Dalton Johnson'],
+        },
+    },
+    "TB": {
+        "source_id": "W11-S27",
+        "url": "https://www.buccaneers.com/team/depth-chart",
+        "label": "Tampa Bay Buccaneers Depth Chart",
+        "as_of": "",
+        "as_of_week": "",
+        "as_of": "",
+        "groups": {
+            "WR1": ['Ted Hurst III', 'David Sills V'],
+            "WR2": ['Chris Godwin Jr.', 'Kameron Johnson'],
+            "LT": ['Tristan Wirfs', 'Benjamin Chukwuma'],
+            "LG": ['Ben Bredeson', 'Billy Schrauth'],
+            "C": ['Graham Barton', 'Dan Feeney'],
+            "RG": ['Cody Mauch', 'Trevor Keegan'],
+            "RT": ['Luke Goedeke', 'Justin Skule'],
+            "WR3": ['Emeka Egbuka', 'Tez Johnson'],
+            "TE": ['Cade Otton', 'Payne Durham', 'Ko Kieft', 'Bauer Sharp'],
+            "QB": ['Baker Mayfield', 'Jalon Daniels'],
+            "RB": ['Bucky Irving', 'Kenny Gainwell', 'Sean Tucker'],
+            "DL1": ['Calijah Kancey', 'Elijah Roberts'],
+            "NT": ['Vita Vea', 'Rakeem Nunez-Roches', 'Elijah Simmons'],
+            "DL2": ["A'Shawn Robinson", 'DeMonte Capehart'],
+            "OLB1": ['Yaya Diaby', 'Anthony Nelson', 'David Walker'],
+            "ILB1": ['Josiah Trotter', 'SirVocea Dennis'],
+            "ILB2": ['Alex Anzalone'],
+            "OLB2": ['Rueben Bain Jr.', 'Al-Quadin Muhammad'],
+            "CB1": ['Zyon McCollum', 'Benjamin Morrison', 'Ayden Garnes'],
+            "CB2": ['Jacob Parrish', 'Keionte Scott', 'Kevin Knowles'],
+            "S1": ['Antoine Winfield Jr.', 'Ifeatu Melifonwu'],
+            "S2": ['Tykee Smith', 'Miles Killebrew'],
+        },
+    },
+    "AZ": {
+        "source_id": "W11-S28",
+        "url": "https://www.azcardinals.com/team/depth-chart",
+        "label": "Arizona Cardinals Official Depth Chart",
+        "as_of": "",
+        "as_of_week": "",
+        "as_of": "",
+        "groups": {
+            "WR1": ['Reggie Virgil', 'Harrison Wallace III'],
+            "LT": ['Jayden Williams', 'Jedrick Wills'],
+            "LG": ['Isaac Seumalo', 'Hayden Conner'],
+            "C": ['Hjalte Froholdt', 'Kingsley Eguakun'],
+            "RG": ['Isaiah Adams', 'Jon Gaines II'],
+            "RT": ['Elijah Wilkinson', 'Josh Fryar', 'Albert Reese'],
+            "TE1": ['Trey McBride'],
+            "TE2": ['Elijah Higgins', 'Teagan Quitoriano'],
+            "WR2": ['Simi Fehoko', 'Devin Duvernay'],
+            "QB": ['Carson Beck', 'Josh Johnson', 'Joey Aguilar'],
+            "RB": ['Tyler Allgeier', 'Bam Knight', 'Evan Hull'],
+            "DT1": ['Dante Stills', 'Darius Robinson'],
+            "NT": ['Roy Lopez', 'Andrew Billings'],
+            "DT2": ['Walter Nolen III', 'L.J. Collier'],
+            "OLB1": ['Josh Sweat', 'Jordan Burch', 'Eku Leota'],
+            "ILB1": ['Jack Gibbens', 'Karson Sharar'],
+            "ILB2": ['Mack Wilson Sr.', 'Cody Simon'],
+            "OLB2": [['Zaven Collins', 'Baron Browning']],
+            "CB1": ['Denzel Burke', 'Starling Thomas V'],
+            "CB2": ['Max Melton', "Kei'Trel Clark"],
+            "CB3": ['Kalen King', 'Garrett Williams'],
+            "S1": ['Andrew Wingard', 'Kitan Crawford'],
+            "S2": ['Budda Baker', 'Dadrion Taylor-Demerson'],
+        },
+    },
+    "PIT": {
+        "source_id": "W11-S29",
+        "url": "https://www.steelers.com/team/depth-chart/",
+        "label": "Pittsburgh Steelers Depth Chart",
+        "as_of": "",
+        "as_of_week": "",
+        "as_of": "",
+        "groups": {
+            "WR1": ['DK Metcalf', 'Kaden Wetjen'],
+            "LT": ['Troy Fautanu'],
+            "LG": ['Mason McCormick'],
+            "C": ['Zach Frazier', 'Ryan McCollum'],
+            "RG": ['Brock Hoffman', 'Spencer Anderson'],
+            "RT": ['Max Iheanachor', 'Dylan Cook'],
+            "TE": [['Pat Freiermuth', 'Darnell Washington'], 'Robert Tonyan'],
+            "WR2": ['Ben Skowronek', 'Brandon Smith'],
+            "WR3": ['Germie Bernard'],
+            "QB": ['Aaron Rodgers', 'Mason Rudolph', 'Will Howard', 'Drew Allar'],
+            "RB": ['Jaylen Warren', 'Rico Dowdle', 'Eli Heidenreich', 'Travis Homer', 'Lew Nichols'],
+            "FB": ['Riley Nowakowski'],
+            "DE": ['Keeanu Benton', 'Gabriel Rubio', 'Kevin Jobity Jr.'],
+            "NT": ['Yahya Black'],
+            "DT": ['Cameron Heyward'],
+            "LOLB": ['T.J. Watt'],
+            "LILB": ['Patrick Queen', 'Carson Bruener'],
+            "RILB": ['Payton Wilson', 'Cole Holcomb'],
+            "ROLB": ['Alex Highsmith', 'Jack Sawyer'],
+            "OLB": ['Nick Herbig'],
+            "CB1": ['Asante Samuel Jr.', 'Sean Murphy-Bunting', 'Doneiko Slaughter'],
+            "NCB": ['Jalen Ramsey', 'Brandin Echols'],
+            "CB2": ['Jamel Dean', 'Daylen Everett', 'Terell Smith'],
+            "S": ['Jaquan Brisker', 'DeShon Elliott', 'Robert Spears-Jennings'],
+        },
+    },
+    "CHI": {
+        "source_id": "W11-S30",
+        "url": "https://www.chicagobears.com/team/depth-chart",
+        "label": "Chicago Bears Depth Chart (As of 10/31/2026)",
+        "as_of": "10/31/2026",
+        "as_of_week": "9",
+        "groups": {
+            "WR1": ['Rome Odunze', 'Zavion Thomas'],
+            "LT": ['Theo Benedet', 'Ozzy Trapilo'],
+            "LG": ['Joe Thuney', 'Jordan McFadden'],
+            "C": ['Garrett Bradbury', 'Logan Jones'],
+            "RG": ['Jonah Jackson', 'Luke Newman'],
+            "RT": ['Darnell Wright', 'Ozzy Trapilo'],
+            "TE": ['Colston Loveland', 'Sam Roush'],
+            "WR2": ['Kalif Raymond'],
+            "WR3": ['Luther Burden III', 'Jahdae Walker'],
+            "QB": ['Caleb Williams', 'Tyson Bagent', 'Case Keenum'],
+            "RB": ["D'Andre Swift", 'Kyle Monangai', 'Roschon Johnson'],
+            "DL1": ['Austin Booker', 'Shemar Turner', 'James Lynch'],
+            "DL2": ['Grady Jarrett', 'Neville Gallimore', 'Jayden Loving'],
+            "DL3": ['Jeffery Simmons', 'Kentavius Street', 'Jordan van den Berg'],
+            "DL4": ['Montez Sweat', 'Daniel Hardy'],
+            "LB1": ['T.J. Edwards', "D'Marco Jackson", 'Keyshaun Elliott'],
+            "LB2": ['Devin Bush', 'Noah Sewell', 'Jack Sanborn'],
+            "S1": ['Dillon Thieneman', 'Elijah Hicks'],
+            "S2": ['Cam Lewis', 'Skyler Thomas'],
+            "DB": ['Kyler Gordon', 'Malik Muhammad II'],
+            "CB1": ['Tyrique Stevenson Sr.', 'Clark Phillips III'],
+            "CB2": ['Jaylon Johnson', 'Josh Blackwell'],
+        },
+    },
+    "KC": {
+        "source_id": "W11-S31",
+        "url": "https://www.chiefs.com/team/depth-chart",
+        "label": "Kansas City Chiefs Unofficial Depth Chart",
+        "as_of": "",
+        "as_of_week": "",
+        "as_of": "",
+        "groups": {
+            "WR1": ['Rashee Rice', 'Jalen Royals', 'Andrew Armstrong'],
+            "LT": ['Kahlil Benson', 'Diego Pounds'],
+            "LG": ['Kingsley Suamataia', 'Joshua Ezeudu'],
+            "C": ['Creed Humphrey', 'Hunter Nourzad'],
+            "RG": ['Trey Smith', 'Mike Caliendo'],
+            "RT": ['Jaylon Moore', 'Joshua Ezeudu'],
+            "TE": ['Travis Kelce', 'Noah Gray', 'Jared Wiley', 'Jake Briningstool'],
+            "QB": ['Patrick Mahomes', 'Justin Fields', 'Garrett Nussmeier'],
+            "RB": ['Kenneth Walker', 'Emmett Johnson', 'Jaydn Ott'],
+            "FB": ['Ben VanSumeren'],
+            "WR2": ['Xavier Worthy', 'Cyrus Allen', 'Josh Downs'],
+            "DE1": ['Felix Anudike-Uzomah', 'Ashton Gillotte'],
+            "DT1": ['Chris Jones', 'Peter Woods', 'Marcus Harris'],
+            "DT2": ['Khyiris Tonga', 'Bryson Eason'],
+            "DE2": ['George Karlaftis', 'R Mason Thomas'],
+            "LB1": ['Jack Cochrane', 'Cooper McDonald'],
+            "LB2": ['Nick Bolton', 'Jack Cochrane'],
+            "LB3": ['Drue Tranquill', 'Jeffrey Bassa'],
+            "CB1": ['Nohl Williams', 'Jadon Canady'],
+            "CB2": ['Mansoor Delane', 'Kristian Fulton', 'Melvin Smith'],
+            "S1": ['Alohi Gilman', 'Chris Roland-Wallace'],
+            "S2": ['Chamarri Conner', 'Jaden Hicks', 'Xavier Nwankpa'],
+        },
+    },
+    "MIA": {
+        "source_id": "W11-S32",
+        "url": "https://www.miamidolphins.com/team/depth-chart",
+        "label": "Miami Dolphins Depth Chart",
+        "as_of": "",
+        "as_of_week": "",
+        "as_of": "",
+        "groups": {
+            "WR1": ['Caleb Douglas', 'Jared Wayne'],
+            "LT": ['Patrick Paul', 'Chukwuebuka Godrick'],
+            "LG": ['Kadyn Proctor', 'Jarrett Kingston'],
+            "C": ['Aaron Brewer', 'Andrew Meyer'],
+            "RG": ['Jonah Savaiinaea', 'Caedan Wallace', 'Christian Haynes'],
+            "RT": ['Austin Jackson', 'Caedan Wallace'],
+            "TE": ['Greg Dulcich', 'Will Kacmarek', 'Seydou Traore', 'Justin Joly'],
+            "FB": ['DJ Herman'],
+            "RB": ['Ollie Gordon II', 'Jaylen Wright', 'Kaytron Allen'],
+            "QB": ['Kyle McCord'],
+            "WR2": ['Malik Washington', 'Kevin Coleman Jr.'],
+            "WR3": ['Chris Bell', 'Jalen Tolbert'],
+            "DT1": ['Jordan Phillips', 'Kenneth Grant'],
+            "DT2": ['Zeek Biggers'],
+            "EDGE1": ['Chop Robinson', 'Malik Herring', 'Rodney McGraw'],
+            "EDGE2": ['Josh Uche', 'Jamree Kromah'],
+            "ILB1": ['Jordyn Brooks', 'Jackson Woodard', 'Shaka Heyward'],
+            "ILB2": ['Jacob Rodriguez', 'Willie Gay Jr.'],
+            "NB": ['Chris Johnson'],
+            "CB1": ['JuJu Brents', 'Marcellas Dial Jr.'],
+            "CB2": ['Jason Marshall Jr.', 'Jaylin Simpson'],
+            "S1": ['Michael Taaffe', 'Zayne Anderson'],
+            "S2": ['Dante Trader Jr.', 'Kyle Louis', 'Julius Wood'],
         },
     },
 }
@@ -281,6 +545,20 @@ NAME_ALIASES = [
 ]
 
 
+def _tiers(group_value):
+    """A position group is either a list of names (1st, 2nd, 3rd ...) or a list of tiers,
+    where a tier holds two or more co-starters. Returns a list of lists of names."""
+    if not group_value:
+        return []
+    if isinstance(group_value, str):
+        # Guard: a bare string would otherwise be iterated character by character.
+        return [[group_value]]
+    if isinstance(group_value[0], (list, tuple)):
+        # Mixed tiers: a tier may be a co-starter list, or a plain name for a single slot.
+        return [list(t) if isinstance(t, (list, tuple)) else [t] for t in group_value]
+    return [[n] for n in group_value]
+
+
 def depth_index(team: str, player: str) -> tuple[int | None, list[str]]:
     """Return (best 1-based depth string, list of position groups he is listed in)."""
     chart = CHART_SOURCES.get(team)
@@ -293,14 +571,71 @@ def depth_index(team: str, player: str) -> tuple[int | None, list[str]]:
             break
     best = None
     groups = []
-    for group, names in chart["groups"].items():
-        for i, n in enumerate(names, start=1):
-            if _norm(n) == key:
+    for group, value in chart["groups"].items():
+        for i, tier in enumerate(_tiers(value), start=1):
+            if any(_norm(n) == key for n in tier):
                 groups.append(group)
                 best = i if best is None else min(best, i)
                 break
     return best, groups
 
+
+
+UNAVAILABLE_STATUSES = ("Out", "Questionable")
+
+
+def cascade_slots(detail_rows: list[dict]) -> list[dict]:
+    """Find position groups where the chart's top two slots are both unavailable.
+
+    The brief asks specifically about 3rd/4th-string backups replacing starters. That only
+    happens when the men in front are unavailable too, so this function reports every
+    (club, position group) whose two shallowest listed players both carry a Week 10 game
+    status of Out or Questionable, together with the next name the club's own chart lists.
+
+    Nothing here estimates how much worse the replacement is: it reports who is next on
+    the club's own page, which is a fact, and stops there.
+    """
+    grouped: dict[tuple[str, str], list[tuple[int, str, str, str]]] = {}
+    for r in detail_rows:
+        if r.get("chart_status") != "listed":
+            continue
+        d = r.get("club_chart_depth_string") or ""
+        if not d.isdigit():
+            continue
+        for group in (r.get("club_chart_groups") or "").split(";"):
+            group = group.strip()
+            if not group:
+                continue
+            grouped.setdefault((r["team"], group), []).append(
+                (int(d), r["player"], r.get("game_status") or "", r.get("position") or "")
+            )
+
+    out = []
+    for (team, group), players in sorted(grouped.items()):
+        players.sort()
+        unavailable = [p for p in players if p[2] in UNAVAILABLE_STATUSES]
+        if len(unavailable) < 2:
+            continue
+        # The two shallowest slots on the chart must both be unavailable for this to be a cascade.
+        top = players[:2]
+        if len(top) < 2 or any(p[2] not in UNAVAILABLE_STATUSES for p in top):
+            continue
+        nxt = players[2] if len(players) > 2 else None
+        out.append({
+            "team": team,
+            "position_group": group,
+            "slot_1_player": top[0][1],
+            "slot_1_status": top[0][2],
+            "slot_2_player": top[1][1],
+            "slot_2_status": top[1][2],
+            "next_listed_player": nxt[1] if nxt else "",
+            "next_listed_slot": str(nxt[0]) if nxt else "",
+            "next_listed_status": nxt[2] if nxt else "",
+            "slots_listed_on_chart": len(players),
+            "note": ("Club's own chart lists no third player at this group; the replacement is not identifiable "
+                     "from the official pages read here.") if nxt is None else "",
+        })
+    return out
 
 def unit_of(position: str) -> str:
     p = (position or "").upper()

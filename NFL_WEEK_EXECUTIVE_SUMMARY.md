@@ -23,8 +23,8 @@ A close second: **NFL.com Terms §1.3** (read 2026-11-13) limits use to *"indivi
 | Club standings rows | 32 | [nfl.com/standings](https://www.nfl.com/standings/) | Five league identities checked: ΣW = ΣL = 136, ties = 2, ΣPF = ΣPA = 6,291, home wins = road losses, per-club W+L+T = home+road |
 | Slate fixtures | 27 | [Week 10](https://www.nfl.com/schedules/2026/by-week/week-10) · [Week 11](https://www.nfl.com/schedules/2026/by-week/week-11) | 14 + 13 games, kickoff times, broadcasters, venue notes, records cross-checked against standings |
 | Injury-report rows | 326 | [nfl.com/injuries](https://www.nfl.com/injuries/) | All eight page chunks read; 14 games; 28 clubs; every row carries the source URL |
-| Club depth charts | 7 clubs | Official club sites (DET, NE, SEA, BAL, MIN, IND, PHI) | Full chart transcribed; ordering and slot verified per player |
-| Registered sources | 24 | Registry in `data/nfl_wk/sources.csv` | Each with read date, verbatim excerpt, and an explicit "does not support" column |
+| Club depth charts | 14 charts / 12 clubs on the report | Official club sites (AZ, BAL, CHI, DET, GB, IND, KC, LV, MIA, MIN, NE, PIT, SEA, TB) | Full chart transcribed; ordering and slot verified per player; 2 charts carry an explicit date |
+| Registered sources | 32 | Registry in `data/nfl_wk/sources.csv` | Each with read date, verbatim excerpt, and an explicit "does not support" column |
 
 ## 4. What is computed (and is therefore *not* an NFL statistic)
 
@@ -38,12 +38,24 @@ A close second: **NFL.com Terms §1.3** (read 2026-11-13) limits use to *"indivi
 
 ## 5. What the injury and depth work shows
 
-The join between the league's injury report and the clubs' own depth charts is the most useful new artefact here. Across the seven clubs whose charts were read:
+The join between the league's injury report and the clubs' own depth charts is the most useful new artefact here. Twelve clubs' charts were read (Arizona, Baltimore, Chicago, Detroit, Green Bay, Indianapolis, Kansas City, Las Vegas, Miami, Minnesota, New England, Pittsburgh, Seattle and Tampa Bay; fourteen charts, twelve of which have a player on the Week 10 report). Across them:
 
 - **7 first-string players are ruled Out** (3 offence, 4 defence) and **3 are Questionable** (2 offence, 1 defence).
 - The clearest replacement chain is at **centre**: Detroit's Cade Mays (1st-string C on the Lions' own chart) is ruled Out, and the chart lists Juice Scruggs directly behind him. New England's Ben Brown (1st-string LG, 2nd-string C) is also ruled Out.
 - **Two clubs list a quarterback other than the presumed Week-1 starter** on their own chart, and the charts give **no reason**: Baltimore lists Jacoby Brissett 1st with Lamar Jackson absent from the chart entirely, and Philadelphia lists Tanner McKee 1st. Whether that reflects injury, a coaching decision or a chart that is out of date is unknown, so this pack asserts none of it. Separately, Seattle's own chart still lists Sam Darnold 1st and Drew Lock 2nd, while an NFL.com headline from this week says Darnold was *ruled out* for the Week 10 game — the chart and the news disagree, which is itself recorded as a data-quality problem.
-- **21 of 28 clubs remain blank.** No chart was read for them in this session, so their cells say nothing rather than zero.
+- **16 of 28 clubs remain blank.** No chart was read for them in this session, so their cells say nothing rather than zero. Houston's page serves its chart as an image and could not be transcribed.
+
+### 5a. The 3rd-string case, isolated
+
+The brief singles out situations where a 2nd/3rd/4th-string backup replaces a starter. That only happens when the men *in front* are unavailable too, so the pack tests for it mechanically: **both** of the two shallowest slots a club's own chart lists at a position must carry a Week 10 status of Out or Questionable. Three position groups pass that test, all at New England:
+
+| Club | Group | 1st on chart | Status | 2nd on chart | Status | Next listed |
+|---|---|---|---|---|---|---|
+| NE | LG | Ben Brown | Out | Walter Rouse | Questionable | none — not identifiable |
+| NE | RB | Rhamondre Stevenson | Questionable | TreVeyon Henderson | Out | none — not identifiable |
+| NE | S | Kevin Byard | Questionable | Brenden Schooler (3rd on chart; 2nd slot empty) | Questionable | none — not identifiable |
+
+In all three cases the club's own chart does not list a third name at the position, so the replacement cannot be identified from the official pages read here. The pack records **"not identifiable"** rather than assuming a promotion from elsewhere on the roster. This is the honest answer to the brief's question and it is a gap in the official sources, not in the method.
 
 Three genuine irregularities surfaced and are published rather than smoothed over:
 
