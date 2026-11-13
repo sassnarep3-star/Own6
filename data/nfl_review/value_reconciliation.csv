@@ -1,0 +1,337 @@
+check_id,published_file,published_row_id,field,published_value,official_value_read_2026_11_13,result,note,official_source_url
+ST-001,data/nfl_origination/verified_standings_2026_w10.csv,Buffalo Bills,wins,7,7,match,,https://www.nfl.com/standings/
+ST-002,data/nfl_origination/verified_standings_2026_w10.csv,Buffalo Bills,losses,1,1,match,,https://www.nfl.com/standings/
+ST-003,data/nfl_origination/verified_standings_2026_w10.csv,Buffalo Bills,ties,0,0,match,,https://www.nfl.com/standings/
+ST-004,data/nfl_origination/verified_standings_2026_w10.csv,Buffalo Bills,points_for,256,256,match,,https://www.nfl.com/standings/
+ST-005,data/nfl_origination/verified_standings_2026_w10.csv,Buffalo Bills,points_against,187,187,match,,https://www.nfl.com/standings/
+ST-006,data/nfl_origination/verified_standings_2026_w10.csv,Buffalo Bills,net_points,69,69,match,,https://www.nfl.com/standings/
+ST-007,data/nfl_origination/verified_standings_2026_w10.csv,New England Patriots,wins,5,5,match,,https://www.nfl.com/standings/
+ST-008,data/nfl_origination/verified_standings_2026_w10.csv,New England Patriots,losses,4,4,match,,https://www.nfl.com/standings/
+ST-009,data/nfl_origination/verified_standings_2026_w10.csv,New England Patriots,ties,0,0,match,,https://www.nfl.com/standings/
+ST-010,data/nfl_origination/verified_standings_2026_w10.csv,New England Patriots,points_for,211,211,match,,https://www.nfl.com/standings/
+ST-011,data/nfl_origination/verified_standings_2026_w10.csv,New England Patriots,points_against,207,207,match,,https://www.nfl.com/standings/
+ST-012,data/nfl_origination/verified_standings_2026_w10.csv,New England Patriots,net_points,4,4,match,,https://www.nfl.com/standings/
+ST-013,data/nfl_origination/verified_standings_2026_w10.csv,New York Jets,wins,2,2,match,,https://www.nfl.com/standings/
+ST-014,data/nfl_origination/verified_standings_2026_w10.csv,New York Jets,losses,7,7,match,,https://www.nfl.com/standings/
+ST-015,data/nfl_origination/verified_standings_2026_w10.csv,New York Jets,ties,0,0,match,,https://www.nfl.com/standings/
+ST-016,data/nfl_origination/verified_standings_2026_w10.csv,New York Jets,points_for,182,182,match,,https://www.nfl.com/standings/
+ST-017,data/nfl_origination/verified_standings_2026_w10.csv,New York Jets,points_against,223,223,match,,https://www.nfl.com/standings/
+ST-018,data/nfl_origination/verified_standings_2026_w10.csv,New York Jets,net_points,-41,-41,match,,https://www.nfl.com/standings/
+ST-019,data/nfl_origination/verified_standings_2026_w10.csv,Miami Dolphins,wins,1,1,match,,https://www.nfl.com/standings/
+ST-020,data/nfl_origination/verified_standings_2026_w10.csv,Miami Dolphins,losses,7,7,match,,https://www.nfl.com/standings/
+ST-021,data/nfl_origination/verified_standings_2026_w10.csv,Miami Dolphins,ties,0,0,match,,https://www.nfl.com/standings/
+ST-022,data/nfl_origination/verified_standings_2026_w10.csv,Miami Dolphins,points_for,126,126,match,,https://www.nfl.com/standings/
+ST-023,data/nfl_origination/verified_standings_2026_w10.csv,Miami Dolphins,points_against,200,200,match,,https://www.nfl.com/standings/
+ST-024,data/nfl_origination/verified_standings_2026_w10.csv,Miami Dolphins,net_points,-74,-74,match,,https://www.nfl.com/standings/
+ST-025,data/nfl_origination/verified_standings_2026_w10.csv,Pittsburgh Steelers,wins,6,6,match,,https://www.nfl.com/standings/
+ST-026,data/nfl_origination/verified_standings_2026_w10.csv,Pittsburgh Steelers,losses,2,2,match,,https://www.nfl.com/standings/
+ST-027,data/nfl_origination/verified_standings_2026_w10.csv,Pittsburgh Steelers,ties,0,0,match,,https://www.nfl.com/standings/
+ST-028,data/nfl_origination/verified_standings_2026_w10.csv,Pittsburgh Steelers,points_for,180,180,match,,https://www.nfl.com/standings/
+ST-029,data/nfl_origination/verified_standings_2026_w10.csv,Pittsburgh Steelers,points_against,144,144,match,,https://www.nfl.com/standings/
+ST-030,data/nfl_origination/verified_standings_2026_w10.csv,Pittsburgh Steelers,net_points,36,36,match,,https://www.nfl.com/standings/
+ST-031,data/nfl_origination/verified_standings_2026_w10.csv,Cincinnati Bengals,wins,6,6,match,,https://www.nfl.com/standings/
+ST-032,data/nfl_origination/verified_standings_2026_w10.csv,Cincinnati Bengals,losses,2,2,match,,https://www.nfl.com/standings/
+ST-033,data/nfl_origination/verified_standings_2026_w10.csv,Cincinnati Bengals,ties,0,0,match,,https://www.nfl.com/standings/
+ST-034,data/nfl_origination/verified_standings_2026_w10.csv,Cincinnati Bengals,points_for,240,240,match,,https://www.nfl.com/standings/
+ST-035,data/nfl_origination/verified_standings_2026_w10.csv,Cincinnati Bengals,points_against,175,175,match,,https://www.nfl.com/standings/
+ST-036,data/nfl_origination/verified_standings_2026_w10.csv,Cincinnati Bengals,net_points,65,65,match,,https://www.nfl.com/standings/
+ST-037,data/nfl_origination/verified_standings_2026_w10.csv,Cleveland Browns,wins,5,5,match,,https://www.nfl.com/standings/
+ST-038,data/nfl_origination/verified_standings_2026_w10.csv,Cleveland Browns,losses,4,4,match,,https://www.nfl.com/standings/
+ST-039,data/nfl_origination/verified_standings_2026_w10.csv,Cleveland Browns,ties,0,0,match,,https://www.nfl.com/standings/
+ST-040,data/nfl_origination/verified_standings_2026_w10.csv,Cleveland Browns,points_for,161,161,match,,https://www.nfl.com/standings/
+ST-041,data/nfl_origination/verified_standings_2026_w10.csv,Cleveland Browns,points_against,196,196,match,,https://www.nfl.com/standings/
+ST-042,data/nfl_origination/verified_standings_2026_w10.csv,Cleveland Browns,net_points,-35,-35,match,,https://www.nfl.com/standings/
+ST-043,data/nfl_origination/verified_standings_2026_w10.csv,Baltimore Ravens,wins,4,4,match,,https://www.nfl.com/standings/
+ST-044,data/nfl_origination/verified_standings_2026_w10.csv,Baltimore Ravens,losses,5,5,match,,https://www.nfl.com/standings/
+ST-045,data/nfl_origination/verified_standings_2026_w10.csv,Baltimore Ravens,ties,0,0,match,,https://www.nfl.com/standings/
+ST-046,data/nfl_origination/verified_standings_2026_w10.csv,Baltimore Ravens,points_for,189,189,match,,https://www.nfl.com/standings/
+ST-047,data/nfl_origination/verified_standings_2026_w10.csv,Baltimore Ravens,points_against,236,236,match,,https://www.nfl.com/standings/
+ST-048,data/nfl_origination/verified_standings_2026_w10.csv,Baltimore Ravens,net_points,-47,-47,match,,https://www.nfl.com/standings/
+ST-049,data/nfl_origination/verified_standings_2026_w10.csv,Jacksonville Jaguars,wins,6,6,match,,https://www.nfl.com/standings/
+ST-050,data/nfl_origination/verified_standings_2026_w10.csv,Jacksonville Jaguars,losses,2,2,match,,https://www.nfl.com/standings/
+ST-051,data/nfl_origination/verified_standings_2026_w10.csv,Jacksonville Jaguars,ties,0,0,match,,https://www.nfl.com/standings/
+ST-052,data/nfl_origination/verified_standings_2026_w10.csv,Jacksonville Jaguars,points_for,229,229,match,,https://www.nfl.com/standings/
+ST-053,data/nfl_origination/verified_standings_2026_w10.csv,Jacksonville Jaguars,points_against,121,121,match,,https://www.nfl.com/standings/
+ST-054,data/nfl_origination/verified_standings_2026_w10.csv,Jacksonville Jaguars,net_points,108,108,match,,https://www.nfl.com/standings/
+ST-055,data/nfl_origination/verified_standings_2026_w10.csv,Houston Texans,wins,3,3,match,,https://www.nfl.com/standings/
+ST-056,data/nfl_origination/verified_standings_2026_w10.csv,Houston Texans,losses,5,5,match,,https://www.nfl.com/standings/
+ST-057,data/nfl_origination/verified_standings_2026_w10.csv,Houston Texans,ties,0,0,match,,https://www.nfl.com/standings/
+ST-058,data/nfl_origination/verified_standings_2026_w10.csv,Houston Texans,points_for,209,209,match,,https://www.nfl.com/standings/
+ST-059,data/nfl_origination/verified_standings_2026_w10.csv,Houston Texans,points_against,192,192,match,,https://www.nfl.com/standings/
+ST-060,data/nfl_origination/verified_standings_2026_w10.csv,Houston Texans,net_points,17,17,match,,https://www.nfl.com/standings/
+ST-061,data/nfl_origination/verified_standings_2026_w10.csv,Indianapolis Colts,wins,2,2,match,,https://www.nfl.com/standings/
+ST-062,data/nfl_origination/verified_standings_2026_w10.csv,Indianapolis Colts,losses,7,7,match,,https://www.nfl.com/standings/
+ST-063,data/nfl_origination/verified_standings_2026_w10.csv,Indianapolis Colts,ties,0,0,match,,https://www.nfl.com/standings/
+ST-064,data/nfl_origination/verified_standings_2026_w10.csv,Indianapolis Colts,points_for,184,184,match,,https://www.nfl.com/standings/
+ST-065,data/nfl_origination/verified_standings_2026_w10.csv,Indianapolis Colts,points_against,249,249,match,,https://www.nfl.com/standings/
+ST-066,data/nfl_origination/verified_standings_2026_w10.csv,Indianapolis Colts,net_points,-65,-65,match,,https://www.nfl.com/standings/
+ST-067,data/nfl_origination/verified_standings_2026_w10.csv,Tennessee Titans,wins,1,1,match,,https://www.nfl.com/standings/
+ST-068,data/nfl_origination/verified_standings_2026_w10.csv,Tennessee Titans,losses,7,7,match,,https://www.nfl.com/standings/
+ST-069,data/nfl_origination/verified_standings_2026_w10.csv,Tennessee Titans,ties,0,0,match,,https://www.nfl.com/standings/
+ST-070,data/nfl_origination/verified_standings_2026_w10.csv,Tennessee Titans,points_for,144,144,match,,https://www.nfl.com/standings/
+ST-071,data/nfl_origination/verified_standings_2026_w10.csv,Tennessee Titans,points_against,199,199,match,,https://www.nfl.com/standings/
+ST-072,data/nfl_origination/verified_standings_2026_w10.csv,Tennessee Titans,net_points,-55,-55,match,,https://www.nfl.com/standings/
+ST-073,data/nfl_origination/verified_standings_2026_w10.csv,Denver Broncos,wins,7,7,match,,https://www.nfl.com/standings/
+ST-074,data/nfl_origination/verified_standings_2026_w10.csv,Denver Broncos,losses,2,2,match,,https://www.nfl.com/standings/
+ST-075,data/nfl_origination/verified_standings_2026_w10.csv,Denver Broncos,ties,0,0,match,,https://www.nfl.com/standings/
+ST-076,data/nfl_origination/verified_standings_2026_w10.csv,Denver Broncos,points_for,198,198,match,,https://www.nfl.com/standings/
+ST-077,data/nfl_origination/verified_standings_2026_w10.csv,Denver Broncos,points_against,186,186,match,,https://www.nfl.com/standings/
+ST-078,data/nfl_origination/verified_standings_2026_w10.csv,Denver Broncos,net_points,12,12,match,,https://www.nfl.com/standings/
+ST-079,data/nfl_origination/verified_standings_2026_w10.csv,Kansas City Chiefs,wins,6,6,match,,https://www.nfl.com/standings/
+ST-080,data/nfl_origination/verified_standings_2026_w10.csv,Kansas City Chiefs,losses,2,2,match,,https://www.nfl.com/standings/
+ST-081,data/nfl_origination/verified_standings_2026_w10.csv,Kansas City Chiefs,ties,0,0,match,,https://www.nfl.com/standings/
+ST-082,data/nfl_origination/verified_standings_2026_w10.csv,Kansas City Chiefs,points_for,202,202,match,,https://www.nfl.com/standings/
+ST-083,data/nfl_origination/verified_standings_2026_w10.csv,Kansas City Chiefs,points_against,143,143,match,,https://www.nfl.com/standings/
+ST-084,data/nfl_origination/verified_standings_2026_w10.csv,Kansas City Chiefs,net_points,59,59,match,,https://www.nfl.com/standings/
+ST-085,data/nfl_origination/verified_standings_2026_w10.csv,Las Vegas Raiders,wins,4,4,match,,https://www.nfl.com/standings/
+ST-086,data/nfl_origination/verified_standings_2026_w10.csv,Las Vegas Raiders,losses,5,5,match,,https://www.nfl.com/standings/
+ST-087,data/nfl_origination/verified_standings_2026_w10.csv,Las Vegas Raiders,ties,0,0,match,,https://www.nfl.com/standings/
+ST-088,data/nfl_origination/verified_standings_2026_w10.csv,Las Vegas Raiders,points_for,238,238,match,,https://www.nfl.com/standings/
+ST-089,data/nfl_origination/verified_standings_2026_w10.csv,Las Vegas Raiders,points_against,268,268,match,,https://www.nfl.com/standings/
+ST-090,data/nfl_origination/verified_standings_2026_w10.csv,Las Vegas Raiders,net_points,-30,-30,match,,https://www.nfl.com/standings/
+ST-091,data/nfl_origination/verified_standings_2026_w10.csv,Los Angeles Chargers,wins,0,0,match,,https://www.nfl.com/standings/
+ST-092,data/nfl_origination/verified_standings_2026_w10.csv,Los Angeles Chargers,losses,8,8,match,,https://www.nfl.com/standings/
+ST-093,data/nfl_origination/verified_standings_2026_w10.csv,Los Angeles Chargers,ties,0,0,match,,https://www.nfl.com/standings/
+ST-094,data/nfl_origination/verified_standings_2026_w10.csv,Los Angeles Chargers,points_for,121,121,match,,https://www.nfl.com/standings/
+ST-095,data/nfl_origination/verified_standings_2026_w10.csv,Los Angeles Chargers,points_against,219,219,match,,https://www.nfl.com/standings/
+ST-096,data/nfl_origination/verified_standings_2026_w10.csv,Los Angeles Chargers,net_points,-98,-98,match,,https://www.nfl.com/standings/
+ST-097,data/nfl_origination/verified_standings_2026_w10.csv,New York Giants,wins,5,5,match,,https://www.nfl.com/standings/
+ST-098,data/nfl_origination/verified_standings_2026_w10.csv,New York Giants,losses,2,3,differs,"Published snapshot differs from the official standings read on 2026-11-13. The published file is a dated pre-game snapshot; the official page has since advanced. Flagged for review, not corrected.",https://www.nfl.com/standings/
+ST-099,data/nfl_origination/verified_standings_2026_w10.csv,New York Giants,ties,1,1,match,,https://www.nfl.com/standings/
+ST-100,data/nfl_origination/verified_standings_2026_w10.csv,New York Giants,points_for,182,203,differs,"Published snapshot differs from the official standings read on 2026-11-13. The published file is a dated pre-game snapshot; the official page has since advanced. Flagged for review, not corrected.",https://www.nfl.com/standings/
+ST-101,data/nfl_origination/verified_standings_2026_w10.csv,New York Giants,points_against,172,196,differs,"Published snapshot differs from the official standings read on 2026-11-13. The published file is a dated pre-game snapshot; the official page has since advanced. Flagged for review, not corrected.",https://www.nfl.com/standings/
+ST-102,data/nfl_origination/verified_standings_2026_w10.csv,New York Giants,net_points,10,7,differs,"Published snapshot differs from the official standings read on 2026-11-13. The published file is a dated pre-game snapshot; the official page has since advanced. Flagged for review, not corrected.",https://www.nfl.com/standings/
+ST-103,data/nfl_origination/verified_standings_2026_w10.csv,Dallas Cowboys,wins,4,4,match,,https://www.nfl.com/standings/
+ST-104,data/nfl_origination/verified_standings_2026_w10.csv,Dallas Cowboys,losses,5,5,match,,https://www.nfl.com/standings/
+ST-105,data/nfl_origination/verified_standings_2026_w10.csv,Dallas Cowboys,ties,0,0,match,,https://www.nfl.com/standings/
+ST-106,data/nfl_origination/verified_standings_2026_w10.csv,Dallas Cowboys,points_for,246,246,match,,https://www.nfl.com/standings/
+ST-107,data/nfl_origination/verified_standings_2026_w10.csv,Dallas Cowboys,points_against,236,236,match,,https://www.nfl.com/standings/
+ST-108,data/nfl_origination/verified_standings_2026_w10.csv,Dallas Cowboys,net_points,10,10,match,,https://www.nfl.com/standings/
+ST-109,data/nfl_origination/verified_standings_2026_w10.csv,Washington Commanders,wins,2,3,differs,"Published snapshot differs from the official standings read on 2026-11-13. The published file is a dated pre-game snapshot; the official page has since advanced. Flagged for review, not corrected.",https://www.nfl.com/standings/
+ST-110,data/nfl_origination/verified_standings_2026_w10.csv,Washington Commanders,losses,5,5,match,,https://www.nfl.com/standings/
+ST-111,data/nfl_origination/verified_standings_2026_w10.csv,Washington Commanders,ties,1,1,match,,https://www.nfl.com/standings/
+ST-112,data/nfl_origination/verified_standings_2026_w10.csv,Washington Commanders,points_for,172,196,differs,"Published snapshot differs from the official standings read on 2026-11-13. The published file is a dated pre-game snapshot; the official page has since advanced. Flagged for review, not corrected.",https://www.nfl.com/standings/
+ST-113,data/nfl_origination/verified_standings_2026_w10.csv,Washington Commanders,points_against,202,223,differs,"Published snapshot differs from the official standings read on 2026-11-13. The published file is a dated pre-game snapshot; the official page has since advanced. Flagged for review, not corrected.",https://www.nfl.com/standings/
+ST-114,data/nfl_origination/verified_standings_2026_w10.csv,Washington Commanders,net_points,-30,-27,differs,"Published snapshot differs from the official standings read on 2026-11-13. The published file is a dated pre-game snapshot; the official page has since advanced. Flagged for review, not corrected.",https://www.nfl.com/standings/
+ST-115,data/nfl_origination/verified_standings_2026_w10.csv,Philadelphia Eagles,wins,2,2,match,,https://www.nfl.com/standings/
+ST-116,data/nfl_origination/verified_standings_2026_w10.csv,Philadelphia Eagles,losses,7,7,match,,https://www.nfl.com/standings/
+ST-117,data/nfl_origination/verified_standings_2026_w10.csv,Philadelphia Eagles,ties,0,0,match,,https://www.nfl.com/standings/
+ST-118,data/nfl_origination/verified_standings_2026_w10.csv,Philadelphia Eagles,points_for,148,148,match,,https://www.nfl.com/standings/
+ST-119,data/nfl_origination/verified_standings_2026_w10.csv,Philadelphia Eagles,points_against,221,221,match,,https://www.nfl.com/standings/
+ST-120,data/nfl_origination/verified_standings_2026_w10.csv,Philadelphia Eagles,net_points,-73,-73,match,,https://www.nfl.com/standings/
+ST-121,data/nfl_origination/verified_standings_2026_w10.csv,Chicago Bears,wins,7,7,match,,https://www.nfl.com/standings/
+ST-122,data/nfl_origination/verified_standings_2026_w10.csv,Chicago Bears,losses,2,2,match,,https://www.nfl.com/standings/
+ST-123,data/nfl_origination/verified_standings_2026_w10.csv,Chicago Bears,ties,0,0,match,,https://www.nfl.com/standings/
+ST-124,data/nfl_origination/verified_standings_2026_w10.csv,Chicago Bears,points_for,241,241,match,,https://www.nfl.com/standings/
+ST-125,data/nfl_origination/verified_standings_2026_w10.csv,Chicago Bears,points_against,184,184,match,,https://www.nfl.com/standings/
+ST-126,data/nfl_origination/verified_standings_2026_w10.csv,Chicago Bears,net_points,57,57,match,,https://www.nfl.com/standings/
+ST-127,data/nfl_origination/verified_standings_2026_w10.csv,Detroit Lions,wins,6,6,match,,https://www.nfl.com/standings/
+ST-128,data/nfl_origination/verified_standings_2026_w10.csv,Detroit Lions,losses,2,2,match,,https://www.nfl.com/standings/
+ST-129,data/nfl_origination/verified_standings_2026_w10.csv,Detroit Lions,ties,0,0,match,,https://www.nfl.com/standings/
+ST-130,data/nfl_origination/verified_standings_2026_w10.csv,Detroit Lions,points_for,222,222,match,,https://www.nfl.com/standings/
+ST-131,data/nfl_origination/verified_standings_2026_w10.csv,Detroit Lions,points_against,189,189,match,,https://www.nfl.com/standings/
+ST-132,data/nfl_origination/verified_standings_2026_w10.csv,Detroit Lions,net_points,33,33,match,,https://www.nfl.com/standings/
+ST-133,data/nfl_origination/verified_standings_2026_w10.csv,Minnesota Vikings,wins,6,6,match,,https://www.nfl.com/standings/
+ST-134,data/nfl_origination/verified_standings_2026_w10.csv,Minnesota Vikings,losses,2,2,match,,https://www.nfl.com/standings/
+ST-135,data/nfl_origination/verified_standings_2026_w10.csv,Minnesota Vikings,ties,0,0,match,,https://www.nfl.com/standings/
+ST-136,data/nfl_origination/verified_standings_2026_w10.csv,Minnesota Vikings,points_for,146,146,match,,https://www.nfl.com/standings/
+ST-137,data/nfl_origination/verified_standings_2026_w10.csv,Minnesota Vikings,points_against,116,116,match,,https://www.nfl.com/standings/
+ST-138,data/nfl_origination/verified_standings_2026_w10.csv,Minnesota Vikings,net_points,30,30,match,,https://www.nfl.com/standings/
+ST-139,data/nfl_origination/verified_standings_2026_w10.csv,Green Bay Packers,wins,6,6,match,,https://www.nfl.com/standings/
+ST-140,data/nfl_origination/verified_standings_2026_w10.csv,Green Bay Packers,losses,3,3,match,,https://www.nfl.com/standings/
+ST-141,data/nfl_origination/verified_standings_2026_w10.csv,Green Bay Packers,ties,0,0,match,,https://www.nfl.com/standings/
+ST-142,data/nfl_origination/verified_standings_2026_w10.csv,Green Bay Packers,points_for,216,216,match,,https://www.nfl.com/standings/
+ST-143,data/nfl_origination/verified_standings_2026_w10.csv,Green Bay Packers,points_against,191,191,match,,https://www.nfl.com/standings/
+ST-144,data/nfl_origination/verified_standings_2026_w10.csv,Green Bay Packers,net_points,25,25,match,,https://www.nfl.com/standings/
+ST-145,data/nfl_origination/verified_standings_2026_w10.csv,Carolina Panthers,wins,3,3,match,,https://www.nfl.com/standings/
+ST-146,data/nfl_origination/verified_standings_2026_w10.csv,Carolina Panthers,losses,5,5,match,,https://www.nfl.com/standings/
+ST-147,data/nfl_origination/verified_standings_2026_w10.csv,Carolina Panthers,ties,0,0,match,,https://www.nfl.com/standings/
+ST-148,data/nfl_origination/verified_standings_2026_w10.csv,Carolina Panthers,points_for,199,199,match,,https://www.nfl.com/standings/
+ST-149,data/nfl_origination/verified_standings_2026_w10.csv,Carolina Panthers,points_against,219,219,match,,https://www.nfl.com/standings/
+ST-150,data/nfl_origination/verified_standings_2026_w10.csv,Carolina Panthers,net_points,-20,-20,match,,https://www.nfl.com/standings/
+ST-151,data/nfl_origination/verified_standings_2026_w10.csv,New Orleans Saints,wins,3,3,match,,https://www.nfl.com/standings/
+ST-152,data/nfl_origination/verified_standings_2026_w10.csv,New Orleans Saints,losses,5,5,match,,https://www.nfl.com/standings/
+ST-153,data/nfl_origination/verified_standings_2026_w10.csv,New Orleans Saints,ties,0,0,match,,https://www.nfl.com/standings/
+ST-154,data/nfl_origination/verified_standings_2026_w10.csv,New Orleans Saints,points_for,185,185,match,,https://www.nfl.com/standings/
+ST-155,data/nfl_origination/verified_standings_2026_w10.csv,New Orleans Saints,points_against,216,216,match,,https://www.nfl.com/standings/
+ST-156,data/nfl_origination/verified_standings_2026_w10.csv,New Orleans Saints,net_points,-31,-31,match,,https://www.nfl.com/standings/
+ST-157,data/nfl_origination/verified_standings_2026_w10.csv,Tampa Bay Buccaneers,wins,3,3,match,,https://www.nfl.com/standings/
+ST-158,data/nfl_origination/verified_standings_2026_w10.csv,Tampa Bay Buccaneers,losses,6,6,match,,https://www.nfl.com/standings/
+ST-159,data/nfl_origination/verified_standings_2026_w10.csv,Tampa Bay Buccaneers,ties,0,0,match,,https://www.nfl.com/standings/
+ST-160,data/nfl_origination/verified_standings_2026_w10.csv,Tampa Bay Buccaneers,points_for,202,202,match,,https://www.nfl.com/standings/
+ST-161,data/nfl_origination/verified_standings_2026_w10.csv,Tampa Bay Buccaneers,points_against,178,178,match,,https://www.nfl.com/standings/
+ST-162,data/nfl_origination/verified_standings_2026_w10.csv,Tampa Bay Buccaneers,net_points,24,24,match,,https://www.nfl.com/standings/
+ST-163,data/nfl_origination/verified_standings_2026_w10.csv,Atlanta Falcons,wins,3,3,match,,https://www.nfl.com/standings/
+ST-164,data/nfl_origination/verified_standings_2026_w10.csv,Atlanta Falcons,losses,6,6,match,,https://www.nfl.com/standings/
+ST-165,data/nfl_origination/verified_standings_2026_w10.csv,Atlanta Falcons,ties,0,0,match,,https://www.nfl.com/standings/
+ST-166,data/nfl_origination/verified_standings_2026_w10.csv,Atlanta Falcons,points_for,188,188,match,,https://www.nfl.com/standings/
+ST-167,data/nfl_origination/verified_standings_2026_w10.csv,Atlanta Falcons,points_against,223,223,match,,https://www.nfl.com/standings/
+ST-168,data/nfl_origination/verified_standings_2026_w10.csv,Atlanta Falcons,net_points,-35,-35,match,,https://www.nfl.com/standings/
+ST-169,data/nfl_origination/verified_standings_2026_w10.csv,San Francisco 49ers,wins,7,7,match,,https://www.nfl.com/standings/
+ST-170,data/nfl_origination/verified_standings_2026_w10.csv,San Francisco 49ers,losses,1,1,match,,https://www.nfl.com/standings/
+ST-171,data/nfl_origination/verified_standings_2026_w10.csv,San Francisco 49ers,ties,0,0,match,,https://www.nfl.com/standings/
+ST-172,data/nfl_origination/verified_standings_2026_w10.csv,San Francisco 49ers,points_for,235,235,match,,https://www.nfl.com/standings/
+ST-173,data/nfl_origination/verified_standings_2026_w10.csv,San Francisco 49ers,points_against,156,156,match,,https://www.nfl.com/standings/
+ST-174,data/nfl_origination/verified_standings_2026_w10.csv,San Francisco 49ers,net_points,79,79,match,,https://www.nfl.com/standings/
+ST-175,data/nfl_origination/verified_standings_2026_w10.csv,Seattle Seahawks,wins,5,5,match,,https://www.nfl.com/standings/
+ST-176,data/nfl_origination/verified_standings_2026_w10.csv,Seattle Seahawks,losses,4,4,match,,https://www.nfl.com/standings/
+ST-177,data/nfl_origination/verified_standings_2026_w10.csv,Seattle Seahawks,ties,0,0,match,,https://www.nfl.com/standings/
+ST-178,data/nfl_origination/verified_standings_2026_w10.csv,Seattle Seahawks,points_for,202,202,match,,https://www.nfl.com/standings/
+ST-179,data/nfl_origination/verified_standings_2026_w10.csv,Seattle Seahawks,points_against,162,162,match,,https://www.nfl.com/standings/
+ST-180,data/nfl_origination/verified_standings_2026_w10.csv,Seattle Seahawks,net_points,40,40,match,,https://www.nfl.com/standings/
+ST-181,data/nfl_origination/verified_standings_2026_w10.csv,Los Angeles Rams,wins,5,5,match,,https://www.nfl.com/standings/
+ST-182,data/nfl_origination/verified_standings_2026_w10.csv,Los Angeles Rams,losses,4,4,match,,https://www.nfl.com/standings/
+ST-183,data/nfl_origination/verified_standings_2026_w10.csv,Los Angeles Rams,ties,0,0,match,,https://www.nfl.com/standings/
+ST-184,data/nfl_origination/verified_standings_2026_w10.csv,Los Angeles Rams,points_for,214,214,match,,https://www.nfl.com/standings/
+ST-185,data/nfl_origination/verified_standings_2026_w10.csv,Los Angeles Rams,points_against,181,181,match,,https://www.nfl.com/standings/
+ST-186,data/nfl_origination/verified_standings_2026_w10.csv,Los Angeles Rams,net_points,33,33,match,,https://www.nfl.com/standings/
+ST-187,data/nfl_origination/verified_standings_2026_w10.csv,Arizona Cardinals,wins,3,3,match,,https://www.nfl.com/standings/
+ST-188,data/nfl_origination/verified_standings_2026_w10.csv,Arizona Cardinals,losses,6,6,match,,https://www.nfl.com/standings/
+ST-189,data/nfl_origination/verified_standings_2026_w10.csv,Arizona Cardinals,ties,0,0,match,,https://www.nfl.com/standings/
+ST-190,data/nfl_origination/verified_standings_2026_w10.csv,Arizona Cardinals,points_for,178,178,match,,https://www.nfl.com/standings/
+ST-191,data/nfl_origination/verified_standings_2026_w10.csv,Arizona Cardinals,points_against,255,255,match,,https://www.nfl.com/standings/
+ST-192,data/nfl_origination/verified_standings_2026_w10.csv,Arizona Cardinals,net_points,-77,-77,match,,https://www.nfl.com/standings/
+SL-002,data/nfl_origination/week10_slate_and_lines.csv,W10-G01,date,2026-11-12,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-003,data/nfl_origination/week10_slate_and_lines.csv,W10-G01,kickoff,8:15 PM ET,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-004,data/nfl_origination/week10_slate_and_lines.csv,W10-G01,away_record,2-5-1,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-005,data/nfl_origination/week10_slate_and_lines.csv,W10-G01,home_record,5-2-1,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-006,data/nfl_origination/week10_slate_and_lines.csv,W10-G01,broadcast,"Prime Video, NFL+",,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-008,data/nfl_origination/week10_slate_and_lines.csv,W10-G02,date,2026-11-15,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-009,data/nfl_origination/week10_slate_and_lines.csv,W10-G02,kickoff,9:30 AM ET,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-010,data/nfl_origination/week10_slate_and_lines.csv,W10-G02,away_record,5-4-0,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-011,data/nfl_origination/week10_slate_and_lines.csv,W10-G02,home_record,6-2-0,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-012,data/nfl_origination/week10_slate_and_lines.csv,W10-G02,broadcast,"NFL Network, FOX, NFL+",,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-014,data/nfl_origination/week10_slate_and_lines.csv,W10-G03,date,2026-11-15,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-015,data/nfl_origination/week10_slate_and_lines.csv,W10-G03,kickoff,1:00 PM ET,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-016,data/nfl_origination/week10_slate_and_lines.csv,W10-G03,away_record,6-2-0,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-017,data/nfl_origination/week10_slate_and_lines.csv,W10-G03,home_record,3-6-0,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-018,data/nfl_origination/week10_slate_and_lines.csv,W10-G03,broadcast,CBS,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-020,data/nfl_origination/week10_slate_and_lines.csv,W10-G04,date,2026-11-15,2026-11-15,match,,https://www.nfl.com/games/texans-at-browns-2026-reg-10
+SL-021,data/nfl_origination/week10_slate_and_lines.csv,W10-G04,kickoff,1:00 PM ET,1:00 PM ET,match,,https://www.nfl.com/games/texans-at-browns-2026-reg-10
+SL-022,data/nfl_origination/week10_slate_and_lines.csv,W10-G04,away_record,3-5-0,3-5,match,,https://www.nfl.com/games/texans-at-browns-2026-reg-10
+SL-023,data/nfl_origination/week10_slate_and_lines.csv,W10-G04,home_record,5-4-0,5-4,match,,https://www.nfl.com/games/texans-at-browns-2026-reg-10
+SL-024,data/nfl_origination/week10_slate_and_lines.csv,W10-G04,broadcast,FOX,FOX,match,,https://www.nfl.com/games/texans-at-browns-2026-reg-10
+SL-026,data/nfl_origination/week10_slate_and_lines.csv,W10-G05,date,2026-11-15,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-027,data/nfl_origination/week10_slate_and_lines.csv,W10-G05,kickoff,1:00 PM ET,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-028,data/nfl_origination/week10_slate_and_lines.csv,W10-G05,away_record,6-2-0,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-029,data/nfl_origination/week10_slate_and_lines.csv,W10-G05,home_record,6-3-0,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-030,data/nfl_origination/week10_slate_and_lines.csv,W10-G05,broadcast,"FOX, NFL+",,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-032,data/nfl_origination/week10_slate_and_lines.csv,W10-G06,date,2026-11-15,2026-11-15,match,,https://www.nfl.com/games/dolphins-at-colts-2026-reg-10
+SL-033,data/nfl_origination/week10_slate_and_lines.csv,W10-G06,kickoff,1:00 PM ET,1:00 PM ET,match,,https://www.nfl.com/games/dolphins-at-colts-2026-reg-10
+SL-034,data/nfl_origination/week10_slate_and_lines.csv,W10-G06,away_record,1-7-0,1-7,match,,https://www.nfl.com/games/dolphins-at-colts-2026-reg-10
+SL-035,data/nfl_origination/week10_slate_and_lines.csv,W10-G06,home_record,2-7-0,2-7,match,,https://www.nfl.com/games/dolphins-at-colts-2026-reg-10
+SL-036,data/nfl_origination/week10_slate_and_lines.csv,W10-G06,broadcast,CBS,CBS,match,,https://www.nfl.com/games/dolphins-at-colts-2026-reg-10
+SL-038,data/nfl_origination/week10_slate_and_lines.csv,W10-G07,date,2026-11-15,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-039,data/nfl_origination/week10_slate_and_lines.csv,W10-G07,kickoff,1:00 PM ET,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-040,data/nfl_origination/week10_slate_and_lines.csv,W10-G07,away_record,3-5-0,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-041,data/nfl_origination/week10_slate_and_lines.csv,W10-G07,home_record,3-5-0,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-042,data/nfl_origination/week10_slate_and_lines.csv,W10-G07,broadcast,FOX,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-044,data/nfl_origination/week10_slate_and_lines.csv,W10-G08,date,2026-11-15,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-045,data/nfl_origination/week10_slate_and_lines.csv,W10-G08,kickoff,1:00 PM ET,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-046,data/nfl_origination/week10_slate_and_lines.csv,W10-G08,away_record,7-1-0,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-047,data/nfl_origination/week10_slate_and_lines.csv,W10-G08,home_record,2-7-0,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-048,data/nfl_origination/week10_slate_and_lines.csv,W10-G08,broadcast,CBS,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-050,data/nfl_origination/week10_slate_and_lines.csv,W10-G09,date,2026-11-15,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-051,data/nfl_origination/week10_slate_and_lines.csv,W10-G09,kickoff,1:00 PM ET,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-052,data/nfl_origination/week10_slate_and_lines.csv,W10-G09,away_record,6-2-0,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-053,data/nfl_origination/week10_slate_and_lines.csv,W10-G09,home_record,1-7-0,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-054,data/nfl_origination/week10_slate_and_lines.csv,W10-G09,broadcast,FOX,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-056,data/nfl_origination/week10_slate_and_lines.csv,W10-G10,date,2026-11-15,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-057,data/nfl_origination/week10_slate_and_lines.csv,W10-G10,kickoff,4:05 PM ET,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-058,data/nfl_origination/week10_slate_and_lines.csv,W10-G10,away_record,5-4-0,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-059,data/nfl_origination/week10_slate_and_lines.csv,W10-G10,home_record,3-6-0,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-060,data/nfl_origination/week10_slate_and_lines.csv,W10-G10,broadcast,"CBS, Paramount+, NFL+",,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-062,data/nfl_origination/week10_slate_and_lines.csv,W10-G11,date,2026-11-15,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-063,data/nfl_origination/week10_slate_and_lines.csv,W10-G11,kickoff,4:05 PM ET,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-064,data/nfl_origination/week10_slate_and_lines.csv,W10-G11,away_record,5-4-0,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-065,data/nfl_origination/week10_slate_and_lines.csv,W10-G11,home_record,4-5-0,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-066,data/nfl_origination/week10_slate_and_lines.csv,W10-G11,broadcast,CBS,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-068,data/nfl_origination/week10_slate_and_lines.csv,W10-G12,date,2026-11-15,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-069,data/nfl_origination/week10_slate_and_lines.csv,W10-G12,kickoff,4:25 PM ET,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-070,data/nfl_origination/week10_slate_and_lines.csv,W10-G12,away_record,7-1-0,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-071,data/nfl_origination/week10_slate_and_lines.csv,W10-G12,home_record,4-5-0,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-072,data/nfl_origination/week10_slate_and_lines.csv,W10-G12,broadcast,"FOX, NFL+",,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-074,data/nfl_origination/week10_slate_and_lines.csv,W10-G13,date,2026-11-15,2026-11-15,match,,https://www.nfl.com/games/steelers-at-bengals-2026-reg-10
+SL-075,data/nfl_origination/week10_slate_and_lines.csv,W10-G13,kickoff,8:20 PM ET,8:20 PM ET,match,,https://www.nfl.com/games/steelers-at-bengals-2026-reg-10
+SL-076,data/nfl_origination/week10_slate_and_lines.csv,W10-G13,away_record,6-2-0,6-2,match,,https://www.nfl.com/games/steelers-at-bengals-2026-reg-10
+SL-077,data/nfl_origination/week10_slate_and_lines.csv,W10-G13,home_record,6-2-0,6-2,match,,https://www.nfl.com/games/steelers-at-bengals-2026-reg-10
+SL-078,data/nfl_origination/week10_slate_and_lines.csv,W10-G13,broadcast,"NBC, Peacock, NFL+",NBC,match,,https://www.nfl.com/games/steelers-at-bengals-2026-reg-10
+SL-080,data/nfl_origination/week10_slate_and_lines.csv,W10-G14,date,2026-11-16,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-081,data/nfl_origination/week10_slate_and_lines.csv,W10-G14,kickoff,8:15 PM ET,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-082,data/nfl_origination/week10_slate_and_lines.csv,W10-G14,away_record,0-8-0,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-083,data/nfl_origination/week10_slate_and_lines.csv,W10-G14,home_record,4-5-0,,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-084,data/nfl_origination/week10_slate_and_lines.csv,W10-G14,broadcast,"ABC, ESPN, NFL+",,not_checked,Matchup not located in the official Week 10 read.,https://www.nfl.com/schedules/2026/reg10/
+SL-085,data/nfl_origination/week10_slate_and_lines.csv,W10-BYE,bye clubs,Chicago Bears (7-2) & Denver Broncos (7-2),"CHI, DEN, PHI, TB",match,"The official Week 10 page lists Chicago, Denver, Philadelphia and Tampa Bay on bye.",https://www.nfl.com/schedules/2026/by-week/week-10
+IN-001,data/nfl_3b81013c/injuries_and_depth.csv,ID-01,official_report_status,IR,practice=not listed; game=OUT,differs,"Published practice/game status differs from the official report read on 2026-11-13. The official report is republished continuously, so a difference can be a legitimate status change rather than an error. Flagged for review; no value was changed.",https://www.nfl.com/injuries/
+IN-002,data/nfl_3b81013c/injuries_and_depth.csv,ID-02,official_report_status,DNP,,unverified_no_player_named,"The published row names no player, so no player-level claim can be confirmed.",https://www.nfl.com/injuries/
+IN-003,data/nfl_3b81013c/injuries_and_depth.csv,ID-03,official_report_status,DNP,practice=not listed; game=OUT,differs,"Published practice/game status differs from the official report read on 2026-11-13. The official report is republished continuously, so a difference can be a legitimate status change rather than an error. Flagged for review; no value was changed.",https://www.nfl.com/injuries/
+IN-004,data/nfl_3b81013c/injuries_and_depth.csv,ID-04,official_report_status,DNP,DNP,match,,https://www.nfl.com/injuries/
+IN-005,data/nfl_3b81013c/injuries_and_depth.csv,ID-05,official_report_status,DNP,DNP,match,,https://www.nfl.com/injuries/
+IN-006,data/nfl_3b81013c/injuries_and_depth.csv,ID-06,official_report_status,DNP,practice=FULL; game=no designation,differs,"Published practice/game status differs from the official report read on 2026-11-13. The official report is republished continuously, so a difference can be a legitimate status change rather than an error. Flagged for review; no value was changed.",https://www.nfl.com/injuries/
+IN-007,data/nfl_3b81013c/injuries_and_depth.csv,ID-07,official_report_status,DNP,practice=FULL; game=no designation,differs,"Published practice/game status differs from the official report read on 2026-11-13. The official report is republished continuously, so a difference can be a legitimate status change rather than an error. Flagged for review; no value was changed.",https://www.nfl.com/injuries/
+IN-008,data/nfl_3b81013c/injuries_and_depth.csv,ID-08,official_report_status,DNP,DNP,match,,https://www.nfl.com/injuries/
+IN-009,data/nfl_3b81013c/injuries_and_depth.csv,ID-09,official_report_status,DNP,DNP,match,,https://www.nfl.com/injuries/
+IN-010,data/nfl_3b81013c/injuries_and_depth.csv,ID-10,official_report_status,DNP,practice=LIMITED; game=no designation,differs,"Published practice/game status differs from the official report read on 2026-11-13. The official report is republished continuously, so a difference can be a legitimate status change rather than an error. Flagged for review; no value was changed.",https://www.nfl.com/injuries/
+IN-011,data/nfl_3b81013c/injuries_and_depth.csv,ID-11,official_report_status,DNP,practice=LIMITED; game=no designation,differs,"Published practice/game status differs from the official report read on 2026-11-13. The official report is republished continuously, so a difference can be a legitimate status change rather than an error. Flagged for review; no value was changed.",https://www.nfl.com/injuries/
+IN-012,data/nfl_3b81013c/injuries_and_depth.csv,ID-12,official_report_status,OUT,OUT,match,,https://www.nfl.com/injuries/
+IN-013,data/nfl_3b81013c/injuries_and_depth.csv,ID-13,official_report_status,DNP,DNP,match,,https://www.nfl.com/injuries/
+IN-014,data/nfl_3b81013c/injuries_and_depth.csv,ID-14,official_report_status,DNP,DNP,match,,https://www.nfl.com/injuries/
+IN-015,data/nfl_3b81013c/injuries_and_depth.csv,ID-15,official_report_status,DNP,DNP,match,,https://www.nfl.com/injuries/
+IN-016,data/nfl_3b81013c/injuries_and_depth.csv,ID-16,official_report_status,DNP,DNP,match,,https://www.nfl.com/injuries/
+IN-017,data/nfl_3b81013c/injuries_and_depth.csv,ID-17,official_report_status,OUT,OUT,match,,https://www.nfl.com/injuries/
+IN-018,data/nfl_3b81013c/injuries_and_depth.csv,ID-18,official_report_status,DNP,practice=LIMITED; game=no designation,differs,"Published practice/game status differs from the official report read on 2026-11-13. The official report is republished continuously, so a difference can be a legitimate status change rather than an error. Flagged for review; no value was changed.",https://www.nfl.com/injuries/
+IN-019,data/nfl_3b81013c/injuries_and_depth.csv,ID-19,official_report_status,DNP,DNP,match,,https://www.nfl.com/injuries/
+IN-020,data/nfl_3b81013c/injuries_and_depth.csv,ID-20,official_report_status,DNP,practice=FULL; game=no designation,differs,"Published practice/game status differs from the official report read on 2026-11-13. The official report is republished continuously, so a difference can be a legitimate status change rather than an error. Flagged for review; no value was changed.",https://www.nfl.com/injuries/
+IN-021,data/nfl_3b81013c/injuries_and_depth.csv,ID-21,official_report_status,DNP,DNP,match,,https://www.nfl.com/injuries/
+IN-022,data/nfl_3b81013c/injuries_and_depth.csv,ID-22,official_report_status,DNP,DNP,match,,https://www.nfl.com/injuries/
+IN-023,data/nfl_3b81013c/injuries_and_depth.csv,ID-23,official_report_status,ACTIVE_EXPECTED,practice=not listed; game=no designation,differs,"Published practice/game status differs from the official report read on 2026-11-13. The official report is republished continuously, so a difference can be a legitimate status change rather than an error. Flagged for review; no value was changed.",https://www.nfl.com/injuries/
+IN-024,data/nfl_3b81013c/injuries_and_depth.csv,ID-24,official_report_status,DNP,practice=LIMITED; game=no designation,differs,"Published practice/game status differs from the official report read on 2026-11-13. The official report is republished continuously, so a difference can be a legitimate status change rather than an error. Flagged for review; no value was changed.",https://www.nfl.com/injuries/
+IN-025,data/nfl_3b81013c/injuries_and_depth.csv,ID-25,official_report_status,DNP,DNP,match,,https://www.nfl.com/injuries/
+IN-026,data/nfl_3b81013c/injuries_and_depth.csv,ID-26,official_report_status,OUT,OUT,match,,https://www.nfl.com/injuries/
+IN-027,data/nfl_3b81013c/injuries_and_depth.csv,ID-27,official_report_status,DNP,practice=LIMITED; game=QUESTIONABLE,differs,"Published practice/game status differs from the official report read on 2026-11-13. The official report is republished continuously, so a difference can be a legitimate status change rather than an error. Flagged for review; no value was changed.",https://www.nfl.com/injuries/
+IN-028,data/nfl_3b81013c/injuries_and_depth.csv,ID-28,official_report_status,OUT,OUT,match,,https://www.nfl.com/injuries/
+IN-029,data/nfl_3b81013c/injuries_and_depth.csv,ID-29,official_report_status,DNP,practice=LIMITED; game=QUESTIONABLE,differs,"Published practice/game status differs from the official report read on 2026-11-13. The official report is republished continuously, so a difference can be a legitimate status change rather than an error. Flagged for review; no value was changed.",https://www.nfl.com/injuries/
+IN-030,data/nfl_3b81013c/injuries_and_depth.csv,ID-30,official_report_status,OUT,OUT,match,,https://www.nfl.com/injuries/
+IN-031,data/nfl_3b81013c/injuries_and_depth.csv,ID-31,official_report_status,OUT,OUT,match,,https://www.nfl.com/injuries/
+IN-032,data/nfl_3b81013c/injuries_and_depth.csv,ID-32,official_report_status,OUT,OUT,match,,https://www.nfl.com/injuries/
+IN-033,data/nfl_3b81013c/injuries_and_depth.csv,ID-33,official_report_status,DNP,DNP,match,,https://www.nfl.com/injuries/
+IN-034,data/nfl_3b81013c/injuries_and_depth.csv,ID-34,official_report_status,DNP,practice=FULL; game=no designation,differs,"Published practice/game status differs from the official report read on 2026-11-13. The official report is republished continuously, so a difference can be a legitimate status change rather than an error. Flagged for review; no value was changed.",https://www.nfl.com/injuries/
+IN-035,data/nfl_3b81013c/injuries_and_depth.csv,ID-35,official_report_status,DNP,DNP,match,,https://www.nfl.com/injuries/
+IN-036,data/nfl_3b81013c/injuries_and_depth.csv,ID-36,official_report_status,DNP,DNP,match,,https://www.nfl.com/injuries/
+IN-037,data/nfl_3b81013c/injuries_and_depth.csv,ID-37,official_report_status,DNP,DNP,match,,https://www.nfl.com/injuries/
+IN-038,data/nfl_3b81013c/injuries_and_depth.csv,ID-38,official_report_status,DNP,practice=LIMITED; game=no designation,differs,"Published practice/game status differs from the official report read on 2026-11-13. The official report is republished continuously, so a difference can be a legitimate status change rather than an error. Flagged for review; no value was changed.",https://www.nfl.com/injuries/
+IN-039,data/nfl_3b81013c/injuries_and_depth.csv,ID-39,official_report_status,DNP,DNP,match,,https://www.nfl.com/injuries/
+IN-040,data/nfl_3b81013c/injuries_and_depth.csv,ID-40,official_report_status,DNP,,not_found_in_2026_11_13_capture,"The player does not appear in the decision-relevant capture taken from the official Week 10 report on 2026-11-13 (every player carrying an official designation, plus the full per-club listings read for the clubs named by the published packs). This is not evidence that the published claim is wrong: the report is republished continuously and a club lists only players with a reportable status. Flagged for review.",https://www.nfl.com/injuries/
+IN-041,data/nfl_3b81013c/injuries_and_depth.csv,ID-41,official_report_status,DNP,DNP,match,,https://www.nfl.com/injuries/
+IN-042,data/nfl_3b81013c/injuries_and_depth.csv,ID-42,official_report_status,DNP,DNP,match,,https://www.nfl.com/injuries/
+IN-043,data/nfl_3b81013c/injuries_and_depth.csv,ID-43,official_report_status,DNP,DNP,match,,https://www.nfl.com/injuries/
+IN-044,data/nfl_3b81013c/injuries_and_depth.csv,ID-44,official_report_status,LP,practice=DNP; game=no designation,differs,"Published practice/game status differs from the official report read on 2026-11-13. The official report is republished continuously, so a difference can be a legitimate status change rather than an error. Flagged for review; no value was changed.",https://www.nfl.com/injuries/
+IN-045,data/nfl_3b81013c/injuries_and_depth.csv,ID-45,official_report_status,LP,,not_found_in_2026_11_13_capture,"The player does not appear in the decision-relevant capture taken from the official Week 10 report on 2026-11-13 (every player carrying an official designation, plus the full per-club listings read for the clubs named by the published packs). This is not evidence that the published claim is wrong: the report is republished continuously and a club lists only players with a reportable status. Flagged for review.",https://www.nfl.com/injuries/
+IN-046,data/nfl_3b81013c/injuries_and_depth.csv,ID-46,official_report_status,LP,practice=DNP; game=no designation,differs,"Published practice/game status differs from the official report read on 2026-11-13. The official report is republished continuously, so a difference can be a legitimate status change rather than an error. Flagged for review; no value was changed.",https://www.nfl.com/injuries/
+IN-047,data/nfl_3b81013c/injuries_and_depth.csv,ID-47,official_report_status,LP,practice=DNP; game=OUT,differs,"Published practice/game status differs from the official report read on 2026-11-13. The official report is republished continuously, so a difference can be a legitimate status change rather than an error. Flagged for review; no value was changed.",https://www.nfl.com/injuries/
+IN-048,data/nfl_3b81013c/injuries_and_depth.csv,ID-48,official_report_status,LP,practice=FULL; game=no designation,differs,"Published practice/game status differs from the official report read on 2026-11-13. The official report is republished continuously, so a difference can be a legitimate status change rather than an error. Flagged for review; no value was changed.",https://www.nfl.com/injuries/
+IN-049,data/nfl_3b81013c/injuries_and_depth.csv,ID-49,official_report_status,LP,practice=FULL; game=OUT,differs,"Published practice/game status differs from the official report read on 2026-11-13. The official report is republished continuously, so a difference can be a legitimate status change rather than an error. Flagged for review; no value was changed.",https://www.nfl.com/injuries/
+DP-050,data/nfl_origination/injury_and_depth_deficiency.csv,DEPTH-01,starter_week10_status,OUT (Knee - DNP),OUT (game status),match,,https://www.nfl.com/injuries/
+DP-051,data/nfl_origination/injury_and_depth_deficiency.csv,DEPTH-02,starter_week10_status,DNP (Practice Report),practice=LIMITED; game=QUESTIONABLE,differs,Published practice status differs from the official report read on 2026-11-13; the official report is republished continuously. Flagged for review.,https://www.nfl.com/injuries/
+DP-052,data/nfl_origination/injury_and_depth_deficiency.csv,DEPTH-03,starter_week10_status,OUT (Knee - DNP),OUT (game status),match,,https://www.nfl.com/injuries/
+DP-053,data/nfl_origination/injury_and_depth_deficiency.csv,DEPTH-04,starter_week10_status,LIMITED (Practice Report),practice=FULL; game=no designation,differs,Published practice status differs from the official report read on 2026-11-13; the official report is republished continuously. Flagged for review.,https://www.nfl.com/injuries/
+DP-054,data/nfl_origination/injury_and_depth_deficiency.csv,DEPTH-05,starter_week10_status,LIMITED (Practice Report),practice=FULL; game=QUESTIONABLE,differs,Published practice status differs from the official report read on 2026-11-13; the official report is republished continuously. Flagged for review.,https://www.nfl.com/injuries/
+DP-055,data/nfl_origination/injury_and_depth_deficiency.csv,DEPTH-06,starter_week10_status,DNP (Practice Report),DNP,match,,https://www.nfl.com/injuries/
+DP-056,data/nfl_origination/injury_and_depth_deficiency.csv,DEPTH-07,starter_week10_status,DNP (Practice Report),DNP,match,,https://www.nfl.com/injuries/
+DP-057,data/nfl_origination/injury_and_depth_deficiency.csv,DEPTH-08,starter_week10_status,Active Expected,,not_found_in_2026_11_13_capture,"The named starter does not appear in the decision-relevant capture taken from the official Week 10 report on 2026-11-13. The report lists only players with a reportable status and is republished continuously, so absence from the capture is not proof that the published claim was wrong. Flagged for review.",https://www.nfl.com/injuries/
+DP-058,data/nfl_origination/injury_and_depth_deficiency.csv,DEPTH-09,starter_week10_status,FULL (Practice Report),FULL,match,,https://www.nfl.com/injuries/
+DP-059,data/nfl_origination/injury_and_depth_deficiency.csv,DEPTH-10,starter_week10_status,Active Expected,,not_found_in_2026_11_13_capture,"The named starter does not appear in the decision-relevant capture taken from the official Week 10 report on 2026-11-13. The report lists only players with a reportable status and is republished continuously, so absence from the capture is not proof that the published claim was wrong. Flagged for review.",https://www.nfl.com/injuries/
+DP-060,data/nfl_origination/injury_and_depth_deficiency.csv,DEPTH-11,starter_week10_status,Active Expected,,not_found_in_2026_11_13_capture,"The named starter does not appear in the decision-relevant capture taken from the official Week 10 report on 2026-11-13. The report lists only players with a reportable status and is republished continuously, so absence from the capture is not proof that the published claim was wrong. Flagged for review.",https://www.nfl.com/injuries/
+DP-061,data/nfl_origination/injury_and_depth_deficiency.csv,DEPTH-12,starter_week10_status,FULL (Practice Report),,not_found_in_2026_11_13_capture,"The named starter does not appear in the decision-relevant capture taken from the official Week 10 report on 2026-11-13. The report lists only players with a reportable status and is republished continuously, so absence from the capture is not proof that the published claim was wrong. Flagged for review.",https://www.nfl.com/injuries/
+DP-062,data/nfl_origination/injury_and_depth_deficiency.csv,DEPTH-13,starter_week10_status,DNP (Practice Report),DNP,match,,https://www.nfl.com/injuries/
+DP-063,data/nfl_origination/injury_and_depth_deficiency.csv,DEPTH-14,starter_week10_status,DNP (Practice Report),DNP,match,,https://www.nfl.com/injuries/
+DP-064,data/nfl_origination/injury_and_depth_deficiency.csv,DEPTH-15,starter_week10_status,DNP (Both Starters DNP),practice=LIMITED; game=no designation,differs,Published practice status differs from the official report read on 2026-11-13; the official report is republished continuously. Flagged for review.,https://www.nfl.com/injuries/
+DP-065,data/nfl_origination/injury_and_depth_deficiency.csv,DEPTH-16,starter_week10_status,DNP (Finger Surgery Week 10),DNP,match,,https://www.nfl.com/injuries/
+DP-066,data/nfl_origination/injury_and_depth_deficiency.csv,DEPTH-17,starter_week10_status,DNP / LIMITED,DNP,match,,https://www.nfl.com/injuries/
+DP-067,data/nfl_origination/injury_and_depth_deficiency.csv,DEPTH-18,starter_week10_status,DNP (All 3 Starters DNP),DNP,match,,https://www.nfl.com/injuries/
+DP-068,data/nfl_origination/injury_and_depth_deficiency.csv,DEPTH-19,starter_week10_status,Active Expected,practice=not listed; game=no designation,differs,Published practice status differs from the official report read on 2026-11-13; the official report is republished continuously. Flagged for review.,https://www.nfl.com/injuries/
+DP-069,data/nfl_origination/injury_and_depth_deficiency.csv,DEPTH-20,starter_week10_status,DNP / LIMITED,practice=LIMITED; game=no designation,differs,Published practice status differs from the official report read on 2026-11-13; the official report is republished continuously. Flagged for review.,https://www.nfl.com/injuries/
+DP-070,data/nfl_origination/injury_and_depth_deficiency.csv,DEPTH-21,starter_week10_status,DNP (Both Interior Starters DNP),practice=FULL; game=no designation,differs,Published practice status differs from the official report read on 2026-11-13; the official report is republished continuously. Flagged for review.,https://www.nfl.com/injuries/
+DP-071,data/nfl_origination/injury_and_depth_deficiency.csv,DEPTH-22,starter_week10_status,DNP (All 4 Defensive Starters DNP),practice=LIMITED; game=no designation,differs,Published practice status differs from the official report read on 2026-11-13; the official report is republished continuously. Flagged for review.,https://www.nfl.com/injuries/
+DP-072,data/nfl_origination/injury_and_depth_deficiency.csv,DEPTH-23,starter_week10_status,OUT (Ruled Out per NFL.com),OUT (game status),match,,https://www.nfl.com/injuries/
+DP-073,data/nfl_origination/injury_and_depth_deficiency.csv,DEPTH-24,starter_week10_status,IR (Right Thumb - Placed on IR Nov 5; min 4 games),practice=not listed; game=OUT,differs,Published practice status differs from the official report read on 2026-11-13; the official report is republished continuously. Flagged for review.,https://www.nfl.com/injuries/

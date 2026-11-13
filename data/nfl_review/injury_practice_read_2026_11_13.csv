@@ -1,0 +1,177 @@
+read_id,team,player,position,practice_status,game_status,official_source_url,read_date_et
+PR-001,Washington Commanders,John Bates,TE,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-002,Washington Commanders,Treylon Burks,WR,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-003,Washington Commanders,Jayden Daniels,QB,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-004,Washington Commanders,Matt Gulbin,C,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-005,Washington Commanders,Chig Okonkwo,TE,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-006,Washington Commanders,Lucas Patrick,C,Did Not Participate In Practice,Out,https://www.nfl.com/injuries/,2026-11-13
+PR-007,Washington Commanders,Amik Robertson,CB,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-008,Washington Commanders,Shy Tuttle,DT,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-009,Washington Commanders,Colson Yankoff,TE,Did Not Participate In Practice,Out,https://www.nfl.com/injuries/,2026-11-13
+PR-010,New York Giants,Abdul Carter,LB,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-011,New York Giants,Jermaine Eluemunor,T,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-012,New York Giants,Malik Harrison,LB,Limited Participation in Practice,Questionable,https://www.nfl.com/injuries/,2026-11-13
+PR-013,New York Giants,Colton Hood,CB,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-014,New York Giants,Theo Johnson,TE,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-015,New York Giants,Charlie Jones,WR,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-016,New York Giants,J.J. McCarthy,QB,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-017,New York Giants,Darnell Mooney,WR,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-018,New York Giants,Malik Nabers,WR,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-019,New York Giants,Cam Skattebo,RB,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-020,New York Giants,Andrew Thomas,T,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-021,New England Patriots,Ben Brown,C,Did Not Participate In Practice,Out,https://www.nfl.com/injuries/,2026-11-13
+PR-022,New England Patriots,A.J. Brown,WR,Limited Participation in Practice,Questionable,https://www.nfl.com/injuries/,2026-11-13
+PR-023,New England Patriots,Kevin Byard,S,Full Participation in Practice,Questionable,https://www.nfl.com/injuries/,2026-11-13
+PR-024,New England Patriots,Carlton Davis III,CB,Did Not Participate In Practice,Out,https://www.nfl.com/injuries/,2026-11-13
+PR-025,New England Patriots,Reggie Gilliam,FB,Limited Participation in Practice,Questionable,https://www.nfl.com/injuries/,2026-11-13
+PR-026,New England Patriots,TreVeyon Henderson,RB,Did Not Participate In Practice,Out,https://www.nfl.com/injuries/,2026-11-13
+PR-027,New England Patriots,Hunter Henry,TE,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-028,New England Patriots,Cameron Latu,TE,Limited Participation in Practice,Questionable,https://www.nfl.com/injuries/,2026-11-13
+PR-029,New England Patriots,Drake Maye,QB,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-030,New England Patriots,Morgan Moses,T,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-031,New England Patriots,Walter Rouse,T,Limited Participation in Practice,Questionable,https://www.nfl.com/injuries/,2026-11-13
+PR-032,New England Patriots,Brenden Schooler,S,Limited Participation in Practice,Questionable,https://www.nfl.com/injuries/,2026-11-13
+PR-033,New England Patriots,Rhamondre Stevenson,RB,Limited Participation in Practice,Questionable,https://www.nfl.com/injuries/,2026-11-13
+PR-034,New England Patriots,Greg Van Roten,G,Limited Participation in Practice,Questionable,https://www.nfl.com/injuries/,2026-11-13
+PR-035,New England Patriots,Charles Woods,CB,Limited Participation in Practice,Questionable,https://www.nfl.com/injuries/,2026-11-13
+PR-036,Detroit Lions,Brian Branch,S,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-037,Detroit Lions,Jared Goff,QB,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-038,Detroit Lions,Kerby Joseph,S,Full Participation in Practice,Out,https://www.nfl.com/injuries/,2026-11-13
+PR-039,Detroit Lions,Cade Mays,C,Did Not Participate In Practice,Out,https://www.nfl.com/injuries/,2026-11-13
+PR-040,Detroit Lions,D.J. Reed,CB,Did Not Participate In Practice,Out,https://www.nfl.com/injuries/,2026-11-13
+PR-041,Detroit Lions,Jacob Saylors,RB,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-042,Detroit Lions,Amon-Ra St. Brown,WR,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-043,Detroit Lions,Sione Vaki,RB,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-044,Detroit Lions,DJ Wonnum,DE,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-045,Minnesota Vikings,Blake Cashman,LB,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-046,Minnesota Vikings,T.J. Hockenson,TE,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-047,Minnesota Vikings,Tyrion Ingram-Dawkins,DT,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-048,Minnesota Vikings,Theo Jackson,S,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-049,Minnesota Vikings,Jauan Jennings,WR,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-050,Minnesota Vikings,Kyler Murray,QB,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-051,Minnesota Vikings,Kyle Van Noy,LB,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-052,Minnesota Vikings,Jay Ward,S,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-053,Minnesota Vikings,Carson Wentz,QB,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-054,Green Bay Packers,Aaron Banks,G,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-055,Green Bay Packers,Chris Brooks,RB,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-056,Green Bay Packers,Javon Bullard,S,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-057,Green Bay Packers,Zaire Franklin,LB,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-058,Green Bay Packers,Travis Glover,G,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-059,Green Bay Packers,Ty'Ron Hopper,LB,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-060,Green Bay Packers,Josh Jacobs,RB,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-061,Green Bay Packers,Bo Melton,WR,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-062,Green Bay Packers,Skyy Moore,WR,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-063,Green Bay Packers,Micah Parsons,LB,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-064,Green Bay Packers,Sean Rhyan,C,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-065,Green Bay Packers,Trey Smack,K,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-066,Green Bay Packers,Lukas Van Ness,LB,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-067,Green Bay Packers,Josh Whyle,TE,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-068,Green Bay Packers,Savion Williams,WR,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-069,Green Bay Packers,Kevin Zeitler,G,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-070,Cleveland Browns,Austin Barber,T,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-071,Cleveland Browns,Denzel Boston,WR,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-072,Cleveland Browns,Michael Burton,FB,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-073,Cleveland Browns,Maliek Collins,DT,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-074,Cleveland Browns,Harold Fannin Jr.,TE,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-075,Cleveland Browns,Ronnie Hickman Jr.,S,Did Not Participate In Practice,Out,https://www.nfl.com/injuries/,2026-11-13
+PR-076,Cleveland Browns,Tytus Howard,T,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-077,Cleveland Browns,Elgton Jenkins,C,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-078,Cleveland Browns,Donovan McMillon,S,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-079,Cleveland Browns,Carson Schwesinger,LB,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-080,Cleveland Browns,Denzel Ward,CB,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-081,Cleveland Browns,Quincy Williams,LB,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-082,Arizona Cardinals,Budda Baker,S,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-083,Arizona Cardinals,Zachary Carter,DT,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-084,Arizona Cardinals,Hjalte Froholdt,C,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-085,Arizona Cardinals,Jon Gaines II,G,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-086,Arizona Cardinals,Bam Knight,RB,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-087,Arizona Cardinals,Hunter Long,TE,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-088,Arizona Cardinals,Roy Lopez,DT,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-089,Arizona Cardinals,Max Melton,CB,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-090,Arizona Cardinals,Darius Robinson,DT,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-091,Arizona Cardinals,Isaac Seumalo,G,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-092,Arizona Cardinals,Dante Stills,DT,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-093,Arizona Cardinals,Josh Sweat,LB,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-094,Arizona Cardinals,Jayden Williams,T,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-095,Arizona Cardinals,Mack Wilson,LB,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-096,Arizona Cardinals,Andrew Wingard,S,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-097,Seattle Seahawks,AJ Barner,TE,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-098,Seattle Seahawks,Anthony Bradford,G,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-099,Seattle Seahawks,Charles Cross,T,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-100,Seattle Seahawks,Sam Darnold,QB,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-101,Seattle Seahawks,Derick Hall,LB,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-102,Seattle Seahawks,Drew Lock,QB,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-103,Seattle Seahawks,Quenton Nelson,G,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-104,Seattle Seahawks,Uchenna Nwosu,LB,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-105,Seattle Seahawks,Patrick O'Connell,LB,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-106,Seattle Seahawks,Connor O'Toole,LB,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-107,Seattle Seahawks,Brandon Pili,DT,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-108,Seattle Seahawks,Jarran Reed,DT,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-109,Seattle Seahawks,Rashid Shaheed,WR,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-110,Seattle Seahawks,Jaxon Smith-Njigba,WR,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-111,Seattle Seahawks,Leonard Williams,DT,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-112,San Francisco 49ers,Mike Evans,WR,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-113,San Francisco 49ers,Renardo Green,CB,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-114,San Francisco 49ers,Dre Greenlaw,LB,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-115,San Francisco 49ers,Nate Hobbs,CB,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-116,San Francisco 49ers,Deommodore Lenoir,CB,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-117,San Francisco 49ers,Christian McCaffrey,RB,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-118,San Francisco 49ers,Siran Neal,S,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-119,San Francisco 49ers,Demarcus Robinson,WR,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-120,San Francisco 49ers,Deebo Samuel Sr.,WR,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-121,San Francisco 49ers,Upton Stout,CB,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-122,San Francisco 49ers,C.J. West,DT,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-123,San Francisco 49ers,Trent Williams,T,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-124,Dallas Cowboys,Jonathan Bullard,DT,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-125,Dallas Cowboys,Alijah Clark,S,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-126,Dallas Cowboys,Donovan Ezeiruaku,LB,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-127,Dallas Cowboys,Jake Ferguson,TE,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-128,Dallas Cowboys,Tyler Goodson,RB,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-129,Dallas Cowboys,Malik Hooker,S,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-130,Dallas Cowboys,Marist Liufau,LB,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-131,Dallas Cowboys,P.J. Locke,S,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-132,Dallas Cowboys,Von Miller,LB,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-133,Dallas Cowboys,Jonathan Mingo,WR,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-134,Dallas Cowboys,Devin Moore,CB,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-135,Dallas Cowboys,DeMarvion Overshown,LB,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-136,Dallas Cowboys,George Pickens,WR,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-137,Dallas Cowboys,Joey Porter Jr.,CB,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-138,Dallas Cowboys,Luke Schoonmaker,TE,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-139,Dallas Cowboys,Brevyn Spann-Ford,TE,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-140,Dallas Cowboys,Juanyeh Thomas,S,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-141,Dallas Cowboys,KaVontae Turpin,WR,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-142,Los Angeles Rams,Davis Allen,TE,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-143,Los Angeles Rams,Steve Avila,G,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-144,Los Angeles Rams,Joe Cardona,LS,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-145,Los Angeles Rams,Kamren Curl,S,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-146,Los Angeles Rams,Terrance Ferguson,TE,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-147,Los Angeles Rams,Myles Garrett,LB,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-148,Los Angeles Rams,Tyler Higbee,TE,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-149,Los Angeles Rams,Trent McDuffie,CB,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-150,Los Angeles Rams,Puka Nacua,WR,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-151,Los Angeles Rams,Colby Parkinson,TE,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-152,Los Angeles Rams,Matthew Stafford,QB,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-153,Miami Dolphins,Tucker Addington,LS,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-154,Miami Dolphins,Kaytron Allen,RB,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-155,Miami Dolphins,Darrell Baker Jr.,CB,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-156,Miami Dolphins,Chris Bell,WR,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-157,Miami Dolphins,Aaron Brewer,C,Did Not Participate In Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-158,Miami Dolphins,Malik Herring,DE,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-159,Miami Dolphins,Will Kacmarek,TE,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-160,Miami Dolphins,Michael Taaffe,S,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-161,Miami Dolphins,Dante Trader Jr.,S,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-162,Miami Dolphins,Jared Wayne,WR,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-163,Miami Dolphins,Jaylen Wright,RB,Limited Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-164,Indianapolis Colts,Mo Alie-Cox,TE,Did Not Participate In Practice,Out,https://www.nfl.com/injuries/,2026-11-13
+PR-165,Indianapolis Colts,CJ Allen,LB,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-166,Indianapolis Colts,Jaylon Carlies,LB,Did Not Participate In Practice,Out,https://www.nfl.com/injuries/,2026-11-13
+PR-167,Indianapolis Colts,Akeem Davis-Gaither,LB,Did Not Participate In Practice,Out,https://www.nfl.com/injuries/,2026-11-13
+PR-168,Indianapolis Colts,A.J. Haulcy,S,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-169,Indianapolis Colts,Arden Key,DE,Full Participation in Practice,Questionable,https://www.nfl.com/injuries/,2026-11-13
+PR-170,Indianapolis Colts,Luke Rhodes,LS,Did Not Participate In Practice,Out,https://www.nfl.com/injuries/,2026-11-13
+PR-171,Indianapolis Colts,Grover Stewart,DT,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-172,Indianapolis Colts,Jonathan Taylor,RB,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-173,Indianapolis Colts,Jerry Tillery,DT,Did Not Participate In Practice,Out,https://www.nfl.com/injuries/,2026-11-13
+PR-174,Indianapolis Colts,Jalen Travis,T,Did Not Participate In Practice,Out,https://www.nfl.com/injuries/,2026-11-13
+PR-175,Indianapolis Colts,Justin Walley,CB,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13
+PR-176,Indianapolis Colts,Charvarius Ward,CB,Full Participation in Practice,,https://www.nfl.com/injuries/,2026-11-13

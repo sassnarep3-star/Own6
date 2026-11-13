@@ -1,0 +1,19 @@
+slot_id,date_et,kickoff_et,away_team,away_abbr,away_record,home_team,home_abbr,home_record,network,neutral_site,result,official_game_url,read_date_et,official_source_url
+W10-01,2026-11-12,8:15 PM ET,Washington Commanders,WAS,3-5-1,New York Giants,NYG,5-3-1,Prime Video,false,"Commanders 24, Giants 21 (FINAL)",https://www.nfl.com/games/commanders-at-giants-2026-reg-10,2026-11-13,https://www.nfl.com/schedules/2026/reg10/
+W10-02,2026-11-15,9:30 AM ET,New England Patriots,NE,5-4,Detroit Lions,DET,6-2,FOX,true,,https://www.nfl.com/games/patriots-at-lions-2026-reg-10,2026-11-13,https://www.nfl.com/schedules/2026/reg10/
+W10-03,2026-11-15,1:00 PM ET,Kansas City Chiefs,KC,6-2,Atlanta Falcons,ATL,3-6,CBS,false,,https://www.nfl.com/games/chiefs-at-falcons-2026-reg-10,2026-11-13,https://www.nfl.com/schedules/2026/reg10/
+W10-04,2026-11-15,1:00 PM ET,Houston Texans,HOU,3-5,Cleveland Browns,CLE,5-4,FOX,false,,https://www.nfl.com/games/texans-at-browns-2026-reg-10,2026-11-13,https://www.nfl.com/schedules/2026/reg10/
+W10-05,2026-11-15,1:00 PM ET,Minnesota Vikings,MIN,6-2,Green Bay Packers,GB,6-3,FOX,false,,https://www.nfl.com/games/vikings-at-packers-2026-reg-10,2026-11-13,https://www.nfl.com/schedules/2026/reg10/
+W10-06,2026-11-15,1:00 PM ET,Miami Dolphins,MIA,1-7,Indianapolis Colts,IND,2-7,CBS,false,,https://www.nfl.com/games/dolphins-at-colts-2026-reg-10,2026-11-13,https://www.nfl.com/schedules/2026/reg10/
+W10-07,2026-11-15,1:00 PM ET,Carolina Panthers,CAR,3-5,New Orleans Saints,NO,3-5,FOX,false,,https://www.nfl.com/games/panthers-at-saints-2026-reg-10,2026-11-13,https://www.nfl.com/schedules/2026/reg10/
+W10-08,2026-11-15,1:00 PM ET,Buffalo Bills,BUF,7-1,New York Jets,NYJ,2-7,CBS,false,,https://www.nfl.com/games/bills-at-jets-2026-reg-10,2026-11-13,https://www.nfl.com/schedules/2026/reg10/
+W10-09,2026-11-15,1:00 PM ET,Jacksonville Jaguars,JAX,6-2,Tennessee Titans,TEN,1-7,FOX,false,,https://www.nfl.com/games/jaguars-at-titans-2026-reg-10,2026-11-13,https://www.nfl.com/schedules/2026/reg10/
+W10-10,2026-11-15,4:05 PM ET,Los Angeles Rams,LAR,5-4,Arizona Cardinals,AZ,3-6,CBS,false,,https://www.nfl.com/games/rams-at-cardinals-2026-reg-10,2026-11-13,https://www.nfl.com/schedules/2026/reg10/
+W10-11,2026-11-15,4:05 PM ET,Seattle Seahawks,SEA,5-4,Las Vegas Raiders,LV,4-5,CBS,false,,https://www.nfl.com/games/seahawks-at-raiders-2026-reg-10,2026-11-13,https://www.nfl.com/schedules/2026/reg10/
+W10-12,2026-11-15,4:25 PM ET,San Francisco 49ers,SF,7-1,Dallas Cowboys,DAL,4-5,FOX,false,,https://www.nfl.com/games/49ers-at-cowboys-2026-reg-10,2026-11-13,https://www.nfl.com/schedules/2026/reg10/
+W10-13,2026-11-15,8:20 PM ET,Pittsburgh Steelers,PIT,6-2,Cincinnati Bengals,CIN,6-2,NBC,false,,https://www.nfl.com/games/steelers-at-bengals-2026-reg-10,2026-11-13,https://www.nfl.com/schedules/2026/reg10/
+W10-14,2026-11-16,8:15 PM ET,Los Angeles Chargers,LAC,0-8,Baltimore Ravens,BAL,4-5,ESPN,false,,https://www.nfl.com/games/chargers-at-ravens-2026-reg-10,2026-11-13,https://www.nfl.com/schedules/2026/reg10/
+W10-BYE-1,2026-11-15,BYE WEEK,Chicago Bears,CHI,7-2,,,,,,,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-13,https://www.nfl.com/schedules/2026/reg10/
+W10-BYE-2,2026-11-15,BYE WEEK,Denver Broncos,DEN,7-2,,,,,,,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-13,https://www.nfl.com/schedules/2026/reg10/
+W10-BYE-3,2026-11-15,BYE WEEK,Philadelphia Eagles,PHI,2-7,,,,,,,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-13,https://www.nfl.com/schedules/2026/reg10/
+W10-BYE-4,2026-11-15,BYE WEEK,Tampa Bay Buccaneers,TB,3-6,,,,,,,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-13,https://www.nfl.com/schedules/2026/reg10/
