@@ -1,0 +1,9 @@
+param_id,parameter,value,unit,basis,source_kind,value_source_url,official_source_url,read_on_utc,note
+D966-P01,hfa_points,0.0,,,,https://github.com/sassnarep3-star/Own6,https://github.com/sassnarep3-star/Own6,2026-11-14,
+D966-P02,line_step,0.5,,,,https://github.com/sassnarep3-star/Own6,https://github.com/sassnarep3-star/Own6,2026-11-14,
+D966-P03,margin_damping_lambda,1.0,,,,https://github.com/sassnarep3-star/Own6,https://github.com/sassnarep3-star/Own6,2026-11-14,
+D966-P04,noise_scale,measured,,,,https://github.com/sassnarep3-star/Own6,https://github.com/sassnarep3-star/Own6,2026-11-14,
+D966-P05,odds_step,5,,,,https://github.com/sassnarep3-star/Own6,https://github.com/sassnarep3-star/Own6,2026-11-14,
+D966-P06,score_dependence,measured,,,,https://github.com/sassnarep3-star/Own6,https://github.com/sassnarep3-star/Own6,2026-11-14,
+D966-P07,shrinkage_k_games,4,,,,https://github.com/sassnarep3-star/Own6,https://github.com/sassnarep3-star/Own6,2026-11-14,
+D966-P08,tie_handling,integer_convolution,,,,https://github.com/sassnarep3-star/Own6,https://github.com/sassnarep3-star/Own6,2026-11-14,

@@ -1,0 +1,38 @@
+identity,expected,observed,result,why_it_matters,official_source_url
+standings_sum_W_equals_sum_L,136,136,pass,every finished game produces exactly one win and one loss (or one tie each),https://www.nfl.com/standings/division/2026/reg
+standings_sum_ties_is_even,an even number,2,pass,a tied game adds one tie to each of two clubs,https://www.nfl.com/standings/division/2026/reg
+standings_sum_PF_equals_sum_PA,6291,6291,pass,points scored across the league must equal points conceded,https://www.nfl.com/standings/division/2026/reg
+feed_rows_unique_per_game,44,44,pass,one row per game: a duplicate would double-count a result,https://www.nfl.com/schedules/2026/by-week/week-7
+feed_points_match_standings_totals_or_exceed_nothing,every club's feed points <= its season points,no club exceeds its season total,pass,"the feed is a subset of the season, so it can never score more than the season total",https://www.nfl.com/standings/division/2026/reg
+games_before_feed_window_non_negative::ARI,>= 0,6,pass,"weeks 1-6 are not ingested yet, so the remainder must simply be non-negative",https://www.nfl.com/standings/division/2026/reg
+games_before_feed_window_non_negative::ATL,>= 0,6,pass,"weeks 1-6 are not ingested yet, so the remainder must simply be non-negative",https://www.nfl.com/standings/division/2026/reg
+games_before_feed_window_non_negative::BAL,>= 0,6,pass,"weeks 1-6 are not ingested yet, so the remainder must simply be non-negative",https://www.nfl.com/standings/division/2026/reg
+games_before_feed_window_non_negative::BUF,>= 0,6,pass,"weeks 1-6 are not ingested yet, so the remainder must simply be non-negative",https://www.nfl.com/standings/division/2026/reg
+games_before_feed_window_non_negative::CAR,>= 0,5,pass,"weeks 1-6 are not ingested yet, so the remainder must simply be non-negative",https://www.nfl.com/standings/division/2026/reg
+games_before_feed_window_non_negative::CHI,>= 0,6,pass,"weeks 1-6 are not ingested yet, so the remainder must simply be non-negative",https://www.nfl.com/standings/division/2026/reg
+games_before_feed_window_non_negative::CIN,>= 0,5,pass,"weeks 1-6 are not ingested yet, so the remainder must simply be non-negative",https://www.nfl.com/standings/division/2026/reg
+games_before_feed_window_non_negative::CLE,>= 0,6,pass,"weeks 1-6 are not ingested yet, so the remainder must simply be non-negative",https://www.nfl.com/standings/division/2026/reg
+games_before_feed_window_non_negative::DAL,>= 0,6,pass,"weeks 1-6 are not ingested yet, so the remainder must simply be non-negative",https://www.nfl.com/standings/division/2026/reg
+games_before_feed_window_non_negative::DEN,>= 0,6,pass,"weeks 1-6 are not ingested yet, so the remainder must simply be non-negative",https://www.nfl.com/standings/division/2026/reg
+games_before_feed_window_non_negative::DET,>= 0,5,pass,"weeks 1-6 are not ingested yet, so the remainder must simply be non-negative",https://www.nfl.com/standings/division/2026/reg
+games_before_feed_window_non_negative::GB,>= 0,6,pass,"weeks 1-6 are not ingested yet, so the remainder must simply be non-negative",https://www.nfl.com/standings/division/2026/reg
+games_before_feed_window_non_negative::HOU,>= 0,6,pass,"weeks 1-6 are not ingested yet, so the remainder must simply be non-negative",https://www.nfl.com/standings/division/2026/reg
+games_before_feed_window_non_negative::IND,>= 0,6,pass,"weeks 1-6 are not ingested yet, so the remainder must simply be non-negative",https://www.nfl.com/standings/division/2026/reg
+games_before_feed_window_non_negative::JAX,>= 0,6,pass,"weeks 1-6 are not ingested yet, so the remainder must simply be non-negative",https://www.nfl.com/standings/division/2026/reg
+games_before_feed_window_non_negative::KC,>= 0,5,pass,"weeks 1-6 are not ingested yet, so the remainder must simply be non-negative",https://www.nfl.com/standings/division/2026/reg
+games_before_feed_window_non_negative::LA,>= 0,6,pass,"weeks 1-6 are not ingested yet, so the remainder must simply be non-negative",https://www.nfl.com/standings/division/2026/reg
+games_before_feed_window_non_negative::LAC,>= 0,6,pass,"weeks 1-6 are not ingested yet, so the remainder must simply be non-negative",https://www.nfl.com/standings/division/2026/reg
+games_before_feed_window_non_negative::LV,>= 0,6,pass,"weeks 1-6 are not ingested yet, so the remainder must simply be non-negative",https://www.nfl.com/standings/division/2026/reg
+games_before_feed_window_non_negative::MIA,>= 0,5,pass,"weeks 1-6 are not ingested yet, so the remainder must simply be non-negative",https://www.nfl.com/standings/division/2026/reg
+games_before_feed_window_non_negative::MIN,>= 0,5,pass,"weeks 1-6 are not ingested yet, so the remainder must simply be non-negative",https://www.nfl.com/standings/division/2026/reg
+games_before_feed_window_non_negative::NE,>= 0,6,pass,"weeks 1-6 are not ingested yet, so the remainder must simply be non-negative",https://www.nfl.com/standings/division/2026/reg
+games_before_feed_window_non_negative::NO,>= 0,6,pass,"weeks 1-6 are not ingested yet, so the remainder must simply be non-negative",https://www.nfl.com/standings/division/2026/reg
+games_before_feed_window_non_negative::NYG,>= 0,6,pass,"weeks 1-6 are not ingested yet, so the remainder must simply be non-negative",https://www.nfl.com/standings/division/2026/reg
+games_before_feed_window_non_negative::NYJ,>= 0,6,pass,"weeks 1-6 are not ingested yet, so the remainder must simply be non-negative",https://www.nfl.com/standings/division/2026/reg
+games_before_feed_window_non_negative::PHI,>= 0,6,pass,"weeks 1-6 are not ingested yet, so the remainder must simply be non-negative",https://www.nfl.com/standings/division/2026/reg
+games_before_feed_window_non_negative::PIT,>= 0,6,pass,"weeks 1-6 are not ingested yet, so the remainder must simply be non-negative",https://www.nfl.com/standings/division/2026/reg
+games_before_feed_window_non_negative::SEA,>= 0,6,pass,"weeks 1-6 are not ingested yet, so the remainder must simply be non-negative",https://www.nfl.com/standings/division/2026/reg
+games_before_feed_window_non_negative::SF,>= 0,6,pass,"weeks 1-6 are not ingested yet, so the remainder must simply be non-negative",https://www.nfl.com/standings/division/2026/reg
+games_before_feed_window_non_negative::TB,>= 0,6,pass,"weeks 1-6 are not ingested yet, so the remainder must simply be non-negative",https://www.nfl.com/standings/division/2026/reg
+games_before_feed_window_non_negative::TEN,>= 0,6,pass,"weeks 1-6 are not ingested yet, so the remainder must simply be non-negative",https://www.nfl.com/standings/division/2026/reg
+games_before_feed_window_non_negative::WAS,>= 0,6,pass,"weeks 1-6 are not ingested yet, so the remainder must simply be non-negative",https://www.nfl.com/standings/division/2026/reg

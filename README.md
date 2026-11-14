@@ -206,3 +206,39 @@ and flagged ([Flagged for review](docs/nfl-6cefc476/flagged.html)). Build/check:
 are computations, not market prices. Executive summary:
 [`NFL_6CEFC476_EXECUTIVE_SUMMARY.md`](NFL_6CEFC476_EXECUTIVE_SUMMARY.md) · repo review:
 [`audit/NFL_6CEFC476_REPO_REVIEW.md`](audit/NFL_6CEFC476_REPO_REVIEW.md).
+
+## NFL Prices & Proof (session d966f630, 2026-11-14)
+
+The same eight-requirement brief as the sibling packs above, implemented on its own spine:
+`src/nfl_d966f630/` (capture, results, prices, originate, depth, correlate, backtest, leaderboard,
+demotion, flags, advice, audit) → 41 tables in `data/nfl_d966f630/` → 17 pages at
+https://sassnarep3-star.github.io/Own6/docs/nfl-d966f630/
+
+- **Verified results feed:** 44 official games (Weeks 7–10, 2026), 37 identity checks
+  (`sum W = sum L`, `PF − PA = NET`, `games = 0.5·Σ` others' games`), and 96 club-week
+  reconciliations of the derived "through week N" tables against the standings read: 86 matched,
+  10 clubs on bye with no badge, **0 mismatches**.
+- **Price ledger:** 210 hash-chained snapshot rows over 171 markets; open, close and movement are
+  derived from a market's position in its own series, never asserted. 26 markets show real
+  movement, and all 26 cross model versions, so the movement strategy is held at the gate.
+- **Origination:** side → total → moneyline enforced by a stage-order contract; fair / market /
+  difference published as three separate columns, with the model side filled and the market side
+  blank on all 14 rows plus a logged capture-attempt register.
+- **Leaderboard:** signal ranked on Brier **skill against each event's own base rate**, staking
+  reported beside it and never used for rank; the verifier fails the build if a payout column
+  appears in the signal table or an accuracy column in the staking table.
+- **Demotion gate:** 10 gates × 10 strategies = 100 evaluated rows; 1 strategy promoted, 9 held —
+  including the top-ranked signal row, which fails on calibration drift, and the second, which
+  fails on its drawdown budget.
+
+**Known limits, stated where they are read:** there is no book price in this environment, so no
+edge, no closing-line value and no ROI against a price exists anywhere in the pack; the
+probabilities are fitted on 28–86 team-games and published undamped with the fits shown as
+analysis; prop-combination legs cannot settle without per-player statistics.
+Build / check / test: `python3 scripts/build_nfl_d966f630.py` ·
+`python3 scripts/check_nfl_d966f630.py` (51 checks) ·
+`python3 -m unittest discover -s tests -p "test_nfl_d966f630.py"` (61 tests).
+Executive summary: [`NFL_D966F630_EXECUTIVE_SUMMARY.md`](NFL_D966F630_EXECUTIVE_SUMMARY.md) ·
+audit: [`audit/NFL_D966F630_REPO_AND_SOURCE_AUDIT.md`](audit/NFL_D966F630_REPO_AND_SOURCE_AUDIT.md).
+
+*Note for whoever merges next:* five sessions implemented this same eight-requirement brief independently on the same branch policy - `docs/nfl-market/` (session `f4e592a7`), `docs/nfl-6cefc476/`, `docs/nfl-f4/`, `docs/nfl-a411fed0/` and this pack. They agree on the central fact (no official or licensed source in this environment publishes a price, so the market and difference columns are blank everywhere); they differ in sample window, in how signal is ranked, and in how the demotion gate is defined. Choosing one as canonical is a human decision, recorded on the coordination board rather than resolved by this pack.

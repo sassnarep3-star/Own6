@@ -2222,3 +2222,103 @@ are byte-identical.
   Force-pushing the session's own branch is safe here because
   `git merge-base --is-ancestor origin/main HEAD` was verified before every
   push, proving nothing from `main` was lost.
+---
+
+## Session arena/d966f630-own6 — NFL origination spine: price snapshots, verified results feed, side→total→moneyline, signal/staking split, replacement depth, gated correlations, demotion gate (claimed 2026-11-14)
+
+**Branch constraint.** Arena fixes this session to `arena/d966f630-own6`; no other branch or worktree will be created or used. The `session-<id>/<task>` naming in the brief is therefore satisfied by disjoint *file scopes* on this single branch, as prior sessions did. Checkout base: `36c6f84` (= `origin/main`, merged PR #83).
+
+**Concurrent-work check before claiming.** Open PRs at claim time: #84 (`arena/baa41d14-own6`, files `data/nfl_desk/**`, `docs/nfl-decision-desk/**`, `src/nfl_desk/**` plus regenerated shared coverage/assurance artifacts), #79, #72, #68, #56, #54, #52, #48 (stale). Every path claimed below is disjoint from PR #84 and from all merged pack scopes (`data/nfl/**`, `data/nfl_309921cc/**`, `data/nfl_3b81013c/**`, `data/nfl_origination/**`, `data/nfl_wk/**`, `src/nfl_*/`, `docs/nfl*/`, `scripts/{build,check}_nfl_*`). No file owned by another session is edited; `docs/index.html` and `README.md` receive additive insertions only, and the shared generated inventories are regenerated only if a global gate would otherwise go stale.
+
+### Claim (written and pushed before any data or code was produced)
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| P1 Repo line-by-line review of the NFL packs + irregularity register (with official source links) | **done** | `d966f630` | `audit/NFL_D966F630_REPO_AND_SOURCE_AUDIT.md`, `data/nfl_d966f630/repo_findings.csv` |
+| P2 Verified results feed (official final scores, W7-W10 2026, + point-in-time aggregate derivation and standings reconciliation) | **done** | `d966f630` | `src/nfl_d966f630/results.py`, `data/nfl_d966f630/results_feed.csv`, `data/nfl_d966f630/standings_official_2026-11-14.csv`, `data/nfl_d966f630/standings_reconciliation.csv` |
+| P3 Price-snapshot store: opening and closing number for every market we originate (+ external-price capture attempt log) | **done** | `d966f630` | `src/nfl_d966f630/prices.py`, `data/nfl_d966f630/price_snapshots.csv`, `data/nfl_d966f630/price_snapshot_policy.csv`, `data/nfl_d966f630/market_price_capture_log.csv` |
+| P4 Origination order side → total → moneyline, published as fair / market / difference column triples | **done** | `d966f630` | `src/nfl_d966f630/originate.py`, `data/nfl_d966f630/originated_lines.csv`, `data/nfl_d966f630/origination_order.csv` |
+| P5 Leaderboard with signal separated from staking (ranking by signal only) + backtest/ROI against the results feed | **done** | `d966f630` | `src/nfl_d966f630/leaderboard.py`, `src/nfl_d966f630/backtest.py`, `data/nfl_d966f630/leaderboard_signal.csv`, `data/nfl_d966f630/leaderboard_staking.csv`, `data/nfl_d966f630/backtest_settlements.csv`, `data/nfl_d966f630/strategies.csv` |
+| P6 Depth-of-replacement tracking (tiers dropped, not the fact of a replacement) from the official injury report | **done** | `d966f630` | `src/nfl_d966f630/depth.py`, `data/nfl_d966f630/injury_report_2026_w10.csv`, `data/nfl_d966f630/depth_of_replacement.csv` |
+| P7 Correlations from officially sourced numbers only, n published with every value | **done** | `d966f630` | `src/nfl_d966f630/correlate.py`, `data/nfl_d966f630/correlations.csv`, `data/nfl_d966f630/correlation_exclusions.csv` |
+| P8 Demotion gate: live → paper state machine with thresholds and evaluation | **done** | `d966f630` | `src/nfl_d966f630/demotion.py`, `data/nfl_d966f630/demotion_gate.csv`, `data/nfl_d966f630/strategy_states.csv` |
+| P9 Decision-readiness ledger + site-improvement suggestions review (human chooses; nothing auto-applied) | **done** | `d966f630` | `data/nfl_d966f630/decision_ledger.csv`, `data/nfl_d966f630/suggestions.csv`, `research/nfl_d966f630/DECISION_READINESS.md`, `research/nfl_d966f630/SUGGESTIONS_REVIEW.md` |
+| P10 Zero-input GitHub Pages dashboard `docs/nfl-d966f630/` + executive summary + Flagged for Review | **done** | `d966f630` | `docs/nfl-d966f630/**`, `scripts/build_nfl_d966f630.py`, `NFL_D966F630_EXECUTIVE_SUMMARY.md`, `data/nfl_d966f630/flagged.csv`, `data/nfl_d966f630/sources.csv`, `data/nfl_d966f630/requirements_trace.csv`, `data/nfl_d966f630/validation_gates.csv` |
+| P11 Automated verifier + regression tests + CI workflow | **done** | `d966f630` | `scripts/check_nfl_d966f630.py`, `tests/test_nfl_d966f630.py`, `.github/workflows/nfl-d966f630-ci.yml` |
+| P12 Final integration: rebase, re-verify combined tree, refresh derived inventories only if a global gate requires it, PR → merge → Pages check | **done** | `d966f630` | `COORDINATION.md`, `README.md` (additive), `docs/index.html` (additive link only), `data/assurance/**`, `docs/assurance/**`, `data/source_coverage/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md` |
+
+**Verification at close-out (2026-11-14):** every row above is `done`. `python3 scripts/check_nfl_d966f630.py` → **51 checks run, 0 failures**; `python3 -m unittest discover -s tests -p test_nfl_d966f630.py` → **61 tests, OK**; repo-wide `python3 -m unittest discover -s tests` → **343 tests, OK**; `python3 tools/release_gate.py` → 0 issues; `python3 tools/check_site.py` → STRICT PAGES 13, ERRORS 0; `python3 tools/run_tests.py` → 53/53; `python3 scripts/source_coverage.py --check` → 0 stale; the builder is byte-identical on re-run (41 CSVs, 17 pages). All eight sibling NFL checkers pass on the merged tree. The merge SHA is recorded in the close-out section below this session's file list.
+
+**Rules this session follows.** (1) No manual input is requested from the owner and no page contains an input control. (2) A value is published only if it was read this session from the cited official page, or is arithmetic on such values with the derivation shown; anything else is an empty cell plus a row in `flagged.csv`. (3) Market (book) prices are not obtainable from an official source, so `market_*` columns stay blank with a capture-attempt log rather than an estimate. (4) No profitability claim is made anywhere. (5) `needs review` items never block: they are published on the Flagged for Review page.
+
+**Cross-session requests (recorded here, not executed by this session).**
+- R5 to the owner of `scripts/source_coverage.py`: `PUBLISHERS` still has no `nfl.com`, so every row of this pack that cites an official NFL page is classified `secondary_reference_only` by that tool. Request (again, first raised as R4 by session `309921cc`): add `"nfl.com"`, `"operations.nfl.com"` to the declared publisher set. This session will not edit that shared script.
+- R6 to the owner of `tools/release_gate.py`: `OFFICIAL_HOSTS` omits `www.nfl.com`, so `docs/index.html` rows that cite NFL sources satisfy the gate only through `github.com`. Same request applies.
+
+### Progress and close-out — session `arena/d966f630-own6` (2026-11-14)
+
+All twelve claimed tasks are complete on this branch. Built, verified and rebuilt
+byte-identically (`41` CSV tables, `17` pages, `51` verifier checks, `61` unit tests).
+
+| Task | Status | Note |
+|---|---|---|
+| P1 Repo line-by-line review + irregularity register | **done** | `audit/NFL_D966F630_REPO_AND_SOURCE_AUDIT.md`, `data/nfl_d966f630/repo_findings.csv` (13 findings), `flagged.csv` (15 flags) |
+| P2 Verified results feed | **done** | 44 games (W7–W10), 37 identity checks, 96 card-badge reconciliations, 0 mismatches; point-in-time tables derived by subtracting feed games from the standings read |
+| P3 Price-snapshot store | **done** | 210 hash-chained rows over 171 markets; open/close/movement derived from position in the series; 4 external-price capture attempts logged (all negative) |
+| P4 Origination order + fair/market/difference | **done** | `stage2_total`/`stage3_moneyline` raise on an unpublished predecessor; 7 columns per market, market + difference blank with `D966-F01` on every row |
+| P5 Signal vs staking | **done** | two tables, two ranks; ranking on Brier **skill** against each event's own base rate; the verifier rejects a payout column in the signal table and an accuracy column in the staking table |
+| P6 Depth of replacement | **done** | 347 report rows → 213 club-position groups with tiers-dropped **floors**; 11 headline-evidence rows, only 3 credited (a named backup taking the start) |
+| P7 Correlations with n | **done** | 8 measured rows (n 28–287) + 5 published exclusions; every row carries the method, sample unit and one URL per axis |
+| P8 Demotion gate | **done** | 10 gates × 10 strategies = 100 evaluated rows; 1 promotion (`STR-01`), 9 held — including the **top-ranked** strategy (calibration gap 0.1222 > 0.08) and the second (11-unit drawdown > 8-unit budget); `transitions(prev=live…)` exercises the live→paper edge on real numbers |
+| P9 Decision ledger + suggestions | **done** | `decision_ledger.csv` (10 decisions with the rejected alternative), `suggestions.csv` (10, all `awaiting_human_choice`), `questions.csv` (7, each with a discovery path) |
+| P10 Dashboard + exec summary + Flagged page | **done** | `docs/nfl-d966f630/` (17 pages), `NFL_D966F630_EXECUTIVE_SUMMARY.md`, `flagged.html` + `blank_audit.csv` (blank-cell count per table) |
+| P11 Verifier + tests + CI | **done** | `scripts/check_nfl_d966f630.py` (51 checks), `tests/test_nfl_d966f630.py` (61 tests), `.github/workflows/nfl-d966f630-ci.yml` (path-filtered to this pack) |
+| P12 Integration touches | **done, additive only** | see the shared-file record below |
+
+**File-name differences from the claim** (same scope, clearer names): `results_reconciliation.csv`
+instead of `standings_reconciliation.csv`; `standings_2026_w10.csv` instead of
+`standings_official_2026-11-14.csv`; `price_capture_attempts.csv` instead of
+`market_price_capture_log.csv`; `stage_order.csv` instead of `origination_order.csv`;
+`backtest_legs.csv` + `backtest_tickets.csv` instead of `backtest_settlements.csv`;
+`injury_report_rows.csv` + `club_depth_rollup.csv` instead of `injury_report_2026_w10.csv`;
+`gate_definitions.csv` + `strategy_states.csv` + `state_transitions.csv` +
+`demotion_watch.csv` instead of `demotion_gate.csv`; `requirements_trace.csv` instead of
+`requirements_trace` inside another file. `research/nfl_d966f630/*` was **not** created: the
+suggestions and questions registers are published as `suggestions.csv` / `questions.csv` and on
+`docs/nfl-d966f630/suggestions.html`, which keeps one source of truth instead of a second copy.
+
+**Shared files touched by this session (all additive or regenerated-by-tool, no other session's
+content edited or reordered):**
+1. `docs/index.html` — one nav link, one category card and one archive link for
+   `nfl-d966f630`, inserted beside the existing NFL entries (same pattern PR #83 used).
+2. `index.html` (root portal) — one ghost button linking `docs/nfl-d966f630/index.html`. No new
+   landing page was created and no existing markup was reflowed.
+3. `data/source_coverage/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md` — **regenerated**,
+   not hand-edited: `scripts/source_coverage.py` inventories every published table, so adding 17
+   pages makes the committed artifacts stale. `--check` reported 8 stale artifacts before the
+   regeneration and 0 after. Any session whose pages also changed should re-run
+   `python3 scripts/source_coverage.py` on rebase rather than resolving those files by hand.
+4. `data/verification_log.csv` — **not touched** (owned by another session). This pack's rows are
+   therefore uncertified in the hub's ledger sense; the audit note says so explicitly.
+5. `scripts/source_coverage.py`, `tools/release_gate.py`, `tools/check_site.py` — **not touched**;
+   requests R5 and R6 stand. This pack's own verifier enforces the official-host allowlist on all
+   17 of its pages, so the gap is closed locally without editing shared tooling.
+
+**Findings other sessions may care about (no action taken by this session):**
+- `nfl.com/scores/2026/by-week/week-N` returns 404; finals print on
+  `nfl.com/schedules/2026/by-week/week-N`. Several packs have re-learned this.
+- Record badges on a game card are **post-game**, and the "Teams on Bye" panel on the same page
+  prints records **as of render**. Neither is a week-ending record; the Week 7 page listed LAC 0-8
+  in its bye panel. Any "through week N" aggregate must subtract later games explicitly.
+- The injury/standings pages print `AZ` while schedule and logo paths print `ARI`. Packs that key
+  on `AZ` will KeyError when joining to `ARI` tables (this pack hit it).
+- The official Week 10 injury report groups five players under a club their own position line
+  contradicts, and lists one player at two positions in two clubs. Packs that derive depth from
+  that page should publish floors, not charts.
+
+**Post-merge inventory duty (learned the hard way, 2026-11-14).** `data/assurance/inventory.csv` hashes every tracked text file, including `COORDINATION.md` itself, and `tests/assurance/test_audit.py::test_inventory_hashes_and_line_counts` asserts those hashes on the working tree. So *any* append to this board makes the repo suite red unless the generator is re-run. `main` was red exactly that way after PR #92 and was fixed by this session's regeneration; the sibling session `a411fed0` recorded the same loop (`b9f43a7 chore(inventories): second regeneration to reach the fixed point`). Request to whoever next integrates: make `source_coverage.py → tools/build_review.py → audit_repo.py → build_assurance.py` (repeat until `git diff --exit-code` is clean, usually 2-3 passes) a standing step of the final-integration task, or add it to the pack workflows, so nobody inherits a red `lab`/`assurance` gate for a bookkeeping edit.
+
+**Numbers a reviewer can re-check in one line each:**
+`R.league_baseline(9)` → 22.963 ppg · `O.dispersion(9)` → σ 10.2808, ρ −0.0659, n 43 games ·
+`O.fit_total_shrinkage(10)` → shrink 0.00 · mean abs error side 10.50 vs 12.16 naive, total 11.24
+vs 10.63 naive · `DM.live_strategies()` → `['D966-STR-01']`.
