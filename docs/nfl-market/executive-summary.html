@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Executive summary · NFL own-line desk</title><style>
+:root{--bg:#0d1117;--panel:#151b23;--panel2:#1b232d;--line:#293341;--ink:#e6edf3;
+--muted:#93a1b0;--accent:#4da3ff;--good:#3fb950;--warn:#d29922;--bad:#f85149;--blank:#6e7681}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:15.5px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+nav{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:10px 16px;
+background:var(--panel);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:9}
+nav .brand{font-weight:700;letter-spacing:.03em;margin-right:8px;color:var(--ink)}
+nav a{padding:5px 9px;border-radius:6px;font-size:13.5px;color:var(--ink);
+background:var(--panel2);border:1px solid var(--line)}
+nav a.on{background:#22385a;border-color:var(--accent)}
+main{max-width:1240px;margin:0 auto;padding:22px 16px 70px}
+h1{font-size:27px;line-height:1.2;margin:8px 0 10px}
+h2{font-size:20px;margin:32px 0 8px;padding-top:8px;border-top:1px solid var(--line)}
+h3{font-size:16px;margin:20px 0 6px}
+p{margin:8px 0}
+.eyebrow{color:var(--accent);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;margin:0 0 4px}
+.lede{color:var(--muted);max-width:82ch}
+.hero{background:linear-gradient(180deg,#16202b,#11161d);border:1px solid var(--line);
+border-radius:14px;padding:22px;margin-bottom:16px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:10px;margin:14px 0}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px}
+.tile b{display:block;font-size:21px}.tile span{color:var(--muted);font-size:12px}
+.wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin:10px 0 18px}
+table{border-collapse:collapse;width:100%;font-size:13px;background:var(--panel)}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{background:var(--panel2);font-size:11.5px;letter-spacing:.03em;text-transform:uppercase;
+color:var(--muted);white-space:nowrap;position:sticky;top:50px}
+tbody tr:hover{background:#1a222c}
+td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.blank{color:var(--blank);font-style:italic;font-size:12px}
+.pill{display:inline-block;padding:1px 7px;border-radius:999px;font-size:11px;
+border:1px solid var(--line);background:#1b2430;white-space:nowrap}
+.ok{color:var(--good)}.warn{color:var(--warn)}.bad{color:var(--bad)}
+.note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);
+border-radius:8px;padding:11px 13px;margin:12px 0}
+.note.bad{border-left-color:var(--bad)}.note.warn{border-left-color:var(--warn)}
+ul,ol{margin:8px 0 8px 20px}li{margin:4px 0}
+code{background:#1b2430;border:1px solid var(--line);border-radius:4px;padding:1px 5px;font-size:12.5px}
+footer{color:var(--muted);font-size:12.5px;border-top:1px solid var(--line);
+margin-top:30px;padding-top:14px}
+</style></head><body><nav><span class="brand">NFL Own-Line Desk</span><a href="index.html">Overview</a><a href="executive-summary.html" class="on">Executive summary</a><a href="lines.html">Originated lines</a><a href="snapshots.html">Price snapshots</a><a href="results.html">Verified results</a><a href="leaderboard.html">Leaderboard</a><a href="validation.html">Validation gates</a><a href="correlations.html">Correlations</a><a href="depth.html">Depth &amp; injuries</a><a href="demotion.html">Demotion gate</a><a href="decision-ledger.html">Decision questions</a><a href="suggestions.html">Suggestions</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for review</a><a href="repo-review.html">Repo review</a></nav><main><p class="eyebrow">NFL market pack · captured 2026-11-14</p><h1>Executive summary</h1><p class="lede">A short, decision-oriented read of the whole pack.</p><h2>What was asked for and what exists</h2><div class="wrap"><table><thead><tr><th>Requirement</th><th>Status</th><th>Where it lives</th><th>Honest limit</th></tr></thead><tbody><tr><td>Price-snapshot store with opening and closing numbers</td><td>built, prices blank</td><td>snapshots.html, price_snapshots.csv</td><td>No official NFL price source exists.</td></tr><tr><td>Verified results feed so backtests and ROI can be computed</td><td>done</td><td>results.csv, 137 games</td><td>Scores only; no per-player box scores beyond the injury report.</td></tr><tr><td>Originate side, then total, then moneyline</td><td>done</td><td>lines.html</td><td>Moneyline inherits every error of the side.</td></tr><tr><td>Fair line, market line and difference as separate columns</td><td>done</td><td>originated_markets.csv</td><td>Market line and difference are blank by rule.</td></tr><tr><td>Separate signal from staking on the leaderboard</td><td>done</td><td>leaderboard.html</td><td>Signal score is a declared summary, not a probability.</td></tr><tr><td>Track depth of the replacement</td><td>done for 2 clubs</td><td>depth.html</td><td>Only NE and DET depth charts were captured.</td></tr><tr><td>Correlations only from official numbers, with n</td><td>done</td><td>correlations.html</td><td>Three requested correlations are refused, not estimated.</td></tr><tr><td>Demotion gate for live strategies</td><td>done</td><td>demotion.html</td><td>Not yet exercised by a live strategy, because none is live.</td></tr></tbody></table></div><h2>The headline number</h2><p>The originated side went <strong>28-44</strong> over 72 graded bets in weeks 5-9 (hit rate 0.3889, one-sided p vs a fair coin 0.9778). The model is not merely unproven; at this sample it is actively wrong on the side. The demotion gate correctly returns it to paper.</p><h2>What would change the answer</h2><ul><li>An official, citable market line. Without one the difference column cannot exist.</li><li>A forward sample of 200+ bets, which is a matter of weeks, not analysis.</li><li>Depth charts for the remaining 30 clubs, so the depth signal is not a two-club anecdote.</li></ul><footer>Every value on this site is either transcribed from an official NFL-family page on 2026-11-14 or computed from those transcriptions by <code>src/nfl_market</code>. Blank cells are values that could not be confirmed from an official source; they are listed on the <a href="flagged.html">Flagged for review</a> page. No profitability claim is made anywhere on this site.</footer></main></body></html>

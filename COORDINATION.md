@@ -1835,3 +1835,46 @@ Claimed P1–P9 at session start on 2026-11-14. All work is under `data/nfl_3099
 
 All irregularities from prior sessions remain on the Flagged for Review page. New flags from this session: NFL3-F18 (price snapshots blank), NFL3-F19 (results feed partial), NFL3-F20 (signal/staking blank). No new irregularities introduced.
 
+
+---
+
+## Session `arena/33ee4854-own6` — NFL Own-Lines Decision Desk: price snapshots, verified results, fair/market columns, signal-vs-staking leaderboard, replacement depth, sourced correlations, demotion gate (2026-11-14)
+
+**Platform branch constraint (logged deviation).** The brief asks for `session-<id>/<task>` branches. Arena fixes this
+session to branch **`arena/33ee4854-own6`** (base `36c6f84`, = `origin/main`) and forbids creating or switching to any
+other branch. Scopes are therefore kept non-overlapping **by file path**, and each task below is executed on this one branch.
+
+**Pre-claim check (2026-11-14).** Read `COORDINATION.md` in full, `git log`, `git ls-remote --heads origin`, and
+`gh pr list --state open`. Open PRs at claim time: #84 (`arena/baa41d14-own6`), #79 (`arena/44136693-own6`),
+#72 (`arena/3b81013c-own6`), #68 (`arena/34dacba5-own6`), and five older NBA-era PRs. Merged NFL scopes already on
+`main`: `docs|data|src` × `nfl`, `nfl_3b81013c`, `nfl_origination`, `nfl_wk`, `nfl_309921cc`. **No task below touches a
+path owned by any of them.** The new namespace `nfl_market` / `nfl-market` does not exist in the tree at claim time.
+
+**Live GitHub Pages target:** `docs/nfl-market/` → `https://sassnarep3-star.github.io/Own6/docs/nfl-market/`
+
+### Task board (session `33ee4854`)
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| M0 Claim + push | done | `33ee4854` | `COORDINATION.md` (append-only) |
+| M1 Line-by-line repo review + irregularity register | in progress | `33ee4854` | `audit/NFL_MARKET_REPO_REVIEW.md`, `data/nfl_market/repo_findings.csv` |
+| M2 Official source registry (every URL read this session) | in progress | `33ee4854` | `data/nfl_market/sources.csv` |
+| M3 Price-snapshot store: opening + closing for every originated market | in progress | `33ee4854` | `data/nfl_market/price_snapshots.csv`, `src/nfl_market/snapshots.py` |
+| M4 Verified results feed (final scores from NFL.com) → backtest + ROI | in progress | `33ee4854` | `data/nfl_market/results.csv`, `src/nfl_market/results.py` |
+| M5 Origination order: side → total → moneyline; fair / market / difference columns | in progress | `33ee4854` | `data/nfl_market/originated_markets.csv`, `src/nfl_market/originate.py` |
+| M6 Leaderboard with signal score and staking score reported separately | in progress | `33ee4854` | `data/nfl_market/leaderboard.csv`, `src/nfl_market/leaderboard.py` |
+| M7 Replacement-depth register (1st–4th string, offense + defense) | in progress | `33ee4854` | `data/nfl_market/replacement_depth.csv`, `src/nfl_market/depth.py` |
+| M8 Correlations from officially sourced numbers only, with n | in progress | `33ee4854` | `data/nfl_market/correlations.csv`, `src/nfl_market/correlations.py` |
+| M9 Demotion gate: live strategy → paper on defined triggers | in progress | `33ee4854` | `data/nfl_market/demotion_gate.csv`, `src/nfl_market/demotion.py` |
+| M10 Suggestions review section (option sets, `pending_human_choice`) | in progress | `33ee4854` | `data/nfl_market/suggestions.csv`, `docs/nfl-market/suggestions.html` |
+| M11 Decision-readiness ledger (questions / known / missing / discovery) | in progress | `33ee4854` | `data/nfl_market/decision_ledger.csv`, `research/nfl_market/DECISION_READINESS.md` |
+| M12 Validation gates + luck-removal (skill vs variance) | in progress | `33ee4854` | `data/nfl_market/validation_gates.csv`, `src/nfl_market/validation.py` |
+| M13 Zero-input dashboard + executive summary | in progress | `33ee4854` | `docs/nfl-market/**`, `NFL_MARKET_EXECUTIVE_SUMMARY.md`, `scripts/build_nfl_market.py` |
+| M14 Automated verifier + regression tests + CI | in progress | `33ee4854` | `scripts/check_nfl_market.py`, `tests/test_nfl_market.py`, `.github/workflows/nfl-market-ci.yml` |
+| M15 Integration: additive nav link, all gates, PR → merge → live Pages | in progress | `33ee4854` | `docs/index.html` (additive link only), `README.md` (append-only), `COORDINATION.md` (append-only) |
+
+**Status legend:** `unclaimed` · `in progress` · `done` · `needs review` (published on the Flagged for Review page; does
+not block).
+
+**Claim log:** 2026-11-14 — session `33ee4854` claims M0–M15 with the file scopes above. Committed and pushed immediately
+on `arena/33ee4854-own6` before any data work, per the brief.
