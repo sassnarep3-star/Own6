@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sources — Own6 NFL F4</title>
+<meta name="description" content="NFL own-line origination, verified results, price snapshots and a skill/staking-split leaderboard. Every value is sourced or blank.">
+<style>/* nfl-f4 dashboard — single stylesheet, no external requests */
+:root{--bg:#0b1016;--panel:#121a23;--panel2:#0f151d;--ink:#e8eef5;--dim:#8fa3b8;
+--line:#22303f;--accent:#4da3ff;--good:#37c07a;--warn:#e0a63a;--bad:#e2605a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+header{position:sticky;top:0;z-index:5;background:#0b1016f2;border-bottom:1px solid var(--line);
+backdrop-filter:blur(6px)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.brand{display:flex;align-items:center;gap:12px;padding:14px 0 10px}
+.brand b{font-size:17px;letter-spacing:.2px}
+.brand span{color:var(--dim);font-size:13px}
+nav{display:flex;flex-wrap:wrap;gap:4px;padding:0 0 12px}
+nav a{padding:5px 10px;border:1px solid var(--line);border-radius:999px;color:#c6d5e4;
+font-size:13px;background:var(--panel2)}
+nav a.on{border-color:var(--accent);color:#fff;background:#17324d}
+main{padding:26px 0 60px}
+h1{font-size:26px;margin:0 0 6px}
+h2{font-size:19px;margin:30px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+h3{font-size:15px;margin:20px 0 8px;color:#cfe0f0}
+p.lede{color:var(--dim);max-width:82ch;margin:0 0 18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:18px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.card .k{color:var(--dim);font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.card .v{font-size:24px;font-weight:600;margin-top:6px}
+.card .s{color:var(--dim);font-size:12px;margin-top:4px}
+table{width:100%;border-collapse:collapse;margin:12px 0 6px;font-size:13px;
+display:block;overflow-x:auto;white-space:nowrap}
+th,td{border-bottom:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--panel2);color:#bdd0e2;font-weight:600;position:sticky;top:0}
+tbody tr:hover{background:#16202b}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+caption{caption-side:top;text-align:left;color:var(--dim);font-size:12px;padding:6px 0}
+.blank{color:#54677a;font-style:italic}
+.pill{display:inline-block;padding:1px 7px;border-radius:999px;font-size:11px;border:1px solid}
+.pill.ok{color:var(--good);border-color:#1f5c40;background:#0e2419}
+.pill.warn{color:var(--warn);border-color:#5c4720;background:#241c0d}
+.pill.bad{color:var(--bad);border-color:#5c2622;background:#241010}
+.pill.neutral{color:var(--dim);border-color:var(--line);background:var(--panel2)}
+.note{border-left:3px solid var(--accent);background:var(--panel);padding:10px 14px;
+border-radius:0 8px 8px 0;margin:16px 0;color:#c3d4e5;font-size:14px}
+.note.bad{border-left-color:var(--bad)}
+.note.warn{border-left-color:var(--warn)}
+.note.ok{border-left-color:var(--good)}
+.scroll{overflow-x:auto}
+footer{border-top:1px solid var(--line);color:var(--dim);font-size:12px;padding:18px 0 40px}
+code{background:#1a2432;padding:1px 5px;border-radius:4px;font-size:12px}
+ul.tight{margin:6px 0 6px 18px;padding:0}
+ul.tight li{margin:4px 0}
+.kv{display:grid;grid-template-columns:210px 1fr;gap:4px 14px;font-size:13.5px;margin:10px 0}
+.kv dt{color:var(--dim)}
+.kv dd{margin:0}
+</style></head><body>
+<header><div class="wrap"><div class="brand"><b>Own6 · NFL Decision Desk</b>
+<span>2026 season · built 2026-11-14 · zero-input dashboard</span></div>
+<nav><a href="index.html">Overview</a><a href="requirements.html">Requirements</a><a href="lines.html">Own lines</a><a href="origination.html">Origination order</a><a href="prices.html">Price snapshots</a><a href="results.html">Verified results</a><a href="strategies.html">Strategies</a><a href="leaderboard.html">Leaderboard</a><a href="validation.html">Validation gates</a><a href="demotion.html">Demotion gate</a><a href="correlations.html">Correlations</a><a href="depth.html">Injury &amp; depth</a><a href="questions.html">Decision Q&A</a><a href="suggestions.html">Suggestions</a><a href="repo-review.html">Repo review</a><a href="sources.html" class="on">Sources</a><a href="executive-summary.html">Executive summary</a><a href="flagged.html">Flagged for review</a></nav></div></header>
+<main class="wrap"><h1>Sources</h1><p class="lede">Every source used, what it supports, and what it explicitly does not support.</p>
+<div class="note"><b>Two classes of source.</b> <em>Official</em> means published
+by the league (nfl.com, operations.nfl.com) or by a club (patriots.com,
+detroitlions.com). <em>Operator</em> means a licensed sportsbook's own published
+price — reliable as a price, but not a league publication, and labelled
+accordingly. Boundary notes say what each source does <em>not</em> support, which
+is the column that stops a source being over-read.</div>
+<table>
+<caption>11 sources.</caption>
+<thead><tr><th>ID</th><th>Publisher</th><th>Title</th><th>Read on</th><th>Supports</th><th>Does not support</th><th>Link</th></tr></thead><tbody>
+<tr><td>S01</td><td>NFL (nfl.com)</td><td>2026 NFL regular-season schedules, by week (weeks 1-10)</td><td>2026-11-14</td><td>Every final score used in results.csv, with the official game URL per game.</td><td>No odds, no injury designation, no depth order.</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-N" rel="noopener">https://www.nfl.com/schedules/2026/by-week/week-N</a></td></tr>
+<tr><td>S02</td><td>NFL (nfl.com)</td><td>2026 NFL standings</td><td>2026-11-14</td><td>Division records, PF and PA for all 32 teams; the reconciliation target.</td><td>No per-game detail, no strength of schedule, no point differential split.</td><td><a href="https://www.nfl.com/standings/" rel="noopener">https://www.nfl.com/standings/</a></td></tr>
+<tr><td>S03</td><td>NFL (nfl.com)</td><td>Week 10 schedule and scores</td><td>2026-11-14</td><td>Kickoff times in ET, broadcast, byes (CHI, DEN, PHI, TB) and the one played game.</td><td>No closing lines. nfl.com does not publish sportsbook prices.</td><td><a href="https://www.nfl.com/schedules/2026/week-10" rel="noopener">https://www.nfl.com/schedules/2026/week-10</a></td></tr>
+<tr><td>S04</td><td>NFL (nfl.com)</td><td>Week 10 injury report (all 28 playing teams)</td><td>2026-11-14</td><td>Player, injury, practice participation, game status (Out/Doubtful/Questionable).</td><td>No depth order, no snap counts, no replacement designation.</td><td><a href="https://www.nfl.com/injuries/" rel="noopener">https://www.nfl.com/injuries/</a></td></tr>
+<tr><td>S05</td><td>New England Patriots (patriots.com)</td><td>2026 depth chart</td><td>2026-11-14</td><td>Two-deep (and deeper) ordering for offence, defence and special teams.</td><td>Self-labelled unofficial: &#x27;the opinions of the Patriots.com writers&#x27;. Not a club depth chart.</td><td><a href="https://www.patriots.com/team/depth-chart" rel="noopener">https://www.patriots.com/team/depth-chart</a></td></tr>
+<tr><td>S06</td><td>Detroit Lions (detroitlions.com)</td><td>2026 depth chart</td><td>2026-11-14</td><td>Two-deep ordering for offence, defence and special teams.</td><td>Self-labelled unofficial: &#x27;Compiled by Lions Football Communications&#x27;. Not a club depth chart.</td><td><a href="https://www.detroitlions.com/team/depth-chart" rel="noopener">https://www.detroitlions.com/team/depth-chart</a></td></tr>
+<tr><td>S07</td><td>DraftKings (via ESPN public odds endpoint)</td><td>Event odds: open / current / close per market</td><td>2026-11-14</td><td>Opening and closing line and price for spread, total and moneyline, per event.</td><td>An operator&#x27;s own number relayed by a third party; not an NFL publication. No historical backfill before the capture date.</td><td><a href="https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/{event_id}/competitions/{event_id}/odds" rel="noopener">https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/{event_id}/competitions/{event_id}/odds</a></td></tr>
+<tr><td>S08</td><td>DraftKings Sportsbook</td><td>NFL league page</td><td>2026-11-14</td><td>Confirms the operator exists and the market is offered.</td><td>Client-rendered: yields no numeric prices to a static read (see F4-F09).</td><td><a href="https://sportsbook.draftkings.com/leagues/football/nfl" rel="noopener">https://sportsbook.draftkings.com/leagues/football/nfl</a></td></tr>
+<tr><td>S09</td><td>FanDuel Sportsbook</td><td>NFL navigation</td><td>2026-11-14</td><td>A second operator&#x27;s Week 10 and Week 11 prices, used only as a cross-check.</td><td>Never blended with DraftKings: provider identity is stored per row.</td><td><a href="https://sportsbook.fanduel.com/navigation/nfl" rel="noopener">https://sportsbook.fanduel.com/navigation/nfl</a></td></tr>
+<tr><td>S10</td><td>NFL (nfl.com)</td><td>News roundup, Friday 13 November 2026</td><td>2026-11-14</td><td>Confirms Lamar Jackson is out 6-10 weeks, which drives a depth finding.</td><td>Not an injury report; no practice participation.</td><td><a href="https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-friday-nov-13" rel="noopener">https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-friday-nov-13</a></td></tr>
+<tr><td>S11</td><td>NFL (nfl.com)</td><td>Week 10 scores page</td><td>2026-11-14</td><td>Final score for WAS@NYG (24-21) at the time of capture.</td><td>No partial-game state useful for live grading.</td><td><a href="https://www.nfl.com/scores/2026/week-10" rel="noopener">https://www.nfl.com/scores/2026/week-10</a></td></tr>
+</tbody></table>
+</main>
+<footer><div class="wrap">Sources are linked on every row. A blank cell is a cell
+that no official source confirmed; it is never a zero and never an estimate.
+This pack is informational and non-commercial. It is not betting advice, and it
+makes no profitability claim.</div></footer></body></html>

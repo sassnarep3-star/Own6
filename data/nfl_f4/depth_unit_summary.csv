@@ -1,0 +1,5 @@
+team,unit,slots_listed,starters_ruled_out,replacement_from_3rd_string_or_worse,deficiency_points_total,contingency_slots_3rd_string_or_worse,worst_case_points_total,score_kind
+DET,Offense,11,1,0,0.35,0,0.70,proposed_weight_not_observed
+DET,Defense,11,1,0,0.35,0,0.35,proposed_weight_not_observed
+NE,Offense,11,1,0,0.35,1,1.40,proposed_weight_not_observed
+NE,Defense,12,1,0,0.35,0,0.70,proposed_weight_not_observed

@@ -1,0 +1,21 @@
+f_id,area,issue,severity,handling,source_url
+F4-F01,Model,Home-field advantage is declared at 0.0 points.,high,Carried as a declared parameter on Validation gates; not estimated from this sample.,
+F4-F02,Prices,13 of 14 Week 10 games had no settled close at capture.,high,Stored as close_status=not_final with the live quote in the close column; never graded as a close.,https://www.nfl.com/schedules/2026/week-10
+F4-F03,Board,Zero strategies are certified; leaderboard.csv is empty by design.,high,Published as a stated result with the failing gates named on every row.,
+F4-F04,Results,The overtime flag is blank on all 137 games.,low,"Official week pages state score and day, not overtime. Left blank rather than inferred.",https://www.nfl.com/schedules/2026/by-week/week-1
+F4-F05,Model,"Margin dispersion sigma = 13.86 is a published league value, not fitted here.",medium,Declared on Validation gates with the reason no re-estimation was attempted.,
+F4-F06,Model,"Total dispersion sigma = 13.5 is declared, not measured.",medium,Same handling as F4-F05.,
+F4-F07,Data,Injury-report rosters name players at clubs that differ from 2025.,medium,"Recorded exactly as published (Kyler Murray, MIN; Mike Evans, SF; Justin Fields, KC); not corrected, not smoothed.",https://www.nfl.com/injuries/
+F4-F08,Depth,Both depth charts read are unofficial by the publisher's own words.,high,Every depth row carries status=verified_unofficial_source plus the club caveat text.,https://www.patriots.com/team/depth-chart
+F4-F09,Prices,The DraftKings league page returns no numbers to a static read.,low,Prices were taken from the operator's odds payload instead; recorded here so the failed route is not mistaken for missing data.,https://sportsbook.draftkings.com/leagues/football/nfl
+F4-F10,Model,"Deficiency weights (0.00 / 0.35 / 0.70 / 0.70) are declared, not fitted.",medium,Monotone in string number; published with the scale so they can be overruled.,
+F4-F11,Depth,30 of 32 clubs have no depth chart in this pack.,high,"Only clubs whose published chart was read are populated. A jersey-ordered roster is not a depth chart, so the rest are absent rather than guessed.",https://www.patriots.com/team/depth-chart
+F4-F12,Correlations,Rest differential could not be computed.,medium,Published as uncomputable with the reason; no proxy substituted.,
+F4-F13,Correlations,Depth-deficiency correlation could not be computed.,medium,One week of snapshots for two clubs is below any usable n.,https://www.nfl.com/injuries/
+F4-F14,Coverage,scripts/source_coverage.py does not allowlist any NFL domain.,low,NFL rows report secondary_reference_only in that shared tool. A request is logged in COORDINATION.md rather than editing another session's script.,
+F4-F15,Results,Week 10 has one result because 13 games had not been played.,medium,Stated on the results page; the feed is built to accept the rest as they settle.,https://www.nfl.com/schedules/2026/week-10
+F4-F16,Prices,Only DraftKings supplies an open/close pair for all 14 games.,medium,FanDuel numbers are a separate provider column and are never averaged in.,https://sportsbook.fanduel.com/navigation/nfl
+F4-F17,Board,A staking score exists for at most two settled bets.,high,Published with the luck p-value beside it; the mask test says the absence of a masking case is a small-sample artefact.,
+F4-F18,Scope,Player-prop combos (S7) are blocked.,high,No official player-level stat lines were captured. Blocked at gate G5 rather than priced from a plausible assumption.,
+F4-F19,Review,Prior pack nfl_309921cc differs from today's official injury page on 3 of 24 NE+DET rows.,medium,Listed on Repo review with the exact fields; the prior file is not modified.,https://www.nfl.com/injuries/
+F4-F20,Model,Fair lines are a naive points-per-game rating with no opponent adjustment.,high,"Stated in the method paragraph and on Own lines; every row is model_output, never verified.",

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Strategy catalog — Own6 NFL F4</title>
+<meta name="description" content="NFL own-line origination, verified results, price snapshots and a skill/staking-split leaderboard. Every value is sourced or blank.">
+<style>/* nfl-f4 dashboard — single stylesheet, no external requests */
+:root{--bg:#0b1016;--panel:#121a23;--panel2:#0f151d;--ink:#e8eef5;--dim:#8fa3b8;
+--line:#22303f;--accent:#4da3ff;--good:#37c07a;--warn:#e0a63a;--bad:#e2605a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+header{position:sticky;top:0;z-index:5;background:#0b1016f2;border-bottom:1px solid var(--line);
+backdrop-filter:blur(6px)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.brand{display:flex;align-items:center;gap:12px;padding:14px 0 10px}
+.brand b{font-size:17px;letter-spacing:.2px}
+.brand span{color:var(--dim);font-size:13px}
+nav{display:flex;flex-wrap:wrap;gap:4px;padding:0 0 12px}
+nav a{padding:5px 10px;border:1px solid var(--line);border-radius:999px;color:#c6d5e4;
+font-size:13px;background:var(--panel2)}
+nav a.on{border-color:var(--accent);color:#fff;background:#17324d}
+main{padding:26px 0 60px}
+h1{font-size:26px;margin:0 0 6px}
+h2{font-size:19px;margin:30px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+h3{font-size:15px;margin:20px 0 8px;color:#cfe0f0}
+p.lede{color:var(--dim);max-width:82ch;margin:0 0 18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:18px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.card .k{color:var(--dim);font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.card .v{font-size:24px;font-weight:600;margin-top:6px}
+.card .s{color:var(--dim);font-size:12px;margin-top:4px}
+table{width:100%;border-collapse:collapse;margin:12px 0 6px;font-size:13px;
+display:block;overflow-x:auto;white-space:nowrap}
+th,td{border-bottom:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--panel2);color:#bdd0e2;font-weight:600;position:sticky;top:0}
+tbody tr:hover{background:#16202b}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+caption{caption-side:top;text-align:left;color:var(--dim);font-size:12px;padding:6px 0}
+.blank{color:#54677a;font-style:italic}
+.pill{display:inline-block;padding:1px 7px;border-radius:999px;font-size:11px;border:1px solid}
+.pill.ok{color:var(--good);border-color:#1f5c40;background:#0e2419}
+.pill.warn{color:var(--warn);border-color:#5c4720;background:#241c0d}
+.pill.bad{color:var(--bad);border-color:#5c2622;background:#241010}
+.pill.neutral{color:var(--dim);border-color:var(--line);background:var(--panel2)}
+.note{border-left:3px solid var(--accent);background:var(--panel);padding:10px 14px;
+border-radius:0 8px 8px 0;margin:16px 0;color:#c3d4e5;font-size:14px}
+.note.bad{border-left-color:var(--bad)}
+.note.warn{border-left-color:var(--warn)}
+.note.ok{border-left-color:var(--good)}
+.scroll{overflow-x:auto}
+footer{border-top:1px solid var(--line);color:var(--dim);font-size:12px;padding:18px 0 40px}
+code{background:#1a2432;padding:1px 5px;border-radius:4px;font-size:12px}
+ul.tight{margin:6px 0 6px 18px;padding:0}
+ul.tight li{margin:4px 0}
+.kv{display:grid;grid-template-columns:210px 1fr;gap:4px 14px;font-size:13.5px;margin:10px 0}
+.kv dt{color:var(--dim)}
+.kv dd{margin:0}
+</style></head><body>
+<header><div class="wrap"><div class="brand"><b>Own6 · NFL Decision Desk</b>
+<span>2026 season · built 2026-11-14 · zero-input dashboard</span></div>
+<nav><a href="index.html">Overview</a><a href="requirements.html">Requirements</a><a href="lines.html">Own lines</a><a href="origination.html">Origination order</a><a href="prices.html">Price snapshots</a><a href="results.html">Verified results</a><a href="strategies.html" class="on">Strategies</a><a href="leaderboard.html">Leaderboard</a><a href="validation.html">Validation gates</a><a href="demotion.html">Demotion gate</a><a href="correlations.html">Correlations</a><a href="depth.html">Injury &amp; depth</a><a href="questions.html">Decision Q&A</a><a href="suggestions.html">Suggestions</a><a href="repo-review.html">Repo review</a><a href="sources.html">Sources</a><a href="executive-summary.html">Executive summary</a><a href="flagged.html">Flagged for review</a></nav></div></header>
+<main class="wrap"><h1>Strategy catalog</h1><p class="lede">Singles, parlays and prop combos — each with the gate that currently blocks it and why.</p>
+<div class="note bad"><b>Seven attempts, zero certifications.</b> A strategy earns
+a leaderboard row only by clearing the sample floor. At one settled game, none
+can. That is the gate doing the one job it has.</div>
+<table>
+<thead><tr><th>ID</th><th>Strategy</th><th>Market</th><th>Structure</th><th>Order</th><th>Bets</th><th>Weeks</th><th>Signal / bet</th><th>Staking</th><th>Certified</th><th>Gate detail</th><th>Price source</th></tr></thead><tbody>
+<tr><td>S1</td><td>Side: fade the biggest disagreement</td><td>side</td><td>single</td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="blank">—</td><td class="blank">—</td><td><span class="pill warn">no</span></td><td>G1_sample(0&lt;100);G2_weeks(0&lt;6);G3_no_signal;G4_staking_unavailable_no_settled_open_close_pair</td><td><a href="https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds" rel="noopener">https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds</a></td></tr>
+<tr><td>S2</td><td>Side: follow the model</td><td>side</td><td>single</td><td class="num">1</td><td class="num">1</td><td class="num">1</td><td>-1.0000</td><td>-1.0000</td><td><span class="pill warn">no</span></td><td>G1_sample(1&lt;100);G2_weeks(1&lt;6);G6_luck(1.0000&gt;0.05)</td><td><a href="https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds" rel="noopener">https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds</a></td></tr>
+<tr><td>S3</td><td>Total: play the model side of the total</td><td>total</td><td>single</td><td class="num">2</td><td class="num">1</td><td class="num">1</td><td>+5.0000</td><td>+0.8929</td><td><span class="pill warn">no</span></td><td>G1_sample(1&lt;100);G2_weeks(1&lt;6);G6_luck(0.5000&gt;0.05)</td><td><a href="https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds" rel="noopener">https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds</a></td></tr>
+<tr><td>S4</td><td>Moneyline: model probability edge</td><td>moneyline</td><td>single</td><td class="num">3</td><td class="num">1</td><td class="num">1</td><td>+0.0391</td><td>-1.0000</td><td><span class="pill warn">no</span></td><td>G1_sample(1&lt;100);G2_weeks(1&lt;6);G6_luck(1.0000&gt;0.05)</td><td><a href="https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds" rel="noopener">https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds</a></td></tr>
+<tr><td>S5</td><td>Two-team parlay: side + total, same game</td><td>side+total</td><td>parlay_sgp</td><td class="num">1</td><td class="num">2</td><td class="num">1</td><td>+2.0000</td><td>-0.1071</td><td><span class="pill warn">no</span></td><td>G1_sample(2&lt;100);G2_weeks(1&lt;6);G6_luck(0.7500&gt;0.05)</td><td><a href="https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds" rel="noopener">https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds</a></td></tr>
+<tr><td>S6</td><td>Two-team parlay: two sides, same week</td><td>side</td><td>parlay_multi</td><td class="num">1</td><td class="num">1</td><td class="num">1</td><td>-1.0000</td><td>-1.0000</td><td><span class="pill warn">no</span></td><td>G1_sample(1&lt;100);G2_weeks(1&lt;6);G6_luck(1.0000&gt;0.05)</td><td><a href="https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds" rel="noopener">https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds</a></td></tr>
+<tr><td>S7</td><td>Prop combo: QB pass yards + WR receptions</td><td>prop</td><td>combo</td><td class="num">3</td><td class="num">0</td><td class="num">0</td><td class="blank">—</td><td class="blank">—</td><td><span class="pill warn">no</span></td><td>G1_sample(0&lt;100);G2_weeks(0&lt;6);G3_no_signal;G4_staking_unavailable_no_settled_open_close_pair;G5_player_level_stats_not_captured</td><td><a href="https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds" rel="noopener">https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds</a></td></tr>
+</tbody></table>
+<h2>Structures, and what each one would need</h2>
+<dl class="kv">
+<dt>Single (S1–S4)</dt><dd>One market, one price. Needs a verified open, a verified close and a verified result per bet.</dd>
+<dt>Parlay, multi-game (S6)</dt><dd>Two independent legs. The advertised payout implies an independence assumption that this pack refuses to assume — the correlation table is the input, and it currently says the side/total dependence is not distinguishable from zero at n=137 (r = −0.16, p = 0.06).</dd>
+<dt>Same-game parlay (S5)</dt><dd>Legs that are structurally correlated. Without a measured same-game correlation, an SGP price is a guess. Gate G4 blocks it.</dd>
+<dt>Player-prop combo (S7)</dt><dd>Requires official player-level stat lines per game, which this pack does not capture. Blocked at G5 rather than filled with a plausible number.</dd>
+</dl>
+<h2>Rewards</h2>
+<p>The reward for a top-performing strategy is rank and promotion eligibility —
+nothing else. No staking plan is published, because a staking plan is the fastest
+way to convert a signal claim into a variance test. The moment a strategy clears
+the gates, its reward becomes a live slot with the
+<a href="demotion.html">demotion gate</a> attached.</p>
+</main>
+<footer><div class="wrap">Sources are linked on every row. A blank cell is a cell
+that no official source confirmed; it is never a zero and never an estimate.
+This pack is informational and non-commercial. It is not betting advice, and it
+makes no profitability claim.</div></footer></body></html>

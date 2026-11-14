@@ -1,0 +1,13 @@
+f_id,file,claim,official,verdict,source_url
+R01,data/nfl_309921cc/week10_injuries.csv,DET Kerby Joseph: practice = Full Participation,Today's official page lists Did Not Participate In Practice for the same player and week.,contradicted,https://www.nfl.com/injuries/
+R02,data/nfl_309921cc/week10_injuries.csv,"DET Amon-Ra St. Brown: injury blank, game status blank",Official page lists injury Rib and game status Questionable.,incomplete,https://www.nfl.com/injuries/
+R03,data/nfl_309921cc/week10_injuries.csv,"DET Sione Vaki: injury blank, practice = Did Not Participate","Official page lists injury Ankle, Limited Participation, Questionable.",contradicted,https://www.nfl.com/injuries/
+R04,data/nfl_309921cc/week10_injuries.csv,21 of 24 NE+DET rows match exactly,"Confirmed field by field (player, injury, practice, game status).",confirmed,https://www.nfl.com/injuries/
+R05,data/nfl_309921cc/standings_2026_w10.csv,32 teams with W-L-T and PF/PA,Independently recomputed from 137 final scores and matched on all five fields.,confirmed,https://www.nfl.com/standings/
+R06,"data/nfl_309921cc/strategies.csv, leaderboard.csv",Strategies presented with a leaderboard,"No settled prices exist in that pack, so no strategy could have been graded. The rows are proposals, not results; the file names imply otherwise.",mislabelled,https://www.nfl.com/schedules/2026/week-10
+R07,data/nfl_309921cc/week10_slate.csv,14 games with status and scores,13 games were unplayed at capture and the Thursday game final; consistent with official page.,confirmed,https://www.nfl.com/schedules/2026/week-10
+R08,data/nfl_309921cc/correlations.csv,Correlation values published,"Checked whether n accompanied every value; where n was absent the value is unverifiable from inside the repo. This is an internal consistency finding, not an external contradiction.",internal_consistency,
+R09,data/nfl_309921cc/depth_charts.csv,Depth rows for clubs,"The pack labels them unofficial, which matches both club pages read here.",confirmed,https://www.patriots.com/team/depth-chart
+R10,data/nfl_309921cc/validation_gates.csv,Gates declared,Gate thresholds are stated but no artefact shows them being applied to a settled sample.,unverifiable,
+R11,data/nfl_309921cc/flagged.csv,Flags raised,The flags correctly identify unofficial depth and missing prices; they omit the injury-field gaps found at R01-R03.,incomplete,https://www.nfl.com/injuries/
+R12,data/nfl_origination/week10_slate_and_lines.csv,Market columns present but blank,"Consistent with the claim that no licensed prices were held. Not an error, but not officially checkable either: it asserts an absence.",internal_consistency,

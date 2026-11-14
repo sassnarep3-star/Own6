@@ -1,0 +1,61 @@
+name: NFL F4 pack
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/nfl_f4/**'
+      - 'data/nfl_f4/**'
+      - 'docs/nfl-f4/**'
+      - 'scripts/build_nfl_f4.py'
+      - 'scripts/check_nfl_f4.py'
+      - 'scripts/registers_nfl_f4.py'
+      - 'scripts/capture_nfl_f4_raw.py'
+      - 'tests/test_nfl_f4.py'
+      - '.github/workflows/nfl-f4-ci.yml'
+  pull_request:
+    paths:
+      - 'src/nfl_f4/**'
+      - 'data/nfl_f4/**'
+      - 'docs/nfl-f4/**'
+      - 'scripts/*_nfl_f4.py'
+      - 'tests/test_nfl_f4.py'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Rebuild every artefact from the committed raw capture
+        run: |
+          python3 scripts/registers_nfl_f4.py
+          python3 scripts/build_nfl_f4.py
+
+      - name: Fail if a rebuild changes a committed file
+        run: |
+          if ! git diff --quiet; then
+            echo "::error::Regeneration changed committed files. The build must be a"
+            echo "::error::pure function of the committed data. Offending paths:"
+            git diff --name-only
+            exit 1
+          fi
+
+      - name: Fail-closed checks
+        run: python3 scripts/check_nfl_f4.py
+
+      - name: Results reconciliation must match all 32 teams
+        run: python3 -c "from src.nfl_f4 import results; results.reconcile_or_raise()"
+
+      - name: Unit tests
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install pytest
+          python3 -m pytest tests/test_nfl_f4.py -q
