@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Correlations · NFL own-line desk</title><style>
+:root{--bg:#0d1117;--panel:#151b23;--panel2:#1b232d;--line:#293341;--ink:#e6edf3;
+--muted:#93a1b0;--accent:#4da3ff;--good:#3fb950;--warn:#d29922;--bad:#f85149;--blank:#6e7681}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:15.5px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+nav{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:10px 16px;
+background:var(--panel);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:9}
+nav .brand{font-weight:700;letter-spacing:.03em;margin-right:8px;color:var(--ink)}
+nav a{padding:5px 9px;border-radius:6px;font-size:13.5px;color:var(--ink);
+background:var(--panel2);border:1px solid var(--line)}
+nav a.on{background:#22385a;border-color:var(--accent)}
+main{max-width:1240px;margin:0 auto;padding:22px 16px 70px}
+h1{font-size:27px;line-height:1.2;margin:8px 0 10px}
+h2{font-size:20px;margin:32px 0 8px;padding-top:8px;border-top:1px solid var(--line)}
+h3{font-size:16px;margin:20px 0 6px}
+p{margin:8px 0}
+.eyebrow{color:var(--accent);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;margin:0 0 4px}
+.lede{color:var(--muted);max-width:82ch}
+.hero{background:linear-gradient(180deg,#16202b,#11161d);border:1px solid var(--line);
+border-radius:14px;padding:22px;margin-bottom:16px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:10px;margin:14px 0}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px}
+.tile b{display:block;font-size:21px}.tile span{color:var(--muted);font-size:12px}
+.wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin:10px 0 18px}
+table{border-collapse:collapse;width:100%;font-size:13px;background:var(--panel)}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{background:var(--panel2);font-size:11.5px;letter-spacing:.03em;text-transform:uppercase;
+color:var(--muted);white-space:nowrap;position:sticky;top:50px}
+tbody tr:hover{background:#1a222c}
+td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.blank{color:var(--blank);font-style:italic;font-size:12px}
+.pill{display:inline-block;padding:1px 7px;border-radius:999px;font-size:11px;
+border:1px solid var(--line);background:#1b2430;white-space:nowrap}
+.ok{color:var(--good)}.warn{color:var(--warn)}.bad{color:var(--bad)}
+.note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);
+border-radius:8px;padding:11px 13px;margin:12px 0}
+.note.bad{border-left-color:var(--bad)}.note.warn{border-left-color:var(--warn)}
+ul,ol{margin:8px 0 8px 20px}li{margin:4px 0}
+code{background:#1b2430;border:1px solid var(--line);border-radius:4px;padding:1px 5px;font-size:12.5px}
+footer{color:var(--muted);font-size:12.5px;border-top:1px solid var(--line);
+margin-top:30px;padding-top:14px}
+</style></head><body><nav><span class="brand">NFL Own-Line Desk</span><a href="index.html">Overview</a><a href="executive-summary.html">Executive summary</a><a href="lines.html">Originated lines</a><a href="snapshots.html">Price snapshots</a><a href="results.html">Verified results</a><a href="leaderboard.html">Leaderboard</a><a href="validation.html">Validation gates</a><a href="correlations.html" class="on">Correlations</a><a href="depth.html">Depth &amp; injuries</a><a href="demotion.html">Demotion gate</a><a href="decision-ledger.html">Decision questions</a><a href="suggestions.html">Suggestions</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for review</a><a href="repo-review.html">Repo review</a></nav><main><p class="eyebrow">NFL market pack · captured 2026-11-14</p><h1>Correlations</h1><p class="lede">Only from officially sourced numbers. n is on every row, including the refused ones.</p><div class="wrap"><table><thead><tr><th>correlation_id</th><th>leg_a</th><th>leg_b</th><th>n</th><th>method</th><th>correlation_value</th><th>p_two_sided</th><th>status</th><th>interpretation_note</th><th>official_source_url</th></tr></thead><tbody><tr><td>COR-01</td><td>win_percentage</td><td>points_differential</td><td class="num">32</td><td>spearman</td><td class="num">0.8574</td><td class="num">0.0</td><td><span class="pill ok">published</span></td><td>Mechanical: points differential is a near-tautological predictor of wins, so a high value here validates the transcription, not the model. It is published as a data check.</td><td><a href="https://www.nfl.com/standings/" rel="noopener">source</a></td></tr><tr><td>COR-02</td><td>points_for</td><td>points_against</td><td class="num">32</td><td>pearson</td><td class="num">-0.0869</td><td class="num">0.6362</td><td><span class="pill ok">published</span></td><td>Tests whether scoring offence and scoring defence move together across clubs. A value near zero supports treating the two legs of a same-game parlay as separable; a large value would mean independent-parlay maths is wrong for tha…</td><td><a href="https://www.nfl.com/standings/" rel="noopener">source</a></td></tr><tr><td>COR-03</td><td>side_grade</td><td>total_grade</td><td class="num">72</td><td>pearson</td><td class="num">-0.1811</td><td class="num">0.128</td><td><span class="pill ok">published</span></td><td>Same-game, same-model leg correlation. This is the number that decides whether a side+total same-game parlay may be priced as independent. n is the count of games with both legs graded.</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-9" rel="noopener">source</a></td></tr><tr><td>COR-04</td><td>home_margin</td><td>game_total</td><td class="num">72</td><td>pearson</td><td class="num">-0.2331</td><td class="num">0.0488</td><td><span class="pill ok">published</span></td><td>Blowouts and shootouts are separate phenomena in this sample if this is near zero. Used to decide whether a &#x27;parlay the favourite and the over&#x27; story has any basis.</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-9" rel="noopener">source</a></td></tr><tr><td>COR-05</td><td>model_fair_total</td><td>actual_total</td><td class="num">72</td><td>pearson</td><td class="num">0.0754</td><td class="num">0.5293</td><td><span class="pill ok">published</span></td><td>Calibration of the originated total. A correlation near zero with a mean error near zero would mean the model is well-centred but uninformative; the signed mean error is reported on the validation page.</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-9" rel="noopener">source</a></td></tr><tr><td>COR-06</td><td>closing_line_movement</td><td>result_against_spread</td><td class="blank">blank</td><td class="blank">blank</td><td class="blank">blank</td><td class="blank">blank</td><td><span class="pill bad">refused_no_official_source</span></td><td>Requires a verified opening and closing price. No official NFL price source exists (nfl.com/odds/ is the NFL 404 page), so this cannot be computed without a third-party book, which the official-source-only rule forbids.</td><td><a href="https://www.nfl.com/odds/" rel="noopener">source</a></td></tr><tr><td>COR-07</td><td>player_prop_line</td><td>player_prop_result</td><td class="blank">blank</td><td class="blank">blank</td><td class="blank">blank</td><td class="blank">blank</td><td><span class="pill bad">refused_no_official_source</span></td><td>Requires official player prop prices and official per-player stat lines. NFL.com publishes injury designations and depth charts (both captured) but no prop prices.</td><td><a href="https://www.nfl.com/odds/" rel="noopener">source</a></td></tr><tr><td>COR-08</td><td>depth_deficiency_points</td><td>result_against_spread</td><td class="blank">blank</td><td class="blank">blank</td><td class="blank">blank</td><td class="blank">blank</td><td><span class="pill bad">refused_no_official_source</span></td><td>Computable in principle: depth deficiency is captured for NE and DET, and both clubs&#x27; Week 10 games are in the slate. It is not computable yet because the Week 10 games have not been played, so n = 1 at most. Deferred to the Week…</td><td><a href="https://www.nfl.com/odds/" rel="noopener">source</a></td></tr></tbody></table></div><div class="note warn"><strong>COR-06 to COR-08 are refusals.</strong> They are the correlations this project would most like to have, and they cannot be computed from official sources. Refusing is the correct output.</div><footer>Every value on this site is either transcribed from an official NFL-family page on 2026-11-14 or computed from those transcriptions by <code>src/nfl_market</code>. Blank cells are values that could not be confirmed from an official source; they are listed on the <a href="flagged.html">Flagged for review</a> page. No profitability claim is made anywhere on this site.</footer></main></body></html>

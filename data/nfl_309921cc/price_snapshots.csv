@@ -1,0 +1,57 @@
+snapshot_id,game_id,market_type,opening_price,closing_price,opening_timestamp_utc,closing_timestamp_utc,source_url,notes,status
+PS-W10-01-spread,W10-01,spread,,,,,https://www.nfl.com/schedules,Opening/closing spread; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-01-total,W10-01,total,,,,,https://www.nfl.com/schedules,Opening/closing total; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-01-moneyline_home,W10-01,moneyline_home,,,,,https://www.nfl.com/schedules,Opening/closing home moneyline; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-01-moneyline_away,W10-01,moneyline_away,,,,,https://www.nfl.com/schedules,Opening/closing away moneyline; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-02-spread,W10-02,spread,,,,,https://www.nfl.com/schedules,Opening/closing spread; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-02-total,W10-02,total,,,,,https://www.nfl.com/schedules,Opening/closing total; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-02-moneyline_home,W10-02,moneyline_home,,,,,https://www.nfl.com/schedules,Opening/closing home moneyline; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-02-moneyline_away,W10-02,moneyline_away,,,,,https://www.nfl.com/schedules,Opening/closing away moneyline; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-03-spread,W10-03,spread,,,,,https://www.nfl.com/schedules,Opening/closing spread; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-03-total,W10-03,total,,,,,https://www.nfl.com/schedules,Opening/closing total; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-03-moneyline_home,W10-03,moneyline_home,,,,,https://www.nfl.com/schedules,Opening/closing home moneyline; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-03-moneyline_away,W10-03,moneyline_away,,,,,https://www.nfl.com/schedules,Opening/closing away moneyline; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-04-spread,W10-04,spread,,,,,https://www.nfl.com/schedules,Opening/closing spread; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-04-total,W10-04,total,,,,,https://www.nfl.com/schedules,Opening/closing total; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-04-moneyline_home,W10-04,moneyline_home,,,,,https://www.nfl.com/schedules,Opening/closing home moneyline; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-04-moneyline_away,W10-04,moneyline_away,,,,,https://www.nfl.com/schedules,Opening/closing away moneyline; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-05-spread,W10-05,spread,,,,,https://www.nfl.com/schedules,Opening/closing spread; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-05-total,W10-05,total,,,,,https://www.nfl.com/schedules,Opening/closing total; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-05-moneyline_home,W10-05,moneyline_home,,,,,https://www.nfl.com/schedules,Opening/closing home moneyline; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-05-moneyline_away,W10-05,moneyline_away,,,,,https://www.nfl.com/schedules,Opening/closing away moneyline; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-06-spread,W10-06,spread,,,,,https://www.nfl.com/schedules,Opening/closing spread; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-06-total,W10-06,total,,,,,https://www.nfl.com/schedules,Opening/closing total; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-06-moneyline_home,W10-06,moneyline_home,,,,,https://www.nfl.com/schedules,Opening/closing home moneyline; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-06-moneyline_away,W10-06,moneyline_away,,,,,https://www.nfl.com/schedules,Opening/closing away moneyline; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-07-spread,W10-07,spread,,,,,https://www.nfl.com/schedules,Opening/closing spread; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-07-total,W10-07,total,,,,,https://www.nfl.com/schedules,Opening/closing total; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-07-moneyline_home,W10-07,moneyline_home,,,,,https://www.nfl.com/schedules,Opening/closing home moneyline; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-07-moneyline_away,W10-07,moneyline_away,,,,,https://www.nfl.com/schedules,Opening/closing away moneyline; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-08-spread,W10-08,spread,,,,,https://www.nfl.com/schedules,Opening/closing spread; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-08-total,W10-08,total,,,,,https://www.nfl.com/schedules,Opening/closing total; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-08-moneyline_home,W10-08,moneyline_home,,,,,https://www.nfl.com/schedules,Opening/closing home moneyline; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-08-moneyline_away,W10-08,moneyline_away,,,,,https://www.nfl.com/schedules,Opening/closing away moneyline; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-09-spread,W10-09,spread,,,,,https://www.nfl.com/schedules,Opening/closing spread; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-09-total,W10-09,total,,,,,https://www.nfl.com/schedules,Opening/closing total; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-09-moneyline_home,W10-09,moneyline_home,,,,,https://www.nfl.com/schedules,Opening/closing home moneyline; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-09-moneyline_away,W10-09,moneyline_away,,,,,https://www.nfl.com/schedules,Opening/closing away moneyline; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-10-spread,W10-10,spread,,,,,https://www.nfl.com/schedules,Opening/closing spread; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-10-total,W10-10,total,,,,,https://www.nfl.com/schedules,Opening/closing total; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-10-moneyline_home,W10-10,moneyline_home,,,,,https://www.nfl.com/schedules,Opening/closing home moneyline; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-10-moneyline_away,W10-10,moneyline_away,,,,,https://www.nfl.com/schedules,Opening/closing away moneyline; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-11-spread,W10-11,spread,,,,,https://www.nfl.com/schedules,Opening/closing spread; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-11-total,W10-11,total,,,,,https://www.nfl.com/schedules,Opening/closing total; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-11-moneyline_home,W10-11,moneyline_home,,,,,https://www.nfl.com/schedules,Opening/closing home moneyline; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-11-moneyline_away,W10-11,moneyline_away,,,,,https://www.nfl.com/schedules,Opening/closing away moneyline; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-12-spread,W10-12,spread,,,,,https://www.nfl.com/schedules,Opening/closing spread; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-12-total,W10-12,total,,,,,https://www.nfl.com/schedules,Opening/closing total; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-12-moneyline_home,W10-12,moneyline_home,,,,,https://www.nfl.com/schedules,Opening/closing home moneyline; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-12-moneyline_away,W10-12,moneyline_away,,,,,https://www.nfl.com/schedules,Opening/closing away moneyline; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-13-spread,W10-13,spread,,,,,https://www.nfl.com/schedules,Opening/closing spread; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-13-total,W10-13,total,,,,,https://www.nfl.com/schedules,Opening/closing total; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-13-moneyline_home,W10-13,moneyline_home,,,,,https://www.nfl.com/schedules,Opening/closing home moneyline; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-13-moneyline_away,W10-13,moneyline_away,,,,,https://www.nfl.com/schedules,Opening/closing away moneyline; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-14-spread,W10-14,spread,,,,,https://www.nfl.com/schedules,Opening/closing spread; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-14-total,W10-14,total,,,,,https://www.nfl.com/schedules,Opening/closing total; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-14-moneyline_home,W10-14,moneyline_home,,,,,https://www.nfl.com/schedules,Opening/closing home moneyline; blank - no licensed price archive,unverified_no_price_archive
+PS-W10-14-moneyline_away,W10-14,moneyline_away,,,,,https://www.nfl.com/schedules,Opening/closing away moneyline; blank - no licensed price archive,unverified_no_price_archive

@@ -160,6 +160,58 @@ BYE_FIELDS = ["week", "season", "team_abbr", "record_pregame", "official_source_
 
 
 # --------------------------------------------------------------------------
+# 3b. price-snapshot store (opening/closing per market)
+# --------------------------------------------------------------------------
+def price_snapshot_rows() -> List[dict]:
+    """One row per market per game.
+
+    All price cells are blank because no licensed price archive is configured.
+    The store exists so opening/closing numbers can be recorded per market
+    without changing the schema when a feed is added.
+    """
+    out = []
+    for (sid, gid, mkt, open_p, close_p, open_ts, close_ts, url, note) in V.PRICE_SNAPSHOTS:
+        out.append({
+            "snapshot_id": sid, "game_id": gid, "market_type": mkt,
+            "opening_price": open_p, "closing_price": close_p,
+            "opening_timestamp_utc": open_ts, "closing_timestamp_utc": close_ts,
+            "source_url": url, "notes": note,
+            "status": "unverified_no_price_archive",
+        })
+    return out
+
+
+PRICE_SNAPSHOT_FIELDS = ["snapshot_id", "game_id", "market_type", "opening_price",
+                         "closing_price", "opening_timestamp_utc", "closing_timestamp_utc",
+                         "source_url", "notes", "status"]
+
+
+# --------------------------------------------------------------------------
+# 3c. verified results feed (official scores for backtest / ROI)
+# --------------------------------------------------------------------------
+def results_feed_rows() -> List[dict]:
+    """Official game results from the verified capture.
+
+    Only the already-final Thursday game carries a score; every other Week 10
+    game is scheduled and has blank score cells.
+    """
+    out = []
+    for (gid, date, away, home, ascore, hscore, status, url, verified_at) in V.RESULTS_FEED:
+        out.append({
+            "game_id": gid, "date": date, "away": away, "home": home,
+            "away_score": ascore, "home_score": hscore,
+            "result_status": status,
+            "source_url": url, "verified_at_utc": verified_at,
+        })
+    return out
+
+
+RESULTS_FEED_FIELDS = ["game_id", "date", "away", "home", "away_score",
+                       "home_score", "result_status", "source_url", "verified_at_utc"]
+
+
+
+# --------------------------------------------------------------------------
 # 3. injuries + per-club load
 # --------------------------------------------------------------------------
 def injury_rows() -> List[dict]:
@@ -525,6 +577,8 @@ def originated_line_rows() -> tuple:
             "originated_moneyline_home_prob_note": "Blank: requires a margin-distribution (spread of victory-margin) parameter that no official NFL page in this pack supplies. See flag NFL3-F08.",
             "market_spread": _blank(),
             "market_total": _blank(),
+            "spread_difference": _blank(),
+            "total_difference": _blank(),
             "closing_line_value": _blank(),
             "status": "model_output",
             "official_source_url": SLATE_URL,
@@ -552,11 +606,11 @@ ORIGINATED_FIELDS = ["game_id", "away", "home", "home_ppg_input", "home_papg_inp
                      "inputs_source_url", "hfa_points_parameter", "shrinkage_parameter",
                      "expected_home_points", "expected_away_points",
                      "model_applicability",
-                     "originated_home_spread", "originated_total",
+                     "originated_home_spread", "market_spread", "spread_difference",
+                     "originated_total", "market_total", "total_difference",
                      "originated_moneyline_home_prob",
-                     "originated_moneyline_home_prob_note", "market_spread",
-                     "market_total", "closing_line_value", "status",
-                     "official_source_url"]
+                     "originated_moneyline_home_prob_note", "closing_line_value",
+                     "status", "official_source_url"]
 
 
 # --------------------------------------------------------------------------
@@ -720,6 +774,10 @@ GATES = [
      "One deterministic command rebuilds every table; seeds are fixed; all inputs are versioned in git.",
      "A result that cannot be recomputed cannot be audited, so it cannot count as evidence.",
      "", "open"),
+    ("G13", "Demotion gate",
+     "A live strategy whose slate-clustered skill-statistic interval falls below zero on any rolling recheck is demoted to paper: removed from the live leaderboard and barred from re-qualifying until it passes all gates again on fresh out-of-sample data.",
+     "Stops a strategy that was once skillful (or lucky) from staying live after its edge decays; a demotion gate is the mirror image of a promotion gate.",
+     "Graded selections with slate identifiers on a rolling window.", "blocked"),
 ]
 
 
@@ -735,6 +793,7 @@ def gate_rows() -> List[dict]:
                 PARTNERS_URL if gid == "G11" else
                 TERMS_URL if gid == "G01" else
                 "https://www.itl.nist.gov/div898/handbook/prc/section4/prc474.htm" if gid == "G06" else
+                "https://www.itl.nist.gov/div898/handbook/eda/section3/eda35f.htm" if gid == "G13" else
                 "https://www.itl.nist.gov/div898/handbook/eda/section3/eda35f.htm"
             ),
         })
@@ -776,6 +835,13 @@ def leaderboard_rows() -> List[dict]:
         entries.append({
             "strategy_id": s["strategy_id"], "family": s["family"],
             "market": s["market"], "selections_graded": s["selections_graded"],
+            # Signal: prediction quality independent of bet size.
+            # Staking: bet sizing / bankroll management. Separated so a lucky
+            # staking run cannot mask a bad signal.
+            "signal_score": "",
+            "signal_quality": "no_graded_selections",
+            "staking_score": "",
+            "staking_quality": "no_graded_selections",
             "gates_open": "G01,G05,G11,G12",
             "gates_blocked": s["required_gates"].replace("G01,", "").replace(",G05", "").replace(",G11", "").replace(",G12", "").strip(","),
             "tier": "unqualified",
@@ -790,6 +856,8 @@ LEADERBOARD_TIER_FIELDS = ["tier_id", "tier", "requirement", "reward",
                            "entries_at_this_tier", "monetary_value",
                            "official_or_method_reference"]
 LEADERBOARD_ENTRY_FIELDS = ["strategy_id", "family", "market", "selections_graded",
+                            "signal_score", "signal_quality",
+                            "staking_score", "staking_quality",
                             "gates_open", "gates_blocked", "tier",
                             "reward_awarded", "status", "official_source_url"]
 
@@ -1292,6 +1360,18 @@ FLAGS = [
      "https://sassnarep3-star.github.io/Own6/nfl/ returned GitHub's 404 page.",
      "Pages is served from main:/, so the live path is /docs/nfl/; the fix belongs to the owning session.",
      "https://github.com/sassnarep3-star/Own6/edit/main/README.md", "Medium"),
+    ("NFL3-F18", "Price snapshots", "All opening and closing prices are blank",
+     "Every opening_price and closing_price cell in price_snapshots.csv is blank.",
+     "No licensed price archive is configured; opening and closing numbers cannot be recorded for any market.",
+     "https://www.nfl.com/news/nfl-draftkings-fanduel-fanatics-sports-betting-partners", "High"),
+    ("NFL3-F19", "Results feed", "Only one game has a verified final score",
+     "13 of 14 Week 10 games have blank away_score and home_score cells.",
+     "The official scores page shows only the Thursday 12 November game as final; remaining games are scheduled.",
+     "https://www.nfl.com/scores/", "High"),
+    ("NFL3-F20", "Signal vs staking", "No graded selections exist",
+     "signal_score, signal_quality, staking_score and staking_quality are blank for every leaderboard entry.",
+     "Zero selections have been graded, so signal and staking quality cannot be computed for any strategy.",
+     "https://www.itl.nist.gov/div898/handbook/prc/section4/prc474.htm", "High"),
 ]
 
 

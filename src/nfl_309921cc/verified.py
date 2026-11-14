@@ -662,3 +662,115 @@ DEPTH_CHART_CAVEAT = {
     "NE": "The 2026 depth chart is unofficial and is published by the writers of Patriots.com. The depth chart reflects the opinions of the Patriots.com writers and don't necessarily reflect those of the organization.",
     "DET": "2026 Unofficial Depth Chart Compiled by Lions Football Communications",
 }
+
+# --------------------------------------------------------------------------
+# Price-snapshot store (requirement: record opening and closing numbers
+# for every market we originate)
+#
+# No licensed price archive is configured, so every price cell is blank.
+# The store structure exists so that when a licensed feed is added, opening
+# and closing numbers can be recorded per market per game without changing
+# the schema. Values are blank, never inferred.
+#
+# snapshot_id, game_id, market_type, opening_price, closing_price,
+# opening_timestamp_utc, closing_timestamp_utc, source_url, notes
+# --------------------------------------------------------------------------
+PRICE_SNAPSHOTS = [
+    # game_id comes from the Week 10 slate; market_type in {spread, total, moneyline_home, moneyline_away}
+    ("PS-W10-01-spread", "W10-01", "spread", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing spread; blank - no licensed price archive"),
+    ("PS-W10-01-total", "W10-01", "total", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing total; blank - no licensed price archive"),
+    ("PS-W10-01-moneyline_home", "W10-01", "moneyline_home", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing home moneyline; blank - no licensed price archive"),
+    ("PS-W10-01-moneyline_away", "W10-01", "moneyline_away", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing away moneyline; blank - no licensed price archive"),
+    ("PS-W10-02-spread", "W10-02", "spread", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing spread; blank - no licensed price archive"),
+    ("PS-W10-02-total", "W10-02", "total", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing total; blank - no licensed price archive"),
+    ("PS-W10-02-moneyline_home", "W10-02", "moneyline_home", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing home moneyline; blank - no licensed price archive"),
+    ("PS-W10-02-moneyline_away", "W10-02", "moneyline_away", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing away moneyline; blank - no licensed price archive"),
+    ("PS-W10-03-spread", "W10-03", "spread", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing spread; blank - no licensed price archive"),
+    ("PS-W10-03-total", "W10-03", "total", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing total; blank - no licensed price archive"),
+    ("PS-W10-03-moneyline_home", "W10-03", "moneyline_home", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing home moneyline; blank - no licensed price archive"),
+    ("PS-W10-03-moneyline_away", "W10-03", "moneyline_away", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing away moneyline; blank - no licensed price archive"),
+    ("PS-W10-04-spread", "W10-04", "spread", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing spread; blank - no licensed price archive"),
+    ("PS-W10-04-total", "W10-04", "total", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing total; blank - no licensed price archive"),
+    ("PS-W10-04-moneyline_home", "W10-04", "moneyline_home", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing home moneyline; blank - no licensed price archive"),
+    ("PS-W10-04-moneyline_away", "W10-04", "moneyline_away", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing away moneyline; blank - no licensed price archive"),
+    ("PS-W10-05-spread", "W10-05", "spread", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing spread; blank - no licensed price archive"),
+    ("PS-W10-05-total", "W10-05", "total", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing total; blank - no licensed price archive"),
+    ("PS-W10-05-moneyline_home", "W10-05", "moneyline_home", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing home moneyline; blank - no licensed price archive"),
+    ("PS-W10-05-moneyline_away", "W10-05", "moneyline_away", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing away moneyline; blank - no licensed price archive"),
+    ("PS-W10-06-spread", "W10-06", "spread", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing spread; blank - no licensed price archive"),
+    ("PS-W10-06-total", "W10-06", "total", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing total; blank - no licensed price archive"),
+    ("PS-W10-06-moneyline_home", "W10-06", "moneyline_home", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing home moneyline; blank - no licensed price archive"),
+    ("PS-W10-06-moneyline_away", "W10-06", "moneyline_away", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing away moneyline; blank - no licensed price archive"),
+    ("PS-W10-07-spread", "W10-07", "spread", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing spread; blank - no licensed price archive"),
+    ("PS-W10-07-total", "W10-07", "total", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing total; blank - no licensed price archive"),
+    ("PS-W10-07-moneyline_home", "W10-07", "moneyline_home", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing home moneyline; blank - no licensed price archive"),
+    ("PS-W10-07-moneyline_away", "W10-07", "moneyline_away", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing away moneyline; blank - no licensed price archive"),
+    ("PS-W10-08-spread", "W10-08", "spread", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing spread; blank - no licensed price archive"),
+    ("PS-W10-08-total", "W10-08", "total", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing total; blank - no licensed price archive"),
+    ("PS-W10-08-moneyline_home", "W10-08", "moneyline_home", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing home moneyline; blank - no licensed price archive"),
+    ("PS-W10-08-moneyline_away", "W10-08", "moneyline_away", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing away moneyline; blank - no licensed price archive"),
+    ("PS-W10-09-spread", "W10-09", "spread", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing spread; blank - no licensed price archive"),
+    ("PS-W10-09-total", "W10-09", "total", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing total; blank - no licensed price archive"),
+    ("PS-W10-09-moneyline_home", "W10-09", "moneyline_home", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing home moneyline; blank - no licensed price archive"),
+    ("PS-W10-09-moneyline_away", "W10-09", "moneyline_away", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing away moneyline; blank - no licensed price archive"),
+    ("PS-W10-10-spread", "W10-10", "spread", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing spread; blank - no licensed price archive"),
+    ("PS-W10-10-total", "W10-10", "total", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing total; blank - no licensed price archive"),
+    ("PS-W10-10-moneyline_home", "W10-10", "moneyline_home", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing home moneyline; blank - no licensed price archive"),
+    ("PS-W10-10-moneyline_away", "W10-10", "moneyline_away", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing away moneyline; blank - no licensed price archive"),
+    ("PS-W10-11-spread", "W10-11", "spread", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing spread; blank - no licensed price archive"),
+    ("PS-W10-11-total", "W10-11", "total", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing total; blank - no licensed price archive"),
+    ("PS-W10-11-moneyline_home", "W10-11", "moneyline_home", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing home moneyline; blank - no licensed price archive"),
+    ("PS-W10-11-moneyline_away", "W10-11", "moneyline_away", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing away moneyline; blank - no licensed price archive"),
+    ("PS-W10-12-spread", "W10-12", "spread", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing spread; blank - no licensed price archive"),
+    ("PS-W10-12-total", "W10-12", "total", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing total; blank - no licensed price archive"),
+    ("PS-W10-12-moneyline_home", "W10-12", "moneyline_home", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing home moneyline; blank - no licensed price archive"),
+    ("PS-W10-12-moneyline_away", "W10-12", "moneyline_away", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing away moneyline; blank - no licensed price archive"),
+    ("PS-W10-13-spread", "W10-13", "spread", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing spread; blank - no licensed price archive"),
+    ("PS-W10-13-total", "W10-13", "total", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing total; blank - no licensed price archive"),
+    ("PS-W10-13-moneyline_home", "W10-13", "moneyline_home", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing home moneyline; blank - no licensed price archive"),
+    ("PS-W10-13-moneyline_away", "W10-13", "moneyline_away", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing away moneyline; blank - no licensed price archive"),
+    ("PS-W10-14-spread", "W10-14", "spread", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing spread; blank - no licensed price archive"),
+    ("PS-W10-14-total", "W10-14", "total", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing total; blank - no licensed price archive"),
+    ("PS-W10-14-moneyline_home", "W10-14", "moneyline_home", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing home moneyline; blank - no licensed price archive"),
+    ("PS-W10-14-moneyline_away", "W10-14", "moneyline_away", "", "", "", "", "https://www.nfl.com/schedules", "Opening/closing away moneyline; blank - no licensed price archive"),
+]
+
+# --------------------------------------------------------------------------
+# Verified results feed (requirement: official scores so backtests and ROI
+# can be computed)
+#
+# Only games that are final on the official scores page carry a score.
+# All other Week 10 games are scheduled and have blank score cells.
+# Columns: game_id, date, away, home, away_score, home_score, result_status,
+# source_url, verified_at_utc
+# --------------------------------------------------------------------------
+RESULTS_FEED = [
+    ("W10-01", "2026-11-12", "WAS", "NYG", 24, 21, "final",
+     "https://www.nfl.com/scores/", "2026-11-13T00:00:00Z"),
+    ("W10-02", "2026-11-15", "NE", "DET", "", "", "scheduled",
+     "https://www.nfl.com/schedules", "2026-11-13T00:00:00Z"),
+    ("W10-03", "2026-11-15", "KC", "ATL", "", "", "scheduled",
+     "https://www.nfl.com/schedules", "2026-11-13T00:00:00Z"),
+    ("W10-04", "2026-11-15", "HOU", "CLE", "", "", "scheduled",
+     "https://www.nfl.com/schedules", "2026-11-13T00:00:00Z"),
+    ("W10-05", "2026-11-15", "MIN", "GB", "", "", "scheduled",
+     "https://www.nfl.com/schedules", "2026-11-13T00:00:00Z"),
+    ("W10-06", "2026-11-15", "MIA", "IND", "", "", "scheduled",
+     "https://www.nfl.com/schedules", "2026-11-13T00:00:00Z"),
+    ("W10-07", "2026-11-15", "CAR", "NO", "", "", "scheduled",
+     "https://www.nfl.com/schedules", "2026-11-13T00:00:00Z"),
+    ("W10-08", "2026-11-15", "BUF", "NYJ", "", "", "scheduled",
+     "https://www.nfl.com/schedules", "2026-11-13T00:00:00Z"),
+    ("W10-09", "2026-11-15", "JAX", "TEN", "", "", "scheduled",
+     "https://www.nfl.com/schedules", "2026-11-13T00:00:00Z"),
+    ("W10-10", "2026-11-15", "LA", "AZ", "", "", "scheduled",
+     "https://www.nfl.com/schedules", "2026-11-13T00:00:00Z"),
+    ("W10-11", "2026-11-15", "SEA", "LV", "", "", "scheduled",
+     "https://www.nfl.com/schedules", "2026-11-13T00:00:00Z"),
+    ("W10-12", "2026-11-15", "SF", "DAL", "", "", "scheduled",
+     "https://www.nfl.com/schedules", "2026-11-13T00:00:00Z"),
+    ("W10-13", "2026-11-15", "PIT", "CIN", "", "", "scheduled",
+     "https://www.nfl.com/schedules", "2026-11-13T00:00:00Z"),
+    ("W10-14", "2026-11-16", "LAC", "BAL", "", "", "scheduled",
+     "https://www.nfl.com/schedules", "2026-11-13T00:00:00Z"),
+]

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Demotion gate · NFL own-line desk</title><style>
+:root{--bg:#0d1117;--panel:#151b23;--panel2:#1b232d;--line:#293341;--ink:#e6edf3;
+--muted:#93a1b0;--accent:#4da3ff;--good:#3fb950;--warn:#d29922;--bad:#f85149;--blank:#6e7681}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:15.5px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+nav{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:10px 16px;
+background:var(--panel);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:9}
+nav .brand{font-weight:700;letter-spacing:.03em;margin-right:8px;color:var(--ink)}
+nav a{padding:5px 9px;border-radius:6px;font-size:13.5px;color:var(--ink);
+background:var(--panel2);border:1px solid var(--line)}
+nav a.on{background:#22385a;border-color:var(--accent)}
+main{max-width:1240px;margin:0 auto;padding:22px 16px 70px}
+h1{font-size:27px;line-height:1.2;margin:8px 0 10px}
+h2{font-size:20px;margin:32px 0 8px;padding-top:8px;border-top:1px solid var(--line)}
+h3{font-size:16px;margin:20px 0 6px}
+p{margin:8px 0}
+.eyebrow{color:var(--accent);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;margin:0 0 4px}
+.lede{color:var(--muted);max-width:82ch}
+.hero{background:linear-gradient(180deg,#16202b,#11161d);border:1px solid var(--line);
+border-radius:14px;padding:22px;margin-bottom:16px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:10px;margin:14px 0}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px}
+.tile b{display:block;font-size:21px}.tile span{color:var(--muted);font-size:12px}
+.wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin:10px 0 18px}
+table{border-collapse:collapse;width:100%;font-size:13px;background:var(--panel)}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{background:var(--panel2);font-size:11.5px;letter-spacing:.03em;text-transform:uppercase;
+color:var(--muted);white-space:nowrap;position:sticky;top:50px}
+tbody tr:hover{background:#1a222c}
+td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.blank{color:var(--blank);font-style:italic;font-size:12px}
+.pill{display:inline-block;padding:1px 7px;border-radius:999px;font-size:11px;
+border:1px solid var(--line);background:#1b2430;white-space:nowrap}
+.ok{color:var(--good)}.warn{color:var(--warn)}.bad{color:var(--bad)}
+.note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);
+border-radius:8px;padding:11px 13px;margin:12px 0}
+.note.bad{border-left-color:var(--bad)}.note.warn{border-left-color:var(--warn)}
+ul,ol{margin:8px 0 8px 20px}li{margin:4px 0}
+code{background:#1b2430;border:1px solid var(--line);border-radius:4px;padding:1px 5px;font-size:12.5px}
+footer{color:var(--muted);font-size:12.5px;border-top:1px solid var(--line);
+margin-top:30px;padding-top:14px}
+</style></head><body><nav><span class="brand">NFL Own-Line Desk</span><a href="index.html">Overview</a><a href="executive-summary.html">Executive summary</a><a href="lines.html">Originated lines</a><a href="snapshots.html">Price snapshots</a><a href="results.html">Verified results</a><a href="leaderboard.html">Leaderboard</a><a href="validation.html">Validation gates</a><a href="correlations.html">Correlations</a><a href="depth.html">Depth &amp; injuries</a><a href="demotion.html" class="on">Demotion gate</a><a href="decision-ledger.html">Decision questions</a><a href="suggestions.html">Suggestions</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for review</a><a href="repo-review.html">Repo review</a></nav><main><p class="eyebrow">NFL market pack · captured 2026-11-14</p><h1>Demotion gate</h1><p class="lede">A promotion ladder without a way down is a trap. These triggers are mechanical and published, so the same data always produces the same demotion.</p><div class="wrap"><table><thead><tr><th>strategy_id</th><th>trailing_window_n</th><th>trailing_hit_rate</th><th>trailing_p_vs_fair_coin</th><th>max_drawdown_units</th><th>triggers_fired</th><th>lifecycle_status</th></tr></thead><tbody><tr><td>single_side</td><td class="num">20</td><td class="num">0.35</td><td class="num">0.9423</td><td class="num">19.3636</td><td>D1,D2,D3</td><td>demote_to_paper</td></tr><tr><td>single_total</td><td class="num">20</td><td class="num">0.5</td><td class="num">0.5881</td><td class="num">4.5455</td><td>D3</td><td>demote_to_paper</td></tr><tr><td>single_moneyline</td><td class="num">20</td><td class="num">0.75</td><td class="num">0.0207</td><td class="num">4.3636</td><td>none</td><td>no_demotion_trigger_paper_or_live_per_promotion_gates</td></tr><tr><td>parlay_2leg_same_game_side_total</td><td class="num">20</td><td class="num">0.2</td><td class="num">0.9987</td><td class="num">49.0909</td><td>D1,D2,D3</td><td>demote_to_paper</td></tr><tr><td>parlay_2leg_cross_game_side</td><td class="num">20</td><td class="num">0.1</td><td class="num">1.0</td><td class="num">22.6364</td><td>D1,D2,D3</td><td>demote_to_paper</td></tr><tr><td>parlay_3leg_cross_game_side</td><td class="num">20</td><td class="num">0.05</td><td class="num">1.0</td><td class="num">20.1818</td><td>D1,D2,D3</td><td>demote_to_paper</td></tr></tbody></table></div><h2>Thresholds</h2><div class="wrap"><table><thead><tr><th>threshold</th><th>value</th></tr></thead><tbody><tr><td>D1</td><td>20-game trailing window, hit rate floor 0.45</td></tr><tr><td>D2</td><td>10.0 units max drawdown</td></tr><tr><td>D3</td><td>trailing p vs fair coin must stay &lt;= 0.20</td></tr><tr><td>D4</td><td>sample integrity: a re-graded source invalidates the record</td></tr><tr><td>D5</td><td>same-game leg |r| &gt; 0.35 forbids independent parlay pricing</td></tr></tbody></table></div><footer>Every value on this site is either transcribed from an official NFL-family page on 2026-11-14 or computed from those transcriptions by <code>src/nfl_market</code>. Blank cells are values that could not be confirmed from an official source; they are listed on the <a href="flagged.html">Flagged for review</a> page. No profitability claim is made anywhere on this site.</footer></main></body></html>
