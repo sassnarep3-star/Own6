@@ -311,6 +311,15 @@ LEDGER = [
 ]
 
 
+QUESTION_EVIDENCE = {
+    "Q01": STAND, "Q02": STAND, "Q03": ODDS.format(eid="401873052"),
+    "Q04": SCHED.format(w="1"), "Q05": SCHED.format(w="1"),
+    "Q06": SCHED.format(w="2"), "Q07": INJ, "Q08": NE_DC, "Q09": W10,
+    "Q10": STAND, "Q11": FD, "Q12": STAND, "Q13": STAND, "Q14": INJ,
+    "Q15": W10, "Q16": DET_DC,
+}
+
+
 def write(name: str, fields, rows) -> None:
     os.makedirs(OUT, exist_ok=True)
     with open(os.path.join(OUT, name), "w", newline="", encoding="utf-8") as fh:
@@ -328,8 +337,8 @@ def main() -> None:
           ["f_id", "area", "issue", "severity", "handling", "source_url"],
           [(a, b, c, d, e, f) for a, b, c, d, e, f in FLAGGED])
     write("questions.csv",
-          ["q_id", "question", "answer", "status", "how_to_close"],
-          QUESTIONS)
+          ["q_id", "question", "answer", "status", "how_to_close", "evidence_url"],
+          [q + (QUESTION_EVIDENCE[q[0]],) for q in QUESTIONS])
     write("suggestions.csv",
           ["s_id", "suggestion", "why", "options", "cost", "risk", "recommendation", "state"],
           SUGGESTIONS)

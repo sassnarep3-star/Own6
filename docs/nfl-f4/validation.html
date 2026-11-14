@@ -64,28 +64,28 @@ ul.tight li{margin:4px 0}
 <main class="wrap"><h1>Validation gates</h1><p class="lede">Nine gates, four green on infrastructure and five red on sample size — published as they are.</p>
 <table>
 <caption>Nine gates. Four pass on infrastructure, five fail on sample — and the failures are the point.</caption>
-<thead><tr><th>Gate</th><th>Name</th><th>Criterion</th><th>Current evidence</th><th>State</th></tr></thead><tbody>
-<tr><td>G1</td><td>Sample floor</td><td>≥ 100 settled bets</td><td>Proposed strategies carry 0–1 settled bets.</td><td><span class="pill bad">FAIL</span></td></tr>
-<tr><td>G2</td><td>Week coverage</td><td>≥ 6 distinct weeks</td><td>One week has a settled close.</td><td><span class="pill bad">FAIL</span></td></tr>
-<tr><td>G3</td><td>Signal exists</td><td>CLV per bet computable on ≥90% of bets</td><td>Requires a close for both sides.</td><td><span class="pill bad">FAIL</span></td></tr>
-<tr><td>G4</td><td>Gradeability</td><td>Verified open, close and result for every bet</td><td>13 of 14 games had no settled close.</td><td><span class="pill bad">FAIL</span></td></tr>
-<tr><td>G5</td><td>Input completeness</td><td>All inputs officially sourced</td><td>Player-level stats not captured for prop combos.</td><td><span class="pill bad">FAIL</span></td></tr>
-<tr><td>G6</td><td>Result reconciliation</td><td>All 32 teams match official standings</td><td>137 games; 32/32 match on W, L, T, PF, PA.</td><td><span class="pill ok">PASS</span></td></tr>
-<tr><td>G7</td><td>No un-sourced cell</td><td>Every published number has a source or is blank</td><td>Enforced by check_nfl_f4.py --check.</td><td><span class="pill ok">PASS</span></td></tr>
-<tr><td>G8</td><td>Determinism</td><td>Two builds byte-identical</td><td>All builders are pure functions of committed CSV.</td><td><span class="pill ok">PASS</span></td></tr>
-<tr><td>G9</td><td>Demotion path exists</td><td>Live → paper rule set defined</td><td>Rules D1–D6 published with thresholds.</td><td><span class="pill ok">PASS</span></td></tr>
+<thead><tr><th>Gate</th><th>Name</th><th>Criterion</th><th>Current evidence</th><th>State</th><th>Reference</th></tr></thead><tbody>
+<tr><td>G1</td><td>Sample floor</td><td>≥ 100 settled bets</td><td>Proposed strategies carry 0–1 settled bets.</td><td><span class="pill bad">FAIL</span></td><td><a href="https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds" rel="noopener">https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds</a></td></tr>
+<tr><td>G2</td><td>Week coverage</td><td>≥ 6 distinct weeks</td><td>One week has a settled close.</td><td><span class="pill bad">FAIL</span></td><td><a href="https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds" rel="noopener">https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds</a></td></tr>
+<tr><td>G3</td><td>Signal exists</td><td>CLV per bet computable on ≥90% of bets</td><td>Requires a close for both sides.</td><td><span class="pill bad">FAIL</span></td><td><a href="https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds" rel="noopener">https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds</a></td></tr>
+<tr><td>G4</td><td>Gradeability</td><td>Verified open, close and result for every bet</td><td>13 of 14 games had no settled close.</td><td><span class="pill bad">FAIL</span></td><td><a href="https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds" rel="noopener">https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds</a></td></tr>
+<tr><td>G5</td><td>Input completeness</td><td>All inputs officially sourced</td><td>Player-level stats not captured for prop combos.</td><td><span class="pill bad">FAIL</span></td><td><a href="https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds" rel="noopener">https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds</a></td></tr>
+<tr><td>G6</td><td>Result reconciliation</td><td>All 32 teams match official standings</td><td>137 games; 32/32 match on W, L, T, PF, PA.</td><td><span class="pill ok">PASS</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">https://www.nfl.com/standings/</a></td></tr>
+<tr><td>G7</td><td>No un-sourced cell</td><td>Every published number has a source or is blank</td><td>Enforced by check_nfl_f4.py --check.</td><td><span class="pill ok">PASS</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">https://www.nfl.com/standings/</a></td></tr>
+<tr><td>G8</td><td>Determinism</td><td>Two builds byte-identical</td><td>All builders are pure functions of committed CSV.</td><td><span class="pill ok">PASS</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">https://www.nfl.com/standings/</a></td></tr>
+<tr><td>G9</td><td>Demotion path exists</td><td>Live → paper rule set defined</td><td>Rules D1–D6 published with thresholds.</td><td><span class="pill ok">PASS</span></td><td><a href="https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds" rel="noopener">https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds</a></td></tr>
 </tbody></table>
 <h2>Declared model parameters</h2>
 <table>
 <caption>None of these is presented as measured. Each is a decision you can overrule.</caption>
-<thead><tr><th>Parameter</th><th>Value</th><th>Status</th><th>Why it is not estimated</th></tr></thead><tbody>
-<tr><td>Home-field points</td><td>0.0</td><td>declared</td><td>No verified home/away split was captured; a common 3.0 would be an imported assumption.</td></tr>
-<tr><td>Shrinkage to league mean</td><td>0.0</td><td>declared</td><td>Fitting shrinkage needs multiple seasons of history.</td></tr>
-<tr><td>Margin dispersion σ</td><td>13.86</td><td>declared</td><td>Used in the win-probability map; not re-estimated here (n=137, one season).</td></tr>
-<tr><td>Total dispersion σ</td><td>13.5</td><td>declared</td><td>Same reasoning as the margin σ.</td></tr>
-<tr><td>PPG floor</td><td>4 games</td><td>declared</td><td>Below four games a points-per-game rate is mostly noise.</td></tr>
-<tr><td>Deficiency weights</td><td>0.00/0.35/0.70/0.70</td><td>declared</td><td>Monotone in string number; not fitted to outcomes.</td></tr>
-<tr><td>Min edge to quote</td><td>0.5 points</td><td>declared</td><td>Below half a point, the difference is inside capture error.</td></tr>
+<thead><tr><th>Parameter</th><th>Value</th><th>Status</th><th>Why it is not estimated</th><th>Reference</th></tr></thead><tbody>
+<tr><td>Home-field points</td><td>0.0</td><td>declared</td><td>No verified home/away split was captured; a common 3.0 would be an imported assumption.</td><td><a href="https://www.nfl.com/standings/" rel="noopener">https://www.nfl.com/standings/</a></td></tr>
+<tr><td>Shrinkage to league mean</td><td>0.0</td><td>declared</td><td>Fitting shrinkage needs multiple seasons of history.</td><td><a href="https://www.nfl.com/standings/" rel="noopener">https://www.nfl.com/standings/</a></td></tr>
+<tr><td>Margin dispersion σ</td><td>13.86</td><td>declared</td><td>Used in the win-probability map; not re-estimated here (n=137, one season).</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-1" rel="noopener">https://www.nfl.com/schedules/2026/by-week/week-1</a></td></tr>
+<tr><td>Total dispersion σ</td><td>13.5</td><td>declared</td><td>Same reasoning as the margin σ.</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-1" rel="noopener">https://www.nfl.com/schedules/2026/by-week/week-1</a></td></tr>
+<tr><td>PPG floor</td><td>4 games</td><td>declared</td><td>Below four games a points-per-game rate is mostly noise.</td><td><a href="https://www.nfl.com/standings/" rel="noopener">https://www.nfl.com/standings/</a></td></tr>
+<tr><td>Deficiency weights</td><td>0.00/0.35/0.70/0.70</td><td>declared</td><td>Monotone in string number; not fitted to outcomes.</td><td><a href="https://www.patriots.com/team/depth-chart" rel="noopener">https://www.patriots.com/team/depth-chart</a></td></tr>
+<tr><td>Min edge to quote</td><td>0.5 points</td><td>declared</td><td>Below half a point, the difference is inside capture error.</td><td><a href="https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds" rel="noopener">https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds</a></td></tr>
 </tbody></table>
 <h2>What would change a FAIL to a PASS</h2>
 <p>G1 and G2 need history: the price store has to accumulate settled closes across

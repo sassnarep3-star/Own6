@@ -380,6 +380,17 @@ for p in PAGES:
 check("site.flagged_page_exists_and_links_sources",
       os.path.exists(os.path.join(DOCS, "flagged.html"))
       and "href=\"http" in open(os.path.join(DOCS, "flagged.html"), encoding="utf-8").read())
+for p in PAGES:
+    path = os.path.join(DOCS, p)
+    if not os.path.exists(path):
+        continue
+    text = open(path, encoding="utf-8").read()
+    rows = re.findall(r"<tr>(.*?)</tr>", text, flags=re.S)
+    body_rows = [r for r in rows if "<th>" not in r]
+    unsourced = [r for r in body_rows if "href=\"http" not in r]
+    check(f"site.{p}.every_table_row_references_a_source",
+          len(unsourced) == 0,
+          f"{len(unsourced)} of {len(body_rows)} rows lack an external link")
 check("site.nojekyll_present", os.path.exists(os.path.join(DOCS, ".nojekyll")))
 _index = open(os.path.join(DOCS, "index.html"), encoding="utf-8").read()
 check("site.index_links_every_page",

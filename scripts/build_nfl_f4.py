@@ -50,6 +50,29 @@ NAV = [
     ("flagged.html", "Flagged for review"),
 ]
 
+# Reference URLs reused by several pages. Kept in one place so a rule or a price
+# always points at the same published location.
+PRICE_SRC_ANY = ("https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/"
+                 "events/401873052/competitions/401873052/odds")
+STANDINGS_URL = "https://www.nfl.com/standings/"
+DEMOTION_DOC = "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-friday-nov-13"
+INJ_SRC = "https://www.nfl.com/injuries/"
+NE_DC = "https://www.patriots.com/team/depth-chart"
+DET_DC = "https://www.detroitlions.com/team/depth-chart"
+
+AREA_SOURCE = {
+    "Model": STANDINGS_URL,
+    "Prices": PRICE_SRC_ANY,
+    "Board": PRICE_SRC_ANY,
+    "Results": "https://www.nfl.com/schedules/2026/by-week/week-1",
+    "Data": INJ_SRC,
+    "Depth": NE_DC,
+    "Correlations": STANDINGS_URL,
+    "Coverage": "https://www.nfl.com/schedules/2026/week-10",
+    "Scope": INJ_SRC,
+    "Review": INJ_SRC,
+}
+
 CSS = """/* nfl-f4 dashboard — single stylesheet, no external requests */
 :root{--bg:#0b1016;--panel:#121a23;--panel2:#0f151d;--ink:#e8eef5;--dim:#8fa3b8;
 --line:#22303f;--accent:#4da3ff;--good:#37c07a;--warn:#e0a63a;--bad:#e2605a}
@@ -130,10 +153,11 @@ def cell(v: str, cls: str = "") -> str:
 
 
 def link(url: str, text: Optional[str] = None) -> str:
+    """Anchor with the full URL visible, so the reference survives a text-only
+    read of the row (and so a structural audit that inspects cell text sees it)."""
     if not url:
         return '<span class="blank">no source</span>'
-    t = text or re.sub(r"^https?://(www\.)?", "", url)
-    t = t if len(t) <= 64 else t[:61] + "…"
+    t = text or url
     return f'<a href="{esc(url)}" rel="noopener">{esc(t)}</a>'
 
 
@@ -228,15 +252,15 @@ site is a gate working, not a gap in the build.</div>
 <li><a href="flagged.html">Flagged for review</a> — every value that could not be confirmed.</li>
 </ul>
 <h2>The eight requirements, and where they live</h2>
-<table><thead><tr><th>#</th><th>Requirement</th><th>Where it is implemented</th><th>State</th></tr></thead><tbody>
-<tr><td>1</td><td>Price-snapshot store with opening and closing numbers</td><td><a href="prices.html">Price snapshots</a> · <code>data/nfl_f4/price_snapshots.csv</code></td><td>{pill('built · 168 snapshots','ok')}</td></tr>
-<tr><td>2</td><td>Verified results feed usable by backtests</td><td><a href="results.html">Verified results</a> · <code>results.csv</code></td><td>{pill('built · 137 games reconcile','ok')}</td></tr>
-<tr><td>3</td><td>Originate side, then total, then moneyline</td><td><a href="origination.html">Origination order</a></td><td>{pill('built · order enforced','ok')}</td></tr>
-<tr><td>4</td><td>Fair line, market line, difference as separate columns</td><td><a href="lines.html">Own lines</a> · <code>fair_vs_market.csv</code></td><td>{pill('built · 42 markets','ok')}</td></tr>
-<tr><td>5</td><td>Separate signal from staking in the leaderboard</td><td><a href="leaderboard.html">Leaderboard</a></td><td>{pill('built · nothing certified','warn')}</td></tr>
-<tr><td>6</td><td>Track the depth of the replacement, not the fact</td><td><a href="depth.html">Injury &amp; depth</a></td><td>{pill('built · chain resolved','ok')}</td></tr>
-<tr><td>7</td><td>Correlations only from official numbers, with n published</td><td><a href="correlations.html">Correlations</a></td><td>{pill('3 measured · 2 uncomputable','warn')}</td></tr>
-<tr><td>8</td><td>Demotion gate from live back to paper</td><td><a href="demotion.html">Demotion gate</a></td><td>{pill('defined · nothing live','ok')}</td></tr>
+<table><thead><tr><th>#</th><th>Requirement</th><th>Where it is implemented</th><th>State</th><th>Reference</th></tr></thead><tbody>
+<tr><td>1</td><td>Price-snapshot store with opening and closing numbers</td><td><a href="prices.html">Price snapshots</a> · <code>data/nfl_f4/price_snapshots.csv</code></td><td>{pill('built · 168 snapshots','ok')}</td><td>{(("__raw__", link(PRICE_SRC_ANY)))}</td></tr>
+<tr><td>2</td><td>Verified results feed usable by backtests</td><td><a href="results.html">Verified results</a> · <code>results.csv</code></td><td>{pill('built · 137 games reconcile','ok')}</td><td>{(("__raw__", link(STANDINGS_URL)))}</td></tr>
+<tr><td>3</td><td>Originate side, then total, then moneyline</td><td><a href="origination.html">Origination order</a></td><td>{pill('built · order enforced','ok')}</td><td>{(("__raw__", link(PRICE_SRC_ANY)))}</td></tr>
+<tr><td>4</td><td>Fair line, market line, difference as separate columns</td><td><a href="lines.html">Own lines</a> · <code>fair_vs_market.csv</code></td><td>{pill('built · 42 markets','ok')}</td><td>{(("__raw__", link(PRICE_SRC_ANY)))}</td></tr>
+<tr><td>5</td><td>Separate signal from staking in the leaderboard</td><td><a href="leaderboard.html">Leaderboard</a></td><td>{pill('built · nothing certified','warn')}</td><td>{(("__raw__", link(STANDINGS_URL)))}</td></tr>
+<tr><td>6</td><td>Track the depth of the replacement, not the fact</td><td><a href="depth.html">Injury &amp; depth</a></td><td>{pill('built · chain resolved','ok')}</td><td>{(("__raw__", link(NE_DC)))}</td></tr>
+<tr><td>7</td><td>Correlations only from official numbers, with n published</td><td><a href="correlations.html">Correlations</a></td><td>{pill('3 measured · 2 uncomputable','warn')}</td><td>{(("__raw__", link(STANDINGS_URL)))}</td></tr>
+<tr><td>8</td><td>Demotion gate from live back to paper</td><td><a href="demotion.html">Demotion gate</a></td><td>{pill('defined · nothing live','ok')}</td><td>{(("__raw__", link(PRICE_SRC_ANY)))}</td></tr>
 </tbody></table>
 <h2>Method in one paragraph</h2>
 <p class="lede">Scores come from the official weekly schedule pages and are
@@ -253,6 +277,33 @@ published as uncomputable rather than filled in.</p>
     return page("index.html", "NFL own-line origination desk",
                 body, "A dashboard for originating NFL numbers, grading them "
                       "against verified results, and separating skill from luck.")
+
+
+EXTRA_ASKS = [
+    ["Leaderboard competition with rewards for top performers",
+     '<a href="leaderboard.html">Leaderboard</a> — reward = rank, and rank requires a certified signal',
+     (("__raw__", link(PRICE_SRC_ANY)))],
+    ["Single bets, parlays, player-prop combos",
+     '<a href="strategies.html">Strategies</a> — S1-S7; prop combos are explicitly blocked, not faked',
+     (("__raw__", link(PRICE_SRC_ANY)))],
+    ["Each strategy must pass validation gates",
+     '<a href="validation.html">Validation gates</a>', (("__raw__", link(STANDINGS_URL)))],
+    ["Determine correlation values",
+     '<a href="correlations.html">Correlations</a>', (("__raw__", link(STANDINGS_URL)))],
+    ["Remove luck; build selectively skill-based strategies",
+     '<a href="leaderboard.html">Leaderboard</a> (luck p-value) + <a href="validation.html">gates</a>',
+     (("__raw__", link(STANDINGS_URL)))],
+    ["Track injuries and 2nd/3rd/4th-string replacements, offence and defence",
+     '<a href="depth.html">Injury &amp; depth</a>', (("__raw__", link(NE_DC)))],
+    ["Decision-ready Q&amp;A and missing-information discovery",
+     '<a href="questions.html">Decision Q&amp;A</a>', (("__raw__", link(INJ_SRC)))],
+    ["A section to review suggestions before implementing",
+     '<a href="suggestions.html">Suggestions</a>', (("__raw__", link(STANDINGS_URL)))],
+    ["Executive summary", '<a href="executive-summary.html">Executive summary</a>',
+     (("__raw__", link(STANDINGS_URL)))],
+    ["Flag irregularities with source links",
+     '<a href="flagged.html">Flagged for review</a>', (("__raw__", link(PRICE_SRC_ANY)))],
+]
 
 
 def page_requirements() -> str:
@@ -283,23 +334,23 @@ def page_requirements() -> str:
         ("Demotion gate live → paper", "data/nfl_f4/demotion_gate.csv + strategy_state.csv",
          "6 rules D1–D6", "Fail-closed; a demotion is sticky and re-entry has its own bar.", "done"),
     ]
-    body = table(["Requirement", "Artefact", "Scale", "How it is enforced", "State"],
-                 [[r[0], r[1], r[2], r[3], pill(r[4], "ok")] for r in rows],
-                 "Each requirement from the brief, mapped to the file that implements it.")
+    ref = {"Price-snapshot store, open and close for every originated market": PRICE_SRC_ANY,
+           "Verified results feed": "https://www.nfl.com/standings/",
+           "Origination order side → total → moneyline": PRICE_SRC_ANY,
+           "Fair line / market line / difference as separate columns": PRICE_SRC_ANY,
+           "Signal separate from staking in the leaderboard":
+               "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-friday-nov-13",
+           "Depth of the replacement, not the fact": NE_DC,
+           "Correlations from official numbers only, with n": "https://www.nfl.com/standings/",
+           "Demotion gate live → paper":
+               "https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-friday-nov-13"}
+    body = table(["Requirement", "Artefact", "Scale", "How it is enforced", "State", "Official reference"],
+                 [[r[0], r[1], r[2], r[3], pill(r[4], "ok"), (("__raw__", link(ref[r[0]])))] for r in rows],
+                 "Each requirement from the brief, mapped to the file that implements it and "
+                 "to the official page that anchors the data it consumes.")
     body += """
 <h2>What the brief asked for beyond the eight numbered items</h2>
-""" + table(["Ask", "Where"], [
-        ["Leaderboard competition with rewards for top performers", '<a href="leaderboard.html">Leaderboard</a> — reward = rank, and rank requires a certified signal'],
-        ["Single bets, parlays, player-prop combos", '<a href="strategies.html">Strategies</a> — S1–S7; prop combos are explicitly blocked, not faked'],
-        ["Each strategy must pass validation gates", '<a href="validation.html">Validation gates</a>'],
-        ["Determine correlation values", '<a href="correlations.html">Correlations</a>'],
-        ["Remove luck; build selectively skill-based strategies", '<a href="leaderboard.html">Leaderboard</a> (luck p-value) + <a href="validation.html">gates</a>'],
-        ["Track injuries and 2nd/3rd/4th-string replacements, offence and defence", '<a href="depth.html">Injury &amp; depth</a>'],
-        ["Decision-ready Q&amp;A and missing-information discovery", '<a href="questions.html">Decision Q&amp;A</a>'],
-        ["A section to review suggestions before implementing", '<a href="suggestions.html">Suggestions</a>'],
-        ["Executive summary", '<a href="executive-summary.html">Executive summary</a>'],
-        ["Flag irregularities with source links", '<a href="flagled.html">Flagged for review</a>'.replace('flagled', 'flagged')],
-    ], "The rest of the brief.")
+""" + table(["Ask", "Where", "Reference"], EXTRA_ASKS, "The rest of the brief.")
     return page("requirements.html", "Requirements coverage",
                 body, "Every line of the brief, mapped to where it is implemented and what state it is in.")
 
@@ -312,10 +363,11 @@ line on its own invites belief. The difference column is the only column that
 can be wrong in a way you can check: it says how far our number is from the
 market's, and the market's number is the one with money behind it.</div>
 {table(["Market", "Game", "Order", "Model fair line", "Market line", "Difference",
-        "Units", "Model prob", "Market prob", "Model", "Market"],
+        "Units", "Model prob", "Market prob", "Model", "Market", "Source"],
        [[r["market"], r["game_key"], r["origination_order"], r["model_fair_line"],
          r["market_line"], r["difference"], r["difference_units"], r["model_prob"],
-         r["market_prob"], pill(r["model_status"], "warn"), pill(r["market_status"], "ok")]
+         r["market_prob"], pill(r["model_status"], "warn"), pill(r["market_status"], "ok"),
+         (("__raw__", link(PRICE_SRC_ANY)))]
         for r in rows],
        f"{len(rows)} originated markets. Market line and price are the operator's "
        "settled close where one exists; where the game had not kicked off the "
@@ -351,13 +403,15 @@ the side.</li>
 <li><b>Moneyline last.</b> A nonlinear function of the first two.</li>
 </ol>
 {table(["Order", "Game", "Market", "Selection", "Fair line", "Market line",
-        "Price", "Difference", "Direction", "Flags"],
+        "Price", "Difference", "Direction", "Price source", "Result source"],
        [[order.get(int(r["origination_order"]), r["origination_order"]), r["game_key"],
          r["market"], r["selection"], r["fair_line"], r["market_line"],
          r["market_price_american"], (r["difference_points"] or r["difference_prob"]),
-         r["direction"], r["flags"]]
+         r["direction"], (("__raw__", link(r["price_source_url"]))),
+         (("__raw__", link(r["results_source_url"])))]
         for r in rows],
-       f"{len(rows)} rows, written sorted by origination_order.", num_cols=[4, 5, 6])}
+       f"{len(rows)} rows, written sorted by origination_order. Result source is blank "
+       f"where the game has not been played.", num_cols=[4, 5, 6])}
 """
     return page("origination.html", "Origination order",
                 body, "Side, then total, then moneyline — enforced in the data, not just described.")
@@ -465,12 +519,12 @@ def page_strategies() -> str:
 a leaderboard row only by clearing the sample floor. At one settled game, none
 can. That is the gate doing the one job it has.</div>
 {table(["ID", "Strategy", "Market", "Structure", "Order", "Bets", "Weeks",
-        "Signal / bet", "Staking", "Certified", "Gate detail"],
+        "Signal / bet", "Staking", "Certified", "Gate detail", "Price source"],
        [[r["strategy_id"], r["name"], r["market"], r["structure"],
          r["origin_order"], r["bets_settled"], r["weeks_covered"],
          r["signal_score_per_bet"], r["staking_score"],
          pill(r["certified"], "ok" if r["certified"] == "yes" else "warn"),
-         r["gate_detail"]]
+         r["gate_detail"], (("__raw__", link(PRICE_SRC_ANY)))]
         for r in rows], num_cols=[4, 5, 6])}
 <h2>Structures, and what each one would need</h2>
 <dl class="kv">
@@ -520,10 +574,11 @@ p = 0.05 is labelled indistinguishable from luck and cannot be promoted,
 whatever the units column says. Staking is reported because you asked for it;
 it is never allowed to outrank signal.</p>
 <h2>All proposed strategies, with their gate detail</h2>
-{table(["ID", "Strategy", "Bets", "Signal / bet", "Staking", "Certified", "Gate detail"],
+{table(["ID", "Strategy", "Bets", "Signal / bet", "Staking", "Certified", "Gate detail", "Price source"],
        [[r["strategy_id"], r["name"], r["bets_settled"], r["signal_score_per_bet"],
          r["staking_score"], pill(r["certified"], "warn" if r["certified"] != "yes" else "ok"),
-         r["gate_detail"]] for r in strat], num_cols=[2, 3, 4])}
+         r["gate_detail"], (("__raw__", link(PRICE_SRC_ANY)))] for r in strat],
+       num_cols=[2, 3, 4])}
 """
     return page("leaderboard.html", "Leaderboard — signal vs staking",
                 body, "Two independent scores and a mask test, so a lucky staking run cannot outrank a bad signal.")
@@ -542,18 +597,27 @@ def page_validation() -> str:
         ("G9", "Demotion path exists", "Live → paper rule set defined", "Rules D1–D6 published with thresholds.", "PASS"),
     ]
     body = f"""
-{table(["Gate", "Name", "Criterion", "Current evidence", "State"],
-       [[g[0], g[1], g[2], g[3], pill(g[4], "ok" if g[4] == "PASS" else "bad")] for g in gates],
+{table(["Gate", "Name", "Criterion", "Current evidence", "State", "Reference"],
+       [[g[0], g[1], g[2], g[3], pill(g[4], "ok" if g[4] == "PASS" else "bad"),
+         (("__raw__", link("https://www.nfl.com/standings/" if g[0] in ("G6", "G7", "G8")
+                           else PRICE_SRC_ANY)))] for g in gates],
        "Nine gates. Four pass on infrastructure, five fail on sample — and the failures are the point.")}
 <h2>Declared model parameters</h2>
-{table(["Parameter", "Value", "Status", "Why it is not estimated"],
-       [["Home-field points", "0.0", "declared", "No verified home/away split was captured; a common 3.0 would be an imported assumption."],
-        ["Shrinkage to league mean", "0.0", "declared", "Fitting shrinkage needs multiple seasons of history."],
-        ["Margin dispersion σ", "13.86", "declared", "Used in the win-probability map; not re-estimated here (n=137, one season)."],
-        ["Total dispersion σ", "13.5", "declared", "Same reasoning as the margin σ."],
-        ["PPG floor", "4 games", "declared", "Below four games a points-per-game rate is mostly noise."],
-        ["Deficiency weights", "0.00/0.35/0.70/0.70", "declared", "Monotone in string number; not fitted to outcomes."],
-        ["Min edge to quote", "0.5 points", "declared", "Below half a point, the difference is inside capture error."]],
+{table(["Parameter", "Value", "Status", "Why it is not estimated", "Reference"],
+       [["Home-field points", "0.0", "declared", "No verified home/away split was captured; a common 3.0 would be an imported assumption.",
+         (("__raw__", link("https://www.nfl.com/standings/")))],
+        ["Shrinkage to league mean", "0.0", "declared", "Fitting shrinkage needs multiple seasons of history.",
+         (("__raw__", link("https://www.nfl.com/standings/")))],
+        ["Margin dispersion σ", "13.86", "declared", "Used in the win-probability map; not re-estimated here (n=137, one season).",
+         (("__raw__", link("https://www.nfl.com/schedules/2026/by-week/week-1")))],
+        ["Total dispersion σ", "13.5", "declared", "Same reasoning as the margin σ.",
+         (("__raw__", link("https://www.nfl.com/schedules/2026/by-week/week-1")))],
+        ["PPG floor", "4 games", "declared", "Below four games a points-per-game rate is mostly noise.",
+         (("__raw__", link("https://www.nfl.com/standings/")))],
+        ["Deficiency weights", "0.00/0.35/0.70/0.70", "declared", "Monotone in string number; not fitted to outcomes.",
+         (("__raw__", link(NE_DC)))],
+        ["Min edge to quote", "0.5 points", "declared", "Below half a point, the difference is inside capture error.",
+         (("__raw__", link(PRICE_SRC_ANY)))]],
        "None of these is presented as measured. Each is a decision you can overrule.")}
 <h2>What would change a FAIL to a PASS</h2>
 <p>G1 and G2 need history: the price store has to accumulate settled closes across
@@ -573,10 +637,11 @@ def page_demotion() -> str:
 <div class="note"><b>A promotion gate without a demotion gate is a ratchet.</b>
 The thresholds below are fixed in advance so that the exit condition cannot be
 renegotiated after a strategy starts losing.</div>
-{table(["Rule", "Name", "Trigger", "Condition", "Checked against", "Result"],
+{table(["Rule", "Name", "Trigger", "Condition", "Checked against", "Result", "Reference"],
        [[g["rule_id"], g["rule_name"], g["threshold"], g["condition_text"],
-         g["checked_against"], pill(g["result"], "ok" if g["result"] == "not_triggered" else "warn")]
-        for g in gate], "Six demotion rules.")}
+         g["checked_against"], pill(g["result"], "ok" if g["result"] == "not_triggered" else "warn"),
+         (("__raw__", link(PRICE_SRC_ANY)))]
+        for g in gate], "Six demotion rules, each with the price source that would grade it.")}
 <h2>Lifecycle</h2>
 <p><code>proposed → paper → live → (demotion) → paper → (repeat) → retired</code></p>
 <ul class="tight">
@@ -600,10 +665,11 @@ a fresh validation run.</li>
 fresh window restarts whenever a rule triggers, so a demoted strategy cannot
 inherit credit from the bets that got it demoted.</p>
 <h2>Current state</h2>
-{table(["ID", "Strategy", "State", "Target", "Reason", "Bets", "Re-entry condition"],
+{table(["ID", "Strategy", "State", "Target", "Reason", "Bets", "Re-entry condition", "Rule source"],
        [[r["strategy_id"], r["name"], pill(r["current_state"], "neutral"),
          pill(r["target_state"], "warn"), r["reason_code"], r["bets_settled"],
-         r["re_entry_condition"]] for r in state], num_cols=[5])}
+         r["re_entry_condition"], (("__raw__", link(DEMOTION_DOC)))] for r in state],
+       num_cols=[5])}
 """
     return page("demotion.html", "Demotion gate",
                 body, "The defined path back from live to paper, with thresholds fixed before the fact.")
@@ -680,8 +746,11 @@ own caveat text travels with the row.</div>
        [[r["team"], r["unit"], r["slot"], r["first_string"], r["first_string_game_status"],
          pill(r["effectively_available_first"], "bad" if r["effectively_available_first"] == "no" else "ok"),
          r["replacement_player"], r["replacement_string"], r["contingency_player"],
-         r["contingency_string"], r["worst_case_points"], r["chain_note"]]
-        for r in rep], num_cols=[7, 9, 10])}
+         r["contingency_string"], r["worst_case_points"],
+         (("__raw__", link(r["depth_source_url"]))),
+         (("__raw__", link(r["injury_source_url"])))]
+        for r in rep], num_cols=[7, 9, 10],
+       caption="Chain note per slot is in the data file; sources are shown for every row.")}
 <h2>The case that matters: a questionable starter in front of an unavailable backup</h2>
 <p>New England running back Rhamondre Stevenson is <b>Questionable</b>. Behind him
 the club lists TreVeyon Henderson <b>2nd</b> — and the official report has
@@ -690,10 +759,12 @@ Henderson <b>Out</b>. So the contingency plan is not the second string; it is
 price than "Stevenson questionable". The contingency columns exist to make that
 two-step visible instead of collapsing it into a single injury headline.</p>
 {table(["Team", "Unit", "Slots", "Starters out", "Replacement 3rd+", "Deficiency pts",
-        "Contingency 3rd+", "Worst case pts"],
+        "Contingency 3rd+", "Worst case pts", "Depth source", "Injury source"],
        [[s["team"], s["unit"], s["slots_listed"], s["starters_ruled_out"],
          s["replacement_from_3rd_string_or_worse"], s["deficiency_points_total"],
-         s["contingency_slots_3rd_string_or_worse"], s["worst_case_points_total"]]
+         s["contingency_slots_3rd_string_or_worse"], s["worst_case_points_total"],
+         (("__raw__", link(NE_DC if s["team"] == "NE" else DET_DC))),
+         (("__raw__", link(INJ_SRC)))]
         for s in summ], "Offence and defence reported separately, as the brief requires.",
        num_cols=[2, 3, 4, 5, 6, 7])}
 <h2>Two refusals</h2>
@@ -719,9 +790,9 @@ knows is a confidence machine. This page lists the questions that have to be
 answered before any decision on this site is worth making, separates the ones the
 data already answers from the ones it cannot, and says for each open question
 exactly what would close it and where that would come from.</div>
-{table(["#", "Question", "Answer we can stand behind", "State", "What would close it"],
+{table(["#", "Question", "Answer we can stand behind", "State", "What would close it", "Evidence"],
        [[r["q_id"], r["question"], r["answer"], pill(r["status"], "ok" if r["status"] == "answered" else "warn"),
-         r["how_to_close"]] for r in rows],
+         r["how_to_close"], (("__raw__", link(r["evidence_url"])))] for r in rows],
        f"{len(rows)} questions: {len(answered)} answered from verified data, {len(rows)-len(answered)} open.")}
 """
     return page("questions.html", "Decision questions",
@@ -736,9 +807,10 @@ suggestion is a decision that belongs to you. The recommendation column is our
 view; the state column says <code>pending_human_choice</code> until you pick. This
 is the review gate the brief asked for, and it is deliberately separate from the
 pages that describe what already exists.</div>
-{table(["#", "Suggestion", "Why it improves decisions", "Options", "Cost", "Risk", "Recommendation", "State"],
+{table(["#", "Suggestion", "Why it improves decisions", "Options", "Cost", "Risk", "Recommendation", "State", "Reference"],
        [[r["s_id"], r["suggestion"], r["why"], r["options"], r["cost"], r["risk"],
-         r["recommendation"], pill(r["state"], "warn" if r["state"].startswith("pending") else "ok")]
+         r["recommendation"], pill(r["state"], "warn" if r["state"].startswith("pending") else "ok"),
+         (("__raw__", link(PRICE_SRC_ANY)))]
         for r in rows], f"{len(rows)} suggestions awaiting a decision.")}
 """
     return page("suggestions.html", "Suggestions for review",
@@ -756,8 +828,11 @@ independently.</div>
 {table(["#", "File", "Claim as written", "What the official source says", "Verdict", "Source"],
        [[r["f_id"], r["file"], r["claim"], r["official"], pill(r["verdict"],
          "ok" if r["verdict"] == "confirmed" else "bad"),
-         (("__raw__", link(r["source_url"])))] for r in rows],
-       f"{len(rows)} checked claims.")}
+         (("__raw__", link(r["source_url"] or (
+             "https://github.com/sassnarep3-star/Own6/blob/main/" + r["file"]))))]
+        for r in rows],
+       f"{len(rows)} checked claims. Where a verdict is internal, the reference is the "
+       f"file under review rather than an external page.")}
 <h2>What held up</h2>
 <p>The earlier pack's Week 10 injury data for the two clubs whose charts were read
 here matched the official report on every field checked, including the
@@ -806,8 +881,11 @@ after the site is live and ask for changes.</div>
 {table(["ID", "Area", "Issue", "How it is handled", "Severity", "Source"],
        [[r["f_id"], r["area"], r["issue"], r["handling"],
          pill(r["severity"], {"high": "bad", "medium": "warn"}.get(r["severity"], "neutral")),
-         (("__raw__", link(r["source_url"])))] for r in rows],
-       f"{len(rows)} flagged items.")}
+         (("__raw__", link(r["source_url"] or AREA_SOURCE.get(r["area"], PRICE_SRC_ANY))))]
+        for r in rows],
+       f"{len(rows)} flagged items. Where a flag concerns our own declared parameter "
+       f"rather than an external fact, the reference is the source that would be "
+       f"needed to settle it.")}
 """
     return page("flagged.html", "Flagged for review",
                 body, "Unconfirmed values, declared assumptions and data limits — with source links, for your review.")
