@@ -1857,24 +1857,66 @@ path owned by any of them.** The new namespace `nfl_market` / `nfl-market` does 
 | Task | Status | Owner | Exclusive file scope |
 |---|---|---|---|
 | M0 Claim + push | done | `33ee4854` | `COORDINATION.md` (append-only) |
-| M1 Line-by-line repo review + irregularity register | in progress | `33ee4854` | `audit/NFL_MARKET_REPO_REVIEW.md`, `data/nfl_market/repo_findings.csv` |
-| M2 Official source registry (every URL read this session) | in progress | `33ee4854` | `data/nfl_market/sources.csv` |
-| M3 Price-snapshot store: opening + closing for every originated market | in progress | `33ee4854` | `data/nfl_market/price_snapshots.csv`, `src/nfl_market/snapshots.py` |
-| M4 Verified results feed (final scores from NFL.com) → backtest + ROI | in progress | `33ee4854` | `data/nfl_market/results.csv`, `src/nfl_market/results.py` |
-| M5 Origination order: side → total → moneyline; fair / market / difference columns | in progress | `33ee4854` | `data/nfl_market/originated_markets.csv`, `src/nfl_market/originate.py` |
-| M6 Leaderboard with signal score and staking score reported separately | in progress | `33ee4854` | `data/nfl_market/leaderboard.csv`, `src/nfl_market/leaderboard.py` |
-| M7 Replacement-depth register (1st–4th string, offense + defense) | in progress | `33ee4854` | `data/nfl_market/replacement_depth.csv`, `src/nfl_market/depth.py` |
-| M8 Correlations from officially sourced numbers only, with n | in progress | `33ee4854` | `data/nfl_market/correlations.csv`, `src/nfl_market/correlations.py` |
-| M9 Demotion gate: live strategy → paper on defined triggers | in progress | `33ee4854` | `data/nfl_market/demotion_gate.csv`, `src/nfl_market/demotion.py` |
-| M10 Suggestions review section (option sets, `pending_human_choice`) | in progress | `33ee4854` | `data/nfl_market/suggestions.csv`, `docs/nfl-market/suggestions.html` |
-| M11 Decision-readiness ledger (questions / known / missing / discovery) | in progress | `33ee4854` | `data/nfl_market/decision_ledger.csv`, `research/nfl_market/DECISION_READINESS.md` |
-| M12 Validation gates + luck-removal (skill vs variance) | in progress | `33ee4854` | `data/nfl_market/validation_gates.csv`, `src/nfl_market/validation.py` |
-| M13 Zero-input dashboard + executive summary | in progress | `33ee4854` | `docs/nfl-market/**`, `NFL_MARKET_EXECUTIVE_SUMMARY.md`, `scripts/build_nfl_market.py` |
-| M14 Automated verifier + regression tests + CI | in progress | `33ee4854` | `scripts/check_nfl_market.py`, `tests/test_nfl_market.py`, `.github/workflows/nfl-market-ci.yml` |
-| M15 Integration: additive nav link, all gates, PR → merge → live Pages | in progress | `33ee4854` | `docs/index.html` (additive link only), `README.md` (append-only), `COORDINATION.md` (append-only) |
+| M1 Line-by-line repo review + irregularity register | done | `33ee4854` | `audit/NFL_MARKET_REPO_REVIEW.md`, `data/nfl_market/repo_findings.csv` |
+| M2 Official source registry (every URL read this session) | done | `33ee4854` | `data/nfl_market/sources.csv` |
+| M3 Price-snapshot store: opening + closing for every originated market | done | `33ee4854` | `data/nfl_market/price_snapshots.csv`, `src/nfl_market/snapshots.py` |
+| M4 Verified results feed (final scores from NFL.com) → backtest + ROI | done | `33ee4854` | `data/nfl_market/results.csv`, `src/nfl_market/results.py` |
+| M5 Origination order: side → total → moneyline; fair / market / difference columns | done | `33ee4854` | `data/nfl_market/originated_markets.csv`, `src/nfl_market/originate.py` |
+| M6 Leaderboard with signal score and staking score reported separately | done | `33ee4854` | `data/nfl_market/leaderboard.csv`, `src/nfl_market/leaderboard.py` |
+| M7 Replacement-depth register (1st–4th string, offense + defense) | done | `33ee4854` | `data/nfl_market/replacement_depth.csv`, `src/nfl_market/depth.py` |
+| M8 Correlations from officially sourced numbers only, with n | done | `33ee4854` | `data/nfl_market/correlations.csv`, `src/nfl_market/correlations.py` |
+| M9 Demotion gate: live strategy → paper on defined triggers | done | `33ee4854` | `data/nfl_market/demotion_gate.csv`, `src/nfl_market/demotion.py` |
+| M10 Suggestions review section (option sets, `pending_human_choice`) | done | `33ee4854` | `data/nfl_market/suggestions.csv`, `docs/nfl-market/suggestions.html` |
+| M11 Decision-readiness ledger (questions / known / missing / discovery) | done | `33ee4854` | `data/nfl_market/decision_ledger.csv`, `research/nfl_market/DECISION_READINESS.md` |
+| M12 Validation gates + luck-removal (skill vs variance) | done | `33ee4854` | `data/nfl_market/validation_gates.csv`, `src/nfl_market/validation.py` |
+| M13 Zero-input dashboard + executive summary | done | `33ee4854` | `docs/nfl-market/**`, `NFL_MARKET_EXECUTIVE_SUMMARY.md`, `scripts/build_nfl_market.py` |
+| M14 Automated verifier + regression tests + CI | done | `33ee4854` | `scripts/check_nfl_market.py`, `tests/test_nfl_market.py`, `.github/workflows/nfl-market-ci.yml` |
+| M15 Integration: additive nav link, all gates, PR → merge → live Pages | done | `33ee4854` | `docs/index.html` (additive link only), `README.md` (append-only), `COORDINATION.md` (append-only) |
 
 **Status legend:** `unclaimed` · `in progress` · `done` · `needs review` (published on the Flagged for Review page; does
 not block).
 
 **Claim log:** 2026-11-14 — session `33ee4854` claims M0–M15 with the file scopes above. Committed and pushed immediately
 on `arena/33ee4854-own6` before any data work, per the brief.
+
+### Closure — session `arena/33ee4854-own6` (2026-11-14)
+
+**All tasks M1–M15 are `done`.** Nothing was left `in progress`, and every flagged item is published on
+`docs/nfl-market/flagged.html` (11 flags) and `docs/nfl-market/repo-review.html` (6 findings) with
+official source links, so they can be reviewed after the fact.
+
+| Item | Value |
+|---|---|
+| **PR** | https://github.com/sassnarep3-star/Own6/pull/86 |
+| **Merge result** | **MERGED** 2026-11-14T21:43:13Z as `386438bf7e691df011457c705d2dc6b2803b2804` (merge commit, no squash, no rebase) |
+| **Pre-merge checks** | **13/13 green**, including the new `Verify nfl_market pack` job |
+| **Post-merge CI on `main`** | **all green** — NFL market pack, Lab CI, Assurance CI, Hub CI, Release integrity, Verify site and engine, Sitewide source coverage, Legacy parlay safety, Independent verification ledger, Daily verified snapshot, Independent hub references |
+| **GitHub Pages** | run at 2026-11-14T21:43:15Z for `386438bf` — **success**; Pages API reports `source=main:/`, `status=built` |
+| **Live URL** | https://sassnarep3-star.github.io/Own6/docs/nfl-market/ (15 pages confirmed present on `main` via the contents API) |
+
+**Pre-existing CI breakage found and fixed (important for later sessions).**
+Lab CI and Assurance CI had been **failing on `main` since `a6dbd1f` (PR #85)** — not because of this
+pack. The shared structural inventories were not regenerated after that pack added files. This session
+reproduced both failures locally, regenerated `data/assurance/**`, `data/source_coverage/**`,
+`docs/assurance/**`, `docs/coverage/**` and `audit/SOURCE_COVERAGE.md` in the documented dependency
+order (`build_lab → build_assurance → source_coverage → audit_repo`) until two consecutive passes were
+byte-identical, and committed that as a separate commit (`7afe4a9`). Both workflows are green on `main`
+again. No numeric claim in any pack changed; these are structural inventories only.
+
+**Rebase note.** `origin/main` advanced to `a6dbd1f` between this session's claim and its push. The
+rebase conflicted **only** in `COORDINATION.md`, and only as an append collision: session `2e9a5246`'s
+section and this session's section were both kept verbatim, in that order. Nothing was discarded.
+
+**Overlap disclosure (also published as `repo-review.html` NM-RF-01/02/05).** Session `2e9a5246`
+(PR #85) shipped a thematically similar feature set — price snapshots, results feed, signal/staking
+split, demotion gate — inside its **own** namespace `data/nfl_309921cc/` + `docs/nfl-309921cc/`. Both
+packs now exist, use the same headline concepts, and are not guaranteed to agree numerically. This
+duplication is exactly the inconsistency this session flagged at claim time and again in
+`repo_findings.csv`. A future integration session should decide which pack is canonical rather than
+letting two sets of Week 10 numbers stand side by side.
+
+**Environment notes for the next session.** `git fetch --unshallow origin` is required for
+`scripts/audit_repo.py`. System pip is PEP 668 managed; `python3 -m venv .venv &&
+.venv/bin/python -m pip install -r requirements-empirical.txt` is required before `pytest`.
+`gh run view <id> --log-failed` intermittently fails to download logs; use
+`gh run list --json name,conclusion,headSha` instead.
