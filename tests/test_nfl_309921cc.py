@@ -256,8 +256,65 @@ class TestDerived(unittest.TestCase):
 
     def test_gate_counts(self):
         gates = D.gate_rows()
-        self.assertEqual(len(gates), 12)
+        self.assertEqual(len(gates), 13)  # G01-G13 including demotion gate G13
         self.assertEqual(sum(1 for g in gates if g["status"] == "open"), 4)
+
+    def test_thirteen_gates_including_demotion(self):
+        gates = D.gate_rows()
+        self.assertEqual(len(gates), 13)
+        gate_ids = {g["gate_id"] for g in gates}
+        self.assertIn("G13", gate_ids)
+        g13 = [g for g in gates if g["gate_id"] == "G13"][0]
+        self.assertIn("demoted", g13["rule"].lower())
+        self.assertEqual(g13["status"], "blocked")
+
+    def test_price_snapshots_all_blank(self):
+        rows = D.price_snapshot_rows()
+        self.assertEqual(len(rows), 56)  # 14 games x 4 markets
+        for r in rows:
+            self.assertEqual(r["opening_price"], "")
+            self.assertEqual(r["closing_price"], "")
+            self.assertTrue(r["source_url"].startswith("https://"))
+            self.assertEqual(r["status"], "unverified_no_price_archive")
+
+    def test_results_feed_one_final_game(self):
+        rows = D.results_feed_rows()
+        self.assertEqual(len(rows), 14)
+        final = [r for r in rows if r["result_status"] == "final"]
+        self.assertEqual(len(final), 1)
+        self.assertEqual(final[0]["game_id"], "W10-01")
+        self.assertEqual(final[0]["away_score"], 24)
+        self.assertEqual(final[0]["home_score"], 21)
+        for r in rows:
+            self.assertTrue(r["source_url"].startswith("https://"))
+
+    def test_leaderboard_signal_staking_separation(self):
+        _tiers, entries = D.leaderboard_rows()
+        for e in entries:
+            self.assertIn("signal_score", e)
+            self.assertIn("signal_quality", e)
+            self.assertIn("staking_score", e)
+            self.assertIn("staking_quality", e)
+            self.assertEqual(e["signal_score"], "")
+            self.assertEqual(e["signal_quality"], "no_graded_selections")
+            self.assertEqual(e["staking_score"], "")
+            self.assertEqual(e["staking_quality"], "no_graded_selections")
+
+    def test_originated_lines_have_difference_columns(self):
+        lines, _check = D.originated_line_rows()
+        for r in lines:
+            self.assertIn("spread_difference", r)
+            self.assertIn("total_difference", r)
+            self.assertEqual(r["spread_difference"], "")
+            self.assertEqual(r["total_difference"], "")
+        # scheduled games have fair lines, blank markets
+        scheduled = [r for r in lines if r["model_applicability"] == "scheduled"]
+        self.assertEqual(len(scheduled), 13)
+        for r in scheduled:
+            self.assertTrue(r["originated_home_spread"])
+            self.assertTrue(r["originated_total"])
+            self.assertEqual(r["market_spread"], "")
+            self.assertEqual(r["market_total"], "")
 
     def test_no_monetary_reward_anywhere(self):
         tiers, entries = D.leaderboard_rows()
@@ -282,7 +339,8 @@ class TestArtefacts(unittest.TestCase):
                  "decision_ledger.csv", "suggestions.csv", "strategies.csv",
                  "validation_gates.csv", "correlations.csv", "luck_index.csv",
                  "originated_lines.csv", "leaderboard_tiers.csv",
-                 "leaderboard_entries.csv", "flagged.csv"]
+                 "leaderboard_entries.csv", "flagged.csv",
+                 "price_snapshots.csv", "results_feed.csv"]
         for n in names:
             rows = self._read(n)
             self.assertTrue(rows, f"{n} is empty")
@@ -294,7 +352,7 @@ class TestArtefacts(unittest.TestCase):
 
     def test_pages_have_no_input_elements(self):
         pages = sorted(f for f in os.listdir(DOCS) if f.endswith(".html"))
-        self.assertGreaterEqual(len(pages), 16)
+        self.assertGreaterEqual(len(pages), 18)
         for p in pages:
             with open(os.path.join(DOCS, p), encoding="utf-8") as fh:
                 html = fh.read()

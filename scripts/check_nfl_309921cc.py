@@ -392,7 +392,7 @@ for r in lines:
             bad_lines += 1
     if r["originated_moneyline_home_prob"]:
         bad_lines += 1
-    if r["market_spread"] or r["market_total"] or r["closing_line_value"]:
+    if r["market_spread"] or r["market_total"] or r["spread_difference"] or r["total_difference"] or r["closing_line_value"]:
         bad_lines += 1
     if r["status"] != "model_output":
         bad_lines += 1
@@ -404,14 +404,14 @@ else:
 # --------------------------------------------------------------------------
 print("[12] gates, strategies and leaderboard")
 gates = read_csv("validation_gates.csv")
-if len(gates) != 12:
-    err(f"{len(gates)} gates, expected 12")
+if len(gates) != 13:
+    err(f"{len(gates)} gates, expected 13")
 else:
-    ok("12 validation gates")
+    ok("13 validation gates (including G13 demotion gate)")
 if sum(1 for g in gates if g["status"] == "open") != 4:
     err("expected exactly 4 open gates")
 else:
-    ok("4 gates open, 8 blocked")
+    ok("4 gates open, 9 blocked (including G13 demotion gate)")
 strats = read_csv("strategies.csv")
 if len(strats) != 10:
     err(f"{len(strats)} strategies, expected 10")
@@ -438,6 +438,10 @@ if any(e["reward_awarded"] != "not_awarded" for e in entries):
     err("a leaderboard entry has a reward")
 else:
     ok("no leaderboard reward awarded")
+if any("signal_score" not in e or "staking_score" not in e for e in entries):
+    err("leaderboard entries missing signal/staking columns")
+else:
+    ok("leaderboard separates signal from staking columns")
 if any("non-monetary" not in e["monetary_value"]
        for e in read_csv("leaderboard_tiers.csv")):
     err("a leaderboard tier offers a monetary value")
@@ -445,7 +449,38 @@ else:
     ok("all leaderboard rewards are non-monetary")
 
 # --------------------------------------------------------------------------
-print("[13] decision ledger, suggestions and flags")
+print("[13] price-snapshot store and results feed")
+ps = read_csv("price_snapshots.csv")
+if len(ps) != 56:
+    err(f"{len(ps)} price snapshot rows, expected 56 (14 games x 4 markets)")
+else:
+    ok(f"{len(ps)} price snapshot rows (blank prices pending licensed archive)")
+for r in ps:
+    if r["opening_price"] or r["closing_price"]:
+        err(f"{r['snapshot_id']}: price cell is not blank")
+    if not r["source_url"].startswith("https://"):
+        err(f"{r['snapshot_id']}: no https source URL")
+if not any(e for e in []):
+    pass
+ok("all price snapshot prices are blank and all rows are sourced")
+
+rf = read_csv("results_feed.csv")
+if len(rf) != 14:
+    err(f"{len(rf)} results feed rows, expected 14")
+else:
+    ok(f"{len(rf)} results feed rows")
+final_games = [r for r in rf if r["result_status"] == "final"]
+if len(final_games) != 1:
+    err(f"{len(final_games)} final games, expected 1")
+else:
+    ok("exactly one final game in results feed (WAS 24-21 NYG)")
+for r in rf:
+    if not r["source_url"].startswith("https://"):
+        err(f"{r['game_id']}: no https source URL")
+ok("all results feed rows are sourced")
+
+# --------------------------------------------------------------------------
+print("[15] decision ledger, suggestions and flags")
 dec = read_csv("decision_ledger.csv")
 if len(dec) != 16:
     err(f"{len(dec)} decision questions, expected 16")
@@ -473,10 +508,10 @@ if any("Path" not in s["option_paths_for_review"] for s in sug):
 else:
     ok("every suggestion offers at least two option paths")
 flags = read_csv("flagged.csv")
-if len(flags) != 17:
-    err(f"{len(flags)} flags, expected 17")
+if len(flags) != 20:
+    err(f"{len(flags)} flags, expected 20")
 else:
-    ok("17 flagged items")
+    ok("20 flagged items")
 findings = read_csv("repo_findings.csv")
 if len(findings) != 15:
     err(f"{len(findings)} repo findings, expected 15")
