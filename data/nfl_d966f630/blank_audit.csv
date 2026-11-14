@@ -1,0 +1,44 @@
+table,rows,columns,blank_cells,rows_carrying_a_flag_id,blank_cell_meaning,official_source_url,read_on_utc
+sources.csv,9,9,0,0,no blanks in this table,https://github.com/sassnarep3-star/Own6,2026-11-14
+standings_2026_w10.csv,32,16,0,0,no blanks in this table,https://github.com/sassnarep3-star/Own6,2026-11-14
+week10_slate.csv,14,14,14,0,no official or licensed source in this pack supplies the value,https://github.com/sassnarep3-star/Own6,2026-11-14
+club_abbr_aliases.csv,3,5,0,0,no blanks in this table,https://github.com/sassnarep3-star/Own6,2026-11-14
+official_headlines.csv,11,7,0,0,no blanks in this table,https://github.com/sassnarep3-star/Own6,2026-11-14
+position_unit_map.csv,16,6,0,16,no blanks in this table,https://github.com/sassnarep3-star/Own6,2026-11-14
+results_feed.csv,44,19,0,0,no blanks in this table,https://github.com/sassnarep3-star/Own6,2026-11-14
+results_reconciliation.csv,96,8,10,0,no official or licensed source in this pack supplies the value,https://github.com/sassnarep3-star/Own6,2026-11-14
+results_feed_identities.csv,37,6,0,0,no blanks in this table,https://github.com/sassnarep3-star/Own6,2026-11-14
+originated_lines.csv,14,65,137,14,no official or licensed source in this pack supplies the value,https://github.com/sassnarep3-star/Own6,2026-11-14
+stage_order.csv,3,8,3,0,no official or licensed source in this pack supplies the value,https://github.com/sassnarep3-star/Own6,2026-11-14
+model_parameters.csv,8,10,32,0,no official or licensed source in this pack supplies the value,https://github.com/sassnarep3-star/Own6,2026-11-14
+dispersion_by_vintage.csv,4,9,3,0,no official or licensed source in this pack supplies the value,https://github.com/sassnarep3-star/Own6,2026-11-14
+damping_fits.csv,4,15,0,0,no blanks in this table,https://github.com/sassnarep3-star/Own6,2026-11-14
+damping_scans.csv,42,10,0,0,no blanks in this table,https://github.com/sassnarep3-star/Own6,2026-11-14
+line_accuracy_graded.csv,44,17,0,0,no blanks in this table,https://github.com/sassnarep3-star/Own6,2026-11-14
+price_snapshots.csv,210,19,238,27,no official or licensed source in this pack supplies the value,https://github.com/sassnarep3-star/Own6,2026-11-14
+price_snapshots_open_close.csv,171,18,82,157,no official or licensed source in this pack supplies the value,https://github.com/sassnarep3-star/Own6,2026-11-14
+price_capture_attempts.csv,4,10,1,4,no official or licensed source in this pack supplies the value,https://github.com/sassnarep3-star/Own6,2026-11-14
+injury_report_rows.csv,347,16,370,0,no official or licensed source in this pack supplies the value,https://github.com/sassnarep3-star/Own6,2026-11-14
+depth_of_replacement.csv,213,17,424,0,no official or licensed source in this pack supplies the value,https://github.com/sassnarep3-star/Own6,2026-11-14
+club_depth_rollup.csv,28,17,0,0,no blanks in this table,https://github.com/sassnarep3-star/Own6,2026-11-14
+replacement_evidence.csv,11,11,0,0,no blanks in this table,https://github.com/sassnarep3-star/Own6,2026-11-14
+correlations.csv,8,21,8,0,no official or licensed source in this pack supplies the value,https://github.com/sassnarep3-star/Own6,2026-11-14
+correlation_exclusions.csv,5,7,1,0,no official or licensed source in this pack supplies the value,https://github.com/sassnarep3-star/Own6,2026-11-14
+backtest_legs.csv,166,21,166,0,no official or licensed source in this pack supplies the value,https://github.com/sassnarep3-star/Own6,2026-11-14
+backtest_tickets.csv,150,15,0,0,no blanks in this table,https://github.com/sassnarep3-star/Own6,2026-11-14
+strategies.csv,10,12,10,0,no official or licensed source in this pack supplies the value,https://github.com/sassnarep3-star/Own6,2026-11-14
+leaderboard_signal.csv,10,39,112,6,no official or licensed source in this pack supplies the value,https://github.com/sassnarep3-star/Own6,2026-11-14
+leaderboard_staking.csv,10,22,36,7,no official or licensed source in this pack supplies the value,https://github.com/sassnarep3-star/Own6,2026-11-14
+leaderboard_combined.csv,10,21,42,0,no official or licensed source in this pack supplies the value,https://github.com/sassnarep3-star/Own6,2026-11-14
+reward_tiers.csv,10,14,14,6,no official or licensed source in this pack supplies the value,https://github.com/sassnarep3-star/Own6,2026-11-14
+validation_gates.csv,100,15,12,0,no official or licensed source in this pack supplies the value,https://github.com/sassnarep3-star/Own6,2026-11-14
+gate_definitions.csv,10,11,0,0,no blanks in this table,https://github.com/sassnarep3-star/Own6,2026-11-14
+strategy_states.csv,10,18,20,0,no official or licensed source in this pack supplies the value,https://github.com/sassnarep3-star/Own6,2026-11-14
+state_transitions.csv,1,14,2,0,no official or licensed source in this pack supplies the value,https://github.com/sassnarep3-star/Own6,2026-11-14
+demotion_watch.csv,10,11,3,0,no official or licensed source in this pack supplies the value,https://github.com/sassnarep3-star/Own6,2026-11-14
+requirements_trace.csv,15,12,0,0,no blanks in this table,https://github.com/sassnarep3-star/Own6,2026-11-14
+decision_ledger.csv,10,9,0,0,no blanks in this table,https://github.com/sassnarep3-star/Own6,2026-11-14
+repo_findings.csv,13,9,0,0,no blanks in this table,https://github.com/sassnarep3-star/Own6,2026-11-14
+suggestions.csv,10,13,0,0,no blanks in this table,https://github.com/sassnarep3-star/Own6,2026-11-14
+questions.csv,7,11,1,0,no official or licensed source in this pack supplies the value,https://github.com/sassnarep3-star/Own6,2026-11-14
+flagged.csv,15,12,0,15,no blanks in this table,https://github.com/sassnarep3-star/Own6,2026-11-14

@@ -1,0 +1,15 @@
+game_id,date_on_card,kickoff_on_card,away,home,network_on_card,status_on_card,game_page_url,official_source_url,read_on_utc,away_record_in_injury_block,model_side,model_total,model_moneyline_home
+2026-W10-01,2026-11-12,8:15 PM EST,WAS,NYG,Prime Video,final,https://www.nfl.com/games/commanders-at-giants-2026-reg-10,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-14,,-3.5,45.5,-145
+2026-W10-02,2026-11-15,9:30 AM EST,NE,DET,"FOX, FOX DEPORTES",scheduled,https://www.nfl.com/games/patriots-at-lions-2026-reg-10,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-14,,-2.5,50.0,-130
+2026-W10-03,2026-11-15,1:00 PM EST,KC,ATL,CBS,scheduled,https://www.nfl.com/games/chiefs-at-falcons-2026-reg-10,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-14,,7.5,44.0,+230
+2026-W10-04,2026-11-15,1:00 PM EST,HOU,CLE,FOX,scheduled,https://www.nfl.com/games/texans-at-browns-2026-reg-10,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-14,,4.0,44.5,+155
+2026-W10-05,2026-11-15,1:00 PM EST,MIN,GB,FOX,scheduled,https://www.nfl.com/games/vikings-at-packers-2026-reg-10,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-14,,0.5,36.5,+105
+2026-W10-06,2026-11-15,1:00 PM EST,MIA,IND,CBS,scheduled,https://www.nfl.com/games/dolphins-at-colts-2026-reg-10,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-14,,-1.0,44.0,-110
+2026-W10-07,2026-11-15,1:00 PM EST,CAR,NO,FOX,scheduled,https://www.nfl.com/games/panthers-at-saints-2026-reg-10,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-14,,1.0,53.0,+110
+2026-W10-08,2026-11-15,1:00 PM EST,BUF,NYJ,CBS,scheduled,https://www.nfl.com/games/bills-at-jets-2026-reg-10,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-14,,9.0,51.5,+275
+2026-W10-09,2026-11-15,1:00 PM EST,JAX,TEN,FOX,scheduled,https://www.nfl.com/games/jaguars-at-titans-2026-reg-10,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-14,,13.5,42.5,+450
+2026-W10-10,2026-11-15,4:05 PM EST,LA,ARI,CBS,scheduled,https://www.nfl.com/games/rams-at-cardinals-2026-reg-10,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-14,,8.5,46.0,+255
+2026-W10-11,2026-11-15,4:05 PM EST,SEA,LV,CBS,scheduled,https://www.nfl.com/games/seahawks-at-raiders-2026-reg-10,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-14,,5.5,49.5,+185
+2026-W10-12,2026-11-15,4:25 PM EST,SF,DAL,"FOX, FOX DEPORTES",scheduled,https://www.nfl.com/games/49ers-at-cowboys-2026-reg-10,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-14,,6.0,53.0,+195
+2026-W10-13,2026-11-15,8:20 PM EST,PIT,CIN,"NBC, UNIVERSO",scheduled,https://www.nfl.com/games/steelers-at-bengals-2026-reg-10,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-14,,-2.5,46.5,-130
+2026-W10-14,2026-11-16,8:15 PM EST,LAC,BAL,"ESPN, ABC, ESPN2, ESPN DEPORTES",scheduled,https://www.nfl.com/games/chargers-at-ravens-2026-reg-10,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-14,,-4.5,44.5,-165

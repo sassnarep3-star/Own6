@@ -1,0 +1,2 @@
+transition_id,strategy_id,from_state,to_state,kind,trigger_gate_ids,trigger_detail,strategy_name,rank_at_time_of_decision,note,decision_by,effective_on_utc,official_source_url,read_on_utc
+D966-ST-01,D966-STR-01,paper,live,promotion_to_live,,,Side anchor: play the model's side every game,3,promotion means this strategy's numbers are the pack's reference line for the next week,gate:nfl_d966f630_demotion_v1,2026-11-14,https://www.nfl.com/schedules/2026/by-week/week-9,2026-11-14

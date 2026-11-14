@@ -1,0 +1,4 @@
+published_on_some_pages,canonical_key_in_this_pack,why,official_source_url,read_on_utc
+ARI,"('nfl.com/schedules and nfl.com/games logo paths print ARI; nfl.com/injuries and nfl.com/standings print AZ', 'ARI')",the injury and standings pages print one abbreviation while the schedule and logo paths print the other; every table in this pack keys on the canonical form,https://www.nfl.com/injuries/,2026-11-14
+LA,"('nfl.com/schedules logo paths print LA; nfl.com/injuries prints LAR', 'LA')",the injury and standings pages print one abbreviation while the schedule and logo paths print the other; every table in this pack keys on the canonical form,https://www.nfl.com/injuries/,2026-11-14
+WAS,"('both spellings seen historically; the pages read this session print WAS', 'WAS')",the injury and standings pages print one abbreviation while the schedule and logo paths print the other; every table in this pack keys on the canonical form,https://www.nfl.com/injuries/,2026-11-14
