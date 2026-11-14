@@ -1920,3 +1920,10 @@ letting two sets of Week 10 numbers stand side by side.
 .venv/bin/python -m pip install -r requirements-empirical.txt` is required before `pytest`.
 `gh run view <id> --log-failed` intermittently fails to download logs; use
 `gh run list --json name,conclusion,headSha` instead.
+
+**Note on the inventory fixed point (learned the hard way here).** `data/assurance/**`,
+`data/source_coverage/**` and `audit/SOURCE_COVERAGE.md` count *lines* of tracked text files, so
+**any** commit that grows a tracked file — including `COORDINATION.md` itself — makes them stale and
+fails Assurance CI and Lab CI. Any session that edits `COORDINATION.md` or `README.md` must re-run
+`build_lab → build_assurance → source_coverage → audit_repo` **in the same commit**, until two
+consecutive passes are byte-identical. Follow-up record PR: #87.
