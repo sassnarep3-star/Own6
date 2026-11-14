@@ -1779,3 +1779,34 @@ requirements-empirical.txt` before `pytest`.
   `docs/nfl-309921cc/repo-review.html` with official source links for manual review.
 - **Tasks C1–C9 are complete and this session's claimed scope is closed.** No other session's owned
   files were edited; `docs/index.html` and `README.md` received additive insertions only.
+
+---
+
+## Session `arena/6cefc476-own6` — NFL Price-Snapshot Store, Verified Results Feed, Signal/Staking Leaderboard, Replacement-Depth, Demotion Gate (2026-11-14)
+
+**Platform branch constraint (logged deviation):** Arena fixes this session to branch `arena/6cefc476-own6`; `session-<id>/<task>` branches are disallowed by the platform rule (same logged deviation as all prior sessions). Session ID: `6cefc476`. Board read before claiming: all prior NFL scopes (`docs/nfl/`, `docs/nfl-309921cc/`, `docs/nfl-3b81013c/`, `docs/nfl-origination/`, `docs/nfl-wk/` and their `data/` and `src/` trees) are `done` and merged; no open claims exist at claim time. **Every file path claimed below is disjoint** from every prior scope: `docs/nfl-6cefc476/`, `data/nfl_6cefc476/`, `src/nfl_6cefc476/`, `scripts/build_nfl_6cefc476.py`, `scripts/check_nfl_6cefc476.py`, `tests/test_nfl_6cefc476.py`, `NFL_6CEFC476_EXECUTIVE_SUMMARY.md`, `audit/NFL_6CEFC476_REPO_REVIEW.md`, `.github/workflows/nfl-6cefc476-ci.yml`.
+
+**Live GitHub Pages target:** `docs/nfl-6cefc476/` → `https://sassnarep3-star.github.io/Own6/docs/nfl-6cefc476/`
+
+### Task board (session `6cefc476`)
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| N1 Repo line-by-line review + irregularity register | in progress | `6cefc476` | `audit/NFL_6CEFC476_REPO_REVIEW.md`, `data/nfl_6cefc476/repo_findings.csv` |
+| N2 Price-snapshot store (open + close numbers for every originated market) | in progress | `6cefc476` | `src/nfl_6cefc476/prices.py`, `data/nfl_6cefc476/price_snapshots.csv` |
+| N3 Verified results feed (settlement so backtests/ROI are computable) | in progress | `6cefc476` | `src/nfl_6cefc476/results.py`, `data/nfl_6cefc476/results_feed.csv` |
+| N4 Origination engine: side → total → moneyline order; fair/market/difference columns | in progress | `6cefc476` | `src/nfl_6cefc476/originate.py`, `data/nfl_6cefc476/originated_lines.csv` |
+| N5 Leaderboard: signal separated from staking | in progress | `6cefc476` | `src/nfl_6cefc476/leaderboard.py`, `data/nfl_6cefc476/leaderboard.csv` |
+| N6 Replacement-depth tracker (depth of replacement, not just fact) | in progress | `6cefc476` | `src/nfl_6cefc476/depth.py`, `data/nfl_6cefc476/replacement_depth.csv` |
+| N7 Correlations from officially sourced numbers, n published per value | in progress | `6cefc476` | `data/nfl_6cefc476/correlations.csv` |
+| N8 Validation gates + demotion gate (live → paper) | in progress | `6cefc476` | `data/nfl_6cefc476/validation_gates.csv`, `data/nfl_6cefc476/demotion_gate.csv` |
+| N9 Decision questions (knowns / unknowns / discovery protocol) + Suggestions review register | in progress | `6cefc476` | `data/nfl_6cefc476/decision_questions.csv`, `data/nfl_6cefc476/suggestions.csv` |
+| N10 Zero-input GitHub Pages dashboard + executive summary + sources + flagged | in progress | `6cefc476` | `docs/nfl-6cefc476/**`, `NFL_6CEFC476_EXECUTIVE_SUMMARY.md`, `data/nfl_6cefc476/sources.csv`, `data/nfl_6cefc476/flagged.csv` |
+| N11 Line-by-line checker + regression tests + CI workflow | in progress | `6cefc476` | `scripts/build_nfl_6cefc476.py`, `scripts/check_nfl_6cefc476.py`, `tests/test_nfl_6cefc476.py`, `.github/workflows/nfl-6cefc476-ci.yml` |
+| N12 Final integration: rebase, additive nav/README links, all gates green, PR → merge → Pages verified | in progress | `6cefc476` | `COORDINATION.md` (append-only), `README.md` (append-only), `docs/index.html` (additive link only) |
+
+**Status legend:** `unclaimed` · `in progress` · `done` · `needs review` (published on Flagged for Review; does not block).
+
+**Claim log:** 2026-11-14 — session `6cefc476` read the board, `git log`, and remote state, and claims N1–N12. Claim committed and pushed immediately.
+
+**Evidence policy (unchanged, user-mandated):** every published value must trace to an official page read in this session; anything else stays blank and is flagged as unverified on the Flagged-for-Review page. No inferred or filled values. Market prices without a licensed/official source stay blank in every table.
