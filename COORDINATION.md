@@ -1779,3 +1779,34 @@ requirements-empirical.txt` before `pytest`.
   `docs/nfl-309921cc/repo-review.html` with official source links for manual review.
 - **Tasks C1–C9 are complete and this session's claimed scope is closed.** No other session's owned
   files were edited; `docs/index.html` and `README.md` received additive insertions only.
+
+---
+
+## Session arena/d966f630-own6 — NFL origination spine: price snapshots, verified results feed, side→total→moneyline, signal/staking split, replacement depth, gated correlations, demotion gate (claimed 2026-11-14)
+
+**Branch constraint.** Arena fixes this session to `arena/d966f630-own6`; no other branch or worktree will be created or used. The `session-<id>/<task>` naming in the brief is therefore satisfied by disjoint *file scopes* on this single branch, as prior sessions did. Checkout base: `36c6f84` (= `origin/main`, merged PR #83).
+
+**Concurrent-work check before claiming.** Open PRs at claim time: #84 (`arena/baa41d14-own6`, files `data/nfl_desk/**`, `docs/nfl-decision-desk/**`, `src/nfl_desk/**` plus regenerated shared coverage/assurance artifacts), #79, #72, #68, #56, #54, #52, #48 (stale). Every path claimed below is disjoint from PR #84 and from all merged pack scopes (`data/nfl/**`, `data/nfl_309921cc/**`, `data/nfl_3b81013c/**`, `data/nfl_origination/**`, `data/nfl_wk/**`, `src/nfl_*/`, `docs/nfl*/`, `scripts/{build,check}_nfl_*`). No file owned by another session is edited; `docs/index.html` and `README.md` receive additive insertions only, and the shared generated inventories are regenerated only if a global gate would otherwise go stale.
+
+### Claim (written and pushed before any data or code was produced)
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| P1 Repo line-by-line review of the NFL packs + irregularity register (with official source links) | in progress | `d966f630` | `audit/NFL_D966F630_REPO_AND_SOURCE_AUDIT.md`, `data/nfl_d966f630/repo_findings.csv` |
+| P2 Verified results feed (official final scores, W7-W10 2026, + point-in-time aggregate derivation and standings reconciliation) | in progress | `d966f630` | `src/nfl_d966f630/results.py`, `data/nfl_d966f630/results_feed.csv`, `data/nfl_d966f630/standings_official_2026-11-14.csv`, `data/nfl_d966f630/standings_reconciliation.csv` |
+| P3 Price-snapshot store: opening and closing number for every market we originate (+ external-price capture attempt log) | in progress | `d966f630` | `src/nfl_d966f630/prices.py`, `data/nfl_d966f630/price_snapshots.csv`, `data/nfl_d966f630/price_snapshot_policy.csv`, `data/nfl_d966f630/market_price_capture_log.csv` |
+| P4 Origination order side → total → moneyline, published as fair / market / difference column triples | in progress | `d966f630` | `src/nfl_d966f630/originate.py`, `data/nfl_d966f630/originated_lines.csv`, `data/nfl_d966f630/origination_order.csv` |
+| P5 Leaderboard with signal separated from staking (ranking by signal only) + backtest/ROI against the results feed | in progress | `d966f630` | `src/nfl_d966f630/leaderboard.py`, `src/nfl_d966f630/backtest.py`, `data/nfl_d966f630/leaderboard_signal.csv`, `data/nfl_d966f630/leaderboard_staking.csv`, `data/nfl_d966f630/backtest_settlements.csv`, `data/nfl_d966f630/strategies.csv` |
+| P6 Depth-of-replacement tracking (tiers dropped, not the fact of a replacement) from the official injury report | in progress | `d966f630` | `src/nfl_d966f630/depth.py`, `data/nfl_d966f630/injury_report_2026_w10.csv`, `data/nfl_d966f630/depth_of_replacement.csv` |
+| P7 Correlations from officially sourced numbers only, n published with every value | in progress | `d966f630` | `src/nfl_d966f630/correlate.py`, `data/nfl_d966f630/correlations.csv`, `data/nfl_d966f630/correlation_exclusions.csv` |
+| P8 Demotion gate: live → paper state machine with thresholds and evaluation | in progress | `d966f630` | `src/nfl_d966f630/demotion.py`, `data/nfl_d966f630/demotion_gate.csv`, `data/nfl_d966f630/strategy_states.csv` |
+| P9 Decision-readiness ledger + site-improvement suggestions review (human chooses; nothing auto-applied) | in progress | `d966f630` | `data/nfl_d966f630/decision_ledger.csv`, `data/nfl_d966f630/suggestions.csv`, `research/nfl_d966f630/DECISION_READINESS.md`, `research/nfl_d966f630/SUGGESTIONS_REVIEW.md` |
+| P10 Zero-input GitHub Pages dashboard `docs/nfl-d966f630/` + executive summary + Flagged for Review | in progress | `d966f630` | `docs/nfl-d966f630/**`, `scripts/build_nfl_d966f630.py`, `NFL_D966F630_EXECUTIVE_SUMMARY.md`, `data/nfl_d966f630/flagged.csv`, `data/nfl_d966f630/sources.csv`, `data/nfl_d966f630/requirements_trace.csv`, `data/nfl_d966f630/validation_gates.csv` |
+| P11 Automated verifier + regression tests + CI workflow | in progress | `d966f630` | `scripts/check_nfl_d966f630.py`, `tests/test_nfl_d966f630.py`, `.github/workflows/nfl-d966f630-ci.yml` |
+| P12 Final integration: rebase, re-verify combined tree, refresh derived inventories only if a global gate requires it, PR → merge → Pages check | unclaimed (this session, last) | `d966f630` | `COORDINATION.md`, `README.md` (additive), `docs/index.html` (additive link only), `data/assurance/**`, `docs/assurance/**`, `data/source_coverage/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md` |
+
+**Rules this session follows.** (1) No manual input is requested from the owner and no page contains an input control. (2) A value is published only if it was read this session from the cited official page, or is arithmetic on such values with the derivation shown; anything else is an empty cell plus a row in `flagged.csv`. (3) Market (book) prices are not obtainable from an official source, so `market_*` columns stay blank with a capture-attempt log rather than an estimate. (4) No profitability claim is made anywhere. (5) `needs review` items never block: they are published on the Flagged for Review page.
+
+**Cross-session requests (recorded here, not executed by this session).**
+- R5 to the owner of `scripts/source_coverage.py`: `PUBLISHERS` still has no `nfl.com`, so every row of this pack that cites an official NFL page is classified `secondary_reference_only` by that tool. Request (again, first raised as R4 by session `309921cc`): add `"nfl.com"`, `"operations.nfl.com"` to the declared publisher set. This session will not edit that shared script.
+- R6 to the owner of `tools/release_gate.py`: `OFFICIAL_HOSTS` omits `www.nfl.com`, so `docs/index.html` rows that cite NFL sources satisfy the gate only through `github.com`. Same request applies.
