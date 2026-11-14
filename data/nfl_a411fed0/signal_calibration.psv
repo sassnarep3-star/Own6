@@ -1,0 +1,21 @@
+p_bucket|n|stated_p|realised|strategy_id|strategy_name|official_source_url
+[0.50, 0.55)|13|0.5231|0.6154|A9-S01|Baseline power rating - side|https://www.nfl.com/scores/2026/week-1
+[0.55, 0.60)|12|0.5789|0.5833|A9-S01|Baseline power rating - side|https://www.nfl.com/scores/2026/week-1
+[0.60, 0.65)|13|0.6301|0.5385|A9-S01|Baseline power rating - side|https://www.nfl.com/scores/2026/week-1
+[0.65, 0.70)|12|0.6737|0.9167|A9-S01|Baseline power rating - side|https://www.nfl.com/scores/2026/week-1
+[0.70, 1.01)|38|0.8001|0.6579|A9-S01|Baseline power rating - side|https://www.nfl.com/scores/2026/week-1
+[0.50, 0.55)|12|0.5177|0.4167|A9-S02|Baseline power rating - total|https://www.nfl.com/scores/2026/week-1
+[0.55, 0.60)|15|0.5758|0.3333|A9-S02|Baseline power rating - total|https://www.nfl.com/scores/2026/week-1
+[0.60, 0.65)|16|0.6213|0.625|A9-S02|Baseline power rating - total|https://www.nfl.com/scores/2026/week-1
+[0.65, 0.70)|13|0.6787|0.6154|A9-S02|Baseline power rating - total|https://www.nfl.com/scores/2026/week-1
+[0.70, 1.01)|32|0.7916|0.5|A9-S02|Baseline power rating - total|https://www.nfl.com/scores/2026/week-1
+[0.70, 1.01)|15|0.8305|0.6667|A9-S03|Road favourite|https://www.nfl.com/scores/2026/week-1
+[0.60, 0.65)|1|0.6337|1.0|A9-S04|Systematic under|https://www.nfl.com/scores/2026/week-1
+[0.65, 0.70)|8|0.6725|0.5|A9-S04|Systematic under|https://www.nfl.com/scores/2026/week-1
+[0.70, 1.01)|18|0.7823|0.5|A9-S04|Systematic under|https://www.nfl.com/scores/2026/week-1
+[0.55, 0.60)|9|0.5768|0.4444|A9-S05|Home underdog|https://www.nfl.com/scores/2026/week-1
+[0.60, 0.65)|8|0.6292|0.5|A9-S05|Home underdog|https://www.nfl.com/scores/2026/week-1
+[0.65, 0.70)|7|0.68|0.0|A9-S05|Home underdog|https://www.nfl.com/scores/2026/week-1
+[0.70, 1.01)|20|0.7996|0.35|A9-S05|Home underdog|https://www.nfl.com/scores/2026/week-1
+[0.50, 0.55)|1|0.5277|1.0|A9-S06|Depth-of-replacement fade|https://www.nfl.com/scores/2026/week-1
+[0.55, 0.60)|1|0.5672|0.0|A9-S06|Depth-of-replacement fade|https://www.nfl.com/scores/2026/week-1

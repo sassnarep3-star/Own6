@@ -1,0 +1,58 @@
+name: NFL originated-lines pack (a411fed0)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/nfl_a411fed0/**'
+      - 'data/nfl_a411fed0/**'
+      - 'scripts/build_nfl_a411fed0.py'
+      - 'scripts/check_nfl_a411fed0.py'
+      - 'tests/test_nfl_a411fed0.py'
+      - '.github/workflows/nfl-a411fed0-ci.yml'
+  pull_request:
+    paths:
+      - 'src/nfl_a411fed0/**'
+      - 'data/nfl_a411fed0/**'
+      - 'scripts/build_nfl_a411fed0.py'
+      - 'scripts/check_nfl_a411fed0.py'
+      - 'tests/test_nfl_a411fed0.py'
+      - '.github/workflows/nfl-a411fed0-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pytest
+
+      - name: Rebuild artifacts from the raw official captures
+        run: python scripts/build_nfl_a411fed0.py
+
+      - name: Fail if the rebuild changed committed artifacts
+        run: |
+          if ! git diff --quiet -- data/nfl_a411fed0 docs/nfl-a411fed0; then
+            echo "::error::Committed artifacts are stale. Run "
+            echo "::error::  python scripts/build_nfl_a411fed0.py"
+            echo "::error::and commit the result."
+            git diff --stat -- data/nfl_a411fed0 docs/nfl-a411fed0
+            exit 1
+          fi
+
+      - name: Run the verification gates
+        run: python scripts/check_nfl_a411fed0.py
+
+      - name: Run the test suite
+        run: python -m pytest tests/test_nfl_a411fed0.py -q
