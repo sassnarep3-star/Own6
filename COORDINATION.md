@@ -1779,3 +1779,31 @@ requirements-empirical.txt` before `pytest`.
   `docs/nfl-309921cc/repo-review.html` with official source links for manual review.
 - **Tasks C1–C9 are complete and this session's claimed scope is closed.** No other session's owned
   files were edited; `docs/index.html` and `README.md` received additive insertions only.
+
+---
+
+## Session `arena/6730bc14-own6` — NFL Market Ledger: price-snapshot store, verified results feed, ordered origination, split leaderboard & demotion gate (claimed 2026-11-14)
+
+**Branch rule (logged deviation):** Arena fixes this session to `arena/6730bc14-own6`; no `session-<id>/<task>` branch is created. All tasks below run on this branch, in file scopes that are disjoint from every merged and open pack.
+
+**Checked before claiming:** this file; `origin/main` at `36c6f84` (PR #83 merged); open PRs #84 (`arena/baa41d14-own6`, `nfl_desk` pack, MERGEABLE), #79, #72, #68, #56, #54, #52, #48. Disjointness confirmed against PR #84's file list (`data/nfl_desk/**`, `docs/nfl-decision-desk/**`, `src/nfl_desk/**`, `scripts/{build,check}_nfl_desk.py`, `tests/test_nfl_desk.py`) and against the merged `nfl`, `nfl_wk`, `nfl_origination`, `nfl_3b81013c`, `nfl_309921cc` packs.
+
+### Task board (session `6730bc14`)
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| L1 Repo line-by-line review + cross-pack irregularity register | in progress | `6730bc14` | `audit/NFL_6730BC14_REPO_REVIEW.md`, `data/nfl_6730bc14/repo_findings.csv` |
+| L2 Price-snapshot store (open + close per originated market, look-ahead guard) | in progress | `6730bc14` | `src/nfl_6730bc14/snapshot_store.py`, `data/nfl_6730bc14/{price_snapshots,snapshot_coverage}.csv` |
+| L3 Verified results feed + settlement linkage | in progress | `6730bc14` | `src/nfl_6730bc14/results_feed.py`, `data/nfl_6730bc14/{results_feed,feed_coverage}.csv` |
+| L4 Ordered origination (side → total → moneyline) with fair / market / diff columns | in progress | `6730bc14` | `src/nfl_6730bc14/originate.py`, `data/nfl_6730bc14/{originated_markets,origination_sequence}.csv` |
+| L5 Leaderboard split: signal axis vs staking axis | in progress | `6730bc14` | `src/nfl_6730bc14/leaderboard.py`, `data/nfl_6730bc14/{leaderboard_signal,leaderboard_staking,rewards}.csv` |
+| L6 Replacement-depth tracking (how deep, not just whether) | in progress | `6730bc14` | `src/nfl_6730bc14/depth.py`, `data/nfl_6730bc14/{replacement_depth,depth_sources}.csv` |
+| L7 Official-only correlations with n published | in progress | `6730bc14` | `src/nfl_6730bc14/correlate.py`, `data/nfl_6730bc14/correlations.csv` |
+| L8 Validation gates + demotion gate (live → paper) | in progress | `6730bc14` | `src/nfl_6730bc14/gates.py`, `data/nfl_6730bc14/{validation_gates,demotion_events,strategy_states}.csv` |
+| L9 Decision-readiness ledger + suggestions section (human chooses) | in progress | `6730bc14` | `data/nfl_6730bc14/{decision_questions,suggestions}.csv`, `research/nfl_6730bc14/*.md` |
+| L10 Zero-input Pages dashboard + executive summary + Flagged for Review | in progress | `6730bc14` | `docs/nfl-6730bc14/**`, `scripts/{build,check}_nfl_6730bc14.py`, `tests/test_nfl_6730bc14.py`, `.github/workflows/nfl-6730bc14-ci.yml`, `NFL_6730BC14_EXECUTIVE_SUMMARY.md`, `data/nfl_6730bc14/{sources,requirements,flagged}.csv`, `src/nfl_6730bc14/{verified,dataset}.py` |
+| L11 Final integration: rebase, additive nav links, regenerate derived inventories, gates, PR → merge → Pages check | pending | `6730bc14` | `COORDINATION.md` (append-only), `README.md` (append-only), `docs/index.html` (additive link only), `data/assurance/**`, `docs/assurance/**`, `data/source_coverage/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md` |
+
+**Status legend:** `unclaimed` · `in progress` · `done` · `needs review` (published on Flagged for Review; does not block).
+
+Claim committed and pushed immediately before any implementation file was written. No other session's file will be edited; requests are logged in this file instead.
