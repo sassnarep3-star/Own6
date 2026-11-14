@@ -1779,3 +1779,34 @@ requirements-empirical.txt` before `pytest`.
   `docs/nfl-309921cc/repo-review.html` with official source links for manual review.
 - **Tasks C1–C9 are complete and this session's claimed scope is closed.** No other session's owned
   files were edited; `docs/index.html` and `README.md` received additive insertions only.
+
+---
+
+## Session `arena/f4e592a7-own6` (session `f4e592a7`) — NFL price snapshots, verified results, skill/staking-split leaderboard
+
+**Claimed:** 2026-11-14. Read the whole board, `git log`, and all 8 open PRs before claiming. Open PRs #84 (`arena/baa41d14-own6`, scope `data/nfl_desk/**`, `docs/nfl-decision-desk/**`), #79, #72, #68, #56, #54, #52, #48 were treated as live and their scopes avoided.
+
+**Status legend:** `unclaimed` · `in progress` · `done` · `needs review` (published on Flagged for Review; does not block).
+
+**Branch-rule deviation (same as prior sessions):** the Arena session rule fixes this session to branch `arena/f4e592a7-own6` and forbids creating `session-<id>/<task>` branches. All work is done there, with file scopes kept disjoint so any task can be re-run elsewhere.
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| D1 Price-snapshot store (open/close per originated market) + provenance & capture protocol | in progress | `f4e592a7` | `src/nfl_f4/prices.py`, `data/nfl_f4/price_snapshots.csv`, `data/nfl_f4/markets.csv` |
+| D2 Verified results feed (official NFL scores) usable by backtests | in progress | `f4e592a7` | `src/nfl_f4/results.py`, `data/nfl_f4/results.csv`, `data/nfl_f4/results_checks.csv` |
+| D3 Origination order gate: side → total → moneyline | in progress | `f4e592a7` | `src/nfl_f4/originate.py`, `data/nfl_f4/originated_markets.csv` |
+| D4 Fair line / market line / difference as separate columns | in progress | `f4e592a7` | `data/nfl_f4/fair_vs_market.csv` |
+| D5 Leaderboard split: signal score vs staking score (+ mask test) | in progress | `f4e592a7` | `src/nfl_f4/leaderboard.py`, `data/nfl_f4/leaderboard.csv` |
+| D6 Replacement depth (which string) not just the fact | in progress | `f4e592a7` | `src/nfl_f4/depth.py`, `data/nfl_f4/depth_replacement.csv` |
+| D7 Correlations from officially sourced numbers only, with n per value | in progress | `f4e592a7` | `src/nfl_f4/correlations.py`, `data/nfl_f4/correlations.csv` |
+| D8 Demotion gate (live → paper) | in progress | `f4e592a7` | `src/nfl_f4/demotion.py`, `data/nfl_f4/demotion_gate.csv` |
+| D9 Decision-readiness Q&A, missing-information discovery, suggestions review | in progress | `f4e592a7` | `data/nfl_f4/questions.csv`, `data/nfl_f4/suggestions.csv`, `research/nfl_f4/**` |
+| D10 Zero-input Pages dashboard + executive summary + Flagged for Review | in progress | `f4e592a7` | `scripts/build_nfl_f4.py`, `docs/nfl-f4/**`, `NFL_F4_EXECUTIVE_SUMMARY.md`, `data/nfl_f4/flagged.csv` |
+| D11 Verifier, tests, CI | in progress | `f4e592a7` | `scripts/check_nfl_f4.py`, `tests/test_nfl_f4.py`, `.github/workflows/nfl-f4-ci.yml` |
+| D12 Integration: rebase, regenerate shared inventories, PR → merge → Pages | in progress | `f4e592a7` | `COORDINATION.md` (append-only), `README.md` (append-only), `docs/index.html` (additive link), `data/assurance/**`, `docs/assurance/**`, `data/source_coverage/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md` |
+
+**Disjointness check:** `data/nfl_f4/`, `docs/nfl-f4/`, `src/nfl_f4/`, `scripts/{build,check}_nfl_f4.py`, `tests/test_nfl_f4.py`, `.github/workflows/nfl-f4-ci.yml`, `NFL_F4_EXECUTIVE_SUMMARY.md`, `research/nfl_f4/` are all new paths, disjoint from `data/nfl*/`, `docs/nfl*/` (including `docs/nfl`, `docs/nfl-309921cc`, `docs/nfl-3b81013c`, `docs/nfl-origination`, `docs/nfl-wk`, `docs/nfl-decision-desk`), `src/nfl*`, and every other session's scope.
+
+**No other session's files will be edited.** Requests to other owners are logged here instead.
+
+**Claim commit:** see `git log -- COORDINATION.md` (first commit of session `f4e592a7`).
