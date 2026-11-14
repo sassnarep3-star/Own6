@@ -391,6 +391,25 @@ for p in PAGES:
     check(f"site.{p}.every_table_row_references_a_source",
           len(unsourced) == 0,
           f"{len(unsourced)} of {len(body_rows)} rows lack an external link")
+for p in PAGES:
+    path = os.path.join(DOCS, p)
+    if os.path.exists(path):
+        check(f"site.{p}.no_python_repr_leak",
+              "__raw__" not in open(path, encoding="utf-8").read())
+for p in PAGES:
+    path = os.path.join(DOCS, p)
+    if not os.path.exists(path):
+        continue
+    text = open(path, encoding="utf-8").read()
+    ragged = []
+    for tbl in re.findall(r"<table>(.*?)</table>", text, flags=re.S):
+        heads = len(re.findall(r"<th>", tbl))
+        for tr in re.findall(r"<tr>(.*?)</tr>", tbl, flags=re.S):
+            if "<th>" in tr:
+                continue
+            if len(re.findall(r"<td", tr)) != heads:
+                ragged.append(tr[:60])
+    check(f"site.{p}.table_rows_align_with_headers", not ragged, str(ragged[:3]))
 check("site.nojekyll_present", os.path.exists(os.path.join(DOCS, ".nojekyll")))
 _index = open(os.path.join(DOCS, "index.html"), encoding="utf-8").read()
 check("site.index_links_every_page",

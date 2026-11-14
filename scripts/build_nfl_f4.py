@@ -253,14 +253,14 @@ site is a gate working, not a gap in the build.</div>
 </ul>
 <h2>The eight requirements, and where they live</h2>
 <table><thead><tr><th>#</th><th>Requirement</th><th>Where it is implemented</th><th>State</th><th>Reference</th></tr></thead><tbody>
-<tr><td>1</td><td>Price-snapshot store with opening and closing numbers</td><td><a href="prices.html">Price snapshots</a> · <code>data/nfl_f4/price_snapshots.csv</code></td><td>{pill('built · 168 snapshots','ok')}</td><td>{(("__raw__", link(PRICE_SRC_ANY)))}</td></tr>
-<tr><td>2</td><td>Verified results feed usable by backtests</td><td><a href="results.html">Verified results</a> · <code>results.csv</code></td><td>{pill('built · 137 games reconcile','ok')}</td><td>{(("__raw__", link(STANDINGS_URL)))}</td></tr>
-<tr><td>3</td><td>Originate side, then total, then moneyline</td><td><a href="origination.html">Origination order</a></td><td>{pill('built · order enforced','ok')}</td><td>{(("__raw__", link(PRICE_SRC_ANY)))}</td></tr>
-<tr><td>4</td><td>Fair line, market line, difference as separate columns</td><td><a href="lines.html">Own lines</a> · <code>fair_vs_market.csv</code></td><td>{pill('built · 42 markets','ok')}</td><td>{(("__raw__", link(PRICE_SRC_ANY)))}</td></tr>
-<tr><td>5</td><td>Separate signal from staking in the leaderboard</td><td><a href="leaderboard.html">Leaderboard</a></td><td>{pill('built · nothing certified','warn')}</td><td>{(("__raw__", link(STANDINGS_URL)))}</td></tr>
-<tr><td>6</td><td>Track the depth of the replacement, not the fact</td><td><a href="depth.html">Injury &amp; depth</a></td><td>{pill('built · chain resolved','ok')}</td><td>{(("__raw__", link(NE_DC)))}</td></tr>
-<tr><td>7</td><td>Correlations only from official numbers, with n published</td><td><a href="correlations.html">Correlations</a></td><td>{pill('3 measured · 2 uncomputable','warn')}</td><td>{(("__raw__", link(STANDINGS_URL)))}</td></tr>
-<tr><td>8</td><td>Demotion gate from live back to paper</td><td><a href="demotion.html">Demotion gate</a></td><td>{pill('defined · nothing live','ok')}</td><td>{(("__raw__", link(PRICE_SRC_ANY)))}</td></tr>
+<tr><td>1</td><td>Price-snapshot store with opening and closing numbers</td><td><a href="prices.html">Price snapshots</a> · <code>data/nfl_f4/price_snapshots.csv</code></td><td>{pill('built · 168 snapshots','ok')}</td><td>{link(PRICE_SRC_ANY)}</td></tr>
+<tr><td>2</td><td>Verified results feed usable by backtests</td><td><a href="results.html">Verified results</a> · <code>results.csv</code></td><td>{pill('built · 137 games reconcile','ok')}</td><td>{link(STANDINGS_URL)}</td></tr>
+<tr><td>3</td><td>Originate side, then total, then moneyline</td><td><a href="origination.html">Origination order</a></td><td>{pill('built · order enforced','ok')}</td><td>{link(PRICE_SRC_ANY)}</td></tr>
+<tr><td>4</td><td>Fair line, market line, difference as separate columns</td><td><a href="lines.html">Own lines</a> · <code>fair_vs_market.csv</code></td><td>{pill('built · 42 markets','ok')}</td><td>{link(PRICE_SRC_ANY)}</td></tr>
+<tr><td>5</td><td>Separate signal from staking in the leaderboard</td><td><a href="leaderboard.html">Leaderboard</a></td><td>{pill('built · nothing certified','warn')}</td><td>{link(STANDINGS_URL)}</td></tr>
+<tr><td>6</td><td>Track the depth of the replacement, not the fact</td><td><a href="depth.html">Injury &amp; depth</a></td><td>{pill('built · chain resolved','ok')}</td><td>{link(NE_DC)}</td></tr>
+<tr><td>7</td><td>Correlations only from official numbers, with n published</td><td><a href="correlations.html">Correlations</a></td><td>{pill('3 measured · 2 uncomputable','warn')}</td><td>{link(STANDINGS_URL)}</td></tr>
+<tr><td>8</td><td>Demotion gate from live back to paper</td><td><a href="demotion.html">Demotion gate</a></td><td>{pill('defined · nothing live','ok')}</td><td>{link(PRICE_SRC_ANY)}</td></tr>
 </tbody></table>
 <h2>Method in one paragraph</h2>
 <p class="lede">Scores come from the official weekly schedule pages and are
@@ -742,7 +742,7 @@ therefore carries <code>status = verified_unofficial_source</code>, and the club
 own caveat text travels with the row.</div>
 <h2>The chain, slot by slot</h2>
 {table(["Team", "Unit", "Slot", "1st string", "Status", "1st available?", "Replacement", "String",
-        "Contingency", "String", "Worst case pts", "Chain note"],
+        "Contingency", "String", "Worst case pts", "Depth source", "Injury source"],
        [[r["team"], r["unit"], r["slot"], r["first_string"], r["first_string_game_status"],
          pill(r["effectively_available_first"], "bad" if r["effectively_available_first"] == "no" else "ok"),
          r["replacement_player"], r["replacement_string"], r["contingency_player"],
