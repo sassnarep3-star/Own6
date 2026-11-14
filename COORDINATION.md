@@ -2102,6 +2102,126 @@ https://sassnarep3-star.github.io/Own6/docs/nfl-6cefc476/ (note: the CDN briefly
 from before the deploy; the live page verified with a cache-buster and the portal card "PX NFL Price &
 Results Pack" is present on https://sassnarep3-star.github.io/Own6/docs/). Session closed; all
 N1–N12 `done`.
+
+---
+
+## Session `a411fed0` — NFL originated lines: build complete (2026-11-14)
+
+**Branch:** `arena/a411fed0-own6`
+**Scope (exclusive):** `data/nfl_a411fed0/**`, `src/nfl_a411fed0/**`,
+`docs/nfl-a411fed0/**`, `scripts/build_nfl_a411fed0.py`,
+`scripts/check_nfl_a411fed0.py`, `tests/test_nfl_a411fed0.py`,
+`.github/workflows/nfl-a411fed0-ci.yml`, `NFL_A411FED0_EXECUTIVE_SUMMARY.md`,
+plus one additive card + nav link in `docs/index.html`.
+
+**Rebase note.** The first rebase attempt conflicted three times on
+`COORDINATION.md` (append-only, concurrent writers). Resolved by re-applying
+the pack fresh on top of `origin/main` rather than force-merging the board.
+No other session's content was dropped; theirs is intact above.
+
+### Delivered
+
+All 14 tasks (A1–A14) complete. Verification: 126 checks
+(`scripts/check_nfl_a411fed0.py`) and 29 tests
+(`tests/test_nfl_a411fed0.py`) pass. CI rebuilds artifacts from the raw
+captures and fails if committed output drifts.
+
+| Requirement | Status |
+|---|---|
+| Price-snapshot store (opening + closing) | Built; 84 markets enumerated, 0 prices |
+| Verified results feed | 120 games, reconciled vs official standings |
+| Side → total → moneyline order | Built, enforced by test |
+| Fair / market / difference as separate columns | Built; market+difference blank |
+| Signal separated from staking | Separate columns and pages |
+| Depth of replacement | 43 of 77 Out/Doubtful resolved; rest flagged |
+| Correlations from official numbers, with n | 10 values, each with n + 95% CI |
+| Demotion gate | 6 armed rules with numeric thresholds |
+| Suggestions for human review | 12, none implemented |
+| Questions (have / have not) | 18, each with a route to the answer |
+| Leaderboard + rewards | 10 strategies, 4 tiers; Tier 1 empty |
+| Executive summary | `NFL_A411FED0_EXECUTIVE_SUMMARY.md` |
+| Flagged for Review page | 17 flags with verbatim evidence |
+
+### The binding constraint (read before reviewing)
+
+**No official NFL page publishes prices.** All 84 originated markets are
+enumerated in the store with opening and closing columns left empty and
+stamped `unverified_no_official_price`. Consequences: no ROI, no
+closing-line value, no settlement, and gate `A4-G05` fails closed so no
+strategy is promotable. This is the correct state, not a gap to paper over.
+
+6 of 10 validation gates fail: `A4-G03` (week 4 results missing),
+`A4-G04` (totals model loses to a constant baseline out-of-sample),
+`A4-G05` (prices), `A4-G06` (settlement), `A4-G07` (no bets), `A4-G09`
+(depth-chart coverage).
+
+### Two findings worth another session's attention
+
+1. **The totals model does not work.** Pooled walk-forward: margin MAE 9.93
+   vs baseline 10.68 (model wins), total MAE 12.27 vs baseline 11.34
+   (constant wins). The side clears its baseline; the total does not. Flagged
+   `A4-F09`. Published totals are diagnostic only.
+2. **Staking can manufacture a profit from a losing signal.** A9-S05 hit
+   34.1% of picks, lost 15.4u flat, but reached a +8.0u peak under a
+   doubling plan before a 511u drawdown. Same signal, opposite headline.
+
+### Cross-session request (no shared file was edited)
+
+`scripts/source_coverage.py` — `PUBLISHERS` has no NFL domain, so every
+nfl.com-sourced row in this pack is reported as `secondary_reference_only`
+in repo-wide assurance runs. Please add `nfl.com`, `nextgenstats.nfl.com`
+and the 32 club domains. Tracked as suggestion `A10-S12`; I did not edit the
+shared file.
+
+### Blocked, on the record
+
+- **2026 week 4 results** — `nfl.com/scores/2026/week-4` renders the
+  placeholder string `Hidden Score` in place of every score; the `REG4` form
+  does the same. Three attempts. 16-game hole. Flag `A4-F01`.
+- **Player-prop family** — no official NFL page publishes prop lines.
+  `nextgenstats.nfl.com` is the route to try. Strategy `A9-S10` is registered
+  but unbuilt and marked blocked. Suggestion `A10-S10`.
+- **Club depth charts** — only 4 of 32 rendered as extractable text;
+  `houstontexans.com/team/depth-chart` is an image. Flag `A4-F03`.
+
+### Suggestions queue — NOT implemented, awaiting human decision
+
+12 suggestions are published on `docs/nfl-a411fed0/suggestions.html` with
+reasoning, priority and a recommended path. Nothing on that page has been
+built. Top three: `A10-S01` (close the price gap first), `A10-S02` (recover
+week 4), `A10-S03` (automate all 32 depth charts).
+
+### Note for whoever merges next
+
+Per session `f4e592a7`'s hard-won note above: this commit grows
+`COORDINATION.md` and `docs/index.html`, which makes `data/assurance/**` and
+`data/source_coverage/**` stale. Re-run `build_lab → build_assurance →
+source_coverage → audit_repo` in the same commit until two consecutive runs
+are byte-identical.
+
+### Merge record — session `a411fed0`
+
+- **PR:** [#89](https://github.com/sassnarep3-star/Own6/pull/89)
+  `arena/a411fed0-own6` → `main`
+- **Result:** **MERGED** at 2026-11-14T22:29Z, merge commit
+  `8cdc9de7a83beca9bd4b3d4bcc07aa78dd0a0f3f`.
+- **CI at merge:** all 14 checks green, including this pack's own workflow
+  (`NFL originated-lines pack (a411fed0)`).
+- **GitHub Pages:** build `built` for commit `8cdc9de`. Site live at
+  https://sassnarep3-star.github.io/Own6/docs/nfl-a411fed0/ (13 pages).
+  Note: the sandbox cannot reach `github.io` to curl the live pages, so the
+  deployment was confirmed through the Pages builds API and by verifying the
+  13 files are present in `main`'s tree.
+- **Merge note for future sessions:** `main` moved three times during this
+  merge (PRs #90, #92 merged concurrently). Each time, `COORDINATION.md`
+  conflicted because it is append-only with several concurrent writers. The
+  resolution that worked each time: reset the session branch to
+  `origin/main`, restore only this session's exclusive files (`git checkout
+  <scratch> -- <scope>`), re-append the session block, regenerate the shared
+  inventories, then push with `--force-with-lease` and merge immediately.
+  Force-pushing the session's own branch is safe here because
+  `git merge-base --is-ancestor origin/main HEAD` was verified before every
+  push, proving nothing from `main` was lost.
 ---
 
 ## Session arena/d966f630-own6 — NFL origination spine: price snapshots, verified results feed, side→total→moneyline, signal/staking split, replacement depth, gated correlations, demotion gate (claimed 2026-11-14)
@@ -2195,6 +2315,8 @@ content edited or reordered):**
 - The official Week 10 injury report groups five players under a club their own position line
   contradicts, and lists one player at two positions in two clubs. Packs that derive depth from
   that page should publish floors, not charts.
+
+**Post-merge inventory duty (learned the hard way, 2026-11-14).** `data/assurance/inventory.csv` hashes every tracked text file, including `COORDINATION.md` itself, and `tests/assurance/test_audit.py::test_inventory_hashes_and_line_counts` asserts those hashes on the working tree. So *any* append to this board makes the repo suite red unless the generator is re-run. `main` was red exactly that way after PR #92 and was fixed by this session's regeneration; the sibling session `a411fed0` recorded the same loop (`b9f43a7 chore(inventories): second regeneration to reach the fixed point`). Request to whoever next integrates: make `source_coverage.py → tools/build_review.py → audit_repo.py → build_assurance.py` (repeat until `git diff --exit-code` is clean, usually 2-3 passes) a standing step of the final-integration task, or add it to the pack workflows, so nobody inherits a red `lab`/`assurance` gate for a bookkeeping edit.
 
 **Numbers a reviewer can re-check in one line each:**
 `R.league_baseline(9)` → 22.963 ppg · `O.dispersion(9)` → σ 10.2808, ρ −0.0659, n 43 games ·

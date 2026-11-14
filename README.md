@@ -241,8 +241,4 @@ Build / check / test: `python3 scripts/build_nfl_d966f630.py` ·
 Executive summary: [`NFL_D966F630_EXECUTIVE_SUMMARY.md`](NFL_D966F630_EXECUTIVE_SUMMARY.md) ·
 audit: [`audit/NFL_D966F630_REPO_AND_SOURCE_AUDIT.md`](audit/NFL_D966F630_REPO_AND_SOURCE_AUDIT.md).
 
-*Note for whoever merges next:* four sibling sessions (`nfl-market`, `nfl-6cefc476`, `nfl-f4`,
-this one) implemented the same brief independently against the same official sources. They agree
-that no official source publishes a price; they differ in sample window, in how signal is ranked
-and in how the demotion gate is defined. Choosing one as canonical is a human decision, recorded as
-`D966-S06`-adjacent scope rather than resolved by this pack.
+*Note for whoever merges next:* five sessions implemented this same eight-requirement brief independently on the same branch policy - `docs/nfl-market/` (session `f4e592a7`), `docs/nfl-6cefc476/`, `docs/nfl-f4/`, `docs/nfl-a411fed0/` and this pack. They agree on the central fact (no official or licensed source in this environment publishes a price, so the market and difference columns are blank everywhere); they differ in sample window, in how signal is ranked, and in how the demotion gate is defined. Choosing one as canonical is a human decision, recorded on the coordination board rather than resolved by this pack.

@@ -61,10 +61,20 @@ every value in this pack was re-read from the canonical `www.nfl.com` URL instea
 
 ## Verification record for this audit
 
+The branch was then merged twice against a moving `main` (PRs #90/#92 and #93 landed while this
+pack was in review). Two shared inventories are hashed from the tree, so every merge ends with the
+same loop: `source_coverage.py` → `tools/build_review.py` → `audit_repo.py` → `build_assurance.py`,
+repeated until `git diff --exit-code` on those paths is clean. It took three passes to reach the
+fixed point. `main` was red on `tests/assurance/test_audit.py::test_inventory_hashes_and_line_counts`
+before this branch (a `COORDINATION.md` append landed without the inventory regeneration); the
+regeneration here is what makes the repo-wide suite green again, which is why the shared paths are
+touched at all.
+
 ```
 python3 tools/release_gate.py     →  Release gate: 0 issue(s) across published HTML and tracked text
 python3 tools/check_site.py       →  STRICT PAGES: 13 | ERRORS: 0 | ADVISORY: 0
 python3 tools/run_tests.py        →  RESULT: 53/53 tests passed
+python3 -m pytest -q tests/        →  516 passed, 6 subtests, 0 failures (whole repo, pinned deps)
 python3 -m unittest discover -s tests -p test_nfl_d966f630.py  →  Ran 61 tests … OK
 python3 scripts/check_nfl_d966f630.py → 51 checks run, 0 failures — ALL CHECKS PASS
 python3 scripts/build_nfl_d966f630.py → 41 CSVs + 16 pages, byte-identical on a second run

@@ -1,0 +1,7 @@
+train_through_week|test_week|official_source_url|train_n|test_n|mae_margin_model|mae_margin_baseline|mae_total_model|mae_total_baseline|ats_side_direction_hit
+2|3|https://www.nfl.com/scores/2026/week-1|32|16|10.302|8.805|14.604|12.0|7/16
+3|5|https://www.nfl.com/scores/2026/week-1|48|15|10.909|11.092|10.109|12.286|12/15
+5|6|https://www.nfl.com/scores/2026/week-1|63|14|6.146|6.621|13.305|11.007|9/14
+6|7|https://www.nfl.com/scores/2026/week-1|77|14|12.623|11.217|11.611|9.495|7/14
+7|8|https://www.nfl.com/scores/2026/week-1|91|14|11.397|13.326|11.731|12.109|9/14
+8|9|https://www.nfl.com/scores/2026/week-1|105|15|8.197|13.086|12.086|11.01|14/15
