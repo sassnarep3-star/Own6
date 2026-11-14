@@ -169,3 +169,24 @@ A pure-stdlib Python 3.11 NFL fair-line origination, starter-vs-backup (`1st`–
 - **Peer NFL Week 10 Verification Pack (`3b81013c`):** [`docs/nfl-3b81013c/index.html`](docs/nfl-3b81013c/index.html) (`https://sassnarep3-star.github.io/Own6/docs/nfl-3b81013c/`)
 - **Additional self-contained NFL Week pack (PR #80):** [`docs/nfl-wk/index.html`](docs/nfl-wk/index.html) · [`data/nfl_wk/sources.csv`](data/nfl_wk/sources.csv) · [`data/nfl_wk/flagged.csv`](data/nfl_wk/flagged.csv). PR #80 describes 11 candidates as quarantined, 19 suggestions awaiting choice, and its originated lines as calculations from official standings with all market/edge/ROI/correlation cells blank. These are pack-reported statuses, not new source reads by this integration or results to combine with the main 10-candidate leaderboard. Manual source review: [Week 10 schedule](https://www.nfl.com/schedules/2026/by-week/week-10) · [Week 11 schedule](https://www.nfl.com/schedules/2026/by-week/week-11).
 
+
+---
+
+## NFL Own-Line Market Desk (`data/nfl_market/`, `docs/nfl-market/`)
+
+Session `arena/33ee4854-own6`, capture 2026-11-14. Live:
+https://sassnarep3-star.github.io/Own6/docs/nfl-market/
+
+This pack originates NFL side, total and moneyline numbers, keeps an opening/closing price-snapshot
+store for every originated market, grades itself against a verified results feed, and separates
+**signal score** from **staking score** on its leaderboard.
+
+Read `NFL_MARKET_EXECUTIVE_SUMMARY.md` first. Rebuild with
+`python3 scripts/build_nfl_market.py`, verify with `python3 scripts/check_nfl_market.py` (971 checks),
+test with `python3 -m unittest discover -s tests -p "test_nfl_market.py"`.
+
+**Headline finding:** the NFL publishes no odds or line page (`https://www.nfl.com/odds/` is the NFL
+404 page). Every market-line and difference cell is therefore blank with an explicit status rather
+than filled from a non-official source. No edge has been measured, no strategy is live, and the
+originated side model went 28-44 walking forward. All of that is published on the site rather than
+omitted from it.

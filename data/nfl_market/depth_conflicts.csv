@@ -1,0 +1,7 @@
+team,unit,position_slot,string,player,designation,injury,practice_status,note,official_source_url,depth_chart_url
+NE,Offense,LG,1,Ben Brown,Out,Knee,Did Not Participate In Practice,Listed on the depth chart but ruled Out on the official injury report.,https://www.nfl.com/injuries/,https://www.patriots.com/team/depth-chart
+NE,Offense,C,2,Ben Brown,Out,Knee,Did Not Participate In Practice,Listed on the depth chart but ruled Out on the official injury report.,https://www.nfl.com/injuries/,https://www.patriots.com/team/depth-chart
+NE,Offense,RB,2,TreVeyon Henderson,Out,Illness,Did Not Participate In Practice,Listed on the depth chart but ruled Out on the official injury report.,https://www.nfl.com/injuries/,https://www.patriots.com/team/depth-chart
+NE,Defense,CB,1,Carlton Davis III,Out,Knee,Did Not Participate In Practice,Listed on the depth chart but ruled Out on the official injury report.,https://www.nfl.com/injuries/,https://www.patriots.com/team/depth-chart
+DET,Offense,C,1,Cade Mays,Out,Ankle,Did Not Participate In Practice,Listed on the depth chart but ruled Out on the official injury report.,https://www.nfl.com/injuries/,https://www.detroitlions.com/team/depth-chart
+DET,Defense,CB,1,D.J. Reed,Out,Hip,Did Not Participate In Practice,Listed on the depth chart but ruled Out on the official injury report.,https://www.nfl.com/injuries/,https://www.detroitlions.com/team/depth-chart
