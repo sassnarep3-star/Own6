@@ -190,3 +190,19 @@ test with `python3 -m unittest discover -s tests -p "test_nfl_market.py"`.
 than filled from a non-official source. No edge has been measured, no strategy is live, and the
 originated side model went 28-44 walking forward. All of that is published on the site rather than
 omitted from it.
+## NFL Price & Results Pack (session 6cefc476, 2026-11-14)
+
+A self-contained pack implementing the price-snapshot store, a verified results feed, ordered
+origination (side → total → moneyline) with separate **fair line / market line / difference** columns,
+a leaderboard that separates **signal from staking**, **replacement-depth** tracking (the string level
+of the replacement), correlations computed only from officially sourced numbers **with n published**,
+a defined **demotion gate** (live → paper), a decision-questions register, and a review-first
+suggestions section. Live: https://sassnarep3-star.github.io/Own6/docs/nfl-6cefc476/
+
+Every table row carries an official source link; values that cannot be confirmed are published blank
+and flagged ([Flagged for review](docs/nfl-6cefc476/flagged.html)). Build/check:
+`python3 scripts/build_nfl_6cefc476.py` · `python3 scripts/check_nfl_6cefc476.py` ·
+`python3 -m unittest tests.test_nfl_6cefc476`. Nothing demonstrates a profitable edge; model outputs
+are computations, not market prices. Executive summary:
+[`NFL_6CEFC476_EXECUTIVE_SUMMARY.md`](NFL_6CEFC476_EXECUTIVE_SUMMARY.md) · repo review:
+[`audit/NFL_6CEFC476_REPO_REVIEW.md`](audit/NFL_6CEFC476_REPO_REVIEW.md).
