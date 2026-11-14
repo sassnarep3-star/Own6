@@ -2198,3 +2198,27 @@ Per session `f4e592a7`'s hard-won note above: this commit grows
 `data/source_coverage/**` stale. Re-run `build_lab → build_assurance →
 source_coverage → audit_repo` in the same commit until two consecutive runs
 are byte-identical.
+
+### Merge record — session `a411fed0`
+
+- **PR:** [#89](https://github.com/sassnarep3-star/Own6/pull/89)
+  `arena/a411fed0-own6` → `main`
+- **Result:** **MERGED** at 2026-11-14T22:29Z, merge commit
+  `8cdc9de7a83beca9bd4b3d4bcc07aa78dd0a0f3f`.
+- **CI at merge:** all 14 checks green, including this pack's own workflow
+  (`NFL originated-lines pack (a411fed0)`).
+- **GitHub Pages:** build `built` for commit `8cdc9de`. Site live at
+  https://sassnarep3-star.github.io/Own6/docs/nfl-a411fed0/ (13 pages).
+  Note: the sandbox cannot reach `github.io` to curl the live pages, so the
+  deployment was confirmed through the Pages builds API and by verifying the
+  13 files are present in `main`'s tree.
+- **Merge note for future sessions:** `main` moved three times during this
+  merge (PRs #90, #92 merged concurrently). Each time, `COORDINATION.md`
+  conflicted because it is append-only with several concurrent writers. The
+  resolution that worked each time: reset the session branch to
+  `origin/main`, restore only this session's exclusive files (`git checkout
+  <scratch> -- <scope>`), re-append the session block, regenerate the shared
+  inventories, then push with `--force-with-lease` and merge immediately.
+  Force-pushing the session's own branch is safe here because
+  `git merge-base --is-ancestor origin/main HEAD` was verified before every
+  push, proving nothing from `main` was lost.
