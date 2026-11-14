@@ -198,6 +198,8 @@ NAV = [
     ("repo-review.html", "Repo review"),
     ("sources.html", "Sources"),
     ("flagged.html", "Flagged for review"),
+    ("price-snapshots.html", "Price snapshots"),
+    ("results-feed.html", "Results feed"),
 ]
 
 
@@ -259,6 +261,8 @@ def build_all():
     corrs, luck, luck_summary, = D.correlation_rows(), *D.luck_rows()
     lines, linecheck = D.originated_line_rows()
     tiers, entries = D.leaderboard_rows()
+    price_snapshots = D.price_snapshot_rows()
+    results_feed = D.results_feed_rows()
     findings = D.repo_finding_rows()
     sources = D.source_rows()
     flags = D.flag_rows()
@@ -274,6 +278,8 @@ def build_all():
     written.append(D.write_csv("depth_charts.csv", D.DEPTH_CHART_FIELDS, charts))
     written.append(D.write_csv("depth_deficiency.csv", D.DEPTH_DEFICIENCY_FIELDS, deficiency))
     written.append(D.write_csv("depth_unlisted_designations.csv", D.UNLISTED_FIELDS, unlisted))
+    written.append(D.write_csv("price_snapshots.csv", D.PRICE_SNAPSHOT_FIELDS, price_snapshots))
+    written.append(D.write_csv("results_feed.csv", D.RESULTS_FEED_FIELDS, results_feed))
     written.append(D.write_csv("decision_ledger.csv", D.DECISION_FIELDS, decisions))
     written.append(D.write_csv("suggestions.csv", D.SUGGESTION_FIELDS, suggestions))
     written.append(D.write_csv("strategies.csv", D.STRATEGY_FIELDS, strategies))
@@ -639,14 +645,15 @@ def build_all():
             ["game_id", "away", "home", "home_ppg_input", "home_papg_input", "away_ppg_input",
              "away_papg_input", "inputs_status", "inputs_source_url", "hfa_points_parameter",
              "shrinkage_parameter", "model_applicability", "expected_home_points",
-             "expected_away_points", "originated_home_spread", "originated_total",
-             "originated_moneyline_home_prob", "market_spread", "market_total",
-             "closing_line_value", "status", "official_source_url"],
+             "expected_away_points", "originated_home_spread", "market_spread", "spread_difference",
+             "originated_total", "market_total", "total_difference",
+             "originated_moneyline_home_prob", "closing_line_value", "status", "official_source_url"],
             lines,
             num_cols=("home_ppg_input", "home_papg_input", "away_ppg_input", "away_papg_input",
                       "hfa_points_parameter", "shrinkage_parameter", "expected_home_points",
-                      "expected_away_points", "originated_home_spread", "originated_total",
-                      "market_spread", "market_total", "closing_line_value"))
+                      "expected_away_points", "originated_home_spread", "market_spread",
+                      "spread_difference", "originated_total", "market_total",
+                      "total_difference", "closing_line_value"))
         + '<details><summary>Why the moneyline column is blank</summary><p>'
         + esc(lines[0]["originated_moneyline_home_prob_note"])
         + '</p></details>',
@@ -742,9 +749,13 @@ def build_all():
         + '<h2>Entries</h2>'
         '<p>Every entry sits below Tier 3: each has gates G01, G05, G11 and G12 open, and each is blocked '
         'on the licensed data that gates G02, G03, G04, G06, G07, G08, G09 and G10 require.</p>'
+        '<p>Signal and staking are reported as separate columns so a lucky staking run cannot mask '
+        'a bad signal. Both are blank until selections are graded.</p>'
         + render_table(
-            ["strategy_id", "family", "market", "selections_graded", "gates_open",
-             "gates_blocked", "tier", "reward_awarded", "status", "official_source_url"],
+            ["strategy_id", "family", "market", "selections_graded",
+             "signal_score", "signal_quality", "staking_score", "staking_quality",
+             "gates_open", "gates_blocked", "tier", "reward_awarded", "status",
+             "official_source_url"],
             entries, num_cols=("selections_graded",)),
         "A four-tier, non-monetary competition; no entry has qualified.")
 
@@ -785,6 +796,32 @@ def build_all():
             flags, num_cols=("flag_id",)),
         "16 blank or unresolved items, each with its source.")
 
+    # Price snapshots -------------------------------------------------------
+    pages["price-snapshots.html"] = page(
+        "Price-snapshot store",
+        '<p class="note"><strong>Opening and closing numbers for every market we originate.</strong> '
+        'Every price cell is blank because no licensed price archive is configured; the store structure '
+        'exists so prices can be recorded per market per game without changing the schema when a feed is added. '
+        'Blank cells are never inferred.</p>'
+        + render_table(
+            ["snapshot_id", "game_id", "market_type", "opening_price", "closing_price",
+             "opening_timestamp_utc", "closing_timestamp_utc", "source_url", "notes", "status"],
+            price_snapshots, num_cols=("opening_price", "closing_price")),
+        "One row per market per game; all prices blank pending a licensed archive.")
+
+    # Results feed ----------------------------------------------------------
+    pages["results-feed.html"] = page(
+        "Verified results feed",
+        '<p class="note"><strong>Official game results so backtests and ROI can be computed.</strong> '
+        'Only the already-final Thursday game (Commanders 24–21 Giants) carries a verified score; '
+        'every other Week 10 game is scheduled and has blank score cells. Scores are taken from the '
+        'official NFL scores page and are never inferred.</p>'
+        + render_table(
+            ["game_id", "date", "away", "home", "away_score", "home_score",
+             "result_status", "source_url", "verified_at_utc"],
+            results_feed, num_cols=("away_score", "home_score")),
+        "One row per Week 10 game; verified final score where available, blank otherwise.")
+
     for name, body in pages.items():
         with open(os.path.join(DOCS, name), "w", encoding="utf-8") as fh:
             fh.write(body)
@@ -800,6 +837,8 @@ def build_all():
             "suggestions": len(suggestions), "strategies": len(strategies),
             "gates": len(gates), "correlations": len(corrs), "luck": len(luck),
             "lines": len(lines), "tiers": len(tiers), "entries": len(entries),
+            "price_snapshots": len(price_snapshots),
+            "results_feed": len(results_feed),
             "findings": len(findings), "sources": len(sources), "flags": len(flags),
         },
         "line_check": linecheck,
