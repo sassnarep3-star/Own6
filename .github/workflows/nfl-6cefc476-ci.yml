@@ -1,0 +1,30 @@
+name: NFL 6cefc476 verification gate
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-nfl-6cefc476:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Rebuild pack deterministically
+        run: python3 scripts/build_nfl_6cefc476.py
+      - name: Generated pack artifacts are committed
+        run: git diff --exit-code -- data/nfl_6cefc476 docs/nfl-6cefc476
+      - name: Line-by-line verification gate
+        run: python3 scripts/check_nfl_6cefc476.py
+      - name: Regression tests (stdlib)
+        run: python3 -m unittest tests.test_nfl_6cefc476 -v
+      - name: Release integrity gate
+        run: python3 tools/release_gate.py
