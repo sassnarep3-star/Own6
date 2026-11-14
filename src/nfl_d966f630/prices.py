@@ -195,11 +195,21 @@ def live_entries(vintage_week: int = LIVE_VINTAGE_WEEK) -> list[dict[str, object
 
 
 @memo
-def ledger(published_on: str | None = None) -> list[dict[str, str]]:
-    """The store this run writes - shared by the builder, the site and the gate."""
+def _ledger_cached(published_on: str | None = None) -> list[dict[str, str]]:
     prior, _status = prior_rows()
     return build_snapshots(live_entries(), retro_entries(), prior,
                            published_on or C.CAPTURE_DATE_UTC)
+
+
+def ledger(published_on: str | None = None) -> list[dict[str, str]]:
+    """The store this run writes - shared by the builder, the site and the gate.
+
+    Callers get a copy of every row: the store is memoised, so a caller that edited a
+    row in place would silently edit the ledger that the gates, the pages and the hash
+    chain are all computed from. An earlier version of the test suite did exactly that
+    and made ``D966-G08`` depend on test order. Read the memoised list, mutate the copy.
+    """
+    return [dict(r) for r in _ledger_cached(published_on)]
 
 
 def prior_key(gid: str) -> str:

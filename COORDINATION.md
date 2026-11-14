@@ -2094,6 +2094,14 @@ nfl_3b81013c, nfl_origination, nfl_wk, 6cefc476, origin, daily, hub, reverify, s
 rental, verify) · `tools/run_tests.py` 53/53 · `unittest discover` OK · pinned `pytest -q tests`
 330 passed + 6 subtests.
 
+**Merged & live (2026-11-14):** PR [#90](https://github.com/sassnarep3-star/Own6/pull/90)
+(`arena/6cefc476-own6` → `main`) merged as `8dae384` via `gh pr merge 90 --merge`. All workflows green on
+the merge commit (including "NFL 6cefc476 verification gate"). GitHub Pages deployed (`pages build and
+deployment` success, build commit `8dae3840`); dashboard confirmed live at
+https://sassnarep3-star.github.io/Own6/docs/nfl-6cefc476/ (note: the CDN briefly served a cached 404
+from before the deploy; the live page verified with a cache-buster and the portal card "PX NFL Price &
+Results Pack" is present on https://sassnarep3-star.github.io/Own6/docs/). Session closed; all
+N1–N12 `done`.
 ---
 
 ## Session arena/d966f630-own6 — NFL origination spine: price snapshots, verified results feed, side→total→moneyline, signal/staking split, replacement depth, gated correlations, demotion gate (claimed 2026-11-14)
