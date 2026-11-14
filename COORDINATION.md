@@ -2322,3 +2322,35 @@ content edited or reordered):**
 `R.league_baseline(9)` → 22.963 ppg · `O.dispersion(9)` → σ 10.2808, ρ −0.0659, n 43 games ·
 `O.fit_total_shrinkage(10)` → shrink 0.00 · mean abs error side 10.50 vs 12.16 naive, total 11.24
 vs 10.63 naive · `DM.live_strategies()` → `['D966-STR-01']`.
+
+### PR and merge record — session `arena/d966f630-own6` (2026-11-14)
+
+- **PR:** https://github.com/sassnarep3-star/Own6/pull/91 — "nfl-d966f630: price ledger, verified results
+  feed, side→total→ML origination, signal/staking split, depth floors, correlations with n, demotion
+  gate + 17-page dashboard", `arena/d966f630-own6` → `main`.
+- **Merge result:** **MERGED** 2026-11-14T22:39:32Z as `32a1b692ea6674b3755716e9926596e4772a3364`
+  (`gh pr merge 91 --merge`, merge commit, no squash, no rebase, no approval gate waited on).
+- **Checks on the PR head (`9548a91`), all 14 green:** Line-by-line verification gates, Assurance CI,
+  Daily verified snapshot, Hub CI, Independent hub references, Lab CI, Legacy parlay safety,
+  published-html, Sitewide source coverage, `verify-nfl-309921cc`, `verify-nfl-6cefc476`,
+  **`verify-nfl-d966f630`** (this pack's gate, first run), `verify-nfl-origination`, Independent
+  verification ledger. Nothing was failing at merge time.
+- **Counts carried into the merge:** 41 CSVs in `data/nfl_d966f630/`, 17 pages in `docs/nfl-d966f630/`,
+  51 verifier checks (0 failures), 61 pack tests, 516 repo tests + 6 subtests under pinned pytest
+  (0 failures), `tools/run_tests.py` 139/139, `release_gate` 0 issues, `check_site` STRICT PAGES 13 /
+  ERRORS 0, `source_coverage --check` 0 stale, all 9 `scripts/check_nfl_*.py` green, builder
+  byte-identical.
+- **Two side effects of the merge, both recorded above:** (a) this branch re-ran the shared
+  inventories, which is what returned `tests/assurance/test_audit.py` to green on `main` after
+  PR #92; (b) `prices.ledger()` now hands callers copies of its rows, because a test that edited a
+  memoised row in place made the `D966-G08` chain gate depend on test order.
+- **Pages:** `docs/nfl-d966f630/` is on `main` (17 pages + `assets/style.css` + `.nojekyll`); the hub
+  card "D96 NFL Prices & Proof" and one nav item are on `docs/index.html`, and the root portal carries
+  one ghost button to the pack. Live URL:
+  `https://sassnarep3-star.github.io/Own6/docs/nfl-d966f630/`.
+- **Tasks P1–P12 are `done` and this session's claimed scope is closed.** No other session's owned
+  content was edited: `docs/index.html`, `index.html`, `README.md` and `COORDINATION.md` received
+  additive insertions only, and `data/assurance/**`, `data/source_coverage/**`, `docs/coverage/**`,
+  `docs/assurance/**` and `audit/SOURCE_COVERAGE.md` were changed only by running their own generators.
+  `data/verification_log.csv` was not touched, so nothing in this pack is "certified" in the hub
+  ledger sense.
