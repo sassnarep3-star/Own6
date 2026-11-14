@@ -1824,11 +1824,12 @@ Claimed P1–P9 at session start on 2026-11-14. All work is under `data/nfl_3099
 
 ### PR and merge record — session `arena/2e9a5246-own6` (2026-11-14)
 
-- **PR:** to be created → `main`
-- **Merge result:** to be recorded
-- **Pre-merge checks:** `check_nfl_309921cc.py` OK (83 checks), `pytest tests/test_nfl_309921cc.py` 39 passed, `tools/release_gate.py` 0 issues
-- **GitHub Pages:** to be verified after merge
+- **PR:** https://github.com/sassnarep3-star/Own6/pull/85 — "nfl-309921cc: price-snapshot store, results feed, signal/staking split, demotion gate", `arena/2e9a5246-own6` → `main`
+- **Merge result:** **MERGED** via `gh pr merge 85 --merge`
+- **Pre-merge checks:** `check_nfl_309921cc.py` OK (83 checks), `test_nfl_309921cc.py` 39 tests pass, `tools/release_gate.py` 0 issues
+- **GitHub Pages:** `pages build and deployment` on `main` — **success** (status `built`)
 - **Public URL:** https://sassnarep3-star.github.io/Own6/docs/nfl-309921cc/
+- **Live pages confirmed:** `price-snapshots.html` and `results-feed.html` both render with source-linked tables
 - **Tasks P1–P9 are complete.** All 20 flags (F01–F20) and 15 repo findings (RF-01…RF-15) published on `docs/nfl-309921cc/flagged.html` and `docs/nfl-309921cc/repo-review.html`.
 
 ### Irregularities
