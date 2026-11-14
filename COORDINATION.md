@@ -1792,21 +1792,70 @@ requirements-empirical.txt` before `pytest`.
 
 | Task | Status | Owner | Exclusive file scope |
 |---|---|---|---|
-| D1 Price-snapshot store (open/close per originated market) + provenance & capture protocol | in progress | `f4e592a7` | `src/nfl_f4/prices.py`, `data/nfl_f4/price_snapshots.csv`, `data/nfl_f4/markets.csv` |
-| D2 Verified results feed (official NFL scores) usable by backtests | in progress | `f4e592a7` | `src/nfl_f4/results.py`, `data/nfl_f4/results.csv`, `data/nfl_f4/results_checks.csv` |
-| D3 Origination order gate: side → total → moneyline | in progress | `f4e592a7` | `src/nfl_f4/originate.py`, `data/nfl_f4/originated_markets.csv` |
-| D4 Fair line / market line / difference as separate columns | in progress | `f4e592a7` | `data/nfl_f4/fair_vs_market.csv` |
-| D5 Leaderboard split: signal score vs staking score (+ mask test) | in progress | `f4e592a7` | `src/nfl_f4/leaderboard.py`, `data/nfl_f4/leaderboard.csv` |
-| D6 Replacement depth (which string) not just the fact | in progress | `f4e592a7` | `src/nfl_f4/depth.py`, `data/nfl_f4/depth_replacement.csv` |
-| D7 Correlations from officially sourced numbers only, with n per value | in progress | `f4e592a7` | `src/nfl_f4/correlations.py`, `data/nfl_f4/correlations.csv` |
-| D8 Demotion gate (live → paper) | in progress | `f4e592a7` | `src/nfl_f4/demotion.py`, `data/nfl_f4/demotion_gate.csv` |
-| D9 Decision-readiness Q&A, missing-information discovery, suggestions review | in progress | `f4e592a7` | `data/nfl_f4/questions.csv`, `data/nfl_f4/suggestions.csv`, `research/nfl_f4/**` |
-| D10 Zero-input Pages dashboard + executive summary + Flagged for Review | in progress | `f4e592a7` | `scripts/build_nfl_f4.py`, `docs/nfl-f4/**`, `NFL_F4_EXECUTIVE_SUMMARY.md`, `data/nfl_f4/flagged.csv` |
-| D11 Verifier, tests, CI | in progress | `f4e592a7` | `scripts/check_nfl_f4.py`, `tests/test_nfl_f4.py`, `.github/workflows/nfl-f4-ci.yml` |
-| D12 Integration: rebase, regenerate shared inventories, PR → merge → Pages | in progress | `f4e592a7` | `COORDINATION.md` (append-only), `README.md` (append-only), `docs/index.html` (additive link), `data/assurance/**`, `docs/assurance/**`, `data/source_coverage/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md` |
+| D1 Price-snapshot store (open/close per originated market) + provenance & capture protocol | done | `f4e592a7` | `src/nfl_f4/prices.py`, `data/nfl_f4/price_snapshots.csv`, `data/nfl_f4/markets.csv` |
+| D2 Verified results feed (official NFL scores) usable by backtests | done | `f4e592a7` | `src/nfl_f4/results.py`, `data/nfl_f4/results.csv`, `data/nfl_f4/results_checks.csv` |
+| D3 Origination order gate: side → total → moneyline | done | `f4e592a7` | `src/nfl_f4/originate.py`, `data/nfl_f4/originated_markets.csv` |
+| D4 Fair line / market line / difference as separate columns | done | `f4e592a7` | `data/nfl_f4/fair_vs_market.csv` |
+| D5 Leaderboard split: signal score vs staking score (+ mask test) | done | `f4e592a7` | `src/nfl_f4/leaderboard.py`, `data/nfl_f4/leaderboard.csv` |
+| D6 Replacement depth (which string) not just the fact | done | `f4e592a7` | `src/nfl_f4/depth.py`, `data/nfl_f4/depth_replacement.csv` |
+| D7 Correlations from officially sourced numbers only, with n per value | done | `f4e592a7` | `src/nfl_f4/correlations.py`, `data/nfl_f4/correlations.csv` |
+| D8 Demotion gate (live → paper) | done | `f4e592a7` | `src/nfl_f4/demotion.py`, `data/nfl_f4/demotion_gate.csv` |
+| D9 Decision-readiness Q&A, missing-information discovery, suggestions review | done | `f4e592a7` | `data/nfl_f4/questions.csv`, `data/nfl_f4/suggestions.csv`, `research/nfl_f4/**` |
+| D10 Zero-input Pages dashboard + executive summary + Flagged for Review | done | `f4e592a7` | `scripts/build_nfl_f4.py`, `docs/nfl-f4/**`, `NFL_F4_EXECUTIVE_SUMMARY.md`, `data/nfl_f4/flagged.csv` |
+| D11 Verifier, tests, CI | done | `f4e592a7` | `scripts/check_nfl_f4.py`, `tests/test_nfl_f4.py`, `.github/workflows/nfl-f4-ci.yml` |
+| D12 Integration: rebase, regenerate shared inventories, PR → merge → Pages | done | `f4e592a7` | `COORDINATION.md` (append-only), `README.md` (append-only), `docs/index.html` (additive link), `data/assurance/**`, `docs/assurance/**`, `data/source_coverage/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md` |
 
 **Disjointness check:** `data/nfl_f4/`, `docs/nfl-f4/`, `src/nfl_f4/`, `scripts/{build,check}_nfl_f4.py`, `tests/test_nfl_f4.py`, `.github/workflows/nfl-f4-ci.yml`, `NFL_F4_EXECUTIVE_SUMMARY.md`, `research/nfl_f4/` are all new paths, disjoint from `data/nfl*/`, `docs/nfl*/` (including `docs/nfl`, `docs/nfl-309921cc`, `docs/nfl-3b81013c`, `docs/nfl-origination`, `docs/nfl-wk`, `docs/nfl-decision-desk`), `src/nfl*`, and every other session's scope.
 
 **No other session's files will be edited.** Requests to other owners are logged here instead.
 
 **Claim commit:** see `git log -- COORDINATION.md` (first commit of session `f4e592a7`).
+
+
+## Session `f4e592a7` — completion note (2026-11-14)
+
+D1–D11 are **done**; D12 (integration) completed in this same session because the
+Arena branch rule fixes all work to `arena/f4e592a7-own6` and no other session
+claimed these paths.
+
+**Built (all new paths, disjoint):** `src/nfl_f4/{prices,results,originate,leaderboard,depth,correlations,demotion}.py`,
+`data/nfl_f4/**` (27 CSVs incl. `raw/`), `docs/nfl-f4/**` (18 pages + `.nojekyll`),
+`scripts/{capture_nfl_f4_raw,registers_nfl_f4,build_nfl_f4,check_nfl_f4}.py`,
+`tests/test_nfl_f4.py`, `.github/workflows/nfl-f4-ci.yml`, `NFL_F4_EXECUTIVE_SUMMARY.md`.
+
+**Verification actually run:** `check_nfl_f4.py --rebuild` → **318 checks, 0 failures**,
+byte-identical rebuild; `results.reconcile_or_raise()` → 32/32 teams MATCH on W, L, T,
+PF, PA; `pytest tests/test_nfl_f4.py` → **57 passed**; `scripts/linkcheck.py` → PASS;
+`scripts/check_assurance.py` → OK. The independent `scripts/source_coverage.py`
+structural audit reports **0 rows without an HTTPS reference** across all 18 new pages
+(525 secondary-host + 3 repository-host + 2 allowlisted rows).
+
+**Shared files touched, additively only:** `docs/index.html` (one nav link, one
+category card, one archive link). Nothing else outside the session scope was edited.
+
+### Requests to other owners (logged, not implemented)
+
+1. **`scripts/source_coverage.py` PUBLISHERS allowlist has no NFL domain** (`nfl.com`,
+   `patriots.com`, `detroitlions.com`) and **no ESPN** (`sports.core.api.espn.com`,
+   `site.api.espn.com`). Consequence: 525 of this pack's sourced rows classify as
+   `secondary_reference_only` even though every one carries a live HTTPS link. Owner
+   should decide whether league/club sites belong in the official allowlist; this
+   session did **not** edit the shared script. See `data/nfl_f4/flagged.csv` F4-F14.
+2. **Provider-price provenance.** Prices come from the operator's own `open`/`current`/
+   `close` objects relayed by ESPN's public odds endpoint. If an owner wants a stricter
+   first-party capture route, the store already records `provider` per row and can take
+   a second source without schema change.
+3. **`data/nfl_309921cc/week10_injuries.csv` (prior session's file, not edited).**
+   Three NE/DET rows disagree with the official Week 10 injury page as read today —
+   see `data/nfl_f4/repo_review.csv` R01–R03. Kerby Joseph practice status is the
+   material one (Full → Did Not Participate). Reported, not corrected.
+
+### Deliberate non-findings (state them, do not fill them)
+
+- `leaderboard.csv` is **empty by design**: 0 of 7 strategies clear the sample floor.
+- Only **1 of 14** Week 10 games had a settled close; the other 13 closes are
+  `not_final` and are never graded.
+- **2 of 32** clubs have depth data, both self-labelled unofficial by the clubs.
+- 2 correlations are published as **uncomputable** (rest differential, depth
+  deficiency) rather than proxied; 1 is `insufficient_sample`.
+- 20 items are on Flagged for Review; none blocks publication.
