@@ -1,0 +1,11 @@
+gate_id,gate_name,status,evidence,blocks_promotion,why_it_blocks
+G01,Official inputs only,open,All inputs transcribed from 7 official NFL-family pages on 2026-11-14; see data/nfl_market/sources.csv.,no,
+G02,Price snapshot present,closed,0 of 432 snapshot rows carry a price. nfl.com/odds/ returns the NFL 404 page.,yes,Without an opening and a closing price there is no line movement to study and no market line to compute a difference against.
+G03,Verified results feed,open,137 games carry a final score from an nfl.com schedule page.,no,
+G04,Market comparison available,closed,The difference column is blank for every originated market: no official market line exists to subtract.,yes,A signal that cannot be compared with the market cannot be shown to be an edge. Every strategy stays in paper.
+G05,Sample size,closed,Smallest family n = 24; requirement n >= 100.,yes,With fewer than 100 graded bets the confidence interval is wider than any plausible edge.
+G06,Luck removal,closed,Best one-sided p among families with n >= 100 is none (p=n/a). Ceiling is p < 0.05.,yes,"A hit rate inside coin-flip noise is not a signal, whatever its ROI."
+G07,Correlation discipline,open,All computable leg correlations measured with n published; the rest are refused rather than assumed (COR-06..COR-08).,no,
+G08,Demotion gate defined,open,D1-D5 published with fixed thresholds in src/nfl_market/demotion.py.,no,
+G09,Forward sample,closed,0 of 200 required forward bets exist. Every number here is in-sample.,yes,A backtest is not a track record. Promotion requires bets placed after the gate set was frozen.
+G10,Drawdown within limit,closed,Worst family drawdown 49.09 units vs limit 10.0.,yes,A strategy that already breached the demotion limit cannot be promoted past it.

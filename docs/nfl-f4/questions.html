@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Decision questions — Own6 NFL F4</title>
+<meta name="description" content="NFL own-line origination, verified results, price snapshots and a skill/staking-split leaderboard. Every value is sourced or blank.">
+<style>/* nfl-f4 dashboard — single stylesheet, no external requests */
+:root{--bg:#0b1016;--panel:#121a23;--panel2:#0f151d;--ink:#e8eef5;--dim:#8fa3b8;
+--line:#22303f;--accent:#4da3ff;--good:#37c07a;--warn:#e0a63a;--bad:#e2605a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+header{position:sticky;top:0;z-index:5;background:#0b1016f2;border-bottom:1px solid var(--line);
+backdrop-filter:blur(6px)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.brand{display:flex;align-items:center;gap:12px;padding:14px 0 10px}
+.brand b{font-size:17px;letter-spacing:.2px}
+.brand span{color:var(--dim);font-size:13px}
+nav{display:flex;flex-wrap:wrap;gap:4px;padding:0 0 12px}
+nav a{padding:5px 10px;border:1px solid var(--line);border-radius:999px;color:#c6d5e4;
+font-size:13px;background:var(--panel2)}
+nav a.on{border-color:var(--accent);color:#fff;background:#17324d}
+main{padding:26px 0 60px}
+h1{font-size:26px;margin:0 0 6px}
+h2{font-size:19px;margin:30px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+h3{font-size:15px;margin:20px 0 8px;color:#cfe0f0}
+p.lede{color:var(--dim);max-width:82ch;margin:0 0 18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:18px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.card .k{color:var(--dim);font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.card .v{font-size:24px;font-weight:600;margin-top:6px}
+.card .s{color:var(--dim);font-size:12px;margin-top:4px}
+table{width:100%;border-collapse:collapse;margin:12px 0 6px;font-size:13px;
+display:block;overflow-x:auto;white-space:nowrap}
+th,td{border-bottom:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--panel2);color:#bdd0e2;font-weight:600;position:sticky;top:0}
+tbody tr:hover{background:#16202b}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+caption{caption-side:top;text-align:left;color:var(--dim);font-size:12px;padding:6px 0}
+.blank{color:#54677a;font-style:italic}
+.pill{display:inline-block;padding:1px 7px;border-radius:999px;font-size:11px;border:1px solid}
+.pill.ok{color:var(--good);border-color:#1f5c40;background:#0e2419}
+.pill.warn{color:var(--warn);border-color:#5c4720;background:#241c0d}
+.pill.bad{color:var(--bad);border-color:#5c2622;background:#241010}
+.pill.neutral{color:var(--dim);border-color:var(--line);background:var(--panel2)}
+.note{border-left:3px solid var(--accent);background:var(--panel);padding:10px 14px;
+border-radius:0 8px 8px 0;margin:16px 0;color:#c3d4e5;font-size:14px}
+.note.bad{border-left-color:var(--bad)}
+.note.warn{border-left-color:var(--warn)}
+.note.ok{border-left-color:var(--good)}
+.scroll{overflow-x:auto}
+footer{border-top:1px solid var(--line);color:var(--dim);font-size:12px;padding:18px 0 40px}
+code{background:#1a2432;padding:1px 5px;border-radius:4px;font-size:12px}
+ul.tight{margin:6px 0 6px 18px;padding:0}
+ul.tight li{margin:4px 0}
+.kv{display:grid;grid-template-columns:210px 1fr;gap:4px 14px;font-size:13.5px;margin:10px 0}
+.kv dt{color:var(--dim)}
+.kv dd{margin:0}
+</style></head><body>
+<header><div class="wrap"><div class="brand"><b>Own6 · NFL Decision Desk</b>
+<span>2026 season · built 2026-11-14 · zero-input dashboard</span></div>
+<nav><a href="index.html">Overview</a><a href="requirements.html">Requirements</a><a href="lines.html">Own lines</a><a href="origination.html">Origination order</a><a href="prices.html">Price snapshots</a><a href="results.html">Verified results</a><a href="strategies.html">Strategies</a><a href="leaderboard.html">Leaderboard</a><a href="validation.html">Validation gates</a><a href="demotion.html">Demotion gate</a><a href="correlations.html">Correlations</a><a href="depth.html">Injury &amp; depth</a><a href="questions.html" class="on">Decision Q&A</a><a href="suggestions.html">Suggestions</a><a href="repo-review.html">Repo review</a><a href="sources.html">Sources</a><a href="executive-summary.html">Executive summary</a><a href="flagged.html">Flagged for review</a></nav></div></header>
+<main class="wrap"><h1>Decision questions</h1><p class="lede">What we know, what we do not know, and what would settle it — question by question.</p>
+<div class="note"><b>Why this page exists.</b> A dashboard that only shows what it
+knows is a confidence machine. This page lists the questions that have to be
+answered before any decision on this site is worth making, separates the ones the
+data already answers from the ones it cannot, and says for each open question
+exactly what would close it and where that would come from.</div>
+<table>
+<caption>16 questions: 12 answered from verified data, 4 open.</caption>
+<thead><tr><th>#</th><th>Question</th><th>Answer we can stand behind</th><th>State</th><th>What would close it</th><th>Evidence</th></tr></thead><tbody>
+<tr><td>Q01</td><td>Can a strategy&#x27;s edge be measured at all yet?</td><td>No. One settled priced game and 137 scored games without prices. Every strategy fails gate G1.</td><td><span class="pill ok">answered</span></td><td>Accumulate settled closes; the price store already records them.</td><td><a href="https://www.nfl.com/standings/" rel="noopener">https://www.nfl.com/standings/</a></td></tr>
+<tr><td>Q02</td><td>Is the results feed trustworthy enough to grade against?</td><td>Yes for scores: 32 of 32 teams match official standings on W, L, T, PF and PA.</td><td><span class="pill ok">answered</span></td><td>Nothing further for scores; a play-by-play feed would be needed for overtime and drive data.</td><td><a href="https://www.nfl.com/standings/" rel="noopener">https://www.nfl.com/standings/</a></td></tr>
+<tr><td>Q03</td><td>Do we have real opening and closing numbers?</td><td>Yes for 14 games: 42 markets, 168 snapshots, each with the price as well as the line.</td><td><span class="pill ok">answered</span></td><td>A second provider&#x27;s close for the same games would allow a consensus close.</td><td><a href="https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds" rel="noopener">https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds</a></td></tr>
+<tr><td>Q04</td><td>Is the side/total correlation strong enough to price a same-game parlay?</td><td>Not established: r = -0.161 at n = 137, p = 0.061, interval spanning zero.</td><td><span class="pill ok">answered</span></td><td>Roughly 400+ games, or a same-game-specific sample.</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-1" rel="noopener">https://www.nfl.com/schedules/2026/by-week/week-1</a></td></tr>
+<tr><td>Q05</td><td>Should offence and defence be modelled together?</td><td>No: points scored and allowed in the same team-game correlate at 0.075 (n = 274).</td><td><span class="pill ok">answered</span></td><td>Nothing; this is a stable negative result.</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-1" rel="noopener">https://www.nfl.com/schedules/2026/by-week/week-1</a></td></tr>
+<tr><td>Q06</td><td>Does rest differential matter?</td><td>Unknown — it is not computable from the sources captured.</td><td><span class="pill warn">open</span></td><td>Capture a per-team rest column from an official schedule with game dates and bye weeks reconciled.</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-2" rel="noopener">https://www.nfl.com/schedules/2026/by-week/week-2</a></td></tr>
+<tr><td>Q07</td><td>How much does losing a starter to the third string cost?</td><td>Unknown. We can name the chain and the string, but not a price.</td><td><span class="pill warn">open</span></td><td>Collect depth snapshots weekly across a season, then regress margin on deficiency score.</td><td><a href="https://www.nfl.com/injuries/" rel="noopener">https://www.nfl.com/injuries/</a></td></tr>
+<tr><td>Q08</td><td>Are the depth charts authoritative?</td><td>No. Both clubs label them unofficial in their own words.</td><td><span class="pill ok">answered</span></td><td>An official league depth feed, if one is published, would replace them.</td><td><a href="https://www.patriots.com/team/depth-chart" rel="noopener">https://www.patriots.com/team/depth-chart</a></td></tr>
+<tr><td>Q09</td><td>Is the closing line available before kickoff for every game?</td><td>No. Thirteen games had not kicked off at capture, so no close existed to record.</td><td><span class="pill ok">answered</span></td><td>Re-read the odds endpoint after each kickoff window; the store is append-only.</td><td><a href="https://www.nfl.com/schedules/2026/week-10" rel="noopener">https://www.nfl.com/schedules/2026/week-10</a></td></tr>
+<tr><td>Q10</td><td>Would a lucky staking run mask a bad signal on this board?</td><td>The guard fires by construction and is unit-tested; on the live board no masking case exists yet, which is a small-sample artefact.</td><td><span class="pill ok">answered</span></td><td>Nothing; the test is the evidence until real samples exist.</td><td><a href="https://www.nfl.com/standings/" rel="noopener">https://www.nfl.com/standings/</a></td></tr>
+<tr><td>Q11</td><td>Which operator&#x27;s price should be the reference?</td><td>DraftKings, because it is the only operator with an open/close pair for all 14 games.</td><td><span class="pill ok">answered</span></td><td>A multi-book consensus, which needs at least two operators captured the same minute.</td><td><a href="https://sportsbook.fanduel.com/navigation/nfl" rel="noopener">https://sportsbook.fanduel.com/navigation/nfl</a></td></tr>
+<tr><td>Q12</td><td>Is the model good enough to quote against a close?</td><td>No. It is a naive rating with no opponent adjustment; its disagreements are evidence about the rating, not the line.</td><td><span class="pill warn">open</span></td><td>Opponent-adjusted ratings with a declared fitting window, then the same gate set.</td><td><a href="https://www.nfl.com/standings/" rel="noopener">https://www.nfl.com/standings/</a></td></tr>
+<tr><td>Q13</td><td>What happens when a live strategy decays?</td><td>It is demoted by rules D1-D6 with thresholds fixed in advance.</td><td><span class="pill ok">answered</span></td><td>Nothing; monitor the state file.</td><td><a href="https://www.nfl.com/standings/" rel="noopener">https://www.nfl.com/standings/</a></td></tr>
+<tr><td>Q14</td><td>Can prop combos be priced?</td><td>No. No official player-level stat lines were captured.</td><td><span class="pill warn">open</span></td><td>An official stats feed with per-game player lines, then a prop-level backtest.</td><td><a href="https://www.nfl.com/injuries/" rel="noopener">https://www.nfl.com/injuries/</a></td></tr>
+<tr><td>Q15</td><td>Does the repo have NFL prices anywhere else?</td><td>No. Both prior NFL packs leave market cells blank and say so.</td><td><span class="pill ok">answered</span></td><td>Nothing.</td><td><a href="https://www.nfl.com/schedules/2026/week-10" rel="noopener">https://www.nfl.com/schedules/2026/week-10</a></td></tr>
+<tr><td>Q16</td><td>How many clubs have usable depth data?</td><td>Two of 32, both unofficial.</td><td><span class="pill ok">answered</span></td><td>Read the remaining clubs&#x27; published charts, or find an official feed.</td><td><a href="https://www.detroitlions.com/team/depth-chart" rel="noopener">https://www.detroitlions.com/team/depth-chart</a></td></tr>
+</tbody></table>
+</main>
+<footer><div class="wrap">Sources are linked on every row. A blank cell is a cell
+that no official source confirmed; it is never a zero and never an estimate.
+This pack is informational and non-commercial. It is not betting advice, and it
+makes no profitability claim.</div></footer></body></html>

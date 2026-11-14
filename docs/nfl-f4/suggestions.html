@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Suggestions for review — Own6 NFL F4</title>
+<meta name="description" content="NFL own-line origination, verified results, price snapshots and a skill/staking-split leaderboard. Every value is sourced or blank.">
+<style>/* nfl-f4 dashboard — single stylesheet, no external requests */
+:root{--bg:#0b1016;--panel:#121a23;--panel2:#0f151d;--ink:#e8eef5;--dim:#8fa3b8;
+--line:#22303f;--accent:#4da3ff;--good:#37c07a;--warn:#e0a63a;--bad:#e2605a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+header{position:sticky;top:0;z-index:5;background:#0b1016f2;border-bottom:1px solid var(--line);
+backdrop-filter:blur(6px)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.brand{display:flex;align-items:center;gap:12px;padding:14px 0 10px}
+.brand b{font-size:17px;letter-spacing:.2px}
+.brand span{color:var(--dim);font-size:13px}
+nav{display:flex;flex-wrap:wrap;gap:4px;padding:0 0 12px}
+nav a{padding:5px 10px;border:1px solid var(--line);border-radius:999px;color:#c6d5e4;
+font-size:13px;background:var(--panel2)}
+nav a.on{border-color:var(--accent);color:#fff;background:#17324d}
+main{padding:26px 0 60px}
+h1{font-size:26px;margin:0 0 6px}
+h2{font-size:19px;margin:30px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+h3{font-size:15px;margin:20px 0 8px;color:#cfe0f0}
+p.lede{color:var(--dim);max-width:82ch;margin:0 0 18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:18px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.card .k{color:var(--dim);font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.card .v{font-size:24px;font-weight:600;margin-top:6px}
+.card .s{color:var(--dim);font-size:12px;margin-top:4px}
+table{width:100%;border-collapse:collapse;margin:12px 0 6px;font-size:13px;
+display:block;overflow-x:auto;white-space:nowrap}
+th,td{border-bottom:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--panel2);color:#bdd0e2;font-weight:600;position:sticky;top:0}
+tbody tr:hover{background:#16202b}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+caption{caption-side:top;text-align:left;color:var(--dim);font-size:12px;padding:6px 0}
+.blank{color:#54677a;font-style:italic}
+.pill{display:inline-block;padding:1px 7px;border-radius:999px;font-size:11px;border:1px solid}
+.pill.ok{color:var(--good);border-color:#1f5c40;background:#0e2419}
+.pill.warn{color:var(--warn);border-color:#5c4720;background:#241c0d}
+.pill.bad{color:var(--bad);border-color:#5c2622;background:#241010}
+.pill.neutral{color:var(--dim);border-color:var(--line);background:var(--panel2)}
+.note{border-left:3px solid var(--accent);background:var(--panel);padding:10px 14px;
+border-radius:0 8px 8px 0;margin:16px 0;color:#c3d4e5;font-size:14px}
+.note.bad{border-left-color:var(--bad)}
+.note.warn{border-left-color:var(--warn)}
+.note.ok{border-left-color:var(--good)}
+.scroll{overflow-x:auto}
+footer{border-top:1px solid var(--line);color:var(--dim);font-size:12px;padding:18px 0 40px}
+code{background:#1a2432;padding:1px 5px;border-radius:4px;font-size:12px}
+ul.tight{margin:6px 0 6px 18px;padding:0}
+ul.tight li{margin:4px 0}
+.kv{display:grid;grid-template-columns:210px 1fr;gap:4px 14px;font-size:13.5px;margin:10px 0}
+.kv dt{color:var(--dim)}
+.kv dd{margin:0}
+</style></head><body>
+<header><div class="wrap"><div class="brand"><b>Own6 · NFL Decision Desk</b>
+<span>2026 season · built 2026-11-14 · zero-input dashboard</span></div>
+<nav><a href="index.html">Overview</a><a href="requirements.html">Requirements</a><a href="lines.html">Own lines</a><a href="origination.html">Origination order</a><a href="prices.html">Price snapshots</a><a href="results.html">Verified results</a><a href="strategies.html">Strategies</a><a href="leaderboard.html">Leaderboard</a><a href="validation.html">Validation gates</a><a href="demotion.html">Demotion gate</a><a href="correlations.html">Correlations</a><a href="depth.html">Injury &amp; depth</a><a href="questions.html">Decision Q&A</a><a href="suggestions.html" class="on">Suggestions</a><a href="repo-review.html">Repo review</a><a href="sources.html">Sources</a><a href="executive-summary.html">Executive summary</a><a href="flagged.html">Flagged for review</a></nav></div></header>
+<main class="wrap"><h1>Suggestions for review</h1><p class="lede">Improvement options, each with a recommendation and an explicit decision gate — choose before anything is built.</p>
+<div class="note warn"><b>Nothing on this page has been implemented.</b> Each
+suggestion is a decision that belongs to you. The recommendation column is our
+view; the state column says <code>pending_human_choice</code> until you pick. This
+is the review gate the brief asked for, and it is deliberately separate from the
+pages that describe what already exists.</div>
+<table>
+<caption>10 suggestions awaiting a decision.</caption>
+<thead><tr><th>#</th><th>Suggestion</th><th>Why it improves decisions</th><th>Options</th><th>Cost</th><th>Risk</th><th>Recommendation</th><th>State</th><th>Reference</th></tr></thead><tbody>
+<tr><td>S01</td><td>Publish a &#x27;provisional, not certified&#x27; board alongside the empty one.</td><td>An empty table teaches nothing about the strategies; a board with the gates printed on every row shows the work without claiming skill.</td><td>A: keep the board empty. B: add a provisional board with gates in every row. C: provisional board behind a collapsed section.</td><td>One page change; no new data.</td><td>A provisional board invites being read as a ranking if the gates are skimmed.</td><td>B</td><td><span class="pill warn">pending_human_choice</span></td><td><a href="https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds" rel="noopener">https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds</a></td></tr>
+<tr><td>S02</td><td>Capture a second operator&#x27;s close for the same 14 games.</td><td>A consensus close is far more defensible than one book&#x27;s, and it makes the CLV measure robust to a single operator&#x27;s movement.</td><td>A: stay single-provider. B: add FanDuel closes. C: add a third book.</td><td>One capture pass per week.</td><td>Two operators can disagree on the line, not just the vig; the rule for which close is &#x27;the&#x27; close has to be chosen first.</td><td>B</td><td><span class="pill warn">pending_human_choice</span></td><td><a href="https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds" rel="noopener">https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds</a></td></tr>
+<tr><td>S03</td><td>Backfill settled closes for weeks 1-9.</td><td>The sample floor is 100 bets; nine weeks of 14 games is enough to reach it in one step instead of waiting a season.</td><td>A: wait for weeks to accumulate. B: backfill from the operator&#x27;s historical endpoint if it is available. C: backfill from a licensed archive.</td><td>A research pass; the feed must still stamp close_status per row.</td><td>Historical closes are only trustworthy if the archive is the operator&#x27;s own. A third-party archive would have to be labelled as such, not as verified.</td><td>B, if the operator publishes history; otherwise C with an explicit source class.</td><td><span class="pill warn">pending_human_choice</span></td><td><a href="https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds" rel="noopener">https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds</a></td></tr>
+<tr><td>S04</td><td>Make the depth page cover all 32 clubs.</td><td>Two clubs is a demonstration, not coverage. The injury question is league-wide.</td><td>A: leave at two clubs. B: read the other 30 published charts. C: find an official feed.</td><td>A read per club, per week.</td><td>30 clubs is 30 different page formats; the parser will be fragile and every row must stay flagged unofficial.</td><td>B, with C preferred if an official feed exists.</td><td><span class="pill warn">pending_human_choice</span></td><td><a href="https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds" rel="noopener">https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds</a></td></tr>
+<tr><td>S05</td><td>Add opponent-adjusted ratings to the model.</td><td>The current rating is naive and its disagreements with the close are mostly its own error.</td><td>A: keep naive ratings. B: add a simple opponent adjustment. C: fit a full model with a declared window.</td><td>One modelling pass plus a validation rerun.</td><td>Any fitting on 137 games will overfit; the fit window must be declared before the numbers are seen.</td><td>B, because it is defensible at this sample size.</td><td><span class="pill warn">pending_human_choice</span></td><td><a href="https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds" rel="noopener">https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds</a></td></tr>
+<tr><td>S06</td><td>Add a per-team rest column from an official source.</td><td>Rest differential is the most-cited public signal and it is currently uncomputable.</td><td>A: leave it uncomputable. B: derive it from official game dates with Thursday/Monday handled explicitly. C: find a publisher that states rest days.</td><td>One data pass.</td><td>Derivation is an inference, so it cannot be labelled verified; it would have to carry its own status.</td><td>B, labelled derived_not_verified.</td><td><span class="pill warn">pending_human_choice</span></td><td><a href="https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds" rel="noopener">https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds</a></td></tr>
+<tr><td>S07</td><td>Capture official player-level stat lines for prop markets.</td><td>Unblocks S7 and every prop combo, which is a third of the brief&#x27;s requested structures.</td><td>A: skip props. B: capture official box scores per game. C: licensed stats feed.</td><td>One capture pass per week.</td><td>Box-score parsing is the most error-prone step in the whole pack; it needs its own reconciliation gate.</td><td>B, gated like the results feed.</td><td><span class="pill warn">pending_human_choice</span></td><td><a href="https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds" rel="noopener">https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds</a></td></tr>
+<tr><td>S08</td><td>Add a promotion gate to mirror the demotion gate.</td><td>The demotion path exists; the promotion path is currently &#x27;clear the gates&#x27;, which does not say what happens after a demotion.</td><td>A: keep the current implicit path. B: publish explicit promotion criteria with the same numeric style as D1-D6.</td><td>One document change.</td><td>None material.</td><td>B</td><td><span class="pill warn">pending_human_choice</span></td><td><a href="https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds" rel="noopener">https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds</a></td></tr>
+<tr><td>S09</td><td>Expose the reconciliation as a build gate in CI.</td><td>A results feed that cannot silently drift is worth more than one that is checked by hand.</td><td>A: manual check. B: add a CI workflow that fails on any mismatch.</td><td>One workflow file.</td><td>CI minutes and a new shared file that another session may also want to touch.</td><td>B, scoped to this pack&#x27;s paths only.</td><td><span class="pill warn">pending_human_choice</span></td><td><a href="https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds" rel="noopener">https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds</a></td></tr>
+<tr><td>S10</td><td>Publish a monthly decision review page.</td><td>Suggestions and flags accumulate faster than they are decided; a review cadence keeps the review gate real.</td><td>A: no cadence. B: monthly review page generated from the open rows.</td><td>One generated page.</td><td>A cadence nobody keeps is worse than none.</td><td>B, only after the first decision is actually taken.</td><td><span class="pill warn">pending_human_choice</span></td><td><a href="https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds" rel="noopener">https://sports.core.api.espn.com/v2/sports/football/leagues/nfl/events/401873052/competitions/401873052/odds</a></td></tr>
+</tbody></table>
+</main>
+<footer><div class="wrap">Sources are linked on every row. A blank cell is a cell
+that no official source confirmed; it is never a zero and never an estimate.
+This pack is informational and non-commercial. It is not betting advice, and it
+makes no profitability claim.</div></footer></body></html>

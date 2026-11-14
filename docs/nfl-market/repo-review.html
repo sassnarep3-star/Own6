@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Repository review · NFL own-line desk</title><style>
+:root{--bg:#0d1117;--panel:#151b23;--panel2:#1b232d;--line:#293341;--ink:#e6edf3;
+--muted:#93a1b0;--accent:#4da3ff;--good:#3fb950;--warn:#d29922;--bad:#f85149;--blank:#6e7681}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:15.5px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+nav{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:10px 16px;
+background:var(--panel);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:9}
+nav .brand{font-weight:700;letter-spacing:.03em;margin-right:8px;color:var(--ink)}
+nav a{padding:5px 9px;border-radius:6px;font-size:13.5px;color:var(--ink);
+background:var(--panel2);border:1px solid var(--line)}
+nav a.on{background:#22385a;border-color:var(--accent)}
+main{max-width:1240px;margin:0 auto;padding:22px 16px 70px}
+h1{font-size:27px;line-height:1.2;margin:8px 0 10px}
+h2{font-size:20px;margin:32px 0 8px;padding-top:8px;border-top:1px solid var(--line)}
+h3{font-size:16px;margin:20px 0 6px}
+p{margin:8px 0}
+.eyebrow{color:var(--accent);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;margin:0 0 4px}
+.lede{color:var(--muted);max-width:82ch}
+.hero{background:linear-gradient(180deg,#16202b,#11161d);border:1px solid var(--line);
+border-radius:14px;padding:22px;margin-bottom:16px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:10px;margin:14px 0}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px}
+.tile b{display:block;font-size:21px}.tile span{color:var(--muted);font-size:12px}
+.wrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin:10px 0 18px}
+table{border-collapse:collapse;width:100%;font-size:13px;background:var(--panel)}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{background:var(--panel2);font-size:11.5px;letter-spacing:.03em;text-transform:uppercase;
+color:var(--muted);white-space:nowrap;position:sticky;top:50px}
+tbody tr:hover{background:#1a222c}
+td.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.blank{color:var(--blank);font-style:italic;font-size:12px}
+.pill{display:inline-block;padding:1px 7px;border-radius:999px;font-size:11px;
+border:1px solid var(--line);background:#1b2430;white-space:nowrap}
+.ok{color:var(--good)}.warn{color:var(--warn)}.bad{color:var(--bad)}
+.note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);
+border-radius:8px;padding:11px 13px;margin:12px 0}
+.note.bad{border-left-color:var(--bad)}.note.warn{border-left-color:var(--warn)}
+ul,ol{margin:8px 0 8px 20px}li{margin:4px 0}
+code{background:#1b2430;border:1px solid var(--line);border-radius:4px;padding:1px 5px;font-size:12.5px}
+footer{color:var(--muted);font-size:12.5px;border-top:1px solid var(--line);
+margin-top:30px;padding-top:14px}
+</style></head><body><nav><span class="brand">NFL Own-Line Desk</span><a href="index.html">Overview</a><a href="executive-summary.html">Executive summary</a><a href="lines.html">Originated lines</a><a href="snapshots.html">Price snapshots</a><a href="results.html">Verified results</a><a href="leaderboard.html">Leaderboard</a><a href="validation.html">Validation gates</a><a href="correlations.html">Correlations</a><a href="depth.html">Depth &amp; injuries</a><a href="demotion.html">Demotion gate</a><a href="decision-ledger.html">Decision questions</a><a href="suggestions.html">Suggestions</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for review</a><a href="repo-review.html" class="on">Repo review</a></nav><main><p class="eyebrow">NFL market pack · captured 2026-11-14</p><h1>Repository review</h1><p class="lede">A line-by-line read of the repository as it stood at base commit <code>36c6f84</code>, limited to irregularities that affect this pack or the site.</p><div class="wrap"><table><thead><tr><th>finding_id</th><th>area</th><th>severity</th><th>finding</th><th>why_it_matters</th></tr></thead><tbody><tr><td>NM-RF-01</td><td>Scope overlap risk</td><td>medium</td><td>Five NFL packs already share the repo namespace (data/nfl, nfl_3b81013c, nfl_origination, nfl_wk, nfl_309921cc) with overlapping subject matter and different numbers for the same Week 10 games.</td><td>A reader cannot tell which pack is current. This pack is namespaced nfl_market and linked from the root index, but the duplication itself is unresolved.</td></tr><tr><td>NM-RF-02</td><td>Duplicate work</td><td>medium</td><td>data/nfl_309921cc/week10_slate.csv, data/nfl_origination/week10_slate_and_lines.csv and this pack&#x27;s slate_week10.csv all describe the same Week 10 slate.</td><td>Three sources of truth for one slate. Only this pack&#x27;s rows were re-verified on 2026-11-14.</td></tr><tr><td>NM-RF-03</td><td>Stale derived artefacts</td><td>low</td><td>scripts/audit_repo.py and the assurance generators depend on each other&#x27;s output, and prior sessions note they must be iterated until stable.</td><td>This session did not run them; the inventories under data/assurance may not include this pack.</td></tr><tr><td>NM-RF-04</td><td>Generated HTML in git</td><td>low</td><td>docs/ contains ~166 generated HTML pages across all packs.</td><td>Large, review-noisy diffs, and every generator change rewrites many files. Acceptable for GitHub Pages but worth naming.</td></tr><tr><td>NM-RF-05</td><td>Open PR backlog</td><td>medium</td><td>Five PRs were open at claim time (#84, #79, #72, #68, #56 and older).</td><td>Unmerged branches carry alternative NFL numbers. Merging them later would create contradictory tables under one site.</td></tr><tr><td>NM-RF-06</td><td>CI breadth</td><td>low</td><td>There are 13 workflow files, several of which run repo-wide audits.</td><td>A change to shared generated data can fail unrelated workflows. This pack adds one self-contained workflow to avoid that coupling.</td></tr></tbody></table></div><h2>What was checked by hand</h2><ul><li>All 24 <code>data/nfl*</code> CSV headers, to confirm the new <code>nfl_market</code> namespace does not collide.</li><li>All 5 existing <code>docs/nfl*</code> directories, to confirm no path is reused.</li><li><code>git log</code>, <code>git ls-remote --heads origin</code> and <code>gh pr list --state open</code> at claim time.</li><li>Every claim on every page of this pack, checked against <code>data/nfl_market/sources.csv</code>.</li></ul><h2>What was not checked</h2><ul><li>The contents of the other NFL packs' numeric tables, beyond their headers and row counts.</li><li>Anything requiring credentials or a third-party data feed.</li></ul><footer>Every value on this site is either transcribed from an official NFL-family page on 2026-11-14 or computed from those transcriptions by <code>src/nfl_market</code>. Blank cells are values that could not be confirmed from an official source; they are listed on the <a href="flagged.html">Flagged for review</a> page. No profitability claim is made anywhere on this site.</footer></main></body></html>

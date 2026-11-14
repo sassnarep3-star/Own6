@@ -169,3 +169,80 @@ A pure-stdlib Python 3.11 NFL fair-line origination, starter-vs-backup (`1st`–
 - **Peer NFL Week 10 Verification Pack (`3b81013c`):** [`docs/nfl-3b81013c/index.html`](docs/nfl-3b81013c/index.html) (`https://sassnarep3-star.github.io/Own6/docs/nfl-3b81013c/`)
 - **Additional self-contained NFL Week pack (PR #80):** [`docs/nfl-wk/index.html`](docs/nfl-wk/index.html) · [`data/nfl_wk/sources.csv`](data/nfl_wk/sources.csv) · [`data/nfl_wk/flagged.csv`](data/nfl_wk/flagged.csv). PR #80 describes 11 candidates as quarantined, 19 suggestions awaiting choice, and its originated lines as calculations from official standings with all market/edge/ROI/correlation cells blank. These are pack-reported statuses, not new source reads by this integration or results to combine with the main 10-candidate leaderboard. Manual source review: [Week 10 schedule](https://www.nfl.com/schedules/2026/by-week/week-10) · [Week 11 schedule](https://www.nfl.com/schedules/2026/by-week/week-11).
 
+
+---
+
+## NFL Own-Line Market Desk (`data/nfl_market/`, `docs/nfl-market/`)
+
+Session `arena/33ee4854-own6`, capture 2026-11-14. Live:
+https://sassnarep3-star.github.io/Own6/docs/nfl-market/
+
+This pack originates NFL side, total and moneyline numbers, keeps an opening/closing price-snapshot
+store for every originated market, grades itself against a verified results feed, and separates
+**signal score** from **staking score** on its leaderboard.
+
+Read `NFL_MARKET_EXECUTIVE_SUMMARY.md` first. Rebuild with
+`python3 scripts/build_nfl_market.py`, verify with `python3 scripts/check_nfl_market.py` (971 checks),
+test with `python3 -m unittest discover -s tests -p "test_nfl_market.py"`.
+
+**Headline finding:** the NFL publishes no odds or line page (`https://www.nfl.com/odds/` is the NFL
+404 page). Every market-line and difference cell is therefore blank with an explicit status rather
+than filled from a non-official source. No edge has been measured, no strategy is live, and the
+originated side model went 28-44 walking forward. All of that is published on the site rather than
+omitted from it.
+## NFL Price & Results Pack (session 6cefc476, 2026-11-14)
+
+A self-contained pack implementing the price-snapshot store, a verified results feed, ordered
+origination (side → total → moneyline) with separate **fair line / market line / difference** columns,
+a leaderboard that separates **signal from staking**, **replacement-depth** tracking (the string level
+of the replacement), correlations computed only from officially sourced numbers **with n published**,
+a defined **demotion gate** (live → paper), a decision-questions register, and a review-first
+suggestions section. Live: https://sassnarep3-star.github.io/Own6/docs/nfl-6cefc476/
+
+Every table row carries an official source link; values that cannot be confirmed are published blank
+and flagged ([Flagged for review](docs/nfl-6cefc476/flagged.html)). Build/check:
+`python3 scripts/build_nfl_6cefc476.py` · `python3 scripts/check_nfl_6cefc476.py` ·
+`python3 -m unittest tests.test_nfl_6cefc476`. Nothing demonstrates a profitable edge; model outputs
+are computations, not market prices. Executive summary:
+[`NFL_6CEFC476_EXECUTIVE_SUMMARY.md`](NFL_6CEFC476_EXECUTIVE_SUMMARY.md) · repo review:
+[`audit/NFL_6CEFC476_REPO_REVIEW.md`](audit/NFL_6CEFC476_REPO_REVIEW.md).
+
+## NFL Prices & Proof (session d966f630, 2026-11-14)
+
+The same eight-requirement brief as the sibling packs above, implemented on its own spine:
+`src/nfl_d966f630/` (capture, results, prices, originate, depth, correlate, backtest, leaderboard,
+demotion, flags, advice, audit) → 41 tables in `data/nfl_d966f630/` → 17 pages at
+https://sassnarep3-star.github.io/Own6/docs/nfl-d966f630/
+
+- **Verified results feed:** 44 official games (Weeks 7–10, 2026), 37 identity checks
+  (`sum W = sum L`, `PF − PA = NET`, `games = 0.5·Σ` others' games`), and 96 club-week
+  reconciliations of the derived "through week N" tables against the standings read: 86 matched,
+  10 clubs on bye with no badge, **0 mismatches**.
+- **Price ledger:** 210 hash-chained snapshot rows over 171 markets; open, close and movement are
+  derived from a market's position in its own series, never asserted. 26 markets show real
+  movement, and all 26 cross model versions, so the movement strategy is held at the gate.
+- **Origination:** side → total → moneyline enforced by a stage-order contract; fair / market /
+  difference published as three separate columns, with the model side filled and the market side
+  blank on all 14 rows plus a logged capture-attempt register.
+- **Leaderboard:** signal ranked on Brier **skill against each event's own base rate**, staking
+  reported beside it and never used for rank; the verifier fails the build if a payout column
+  appears in the signal table or an accuracy column in the staking table.
+- **Demotion gate:** 10 gates × 10 strategies = 100 evaluated rows; 1 strategy promoted, 9 held —
+  including the top-ranked signal row, which fails on calibration drift, and the second, which
+  fails on its drawdown budget.
+
+**Known limits, stated where they are read:** there is no book price in this environment, so no
+edge, no closing-line value and no ROI against a price exists anywhere in the pack; the
+probabilities are fitted on 28–86 team-games and published undamped with the fits shown as
+analysis; prop-combination legs cannot settle without per-player statistics.
+Build / check / test: `python3 scripts/build_nfl_d966f630.py` ·
+`python3 scripts/check_nfl_d966f630.py` (51 checks) ·
+`python3 -m unittest discover -s tests -p "test_nfl_d966f630.py"` (61 tests).
+Executive summary: [`NFL_D966F630_EXECUTIVE_SUMMARY.md`](NFL_D966F630_EXECUTIVE_SUMMARY.md) ·
+audit: [`audit/NFL_D966F630_REPO_AND_SOURCE_AUDIT.md`](audit/NFL_D966F630_REPO_AND_SOURCE_AUDIT.md).
+
+*Note for whoever merges next:* four sibling sessions (`nfl-market`, `nfl-6cefc476`, `nfl-f4`,
+this one) implemented the same brief independently against the same official sources. They agree
+that no official source publishes a price; they differ in sample window, in how signal is ranked
+and in how the demotion gate is defined. Choosing one as canonical is a human decision, recorded as
+`D966-S06`-adjacent scope rather than resolved by this pack.

@@ -1,0 +1,7 @@
+strategy_id,n,hit_rate,ci_low,ci_high,p_one_sided_fair_coin,luck_share,verdict,method,official_source_url
+single_side,72,0.3889,0.2847,0.5044,0.9778,0.9778,indistinguishable_from_luck,one-sided exact binomial against p0=0.5; Wilson 95% interval,https://www.nfl.com/schedules
+single_total,72,0.5417,0.4274,0.6517,0.278,0.278,indistinguishable_from_luck,one-sided exact binomial against p0=0.5; Wilson 95% interval,https://www.nfl.com/schedules
+single_moneyline,71,0.6197,0.5034,0.7237,0.0284,0.0284,weak_evidence,one-sided exact binomial against p0=0.5; Wilson 95% interval,https://www.nfl.com/schedules
+parlay_2leg_same_game_side_total,72,0.1667,0.098,0.2691,1.0,1.0,indistinguishable_from_luck,one-sided exact binomial against p0=0.5; Wilson 95% interval,https://www.nfl.com/schedules
+parlay_2leg_cross_game_side,36,0.1944,0.0975,0.3503,1.0,1.0,indistinguishable_from_luck,one-sided exact binomial against p0=0.5; Wilson 95% interval,https://www.nfl.com/schedules
+parlay_3leg_cross_game_side,24,0.0833,0.0232,0.2585,1.0,1.0,not_decision_grade_sample_too_small,one-sided exact binomial against p0=0.5; Wilson 95% interval,https://www.nfl.com/schedules

@@ -1,0 +1,4 @@
+market,originated_rows,snapshot_rows,prices_captured,coverage_note,official_source_url
+side,72,144,0,Store is built and row-complete; every price cell is blank because no official NFL price source exists.,https://www.nfl.com/odds/
+total,72,144,0,Store is built and row-complete; every price cell is blank because no official NFL price source exists.,https://www.nfl.com/odds/
+moneyline,72,144,0,Store is built and row-complete; every price cell is blank because no official NFL price source exists.,https://www.nfl.com/odds/

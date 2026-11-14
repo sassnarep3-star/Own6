@@ -1,0 +1,2 @@
+strategies_with_positive_staking_and_nonpositive_signal,board_can_mask,certified_strategies,max_settled_bets_on_any_strategy,verdict
+0,False,0,2,"No strategy currently shows positive P&L on a non-positive signal, so the board cannot mask one today. This is a weak statement: the largest settled sample is 2 bet(s), so the absence is a small-sample artefact, not evidence of skill. 0 of 7 strategies are certified; the guard's firing case is asserted by tests/test_nfl_f4.py::test_mask_test_catches_lucky_staking_run."

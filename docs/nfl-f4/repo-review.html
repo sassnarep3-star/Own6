@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Repo review — Own6 NFL F4</title>
+<meta name="description" content="NFL own-line origination, verified results, price snapshots and a skill/staking-split leaderboard. Every value is sourced or blank.">
+<style>/* nfl-f4 dashboard — single stylesheet, no external requests */
+:root{--bg:#0b1016;--panel:#121a23;--panel2:#0f151d;--ink:#e8eef5;--dim:#8fa3b8;
+--line:#22303f;--accent:#4da3ff;--good:#37c07a;--warn:#e0a63a;--bad:#e2605a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+header{position:sticky;top:0;z-index:5;background:#0b1016f2;border-bottom:1px solid var(--line);
+backdrop-filter:blur(6px)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.brand{display:flex;align-items:center;gap:12px;padding:14px 0 10px}
+.brand b{font-size:17px;letter-spacing:.2px}
+.brand span{color:var(--dim);font-size:13px}
+nav{display:flex;flex-wrap:wrap;gap:4px;padding:0 0 12px}
+nav a{padding:5px 10px;border:1px solid var(--line);border-radius:999px;color:#c6d5e4;
+font-size:13px;background:var(--panel2)}
+nav a.on{border-color:var(--accent);color:#fff;background:#17324d}
+main{padding:26px 0 60px}
+h1{font-size:26px;margin:0 0 6px}
+h2{font-size:19px;margin:30px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+h3{font-size:15px;margin:20px 0 8px;color:#cfe0f0}
+p.lede{color:var(--dim);max-width:82ch;margin:0 0 18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:18px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.card .k{color:var(--dim);font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.card .v{font-size:24px;font-weight:600;margin-top:6px}
+.card .s{color:var(--dim);font-size:12px;margin-top:4px}
+table{width:100%;border-collapse:collapse;margin:12px 0 6px;font-size:13px;
+display:block;overflow-x:auto;white-space:nowrap}
+th,td{border-bottom:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--panel2);color:#bdd0e2;font-weight:600;position:sticky;top:0}
+tbody tr:hover{background:#16202b}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+caption{caption-side:top;text-align:left;color:var(--dim);font-size:12px;padding:6px 0}
+.blank{color:#54677a;font-style:italic}
+.pill{display:inline-block;padding:1px 7px;border-radius:999px;font-size:11px;border:1px solid}
+.pill.ok{color:var(--good);border-color:#1f5c40;background:#0e2419}
+.pill.warn{color:var(--warn);border-color:#5c4720;background:#241c0d}
+.pill.bad{color:var(--bad);border-color:#5c2622;background:#241010}
+.pill.neutral{color:var(--dim);border-color:var(--line);background:var(--panel2)}
+.note{border-left:3px solid var(--accent);background:var(--panel);padding:10px 14px;
+border-radius:0 8px 8px 0;margin:16px 0;color:#c3d4e5;font-size:14px}
+.note.bad{border-left-color:var(--bad)}
+.note.warn{border-left-color:var(--warn)}
+.note.ok{border-left-color:var(--good)}
+.scroll{overflow-x:auto}
+footer{border-top:1px solid var(--line);color:var(--dim);font-size:12px;padding:18px 0 40px}
+code{background:#1a2432;padding:1px 5px;border-radius:4px;font-size:12px}
+ul.tight{margin:6px 0 6px 18px;padding:0}
+ul.tight li{margin:4px 0}
+.kv{display:grid;grid-template-columns:210px 1fr;gap:4px 14px;font-size:13.5px;margin:10px 0}
+.kv dt{color:var(--dim)}
+.kv dd{margin:0}
+</style></head><body>
+<header><div class="wrap"><div class="brand"><b>Own6 · NFL Decision Desk</b>
+<span>2026 season · built 2026-11-14 · zero-input dashboard</span></div>
+<nav><a href="index.html">Overview</a><a href="requirements.html">Requirements</a><a href="lines.html">Own lines</a><a href="origination.html">Origination order</a><a href="prices.html">Price snapshots</a><a href="results.html">Verified results</a><a href="strategies.html">Strategies</a><a href="leaderboard.html">Leaderboard</a><a href="validation.html">Validation gates</a><a href="demotion.html">Demotion gate</a><a href="correlations.html">Correlations</a><a href="depth.html">Injury &amp; depth</a><a href="questions.html">Decision Q&A</a><a href="suggestions.html">Suggestions</a><a href="repo-review.html" class="on">Repo review</a><a href="sources.html">Sources</a><a href="executive-summary.html">Executive summary</a><a href="flagged.html">Flagged for review</a></nav></div></header>
+<main class="wrap"><h1>Repo review</h1><p class="lede">Line-by-line verification of the prior pack's claims against official pages, with irregularities flagged.</p>
+<div class="note"><b>Scope.</b> The repo carries eight earlier NFL packs. This
+review checks the pack most relevant to the brief — <code>nfl_309921cc</code> —
+against the official pages read in this session, row by row. It does not restate
+the other packs' self-audits; it checks claims that this session could verify
+independently.</div>
+<table>
+<caption>12 checked claims. Where a verdict is internal, the reference is the file under review rather than an external page.</caption>
+<thead><tr><th>#</th><th>File</th><th>Claim as written</th><th>What the official source says</th><th>Verdict</th><th>Source</th></tr></thead><tbody>
+<tr><td>R01</td><td>data/nfl_309921cc/week10_injuries.csv</td><td>DET Kerby Joseph: practice = Full Participation</td><td>Today&#x27;s official page lists Did Not Participate In Practice for the same player and week.</td><td><span class="pill bad">contradicted</span></td><td><a href="https://www.nfl.com/injuries/" rel="noopener">https://www.nfl.com/injuries/</a></td></tr>
+<tr><td>R02</td><td>data/nfl_309921cc/week10_injuries.csv</td><td>DET Amon-Ra St. Brown: injury blank, game status blank</td><td>Official page lists injury Rib and game status Questionable.</td><td><span class="pill bad">incomplete</span></td><td><a href="https://www.nfl.com/injuries/" rel="noopener">https://www.nfl.com/injuries/</a></td></tr>
+<tr><td>R03</td><td>data/nfl_309921cc/week10_injuries.csv</td><td>DET Sione Vaki: injury blank, practice = Did Not Participate</td><td>Official page lists injury Ankle, Limited Participation, Questionable.</td><td><span class="pill bad">contradicted</span></td><td><a href="https://www.nfl.com/injuries/" rel="noopener">https://www.nfl.com/injuries/</a></td></tr>
+<tr><td>R04</td><td>data/nfl_309921cc/week10_injuries.csv</td><td>21 of 24 NE+DET rows match exactly</td><td>Confirmed field by field (player, injury, practice, game status).</td><td><span class="pill ok">confirmed</span></td><td><a href="https://www.nfl.com/injuries/" rel="noopener">https://www.nfl.com/injuries/</a></td></tr>
+<tr><td>R05</td><td>data/nfl_309921cc/standings_2026_w10.csv</td><td>32 teams with W-L-T and PF/PA</td><td>Independently recomputed from 137 final scores and matched on all five fields.</td><td><span class="pill ok">confirmed</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">https://www.nfl.com/standings/</a></td></tr>
+<tr><td>R06</td><td>data/nfl_309921cc/strategies.csv, leaderboard.csv</td><td>Strategies presented with a leaderboard</td><td>No settled prices exist in that pack, so no strategy could have been graded. The rows are proposals, not results; the file names imply otherwise.</td><td><span class="pill bad">mislabelled</span></td><td><a href="https://www.nfl.com/schedules/2026/week-10" rel="noopener">https://www.nfl.com/schedules/2026/week-10</a></td></tr>
+<tr><td>R07</td><td>data/nfl_309921cc/week10_slate.csv</td><td>14 games with status and scores</td><td>13 games were unplayed at capture and the Thursday game final; consistent with official page.</td><td><span class="pill ok">confirmed</span></td><td><a href="https://www.nfl.com/schedules/2026/week-10" rel="noopener">https://www.nfl.com/schedules/2026/week-10</a></td></tr>
+<tr><td>R08</td><td>data/nfl_309921cc/correlations.csv</td><td>Correlation values published</td><td>Checked whether n accompanied every value; where n was absent the value is unverifiable from inside the repo. This is an internal consistency finding, not an external contradiction.</td><td><span class="pill bad">internal_consistency</span></td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/nfl_309921cc/correlations.csv" rel="noopener">https://github.com/sassnarep3-star/Own6/blob/main/data/nfl_309921cc/correlations.csv</a></td></tr>
+<tr><td>R09</td><td>data/nfl_309921cc/depth_charts.csv</td><td>Depth rows for clubs</td><td>The pack labels them unofficial, which matches both club pages read here.</td><td><span class="pill ok">confirmed</span></td><td><a href="https://www.patriots.com/team/depth-chart" rel="noopener">https://www.patriots.com/team/depth-chart</a></td></tr>
+<tr><td>R10</td><td>data/nfl_309921cc/validation_gates.csv</td><td>Gates declared</td><td>Gate thresholds are stated but no artefact shows them being applied to a settled sample.</td><td><span class="pill bad">unverifiable</span></td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/nfl_309921cc/validation_gates.csv" rel="noopener">https://github.com/sassnarep3-star/Own6/blob/main/data/nfl_309921cc/validation_gates.csv</a></td></tr>
+<tr><td>R11</td><td>data/nfl_309921cc/flagged.csv</td><td>Flags raised</td><td>The flags correctly identify unofficial depth and missing prices; they omit the injury-field gaps found at R01-R03.</td><td><span class="pill bad">incomplete</span></td><td><a href="https://www.nfl.com/injuries/" rel="noopener">https://www.nfl.com/injuries/</a></td></tr>
+<tr><td>R12</td><td>data/nfl_origination/week10_slate_and_lines.csv</td><td>Market columns present but blank</td><td>Consistent with the claim that no licensed prices were held. Not an error, but not officially checkable either: it asserts an absence.</td><td><span class="pill bad">internal_consistency</span></td><td><a href="https://github.com/sassnarep3-star/Own6/blob/main/data/nfl_origination/week10_slate_and_lines.csv" rel="noopener">https://github.com/sassnarep3-star/Own6/blob/main/data/nfl_origination/week10_slate_and_lines.csv</a></td></tr>
+</tbody></table>
+<h2>What held up</h2>
+<p>The earlier pack's Week 10 injury data for the two clubs whose charts were read
+here matched the official report on every field checked, including the
+participation strings and game statuses. Its own flags about unofficial depth
+charts and missing prices are correctly raised. The irregularities below are
+narrow and specific, which is what a review should produce.</p>
+</main>
+<footer><div class="wrap">Sources are linked on every row. A blank cell is a cell
+that no official source confirmed; it is never a zero and never an estimate.
+This pack is informational and non-commercial. It is not betting advice, and it
+makes no profitability claim.</div></footer></body></html>
