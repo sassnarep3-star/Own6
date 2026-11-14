@@ -13,8 +13,6 @@ import math
 import os
 import sys
 
-import pytest
-
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 
@@ -24,6 +22,47 @@ from src.nfl_f4 import (  # noqa: E402
 )
 
 DATA = os.path.join(ROOT, "data", "nfl_f4")
+
+
+class _Approx:
+    """Minimal stand-in for pytest.approx so this file runs under the repo's
+    dependency-free runner (tools/run_tests.py) as well as under pytest."""
+
+    def __init__(self, expected, abs=1e-12):
+        self.expected = expected
+        self.tol = abs
+
+    def __eq__(self, other):
+        return abs(other - self.expected) <= self.tol
+
+    def __repr__(self):
+        return f"approx({self.expected!r}, abs={self.tol})"
+
+
+class _PytestShim:
+    approx = staticmethod(lambda expected, abs=1e-12: _Approx(expected, abs))
+
+    class _Raises:
+        def __init__(self, exc):
+            self.exc = exc
+
+        def __enter__(self):
+            return self
+
+        def __exit__(self, exc_type, exc, tb):
+            if exc_type is None:
+                raise AssertionError(f"expected {self.exc.__name__} to be raised")
+            return issubclass(exc_type, self.exc)
+
+    @staticmethod
+    def raises(exc):
+        return _PytestShim._Raises(exc)
+
+
+try:  # pragma: no cover - environment dependent
+    import pytest  # noqa: F401
+except ModuleNotFoundError:  # pragma: no cover
+    pytest = _PytestShim()  # type: ignore[assignment]
 
 
 def load(name):
@@ -40,8 +79,12 @@ def test_reconciliation_matches_all_32_teams():
     assert all(r["result"] == "MATCH" for r in rows)
 
 
-def test_reconcile_raises_when_a_field_is_tampered(monkeypatch):
-    """The fail-closed path must actually raise, not just be documented."""
+def test_reconcile_raises_when_a_field_is_tampered():
+    """The fail-closed path must actually raise, not just be documented.
+
+    Self-contained (no pytest fixture) so the repo's dependency-free runner can
+    execute it too.
+    """
     rows = R.reconciliation_rows()
     broken = []
     for i, r in enumerate(rows):
@@ -50,9 +93,13 @@ def test_reconcile_raises_when_a_field_is_tampered(monkeypatch):
             r["pf_recomputed"] = str(int(r["pf_official"]) + 7)
             r["result"] = "MISMATCH"
         broken.append(r)
-    monkeypatch.setattr(R, "reconciliation_rows", lambda: broken)
-    with pytest.raises(SystemExit):
-        R.reconcile_or_raise()
+    original = R.reconciliation_rows
+    R.reconciliation_rows = lambda: broken
+    try:
+        with pytest.raises(SystemExit):
+            R.reconcile_or_raise()
+    finally:
+        R.reconciliation_rows = original
 
 
 def test_results_have_no_unplayed_rows():
