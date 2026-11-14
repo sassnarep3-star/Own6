@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Requirements coverage — Own6 NFL F4</title>
+<meta name="description" content="NFL own-line origination, verified results, price snapshots and a skill/staking-split leaderboard. Every value is sourced or blank.">
+<style>/* nfl-f4 dashboard — single stylesheet, no external requests */
+:root{--bg:#0b1016;--panel:#121a23;--panel2:#0f151d;--ink:#e8eef5;--dim:#8fa3b8;
+--line:#22303f;--accent:#4da3ff;--good:#37c07a;--warn:#e0a63a;--bad:#e2605a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+header{position:sticky;top:0;z-index:5;background:#0b1016f2;border-bottom:1px solid var(--line);
+backdrop-filter:blur(6px)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.brand{display:flex;align-items:center;gap:12px;padding:14px 0 10px}
+.brand b{font-size:17px;letter-spacing:.2px}
+.brand span{color:var(--dim);font-size:13px}
+nav{display:flex;flex-wrap:wrap;gap:4px;padding:0 0 12px}
+nav a{padding:5px 10px;border:1px solid var(--line);border-radius:999px;color:#c6d5e4;
+font-size:13px;background:var(--panel2)}
+nav a.on{border-color:var(--accent);color:#fff;background:#17324d}
+main{padding:26px 0 60px}
+h1{font-size:26px;margin:0 0 6px}
+h2{font-size:19px;margin:30px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+h3{font-size:15px;margin:20px 0 8px;color:#cfe0f0}
+p.lede{color:var(--dim);max-width:82ch;margin:0 0 18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:18px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.card .k{color:var(--dim);font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.card .v{font-size:24px;font-weight:600;margin-top:6px}
+.card .s{color:var(--dim);font-size:12px;margin-top:4px}
+table{width:100%;border-collapse:collapse;margin:12px 0 6px;font-size:13px;
+display:block;overflow-x:auto;white-space:nowrap}
+th,td{border-bottom:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--panel2);color:#bdd0e2;font-weight:600;position:sticky;top:0}
+tbody tr:hover{background:#16202b}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+caption{caption-side:top;text-align:left;color:var(--dim);font-size:12px;padding:6px 0}
+.blank{color:#54677a;font-style:italic}
+.pill{display:inline-block;padding:1px 7px;border-radius:999px;font-size:11px;border:1px solid}
+.pill.ok{color:var(--good);border-color:#1f5c40;background:#0e2419}
+.pill.warn{color:var(--warn);border-color:#5c4720;background:#241c0d}
+.pill.bad{color:var(--bad);border-color:#5c2622;background:#241010}
+.pill.neutral{color:var(--dim);border-color:var(--line);background:var(--panel2)}
+.note{border-left:3px solid var(--accent);background:var(--panel);padding:10px 14px;
+border-radius:0 8px 8px 0;margin:16px 0;color:#c3d4e5;font-size:14px}
+.note.bad{border-left-color:var(--bad)}
+.note.warn{border-left-color:var(--warn)}
+.note.ok{border-left-color:var(--good)}
+.scroll{overflow-x:auto}
+footer{border-top:1px solid var(--line);color:var(--dim);font-size:12px;padding:18px 0 40px}
+code{background:#1a2432;padding:1px 5px;border-radius:4px;font-size:12px}
+ul.tight{margin:6px 0 6px 18px;padding:0}
+ul.tight li{margin:4px 0}
+.kv{display:grid;grid-template-columns:210px 1fr;gap:4px 14px;font-size:13.5px;margin:10px 0}
+.kv dt{color:var(--dim)}
+.kv dd{margin:0}
+</style></head><body>
+<header><div class="wrap"><div class="brand"><b>Own6 · NFL Decision Desk</b>
+<span>2026 season · built 2026-11-14 · zero-input dashboard</span></div>
+<nav><a href="index.html">Overview</a><a href="requirements.html" class="on">Requirements</a><a href="lines.html">Own lines</a><a href="origination.html">Origination order</a><a href="prices.html">Price snapshots</a><a href="results.html">Verified results</a><a href="strategies.html">Strategies</a><a href="leaderboard.html">Leaderboard</a><a href="validation.html">Validation gates</a><a href="demotion.html">Demotion gate</a><a href="correlations.html">Correlations</a><a href="depth.html">Injury &amp; depth</a><a href="questions.html">Decision Q&A</a><a href="suggestions.html">Suggestions</a><a href="repo-review.html">Repo review</a><a href="sources.html">Sources</a><a href="executive-summary.html">Executive summary</a><a href="flagged.html">Flagged for review</a></nav></div></header>
+<main class="wrap"><h1>Requirements coverage</h1><p class="lede">Every line of the brief, mapped to where it is implemented and what state it is in.</p><table>
+<caption>Each requirement from the brief, mapped to the file that implements it.</caption>
+<thead><tr><th>Requirement</th><th>Artefact</th><th>Scale</th><th>How it is enforced</th><th>State</th></tr></thead><tbody>
+<tr><td>Price-snapshot store, open and close for every originated market</td><td>data/nfl_f4/price_snapshots.csv</td><td>168 rows = 14 games × 3 markets × 2 sides × 2 snapshots</td><td>Open and close come from the provider&#x27;s own fields, not from two visits to a page.</td><td><span class="pill ok">done</span></td></tr>
+<tr><td>Verified results feed</td><td>data/nfl_f4/results.csv + results_reconciliation.csv</td><td>137 games, weeks 1–10</td><td>All 32 team records and PF/PA recomputed and matched to official standings.</td><td><span class="pill ok">done</span></td></tr>
+<tr><td>Origination order side → total → moneyline</td><td>data/nfl_f4/originated_markets.csv</td><td>origination_order 1,2,3 enforced and sorted</td><td>The build re-sorts the file, so the order cannot be lost by an edit.</td><td><span class="pill ok">done</span></td></tr>
+<tr><td>Fair line / market line / difference as separate columns</td><td>data/nfl_f4/fair_vs_market.csv</td><td>42 markets</td><td>Difference is signed from the home side and never merged into the fair line.</td><td><span class="pill ok">done</span></td></tr>
+<tr><td>Signal separate from staking in the leaderboard</td><td>data/nfl_f4/leaderboard_strategies.csv + leaderboard_mask_test.csv</td><td>7 strategies</td><td>Signal = closing-line value per bet (no stake). Staking = units, only where a settle exists.</td><td><span class="pill ok">done</span></td></tr>
+<tr><td>Depth of the replacement, not the fact</td><td>data/nfl_f4/depth_replacement.csv</td><td>46 depth slots, 2 clubs</td><td>Each slot resolves to a named player and his string, including a contingency branch.</td><td><span class="pill ok">done</span></td></tr>
+<tr><td>Correlations from official numbers only, with n</td><td>data/nfl_f4/correlations.csv</td><td>6 pairs: 3 measured, 2 uncomputable, 1 insufficient</td><td>n, r, r², 95% CI and p published on every computed row.</td><td><span class="pill ok">done</span></td></tr>
+<tr><td>Demotion gate live → paper</td><td>data/nfl_f4/demotion_gate.csv + strategy_state.csv</td><td>6 rules D1–D6</td><td>Fail-closed; a demotion is sticky and re-entry has its own bar.</td><td><span class="pill ok">done</span></td></tr>
+</tbody></table>
+<h2>What the brief asked for beyond the eight numbered items</h2>
+<table>
+<caption>The rest of the brief.</caption>
+<thead><tr><th>Ask</th><th>Where</th></tr></thead><tbody>
+<tr><td>Leaderboard competition with rewards for top performers</td><td>&lt;a href=&quot;leaderboard.html&quot;&gt;Leaderboard&lt;/a&gt; — reward = rank, and rank requires a certified signal</td></tr>
+<tr><td>Single bets, parlays, player-prop combos</td><td>&lt;a href=&quot;strategies.html&quot;&gt;Strategies&lt;/a&gt; — S1–S7; prop combos are explicitly blocked, not faked</td></tr>
+<tr><td>Each strategy must pass validation gates</td><td>&lt;a href=&quot;validation.html&quot;&gt;Validation gates&lt;/a&gt;</td></tr>
+<tr><td>Determine correlation values</td><td>&lt;a href=&quot;correlations.html&quot;&gt;Correlations&lt;/a&gt;</td></tr>
+<tr><td>Remove luck; build selectively skill-based strategies</td><td>&lt;a href=&quot;leaderboard.html&quot;&gt;Leaderboard&lt;/a&gt; (luck p-value) + &lt;a href=&quot;validation.html&quot;&gt;gates&lt;/a&gt;</td></tr>
+<tr><td>Track injuries and 2nd/3rd/4th-string replacements, offence and defence</td><td>&lt;a href=&quot;depth.html&quot;&gt;Injury &amp;amp; depth&lt;/a&gt;</td></tr>
+<tr><td>Decision-ready Q&amp;amp;A and missing-information discovery</td><td>&lt;a href=&quot;questions.html&quot;&gt;Decision Q&amp;amp;A&lt;/a&gt;</td></tr>
+<tr><td>A section to review suggestions before implementing</td><td>&lt;a href=&quot;suggestions.html&quot;&gt;Suggestions&lt;/a&gt;</td></tr>
+<tr><td>Executive summary</td><td>&lt;a href=&quot;executive-summary.html&quot;&gt;Executive summary&lt;/a&gt;</td></tr>
+<tr><td>Flag irregularities with source links</td><td>&lt;a href=&quot;flagged.html&quot;&gt;Flagged for review&lt;/a&gt;</td></tr>
+</tbody></table></main>
+<footer><div class="wrap">Sources are linked on every row. A blank cell is a cell
+that no official source confirmed; it is never a zero and never an estimate.
+This pack is informational and non-commercial. It is not betting advice, and it
+makes no profitability claim.</div></footer></body></html>

@@ -1,0 +1,13 @@
+l_id,decision,choice,reversibility,flag_ref
+L01,Which operator supplies the reference price?,"DraftKings, chosen because it is the only operator with an open/close pair for all 14 games.",Reversible: the store keeps provider on every row.,F4-F16
+L02,Record a not-yet-settled quote as a close?,No. It is stored as not_final and never graded.,Reversible when the game settles and the close is re-read.,F4-F02
+L03,Publish an empty leaderboard?,"Yes, with the failing gates on every row.",Reversible; S01 offers the alternative.,F4-F03
+L04,Estimate home-field advantage?,No. Declared 0.0 and flagged.,Reversible.,F4-F01
+L05,Infer overtime from the final margin?,No. Left blank.,Reversible with a play-by-play source.,F4-F04
+L06,Correct the injury rosters that look wrong versus 2025?,No. Recorded as published.,Reversible only with a published correction.,F4-F07
+L07,Treat club depth charts as verified?,No. verified_unofficial_source.,Reversible if an official feed is found.,F4-F08
+L08,Compute a correlation without an official input?,No. Published as uncomputable.,Reversible when the input exists.,F4-F12
+L09,Fill the other 30 clubs' depth from rosters?,No.,Reversible by reading the charts.,F4-F11
+L10,Blend DraftKings and FanDuel prices?,No. Separate provider columns.,"Reversible, but a consensus rule would have to be declared first.",F4-F16
+L11,Price prop combos from assumptions?,No. Blocked at G5.,Reversible with official player stats.,F4-F18
+L12,Publish a staking score with two bets?,"Yes, with a luck p-value attached and no promotion.",Reversible.,F4-F17

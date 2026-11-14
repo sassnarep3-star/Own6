@@ -1,0 +1,17 @@
+q_id,question,answer,status,how_to_close
+Q01,Can a strategy's edge be measured at all yet?,No. One settled priced game and 137 scored games without prices. Every strategy fails gate G1.,answered,Accumulate settled closes; the price store already records them.
+Q02,Is the results feed trustworthy enough to grade against?,"Yes for scores: 32 of 32 teams match official standings on W, L, T, PF and PA.",answered,Nothing further for scores; a play-by-play feed would be needed for overtime and drive data.
+Q03,Do we have real opening and closing numbers?,"Yes for 14 games: 42 markets, 168 snapshots, each with the price as well as the line.",answered,A second provider's close for the same games would allow a consensus close.
+Q04,Is the side/total correlation strong enough to price a same-game parlay?,"Not established: r = -0.161 at n = 137, p = 0.061, interval spanning zero.",answered,"Roughly 400+ games, or a same-game-specific sample."
+Q05,Should offence and defence be modelled together?,No: points scored and allowed in the same team-game correlate at 0.075 (n = 274).,answered,Nothing; this is a stable negative result.
+Q06,Does rest differential matter?,Unknown — it is not computable from the sources captured.,open,Capture a per-team rest column from an official schedule with game dates and bye weeks reconciled.
+Q07,How much does losing a starter to the third string cost?,"Unknown. We can name the chain and the string, but not a price.",open,"Collect depth snapshots weekly across a season, then regress margin on deficiency score."
+Q08,Are the depth charts authoritative?,No. Both clubs label them unofficial in their own words.,answered,"An official league depth feed, if one is published, would replace them."
+Q09,Is the closing line available before kickoff for every game?,"No. Thirteen games had not kicked off at capture, so no close existed to record.",answered,Re-read the odds endpoint after each kickoff window; the store is append-only.
+Q10,Would a lucky staking run mask a bad signal on this board?,"The guard fires by construction and is unit-tested; on the live board no masking case exists yet, which is a small-sample artefact.",answered,Nothing; the test is the evidence until real samples exist.
+Q11,Which operator's price should be the reference?,"DraftKings, because it is the only operator with an open/close pair for all 14 games.",answered,"A multi-book consensus, which needs at least two operators captured the same minute."
+Q12,Is the model good enough to quote against a close?,"No. It is a naive rating with no opponent adjustment; its disagreements are evidence about the rating, not the line.",open,"Opponent-adjusted ratings with a declared fitting window, then the same gate set."
+Q13,What happens when a live strategy decays?,It is demoted by rules D1-D6 with thresholds fixed in advance.,answered,Nothing; monitor the state file.
+Q14,Can prop combos be priced?,No. No official player-level stat lines were captured.,open,"An official stats feed with per-game player lines, then a prop-level backtest."
+Q15,Does the repo have NFL prices anywhere else?,No. Both prior NFL packs leave market cells blank and say so.,answered,Nothing.
+Q16,How many clubs have usable depth data?,"Two of 32, both unofficial.",answered,"Read the remaining clubs' published charts, or find an official feed."

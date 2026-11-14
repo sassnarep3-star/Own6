@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Verified results feed — Own6 NFL F4</title>
+<meta name="description" content="NFL own-line origination, verified results, price snapshots and a skill/staking-split leaderboard. Every value is sourced or blank.">
+<style>/* nfl-f4 dashboard — single stylesheet, no external requests */
+:root{--bg:#0b1016;--panel:#121a23;--panel2:#0f151d;--ink:#e8eef5;--dim:#8fa3b8;
+--line:#22303f;--accent:#4da3ff;--good:#37c07a;--warn:#e0a63a;--bad:#e2605a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+header{position:sticky;top:0;z-index:5;background:#0b1016f2;border-bottom:1px solid var(--line);
+backdrop-filter:blur(6px)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.brand{display:flex;align-items:center;gap:12px;padding:14px 0 10px}
+.brand b{font-size:17px;letter-spacing:.2px}
+.brand span{color:var(--dim);font-size:13px}
+nav{display:flex;flex-wrap:wrap;gap:4px;padding:0 0 12px}
+nav a{padding:5px 10px;border:1px solid var(--line);border-radius:999px;color:#c6d5e4;
+font-size:13px;background:var(--panel2)}
+nav a.on{border-color:var(--accent);color:#fff;background:#17324d}
+main{padding:26px 0 60px}
+h1{font-size:26px;margin:0 0 6px}
+h2{font-size:19px;margin:30px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+h3{font-size:15px;margin:20px 0 8px;color:#cfe0f0}
+p.lede{color:var(--dim);max-width:82ch;margin:0 0 18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:18px 0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.card .k{color:var(--dim);font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.card .v{font-size:24px;font-weight:600;margin-top:6px}
+.card .s{color:var(--dim);font-size:12px;margin-top:4px}
+table{width:100%;border-collapse:collapse;margin:12px 0 6px;font-size:13px;
+display:block;overflow-x:auto;white-space:nowrap}
+th,td{border-bottom:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--panel2);color:#bdd0e2;font-weight:600;position:sticky;top:0}
+tbody tr:hover{background:#16202b}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+caption{caption-side:top;text-align:left;color:var(--dim);font-size:12px;padding:6px 0}
+.blank{color:#54677a;font-style:italic}
+.pill{display:inline-block;padding:1px 7px;border-radius:999px;font-size:11px;border:1px solid}
+.pill.ok{color:var(--good);border-color:#1f5c40;background:#0e2419}
+.pill.warn{color:var(--warn);border-color:#5c4720;background:#241c0d}
+.pill.bad{color:var(--bad);border-color:#5c2622;background:#241010}
+.pill.neutral{color:var(--dim);border-color:var(--line);background:var(--panel2)}
+.note{border-left:3px solid var(--accent);background:var(--panel);padding:10px 14px;
+border-radius:0 8px 8px 0;margin:16px 0;color:#c3d4e5;font-size:14px}
+.note.bad{border-left-color:var(--bad)}
+.note.warn{border-left-color:var(--warn)}
+.note.ok{border-left-color:var(--good)}
+.scroll{overflow-x:auto}
+footer{border-top:1px solid var(--line);color:var(--dim);font-size:12px;padding:18px 0 40px}
+code{background:#1a2432;padding:1px 5px;border-radius:4px;font-size:12px}
+ul.tight{margin:6px 0 6px 18px;padding:0}
+ul.tight li{margin:4px 0}
+.kv{display:grid;grid-template-columns:210px 1fr;gap:4px 14px;font-size:13.5px;margin:10px 0}
+.kv dt{color:var(--dim)}
+.kv dd{margin:0}
+</style></head><body>
+<header><div class="wrap"><div class="brand"><b>Own6 · NFL Decision Desk</b>
+<span>2026 season · built 2026-11-14 · zero-input dashboard</span></div>
+<nav><a href="index.html">Overview</a><a href="requirements.html">Requirements</a><a href="lines.html">Own lines</a><a href="origination.html">Origination order</a><a href="prices.html">Price snapshots</a><a href="results.html" class="on">Verified results</a><a href="strategies.html">Strategies</a><a href="leaderboard.html">Leaderboard</a><a href="validation.html">Validation gates</a><a href="demotion.html">Demotion gate</a><a href="correlations.html">Correlations</a><a href="depth.html">Injury &amp; depth</a><a href="questions.html">Decision Q&A</a><a href="suggestions.html">Suggestions</a><a href="repo-review.html">Repo review</a><a href="sources.html">Sources</a><a href="executive-summary.html">Executive summary</a><a href="flagged.html">Flagged for review</a></nav></div></header>
+<main class="wrap"><h1>Verified results feed</h1><p class="lede">Official finals for weeks 1–10, reconciled team by team against official standings.</p>
+<div class="grid">
+<div class="card"><div class="k">Games</div><div class="v">137</div><div class="s">weeks 1–10</div></div>
+<div class="card"><div class="k">Teams reconciled</div><div class="v">32</div><div class="s">W · L · T · PF · PA all five fields</div></div>
+<div class="card"><div class="k">Mismatches</div><div class="v">0</div><div class="s">a mismatch fails the build</div></div>
+</div>
+<div class="note ok"><b>This feed checks itself.</b> Wins, losses, ties, points
+for and points against are recomputed from the game rows and compared field by
+field against the official standings captured the same day. All 32 teams
+match on all five fields. If any single field differed, the builder would exit
+non-zero instead of publishing.</div>
+<h2>Reconciliation</h2>
+<table>
+<thead><tr><th>Team</th><th>W</th><th>L</th><th>T</th><th>PF</th><th>PA</th><th>Games</th><th>Official W-L-T</th><th>PF-PA</th><th>Result</th><th>Source</th></tr></thead><tbody>
+<tr><td>ATL</td><td class="num">3</td><td class="num">6</td><td class="num">0</td><td class="num">188</td><td class="num">223</td><td class="num">9</td><td>3-6-0</td><td>188-223</td><td><span class="pill ok">MATCH</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">nfl.com/standings/</a></td></tr>
+<tr><td>AZ</td><td class="num">3</td><td class="num">6</td><td class="num">0</td><td class="num">178</td><td class="num">255</td><td class="num">9</td><td>3-6-0</td><td>178-255</td><td><span class="pill ok">MATCH</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">nfl.com/standings/</a></td></tr>
+<tr><td>BAL</td><td class="num">4</td><td class="num">5</td><td class="num">0</td><td class="num">189</td><td class="num">236</td><td class="num">9</td><td>4-5-0</td><td>189-236</td><td><span class="pill ok">MATCH</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">nfl.com/standings/</a></td></tr>
+<tr><td>BUF</td><td class="num">7</td><td class="num">1</td><td class="num">0</td><td class="num">256</td><td class="num">187</td><td class="num">8</td><td>7-1-0</td><td>256-187</td><td><span class="pill ok">MATCH</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">nfl.com/standings/</a></td></tr>
+<tr><td>CAR</td><td class="num">3</td><td class="num">5</td><td class="num">0</td><td class="num">199</td><td class="num">219</td><td class="num">8</td><td>3-5-0</td><td>199-219</td><td><span class="pill ok">MATCH</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">nfl.com/standings/</a></td></tr>
+<tr><td>CHI</td><td class="num">7</td><td class="num">2</td><td class="num">0</td><td class="num">241</td><td class="num">184</td><td class="num">9</td><td>7-2-0</td><td>241-184</td><td><span class="pill ok">MATCH</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">nfl.com/standings/</a></td></tr>
+<tr><td>CIN</td><td class="num">6</td><td class="num">2</td><td class="num">0</td><td class="num">240</td><td class="num">175</td><td class="num">8</td><td>6-2-0</td><td>240-175</td><td><span class="pill ok">MATCH</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">nfl.com/standings/</a></td></tr>
+<tr><td>CLE</td><td class="num">5</td><td class="num">4</td><td class="num">0</td><td class="num">161</td><td class="num">196</td><td class="num">9</td><td>5-4-0</td><td>161-196</td><td><span class="pill ok">MATCH</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">nfl.com/standings/</a></td></tr>
+<tr><td>DAL</td><td class="num">4</td><td class="num">5</td><td class="num">0</td><td class="num">246</td><td class="num">236</td><td class="num">9</td><td>4-5-0</td><td>246-236</td><td><span class="pill ok">MATCH</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">nfl.com/standings/</a></td></tr>
+<tr><td>DEN</td><td class="num">7</td><td class="num">2</td><td class="num">0</td><td class="num">198</td><td class="num">186</td><td class="num">9</td><td>7-2-0</td><td>198-186</td><td><span class="pill ok">MATCH</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">nfl.com/standings/</a></td></tr>
+<tr><td>DET</td><td class="num">6</td><td class="num">2</td><td class="num">0</td><td class="num">222</td><td class="num">189</td><td class="num">8</td><td>6-2-0</td><td>222-189</td><td><span class="pill ok">MATCH</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">nfl.com/standings/</a></td></tr>
+<tr><td>GB</td><td class="num">6</td><td class="num">3</td><td class="num">0</td><td class="num">216</td><td class="num">191</td><td class="num">9</td><td>6-3-0</td><td>216-191</td><td><span class="pill ok">MATCH</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">nfl.com/standings/</a></td></tr>
+<tr><td>HOU</td><td class="num">3</td><td class="num">5</td><td class="num">0</td><td class="num">209</td><td class="num">192</td><td class="num">8</td><td>3-5-0</td><td>209-192</td><td><span class="pill ok">MATCH</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">nfl.com/standings/</a></td></tr>
+<tr><td>IND</td><td class="num">2</td><td class="num">7</td><td class="num">0</td><td class="num">184</td><td class="num">249</td><td class="num">9</td><td>2-7-0</td><td>184-249</td><td><span class="pill ok">MATCH</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">nfl.com/standings/</a></td></tr>
+<tr><td>JAX</td><td class="num">6</td><td class="num">2</td><td class="num">0</td><td class="num">229</td><td class="num">121</td><td class="num">8</td><td>6-2-0</td><td>229-121</td><td><span class="pill ok">MATCH</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">nfl.com/standings/</a></td></tr>
+<tr><td>KC</td><td class="num">6</td><td class="num">2</td><td class="num">0</td><td class="num">202</td><td class="num">143</td><td class="num">8</td><td>6-2-0</td><td>202-143</td><td><span class="pill ok">MATCH</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">nfl.com/standings/</a></td></tr>
+<tr><td>LA</td><td class="num">5</td><td class="num">4</td><td class="num">0</td><td class="num">214</td><td class="num">181</td><td class="num">9</td><td>5-4-0</td><td>214-181</td><td><span class="pill ok">MATCH</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">nfl.com/standings/</a></td></tr>
+<tr><td>LAC</td><td class="num">0</td><td class="num">8</td><td class="num">0</td><td class="num">121</td><td class="num">219</td><td class="num">8</td><td>0-8-0</td><td>121-219</td><td><span class="pill ok">MATCH</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">nfl.com/standings/</a></td></tr>
+<tr><td>LV</td><td class="num">4</td><td class="num">5</td><td class="num">0</td><td class="num">238</td><td class="num">268</td><td class="num">9</td><td>4-5-0</td><td>238-268</td><td><span class="pill ok">MATCH</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">nfl.com/standings/</a></td></tr>
+<tr><td>MIA</td><td class="num">1</td><td class="num">7</td><td class="num">0</td><td class="num">126</td><td class="num">200</td><td class="num">8</td><td>1-7-0</td><td>126-200</td><td><span class="pill ok">MATCH</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">nfl.com/standings/</a></td></tr>
+<tr><td>MIN</td><td class="num">6</td><td class="num">2</td><td class="num">0</td><td class="num">146</td><td class="num">116</td><td class="num">8</td><td>6-2-0</td><td>146-116</td><td><span class="pill ok">MATCH</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">nfl.com/standings/</a></td></tr>
+<tr><td>NE</td><td class="num">5</td><td class="num">4</td><td class="num">0</td><td class="num">211</td><td class="num">207</td><td class="num">9</td><td>5-4-0</td><td>211-207</td><td><span class="pill ok">MATCH</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">nfl.com/standings/</a></td></tr>
+<tr><td>NO</td><td class="num">3</td><td class="num">5</td><td class="num">0</td><td class="num">185</td><td class="num">216</td><td class="num">8</td><td>3-5-0</td><td>185-216</td><td><span class="pill ok">MATCH</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">nfl.com/standings/</a></td></tr>
+<tr><td>NYG</td><td class="num">5</td><td class="num">3</td><td class="num">1</td><td class="num">203</td><td class="num">196</td><td class="num">9</td><td>5-3-1</td><td>203-196</td><td><span class="pill ok">MATCH</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">nfl.com/standings/</a></td></tr>
+<tr><td>NYJ</td><td class="num">2</td><td class="num">7</td><td class="num">0</td><td class="num">182</td><td class="num">223</td><td class="num">9</td><td>2-7-0</td><td>182-223</td><td><span class="pill ok">MATCH</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">nfl.com/standings/</a></td></tr>
+<tr><td>PHI</td><td class="num">2</td><td class="num">7</td><td class="num">0</td><td class="num">148</td><td class="num">221</td><td class="num">9</td><td>2-7-0</td><td>148-221</td><td><span class="pill ok">MATCH</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">nfl.com/standings/</a></td></tr>
+<tr><td>PIT</td><td class="num">6</td><td class="num">2</td><td class="num">0</td><td class="num">180</td><td class="num">144</td><td class="num">8</td><td>6-2-0</td><td>180-144</td><td><span class="pill ok">MATCH</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">nfl.com/standings/</a></td></tr>
+<tr><td>SEA</td><td class="num">5</td><td class="num">4</td><td class="num">0</td><td class="num">202</td><td class="num">162</td><td class="num">9</td><td>5-4-0</td><td>202-162</td><td><span class="pill ok">MATCH</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">nfl.com/standings/</a></td></tr>
+<tr><td>SF</td><td class="num">7</td><td class="num">1</td><td class="num">0</td><td class="num">235</td><td class="num">156</td><td class="num">8</td><td>7-1-0</td><td>235-156</td><td><span class="pill ok">MATCH</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">nfl.com/standings/</a></td></tr>
+<tr><td>TB</td><td class="num">3</td><td class="num">6</td><td class="num">0</td><td class="num">202</td><td class="num">178</td><td class="num">9</td><td>3-6-0</td><td>202-178</td><td><span class="pill ok">MATCH</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">nfl.com/standings/</a></td></tr>
+<tr><td>TEN</td><td class="num">1</td><td class="num">7</td><td class="num">0</td><td class="num">144</td><td class="num">199</td><td class="num">8</td><td>1-7-0</td><td>144-199</td><td><span class="pill ok">MATCH</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">nfl.com/standings/</a></td></tr>
+<tr><td>WAS</td><td class="num">3</td><td class="num">5</td><td class="num">1</td><td class="num">196</td><td class="num">223</td><td class="num">9</td><td>3-5-1</td><td>196-223</td><td><span class="pill ok">MATCH</span></td><td><a href="https://www.nfl.com/standings/" rel="noopener">nfl.com/standings/</a></td></tr>
+</tbody></table>
+<h2>Games</h2>
+<table>
+<caption>137 finals.</caption>
+<thead><tr><th>Week</th><th>Away</th><th>Score</th><th>Home</th><th>Score</th><th>Winner</th><th>Margin</th><th>Total</th><th>Source</th></tr></thead><tbody>
+<tr><td>1</td><td>NE</td><td class="num">10</td><td>SEA</td><td class="num">13</td><td>SEA</td><td>3</td><td class="num">23</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-1" rel="noopener">nfl.com/schedules/2026/by-week/week-1</a></td></tr>
+<tr><td>1</td><td>SF</td><td class="num">27</td><td>LA</td><td class="num">7</td><td>SF</td><td>-20</td><td class="num">34</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-1" rel="noopener">nfl.com/schedules/2026/by-week/week-1</a></td></tr>
+<tr><td>1</td><td>CHI</td><td class="num">59</td><td>CAR</td><td class="num">37</td><td>CHI</td><td>-22</td><td class="num">96</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-1" rel="noopener">nfl.com/schedules/2026/by-week/week-1</a></td></tr>
+<tr><td>1</td><td>TB</td><td class="num">27</td><td>CIN</td><td class="num">33</td><td>CIN</td><td>6</td><td class="num">60</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-1" rel="noopener">nfl.com/schedules/2026/by-week/week-1</a></td></tr>
+<tr><td>1</td><td>NO</td><td class="num">30</td><td>DET</td><td class="num">31</td><td>DET</td><td>1</td><td class="num">61</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-1" rel="noopener">nfl.com/schedules/2026/by-week/week-1</a></td></tr>
+<tr><td>1</td><td>BUF</td><td class="num">36</td><td>HOU</td><td class="num">31</td><td>BUF</td><td>-5</td><td class="num">67</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-1" rel="noopener">nfl.com/schedules/2026/by-week/week-1</a></td></tr>
+<tr><td>1</td><td>BAL</td><td class="num">41</td><td>IND</td><td class="num">23</td><td>BAL</td><td>-18</td><td class="num">64</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-1" rel="noopener">nfl.com/schedules/2026/by-week/week-1</a></td></tr>
+<tr><td>1</td><td>CLE</td><td class="num">10</td><td>JAX</td><td class="num">34</td><td>JAX</td><td>24</td><td class="num">44</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-1" rel="noopener">nfl.com/schedules/2026/by-week/week-1</a></td></tr>
+<tr><td>1</td><td>ATL</td><td class="num">13</td><td>PIT</td><td class="num">20</td><td>PIT</td><td>7</td><td class="num">33</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-1" rel="noopener">nfl.com/schedules/2026/by-week/week-1</a></td></tr>
+<tr><td>1</td><td>NYJ</td><td class="num">23</td><td>TEN</td><td class="num">10</td><td>NYJ</td><td>-13</td><td class="num">33</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-1" rel="noopener">nfl.com/schedules/2026/by-week/week-1</a></td></tr>
+<tr><td>1</td><td>AZ</td><td class="num">26</td><td>LAC</td><td class="num">14</td><td>AZ</td><td>-12</td><td class="num">40</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-1" rel="noopener">nfl.com/schedules/2026/by-week/week-1</a></td></tr>
+<tr><td>1</td><td>MIA</td><td class="num">13</td><td>LV</td><td class="num">27</td><td>LV</td><td>14</td><td class="num">40</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-1" rel="noopener">nfl.com/schedules/2026/by-week/week-1</a></td></tr>
+<tr><td>1</td><td>GB</td><td class="num">22</td><td>MIN</td><td class="num">39</td><td>MIN</td><td>17</td><td class="num">61</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-1" rel="noopener">nfl.com/schedules/2026/by-week/week-1</a></td></tr>
+<tr><td>1</td><td>WAS</td><td class="num">22</td><td>PHI</td><td class="num">24</td><td>PHI</td><td>2</td><td class="num">46</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-1" rel="noopener">nfl.com/schedules/2026/by-week/week-1</a></td></tr>
+<tr><td>1</td><td>DAL</td><td class="num">20</td><td>NYG</td><td class="num">28</td><td>NYG</td><td>8</td><td class="num">48</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-1" rel="noopener">nfl.com/schedules/2026/by-week/week-1</a></td></tr>
+<tr><td>1</td><td>DEN</td><td class="num">10</td><td>KC</td><td class="num">31</td><td>KC</td><td>21</td><td class="num">41</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-1" rel="noopener">nfl.com/schedules/2026/by-week/week-1</a></td></tr>
+<tr><td>2</td><td>DET</td><td class="num">31</td><td>BUF</td><td class="num">41</td><td>BUF</td><td>10</td><td class="num">72</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-2" rel="noopener">nfl.com/schedules/2026/by-week/week-2</a></td></tr>
+<tr><td>2</td><td>CAR</td><td class="num">34</td><td>ATL</td><td class="num">3</td><td>CAR</td><td>-31</td><td class="num">37</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-2" rel="noopener">nfl.com/schedules/2026/by-week/week-2</a></td></tr>
+<tr><td>2</td><td>NO</td><td class="num">24</td><td>BAL</td><td class="num">17</td><td>NO</td><td>-7</td><td class="num">41</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-2" rel="noopener">nfl.com/schedules/2026/by-week/week-2</a></td></tr>
+<tr><td>2</td><td>MIN</td><td class="num">9</td><td>CHI</td><td class="num">3</td><td>MIN</td><td>-6</td><td class="num">12</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-2" rel="noopener">nfl.com/schedules/2026/by-week/week-2</a></td></tr>
+<tr><td>2</td><td>CIN</td><td class="num">20</td><td>HOU</td><td class="num">6</td><td>CIN</td><td>-14</td><td class="num">26</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-2" rel="noopener">nfl.com/schedules/2026/by-week/week-2</a></td></tr>
+<tr><td>2</td><td>PIT</td><td class="num">3</td><td>NE</td><td class="num">20</td><td>NE</td><td>17</td><td class="num">23</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-2" rel="noopener">nfl.com/schedules/2026/by-week/week-2</a></td></tr>
+<tr><td>2</td><td>GB</td><td class="num">20</td><td>NYJ</td><td class="num">17</td><td>GB</td><td>-3</td><td class="num">37</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-2" rel="noopener">nfl.com/schedules/2026/by-week/week-2</a></td></tr>
+<tr><td>2</td><td>CLE</td><td class="num">23</td><td>TB</td><td class="num">19</td><td>CLE</td><td>-4</td><td class="num">42</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-2" rel="noopener">nfl.com/schedules/2026/by-week/week-2</a></td></tr>
+<tr><td>2</td><td>PHI</td><td class="num">24</td><td>TEN</td><td class="num">20</td><td>PHI</td><td>-4</td><td class="num">44</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-2" rel="noopener">nfl.com/schedules/2026/by-week/week-2</a></td></tr>
+<tr><td>2</td><td>JAX</td><td class="num">13</td><td>DEN</td><td class="num">20</td><td>DEN</td><td>7</td><td class="num">33</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-2" rel="noopener">nfl.com/schedules/2026/by-week/week-2</a></td></tr>
+<tr><td>2</td><td>LV</td><td class="num">26</td><td>LAC</td><td class="num">14</td><td>LV</td><td>-12</td><td class="num">40</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-2" rel="noopener">nfl.com/schedules/2026/by-week/week-2</a></td></tr>
+<tr><td>2</td><td>SEA</td><td class="num">31</td><td>AZ</td><td class="num">7</td><td>SEA</td><td>-24</td><td class="num">38</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-2" rel="noopener">nfl.com/schedules/2026/by-week/week-2</a></td></tr>
+<tr><td>2</td><td>WAS</td><td class="num">20</td><td>DAL</td><td class="num">37</td><td>DAL</td><td>17</td><td class="num">57</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-2" rel="noopener">nfl.com/schedules/2026/by-week/week-2</a></td></tr>
+<tr><td>2</td><td>MIA</td><td class="num">13</td><td>SF</td><td class="num">35</td><td>SF</td><td>22</td><td class="num">48</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-2" rel="noopener">nfl.com/schedules/2026/by-week/week-2</a></td></tr>
+<tr><td>2</td><td>IND</td><td class="num">30</td><td>KC</td><td class="num">33</td><td>KC</td><td>3</td><td class="num">63</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-2" rel="noopener">nfl.com/schedules/2026/by-week/week-2</a></td></tr>
+<tr><td>2</td><td>NYG</td><td class="num">6</td><td>LA</td><td class="num">28</td><td>LA</td><td>22</td><td class="num">34</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-2" rel="noopener">nfl.com/schedules/2026/by-week/week-2</a></td></tr>
+<tr><td>3</td><td>ATL</td><td class="num">35</td><td>GB</td><td class="num">14</td><td>ATL</td><td>-21</td><td class="num">49</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-3" rel="noopener">nfl.com/schedules/2026/by-week/week-3</a></td></tr>
+<tr><td>3</td><td>LAC</td><td class="num">16</td><td>BUF</td><td class="num">24</td><td>BUF</td><td>8</td><td class="num">40</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-3" rel="noopener">nfl.com/schedules/2026/by-week/week-3</a></td></tr>
+<tr><td>3</td><td>CAR</td><td class="num">18</td><td>CLE</td><td class="num">21</td><td>CLE</td><td>3</td><td class="num">39</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-3" rel="noopener">nfl.com/schedules/2026/by-week/week-3</a></td></tr>
+<tr><td>3</td><td>NYJ</td><td class="num">24</td><td>DET</td><td class="num">31</td><td>DET</td><td>7</td><td class="num">55</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-3" rel="noopener">nfl.com/schedules/2026/by-week/week-3</a></td></tr>
+<tr><td>3</td><td>HOU</td><td class="num">17</td><td>IND</td><td class="num">19</td><td>IND</td><td>2</td><td class="num">36</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-3" rel="noopener">nfl.com/schedules/2026/by-week/week-3</a></td></tr>
+<tr><td>3</td><td>NE</td><td class="num">6</td><td>JAX</td><td class="num">35</td><td>JAX</td><td>29</td><td class="num">41</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-3" rel="noopener">nfl.com/schedules/2026/by-week/week-3</a></td></tr>
+<tr><td>3</td><td>KC</td><td class="num">24</td><td>MIA</td><td class="num">10</td><td>KC</td><td>-14</td><td class="num">34</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-3" rel="noopener">nfl.com/schedules/2026/by-week/week-3</a></td></tr>
+<tr><td>3</td><td>TEN</td><td class="num">7</td><td>NYG</td><td class="num">12</td><td>NYG</td><td>5</td><td class="num">19</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-3" rel="noopener">nfl.com/schedules/2026/by-week/week-3</a></td></tr>
+<tr><td>3</td><td>CIN</td><td class="num">27</td><td>PIT</td><td class="num">30</td><td>PIT</td><td>3</td><td class="num">57</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-3" rel="noopener">nfl.com/schedules/2026/by-week/week-3</a></td></tr>
+<tr><td>3</td><td>SEA</td><td class="num">31</td><td>WAS</td><td class="num">33</td><td>WAS</td><td>2</td><td class="num">64</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-3" rel="noopener">nfl.com/schedules/2026/by-week/week-3</a></td></tr>
+<tr><td>3</td><td>AZ</td><td class="num">30</td><td>SF</td><td class="num">36</td><td>SF</td><td>6</td><td class="num">66</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-3" rel="noopener">nfl.com/schedules/2026/by-week/week-3</a></td></tr>
+<tr><td>3</td><td>MIN</td><td class="num">23</td><td>TB</td><td class="num">16</td><td>MIN</td><td>-7</td><td class="num">39</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-3" rel="noopener">nfl.com/schedules/2026/by-week/week-3</a></td></tr>
+<tr><td>3</td><td>LV</td><td class="num">35</td><td>NO</td><td class="num">27</td><td>LV</td><td>-8</td><td class="num">62</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-3" rel="noopener">nfl.com/schedules/2026/by-week/week-3</a></td></tr>
+<tr><td>3</td><td>BAL</td><td class="num">34</td><td>DAL</td><td class="num">31</td><td>BAL</td><td>-3</td><td class="num">65</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-3" rel="noopener">nfl.com/schedules/2026/by-week/week-3</a></td></tr>
+<tr><td>3</td><td>LA</td><td class="num">26</td><td>DEN</td><td class="num">30</td><td>DEN</td><td>4</td><td class="num">56</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-3" rel="noopener">nfl.com/schedules/2026/by-week/week-3</a></td></tr>
+<tr><td>3</td><td>PHI</td><td class="num">7</td><td>CHI</td><td class="num">27</td><td>CHI</td><td>20</td><td class="num">34</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-3" rel="noopener">nfl.com/schedules/2026/by-week/week-3</a></td></tr>
+<tr><td>4</td><td>PIT</td><td class="num">24</td><td>CLE</td><td class="num">27</td><td>CLE</td><td>3</td><td class="num">51</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-4" rel="noopener">nfl.com/schedules/2026/by-week/week-4</a></td></tr>
+<tr><td>4</td><td>IND</td><td class="num">30</td><td>WAS</td><td class="num">13</td><td>IND</td><td>-17</td><td class="num">43</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-4" rel="noopener">nfl.com/schedules/2026/by-week/week-4</a></td></tr>
+<tr><td>4</td><td>TEN</td><td class="num">18</td><td>BAL</td><td class="num">24</td><td>BAL</td><td>6</td><td class="num">42</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-4" rel="noopener">nfl.com/schedules/2026/by-week/week-4</a></td></tr>
+<tr><td>4</td><td>NE</td><td class="num">29</td><td>BUF</td><td class="num">26</td><td>NE</td><td>-3</td><td class="num">55</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-4" rel="noopener">nfl.com/schedules/2026/by-week/week-4</a></td></tr>
+<tr><td>4</td><td>NYJ</td><td class="num">12</td><td>CHI</td><td class="num">23</td><td>CHI</td><td>11</td><td class="num">35</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-4" rel="noopener">nfl.com/schedules/2026/by-week/week-4</a></td></tr>
+<tr><td>4</td><td>JAX</td><td class="num">22</td><td>CIN</td><td class="num">17</td><td>JAX</td><td>-5</td><td class="num">39</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-4" rel="noopener">nfl.com/schedules/2026/by-week/week-4</a></td></tr>
+<tr><td>4</td><td>DAL</td><td class="num">34</td><td>HOU</td><td class="num">30</td><td>DAL</td><td>-4</td><td class="num">64</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-4" rel="noopener">nfl.com/schedules/2026/by-week/week-4</a></td></tr>
+<tr><td>4</td><td>AZ</td><td class="num">24</td><td>NYG</td><td class="num">36</td><td>NYG</td><td>12</td><td class="num">60</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-4" rel="noopener">nfl.com/schedules/2026/by-week/week-4</a></td></tr>
+<tr><td>4</td><td>LA</td><td class="num">24</td><td>PHI</td><td class="num">20</td><td>LA</td><td>-4</td><td class="num">44</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-4" rel="noopener">nfl.com/schedules/2026/by-week/week-4</a></td></tr>
+<tr><td>4</td><td>GB</td><td class="num">17</td><td>TB</td><td class="num">14</td><td>GB</td><td>-3</td><td class="num">31</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-4" rel="noopener">nfl.com/schedules/2026/by-week/week-4</a></td></tr>
+<tr><td>4</td><td>MIA</td><td class="num">10</td><td>MIN</td><td class="num">15</td><td>MIN</td><td>5</td><td class="num">25</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-4" rel="noopener">nfl.com/schedules/2026/by-week/week-4</a></td></tr>
+<tr><td>4</td><td>KC</td><td class="num">30</td><td>LV</td><td class="num">27</td><td>KC</td><td>-3</td><td class="num">57</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-4" rel="noopener">nfl.com/schedules/2026/by-week/week-4</a></td></tr>
+<tr><td>4</td><td>LAC</td><td class="num">23</td><td>SEA</td><td class="num">30</td><td>SEA</td><td>7</td><td class="num">53</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-4" rel="noopener">nfl.com/schedules/2026/by-week/week-4</a></td></tr>
+<tr><td>4</td><td>DEN</td><td class="num">14</td><td>SF</td><td class="num">24</td><td>SF</td><td>10</td><td class="num">38</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-4" rel="noopener">nfl.com/schedules/2026/by-week/week-4</a></td></tr>
+<tr><td>4</td><td>DET</td><td class="num">26</td><td>CAR</td><td class="num">32</td><td>CAR</td><td>6</td><td class="num">58</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-4" rel="noopener">nfl.com/schedules/2026/by-week/week-4</a></td></tr>
+<tr><td>4</td><td>ATL</td><td class="num">45</td><td>NO</td><td class="num">24</td><td>ATL</td><td>-21</td><td class="num">69</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-4" rel="noopener">nfl.com/schedules/2026/by-week/week-4</a></td></tr>
+<tr><td>5</td><td>TB</td><td class="num">24</td><td>DAL</td><td class="num">16</td><td>TB</td><td>-8</td><td class="num">40</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-5" rel="noopener">nfl.com/schedules/2026/by-week/week-5</a></td></tr>
+<tr><td>5</td><td>PHI</td><td class="num">17</td><td>JAX</td><td class="num">19</td><td>JAX</td><td>2</td><td class="num">36</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-5" rel="noopener">nfl.com/schedules/2026/by-week/week-5</a></td></tr>
+<tr><td>5</td><td>CIN</td><td class="num">31</td><td>MIA</td><td class="num">24</td><td>CIN</td><td>-7</td><td class="num">55</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-5" rel="noopener">nfl.com/schedules/2026/by-week/week-5</a></td></tr>
+<tr><td>5</td><td>LV</td><td class="num">17</td><td>NE</td><td class="num">45</td><td>NE</td><td>28</td><td class="num">62</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-5" rel="noopener">nfl.com/schedules/2026/by-week/week-5</a></td></tr>
+<tr><td>5</td><td>MIN</td><td class="num">23</td><td>NO</td><td class="num">13</td><td>MIN</td><td>-10</td><td class="num">36</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-5" rel="noopener">nfl.com/schedules/2026/by-week/week-5</a></td></tr>
+<tr><td>5</td><td>CLE</td><td class="num">12</td><td>NYJ</td><td class="num">17</td><td>NYJ</td><td>5</td><td class="num">29</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-5" rel="noopener">nfl.com/schedules/2026/by-week/week-5</a></td></tr>
+<tr><td>5</td><td>IND</td><td class="num">22</td><td>PIT</td><td class="num">34</td><td>PIT</td><td>12</td><td class="num">56</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-5" rel="noopener">nfl.com/schedules/2026/by-week/week-5</a></td></tr>
+<tr><td>5</td><td>HOU</td><td class="num">26</td><td>TEN</td><td class="num">3</td><td>HOU</td><td>-23</td><td class="num">29</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-5" rel="noopener">nfl.com/schedules/2026/by-week/week-5</a></td></tr>
+<tr><td>5</td><td>NYG</td><td class="num">27</td><td>WAS</td><td class="num">27</td><td>TIE</td><td>0</td><td class="num">54</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-5" rel="noopener">nfl.com/schedules/2026/by-week/week-5</a></td></tr>
+<tr><td>5</td><td>CHI</td><td class="num">7</td><td>GB</td><td class="num">31</td><td>GB</td><td>24</td><td class="num">38</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-5" rel="noopener">nfl.com/schedules/2026/by-week/week-5</a></td></tr>
+<tr><td>5</td><td>DEN</td><td class="num">23</td><td>LAC</td><td class="num">17</td><td>DEN</td><td>-6</td><td class="num">40</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-5" rel="noopener">nfl.com/schedules/2026/by-week/week-5</a></td></tr>
+<tr><td>5</td><td>DET</td><td class="num">45</td><td>AZ</td><td class="num">21</td><td>DET</td><td>-24</td><td class="num">66</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-5" rel="noopener">nfl.com/schedules/2026/by-week/week-5</a></td></tr>
+<tr><td>5</td><td>SF</td><td class="num">32</td><td>SEA</td><td class="num">29</td><td>SF</td><td>-3</td><td class="num">61</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-5" rel="noopener">nfl.com/schedules/2026/by-week/week-5</a></td></tr>
+<tr><td>5</td><td>BAL</td><td class="num">30</td><td>ATL</td><td class="num">23</td><td>BAL</td><td>-7</td><td class="num">53</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-5" rel="noopener">nfl.com/schedules/2026/by-week/week-5</a></td></tr>
+<tr><td>5</td><td>BUF</td><td class="num">37</td><td>LA</td><td class="num">34</td><td>BUF</td><td>-3</td><td class="num">71</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-5" rel="noopener">nfl.com/schedules/2026/by-week/week-5</a></td></tr>
+<tr><td>6</td><td>SEA</td><td class="num">14</td><td>DEN</td><td class="num">17</td><td>DEN</td><td>3</td><td class="num">31</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-6" rel="noopener">nfl.com/schedules/2026/by-week/week-6</a></td></tr>
+<tr><td>6</td><td>HOU</td><td class="num">34</td><td>JAX</td><td class="num">31</td><td>HOU</td><td>-3</td><td class="num">65</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-6" rel="noopener">nfl.com/schedules/2026/by-week/week-6</a></td></tr>
+<tr><td>6</td><td>CHI</td><td class="num">31</td><td>ATL</td><td class="num">23</td><td>CHI</td><td>-8</td><td class="num">54</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-6" rel="noopener">nfl.com/schedules/2026/by-week/week-6</a></td></tr>
+<tr><td>6</td><td>BAL</td><td class="num">10</td><td>CLE</td><td class="num">13</td><td>CLE</td><td>3</td><td class="num">23</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-6" rel="noopener">nfl.com/schedules/2026/by-week/week-6</a></td></tr>
+<tr><td>6</td><td>TEN</td><td class="num">26</td><td>IND</td><td class="num">20</td><td>TEN</td><td>-6</td><td class="num">46</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-6" rel="noopener">nfl.com/schedules/2026/by-week/week-6</a></td></tr>
+<tr><td>6</td><td>NYJ</td><td class="num">19</td><td>NE</td><td class="num">26</td><td>NE</td><td>7</td><td class="num">45</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-6" rel="noopener">nfl.com/schedules/2026/by-week/week-6</a></td></tr>
+<tr><td>6</td><td>NO</td><td class="num">34</td><td>NYG</td><td class="num">27</td><td>NO</td><td>-7</td><td class="num">61</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-6" rel="noopener">nfl.com/schedules/2026/by-week/week-6</a></td></tr>
+<tr><td>6</td><td>CAR</td><td class="num">25</td><td>PHI</td><td class="num">14</td><td>CAR</td><td>-11</td><td class="num">39</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-6" rel="noopener">nfl.com/schedules/2026/by-week/week-6</a></td></tr>
+<tr><td>6</td><td>PIT</td><td class="num">26</td><td>TB</td><td class="num">19</td><td>PIT</td><td>-7</td><td class="num">45</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-6" rel="noopener">nfl.com/schedules/2026/by-week/week-6</a></td></tr>
+<tr><td>6</td><td>AZ</td><td class="num">18</td><td>LA</td><td class="num">16</td><td>AZ</td><td>-2</td><td class="num">34</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-6" rel="noopener">nfl.com/schedules/2026/by-week/week-6</a></td></tr>
+<tr><td>6</td><td>LAC</td><td class="num">6</td><td>KC</td><td class="num">22</td><td>KC</td><td>16</td><td class="num">28</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-6" rel="noopener">nfl.com/schedules/2026/by-week/week-6</a></td></tr>
+<tr><td>6</td><td>BUF</td><td class="num">33</td><td>LV</td><td class="num">30</td><td>BUF</td><td>-3</td><td class="num">63</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-6" rel="noopener">nfl.com/schedules/2026/by-week/week-6</a></td></tr>
+<tr><td>6</td><td>DAL</td><td class="num">13</td><td>GB</td><td class="num">23</td><td>GB</td><td>10</td><td class="num">36</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-6" rel="noopener">nfl.com/schedules/2026/by-week/week-6</a></td></tr>
+<tr><td>6</td><td>WAS</td><td class="num">17</td><td>SF</td><td class="num">23</td><td>SF</td><td>6</td><td class="num">40</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-6" rel="noopener">nfl.com/schedules/2026/by-week/week-6</a></td></tr>
+<tr><td>7</td><td>NE</td><td class="num">24</td><td>CHI</td><td class="num">30</td><td>CHI</td><td>6</td><td class="num">54</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-7" rel="noopener">nfl.com/schedules/2026/by-week/week-7</a></td></tr>
+<tr><td>7</td><td>PIT</td><td class="num">16</td><td>NO</td><td class="num">10</td><td>PIT</td><td>-6</td><td class="num">26</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-7" rel="noopener">nfl.com/schedules/2026/by-week/week-7</a></td></tr>
+<tr><td>7</td><td>SF</td><td class="num">20</td><td>ATL</td><td class="num">29</td><td>ATL</td><td>9</td><td class="num">49</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-7" rel="noopener">nfl.com/schedules/2026/by-week/week-7</a></td></tr>
+<tr><td>7</td><td>CIN</td><td class="num">35</td><td>BAL</td><td class="num">13</td><td>CIN</td><td>-22</td><td class="num">48</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-7" rel="noopener">nfl.com/schedules/2026/by-week/week-7</a></td></tr>
+<tr><td>7</td><td>TB</td><td class="num">43</td><td>CAR</td><td class="num">13</td><td>TB</td><td>-30</td><td class="num">56</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-7" rel="noopener">nfl.com/schedules/2026/by-week/week-7</a></td></tr>
+<tr><td>7</td><td>NYG</td><td class="num">27</td><td>HOU</td><td class="num">21</td><td>NYG</td><td>-6</td><td class="num">48</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-7" rel="noopener">nfl.com/schedules/2026/by-week/week-7</a></td></tr>
+<tr><td>7</td><td>IND</td><td class="num">10</td><td>MIN</td><td class="num">16</td><td>MIN</td><td>6</td><td class="num">26</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-7" rel="noopener">nfl.com/schedules/2026/by-week/week-7</a></td></tr>
+<tr><td>7</td><td>MIA</td><td class="num">28</td><td>NYJ</td><td class="num">25</td><td>MIA</td><td>-3</td><td class="num">53</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-7" rel="noopener">nfl.com/schedules/2026/by-week/week-7</a></td></tr>
+<tr><td>7</td><td>CLE</td><td class="num">27</td><td>TEN</td><td class="num">24</td><td>CLE</td><td>-3</td><td class="num">51</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-7" rel="noopener">nfl.com/schedules/2026/by-week/week-7</a></td></tr>
+<tr><td>7</td><td>DEN</td><td class="num">30</td><td>AZ</td><td class="num">16</td><td>DEN</td><td>-14</td><td class="num">46</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-7" rel="noopener">nfl.com/schedules/2026/by-week/week-7</a></td></tr>
+<tr><td>7</td><td>GB</td><td class="num">17</td><td>DET</td><td class="num">20</td><td>DET</td><td>3</td><td class="num">37</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-7" rel="noopener">nfl.com/schedules/2026/by-week/week-7</a></td></tr>
+<tr><td>7</td><td>LA</td><td class="num">35</td><td>LV</td><td class="num">21</td><td>LA</td><td>-14</td><td class="num">56</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-7" rel="noopener">nfl.com/schedules/2026/by-week/week-7</a></td></tr>
+<tr><td>7</td><td>KC</td><td class="num">3</td><td>SEA</td><td class="num">20</td><td>SEA</td><td>17</td><td class="num">23</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-7" rel="noopener">nfl.com/schedules/2026/by-week/week-7</a></td></tr>
+<tr><td>7</td><td>DAL</td><td class="num">38</td><td>PHI</td><td class="num">21</td><td>DAL</td><td>-17</td><td class="num">59</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-7" rel="noopener">nfl.com/schedules/2026/by-week/week-7</a></td></tr>
+<tr><td>8</td><td>CAR</td><td class="num">19</td><td>GB</td><td class="num">27</td><td>GB</td><td>8</td><td class="num">46</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-8" rel="noopener">nfl.com/schedules/2026/by-week/week-8</a></td></tr>
+<tr><td>8</td><td>BAL</td><td class="num">10</td><td>BUF</td><td class="num">36</td><td>BUF</td><td>26</td><td class="num">46</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-8" rel="noopener">nfl.com/schedules/2026/by-week/week-8</a></td></tr>
+<tr><td>8</td><td>TEN</td><td class="num">36</td><td>CIN</td><td class="num">43</td><td>CIN</td><td>7</td><td class="num">79</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-8" rel="noopener">nfl.com/schedules/2026/by-week/week-8</a></td></tr>
+<tr><td>8</td><td>AZ</td><td class="num">33</td><td>DAL</td><td class="num">30</td><td>AZ</td><td>-3</td><td class="num">63</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-8" rel="noopener">nfl.com/schedules/2026/by-week/week-8</a></td></tr>
+<tr><td>8</td><td>MIN</td><td class="num">15</td><td>DET</td><td class="num">19</td><td>DET</td><td>4</td><td class="num">34</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-8" rel="noopener">nfl.com/schedules/2026/by-week/week-8</a></td></tr>
+<tr><td>8</td><td>IND</td><td class="num">7</td><td>JAX</td><td class="num">42</td><td>JAX</td><td>35</td><td class="num">49</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-8" rel="noopener">nfl.com/schedules/2026/by-week/week-8</a></td></tr>
+<tr><td>8</td><td>LV</td><td class="num">38</td><td>NYJ</td><td class="num">33</td><td>LV</td><td>-5</td><td class="num">71</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-8" rel="noopener">nfl.com/schedules/2026/by-week/week-8</a></td></tr>
+<tr><td>8</td><td>CLE</td><td class="num">6</td><td>PIT</td><td class="num">27</td><td>PIT</td><td>21</td><td class="num">33</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-8" rel="noopener">nfl.com/schedules/2026/by-week/week-8</a></td></tr>
+<tr><td>8</td><td>ATL</td><td class="num">0</td><td>TB</td><td class="num">16</td><td>TB</td><td>16</td><td class="num">16</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-8" rel="noopener">nfl.com/schedules/2026/by-week/week-8</a></td></tr>
+<tr><td>8</td><td>LAC</td><td class="num">9</td><td>LA</td><td class="num">24</td><td>LA</td><td>15</td><td class="num">33</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-8" rel="noopener">nfl.com/schedules/2026/by-week/week-8</a></td></tr>
+<tr><td>8</td><td>KC</td><td class="num">24</td><td>DEN</td><td class="num">28</td><td>DEN</td><td>4</td><td class="num">52</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-8" rel="noopener">nfl.com/schedules/2026/by-week/week-8</a></td></tr>
+<tr><td>8</td><td>NE</td><td class="num">24</td><td>MIA</td><td class="num">19</td><td>NE</td><td>-5</td><td class="num">43</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-8" rel="noopener">nfl.com/schedules/2026/by-week/week-8</a></td></tr>
+<tr><td>8</td><td>PHI</td><td class="num">10</td><td>WAS</td><td class="num">27</td><td>WAS</td><td>17</td><td class="num">37</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-8" rel="noopener">nfl.com/schedules/2026/by-week/week-8</a></td></tr>
+<tr><td>8</td><td>CHI</td><td class="num">34</td><td>SEA</td><td class="num">17</td><td>CHI</td><td>-17</td><td class="num">51</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-8" rel="noopener">nfl.com/schedules/2026/by-week/week-8</a></td></tr>
+<tr><td>9</td><td>JAX</td><td class="num">33</td><td>BAL</td><td class="num">10</td><td>JAX</td><td>-23</td><td class="num">43</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-9" rel="noopener">nfl.com/schedules/2026/by-week/week-9</a></td></tr>
+<tr><td>9</td><td>CIN</td><td class="num">34</td><td>ATL</td><td class="num">17</td><td>CIN</td><td>-17</td><td class="num">51</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-9" rel="noopener">nfl.com/schedules/2026/by-week/week-9</a></td></tr>
+<tr><td>9</td><td>DEN</td><td class="num">26</td><td>CAR</td><td class="num">21</td><td>DEN</td><td>-5</td><td class="num">47</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-9" rel="noopener">nfl.com/schedules/2026/by-week/week-9</a></td></tr>
+<tr><td>9</td><td>DAL</td><td class="num">27</td><td>IND</td><td class="num">23</td><td>DAL</td><td>-4</td><td class="num">50</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-9" rel="noopener">nfl.com/schedules/2026/by-week/week-9</a></td></tr>
+<tr><td>9</td><td>NYJ</td><td class="num">12</td><td>KC</td><td class="num">35</td><td>KC</td><td>23</td><td class="num">47</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-9" rel="noopener">nfl.com/schedules/2026/by-week/week-9</a></td></tr>
+<tr><td>9</td><td>DET</td><td class="num">19</td><td>MIA</td><td class="num">9</td><td>DET</td><td>-10</td><td class="num">28</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-9" rel="noopener">nfl.com/schedules/2026/by-week/week-9</a></td></tr>
+<tr><td>9</td><td>CLE</td><td class="num">22</td><td>NO</td><td class="num">23</td><td>NO</td><td>1</td><td class="num">45</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-9" rel="noopener">nfl.com/schedules/2026/by-week/week-9</a></td></tr>
+<tr><td>9</td><td>NYG</td><td class="num">19</td><td>PHI</td><td class="num">11</td><td>NYG</td><td>-8</td><td class="num">30</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-9" rel="noopener">nfl.com/schedules/2026/by-week/week-9</a></td></tr>
+<tr><td>9</td><td>LA</td><td class="num">20</td><td>WAS</td><td class="num">13</td><td>LA</td><td>-7</td><td class="num">33</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-9" rel="noopener">nfl.com/schedules/2026/by-week/week-9</a></td></tr>
+<tr><td>9</td><td>HOU</td><td class="num">44</td><td>LAC</td><td class="num">22</td><td>HOU</td><td>-22</td><td class="num">66</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-9" rel="noopener">nfl.com/schedules/2026/by-week/week-9</a></td></tr>
+<tr><td>9</td><td>LV</td><td class="num">17</td><td>SF</td><td class="num">38</td><td>SF</td><td>21</td><td class="num">55</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-9" rel="noopener">nfl.com/schedules/2026/by-week/week-9</a></td></tr>
+<tr><td>9</td><td>GB</td><td class="num">45</td><td>NE</td><td class="num">27</td><td>GB</td><td>-18</td><td class="num">72</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-9" rel="noopener">nfl.com/schedules/2026/by-week/week-9</a></td></tr>
+<tr><td>9</td><td>AZ</td><td class="num">3</td><td>SEA</td><td class="num">17</td><td>SEA</td><td>14</td><td class="num">20</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-9" rel="noopener">nfl.com/schedules/2026/by-week/week-9</a></td></tr>
+<tr><td>9</td><td>TB</td><td class="num">24</td><td>CHI</td><td class="num">27</td><td>CHI</td><td>3</td><td class="num">51</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-9" rel="noopener">nfl.com/schedules/2026/by-week/week-9</a></td></tr>
+<tr><td>9</td><td>BUF</td><td class="num">23</td><td>MIN</td><td class="num">6</td><td>BUF</td><td>-17</td><td class="num">29</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-9" rel="noopener">nfl.com/schedules/2026/by-week/week-9</a></td></tr>
+<tr><td>10</td><td>WAS</td><td class="num">24</td><td>NYG</td><td class="num">21</td><td>WAS</td><td>-3</td><td class="num">45</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-10" rel="noopener">nfl.com/schedules/2026/by-week/week-10</a></td></tr>
+</tbody></table>
+<h2>What is deliberately missing</h2>
+<p>The overtime flag is blank on every row. The weekly schedule pages state the
+final score and the day; they do not state whether the game went to overtime, and
+inferring it from a margin would be exactly the kind of quiet invention this pack
+is built to avoid. Week 10 contains one game because the other thirteen had not
+been played when the data was read.</p>
+</main>
+<footer><div class="wrap">Sources are linked on every row. A blank cell is a cell
+that no official source confirmed; it is never a zero and never an estimate.
+This pack is informational and non-commercial. It is not betting advice, and it
+makes no profitability claim.</div></footer></body></html>
