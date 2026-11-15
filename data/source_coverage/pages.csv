@@ -1,11 +1,11 @@
 page,page_sha256,data_rows,official_reference_present,repository_reference_only,secondary_reference_only,no_https_reference,repository_source
 index.html,f1aa3809f02cdc551bc0b0006f16535503834ea3b6b1d228b0f6d237cf934144,16,0,0,0,16,https://github.com/sassnarep3-star/Own6/blob/main/index.html
 docs/assurance/correlations.html,6dd66a3bac399fe188e402fa9142083a1d677e6be1b5191fd81969bf4b46d049,6,6,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/correlations.html
-docs/assurance/flagged.html,746a01d740e059b1eaacf19994e437a3225e315af70684aa898c89585fdc7a0c,237,233,4,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/flagged.html
-docs/assurance/index.html,ca2a61528d61d61276ad0ae1b968dd099b348f2ae1fb68e3b5306ba5208eda53,4,0,4,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/index.html
+docs/assurance/flagged.html,6db3d92182f969f30297b3f6dca02aa0d974ad096627f2c387d94e146c76e1ab,240,236,4,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/flagged.html
+docs/assurance/index.html,5efcb0c18e9b7b69cd9ba8973f64b73f75d109e954ca1e3199e62f664913e143,4,0,4,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/index.html
 docs/assurance/leaderboard.html,84deb8de2e9ec81e7255d469a43548dbde5aa46ac562f7fb540f9c9633ed68e7,1,1,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/leaderboard.html
 docs/assurance/lines.html,2d5b7828dba3bd886311890c89d73be0e2297f2deeb00cc48171ef4d4b00744c,6,6,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/lines.html
-docs/assurance/repo-audit.html,0efd19c68e2d21170801dee57511fbbe5e7941fb4c151598e629caeea136be1f,9358,8538,820,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/repo-audit.html
+docs/assurance/repo-audit.html,187526625db28c74540ab146805bf11b39d50c0dfa01ea3ad35c150636bd28f1,9474,8638,836,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/repo-audit.html
 docs/assurance/sources.html,9ba30cd3ba03ccc6d3664ecef7854d570f0de1514b6e2dd34f3d53cb989cc1bc,22,21,1,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/sources.html
 docs/assurance/strategies.html,ac8dbe0d3c5e918cabb8cc6387499d049217007b6fc1db5077ee84db5a3f765e,6,6,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/strategies.html
 docs/assurance/validation.html,fd125c702155effff9a982837b3321f1ef465d0d8038b21ca3ae50e4165cf319,10,9,1,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/validation.html
@@ -174,6 +174,12 @@ docs/nfl-origination/requirements.html,ef807d1d12dd6431f32f6a4651243ab6ab6e3d8b5
 docs/nfl-origination/strategies-leaderboard.html,087a6e5bbfff153993041ac311ec68cb6df5bfb4b4898f5bcfdc7d763b31c6c5,16,3,0,13,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-origination/strategies-leaderboard.html
 docs/nfl-origination/suggestions.html,6cf4a73db11acc4de31380b1921f06cf61c32757b24f4bb5571463d4f22b396d,14,3,5,6,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-origination/suggestions.html
 docs/nfl-origination/validation-gates.html,39eeb37098ebf11e7e5663cf6708ec84d22a6eb7a02b8b2b53ef88a17335ccb5,12,5,1,6,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-origination/validation-gates.html
+docs/nfl-s11/flagged.html,ce1858def25a297af97c1505eaf97d6e02dd02732096709751cc6ebf0e479379,14,0,0,11,3,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-s11/flagged.html
+docs/nfl-s11/index.html,3591f76717a5670fae1697e1132152bf6e2b253c45dd51129e3851ed91b0eda7,0,0,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-s11/index.html
+docs/nfl-s11/injuries-w10.html,da756abe73326893049ec8cb3111ee9fbec889b0705c8efdc1f730449a0ace5f,347,0,0,347,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-s11/injuries-w10.html
+docs/nfl-s11/reconciliation-w10.html,adf8c49dcb5ed9e507bb6fed12a6b0e080c40be6474cea3085fcdd99ba79a2f0,49,0,0,49,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-s11/reconciliation-w10.html
+docs/nfl-s11/sources.html,ac6e8c2fb42074d169ee28360481104fb6410014a0ea742d13c303aa82c01472,24,0,0,22,2,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-s11/sources.html
+docs/nfl-s11/venues-w11.html,e2085feae5e565e4136dbff88b0255fa58b06bf31e541f938a962f02c87a102f,13,0,0,13,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-s11/venues-w11.html
 docs/nfl-wk/correlations.html,41c51a0ebc0deaf6d973b483e4a96c7e4ef30b878cd97f20363d27508aca6356,8,8,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-wk/correlations.html
 docs/nfl-wk/flagged.html,8b54286bc53288889d9b753ffe695acae0bd3cb8aec52a44d6d01e8ebe68240f,16,3,0,13,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-wk/flagged.html
 docs/nfl-wk/gates.html,b2a5e294f09c029529b6001ae10223fb7a5f0489ed2df69b064aa168ecef6e7d,17,4,0,1,12,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-wk/gates.html
