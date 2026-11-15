@@ -243,3 +243,26 @@ Executive summary: [`NFL_D966F630_EXECUTIVE_SUMMARY.md`](NFL_D966F630_EXECUTIVE_
 audit: [`audit/NFL_D966F630_REPO_AND_SOURCE_AUDIT.md`](audit/NFL_D966F630_REPO_AND_SOURCE_AUDIT.md).
 
 *Note for whoever merges next:* five sessions implemented this same eight-requirement brief independently on the same branch policy - `docs/nfl-market/` (session `f4e592a7`), `docs/nfl-6cefc476/`, `docs/nfl-f4/`, `docs/nfl-a411fed0/` and this pack. They agree on the central fact (no official or licensed source in this environment publishes a price, so the market and difference columns are blank everywhere); they differ in sample window, in how signal is ranked, and in how the demotion gate is defined. Choosing one as canonical is a human decision, recorded on the coordination board rather than resolved by this pack.
+
+## NFL Decision-Readiness Table on the Landing Page (session 6ab24751, 2026-11-15)
+
+The brief asks for a **decision-readiness table on the landing page: one row per requirement, with the
+gate that blocks it and the number that would clear it**. The root landing page (`index.html`) now carries
+that table directly, and the same table is published in a self-contained dashboard at
+[`docs/nfl-6ab24751/`](docs/nfl-6ab24751/) →
+https://sassnarep3-star.github.io/Own6/docs/nfl-6ab24751/
+
+- **81 requirements**, each mapped to a status, the gate that blocks it, the number or condition that
+  would clear it, the evidence artifact, and an official source link.
+- **33 validation gates** (VG / NFL-G / D966-G families) in `data/nfl_6ab24751/gates.csv`, each naming what
+  it blocks and its threshold.
+- **Statuses:** 18 implemented · 20 implemented (limited) · 40 open/blocked/needs-review · 3 rejected by
+  policy (depth from jersey/experience/salary; ranking by season-long ROI).
+- **The binding blockers:** VG-03 (no licensed market price archive), NFL-G10 (partial, unofficial depth
+  coverage), VG-07 (the sample floor — zero certified strategies by design).
+
+The table is a consolidated roll-up grounded in the merged packs' gate and flag registers; it is not a fresh
+re-verification of every underlying value, and no market price, ROI or CLV is published. Build / check /
+test: `python3 scripts/build_nfl_6ab24751.py` · `python3 scripts/check_nfl_6ab24751.py` (344 checks) ·
+`python3 -m unittest discover -s tests -p "test_nfl_6ab24751.py"` (13 tests). Executive summary:
+[`NFL_6AB24751_EXECUTIVE_SUMMARY.md`](NFL_6AB24751_EXECUTIVE_SUMMARY.md).
