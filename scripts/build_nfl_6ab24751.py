@@ -347,7 +347,7 @@ def inject_landing(pack) -> bool:
         '  </div>\n'
         f'  <div class="tablewrap">\n{fragment}\n  </div>\n'
         '</section>\n'
-        f'{LANDING_END}\n'
+        f'{LANDING_END}'
     )
     if not os.path.exists(ROOT_INDEX):
         return False
