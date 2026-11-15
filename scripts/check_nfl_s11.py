@@ -82,7 +82,13 @@ def check_venues(errors):
 
 
 def check_flags_sources(errors):
-    flags = b.read_csv(b.FLAGGED)
+    try:
+        flags = b.read_csv(b.FLAGGED)
+        b.read_csv(b.SOURCES)
+        b.read_csv(b.VENUES)
+    except ValueError as exc:
+        errors.append(str(exc))
+        return
     if len(flags) != PINNED["flags"]:
         errors.append(f"flags {len(flags)} != {PINNED['flags']}")
     for f in flags:
@@ -91,7 +97,7 @@ def check_flags_sources(errors):
     for s in b.read_csv(b.SOURCES):
         url = s["url"]
         if url.startswith("repo:"):
-            continue
+            url = b.source_href(url)
         host = re.match(r"https://([^/]+)/", url)
         if not host or host.group(1) not in ALLOWED_HOSTS:
             errors.append(f"source {s['source_id']} host not allowed: {url}")

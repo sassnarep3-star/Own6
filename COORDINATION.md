@@ -2392,3 +2392,5 @@ Appending this board changes `COORDINATION.md`, which is hashed by `data/assuran
 - **Standing (R5/R6):** `nfl.com` is still absent from `tools/release_gate.py` OFFICIAL_HOSTS and from source_coverage PUBLISHERS. The `nfl-s11` checker enforces its own allowlist.
 
 **Inventory regeneration:** this section changes `COORDINATION.md`. The regeneration loop (`source_coverage.py` → `tools/build_review.py` → `audit_repo.py` → `build_assurance.py`, repeated until `git diff --exit-code` is clean) runs in S5 before the PR.
+
+**S5 scope extension (recorded before the change, 2026-11-15):** the release gate (`tools/release_gate.py`) fails on `main` at `0d24be7` with 32 errors on the root `index.html`. Those errors come from 180 literal `\"` sequences in that file (from commit `f48a532`, landing-page decision-readiness table). The same gate is the failing step in the `NFL 6cefc476 verification gate` and `Legacy parlay safety` workflows on `main`. S5 will change only those 180 sequences to `"` in the root `index.html`. The file has no `<script>` blocks, so no content changes. The `docs/index.html` navigation link is not touched.

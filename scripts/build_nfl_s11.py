@@ -157,8 +157,25 @@ def write_reconciliation(issues, gaps):
 
 
 def read_csv(path):
+    """Read a register; every row must have exactly the header's number of fields."""
     with open(path, encoding="utf-8", newline="") as fh:
-        return list(csv.DictReader(fh))
+        reader = csv.DictReader(fh)
+        rows = list(reader)
+    width = len(reader.fieldnames or [])
+    for n, r in enumerate(rows, start=2):
+        if None in r or any(v is None for v in r.values()) or len(r) != width:
+            raise ValueError(f"{os.path.basename(path)} line {n}: expected {width} fields")
+    return rows
+
+
+GITHUB_BLOB = "https://github.com/sassnarep3-star/Own6/blob/main/"
+
+
+def source_href(url):
+    """Repo references are published as GitHub blob links (the gate rejects bare relative or repo: links)."""
+    if url.startswith("repo:"):
+        return GITHUB_BLOB + url[len("repo:"):]
+    return url
 
 
 PAGE_CSS = """body{font-family:system-ui,sans-serif;margin:24px;line-height:1.45;color:#111}
@@ -244,7 +261,7 @@ def build_sources(srcs):
     head = ["ID", "Source", "Used for", "Read date", "Result"]
     body = []
     for s in srcs:
-        body.append("<tr>" + cell(s["source_id"]) + f"<td>{link(s['url'])}</td>" + cell(s["used_for"])
+        body.append("<tr>" + cell(s["source_id"]) + f"<td>{link(source_href(s['url']), s['url'])}</td>" + cell(s["used_for"])
                     + cell(s["read_date"]) + cell(s["result"]) + "</tr>")
     return page("Sources", table(head, body))
 
