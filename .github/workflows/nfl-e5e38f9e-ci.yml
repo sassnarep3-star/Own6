@@ -1,0 +1,51 @@
+name: NFL E5E38F9E Pack Gate
+
+# Owns data/nfl_e5e38f9e, docs/nfl-e5e38f9e and the e5e38f9e builder, checker and tests.
+# Path-filtered so it runs only for this pack; repository-wide gates still run on every PR.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/nfl_e5e38f9e/**"
+      - "docs/nfl-e5e38f9e/**"
+      - "scripts/build_nfl_e5e38f9e.py"
+      - "scripts/check_nfl_e5e38f9e.py"
+      - "tests/test_nfl_e5e38f9e.py"
+      - "NFL_E5E38F9E_EXECUTIVE_SUMMARY.md"
+      - ".github/workflows/nfl-e5e38f9e-ci.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "data/nfl_e5e38f9e/**"
+      - "docs/nfl-e5e38f9e/**"
+      - "scripts/build_nfl_e5e38f9e.py"
+      - "scripts/check_nfl_e5e38f9e.py"
+      - "tests/test_nfl_e5e38f9e.py"
+      - "NFL_E5E38F9E_EXECUTIVE_SUMMARY.md"
+      - ".github/workflows/nfl-e5e38f9e-ci.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  verify-nfl-e5e38f9e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Unit tests (stdlib, no network)
+        run: python3 -m unittest discover -s tests -p "test_nfl_e5e38f9e.py" -v
+      - name: Rebuild every table and page from the committed official reads
+        run: python3 scripts/build_nfl_e5e38f9e.py
+      - name: Line-by-line verifier
+        run: python3 scripts/check_nfl_e5e38f9e.py
+      - name: Rebuilt artefacts must be byte-identical to what is committed
+        run: |
+          git add -A -- data/nfl_e5e38f9e docs/nfl-e5e38f9e
+          git diff --cached --quiet -- data/nfl_e5e38f9e docs/nfl-e5e38f9e \
+            || { echo "::error::committed artefacts differ from a fresh build"; \
+                 git --no-pager diff --cached --stat -- data/nfl_e5e38f9e docs/nfl-e5e38f9e; \
+                 exit 1; }

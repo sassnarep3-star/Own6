@@ -2424,3 +2424,37 @@ Appending this board changes `COORDINATION.md`, which is hashed by `data/assuran
 | E7 Integration: inventories regenerated, one additive README line, PR to `main`, merge, Pages check | pending | `e5e38f9e` | `COORDINATION.md`, `README.md` (additive), `data/assurance/**`, `data/source_coverage/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md` |
 
 **Sandbox limit (recorded before any work).** The bash sandbox allows only github.com, codeload, api.github.com, registry.npmjs.org, pypi.org and files.pythonhosted.org, so no script in this session can read nfl.com. Official NFL pages were read with the page-fetch tool only; every official value below carries the URL and read date, and nothing was typed from memory.
+
+### Completion record — session `e5e38f9e` (2026-11-15)
+
+| Task | Status | What was delivered |
+|---|---|---|
+| E1 Brief trace | **done** | `data/nfl_e5e38f9e/brief_trace.csv`: 76 rows, one per brief item, with status, repo evidence, blocking gate, number that clears it, and flag ids. Statuses: 10 built and checked, 29 partly built, 28 not built, 4 blocked by an outside source, 1 owner decision, 3 rejected approaches not used, 1 pending. |
+| E2 Week 10 reconciliation | **done** | Official finals read on 2026-11-15 (nfl.com schedule, 2 chunks, complete). Nine games Final; three live; two not started. Compared with six pack feeds in `w10_pack_reconciliation.csv`: only WAS–NYG matches in any pack. Eight finals absent from the d966, f4, market and 6cef feeds; a411fed0 has no Week 10 rows. |
+| E3 Week 10 injury spot-check | **done** | 44 official rows for WAS, NYG, NE and DET (nfl.com/injuries, chunk 0 of 8). Compared with five packs in `injury_pack_comparison.csv`. The three Lions Out designations are confirmed. Conflicts: 309921cc and nfl_wk on Joseph (practice), Vaki and St. Brown. The full official row count was not completed. |
+| E4 Questions and suggestions | **done** | 14 questions (each with a route to an answer; 9 are self-serveable or owner-decided), 11 suggestions, all `awaiting_human_choice`. |
+| E5 Flagged, sources and site | **done** | 16 flags (`E5-F01`–`E5-F16`), 2 official sources read (`sources.csv`), Pages site at `docs/nfl-e5e38f9e/` (7 HTML pages, landing carries the decision-readiness table). |
+| E6 Builder, checker, tests, CI, summary | **done** | `scripts/build_nfl_e5e38f9e.py` (deterministic), `scripts/check_nfl_e5e38f9e.py` (drift, official-read, trace, flag, question, suggestion and link checks: OK), `tests/test_nfl_e5e38f9e.py` (16 tests, OK), `.github/workflows/nfl-e5e38f9e-ci.yml`, `NFL_E5E38F9E_EXECUTIVE_SUMMARY.md`. |
+| E7 Integration | **in progress** | Inventories regenerated to a fixed point (3 passes). Root `index.html` (one button) and `README.md` (one bullet) changed additively. PR and merge recorded in the next entry. |
+
+**Sources read this session** (official only, dates in `data/nfl_e5e38f9e/sources.csv`):
+- https://www.nfl.com/schedules/2026/by-week/week-10 — read 2026-11-15, complete (2 chunks).
+- https://www.nfl.com/injuries/ — read 2026-11-15, chunk 0 of 8 (WAS, NYG, NE, DET).
+
+**Verification performed.** Checker: 76 brief rows; 16 flags; 14 questions; 11 suggestions; all internal links resolve; external links limited to nfl.com and github.com; generated files match the builder. Tests: 16 for this pack; repo-wide `unittest discover -s tests` 359 tests OK. `tools/release_gate.py` 0 issues. `tools/check_site.py` 13 strict pages, 0 errors. Inventory chain (`source_coverage` → `build_review` → `audit_repo` → `build_assurance`) reached a fixed point over three passes.
+
+**Irregularities (all on the Flagged page; none blocks the merge).**
+- E5-F01 eight Week 10 finals missing from pack feeds.
+- E5-F02 / E5-F15 designation conflicts in 309921cc and nfl_wk (Joseph, Vaki, St. Brown) and across packs (Ossai).
+- E5-F04 Week 10 injury row counts differ by pack (326, 347, 50); 254 and 279 in no pack.
+- E5-F05 `leaderboard_combined.csv` publishes units and drawdown beside signal rank on the d966 leaderboard page.
+- E5-F06 D966-STR-01 recorded as live without a price.
+- E5-F16 nfl_f4 holds 168 third-party DraftKings prices (ESPN odds endpoint) labelled verified; nfl_market says such a source breaches the official-source-only rule. This pack publishes no price.
+- E5-F03 no scheduled or hashed capture; sandbox cannot reach nfl.com from scripts.
+- E5-F14 the brief's VR-/VQ- identifiers appear in no repo file.
+
+**Handoff and deviations (logged).**
+- Branch rule: the brief's `session-<id>/<task>` branches were not used; the session branch is fixed. Scopes stayed disjoint from open PRs #94, #84, #79, #72, #68, #56, #54, #52 and #48.
+- Repo maintenance: the clone was shallow (2 commits), so `scripts/audit_repo.py` failed on its base commit `86eca0f`. `git fetch --unshallow origin` restored history (347 commits); the audit then ran. Recorded here so the next integrator does not repeat it.
+- Sandbox limit: nfl.com cannot be read from bash. Official values were read only with the page-fetch tool and carry their URL and read date.
+- Not done: game-centre venue reads, Texans depth image, NYJ block, Week 1–6 finals, full Week 10 injury count, any capture automation. These are listed as self-serveable questions (`questions.csv`).
