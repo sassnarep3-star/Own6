@@ -1,0 +1,50 @@
+issue_id,kind,club,player,position,field,page_value_transcribed,repo_value,source_url,read_date,status
+RC-001,field_mismatch,IND,Arden Key,DE,injuries,,Hamstring,https://www.nfl.com/injuries/,2026-11-15,page value used; repo value differs from live page; needs correction in source pack
+RC-002,field_mismatch,IND,Arden Key,DE,game_status,,Questionable,https://www.nfl.com/injuries/,2026-11-15,page value used; repo value differs from live page; needs correction in source pack
+RC-003,field_mismatch,LAC,Branson Taylor,G,injuries,Ankle,,https://www.nfl.com/injuries/,2026-11-15,page value used; repo value differs from live page; needs correction in source pack
+RC-004,field_mismatch,LAC,Branson Taylor,G,game_status,Out,,https://www.nfl.com/injuries/,2026-11-15,page value used; repo value differs from live page; needs correction in source pack
+RC-005,field_mismatch,LAC,Brenen Thompson,WR,injuries,Hamstring,,https://www.nfl.com/injuries/,2026-11-15,page value used; repo value differs from live page; needs correction in source pack
+RC-006,field_mismatch,LAC,Brenen Thompson,WR,game_status,Doubtful,,https://www.nfl.com/injuries/,2026-11-15,page value used; repo value differs from live page; needs correction in source pack
+RC-007,field_mismatch,LAC,Bud Dupree,DE,practice_status,Full Participation in Practice,Did Not Participate In Practice,https://www.nfl.com/injuries/,2026-11-15,page value used; repo value differs from live page; needs correction in source pack
+RC-008,field_mismatch,LAC,David Njoku,TE,injuries,Fibula,,https://www.nfl.com/injuries/,2026-11-15,page value used; repo value differs from live page; needs correction in source pack
+RC-009,field_mismatch,LAC,David Njoku,TE,practice_status,Full Participation in Practice,Limited Participation in Practice,https://www.nfl.com/injuries/,2026-11-15,page value used; repo value differs from live page; needs correction in source pack
+RC-010,field_mismatch,LAC,David Njoku,TE,game_status,Questionable,,https://www.nfl.com/injuries/,2026-11-15,page value used; repo value differs from live page; needs correction in source pack
+RC-011,field_mismatch,LAC,Denzel Perryman,LB,injuries,Pectoral,,https://www.nfl.com/injuries/,2026-11-15,page value used; repo value differs from live page; needs correction in source pack
+RC-012,field_mismatch,LAC,Denzel Perryman,LB,game_status,Questionable,,https://www.nfl.com/injuries/,2026-11-15,page value used; repo value differs from live page; needs correction in source pack
+RC-013,field_mismatch,LAC,Isas Waxter,CB,injuries,Ankle,,https://www.nfl.com/injuries/,2026-11-15,page value used; repo value differs from live page; needs correction in source pack
+RC-014,field_mismatch,LAC,Isas Waxter,CB,game_status,Out,,https://www.nfl.com/injuries/,2026-11-15,page value used; repo value differs from live page; needs correction in source pack
+RC-015,field_mismatch,LAC,Justin Eboigbe,DE,injuries,Ankle,,https://www.nfl.com/injuries/,2026-11-15,page value used; repo value differs from live page; needs correction in source pack
+RC-016,field_mismatch,LAC,Justin Eboigbe,DE,game_status,Questionable,,https://www.nfl.com/injuries/,2026-11-15,page value used; repo value differs from live page; needs correction in source pack
+RC-017,field_mismatch,LAC,Kayode Awosika,G,injuries,Fibula,,https://www.nfl.com/injuries/,2026-11-15,page value used; repo value differs from live page; needs correction in source pack
+RC-018,field_mismatch,LAC,Kayode Awosika,G,practice_status,Full Participation in Practice,Limited Participation in Practice,https://www.nfl.com/injuries/,2026-11-15,page value used; repo value differs from live page; needs correction in source pack
+RC-019,field_mismatch,LAC,Kayode Awosika,G,game_status,Questionable,,https://www.nfl.com/injuries/,2026-11-15,page value used; repo value differs from live page; needs correction in source pack
+RC-020,field_mismatch,LAC,Keaton Mitchell,RB,practice_status,Full Participation in Practice,Limited Participation in Practice,https://www.nfl.com/injuries/,2026-11-15,page value used; repo value differs from live page; needs correction in source pack
+RC-021,field_mismatch,LAC,Kendall Williamson,S,injuries,Calf,,https://www.nfl.com/injuries/,2026-11-15,page value used; repo value differs from live page; needs correction in source pack
+RC-022,field_mismatch,LAC,Kendall Williamson,S,game_status,Out,,https://www.nfl.com/injuries/,2026-11-15,page value used; repo value differs from live page; needs correction in source pack
+RC-023,field_mismatch,LAC,Ladd McConkey,WR,injuries,Back,,https://www.nfl.com/injuries/,2026-11-15,page value used; repo value differs from live page; needs correction in source pack
+RC-024,field_mismatch,LAC,Ladd McConkey,WR,game_status,Questionable,,https://www.nfl.com/injuries/,2026-11-15,page value used; repo value differs from live page; needs correction in source pack
+RC-025,field_mismatch,LAC,Rodney Shelley,CB,practice_status,Full Participation in Practice,Limited Participation in Practice,https://www.nfl.com/injuries/,2026-11-15,page value used; repo value differs from live page; needs correction in source pack
+RC-026,field_mismatch,LAC,Trey Pipkins,T,injuries,"Not injury related - personal matter, Knee",,https://www.nfl.com/injuries/,2026-11-15,page value used; repo value differs from live page; needs correction in source pack
+RC-027,field_mismatch,LAC,Trey Pipkins,T,practice_status,Limited Participation in Practice,Did Not Participate In Practice,https://www.nfl.com/injuries/,2026-11-15,page value used; repo value differs from live page; needs correction in source pack
+RC-028,field_mismatch,LAC,Trey Pipkins,T,game_status,Questionable,,https://www.nfl.com/injuries/,2026-11-15,page value used; repo value differs from live page; needs correction in source pack
+RC-029,missing_in_309921cc,ATL,Jake Matthews,T,row,present,absent,https://www.nfl.com/injuries/,2026-11-15,"roster-level difference between packs; flagged, not resolved"
+RC-030,missing_in_309921cc,ATL,Liam McCullough,LS,row,present,absent,https://www.nfl.com/injuries/,2026-11-15,"roster-level difference between packs; flagged, not resolved"
+RC-031,missing_in_309921cc,BAL,Calais Campbell,DT,row,present,absent,https://www.nfl.com/injuries/,2026-11-15,"roster-level difference between packs; flagged, not resolved"
+RC-032,missing_in_309921cc,BAL,Ronnie Stanley,T,row,present,absent,https://www.nfl.com/injuries/,2026-11-15,"roster-level difference between packs; flagged, not resolved"
+RC-033,missing_in_309921cc,BUF,Ed Oliver,DE,row,present,absent,https://www.nfl.com/injuries/,2026-11-15,"roster-level difference between packs; flagged, not resolved"
+RC-034,missing_in_309921cc,BUF,Terrel Bernard,LB,row,present,absent,https://www.nfl.com/injuries/,2026-11-15,"roster-level difference between packs; flagged, not resolved"
+RC-035,missing_in_309921cc,CIN,Dexter Lawrence,DT,row,present,absent,https://www.nfl.com/injuries/,2026-11-15,"roster-level difference between packs; flagged, not resolved"
+RC-036,missing_in_309921cc,DAL,DaRon Bland,CB,row,present,absent,https://www.nfl.com/injuries/,2026-11-15,"roster-level difference between packs; flagged, not resolved"
+RC-037,missing_in_309921cc,GB,Xavier McKinney,S,row,present,absent,https://www.nfl.com/injuries/,2026-11-15,"roster-level difference between packs; flagged, not resolved"
+RC-038,missing_in_309921cc,IND,Will Mallory,TE,row,present,absent,https://www.nfl.com/injuries/,2026-11-15,"roster-level difference between packs; flagged, not resolved"
+RC-039,missing_in_309921cc,KC,Kenneth Walker III,RB,row,present,absent,https://www.nfl.com/injuries/,2026-11-15,"roster-level difference between packs; flagged, not resolved"
+RC-040,missing_in_309921cc,LAC,Bud Dupree,DE,row,present,absent,https://www.nfl.com/injuries/,2026-11-15,"roster-level difference between packs; flagged, not resolved"
+RC-041,missing_in_309921cc,LAR,Aaron Donald,DT,row,present,absent,https://www.nfl.com/injuries/,2026-11-15,"roster-level difference between packs; flagged, not resolved"
+RC-042,missing_in_309921cc,LAR,Braden Fiske,DT,row,present,absent,https://www.nfl.com/injuries/,2026-11-15,"roster-level difference between packs; flagged, not resolved"
+RC-043,missing_in_309921cc,LAR,Byron Young,LB,row,present,absent,https://www.nfl.com/injuries/,2026-11-15,"roster-level difference between packs; flagged, not resolved"
+RC-044,missing_in_309921cc,LV,Dont'e Thornton Jr.,WR,row,present,absent,https://www.nfl.com/injuries/,2026-11-15,"roster-level difference between packs; flagged, not resolved"
+RC-045,missing_in_309921cc,MIN,Christian Darrisaw,T,row,present,absent,https://www.nfl.com/injuries/,2026-11-15,"roster-level difference between packs; flagged, not resolved"
+RC-046,missing_in_309921cc,MIN,Harrison Smith,S,row,present,absent,https://www.nfl.com/injuries/,2026-11-15,"roster-level difference between packs; flagged, not resolved"
+RC-047,missing_in_309921cc,MIN,Jordan Addison,WR,row,present,absent,https://www.nfl.com/injuries/,2026-11-15,"roster-level difference between packs; flagged, not resolved"
+RC-048,missing_in_309921cc,MIN,Josh Metellus,S,row,present,absent,https://www.nfl.com/injuries/,2026-11-15,"roster-level difference between packs; flagged, not resolved"
+RC-049,missing_in_309921cc,NYJ,Adonai Mitchell,WR,row,present,absent,https://www.nfl.com/injuries/,2026-11-15,"roster-level difference between packs; flagged, not resolved"
