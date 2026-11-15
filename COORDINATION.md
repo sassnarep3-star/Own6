@@ -2394,3 +2394,13 @@ Appending this board changes `COORDINATION.md`, which is hashed by `data/assuran
 **Inventory regeneration:** this section changes `COORDINATION.md`. The regeneration loop (`source_coverage.py` → `tools/build_review.py` → `audit_repo.py` → `build_assurance.py`, repeated until `git diff --exit-code` is clean) runs in S5 before the PR.
 
 **S5 scope extension (recorded before the change, 2026-11-15):** the release gate (`tools/release_gate.py`) fails on `main` at `0d24be7` with 32 errors on the root `index.html`. Those errors come from 180 literal `\"` sequences in that file (from commit `f48a532`, landing-page decision-readiness table). The same gate is the failing step in the `NFL 6cefc476 verification gate` and `Legacy parlay safety` workflows on `main`. S5 will change only those 180 sequences to `"` in the root `index.html`. The file has no `<script>` blocks, so no content changes. The `docs/index.html` navigation link is not touched.
+
+### PR and merge record — session `arena/90b7491e-own6` (2026-11-15)
+
+- **PR:** https://github.com/sassnarep3-star/Own6/pull/97 — `arena/90b7491e-own6` → `main`. **MERGED** (`gh pr merge 97 --merge`) at `2026-11-15T23:39:12Z`, merge commit `c25cf31`. Flagged items did not block the merge (all 14 `blocks_publish = no`).
+- **Pages:** `pages/builds/latest` for `c25cf31` → `built`, no error.
+- **Live verification (fetch tool, 2026-11-15):** `https://sassnarep3-star.github.io/Own6/docs/nfl-s11/` renders the landing with counts 347 / 49 / 13 of 13 / 14. `.../docs/nfl-s11/flagged.html` renders all 14 flags with source links. `.../docs/nfl-s11/injuries-w10.html` renders the 347-row table with one nfl.com link per row. The `docs/` prefix is required; Pages serves the repo root (the same convention as the other packs). Pages paths without `docs/` return 404.
+- **Release gate:** `tools/release_gate.py` → 0 issues on the merged tree (was 37 on `main` at `0d24be7`). The 6cefc476 and parlay-safety failures that were on `main` came from the same 180 literal `\"` sequences in root `index.html`; re-run results are not checked here.
+- **Still open, not fixed by this PR:** `scripts/source_coverage.py --check --strict` fails on `main` (6,761 legacy rows lack external official-reference coverage; 6,777 after this PR). Pre-existing; needs a separate decision about the legacy rows.
+- **Integration duty for the next session:** `docs/index.html` nav link to `docs/nfl-s11/index.html` is not added. The Week 11 game-centre URLs are still flagged F-10 for re-confirmation.
+- **Board note:** a local shallow-clone check could not find `8dae384`; GitHub confirms PR #90 merged at that commit. The sandbox clone is now unshallowed.
