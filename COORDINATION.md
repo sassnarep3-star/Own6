@@ -2323,7 +2323,6 @@ content edited or reordered):**
 `O.fit_total_shrinkage(10)` → shrink 0.00 · mean abs error side 10.50 vs 12.16 naive, total 11.24
 vs 10.63 naive · `DM.live_strategies()` → `['D966-STR-01']`.
 
-<<<<<<< HEAD
 ---
 
 ## Session arena/7c86bfb0-own6 — integration: landing page, decision-readiness table, PR/merge/deploy
@@ -2348,7 +2347,7 @@ The sandbox for this session reaches github.com, npm and PyPI only; it cannot re
 
 ### Inventory regen duty
 Appending this board changes `COORDINATION.md`, which is hashed by `data/assurance/inventory.csv` and asserted by `tests/assurance/test_audit.py::test_inventory_hashes_and_line_counts`. The integration step re-runs `scripts/source_coverage.py → tools/build_review.py → scripts/audit_repo.py → scripts/build_assurance.py → scripts/check_assurance.py` until `git diff --exit-code -- data/assurance docs/assurance` is clean before the PR is merged.
-=======
+
 ## Session `arena/90b7491e-own6` — NFL Week 10 injury re-capture, Week 11 venue sweep, Flagged for Review (claimed 2026-11-15)
 
 **Branch:** `arena/90b7491e-own6` (Arena fixes the session branch name; `session-<id>/<task>` is disallowed, same logged deviation as prior sessions). Session ID: `90b7491e`. Base: `main` at `32a1b69` (PR #91).
@@ -2364,4 +2363,3 @@ Appending this board changes `COORDINATION.md`, which is hashed by `data/assuran
 | S5 Final integration: regenerate inventories to fixed point, PR to `main`, merge, Pages check, record here. `docs/index.html` nav link NOT edited; requested from the integration session | unclaimed | `90b7491e` | this section (append-only), `README.md` (append-only) | S1–S4 |
 
 **Status legend:** `unclaimed` · `in progress` · `done` · `needs review` (published on Flagged for Review; does not block)
->>>>>>> 6d99ef3 (claim(90b7491e): S1-S5 NFL Week 10 injury re-capture, Week 11 venues, Flagged page)
