@@ -2322,3 +2322,19 @@ content edited or reordered):**
 `R.league_baseline(9)` → 22.963 ppg · `O.dispersion(9)` → σ 10.2808, ρ −0.0659, n 43 games ·
 `O.fit_total_shrinkage(10)` → shrink 0.00 · mean abs error side 10.50 vs 12.16 naive, total 11.24
 vs 10.63 naive · `DM.live_strategies()` → `['D966-STR-01']`.
+
+## Session `arena/90b7491e-own6` — NFL Week 10 injury re-capture, Week 11 venue sweep, Flagged for Review (claimed 2026-11-15)
+
+**Branch:** `arena/90b7491e-own6` (Arena fixes the session branch name; `session-<id>/<task>` is disallowed, same logged deviation as prior sessions). Session ID: `90b7491e`. Base: `main` at `32a1b69` (PR #91).
+
+**Claim log:** 2026-11-15 — session `90b7491e` read the board (including the 6cefc476 section and the 0a988733 W-table), `git fetch`, and the open PR list. Chosen scope is disjoint from every active claim: no other claim touches `data/nfl_s11/**` or `docs/nfl-s11/**`. The 0a988733 Week 11 work is under `nfl_wk`, not `nfl_s11`. Sandbox note: raw `curl` to nfl.com fails at TLS, so all nfl.com reads go through the fetch tool.
+
+| Task | Status | Owner | Exclusive file scope | Dependencies |
+| --- | --- | --- | --- | --- |
+| S1 Week 10 injury re-capture: transcribe nfl.com/injuries (347 rows, 28 clubs) with read date; reconcile to d966f630 and 309921cc; log every mismatch, blank stays blank | in progress | `90b7491e` | `data/nfl_s11/injury_report_w10_transcription.psv`, `data/nfl_s11/injury_reconciliation_w10.csv` | — |
+| S2 Week 11 venue sweep: venue of all 13 fixtures from official game-centre Game Info; schedule-page name mismatches flagged | in progress | `90b7491e` | `data/nfl_s11/schedule_w11_venues.csv` | — |
+| S3 Flagged for Review page, sources register, executive summary | in progress | `90b7491e` | `docs/nfl-s11/**`, `NFL_S11_EXECUTIVE_SUMMARY.md`, `data/nfl_s11/sources.csv`, `data/nfl_s11/flagged.csv` | S1, S2 |
+| S4 Checker + tests + CI (drift alarm: pinned 347 rows / 28 clubs / 14 games; 13 venues) | in progress | `90b7491e` | `scripts/build_nfl_s11.py`, `scripts/check_nfl_s11.py`, `tests/test_nfl_s11.py`, `.github/workflows/nfl-s11-ci.yml` | S1–S3 |
+| S5 Final integration: regenerate inventories to fixed point, PR to `main`, merge, Pages check, record here. `docs/index.html` nav link NOT edited; requested from the integration session | unclaimed | `90b7491e` | this section (append-only), `README.md` (append-only) | S1–S4 |
+
+**Status legend:** `unclaimed` · `in progress` · `done` · `needs review` (published on Flagged for Review; does not block)
