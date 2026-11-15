@@ -237,92 +237,7 @@
       </div>
     </section>
 
-    <section id="readiness" class="section" aria-labelledby="readiness-title">
-      <div class="section-head">
-        <p class="eyebrow">Decision-readiness table</p>
-        <h2 id="readiness-title">One row per requirement: the gate that blocks it, the number that clears it</h2>
-        <p>Each requirement is traced to its verified artifact and deliverable page. Where a live number cannot be published yet, the cell shows the blocking gate and the exact evidence that would clear it. Gate assignments are derived from the pre-decision Q&amp;A (`Q-01`..`Q-16`) and the validation-gate register; data-dependent judgments are review items, not measured values.</p>
-      </div>
-      <style>
-        #readiness table { width: 100%; border-collapse: collapse; font-size: .88rem; margin-top: .9rem; }
-        #readiness th { background: var(--navy); color: #fff; text-align: left; padding: .55rem .7rem; font-size: .8rem; border: 1px solid var(--line); }
-        #readiness td { padding: .5rem .7rem; border: 1px solid var(--line); vertical-align: top; }
-        #readiness tr:nth-child(even) td { background: #f4f7f8; }
-        #readiness code { font-size: .82rem; background: #eef3f5; padding: .05rem .3rem; border-radius: 3px; }
-        #readiness .src-link { color: var(--teal); font-size: .82rem; }
-        #readiness .state-ok { color: #166534; font-weight: 750; }
-        #readiness .state-block { color: #b45309; font-weight: 750; }
-        #readiness .state-prog { color: #1d4ed8; font-weight: 750; }
-      </style>
-      <table>
-        <thead>
-          <tr>
-            <th scope="col">Req</th>
-            <th scope="col">Requirement</th>
-            <th scope="col">Evidence state</th>
-            <th scope="col">Gate that blocks it</th>
-            <th scope="col">Cleared by (number / evidence)</th>
-            <th scope="col">Official source</th>
-            <th scope="col">View</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>REQ-01</code></td><td>Core scope — collect, organize &amp; analyze the NFL domain from a full itemized requirement list</td><td class="state-ok">verified_complete</td><td>— (none)</td><td>Requirement-to-test trace complete: 16 requirements &rarr; verified artifacts</td><td><a class="src-link" href="https://github.com/sassnarep3-star/Own6" rel="noopener noreferrer">repo authority ↗</a></td><td><a href="docs/nfl-origination/requirements.html">requirements ↗</a></td>
-          </tr>
-          <tr>
-            <td><code>REQ-02</code></td><td>Decision governance — suggestions reviewed before any project change</td><td class="state-ok">verified_complete</td><td>— (none)</td><td>14 suggestions (SUG-01..SUG-14) held in <i>pending_human_choice</i>; none auto-applied</td><td><a class="src-link" href="https://github.com/sassnarep3-star/Own6/blob/main/COORDINATION.md" rel="noopener noreferrer">COORDINATION.md ↗</a></td><td><a href="docs/nfl-origination/suggestions.html">suggestions ↗</a></td>
-          </tr>
-          <tr>
-            <td><code>REQ-03</code></td><td>Information audit — questions, information &amp; answers needed before any decision</td><td class="state-block">blocked: Q-01/Q-02/Q-03 unanswered</td><td>NFL-G01 (rights), NFL-G06/G07 (prices/CLV)</td><td>Answer Q-01..Q-16; execute a commercial/research license + timestamped closing-price archive</td><td><a class="src-link" href="https://support.nfl.com/hc/en-us/articles/35869743904916-NFL-com-Terms-and-Conditions" rel="noopener noreferrer">NFL.com Terms ↗</a></td><td><a href="docs/nfl-origination/decision-qa.html">decision Q&amp;A ↗</a></td>
-          </tr>
-          <tr>
-            <td><code>REQ-04</code></td><td>Missing-data discovery — lawful discovery without scraping or hallucinating</td><td class="state-ok">verified_complete</td><td>— (none)</td><td>Discovery protocol documented per missing field (Genius Sports / NWS / stadium roof logs)</td><td><a class="src-link" href="https://www.nfl.com/news/nfl-draftkings-fanduel-fanatics-sports-betting-partners" rel="noopener noreferrer">NFL sportsbook partners ↗</a></td><td><a href="docs/nfl-origination/decision-qa.html">decision Q&amp;A ↗</a></td>
-          </tr>
-          <tr>
-            <td><code>REQ-05</code></td><td>Line origination — own fair spreads, totals &amp; 3-way win/loss/tie probabilities</td><td class="state-block">blocked: no market prices published</td><td>NFL-G01, NFL-G02 (no invented prices)</td><td>Licensed Genius Sports / sportsbook closing-price feed + post-2025 regime fit (key numbers 3/7/6/10/14)</td><td><a class="src-link" href="https://www.nfl.com/news/nfl-draftkings-fanduel-fanatics-sports-betting-partners" rel="noopener noreferrer">NFL sportsbook partners ↗</a></td><td><a href="docs/nfl-origination/strategies-leaderboard.html">origination ↗</a></td>
-          </tr>
-          <tr>
-            <td><code>REQ-06</code></td><td>Signal strategies — singles, multi-game parlays &amp; player-prop combos</td><td class="state-block">0 / 10 strategies qualified</td><td>NFL-G01..G12 all must open</td><td>10/10 strategies clear every gate (preregistered NFL-STR-01..NFL-STR-10)</td><td><a class="src-link" href="https://operations.nfl.com/game-operations-logistics/technology/performance-tracking-data-next-gen-stats" rel="noopener noreferrer">Next Gen Stats ↗</a></td><td><a href="docs/nfl-origination/strategies-leaderboard.html">strategies ↗</a></td>
-          </tr>
-          <tr>
-            <td><code>REQ-07</code></td><td>Leaderboard &amp; rewards — skill-verified performers only</td><td class="state-block">0 qualified</td><td>skill gate (proper-score + CLV + luck filter)</td><td>1 skill-verified performer: CLV t&gt;=2.5, bootstrap LCB&gt;0, Holm-Bonferroni FWER M=10</td><td><a class="src-link" href="https://scikit-learn.org/stable/modules/calibration.html" rel="noopener noreferrer">scikit-learn calibration ↗</a></td><td><a href="docs/nfl-origination/strategies-leaderboard.html">leaderboard ↗</a></td>
-          </tr>
-          <tr>
-            <td><code>REQ-08</code></td><td>Validation gates — 12 fail-closed gates every strategy must pass</td><td class="state-block">several gates blocked (no licensed inputs)</td><td>NFL-G01/G02/G06/G07/G08/G11</td><td>Licensed price archive + closing prices + paired training-only residuals + walk-forward N&gt;=250</td><td><a class="src-link" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html" rel="noopener noreferrer">TimeSeriesSplit ↗</a></td><td><a href="docs/nfl-origination/validation-gates.html">validation gates ↗</a></td>
-          </tr>
-          <tr>
-            <td><code>REQ-09</code></td><td>Correlations — parlays / SGPs / prop combos without naive independence</td><td class="state-block">blank (empirical, not measured)</td><td>NFL-G11 (dependence handled, never assumed)</td><td>&gt;=300 games paired residuals + week-clustered block bootstrap 95% CI + copula multiplier</td><td><a class="src-link" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.multivariate_normal.html" rel="noopener noreferrer">SciPy ↗</a></td><td><a href="docs/nfl-origination/correlations.html">correlations ↗</a></td>
-          </tr>
-          <tr>
-            <td><code>REQ-10</code></td><td>Luck removal — reward repeatable skill, not short-run variance</td><td class="state-block">blocked until skill proven</td><td>NFL-G07/G08/G09 (CLV / bootstrap / FWER)</td><td>Same-line CLV t&gt;=2.5 + week-block bootstrap LCB&gt;0 + Holm-Bonferroni M=10 + proper-score dominance</td><td><a class="src-link" href="https://www.statsmodels.org/stable/generated/statsmodels.stats.multitest.multipletests.html" rel="noopener noreferrer">statsmodels ↗</a></td><td><a href="docs/nfl-origination/validation-gates.html">validation gates ↗</a></td>
-          </tr>
-          <tr>
-            <td><code>REQ-11</code></td><td>Injury &amp; depth tracking — 2nd/3rd/4th-string backups replacing starters</td><td class="state-block">counts verified; EPA drop-off blank</td><td>NFL-F04 (starter-to-backup empirical drop-off)</td><td>3+ seasons authorized snap-matched play-by-play + Saturday 4pm ET PS elevations + T-90m inactives</td><td><a class="src-link" href="https://www.nfl.com/injuries/" rel="noopener noreferrer">NFL injury report ↗</a></td><td><a href="docs/nfl-origination/injuries-depth.html">injury &amp; depth ↗</a></td>
-          </tr>
-          <tr>
-            <td><code>REQ-12</code></td><td>Executive summary — critical findings, architecture &amp; boundaries</td><td class="state-ok">verified_complete</td><td>— (none)</td><td>Executive summary published (markdown + dashboard page)</td><td><a class="src-link" href="https://github.com/sassnarep3-star/Own6" rel="noopener noreferrer">repo authority ↗</a></td><td><a href="docs/nfl-origination/executive-summary.html">executive summary ↗</a></td>
-          </tr>
-          <tr>
-            <td><code>REQ-13</code></td><td>Repo line-by-line audit — official sources, links, irregularities flagged</td><td class="state-ok">verified_complete</td><td>— (none)</td><td>16 findings (RA-01..RA-16) cataloged with exact file/line citations</td><td><a class="src-link" href="https://github.com/sassnarep3-star/Own6" rel="noopener noreferrer">repo authority ↗</a></td><td><a href="docs/nfl-origination/repo-audit.html">repo audit ↗</a></td>
-          </tr>
-          <tr>
-            <td><code>REQ-14</code></td><td>Clean zero-input GitHub Pages site — category subpages, source-linked tables</td><td class="state-ok">verified_complete (this site)</td><td>— (none)</td><td>11 HTML pages, 0 &lt;input&gt; elements, 100% row-level official source coverage</td><td><a class="src-link" href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site" rel="noopener noreferrer">GitHub Pages docs ↗</a></td><td><a href="docs/nfl-origination/index.html">NFL dashboard ↗</a></td>
-          </tr>
-          <tr>
-            <td><code>REQ-15</code></td><td>Strict verification &amp; Flagged-for-Review page — blanks left blank, irregularities published</td><td class="state-ok">verified_complete</td><td>— (none)</td><td>Blank-cell enforcement + league W-L-T/PF-PA accounting + NFL-F01..F25+ flagged</td><td><a class="src-link" href="https://www.nfl.com/standings/division/2026/reg" rel="noopener noreferrer">NFL standings ↗</a></td><td><a href="docs/nfl-origination/flagged.html">flagged for review ↗</a></td>
-          </tr>
-          <tr>
-            <td><code>REQ-16</code></td><td>Coordination, PR to main &amp; live GitHub Pages deployment</td><td class="state-prog">in progress (this session)</td><td>— (none)</td><td>Claim recorded, PR merged, GitHub Pages build live</td><td><a class="src-link" href="https://github.com/sassnarep3-star/Own6/pulls" rel="noopener noreferrer">GitHub pulls ↗</a></td><td><a href="index.html">landing page ↗</a></td>
-          </tr>
-        </tbody>
-      </table>
-      <p class="fine-print" style="margin-top:.7rem;"><strong>How to read &quot;Cleared by.&quot;</strong> Numbers shown are thresholds drawn from the decision Q&amp;A (`Q-01`..`Q-16`) and the validation-gate register (e.g. CLV t&gt;=2.5, walk-forward N&gt;=250, paired residuals on &gt;=300 games). They are the project's own pass bars, not official NFL values. Nothing here is a pick, a line, or a profitability claim.</p>
-      <div class="review-box">
-        <h3>Session verification limitation</h3>
-        <p>This session cannot re-fetch official NFL pages (the sandbox reaches github.com, npm and PyPI only), so no NFL value above was independently re-verified live in this session. Figures are carried forward from the source-linked `docs/nfl-origination/` pack (read 2026-11-12/13 on nfl.com, operations.nfl.com and official club sites) and remain blank-or-flagged where unconfirmed. Treat the blocking gates and clearing numbers as the authoritative to-do list, not as published results.</p>
-      </div>
-    </section>
+    
 
     <section id="review" class="section" aria-labelledby="review-title">
       <div class="section-head">
@@ -353,11 +268,11 @@
       <p class="fine-print">These notes identify items to re-check; they do not certify that the current bye row, source links, or model assumptions are accurate. Market spreads, totals, fair lines, empirical returns, player-prop outcomes, and measured correlations remain blank unless a specific value is verified and its evidence is recorded.</p>
     </section>
 
-    <section class="section" aria-labelledby="readiness-title">
+    <section class="section" aria-labelledby="failclosed-title">
       <div class="decision-panel">
         <div>
           <p class="eyebrow">Release gate</p>
-          <h2 id="readiness-title">The system is designed to fail closed.</h2>
+          <h2 id="failclosed-title">The system is designed to fail closed.</h2>
           <p>Calculations and synthetic tests demonstrate software behavior only. They do not establish a real NFL edge, profitable strategy, or a correlation coefficient.</p>
         </div>
         <ul class="checklist">
@@ -380,6 +295,7 @@
   </div>
 </section>
 <!-- END DECISION-READINESS TABLE (session 6ab24751) -->
+
 
 
 

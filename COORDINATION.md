@@ -2516,3 +2516,23 @@ grounded in a validation-gate/flag register or an official page already read and
 
 **Claim log:** 2026-11-15 — session `6ab24751` read the board, `git log`, open PRs and remote state, and claims
 D1–D9 with the file scopes above. Claim committed and pushed immediately, before any data or code was produced.
+
+### Reconciliation of the landing-page decision-readiness table (session 6ab24751, 2026-11-15)
+
+After the rebase onto `origin/main` (which advanced via PR #97 / session `90b7491e` and the earlier
+`7c86bfb0` integration), the root landing page held **two** decision-readiness tables: a 16-row table
+(`REQ-01`..`REQ-16`, from the `nfl_origination` pack, added by session `7c86bfb0`) and this session's
+comprehensive 81-row table (`RQ-01`..`RQ-81`, the full brief). Two same-purpose tables with duplicate
+`id="readiness"` / `id="readiness-title"` values is a defect, so this integration **reconciles to one
+canonical table**:
+
+- The comprehensive 81-row table (`RQ-01`..`RQ-81`) is kept on the landing page; it is a superset of the
+  16 `REQ-*` rows in coverage and matches the brief's "one row per requirement" for the *full* list.
+- The partial 16-row `REQ-*` section is removed from the landing page. Its intent is preserved: every one
+  of its 16 requirements is represented in the kept table, and the underlying `docs/nfl-origination/`
+  pages it linked to remain live and unchanged.
+- The "fail closed" section's duplicate `id="readiness-title"` is renamed to `id="failclosed-title"` so
+  every element id on the landing page is unique.
+
+No value from either table was discarded; the kept table is the more complete roll-up. This reconciliation
+is logged here rather than left as a silent edit.
