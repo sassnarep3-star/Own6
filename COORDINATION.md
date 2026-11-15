@@ -2889,3 +2889,63 @@ injury page not re-read (F14), the reserve-list route possibly truncating the 20
 IR move (F15), and club attribution spot-checked rather than audited — 1 of 347 rows (F13).
 
 **Session `arena/48217a55-own6` is complete.**
+
+
+---
+
+## Session arena/8362b702-own6 — NFL requirements-closure pack: removal-of-luck panel, control baselines, availability graph, timestamped injury deltas, model-output ledger, drift alarms, proper-score divisions (claimed 2026-11-15)
+
+**Branch constraint.** Arena fixes this session to `arena/8362b702-own6`; no other branch or
+worktree will be created or used. The brief's `session-<id>/<task>` naming is satisfied by
+disjoint *file scopes* on this single branch, exactly as sessions `05e39b8`, `d966f630`,
+`a411fed0` and `6cefc476` recorded. Checkout base: `32a1b69` (= `origin/main`, merged PR #91).
+
+**Concurrent-work check before claiming.** Open PRs at claim time: #94 (`arena/d966f630-own6`,
+COORDINATION.md board entry + regenerated shared inventories), #84 (`arena/baa41d14-own6`,
+`data/nfl_desk/**`, `docs/nfl-decision-desk/**`, `src/nfl_desk/**`), #79, #72, #68, #56, #54,
+#52, #48 (all stale since 2026-11-05…11-13). Every path claimed below is disjoint from those
+PR scopes and from all merged pack scopes (`data/nfl*/**`, `src/nfl*/**`, `docs/nfl*/**`,
+`scripts/{build,check}_nfl_*`). No file owned by another live session is edited;
+`docs/index.html`, `index.html` and `README.md` receive additive insertions only, and the
+shared generated inventories are regenerated only at integration (P11).
+
+### Claim (written and pushed before any data or code was produced)
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| P1 Repo line-by-line review + irregularity register | in progress | `8362b702` | `audit/NFL_8362B702_REPO_REVIEW.md`, `data/nfl_8362b702/repo_findings.csv` |
+| P2 Official capture layer (standing reads with clock times) | unclaimed→in progress | `8362b702` | `src/nfl_8362b702/capture.py` |
+| P3 Verified results feed + two-read standings delta ("what changed") | unclaimed→in progress | `8362b702` | `src/nfl_8362b702/results.py`, `src/nfl_8362b702/standings.py` |
+| P4 Model-output ledger (probability + full input vector) + pre-registered singles-only shadow baseline frozen before kickoff | unclaimed→in progress | `8362b702` | `src/nfl_8362b702/model.py`, `src/nfl_8362b702/prereg.py` |
+| P5 Control baselines (random picks, favorites-only) + removal-of-luck panel | unclaimed→in progress | `8362b702` | `src/nfl_8362b702/luck.py`, `src/nfl_8362b702/controls.py` |
+| P6 Leaderboard divisions (singles / game parlays / same-game parlays / prop combos) + joint-evidence gate + two-sided "what would change our mind" per strategy | unclaimed→in progress | `8362b702` | `src/nfl_8362b702/leaderboard.py`, `src/nfl_8362b702/mindchange.py` |
+| P7 Availability graph (expected vs actual starters) + injury read deltas ("surprise, never a level") + reserve/IR register ("not listed" ≠ available) | unclaimed→in progress | `8362b702` | `src/nfl_8362b702/availability.py`, `src/nfl_8362b702/injury.py`, `src/nfl_8362b702/reserve.py` |
+| P8 Scraper contracts + drift alarms (expected row counts and required fields per source; the verifier fails loudly on drift) | unclaimed→in progress | `8362b702` | `src/nfl_8362b702/contracts.py`, `src/nfl_8362b702/drift.py` |
+| P9 Decision-readiness ledger (one row per brief requirement: blocking gate + the number that would clear it) + questions + suggestions | unclaimed→in progress | `8362b702` | `src/nfl_8362b702/readiness.py`, `src/nfl_8362b702/registers.py` |
+| P10 Site + verifier + tests + CI + executive summary | unclaimed→in progress | `8362b702` | `docs/nfl-8362b702/**`, `scripts/build_nfl_8362b702.py`, `scripts/check_nfl_8362b702.py`, `tests/test_nfl_8362b702.py`, `.github/workflows/nfl-8362b702-ci.yml`, `NFL_8362B702_EXECUTIVE_SUMMARY.md` |
+| P11 Final integration: additive shared links, inventory fixed-point regeneration, standing requests R5/R6 (nfl.com publisher allowlists) resolution attempt, PR → merge → Pages check → board record | unclaimed→in progress | `8362b702` | `COORDINATION.md`, `README.md` (additive), `docs/index.html` (additive link only), `index.html` (additive link only), `data/assurance/**`, `docs/assurance/**`, `data/source_coverage/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md` |
+
+**Rules this session follows.** (1) No manual input is requested and no page contains an input
+control. (2) A value is published only if it was read this session from the cited official page,
+or is arithmetic on such values with the derivation shown; anything else is an empty cell plus a
+row in `flagged.csv`. (3) Market (book) prices are not obtainable from an official source, so
+price-dependent columns stay blank with capture attempts logged. (4) No profitability claim is
+made anywhere. (5) `needs review` items never block: they are published on the Flagged for
+Review page. (6) Every strategy output row stores a probability and its complete input vector.
+
+**Why this scope.** A repo-wide search at claim time found no implementation of: the
+"removal of luck" panel, the availability graph as a first-class dataset, injury-delta
+("surprise, never a level") storage, control baselines (random picks; favorites only),
+scraper drift alarms, the four-division proper-score leaderboard, the two-sided
+"what would change our mind" field, or the model-output probability+inputs store. Those
+eight brief requirements are this pack's reason to exist; everything else in the brief is
+either already delivered by a sibling pack (and will be re-verified, not rebuilt) or is
+recorded in the decision-readiness ledger with the gate that blocks it.
+
+**Standing requests this pack will attempt to close at integration (R4/R5/R6 lineage):**
+`scripts/source_coverage.py` `PUBLISHERS` lacks `nfl.com` / `operations.nfl.com`, and
+`tools/release_gate.py` `OFFICIAL_HOSTS` lacks `www.nfl.com`, so every NFL-sourced row is
+misclassified `secondary_reference_only` by the shared tooling. Multiple sessions
+(`309921cc`, `d966f630`, `a411fed0`) left this request open. As the integrating session,
+`8362b702` will attempt the allowlist fix plus fixed-point regeneration at P11 and record the
+result either way.
