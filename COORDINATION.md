@@ -2406,3 +2406,63 @@ Appending this board changes `COORDINATION.md`, which is hashed by `data/assuran
 - **Board note:** a local shallow-clone check could not find `8dae384`; GitHub confirms PR #90 merged at that commit. The sandbox clone is now unshallowed.
 
 **Session `90b7491e` final status (2026-11-15):** S1–S5 all `done`. Record PR #98 merged at `0ccfff5`; Pages build for `0ccfff5` → `built`. Open items carried forward, not blocking: F-10 (re-confirm 13 Week 11 game-centre URLs), the d966f630 and 309921cc corrections (cross-session requests above), the strict source-coverage failure on `main`, and the `docs/index.html` navigation link for `docs/nfl-s11/`.
+
+## Session `arena/e5e38f9e-own6` — NFL brief-to-evidence trace, Week 10 official reconciliation, decision-readiness site (claimed 2026-11-15)
+
+**Branch constraint.** Arena fixes this session to `arena/e5e38f9e-own6` (base `32a1b69` = `origin/main` after PR #91). The brief's `session-<id>/<task>` branches are not created; disjoint file scopes on this branch replace them, as prior sessions did.
+
+**Concurrency check before claiming.** Open PRs: #94 (`arena/d966f630-own6`, board/inventory only), #84 (`arena/baa41d14-own6`, `data/nfl_desk/**`, `docs/nfl-decision-desk/**`), #79, #72, #68, #56, #54, #52, #48. No task below overlaps those scopes. Shared files are touched additively only.
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| E1 Line-by-line trace of the brief (every requirement → status, repo evidence, blocking gate, number that clears it) | in progress | `e5e38f9e` | `data/nfl_e5e38f9e/brief_trace.csv` |
+| E2 Official Week 10 finals read + reconciliation against every pack's results files | in progress | `e5e38f9e` | `data/nfl_e5e38f9e/official_w10_finals.csv`, `data/nfl_e5e38f9e/w10_pack_reconciliation.csv` |
+| E3 Official Week 10 injury spot-check (4 clubs read in full) + comparison to every pack's injury file | in progress | `e5e38f9e` | `data/nfl_e5e38f9e/official_injury_spotcheck.csv`, `data/nfl_e5e38f9e/injury_pack_comparison.csv` |
+| E4 Questions to answer before deciding, and review-only suggestions | in progress | `e5e38f9e` | `data/nfl_e5e38f9e/questions.csv`, `data/nfl_e5e38f9e/suggestions.csv` |
+| E5 Flagged for Review, sources register, Pages site (landing + subpages) | in progress | `e5e38f9e` | `data/nfl_e5e38f9e/flagged.csv`, `data/nfl_e5e38f9e/sources.csv`, `docs/nfl-e5e38f9e/**` |
+| E6 Builder, checker, unit tests, CI, executive summary | in progress | `e5e38f9e` | `scripts/build_nfl_e5e38f9e.py`, `scripts/check_nfl_e5e38f9e.py`, `tests/test_nfl_e5e38f9e.py`, `.github/workflows/nfl-e5e38f9e-ci.yml`, `NFL_E5E38F9E_EXECUTIVE_SUMMARY.md` |
+| E7 Integration: inventories regenerated, one additive README line, PR to `main`, merge, Pages check | pending | `e5e38f9e` | `COORDINATION.md`, `README.md` (additive), `data/assurance/**`, `data/source_coverage/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md` |
+
+**Sandbox limit (recorded before any work).** The bash sandbox allows only github.com, codeload, api.github.com, registry.npmjs.org, pypi.org and files.pythonhosted.org, so no script in this session can read nfl.com. Official NFL pages were read with the page-fetch tool only; every official value below carries the URL and read date, and nothing was typed from memory.
+
+### Completion record — session `e5e38f9e` (2026-11-15)
+
+| Task | Status | What was delivered |
+|---|---|---|
+| E1 Brief trace | **done** | `data/nfl_e5e38f9e/brief_trace.csv`: 76 rows, one per brief item, with status, repo evidence, blocking gate, number that clears it, and flag ids. Statuses: 10 built and checked, 29 partly built, 28 not built, 4 blocked by an outside source, 1 owner decision, 3 rejected approaches not used, 1 pending. |
+| E2 Week 10 reconciliation | **done** | Official finals read on 2026-11-15 (nfl.com schedule, 2 chunks, complete). Nine games Final; three live; two not started. Compared with six pack feeds in `w10_pack_reconciliation.csv`: only WAS–NYG matches in any pack. Eight finals absent from the d966, f4, market and 6cef feeds; a411fed0 has no Week 10 rows. |
+| E3 Week 10 injury spot-check | **done** | 44 official rows for WAS, NYG, NE and DET (nfl.com/injuries, chunk 0 of 8). Compared with five packs in `injury_pack_comparison.csv`. The three Lions Out designations are confirmed. Conflicts: 309921cc and nfl_wk on Joseph (practice), Vaki and St. Brown. The full official row count was not completed. |
+| E4 Questions and suggestions | **done** | 14 questions (each with a route to an answer; 9 are self-serveable or owner-decided), 11 suggestions, all `awaiting_human_choice`. |
+| E5 Flagged, sources and site | **done** | 16 flags (`E5-F01`–`E5-F16`), 2 official sources read (`sources.csv`), Pages site at `docs/nfl-e5e38f9e/` (7 HTML pages, landing carries the decision-readiness table). |
+| E6 Builder, checker, tests, CI, summary | **done** | `scripts/build_nfl_e5e38f9e.py` (deterministic), `scripts/check_nfl_e5e38f9e.py` (drift, official-read, trace, flag, question, suggestion and link checks: OK), `tests/test_nfl_e5e38f9e.py` (16 tests, OK), `.github/workflows/nfl-e5e38f9e-ci.yml`, `NFL_E5E38F9E_EXECUTIVE_SUMMARY.md`. |
+| E7 Integration | **in progress** | Inventories regenerated to a fixed point (3 passes). Root `index.html` (one button) and `README.md` (one bullet) changed additively. PR and merge recorded in the next entry. |
+
+**Sources read this session** (official only, dates in `data/nfl_e5e38f9e/sources.csv`):
+- https://www.nfl.com/schedules/2026/by-week/week-10 — read 2026-11-15, complete (2 chunks).
+- https://www.nfl.com/injuries/ — read 2026-11-15, chunk 0 of 8 (WAS, NYG, NE, DET).
+
+**Verification performed.** Checker: 76 brief rows; 16 flags; 14 questions; 11 suggestions; all internal links resolve; external links limited to nfl.com and github.com; generated files match the builder. Tests: 16 for this pack; repo-wide `unittest discover -s tests` 359 tests OK. `tools/release_gate.py` 0 issues. `tools/check_site.py` 13 strict pages, 0 errors. Inventory chain (`source_coverage` → `build_review` → `audit_repo` → `build_assurance`) reached a fixed point over three passes.
+
+**Irregularities (all on the Flagged page; none blocks the merge).**
+- E5-F01 eight Week 10 finals missing from pack feeds.
+- E5-F02 / E5-F15 designation conflicts in 309921cc and nfl_wk (Joseph, Vaki, St. Brown) and across packs (Ossai).
+- E5-F04 Week 10 injury row counts differ by pack (326, 347, 50); 254 and 279 in no pack.
+- E5-F05 `leaderboard_combined.csv` publishes units and drawdown beside signal rank on the d966 leaderboard page.
+- E5-F06 D966-STR-01 recorded as live without a price.
+- E5-F16 nfl_f4 holds 168 third-party DraftKings prices (ESPN odds endpoint) labelled verified; nfl_market says such a source breaches the official-source-only rule. This pack publishes no price.
+- E5-F03 no scheduled or hashed capture; sandbox cannot reach nfl.com from scripts.
+- E5-F14 the brief's VR-/VQ- identifiers appear in no repo file.
+
+**Handoff and deviations (logged).**
+- Branch rule: the brief's `session-<id>/<task>` branches were not used; the session branch is fixed. Scopes stayed disjoint from open PRs #94, #84, #79, #72, #68, #56, #54, #52 and #48.
+- Repo maintenance: the clone was shallow (2 commits), so `scripts/audit_repo.py` failed on its base commit `86eca0f`. `git fetch --unshallow origin` restored history (347 commits); the audit then ran. Recorded here so the next integrator does not repeat it.
+- Sandbox limit: nfl.com cannot be read from bash. Official values were read only with the page-fetch tool and carry their URL and read date.
+- Not done: game-centre venue reads, Texans depth image, NYJ block, Week 1–6 finals, full Week 10 injury count, any capture automation. These are listed as self-serveable questions (`questions.csv`).
+
+### Integration repair — session `e5e38f9e` (2026-11-15)
+
+- **Rebase conflict (logged, not discarded).** `main` moved to `0d24be7` (PR #95, session `7c86bfb0`) while this branch was open. Conflicts: `COORDINATION.md` (both sides kept, in order: 7c86bfb0 block first, this session's block second); generated inventories `audit/SOURCE_COVERAGE.md`, `data/assurance/inventory.csv`, `data/source_coverage/*`, `docs/coverage/*` (taken from `main`, then regenerated to a fixed point). One earlier attempt staged a half-resolved board and was aborted before any push; history was re-applied from the clean claim.
+- **Upstream defect repaired on `index.html`.** PR #95 (`f48a532`) wrote 180 backslash-escaped quotes (`\"`) into the root landing page's markup, which broke 32 release-gate links on `main`. The file has no script tags, so every `\"` was unescaped to `"`. No other content changed. `tools/release_gate.py` returns 0 issues again and `tools/check_site.py` reports 13 strict pages, 0 errors.
+- **Shared landing page.** This branch adds one button (`docs/nfl-e5e38f9e/index.html`) next to the existing NFL pack buttons. The 7c86bfb0 decision-readiness table (REQ-01..REQ-16) is kept as published; this session's 76-row table lives on `docs/nfl-e5e38f9e/index.html`.
+- **Gates after repair.** `unittest discover -s tests`: 359 OK. `scripts/check_nfl_e5e38f9e.py`: OK. `tools/release_gate.py`: 0 issues. `tools/check_site.py`: 0 errors. Inventory chain: fixed point over three passes.
+- **Pre-merge verification (PR #96).** Verified locally: `nfl_wk` and `nfl_market` injury rows (326, 50); `309921cc` and `d966f630` injury rows (326, 347); the four missing depth clubs in `club_depth_rollup.csv` are exactly the Week 10 bye clubs (CHI, DEN, PHI, TB; the rollup labels the Rams `LA`). Not verified and softened: the earlier-pack note that only four club depth charts were extractable. The brief's 254 and 279 counts are not reproduced in any pack. The 14 `official_game_page` URLs were never fetched, so they are blanked; each finals row now links to the official schedule page that was read (nfl.com), and the checker requires a nfl.com source per row.

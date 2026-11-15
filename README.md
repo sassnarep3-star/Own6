@@ -6,6 +6,7 @@ An evidence-first research repository with an NFL line-origination and validatio
 
 - **Live NFL landing page:** https://sassnarep3-star.github.io/Own6/ — no-input overview with clear links to the decision tools, workspaces, suggestions, and Flagged for Review.
 - **Main NFL Origination dashboard:** [`docs/nfl-origination/index.html`](docs/nfl-origination/index.html) — the 12-gate research framework and 10 preregistered strategy candidates.
+- **Decision-readiness and evidence pack (e5e38f9e):** [`docs/nfl-e5e38f9e/index.html`](docs/nfl-e5e38f9e/index.html) — one row per brief requirement with its blocking gate, the Week 10 official-score reconciliation across packs, the Week 10 injury spot-check, questions, suggestions, and Flagged for Review. No edge or profit is shown.
 - **Suggestions (review before project changes):** [`docs/nfl-origination/suggestions.html`](docs/nfl-origination/suggestions.html)
 - **Flagged for Review:** [`docs/nfl-origination/flagged.html`](docs/nfl-origination/flagged.html)
 - **NFL executive summary:** [`docs/nfl-origination/executive-summary.html`](docs/nfl-origination/executive-summary.html)

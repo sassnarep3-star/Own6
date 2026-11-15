@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sources | Own6 NFL evidence pack</title>
+<style>
+:root{--ink:#13283b;--muted:#526477;--navy:#10263c;--teal:#087e79;--line:#d8e1e5;--paper:#f4f7f8;
+--ok:#0d6b3a;--okbg:#e2f5ea;--warn:#704500;--warnbg:#fff3d8;--bad:#8a1c1c;--badbg:#fbe4e4;--mutedbg:#eef1f3}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--paper);line-height:1.5}
+a{color:var(--teal)}header{background:var(--navy);color:#fff;padding:20px 24px}header a{color:#a8f0d3}
+header h1{margin:0 0 4px;font-size:1.5rem}header p{margin:0;color:#c8d6df;font-size:.95rem}
+nav{background:#fff;border-bottom:1px solid var(--line);padding:10px 24px;font-size:.95rem}nav a{margin-right:16px;text-decoration:none;font-weight:600}
+main{max-width:1200px;margin:0 auto;padding:20px 24px 40px}section{background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin-bottom:18px}
+h2{margin:0 0 10px;font-size:1.2rem}h3{margin:14px 0 6px;font-size:1rem}
+.note{background:var(--warnbg);color:var(--warn);border-radius:8px;padding:10px 14px;margin:0 0 14px}
+.boundary{color:var(--muted);font-size:.9rem}
+table{width:100%;border-collapse:collapse;font-size:.88rem;margin-top:8px}th,td{text-align:left;vertical-align:top;padding:7px 8px;border-bottom:1px solid var(--line)}
+th{background:var(--soft,#e9f2f2);font-size:.82rem;text-transform:uppercase;letter-spacing:.02em;color:var(--muted)}
+tr:nth-child(even) td{background:#fbfdfd}.wrap{overflow-x:auto}
+.badge{display:inline-block;border-radius:999px;padding:2px 9px;font-size:.78rem;font-weight:600;white-space:nowrap}
+.ok{background:var(--okbg);color:var(--ok)}.warn{background:var(--warnbg);color:var(--warn)}.bad{background:var(--badbg);color:var(--bad)}.muted{background:var(--mutedbg);color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}.card{border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.card b{display:block;font-size:1.5rem}.card span{color:var(--muted);font-size:.85rem}
+footer{color:var(--muted);font-size:.85rem;text-align:center;padding:20px}
+</style></head>
+<body>
+<header><h1>Sources</h1>
+<p>Own6 · NFL evidence pack e5e38f9e · Official values link to nfl.com; blank means unverified. Nothing here shows an edge or a profit.</p></header>
+<nav><a href="index.html">Landing</a><a href="reconciliation.html">Week 10 official reconciliation</a><a href="injuries.html">Week 10 injury spot-check</a><a href="questions.html">Questions</a><a href="suggestions.html">Suggestions (review only)</a><a href="flagged.html">Flagged for Review</a><a href="sources.html">Sources</a> <a href="../../README.md">Repository README</a></nav>
+<main><section><p class="note">Only official pages read in this session count as sources. A link without a read is shown as not read.</p>
+<div class="wrap"><table><thead><tr><th>ID</th><th>Publisher</th><th>URL</th><th>Read on (UTC)</th><th>Method</th><th>What was read</th><th>Supports</th><th>Does not support</th></tr></thead><tbody><tr><td>S-E5-01</td><td>NFL (official)</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-10" rel="noopener">https://www.nfl.com/schedules/2026/by-week/week-10</a></td><td>2026-11-15</td><td>page-fetch tool (2 chunks; hasMore false on chunk 1)</td><td>All 14 Week 10 games with status and score as printed; bye clubs CHI DEN PHI TB; Week 16-18 designated-matchup text</td><td>Week 10 final and live scores and statuses (official_w10_finals.csv)</td><td>Venue; time zones beyond printed ET; any score not printed on the page</td></tr><tr><td>S-E5-02</td><td>NFL (official)</td><td><a href="https://www.nfl.com/injuries/" rel="noopener">https://www.nfl.com/injuries/</a></td><td>2026-11-15</td><td>page-fetch tool (chunk 0 of 8 read)</td><td>Week 10 report: WAS 9 rows; NYG 11 rows; NE 15 rows; DET 9 rows</td><td>Practice and game status for the 44 listed rows (official_injury_spotcheck.csv)</td><td>Row counts for the whole report; any club not listed above; the NYJ block</td></tr><tr><td>S-E5-03</td><td>NFL (official)</td><td><a href="https://www.nfl.com/games/commanders-at-giants-2026-reg-10" rel="noopener">https://www.nfl.com/games/commanders-at-giants-2026-reg-10</a></td><td>not read</td><td>linked from S-E5-01 only</td><td>nothing (link only)</td><td>Nothing in this pack</td><td>Any game-centre field</td></tr></tbody></table></div></section></main>
+<footer>Built by scripts/build_nfl_e5e38f9e.py from data/nfl_e5e38f9e/. Generated file: edit the CSV, not this page.</footer>
+</body></html>

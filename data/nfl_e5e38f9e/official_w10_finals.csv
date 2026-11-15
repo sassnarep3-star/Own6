@@ -1,0 +1,15 @@
+game_key,week,day_et,away,away_score,home,home_score,official_status_at_read,official_game_page,official_schedule_page,read_on_utc,notes
+2026-REG-10-was-at-nyg,10,2026-11-12,WAS,24,NYG,21,Final,,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15,Thursday night; schedule page prints Final
+2026-REG-10-ne-at-det,10,2026-11-15,NE,10,DET,35,Final,,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15,Schedule page prints Final and Nov 15
+2026-REG-10-kc-at-atl,10,2026-11-15,KC,35,ATL,13,Final,,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15,
+2026-REG-10-hou-at-cle,10,2026-11-15,HOU,24,CLE,27,Final,,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15,
+2026-REG-10-min-at-gb,10,2026-11-15,MIN,30,GB,10,Final,,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15,
+2026-REG-10-mia-at-ind,10,2026-11-15,MIA,22,IND,24,Final,,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15,
+2026-REG-10-car-at-no,10,2026-11-15,CAR,20,NO,17,Final,,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15,
+2026-REG-10-buf-at-nyj,10,2026-11-15,BUF,31,NYJ,12,Final,,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15,
+2026-REG-10-jax-at-ten,10,2026-11-15,JAX,40,TEN,23,Final,,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15,
+2026-REG-10-lar-at-az,10,2026-11-15,LAR,34,AZ,6,Q4 - not final at read,,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15,Live at read; excluded from final-score reconciliation
+2026-REG-10-sea-at-lv,10,2026-11-15,SEA,21,LV,10,Q4 - not final at read,,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15,Live at read; excluded from final-score reconciliation
+2026-REG-10-sf-at-dal,10,2026-11-15,SF,24,DAL,19,Q3 - not final at read,,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15,Live at read; excluded from final-score reconciliation
+2026-REG-10-pit-at-cin,10,2026-11-15,PIT,,CIN,,Scheduled 8:20 PM ET (not started at read),,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15,No score
+2026-REG-10-lac-at-bal,10,2026-11-16,LAC,,BAL,,Scheduled 8:15 PM ET Monday (not started at read),,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15,No score
