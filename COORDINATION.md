@@ -2337,7 +2337,15 @@ All work on the fixed Arena branch `arena/7c86bfb0-own6`; no `session-*` branch 
 | I2 Executive summary referenced from the landing page | done | arena/7c86bfb0-own6 | `index.html` → `docs/nfl-origination/executive-summary.html`, `NFL_ORIGINATION_EXECUTIVE_SUMMARY.md` |
 | I3 Build/verify the NFL Origination dashboard | done | arena/7c86bfb0-own6 | `scripts/build_nfl_origination.py`, `scripts/check_nfl_origination.py` (green: 11 pages, 348 sourced table rows, 462 blank cells, 0 `<input>` elements) |
 | I4 Flag irregularities incl. session official-source re-verification limitation | done | arena/7c86bfb0-own6 | `index.html` (session limitation note); existing `docs/nfl-origination/flagged.html` (NFL-F01..F25+) |
-| I5 PR from `arena/7c86bfb0-own6` to `main`, merge, confirm GitHub Pages deploy | in progress | arena/7c86bfb0-own6 | all integration outputs |
+| I5 PR from `arena/7c86bfb0-own6` to `main`, merge, confirm GitHub Pages deploy | done | arena/7c86bfb0-own6 | all integration outputs |
+
+### Merge result (recorded per release policy)
+
+- PR: https://github.com/sassnarep3-star/Own6/pull/95 (`arena/7c86bfb0-own6` → `main`)
+- Merge result: merged with merge commit `0d24be716272041fbc49502714a60592fe78cd46` (no `--auto`, no squash, no rebase).
+- GitHub Pages: source `main:/`, build `1373146531` reached status `built` at `2026-11-15T23:34:06Z` with no error.
+- Live site: https://sassnarep3-star.github.io/Own6/ (landing page renders the decision-readiness table, REQ-01..REQ-16).
+- PR body records the change summary, sources used, and flagged irregularities; flagged items do not block the merge and are published for review.
 
 ### Coordination note
 This session is the integration session for its branch. All non-integration NFL packs (`docs/nfl-309921cc/`, `docs/nfl-6cefc476/`, `docs/nfl-d966f630/`, `docs/nfl-f4/`, `docs/nfl-market/`, `docs/nfl-wk/`, `docs/nfl/`, `docs/nfl-3b81013c/`, `docs/nfl-a411fed0/`) and their `data/`, `src/` trees are preserved untouched; this session only adds to the root `index.html` and appends this section to `COORDINATION.md`.
