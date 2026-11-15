@@ -2406,3 +2406,21 @@ Appending this board changes `COORDINATION.md`, which is hashed by `data/assuran
 - **Board note:** a local shallow-clone check could not find `8dae384`; GitHub confirms PR #90 merged at that commit. The sandbox clone is now unshallowed.
 
 **Session `90b7491e` final status (2026-11-15):** S1–S5 all `done`. Record PR #98 merged at `0ccfff5`; Pages build for `0ccfff5` → `built`. Open items carried forward, not blocking: F-10 (re-confirm 13 Week 11 game-centre URLs), the d966f630 and 309921cc corrections (cross-session requests above), the strict source-coverage failure on `main`, and the `docs/index.html` navigation link for `docs/nfl-s11/`.
+
+## Session `arena/e5e38f9e-own6` — NFL brief-to-evidence trace, Week 10 official reconciliation, decision-readiness site (claimed 2026-11-15)
+
+**Branch constraint.** Arena fixes this session to `arena/e5e38f9e-own6` (base `32a1b69` = `origin/main` after PR #91). The brief's `session-<id>/<task>` branches are not created; disjoint file scopes on this branch replace them, as prior sessions did.
+
+**Concurrency check before claiming.** Open PRs: #94 (`arena/d966f630-own6`, board/inventory only), #84 (`arena/baa41d14-own6`, `data/nfl_desk/**`, `docs/nfl-decision-desk/**`), #79, #72, #68, #56, #54, #52, #48. No task below overlaps those scopes. Shared files are touched additively only.
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| E1 Line-by-line trace of the brief (every requirement → status, repo evidence, blocking gate, number that clears it) | in progress | `e5e38f9e` | `data/nfl_e5e38f9e/brief_trace.csv` |
+| E2 Official Week 10 finals read + reconciliation against every pack's results files | in progress | `e5e38f9e` | `data/nfl_e5e38f9e/official_w10_finals.csv`, `data/nfl_e5e38f9e/w10_pack_reconciliation.csv` |
+| E3 Official Week 10 injury spot-check (4 clubs read in full) + comparison to every pack's injury file | in progress | `e5e38f9e` | `data/nfl_e5e38f9e/official_injury_spotcheck.csv`, `data/nfl_e5e38f9e/injury_pack_comparison.csv` |
+| E4 Questions to answer before deciding, and review-only suggestions | in progress | `e5e38f9e` | `data/nfl_e5e38f9e/questions.csv`, `data/nfl_e5e38f9e/suggestions.csv` |
+| E5 Flagged for Review, sources register, Pages site (landing + subpages) | in progress | `e5e38f9e` | `data/nfl_e5e38f9e/flagged.csv`, `data/nfl_e5e38f9e/sources.csv`, `docs/nfl-e5e38f9e/**` |
+| E6 Builder, checker, unit tests, CI, executive summary | in progress | `e5e38f9e` | `scripts/build_nfl_e5e38f9e.py`, `scripts/check_nfl_e5e38f9e.py`, `tests/test_nfl_e5e38f9e.py`, `.github/workflows/nfl-e5e38f9e-ci.yml`, `NFL_E5E38F9E_EXECUTIVE_SUMMARY.md` |
+| E7 Integration: inventories regenerated, one additive README line, PR to `main`, merge, Pages check | pending | `e5e38f9e` | `COORDINATION.md`, `README.md` (additive), `data/assurance/**`, `data/source_coverage/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md` |
+
+**Sandbox limit (recorded before any work).** The bash sandbox allows only github.com, codeload, api.github.com, registry.npmjs.org, pypi.org and files.pythonhosted.org, so no script in this session can read nfl.com. Official NFL pages were read with the page-fetch tool only; every official value below carries the URL and read date, and nothing was typed from memory.
