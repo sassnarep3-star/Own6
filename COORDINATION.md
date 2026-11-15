@@ -2372,7 +2372,7 @@ Appending this board changes `COORDINATION.md`, which is hashed by `data/assuran
 | S2 Week 11 venue sweep | done (URLs flagged) | 13 venues recorded from nfl.com game-centre Game Info pages. No URL was re-fetched during the build; all 13 are flagged F-10 for re-confirmation. | `data/nfl_s11/schedule_w11_venues.csv` |
 | S3 Flagged for Review, sources, executive summary | done | 14 flags (all `blocks_publish = no`), 24 source rows. | `docs/nfl-s11/**`, `NFL_S11_EXECUTIVE_SUMMARY.md`, `data/nfl_s11/flagged.csv`, `data/nfl_s11/sources.csv` |
 | S4 Checker + tests + CI | done | `scripts/check_nfl_s11.py` OK (pinned counts, no `<input>`, one nfl.com link per row). `tests.test_nfl_s11`: 14 tests OK. Full suite: 357 tests OK. | `scripts/build_nfl_s11.py`, `scripts/check_nfl_s11.py`, `tests/test_nfl_s11.py`, `.github/workflows/nfl-s11-ci.yml` |
-| S5 Final integration | in progress | Inventory regeneration, PR to `main`, merge, Pages check. `docs/index.html` nav link NOT edited (integration session to add). | this section, `README.md` (append-only) |
+| S5 Final integration | done (PR #97 merged `c25cf31`; record PR #98 merged `0ccfff5`; Pages built) | Inventory regeneration, PR to `main`, merge, Pages check. `docs/index.html` nav link NOT edited (integration session to add). | this section, `README.md` (append-only) |
 
 **Verification notes:**
 - Every flagged value was re-read against the live page in this session (14 player rows, 28 field values); 28 other rows were sampled. Full field-by-field confirmation of all 347 rows was not done.
@@ -2404,3 +2404,5 @@ Appending this board changes `COORDINATION.md`, which is hashed by `data/assuran
 - **Still open, not fixed by this PR:** `scripts/source_coverage.py --check --strict` fails on `main` (6,761 legacy rows lack external official-reference coverage; 6,777 after this PR). Pre-existing; needs a separate decision about the legacy rows.
 - **Integration duty for the next session:** `docs/index.html` nav link to `docs/nfl-s11/index.html` is not added. The Week 11 game-centre URLs are still flagged F-10 for re-confirmation.
 - **Board note:** a local shallow-clone check could not find `8dae384`; GitHub confirms PR #90 merged at that commit. The sandbox clone is now unshallowed.
+
+**Session `90b7491e` final status (2026-11-15):** S1–S5 all `done`. Record PR #98 merged at `0ccfff5`; Pages build for `0ccfff5` → `built`. Open items carried forward, not blocking: F-10 (re-confirm 13 Week 11 game-centre URLs), the d966f630 and 309921cc corrections (cross-session requests above), the strict source-coverage failure on `main`, and the `docs/index.html` navigation link for `docs/nfl-s11/`.
