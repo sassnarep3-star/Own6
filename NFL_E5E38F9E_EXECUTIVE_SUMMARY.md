@@ -27,11 +27,11 @@ Full table with the blocking gate and the number that clears each row: `data/nfl
 
 1. **Eight final Week 10 games are missing from every results feed that holds Week 10** (E5-F01). The d966 feed has one Week 10 game, and a411fed0 has none. Any ROI on those feeds is computed on an incomplete corpus.
 2. **Designation errors in two packs** (E5-F02): nfl_wk and 309921cc print Kerby Joseph as practicing in full when the official page says he did not practice; they also mismatch Sione Vaki and Amon-Ra St. Brown.
-3. **Injury row counts disagree across packs** (E5-F04): 326 rows in 309921cc and nfl_wk, 347 in a411fed0 and d966f630, 50 in nfl_market. The 254 and 279 counts in the brief appear in no pack. The official total is not counted here.
+3. **Injury row counts disagree across packs** (E5-F04): 326 rows in 309921cc and nfl_wk, 347 in a411fed0 and d966f630, 50 in nfl_market. No pack has 254 or 279 injury rows (the digits occur only as row IDs such as INJ-254); the brief's counts are not reproduced. The official total is not counted here.
 4. **Backtest units appear on a combined leaderboard** (E5-F05): `leaderboard_combined.csv` carries units and drawdown beside the signal rank, and the d966 leaderboard page publishes them. The brief forbids this.
 5. **A strategy is marked live with no price** (E5-F06): D966-STR-01 is recorded as `live` (effective 2026-11-14) while the same pack has no market price to settle it. The demotion gate should return it to paper.
 6. **Third-party prices labelled "verified"** (E5-F16): nfl_f4 holds 168 DraftKings Week 10 prices from an ESPN odds endpoint, marked verified. nfl_market states that a third-party book would breach the official-source-only rule and leaves its cells blank. The packs disagree; this pack publishes no price.
-7. **Depth coverage is 28 of 32 clubs, and the 4 missing are bye clubs** (E5-F08). Only 4 club depth charts were extractable as text in an earlier pack, and the Texans depth chart is an image.
+7. **Depth coverage is 28 of 32 clubs, and the 4 missing are bye clubs** (E5-F08). The Texans depth chart is an image and was not read (earlier-pack note; not re-verified this session).
 8. **Joseph Ossai (NYJ) has conflicting designations** across packs (E5-F15). The NYJ block was not read.
 9. **The brief's VR-/VQ- review identifiers appear nowhere in the repo** (E5-F14), so references to them cannot be traced.
 10. **No automated or hashed capture exists** (E5-F03). The sandbox allowlist excludes nfl.com, so no script here can read it; the page-fetch tool can, but it is not scriptable.

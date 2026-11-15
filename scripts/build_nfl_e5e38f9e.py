@@ -140,7 +140,7 @@ def reconcile_finals() -> list[dict]:
                 "pack": pack,
                 "pack_value": pscore,
                 "result": result,
-                "official_source_url": g["official_game_page"],
+                "official_source_url": g["official_game_page"] or g["official_schedule_page"],
                 "read_on_utc": g["read_on_utc"],
             })
     return rows

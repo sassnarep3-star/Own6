@@ -1,85 +1,85 @@
 game_key,official_matchup,official_status_at_read,pack,pack_value,result,official_source_url,read_on_utc
-2026-REG-10-was-at-nyg,WAS 24 - NYG 21,Final,d966f630,WAS 24 - NYG 21,match,https://www.nfl.com/games/commanders-at-giants-2026-reg-10,2026-11-15
-2026-REG-10-was-at-nyg,WAS 24 - NYG 21,Final,6cefc476,WAS 24 - NYG 21,match,https://www.nfl.com/games/commanders-at-giants-2026-reg-10,2026-11-15
-2026-REG-10-was-at-nyg,WAS 24 - NYG 21,Final,f4,WAS 24 - NYG 21,match,https://www.nfl.com/games/commanders-at-giants-2026-reg-10,2026-11-15
-2026-REG-10-was-at-nyg,WAS 24 - NYG 21,Final,market,WAS 24 - NYG 21,match,https://www.nfl.com/games/commanders-at-giants-2026-reg-10,2026-11-15
-2026-REG-10-was-at-nyg,WAS 24 - NYG 21,Final,309921cc,WAS 24 - NYG 21,match,https://www.nfl.com/games/commanders-at-giants-2026-reg-10,2026-11-15
-2026-REG-10-was-at-nyg,WAS 24 - NYG 21,Final,a411fed0,,missing_in_pack,https://www.nfl.com/games/commanders-at-giants-2026-reg-10,2026-11-15
-2026-REG-10-ne-at-det,NE 10 - DET 35,Final,d966f630,,missing_in_pack,https://www.nfl.com/games/patriots-at-lions-2026-reg-10,2026-11-15
-2026-REG-10-ne-at-det,NE 10 - DET 35,Final,6cefc476,,missing_in_pack,https://www.nfl.com/games/patriots-at-lions-2026-reg-10,2026-11-15
-2026-REG-10-ne-at-det,NE 10 - DET 35,Final,f4,,missing_in_pack,https://www.nfl.com/games/patriots-at-lions-2026-reg-10,2026-11-15
-2026-REG-10-ne-at-det,NE 10 - DET 35,Final,market,,missing_in_pack,https://www.nfl.com/games/patriots-at-lions-2026-reg-10,2026-11-15
-2026-REG-10-ne-at-det,NE 10 - DET 35,Final,309921cc,NE  - DET ,pack_not_final,https://www.nfl.com/games/patriots-at-lions-2026-reg-10,2026-11-15
-2026-REG-10-ne-at-det,NE 10 - DET 35,Final,a411fed0,,missing_in_pack,https://www.nfl.com/games/patriots-at-lions-2026-reg-10,2026-11-15
-2026-REG-10-kc-at-atl,KC 35 - ATL 13,Final,d966f630,,missing_in_pack,https://www.nfl.com/games/chiefs-at-falcons-2026-reg-10,2026-11-15
-2026-REG-10-kc-at-atl,KC 35 - ATL 13,Final,6cefc476,,missing_in_pack,https://www.nfl.com/games/chiefs-at-falcons-2026-reg-10,2026-11-15
-2026-REG-10-kc-at-atl,KC 35 - ATL 13,Final,f4,,missing_in_pack,https://www.nfl.com/games/chiefs-at-falcons-2026-reg-10,2026-11-15
-2026-REG-10-kc-at-atl,KC 35 - ATL 13,Final,market,,missing_in_pack,https://www.nfl.com/games/chiefs-at-falcons-2026-reg-10,2026-11-15
-2026-REG-10-kc-at-atl,KC 35 - ATL 13,Final,309921cc,KC  - ATL ,pack_not_final,https://www.nfl.com/games/chiefs-at-falcons-2026-reg-10,2026-11-15
-2026-REG-10-kc-at-atl,KC 35 - ATL 13,Final,a411fed0,,missing_in_pack,https://www.nfl.com/games/chiefs-at-falcons-2026-reg-10,2026-11-15
-2026-REG-10-hou-at-cle,HOU 24 - CLE 27,Final,d966f630,,missing_in_pack,https://www.nfl.com/games/texans-at-browns-2026-reg-10,2026-11-15
-2026-REG-10-hou-at-cle,HOU 24 - CLE 27,Final,6cefc476,,missing_in_pack,https://www.nfl.com/games/texans-at-browns-2026-reg-10,2026-11-15
-2026-REG-10-hou-at-cle,HOU 24 - CLE 27,Final,f4,,missing_in_pack,https://www.nfl.com/games/texans-at-browns-2026-reg-10,2026-11-15
-2026-REG-10-hou-at-cle,HOU 24 - CLE 27,Final,market,,missing_in_pack,https://www.nfl.com/games/texans-at-browns-2026-reg-10,2026-11-15
-2026-REG-10-hou-at-cle,HOU 24 - CLE 27,Final,309921cc,HOU  - CLE ,pack_not_final,https://www.nfl.com/games/texans-at-browns-2026-reg-10,2026-11-15
-2026-REG-10-hou-at-cle,HOU 24 - CLE 27,Final,a411fed0,,missing_in_pack,https://www.nfl.com/games/texans-at-browns-2026-reg-10,2026-11-15
-2026-REG-10-min-at-gb,MIN 30 - GB 10,Final,d966f630,,missing_in_pack,https://www.nfl.com/games/vikings-at-packers-2026-reg-10,2026-11-15
-2026-REG-10-min-at-gb,MIN 30 - GB 10,Final,6cefc476,,missing_in_pack,https://www.nfl.com/games/vikings-at-packers-2026-reg-10,2026-11-15
-2026-REG-10-min-at-gb,MIN 30 - GB 10,Final,f4,,missing_in_pack,https://www.nfl.com/games/vikings-at-packers-2026-reg-10,2026-11-15
-2026-REG-10-min-at-gb,MIN 30 - GB 10,Final,market,,missing_in_pack,https://www.nfl.com/games/vikings-at-packers-2026-reg-10,2026-11-15
-2026-REG-10-min-at-gb,MIN 30 - GB 10,Final,309921cc,MIN  - GB ,pack_not_final,https://www.nfl.com/games/vikings-at-packers-2026-reg-10,2026-11-15
-2026-REG-10-min-at-gb,MIN 30 - GB 10,Final,a411fed0,,missing_in_pack,https://www.nfl.com/games/vikings-at-packers-2026-reg-10,2026-11-15
-2026-REG-10-mia-at-ind,MIA 22 - IND 24,Final,d966f630,,missing_in_pack,https://www.nfl.com/games/dolphins-at-colts-2026-reg-10,2026-11-15
-2026-REG-10-mia-at-ind,MIA 22 - IND 24,Final,6cefc476,,missing_in_pack,https://www.nfl.com/games/dolphins-at-colts-2026-reg-10,2026-11-15
-2026-REG-10-mia-at-ind,MIA 22 - IND 24,Final,f4,,missing_in_pack,https://www.nfl.com/games/dolphins-at-colts-2026-reg-10,2026-11-15
-2026-REG-10-mia-at-ind,MIA 22 - IND 24,Final,market,,missing_in_pack,https://www.nfl.com/games/dolphins-at-colts-2026-reg-10,2026-11-15
-2026-REG-10-mia-at-ind,MIA 22 - IND 24,Final,309921cc,MIA  - IND ,pack_not_final,https://www.nfl.com/games/dolphins-at-colts-2026-reg-10,2026-11-15
-2026-REG-10-mia-at-ind,MIA 22 - IND 24,Final,a411fed0,,missing_in_pack,https://www.nfl.com/games/dolphins-at-colts-2026-reg-10,2026-11-15
-2026-REG-10-car-at-no,CAR 20 - NO 17,Final,d966f630,,missing_in_pack,https://www.nfl.com/games/panthers-at-saints-2026-reg-10,2026-11-15
-2026-REG-10-car-at-no,CAR 20 - NO 17,Final,6cefc476,,missing_in_pack,https://www.nfl.com/games/panthers-at-saints-2026-reg-10,2026-11-15
-2026-REG-10-car-at-no,CAR 20 - NO 17,Final,f4,,missing_in_pack,https://www.nfl.com/games/panthers-at-saints-2026-reg-10,2026-11-15
-2026-REG-10-car-at-no,CAR 20 - NO 17,Final,market,,missing_in_pack,https://www.nfl.com/games/panthers-at-saints-2026-reg-10,2026-11-15
-2026-REG-10-car-at-no,CAR 20 - NO 17,Final,309921cc,CAR  - NO ,pack_not_final,https://www.nfl.com/games/panthers-at-saints-2026-reg-10,2026-11-15
-2026-REG-10-car-at-no,CAR 20 - NO 17,Final,a411fed0,,missing_in_pack,https://www.nfl.com/games/panthers-at-saints-2026-reg-10,2026-11-15
-2026-REG-10-buf-at-nyj,BUF 31 - NYJ 12,Final,d966f630,,missing_in_pack,https://www.nfl.com/games/bills-at-jets-2026-reg-10,2026-11-15
-2026-REG-10-buf-at-nyj,BUF 31 - NYJ 12,Final,6cefc476,,missing_in_pack,https://www.nfl.com/games/bills-at-jets-2026-reg-10,2026-11-15
-2026-REG-10-buf-at-nyj,BUF 31 - NYJ 12,Final,f4,,missing_in_pack,https://www.nfl.com/games/bills-at-jets-2026-reg-10,2026-11-15
-2026-REG-10-buf-at-nyj,BUF 31 - NYJ 12,Final,market,,missing_in_pack,https://www.nfl.com/games/bills-at-jets-2026-reg-10,2026-11-15
-2026-REG-10-buf-at-nyj,BUF 31 - NYJ 12,Final,309921cc,BUF  - NYJ ,pack_not_final,https://www.nfl.com/games/bills-at-jets-2026-reg-10,2026-11-15
-2026-REG-10-buf-at-nyj,BUF 31 - NYJ 12,Final,a411fed0,,missing_in_pack,https://www.nfl.com/games/bills-at-jets-2026-reg-10,2026-11-15
-2026-REG-10-jax-at-ten,JAX 40 - TEN 23,Final,d966f630,,missing_in_pack,https://www.nfl.com/games/jaguars-at-titans-2026-reg-10,2026-11-15
-2026-REG-10-jax-at-ten,JAX 40 - TEN 23,Final,6cefc476,,missing_in_pack,https://www.nfl.com/games/jaguars-at-titans-2026-reg-10,2026-11-15
-2026-REG-10-jax-at-ten,JAX 40 - TEN 23,Final,f4,,missing_in_pack,https://www.nfl.com/games/jaguars-at-titans-2026-reg-10,2026-11-15
-2026-REG-10-jax-at-ten,JAX 40 - TEN 23,Final,market,,missing_in_pack,https://www.nfl.com/games/jaguars-at-titans-2026-reg-10,2026-11-15
-2026-REG-10-jax-at-ten,JAX 40 - TEN 23,Final,309921cc,JAX  - TEN ,pack_not_final,https://www.nfl.com/games/jaguars-at-titans-2026-reg-10,2026-11-15
-2026-REG-10-jax-at-ten,JAX 40 - TEN 23,Final,a411fed0,,missing_in_pack,https://www.nfl.com/games/jaguars-at-titans-2026-reg-10,2026-11-15
-2026-REG-10-lar-at-az,LA 34 - AZ 6,Q4 - not final at read,d966f630,,not_final_at_read,https://www.nfl.com/games/rams-at-cardinals-2026-reg-10,2026-11-15
-2026-REG-10-lar-at-az,LA 34 - AZ 6,Q4 - not final at read,6cefc476,,not_final_at_read,https://www.nfl.com/games/rams-at-cardinals-2026-reg-10,2026-11-15
-2026-REG-10-lar-at-az,LA 34 - AZ 6,Q4 - not final at read,f4,,not_final_at_read,https://www.nfl.com/games/rams-at-cardinals-2026-reg-10,2026-11-15
-2026-REG-10-lar-at-az,LA 34 - AZ 6,Q4 - not final at read,market,,not_final_at_read,https://www.nfl.com/games/rams-at-cardinals-2026-reg-10,2026-11-15
-2026-REG-10-lar-at-az,LA 34 - AZ 6,Q4 - not final at read,309921cc,,not_final_at_read,https://www.nfl.com/games/rams-at-cardinals-2026-reg-10,2026-11-15
-2026-REG-10-lar-at-az,LA 34 - AZ 6,Q4 - not final at read,a411fed0,,not_final_at_read,https://www.nfl.com/games/rams-at-cardinals-2026-reg-10,2026-11-15
-2026-REG-10-sea-at-lv,SEA 21 - LV 10,Q4 - not final at read,d966f630,,not_final_at_read,https://www.nfl.com/games/seahawks-at-raiders-2026-reg-10,2026-11-15
-2026-REG-10-sea-at-lv,SEA 21 - LV 10,Q4 - not final at read,6cefc476,,not_final_at_read,https://www.nfl.com/games/seahawks-at-raiders-2026-reg-10,2026-11-15
-2026-REG-10-sea-at-lv,SEA 21 - LV 10,Q4 - not final at read,f4,,not_final_at_read,https://www.nfl.com/games/seahawks-at-raiders-2026-reg-10,2026-11-15
-2026-REG-10-sea-at-lv,SEA 21 - LV 10,Q4 - not final at read,market,,not_final_at_read,https://www.nfl.com/games/seahawks-at-raiders-2026-reg-10,2026-11-15
-2026-REG-10-sea-at-lv,SEA 21 - LV 10,Q4 - not final at read,309921cc,,not_final_at_read,https://www.nfl.com/games/seahawks-at-raiders-2026-reg-10,2026-11-15
-2026-REG-10-sea-at-lv,SEA 21 - LV 10,Q4 - not final at read,a411fed0,,not_final_at_read,https://www.nfl.com/games/seahawks-at-raiders-2026-reg-10,2026-11-15
-2026-REG-10-sf-at-dal,SF 24 - DAL 19,Q3 - not final at read,d966f630,,not_final_at_read,https://www.nfl.com/games/49ers-at-cowboys-2026-reg-10,2026-11-15
-2026-REG-10-sf-at-dal,SF 24 - DAL 19,Q3 - not final at read,6cefc476,,not_final_at_read,https://www.nfl.com/games/49ers-at-cowboys-2026-reg-10,2026-11-15
-2026-REG-10-sf-at-dal,SF 24 - DAL 19,Q3 - not final at read,f4,,not_final_at_read,https://www.nfl.com/games/49ers-at-cowboys-2026-reg-10,2026-11-15
-2026-REG-10-sf-at-dal,SF 24 - DAL 19,Q3 - not final at read,market,,not_final_at_read,https://www.nfl.com/games/49ers-at-cowboys-2026-reg-10,2026-11-15
-2026-REG-10-sf-at-dal,SF 24 - DAL 19,Q3 - not final at read,309921cc,,not_final_at_read,https://www.nfl.com/games/49ers-at-cowboys-2026-reg-10,2026-11-15
-2026-REG-10-sf-at-dal,SF 24 - DAL 19,Q3 - not final at read,a411fed0,,not_final_at_read,https://www.nfl.com/games/49ers-at-cowboys-2026-reg-10,2026-11-15
-2026-REG-10-pit-at-cin,PIT  - CIN ,Scheduled 8:20 PM ET (not started at read),d966f630,,not_final_at_read,https://www.nfl.com/games/steelers-at-bengals-2026-reg-10,2026-11-15
-2026-REG-10-pit-at-cin,PIT  - CIN ,Scheduled 8:20 PM ET (not started at read),6cefc476,,not_final_at_read,https://www.nfl.com/games/steelers-at-bengals-2026-reg-10,2026-11-15
-2026-REG-10-pit-at-cin,PIT  - CIN ,Scheduled 8:20 PM ET (not started at read),f4,,not_final_at_read,https://www.nfl.com/games/steelers-at-bengals-2026-reg-10,2026-11-15
-2026-REG-10-pit-at-cin,PIT  - CIN ,Scheduled 8:20 PM ET (not started at read),market,,not_final_at_read,https://www.nfl.com/games/steelers-at-bengals-2026-reg-10,2026-11-15
-2026-REG-10-pit-at-cin,PIT  - CIN ,Scheduled 8:20 PM ET (not started at read),309921cc,,not_final_at_read,https://www.nfl.com/games/steelers-at-bengals-2026-reg-10,2026-11-15
-2026-REG-10-pit-at-cin,PIT  - CIN ,Scheduled 8:20 PM ET (not started at read),a411fed0,,not_final_at_read,https://www.nfl.com/games/steelers-at-bengals-2026-reg-10,2026-11-15
-2026-REG-10-lac-at-bal,LAC  - BAL ,Scheduled 8:15 PM ET Monday (not started at read),d966f630,,not_final_at_read,https://www.nfl.com/games/chargers-at-ravens-2026-reg-10,2026-11-15
-2026-REG-10-lac-at-bal,LAC  - BAL ,Scheduled 8:15 PM ET Monday (not started at read),6cefc476,,not_final_at_read,https://www.nfl.com/games/chargers-at-ravens-2026-reg-10,2026-11-15
-2026-REG-10-lac-at-bal,LAC  - BAL ,Scheduled 8:15 PM ET Monday (not started at read),f4,,not_final_at_read,https://www.nfl.com/games/chargers-at-ravens-2026-reg-10,2026-11-15
-2026-REG-10-lac-at-bal,LAC  - BAL ,Scheduled 8:15 PM ET Monday (not started at read),market,,not_final_at_read,https://www.nfl.com/games/chargers-at-ravens-2026-reg-10,2026-11-15
-2026-REG-10-lac-at-bal,LAC  - BAL ,Scheduled 8:15 PM ET Monday (not started at read),309921cc,,not_final_at_read,https://www.nfl.com/games/chargers-at-ravens-2026-reg-10,2026-11-15
-2026-REG-10-lac-at-bal,LAC  - BAL ,Scheduled 8:15 PM ET Monday (not started at read),a411fed0,,not_final_at_read,https://www.nfl.com/games/chargers-at-ravens-2026-reg-10,2026-11-15
+2026-REG-10-was-at-nyg,WAS 24 - NYG 21,Final,d966f630,WAS 24 - NYG 21,match,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-was-at-nyg,WAS 24 - NYG 21,Final,6cefc476,WAS 24 - NYG 21,match,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-was-at-nyg,WAS 24 - NYG 21,Final,f4,WAS 24 - NYG 21,match,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-was-at-nyg,WAS 24 - NYG 21,Final,market,WAS 24 - NYG 21,match,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-was-at-nyg,WAS 24 - NYG 21,Final,309921cc,WAS 24 - NYG 21,match,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-was-at-nyg,WAS 24 - NYG 21,Final,a411fed0,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-ne-at-det,NE 10 - DET 35,Final,d966f630,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-ne-at-det,NE 10 - DET 35,Final,6cefc476,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-ne-at-det,NE 10 - DET 35,Final,f4,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-ne-at-det,NE 10 - DET 35,Final,market,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-ne-at-det,NE 10 - DET 35,Final,309921cc,NE  - DET ,pack_not_final,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-ne-at-det,NE 10 - DET 35,Final,a411fed0,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-kc-at-atl,KC 35 - ATL 13,Final,d966f630,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-kc-at-atl,KC 35 - ATL 13,Final,6cefc476,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-kc-at-atl,KC 35 - ATL 13,Final,f4,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-kc-at-atl,KC 35 - ATL 13,Final,market,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-kc-at-atl,KC 35 - ATL 13,Final,309921cc,KC  - ATL ,pack_not_final,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-kc-at-atl,KC 35 - ATL 13,Final,a411fed0,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-hou-at-cle,HOU 24 - CLE 27,Final,d966f630,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-hou-at-cle,HOU 24 - CLE 27,Final,6cefc476,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-hou-at-cle,HOU 24 - CLE 27,Final,f4,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-hou-at-cle,HOU 24 - CLE 27,Final,market,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-hou-at-cle,HOU 24 - CLE 27,Final,309921cc,HOU  - CLE ,pack_not_final,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-hou-at-cle,HOU 24 - CLE 27,Final,a411fed0,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-min-at-gb,MIN 30 - GB 10,Final,d966f630,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-min-at-gb,MIN 30 - GB 10,Final,6cefc476,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-min-at-gb,MIN 30 - GB 10,Final,f4,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-min-at-gb,MIN 30 - GB 10,Final,market,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-min-at-gb,MIN 30 - GB 10,Final,309921cc,MIN  - GB ,pack_not_final,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-min-at-gb,MIN 30 - GB 10,Final,a411fed0,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-mia-at-ind,MIA 22 - IND 24,Final,d966f630,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-mia-at-ind,MIA 22 - IND 24,Final,6cefc476,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-mia-at-ind,MIA 22 - IND 24,Final,f4,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-mia-at-ind,MIA 22 - IND 24,Final,market,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-mia-at-ind,MIA 22 - IND 24,Final,309921cc,MIA  - IND ,pack_not_final,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-mia-at-ind,MIA 22 - IND 24,Final,a411fed0,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-car-at-no,CAR 20 - NO 17,Final,d966f630,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-car-at-no,CAR 20 - NO 17,Final,6cefc476,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-car-at-no,CAR 20 - NO 17,Final,f4,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-car-at-no,CAR 20 - NO 17,Final,market,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-car-at-no,CAR 20 - NO 17,Final,309921cc,CAR  - NO ,pack_not_final,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-car-at-no,CAR 20 - NO 17,Final,a411fed0,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-buf-at-nyj,BUF 31 - NYJ 12,Final,d966f630,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-buf-at-nyj,BUF 31 - NYJ 12,Final,6cefc476,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-buf-at-nyj,BUF 31 - NYJ 12,Final,f4,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-buf-at-nyj,BUF 31 - NYJ 12,Final,market,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-buf-at-nyj,BUF 31 - NYJ 12,Final,309921cc,BUF  - NYJ ,pack_not_final,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-buf-at-nyj,BUF 31 - NYJ 12,Final,a411fed0,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-jax-at-ten,JAX 40 - TEN 23,Final,d966f630,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-jax-at-ten,JAX 40 - TEN 23,Final,6cefc476,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-jax-at-ten,JAX 40 - TEN 23,Final,f4,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-jax-at-ten,JAX 40 - TEN 23,Final,market,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-jax-at-ten,JAX 40 - TEN 23,Final,309921cc,JAX  - TEN ,pack_not_final,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-jax-at-ten,JAX 40 - TEN 23,Final,a411fed0,,missing_in_pack,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-lar-at-az,LA 34 - AZ 6,Q4 - not final at read,d966f630,,not_final_at_read,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-lar-at-az,LA 34 - AZ 6,Q4 - not final at read,6cefc476,,not_final_at_read,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-lar-at-az,LA 34 - AZ 6,Q4 - not final at read,f4,,not_final_at_read,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-lar-at-az,LA 34 - AZ 6,Q4 - not final at read,market,,not_final_at_read,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-lar-at-az,LA 34 - AZ 6,Q4 - not final at read,309921cc,,not_final_at_read,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-lar-at-az,LA 34 - AZ 6,Q4 - not final at read,a411fed0,,not_final_at_read,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-sea-at-lv,SEA 21 - LV 10,Q4 - not final at read,d966f630,,not_final_at_read,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-sea-at-lv,SEA 21 - LV 10,Q4 - not final at read,6cefc476,,not_final_at_read,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-sea-at-lv,SEA 21 - LV 10,Q4 - not final at read,f4,,not_final_at_read,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-sea-at-lv,SEA 21 - LV 10,Q4 - not final at read,market,,not_final_at_read,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-sea-at-lv,SEA 21 - LV 10,Q4 - not final at read,309921cc,,not_final_at_read,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-sea-at-lv,SEA 21 - LV 10,Q4 - not final at read,a411fed0,,not_final_at_read,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-sf-at-dal,SF 24 - DAL 19,Q3 - not final at read,d966f630,,not_final_at_read,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-sf-at-dal,SF 24 - DAL 19,Q3 - not final at read,6cefc476,,not_final_at_read,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-sf-at-dal,SF 24 - DAL 19,Q3 - not final at read,f4,,not_final_at_read,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-sf-at-dal,SF 24 - DAL 19,Q3 - not final at read,market,,not_final_at_read,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-sf-at-dal,SF 24 - DAL 19,Q3 - not final at read,309921cc,,not_final_at_read,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-sf-at-dal,SF 24 - DAL 19,Q3 - not final at read,a411fed0,,not_final_at_read,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-pit-at-cin,PIT  - CIN ,Scheduled 8:20 PM ET (not started at read),d966f630,,not_final_at_read,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-pit-at-cin,PIT  - CIN ,Scheduled 8:20 PM ET (not started at read),6cefc476,,not_final_at_read,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-pit-at-cin,PIT  - CIN ,Scheduled 8:20 PM ET (not started at read),f4,,not_final_at_read,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-pit-at-cin,PIT  - CIN ,Scheduled 8:20 PM ET (not started at read),market,,not_final_at_read,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-pit-at-cin,PIT  - CIN ,Scheduled 8:20 PM ET (not started at read),309921cc,,not_final_at_read,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-pit-at-cin,PIT  - CIN ,Scheduled 8:20 PM ET (not started at read),a411fed0,,not_final_at_read,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-lac-at-bal,LAC  - BAL ,Scheduled 8:15 PM ET Monday (not started at read),d966f630,,not_final_at_read,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-lac-at-bal,LAC  - BAL ,Scheduled 8:15 PM ET Monday (not started at read),6cefc476,,not_final_at_read,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-lac-at-bal,LAC  - BAL ,Scheduled 8:15 PM ET Monday (not started at read),f4,,not_final_at_read,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-lac-at-bal,LAC  - BAL ,Scheduled 8:15 PM ET Monday (not started at read),market,,not_final_at_read,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-lac-at-bal,LAC  - BAL ,Scheduled 8:15 PM ET Monday (not started at read),309921cc,,not_final_at_read,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15
+2026-REG-10-lac-at-bal,LAC  - BAL ,Scheduled 8:15 PM ET Monday (not started at read),a411fed0,,not_final_at_read,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15

@@ -50,8 +50,11 @@ def check_official() -> list[str]:
     if n_final != 9:
         errs.append(f"official_w10_finals.csv: expected 9 Final at read, found {n_final}")
     for r in finals:
-        if not r["official_game_page"].startswith("https://www.nfl.com/"):
-            errs.append(f"{r['game_key']}: game page not on nfl.com")
+        src = r["official_game_page"] or r["official_schedule_page"]
+        if not src.startswith("https://www.nfl.com/"):
+            errs.append(f"{r['game_key']}: no official nfl.com source link")
+        if not r["official_schedule_page"].startswith("https://www.nfl.com/"):
+            errs.append(f"{r['game_key']}: schedule page not on nfl.com")
         if r["official_status_at_read"] == "Final" and not (r["away_score"].isdigit() and r["home_score"].isdigit()):
             errs.append(f"{r['game_key']}: Final game without integer scores")
         if not r["read_on_utc"]:
