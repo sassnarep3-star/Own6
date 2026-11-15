@@ -1,0 +1,7 @@
+metric,value,source_url
+clubs,32,https://www.nfl.com/standings/league/2026/REG
+outside_95_luck_band,5,https://www.nfl.com/standings/league/2026/REG
+inside_95_luck_band,27,https://www.nfl.com/standings/league/2026/REG
+max_abs_z,2.828,https://www.nfl.com/standings/league/2026/REG
+clubs_outside,"BUF, LAC, MIA, SF, TEN",https://www.nfl.com/standings/league/2026/REG
+reading,Each club's decided-game record is compared with the exact binomial distribution a coin would produce over the same number of decisions. 5 of 32 clubs sit outside the 95% luck band; the rest are statistically indistinguishable from coin-flip records at this sample size.,https://www.nfl.com/standings/league/2026/REG

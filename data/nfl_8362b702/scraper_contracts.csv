@@ -1,0 +1,8 @@
+source_id,url,read_at_utc,expected_rows,row_unit,required_fields,observed_rows,verdict,drift_detail
+SRC-STANDINGS,https://www.nfl.com/standings/league/2026/REG,2026-11-15T23:26:00Z,32,club rows in the league standings table,"team_abbr,w,l,t,pct,pf,pa,net,home_rec,road_rec,strk",32,OK,
+SRC-CORPUS,https://www.nfl.com/schedules/2026/by-week/week-{1..9},2026-11-15T23:45:00Z,136,"FINAL cards, weeks 1-9 (the 136-game log)","week,slug,date_on_card,away,home,away_score,home_score",136,OK,
+SRC-W10,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15T23:35:00Z,14,week-10 game cards (any status),"game_id,slug,date_on_card,status_on_card,away,home,game_page_url",14,OK,
+SRC-W11,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-15T23:28:00Z,13,week-11 fixture cards,"game_id,slug,date_on_card,kickoff_on_card,network_on_card,away,home,game_page_url",13,OK,
+SRC-W11-BYES,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-15T23:28:00Z,6,clubs in the week-11 Teams on Bye panel,"abbr,name,record_on_panel",6,OK,
+SRC-INJURY-A,https://www.nfl.com/injuries/,2026-11-15T23:58:00Z,155,hub player rows transcribed from chunks 0-2 (13 complete club tables),"hub_game_id,club,player,position,practice_status,game_status",155,OK,
+SRC-GB-ROSTER,https://www.nfl.com/teams/green-bay-packers/roster/,2026-11-16T00:02:00Z,41,non-ACT roster rows (CUT/DEV/PUP/RES/RSR/TRC/TRD/TRT),"player_display_name,player_url_slug,position_on_page,status_code_on_page",41,OK,

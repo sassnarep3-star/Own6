@@ -1,0 +1,197 @@
+node_id,player,club,position,game_slot,game_status_at_read_a,practice_status_at_read_a,expected_to_start,actual_start,replacement_named,evidence_level,read_at_utc,source_url
+DES-W10-01-WAS-John Bates,John Bates,WAS,TE,W10-01,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-01-WAS-Treylon Burks,Treylon Burks,WAS,WR,W10-01,,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-01-WAS-Jayden Daniels,Jayden Daniels,WAS,QB,W10-01,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-01-WAS-Matt Gulbin,Matt Gulbin,WAS,C,W10-01,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-01-WAS-Chig Okonkwo,Chig Okonkwo,WAS,TE,W10-01,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-01-WAS-Lucas Patrick,Lucas Patrick,WAS,C,W10-01,Out,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-01-WAS-Amik Robertson,Amik Robertson,WAS,CB,W10-01,,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-01-WAS-Shy Tuttle,Shy Tuttle,WAS,DT,W10-01,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-01-WAS-Colson Yankoff,Colson Yankoff,WAS,TE,W10-01,Out,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-01-NYG-Abdul Carter,Abdul Carter,NYG,LB,W10-01,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-01-NYG-Jermaine Eluemunor,Jermaine Eluemunor,NYG,T,W10-01,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-01-NYG-Malik Harrison,Malik Harrison,NYG,LB,W10-01,Questionable,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-01-NYG-Colton Hood,Colton Hood,NYG,CB,W10-01,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-01-NYG-Theo Johnson,Theo Johnson,NYG,TE,W10-01,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-01-NYG-Charlie Jones,Charlie Jones,NYG,WR,W10-01,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-01-NYG-J.J. McCarthy,J.J. McCarthy,NYG,QB,W10-01,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-01-NYG-Darnell Mooney,Darnell Mooney,NYG,WR,W10-01,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-01-NYG-Malik Nabers,Malik Nabers,NYG,WR,W10-01,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-01-NYG-Cam Skattebo,Cam Skattebo,NYG,RB,W10-01,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-01-NYG-Andrew Thomas,Andrew Thomas,NYG,T,W10-01,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-02-NE-Ben Brown,Ben Brown,NE,C,W10-02,Out,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-02-NE-A.J. Brown,A.J. Brown,NE,WR,W10-02,Questionable,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-02-NE-Kevin Byard,Kevin Byard,NE,S,W10-02,Questionable,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-02-NE-Carlton Davis III,Carlton Davis III,NE,CB,W10-02,Out,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-02-NE-Reggie Gilliam,Reggie Gilliam,NE,FB,W10-02,Questionable,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-02-NE-TreVeyon Henderson,TreVeyon Henderson,NE,RB,W10-02,Out,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-02-NE-Hunter Henry,Hunter Henry,NE,TE,W10-02,,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-02-NE-Cameron Latu,Cameron Latu,NE,TE,W10-02,Questionable,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-02-NE-Drake Maye,Drake Maye,NE,QB,W10-02,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-02-NE-Morgan Moses,Morgan Moses,NE,T,W10-02,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-02-NE-Walter Rouse,Walter Rouse,NE,T,W10-02,Questionable,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-02-NE-Brenden Schooler,Brenden Schooler,NE,S,W10-02,Questionable,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-02-NE-Rhamondre Stevenson,Rhamondre Stevenson,NE,RB,W10-02,Questionable,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-02-NE-Greg Van Roten,Greg Van Roten,NE,G,W10-02,Questionable,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-02-NE-Charles Woods,Charles Woods,NE,CB,W10-02,Questionable,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-02-DET-Brian Branch,Brian Branch,DET,S,W10-02,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-02-DET-Jared Goff,Jared Goff,DET,QB,W10-02,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-02-DET-Kerby Joseph,Kerby Joseph,DET,S,W10-02,Out,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-02-DET-Cade Mays,Cade Mays,DET,C,W10-02,Out,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-02-DET-D.J. Reed,D.J. Reed,DET,CB,W10-02,Out,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-02-DET-Jacob Saylors,Jacob Saylors,DET,RB,W10-02,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-02-DET-Amon-Ra St. Brown,Amon-Ra St. Brown,DET,WR,W10-02,Questionable,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-02-DET-Sione Vaki,Sione Vaki,DET,RB,W10-02,Questionable,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-02-DET-DJ Wonnum,DJ Wonnum,DET,DE,W10-02,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-03-KC-Jeffrey Bassa,Jeffrey Bassa,KC,LB,W10-03,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-03-KC-Mansoor Delane,Mansoor Delane,KC,CB,W10-03,Questionable,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-03-KC-Justin Fields,Justin Fields,KC,QB,W10-03,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-03-KC-Jaden Hicks,Jaden Hicks,KC,S,W10-03,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-03-KC-Travis Kelce,Travis Kelce,KC,TE,W10-03,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-03-KC-Patrick Mahomes,Patrick Mahomes,KC,QB,W10-03,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-03-KC-Jaylon Moore,Jaylon Moore,KC,T,W10-03,Out,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-03-KC-Omarr Norman-Lott,Omarr Norman-Lott,KC,DT,W10-03,Out,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-03-KC-Jaydn Ott,Jaydn Ott,KC,RB,W10-03,Questionable,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-03-KC-Rashee Rice,Rashee Rice,KC,WR,W10-03,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-03-KC-Kenneth Walker III,Kenneth Walker III,KC,RB,W10-03,Questionable,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-03-KC-Peter Woods,Peter Woods,KC,DT,W10-03,Out,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-03-KC-Xavier Worthy,Xavier Worthy,KC,WR,W10-03,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-03-ATL-Zachariah Branch,Zachariah Branch,ATL,WR,W10-03,Out,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-03-ATL-Kendal Daniels,Kendal Daniels,ATL,LB,W10-03,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-03-ATL-Divine Deablo,Divine Deablo,ATL,LB,W10-03,Doubtful,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-03-ATL-Gervon Dexter Sr.,Gervon Dexter Sr.,ATL,DT,W10-03,Questionable,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-03-ATL-Jake Matthews,Jake Matthews,ATL,T,W10-03,,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-03-ATL-Liam McCullough,Liam McCullough,ATL,LS,W10-03,,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-03-ATL-James Pearce Jr.,James Pearce Jr.,ATL,DE,W10-03,Questionable,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-03-ATL-Za'Darius Smith,Za'Darius Smith,ATL,DE,W10-03,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-03-ATL-Jawaan Taylor,Jawaan Taylor,ATL,T,W10-03,,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-03-ATL-Cameron Thomas,Cameron Thomas,ATL,DE,W10-03,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-03-ATL-Josh Woods,Josh Woods,ATL,LB,W10-03,Questionable,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-05-MIN-Jordan Addison,Jordan Addison,MIN,WR,W10-05,Questionable,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-05-MIN-Blake Cashman,Blake Cashman,MIN,LB,W10-05,Out,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-05-MIN-Christian Darrisaw,Christian Darrisaw,MIN,T,W10-05,,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-05-MIN-T.J. Hockenson,T.J. Hockenson,MIN,TE,W10-05,Out,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-05-MIN-Tyrion Ingram-Dawkins,Tyrion Ingram-Dawkins,MIN,DT,W10-05,Out,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-05-MIN-Theo Jackson,Theo Jackson,MIN,S,W10-05,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-05-MIN-Jauan Jennings,Jauan Jennings,MIN,WR,W10-05,Out,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-05-MIN-Josh Metellus,Josh Metellus,MIN,S,W10-05,Questionable,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-05-MIN-Kyler Murray,Kyler Murray,MIN,QB,W10-05,Out,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-05-MIN-Harrison Smith,Harrison Smith,MIN,S,W10-05,,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-05-MIN-Kyle Van Noy,Kyle Van Noy,MIN,LB,W10-05,Questionable,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-05-MIN-Jay Ward,Jay Ward,MIN,S,W10-05,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-05-MIN-Carson Wentz,Carson Wentz,MIN,QB,W10-05,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-05-GB-Aaron Banks,Aaron Banks,GB,G,W10-05,,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-05-GB-Chris Brooks,Chris Brooks,GB,RB,W10-05,Questionable,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-05-GB-Javon Bullard,Javon Bullard,GB,S,W10-05,Questionable,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-05-GB-Zaire Franklin,Zaire Franklin,GB,LB,W10-05,Doubtful,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-05-GB-Travis Glover,Travis Glover,GB,G,W10-05,Questionable,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-05-GB-Ty'Ron Hopper,Ty'Ron Hopper,GB,LB,W10-05,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-05-GB-Josh Jacobs,Josh Jacobs,GB,RB,W10-05,Out,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-05-GB-Xavier McKinney,Xavier McKinney,GB,S,W10-05,Questionable,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-05-GB-Bo Melton,Bo Melton,GB,WR,W10-05,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-05-GB-Skyy Moore,Skyy Moore,GB,WR,W10-05,Questionable,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-05-GB-Micah Parsons,Micah Parsons,GB,LB,W10-05,Out,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-05-GB-Sean Rhyan,Sean Rhyan,GB,C,W10-05,Out,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-05-GB-Trey Smack,Trey Smack,GB,K,W10-05,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-05-GB-Lukas Van Ness,Lukas Van Ness,GB,LB,W10-05,Questionable,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-05-GB-Josh Whyle,Josh Whyle,GB,TE,W10-05,Out,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-05-GB-Savion Williams,Savion Williams,GB,WR,W10-05,,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-05-GB-Kevin Zeitler,Kevin Zeitler,GB,G,W10-05,Questionable,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-09-JAX-Jessie Bates,Jessie Bates,JAX,S,W10-09,Out,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-09-JAX-Ezra Cleveland,Ezra Cleveland,JAX,G,W10-09,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-09-JAX-Branson Combs,Branson Combs,JAX,LB,W10-09,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-09-JAX-Jordan Davis,Jordan Davis,JAX,DT,W10-09,Out,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-09-JAX-BJ Green II,BJ Green II,JAX,DE,W10-09,Out,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-09-JAX-Robert Hainsey,Robert Hainsey,JAX,C,W10-09,Questionable,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-09-JAX-Antonio Johnson,Antonio Johnson,JAX,S,W10-09,,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-09-JAX-Jakobi Meyers,Jakobi Meyers,JAX,WR,W10-09,,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-09-JAX-Chris Rodriguez Jr.,Chris Rodriguez Jr.,JAX,RB,W10-09,,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-09-JAX-Bhayshul Tuten,Bhayshul Tuten,JAX,RB,W10-09,,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-09-JAX-Travon Walker,Travon Walker,JAX,DE,W10-09,,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-09-TEN-Cody Barton,Cody Barton,TEN,LB,W10-09,Out,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-09-TEN-John Franklin-Myers,John Franklin-Myers,TEN,DE,W10-09,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-09-TEN-Marcus Harris,Marcus Harris,TEN,CB,W10-09,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-09-TEN-Anthony Hill Jr.,Anthony Hill Jr.,TEN,LB,W10-09,Out,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-09-TEN-Jaylon Jones,Jaylon Jones,TEN,CB,W10-09,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-09-TEN-JC Latham,JC Latham,TEN,T,W10-09,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-09-TEN-Tony Pollard,Tony Pollard,TEN,RB,W10-09,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-09-TEN-Peter Skoronski,Peter Skoronski,TEN,G,W10-09,Out,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-09-TEN-Tyjae Spears,Tyjae Spears,TEN,RB,W10-09,Questionable,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-09-TEN-Carnell Tate,Carnell Tate,TEN,WR,W10-09,Out,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-09-TEN-Tommy Townsend,Tommy Townsend,TEN,P,W10-09,Out,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-09-TEN-Kevin Winston Jr.,Kevin Winston Jr.,TEN,S,W10-09,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-08-BUF-Alec Anderson,Alec Anderson,BUF,G,W10-08,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-08-BUF-Christian Benford,Christian Benford,BUF,CB,W10-08,Questionable,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-08-BUF-Terrel Bernard,Terrel Bernard,BUF,LB,W10-08,,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-08-BUF-Spencer Brown,Spencer Brown,BUF,T,W10-08,Doubtful,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-08-BUF-Dion Dawkins,Dion Dawkins,BUF,T,W10-08,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-08-BUF-Sam Franklin Jr.,Sam Franklin Jr.,BUF,S,W10-08,Questionable,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-08-BUF-Greg Gaines,Greg Gaines,BUF,DT,W10-08,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-08-BUF-Jordan Hancock,Jordan Hancock,BUF,CB,W10-08,Questionable,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-08-BUF-Dalton Kincaid,Dalton Kincaid,BUF,TE,W10-08,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-08-BUF-Connor McGovern,Connor McGovern,BUF,C,W10-08,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-08-BUF-Ed Oliver,Ed Oliver,BUF,DE,W10-08,,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-08-BUF-Ar'maj Reed-Adams,Ar'maj Reed-Adams,BUF,G,W10-08,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-08-BUF-T.J. Sanders,T.J. Sanders,BUF,DE,W10-08,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-08-BUF-Tyrell Shavers,Tyrell Shavers,BUF,WR,W10-08,Questionable,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-08-NYJ-Jarvis Brownlee Jr.,Jarvis Brownlee Jr.,NYJ,CB,W10-08,Questionable,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-08-NYJ-Omar Cooper Jr.,Omar Cooper Jr.,NYJ,WR,W10-08,Questionable,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-08-NYJ-Adonai Mitchell,Adonai Mitchell,NYJ,WR,W10-08,Questionable,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-08-NYJ-Joseph Ossai,Joseph Ossai,NYJ,DE,W10-08,Questionable,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-08-NYJ-VJ Payne,VJ Payne,NYJ,S,W10-08,Questionable,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-08-NYJ-Harrison Phillips,Harrison Phillips,NYJ,DT,W10-08,Questionable,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-08-NYJ-Trevin Wallace,Trevin Wallace,NYJ,LB,W10-08,Out,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-08-NYJ-Garrett Wilson,Garrett Wilson,NYJ,WR,W10-08,Questionable,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-08-NYJ-Nahshon Wright,Nahshon Wright,NYJ,CB,W10-08,Questionable,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-06-MIA-Tucker Addington,Tucker Addington,MIA,LS,W10-06,,Limited Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-06-MIA-Kaytron Allen,Kaytron Allen,MIA,RB,W10-06,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-06-MIA-Darrell Baker Jr.,Darrell Baker Jr.,MIA,CB,W10-06,Questionable,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-06-MIA-Chris Bell,Chris Bell,MIA,WR,W10-06,Doubtful,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-06-MIA-Aaron Brewer,Aaron Brewer,MIA,C,W10-06,Out,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-06-MIA-Malik Herring,Malik Herring,MIA,DE,W10-06,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-06-MIA-Will Kacmarek,Will Kacmarek,MIA,TE,W10-06,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-06-MIA-Michael Taaffe,Michael Taaffe,MIA,S,W10-06,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-06-MIA-Dante Trader Jr.,Dante Trader Jr.,MIA,S,W10-06,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-06-MIA-Jared Wayne,Jared Wayne,MIA,WR,W10-06,Out,Did Not Participate In Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+DES-W10-06-MIA-Jaylen Wright,Jaylen Wright,MIA,RB,W10-06,,Full Participation in Practice,,,,designation,2026-11-15T23:58:00Z,https://www.nfl.com/injuries/
+ROS-GB-trey-dean-iii,Trey Dean III,GB,SAF,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-kahlef-hailassie,Kahlef Hailassie,GB,DB,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-chris-hilton-jr,Chris Hilton Jr.,GB,WR,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-marlon-jones-2,Marlon Jones,GB,DB,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-coleman-owen,Coleman Owen,GB,WR,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-david-blay-jr,David Blay Jr.,GB,DT,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-dalton-cooper,Dalton Cooper,GB,OT,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-elijah-culp,Elijah Culp,GB,CB,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-jack-dingle,Jack Dingle,GB,LB,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-kenny-fletcher-jr,Kenny Fletcher Jr.,GB,TE,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-domani-jackson,Domani Jackson,GB,CB,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-dj-johnson-2,DJ Johnson,GB,LB,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-nyjalik-kelly,Nyjalik Kelly,GB,DE,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-lenny-krieg,Lenny Krieg,GB,K,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-cam-miller,Cam Miller,GB,QB,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-arron-mosby,Arron Mosby,GB,LB,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-isaiah-neyor,Isaiah Neyor,GB,WR,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-john-saunders-jr,John Saunders Jr.,GB,SAF,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-quincy-skinner-jr,Quincy Skinner Jr.,GB,WR,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-mazi-smith,Mazi Smith,GB,DT,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-dillon-wade,Dillon Wade,GB,G,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-luke-musgrave,Luke Musgrave,GB,TE,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-micah-parsons,Micah Parsons,GB,LB,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-johnathan-baldwin,Johnathan Baldwin,GB,SAF,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-warren-brinson,Warren Brinson,GB,DT,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-mccallan-castles,McCallan Castles,GB,TE,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-edgerrin-cooper,Edgerrin Cooper,GB,LB,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-jonathan-ford,Jonathan Ford,GB,DT,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-javon-hargrave,Javon Hargrave,GB,NT,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-jacob-monk,Jacob Monk,GB,G,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-jayden-reed,Jayden Reed,GB,WR,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-zach-tom,Zach Bako-Bewele,GB,G,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-josh-whyle,Josh Whyle,GB,TE,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-thomas-yassmin,Thomas Yassmin,GB,TE,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-collin-oliver,Collin Oliver,GB,LB,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-eric-johnson-7,Eric Johnson,GB,DT,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-kedon-slovis,Kedon Slovis,GB,QB,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-josh-gesky,Josh Gesky,GB,OT,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-cordell-volson,Cordell Volson,GB,OT,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-damon-bankston,Damon Bankston,GB,RB,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/
+ROS-GB-scott-daly,Scott Daly,GB,LS,W10-05,,,,,,roster_state,2026-11-16T00:02:00Z,https://www.nfl.com/teams/green-bay-packers/roster/

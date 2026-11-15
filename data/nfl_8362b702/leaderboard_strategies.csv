@@ -1,0 +1,7 @@
+strategy_id,division,registered,registered_before_kickoff,leaderboard_eligible,n_forecasts_registered,n_settled,brier,brier_skill_vs_base,cluster_lower_bound,rank,blank_or_blocked_reason,backtest_numbers_on_this_row,source_url
+S8362-SHADOW,singles,yes,yes,yes,13,0,,,,,proper scores publish only after official finals settle the window (G-SETTLE),none (G-BACKTEST forbids them),https://github.com/sassnarep3-star/Own6
+S8362-RANDOM,singles,yes,yes,yes,13,0,,,,,proper scores publish only after official finals settle the window (G-SETTLE),none (G-BACKTEST forbids them),https://github.com/sassnarep3-star/Own6
+S8362-FAVORITE,singles,yes,yes,yes,13,0,,,,,proper scores publish only after official finals settle the window (G-SETTLE),none (G-BACKTEST forbids them),https://github.com/sassnarep3-star/Own6
+S8362-PARLAY2,game_parlays,yes,yes,no,0,0,,,,,division blocked at G-JOINT (combo) or G-PRICE (prop prices); no ranking exists for a division that cannot be scored,none (G-BACKTEST forbids them),https://github.com/sassnarep3-star/Own6
+S8362-SGP,same_game_parlays,yes,yes,no,0,0,,,,,division blocked at G-JOINT (combo) or G-PRICE (prop prices); no ranking exists for a division that cannot be scored,none (G-BACKTEST forbids them),https://github.com/sassnarep3-star/Own6
+S8362-PROPCOMBO,prop_combos,yes,yes,no,0,0,,,,,division blocked at G-JOINT (combo) or G-PRICE (prop prices); no ranking exists for a division that cannot be scored,none (G-BACKTEST forbids them),https://github.com/sassnarep3-star/Own6

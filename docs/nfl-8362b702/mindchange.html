@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What would change our mind — NFL 8362b702</title>
+<style>
+ body{font:15px/1.5 -apple-system,Segoe UI,Roboto,sans-serif;margin:0;color:#12233b;background:#f6f8fb}
+ header{background:#0b2545;color:#fff;padding:18px 22px}
+ header h1{margin:0;font-size:20px} header p{margin:4px 0 0;opacity:.85;font-size:13px}
+ nav{display:flex;flex-wrap:wrap;gap:2px;background:#13315c;padding:6px 10px}
+ nav a{color:#cfe0f5;text-decoration:none;padding:5px 9px;border-radius:4px;font-size:12.5px}
+ nav a.on,nav a:hover{background:#ee6c4d;color:#fff}
+ main{max-width:1180px;margin:0 auto;padding:18px}
+ section{background:#fff;border:1px solid #dfe6f0;border-radius:8px;padding:14px 16px;margin:14px 0}
+ h2{font-size:17px;margin:4px 0 10px} h3{font-size:14.5px;margin:12px 0 6px}
+ table{border-collapse:collapse;width:100%;font-size:12.5px}
+ th,td{border:1px solid #e3e9f2;padding:5px 7px;text-align:left;vertical-align:top}
+ th{background:#eef3fa;position:sticky;top:0}
+ td.blank{background:#fff7e6}
+ a{color:#0b5394} .pill{display:inline-block;padding:1px 8px;border-radius:10px;font-size:11px}
+ .ok{background:#d9f2e2;color:#1c6b3d} .no{background:#fde2e2;color:#8f1d1d}
+ .warn{background:#fff3cd;color:#7a5b00}
+ .note{background:#f2f6fc;border-left:3px solid #13315c;padding:8px 12px;margin:8px 0;font-size:13px}
+ footer{text-align:center;color:#7a8aa3;font-size:12px;padding:18px}
+</style></head><body>
+<header><h1>NFL Own-Lines Requirements Closure Pack (8362b702)</h1>
+<p>Capture date 2026-11-15/16 UTC · every row links an official source · blanks are flagged, never filled · no profitability claim</p></header>
+<nav><a href="index.html">Decision readiness</a><a href="corpus.html">136-game corpus</a><a href="results.html">Results feed</a><a href="standings.html">Standings + delta</a><a href="prereg.html">Pre-registration</a><a href="model.html">Model outputs</a><a href="backtest.html">Backtest (not leaderboard)</a><a href="controls.html">Control baselines</a><a href="luck.html">Removal of luck</a><a href="leaderboard.html">Leaderboard divisions</a><a href="mindchange.html" class="on">What would change our mind</a><a href="injuries.html">Injury series + deltas</a><a href="availability.html">Availability graph</a><a href="reserve.html">Reserve list</a><a href="venues.html">Week-11 venues</a><a href="drift.html">Scraper drift</a><a href="readiness.html">Full requirements ledger</a><a href="questions.html">Questions</a><a href="suggestions.html">Suggestions</a><a href="flagged.html">Flagged for review</a><a href="sources.html">Sources</a><a href="executive-summary.html">Executive summary</a></nav>
+<main><section><h2>What would change our mind (two-sided, frozen at registration)</h2><div style='overflow-x:auto'><table><thead><tr><th>Strategy</th><th>Would change our mind FOR</th><th>Threshold (for)</th><th>Would change our mind AGAINST</th><th>Threshold (against)</th><th>State at registration</th></tr></thead><tbody><tr><td>S8362-SHADOW</td><td>Brier skill &gt; 0 with a game-cluster 95% lower bound above 0 across a settled window of n &gt;= 32 games, and each club's G-SWEEP complete</td><td>cluster LB &gt; 0 at n &gt;= 32</td><td>Brier skill &lt;= 0 on the first settled window of n &gt;= 32 games, or walk-forward residuals show no advantage over the constant-margin baseline (MAE ratio &gt;= 1.00)</td><td>skill &lt;= 0 at n &gt;= 32</td><td>unsettled (n_settled = 0)</td></tr><tr><td>S8362-RANDOM</td><td>nothing — a coin has no skill by construction; it is a control, not a candidate</td><td>n/a</td><td>its realised hit rate falling outside the exact binomial 95% band of p=0.5 would indicate a broken randomiser, not skill</td><td>|z| &gt; 1.96 at n &gt;= 32</td><td>control armed</td></tr><tr><td>S8362-FAVORITE</td><td>hit rate above the coin band AND above S8362-SHADOW on the same settled window</td><td>z &gt; 1.96 vs p=0.5</td><td>hit rate inside the coin 95% band at n &gt;= 32 — the rating adds nothing over a coin</td><td>|z| &lt;= 1.96 at n &gt;= 32</td><td>unsettled</td></tr><tr><td>S8362-PARLAY2</td><td>a directly validated joint probability table (published, with its own n) plus operator void/push rules on file</td><td>n_validated_joint &gt;= 1</td><td>any evidence that legs are being priced as independent marginals — that alone demotes the entry</td><td>marginal multiplication found</td><td>blocked at G-JOINT</td></tr><tr><td>S8362-SGP</td><td>a same-game joint model validated out-of-sample with published calibration error</td><td>joint model published + calibrated</td><td>leg-level calibration error &gt; 0.05 on any settled sample of n &gt;= 32</td><td>ECE &gt; 0.05</td><td>blocked at G-JOINT</td></tr><tr><td>S8362-PROPCOMBO</td><td>an official prop-price feed with timestamps AND a validated joint distribution across the combo legs</td><td>licensed prop feed + joint table</td><td>any prop settlement that disagrees with the official box score (source conflict)</td><td>1 settlement conflict</td><td>blocked at G-PRICE and G-JOINT</td></tr></tbody></table></div></section></main>
+<footer>Built from src/nfl_8362b702 (deterministic builder; re-run is byte-identical). Values were read from the cited official pages on 2026-11-15/16 UTC.</footer>
+</body></html>

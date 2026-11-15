@@ -1,0 +1,6 @@
+game_id,status_on_card,away,home,score_string_on_card,game_page_url
+W10-10,Q4 (live at read),LA,AZ,"Rams 34, Cardinals 6, Q4",https://www.nfl.com/games/rams-at-cardinals-2026-reg-10
+W10-11,Q4 (live at read),SEA,LV,"Seahawks 21, Raiders 10, Q4",https://www.nfl.com/games/seahawks-at-raiders-2026-reg-10
+W10-12,Q3 (live at read),SF,DAL,"49ers 24, Cowboys 19, Q3",https://www.nfl.com/games/49ers-at-cowboys-2026-reg-10
+W10-13,scheduled (8:20 PM),PIT,CIN,,https://www.nfl.com/games/steelers-at-bengals-2026-reg-10
+W10-14,scheduled (8:15 PM),LAC,BAL,,https://www.nfl.com/games/chargers-at-ravens-2026-reg-10

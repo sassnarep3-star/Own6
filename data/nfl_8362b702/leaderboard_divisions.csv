@@ -1,0 +1,5 @@
+division,eligible_for_ranking,joint_evidence_gate,n_registered_strategies,n_settled,brier_skill,brier_skill_lower_bound,blank_reason,blocked_reason,source_url
+singles,yes,not applicable (single leg),3,0,,,no settled forecast yet (G-SETTLE: week-11 finals not published at registration; n_settled = 0),,https://github.com/sassnarep3-star/Own6
+game_parlays,no,G-JOINT,1,0,,,,no validated joint probability and no operator void/push rules on file (G-JOINT); multiplying marginals is invalid under dependence,https://github.com/sassnarep3-star/Own6
+same_game_parlays,no,G-JOINT,1,0,,,,no validated joint probability and no operator void/push rules on file (G-JOINT); multiplying marginals is invalid under dependence,https://github.com/sassnarep3-star/Own6
+prop_combos,no,G-JOINT,1,0,,,,no validated joint probability and no operator void/push rules on file (G-JOINT); multiplying marginals is invalid under dependence,https://github.com/sassnarep3-star/Own6

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suggestions — NFL 8362b702</title>
+<style>
+ body{font:15px/1.5 -apple-system,Segoe UI,Roboto,sans-serif;margin:0;color:#12233b;background:#f6f8fb}
+ header{background:#0b2545;color:#fff;padding:18px 22px}
+ header h1{margin:0;font-size:20px} header p{margin:4px 0 0;opacity:.85;font-size:13px}
+ nav{display:flex;flex-wrap:wrap;gap:2px;background:#13315c;padding:6px 10px}
+ nav a{color:#cfe0f5;text-decoration:none;padding:5px 9px;border-radius:4px;font-size:12.5px}
+ nav a.on,nav a:hover{background:#ee6c4d;color:#fff}
+ main{max-width:1180px;margin:0 auto;padding:18px}
+ section{background:#fff;border:1px solid #dfe6f0;border-radius:8px;padding:14px 16px;margin:14px 0}
+ h2{font-size:17px;margin:4px 0 10px} h3{font-size:14.5px;margin:12px 0 6px}
+ table{border-collapse:collapse;width:100%;font-size:12.5px}
+ th,td{border:1px solid #e3e9f2;padding:5px 7px;text-align:left;vertical-align:top}
+ th{background:#eef3fa;position:sticky;top:0}
+ td.blank{background:#fff7e6}
+ a{color:#0b5394} .pill{display:inline-block;padding:1px 8px;border-radius:10px;font-size:11px}
+ .ok{background:#d9f2e2;color:#1c6b3d} .no{background:#fde2e2;color:#8f1d1d}
+ .warn{background:#fff3cd;color:#7a5b00}
+ .note{background:#f2f6fc;border-left:3px solid #13315c;padding:8px 12px;margin:8px 0;font-size:13px}
+ footer{text-align:center;color:#7a8aa3;font-size:12px;padding:18px}
+</style></head><body>
+<header><h1>NFL Own-Lines Requirements Closure Pack (8362b702)</h1>
+<p>Capture date 2026-11-15/16 UTC · every row links an official source · blanks are flagged, never filled · no profitability claim</p></header>
+<nav><a href="index.html">Decision readiness</a><a href="corpus.html">136-game corpus</a><a href="results.html">Results feed</a><a href="standings.html">Standings + delta</a><a href="prereg.html">Pre-registration</a><a href="model.html">Model outputs</a><a href="backtest.html">Backtest (not leaderboard)</a><a href="controls.html">Control baselines</a><a href="luck.html">Removal of luck</a><a href="leaderboard.html">Leaderboard divisions</a><a href="mindchange.html">What would change our mind</a><a href="injuries.html">Injury series + deltas</a><a href="availability.html">Availability graph</a><a href="reserve.html">Reserve list</a><a href="venues.html">Week-11 venues</a><a href="drift.html">Scraper drift</a><a href="readiness.html">Full requirements ledger</a><a href="questions.html">Questions</a><a href="suggestions.html" class="on">Suggestions</a><a href="flagged.html">Flagged for review</a><a href="sources.html">Sources</a><a href="executive-summary.html">Executive summary</a></nav>
+<main><section><h2>Suggestions — review and choose a path before anything is built</h2><div class='note'>Nothing on this page has been implemented. Each row is waiting for a human choice.</div><div style='overflow-x:auto'><table><thead><tr><th>ID</th><th>Area</th><th>Suggestion</th><th>Reasoning</th><th>Priority</th><th>Effort</th><th>Cost / risk</th><th>State</th><th>Implementation</th></tr></thead><tbody><tr><td>SG-01</td><td>site</td><td>Put the decision-readiness table on the root landing page beside the pack cards</td><td>the brief asks for one row per requirement with gate + number at the landing page</td><td>high</td><td>low</td><td>an integration-session edit to docs/index.html (shared file)</td><td>awaiting_choice</td><td>not_implemented</td></tr><tr><td>SG-02</td><td>data</td><td>Close G-SWEEP first: capture 32 club roster/IR pages before any team-level model</td><td>every deficiency feature is blocked on it; the sweep is cheap relative to its payoff</td><td>high</td><td>medium</td><td>32 fetches + the rights question Q-01</td><td>awaiting_choice</td><td>not_implemented</td></tr><tr><td>SG-03</td><td>method</td><td>Publish the second total estimator and keep both visible until walk-forward decides</td><td>the brief demands two totals with a gap column; one estimator hides its own fragility</td><td>medium</td><td>medium</td><td>needs a second model + n &gt;= 32 settled games</td><td>awaiting_choice</td><td>not_implemented</td></tr><tr><td>SG-04</td><td>process</td><td>Make the capture schedule Wed/Thu/Fri only after Q-01 is answered in writing</td><td>automated retrieval collides with Terms §1.3 without consent; the brief forbids manual input</td><td>high</td><td>high</td><td>licence/consent first</td><td>awaiting_choice</td><td>not_implemented</td></tr><tr><td>SG-05</td><td>data</td><td>Add a transactions-log capture so roster turnover becomes machine-visible</td><td>the Willis disappearance shows roster state is not durable between reads</td><td>medium</td><td>medium</td><td>needs an official transactions source (Q-05)</td><td>awaiting_choice</td><td>not_implemented</td></tr><tr><td>SG-06</td><td>site</td><td>Add the what-changed diff page to the weekly cadence once read B reads are scheduled</td><td>two reads in one session prove the mechanism; a weekly cadence proves the habit</td><td>medium</td><td>low</td><td>depends on SG-04</td><td>awaiting_choice</td><td>not_implemented</td></tr></tbody></table></div></section></main>
+<footer>Built from src/nfl_8362b702 (deterministic builder; re-run is byte-identical). Values were read from the cited official pages on 2026-11-15/16 UTC.</footer>
+</body></html>
