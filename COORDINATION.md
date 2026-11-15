@@ -2363,3 +2363,32 @@ Appending this board changes `COORDINATION.md`, which is hashed by `data/assuran
 | S5 Final integration: regenerate inventories to fixed point, PR to `main`, merge, Pages check, record here. `docs/index.html` nav link NOT edited; requested from the integration session | unclaimed | `90b7491e` | this section (append-only), `README.md` (append-only) | S1–S4 |
 
 **Status legend:** `unclaimed` · `in progress` · `done` · `needs review` (published on Flagged for Review; does not block)
+
+### Progress and close-out — session `arena/90b7491e-own6` (2026-11-15)
+
+| Task | Status | Result | Files |
+| --- | --- | --- | --- |
+| S1 Week 10 injury re-capture + reconciliation | done | 347 rows / 14 games / 28 clubs transcribed from all 8 chunks of nfl.com/injuries (read 2026-11-15). 14 players (28 field values) differ from d966f630; 21 roster rows absent from 309921cc (326 rows). Page values used; no repo file edited. | `data/nfl_s11/injury_report_w10_transcription.psv`, `data/nfl_s11/injury_reconciliation_w10.csv` (49 rows) |
+| S2 Week 11 venue sweep | done (URLs flagged) | 13 venues recorded from nfl.com game-centre Game Info pages. No URL was re-fetched during the build; all 13 are flagged F-10 for re-confirmation. | `data/nfl_s11/schedule_w11_venues.csv` |
+| S3 Flagged for Review, sources, executive summary | done | 14 flags (all `blocks_publish = no`), 24 source rows. | `docs/nfl-s11/**`, `NFL_S11_EXECUTIVE_SUMMARY.md`, `data/nfl_s11/flagged.csv`, `data/nfl_s11/sources.csv` |
+| S4 Checker + tests + CI | done | `scripts/check_nfl_s11.py` OK (pinned counts, no `<input>`, one nfl.com link per row). `tests.test_nfl_s11`: 14 tests OK. Full suite: 357 tests OK. | `scripts/build_nfl_s11.py`, `scripts/check_nfl_s11.py`, `tests/test_nfl_s11.py`, `.github/workflows/nfl-s11-ci.yml` |
+| S5 Final integration | in progress | Inventory regeneration, PR to `main`, merge, Pages check. `docs/index.html` nav link NOT edited (integration session to add). | this section, `README.md` (append-only) |
+
+**Verification notes:**
+- Every flagged value was re-read against the live page in this session (14 player rows, 28 field values); 28 other rows were sampled. Full field-by-field confirmation of all 347 rows was not done.
+- Lamar Jackson and Malik Willis do not appear on the Week 10 report. Their status is recorded as unverified (F-04).
+- The "279 rows / 15–4 players" open item does not reproduce: the page has 347 rows and no 279 figure appears on it (F-03).
+- Page news headlines name in-game injuries for Drake Maye (NE), Geno Smith (NYJ) and Aidan Hutchinson (DET) that are not reflected on those clubs' report lists. No value was filled (F-05 to F-07).
+- Two entries previously described as "non-injury" carry an injury alongside a non-injury reason: Azeez Al-Shaair (HOU) and Myles Garrett (LAR). Recorded as printed (F-08).
+- A draft of this pack briefly contained a bye-team record table and a Week 16–18 announcement text that had not been read from the page. Those draft rows were deleted before any commit and are not published.
+- Board-state correction: a local clone check could not find PR #90's merge commit `8dae384` because the sandbox clone is shallow. GitHub confirms PR #90 `MERGED` at `8dae3840` (2026-11-14). The 6cefc476 handoff is therefore accurate; only its claim table is stale (see requests).
+
+**Cross-session requests (logged, not edited):**
+- **To the d966f630 owner (open PR #94):** `data/nfl_d966f630/injury_report_rows.csv` has 14 player rows (LAC ×13 and IND Arden Key) whose injury, practice, or game-status values differ from the live page. Full list in `data/nfl_s11/injury_reconciliation_w10.csv` (RC-001 to RC-028). Please correct from the page, or record a reason for the difference.
+- **To the 309921cc owner:** `data/nfl_309921cc/week10_injuries.csv` omits 21 rows that the live page lists, including CIN DT Dexter Lawrence (CIN has 8 rows; the page has 9). Full list in the reconciliation file (RC-029 to RC-049).
+- **To the 6cefc476 owner:** the claim table rows N1–N12 still read `in progress`, while the handoff says all tasks are done and GitHub shows PR #90 merged. Please update the table; the PR is verified.
+- **To the 0a988733 owner:** the W1–W9 claim rows still read `claimed`, while the W1–W9 close-out says `done`. W10 is still unclaimed.
+- **To the integration session:** add one additive navigation link to `docs/nfl-s11/index.html` from `docs/index.html`. Do not change the d966f630 or 309921cc data files unless their owners agree.
+- **Standing (R5/R6):** `nfl.com` is still absent from `tools/release_gate.py` OFFICIAL_HOSTS and from source_coverage PUBLISHERS. The `nfl-s11` checker enforces its own allowlist.
+
+**Inventory regeneration:** this section changes `COORDINATION.md`. The regeneration loop (`source_coverage.py` → `tools/build_review.py` → `audit_repo.py` → `build_assurance.py`, repeated until `git diff --exit-code` is clean) runs in S5 before the PR.
