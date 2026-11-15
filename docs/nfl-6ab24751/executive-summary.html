@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Own6 NFL decision-readiness: one row per requirement with the gate that blocks it and the number that would clear it.">
+<title>Executive summary | Own6 NFL Decision Readiness</title>
+<style>
+:root { color-scheme: light; --ink:#13283b; --muted:#526477; --navy:#10263c;
+  --teal:#087e79; --mint:#a8f0d3; --gold:#f2b84b; --paper:#f4f7f8; --white:#fff;
+  --line:#d8e1e5; --soft:#e9f2f2; --warn:#fff3d8; --warn-ink:#704500; }
+* { box-sizing: border-box; }
+body { margin:0; color:var(--ink); background:var(--paper); line-height:1.55;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; }
+a { color:var(--teal); }
+.shell { width:min(1160px, calc(100% - 2rem)); margin-inline:auto; }
+.topbar { background:var(--navy); color:var(--white); }
+.topbar-inner { min-height:60px; display:flex; align-items:center; justify-content:space-between;
+  gap:1rem; flex-wrap:wrap; }
+.brand { color:var(--white); text-decoration:none; font-weight:850; letter-spacing:.09em; }
+.brand span { color:var(--mint); font-size:.75rem; font-weight:650; margin-left:.4rem; }
+.topnav { display:flex; flex-wrap:wrap; gap:.3rem 1.1rem; }
+.topnav a { color:#e1edf1; text-decoration:none; font-size:.9rem; }
+.topnav a:hover { color:var(--mint); }
+main { padding:2.2rem 0 4rem; }
+h1 { color:var(--navy); font-size:clamp(1.9rem, 3.4vw, 2.8rem); margin:.2rem 0 1rem; letter-spacing:-.03em; }
+h2 { color:var(--navy); font-size:1.4rem; margin:2.4rem 0 .9rem; }
+.lead { color:var(--muted); max-width:760px; }
+.kpis { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1rem; margin:1.4rem 0 2rem; }
+.stat { padding:1rem 1.1rem; border:1px solid var(--line); border-radius:10px; background:var(--white); }
+.stat .label { color:var(--muted); font-size:.74rem; font-weight:750; letter-spacing:.06em; text-transform:uppercase; }
+.stat strong { display:block; color:var(--navy); font-size:1.5rem; }
+.stat.warn { background:var(--warn); }
+.stat.warn strong { color:var(--warn-ink); }
+.tablewrap { overflow-x:auto; border:1px solid var(--line); border-radius:12px; background:var(--white); }
+table { border-collapse:collapse; width:100%; font-size:.86rem; }
+caption { caption-side:top; text-align:left; padding:.8rem 1rem; color:var(--muted); font-size:.85rem; }
+th, td { padding:.6rem .7rem; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+th { background:var(--soft); color:var(--navy); font-weight:750; white-space:nowrap; position:sticky; top:0; }
+tbody tr:hover { background:#f7fbfa; }
+td.req { min-width:280px; }
+td.src a { word-break:break-all; }
+.badge { display:inline-block; padding:.12rem .5rem; border-radius:999px; font-size:.72rem; font-weight:800;
+  letter-spacing:.03em; white-space:nowrap; }
+.b-done { color:var(--teal); background:var(--soft); }
+.b-limited { color:#8a5a00; background:#fdf0d5; }
+.b-open { color:var(--warn-ink); background:var(--warn); }
+.b-rejected { color:#7a2a2a; background:#fbe7e7; }
+.note { color:var(--muted); font-size:.82rem; }
+.foot { margin-top:3rem; padding-top:1.2rem; border-top:1px solid var(--line); color:var(--muted); font-size:.82rem; }
+</style>
+</head>
+<body>
+<header class="topbar"><div class="shell topbar-inner">
+<a class="brand" href="index.html">OWN6 <span>NFL Decision Readiness</span></a>
+<nav class="topnav"><a href="index.html">Overview</a><a href="gates.html">Gates</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged</a><a href="executive-summary.html" class="on">Executive summary</a></nav>
+</div></header>
+<main><div class="shell">
+
+<h1>Executive summary</h1>
+<p class="lead">This pack consolidates the brief's full requirement list into a single
+decision-readiness table: for each requirement, the current status, the gate that blocks it, and the
+number or condition that would clear it. It is the landing-page table the brief asks for, plus the
+gate, source and flag registers behind it.</p>
+<div class="kpis">
+<div class="stat"><span class="label">Requirements</span><strong>81</strong></div>
+<div class="stat"><span class="label">Implemented</span><strong>18</strong></div>
+<div class="stat"><span class="label">Implemented (limited)</span><strong>20</strong></div>
+<div class="stat warn"><span class="label">Open / blocked</span><strong>40</strong></div>
+<div class="stat"><span class="label">Rejected (policy)</span><strong>3</strong></div>
+</div>
+<h2>What is done</h2>
+<p>18 requirements are implemented and checked: the line-origination order,
+the signal/staking split, the demotion gate, pre-registration, proper-score ranking, the joint-evidence
+gate for combos, and the coordination/PR workflow. 20 are implemented
+but limited: the structure exists and is checked, but the key numeric output is blank because a required
+input is absent.</p>
+<h2>The binding blockers</h2>
+<p>The dominant blocker is <strong>VG-03: no licensed market price archive</strong>. No official NFL page
+publishes a price, so every market line, difference, residual, open/close snapshot, ROI and CLV cell stays
+blank. The second is <strong>NFL-G10: partial depth coverage</strong> — only a minority of the 32 clubs have
+a verified depth chart, so deficiency scores are floors, not charts. A third is <strong>VG-07: the sample
+floor</strong> — zero strategies are certified because no graded selections exist yet.</p>
+<h2>Open requirements (40)</h2>
+<ul>
+<li><strong>RQ-11</strong> — Build the availability graph as a first-class dataset (who was expected to start, who actually did). Blocks: NFL-G10 starter/backup depth reconciliation. Clears when: expected-vs-actual starter join for every game (needs Game Books + depth).</li><li><strong>RQ-13</strong> — Make the injury signal a surprise, never a level. Blocks: VG-02 pre-kickoff timestamp. Clears when: pre-kickoff designation deltas measured as surprise.</li><li><strong>RQ-14</strong> — Run the 32-team roster/IR sweep before any team-level model is trusted. Blocks: NFL-G10 starter/backup depth reconciliation. Clears when: 32/32 roster + IR sweep completed.</li><li><strong>RQ-15</strong> — Add a fixture-context feature set built only from published schedule facts. Blocks: none structural. Clears when: schedule-derived features (venue, rest days, travel, kickoff).</li><li><strong>RQ-18</strong> — Add a two-sided what-would-change-our-mind field to every strategy entry. Blocks: VG-12 pre-registration freeze. Clears when: a pre-registered invalidation condition per strategy.</li><li><strong>RQ-20</strong> — Turn the 136-game log into the pre-registered backtest corpus. Blocks: VG-04 chronological walk-forward split. Clears when: a 136-game pre-registered, frozen backtest corpus.</li><li><strong>RQ-21</strong> — Decide the price-data policy before any backtest is published. Blocks: VG-03 licensed market price archive. Clears when: an owner decision: licensed archive, no-price research, or documented capture.</li><li><strong>RQ-22</strong> — Store every injury-hub read with its clock time and publish the delta, never the level. Blocks: VG-02 pre-kickoff timestamp. Clears when: timestamped captures with delta columns.</li><li><strong>RQ-25</strong> — Publish the league&#x27;s dated schedule announcement beside the live schedule page. Blocks: none structural. Clears when: dated schedule-announcement link beside the live schedule.</li><li><strong>RQ-26</strong> — Use official NFL Game Books for actual starters and game-day status; do not infer depth rank or snaps. Blocks: NFL-G10 starter/backup depth reconciliation. Clears when: Game Book ingest per game for starters and game-day status.</li><li><strong>RQ-27</strong> — Ingest game-level results to make the ratings opponent-aware. Blocks: VG-04 chronological walk-forward split. Clears when: game-level results ingest + opponent adjustment.</li><li><strong>RQ-28</strong> — Add injury and personnel ablations instead of fixed penalties. Blocks: NFL-G10 starter/backup depth reconciliation. Clears when: verified availability feature set + chronological holdouts.</li><li><strong>RQ-29</strong> — Add injury/depth ablations, not fixed penalties (chronological holdouts). Blocks: NFL-G10 starter/backup depth reconciliation. Clears when: same as RQ-28: verified features + chronological holdout.</li><li><strong>RQ-30</strong> — Automate immutable multi-day availability snapshots. Blocks: VG-02 pre-kickoff timestamp; VG-12 immutable ledger. Clears when: scheduled Wed/Thu/Fri captures with SHA-256 hashes retained.</li><li><strong>RQ-31</strong> — Build immutable official availability snapshots. Blocks: VG-02 pre-kickoff timestamp; VG-12 immutable ledger. Clears when: immutable snapshot store with timestamps and conflict flags.</li><li><strong>RQ-32</strong> — Capture official inactive lists and snap counts. Blocks: NFL-G02 90-minute inactive &amp; timestamp gate. Clears when: inactive list + official snap-count source per game.</li><li><strong>RQ-33</strong> — Fix the two depth-parsing failures before widening coverage (Texans image, Packers jersey numbers). Blocks: NFL-G10 starter/backup depth reconciliation. Clears when: an authorized structured source for the Texans image; jersey-number stripping.</li><li><strong>RQ-35</strong> — Treat roster turnover as a first-class data event. Blocks: NFL-G10 starter/backup depth reconciliation. Clears when: versioned depth/availability against the last roster event.</li><li><strong>RQ-36</strong> — Start with a singles-only shadow baseline. Blocks: VG-04 chronological walk-forward split. Clears when: a frozen singles-only baseline model with versions.</li><li><strong>RQ-40</strong> — Add durable snapshot storage and alerts. Blocks: VG-12 immutable ledger. Clears when: external immutable store + freshness/source-schema monitors.</li>
+</ul>
+<p class="note">The remaining open requirements are listed in full in the decision-readiness table.</p>
+<h2>Deliberate non-findings</h2>
+<ul>
+<li>No market price, ROI, CLV or reward payout is published anywhere in this pack.</li>
+<li>No depth is inferred from jersey number, experience or salary (rejected by policy).</li>
+<li>No strategy is ranked by raw win rate or season-long ROI (rejected by policy).</li>
+<li>The readiness table is a consolidated roll-up, not a fresh re-verification of every underlying value.</li>
+</ul>
+
+<div class="foot">Generated deterministically from <code>data/nfl_6ab24751/*.csv</code>.
+Every row links an official source. Unconfirmed values are blank and flagged; nothing is inferred.</div>
+</div></main>
+</body>
+</html>

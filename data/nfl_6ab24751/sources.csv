@@ -1,0 +1,19 @@
+source_id,url,publisher,used_for,read_on_utc,status
+S-6A-00,https://www.nfl.com/,NFL.com,"NFL.com league home (general NFL scope; standings, schedule, scores navigation)",2026-11-15,carried_read
+S-6A-01,https://www.nfl.com/schedules/2026/by-week/week-10,NFL.com,"Week 10 slate: scores, venues, broadcast, records",2026-11-15,carried_read
+S-6A-02,https://www.nfl.com/standings/,NFL.com,"32-club standings used to ground fair-line inputs and results identities",2026-11-15,carried_read
+S-6A-03,https://www.nfl.com/injuries/,NFL.com,"Week 10 official injury report (designations, practice status, game status)",2026-11-15,carried_read
+S-6A-04,https://www.nfl.com/scores/,NFL.com,"verified final scores for the results feed",2026-11-15,carried_read
+S-6A-05,https://www.nfl.com/legal/terms/,NFL.com,"NFL.com Terms §1.3 (non-commercial use; systematic retrieval restricted)",2026-11-15,carried_read
+S-6A-06,https://operations.nfl.com/rules-officiating/2026-nfl-rulebook,NFL Operations,"2026 NFL rulebook (kickoff, overtime, key numbers)",2026-11-15,carried_read
+S-6A-07,https://www.patriots.com/team/depth-chart,New England Patriots (official club site),"club depth chart (labelled unofficial by the club)",2026-11-15,carried_read
+S-6A-08,https://www.nfl.com/news/nfl-draftkings-fanduel-fanatics-sports-betting-partners,NFL.com,"official 2026 sportsbook partners and the Genius Sports data-distribution route",2026-11-15,carried_read
+S-6A-09,https://operations.nfl.com/game-operations-logistics/technology/performance-tracking-data-next-gen-stats,NFL Operations,"Next Gen Stats route for snap-count / playing-time proxies",2026-11-15,carried_read
+S-6A-10,https://www.nfl.com/games,NFL.com,"NFL game centre (Game Books / game-day status)",2026-11-15,carried_read
+S-6A-11,https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm,NIST/SEMATECH,"uncertainty-interval reporting methodology",2026-11-15,carried_read
+S-6A-12,https://scikit-learn.org/stable/modules/calibration.html,scikit-learn,"Brier score and reliability as proper scoring rules",2026-11-15,carried_read
+S-6A-13,https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.pearsonr.html,SciPy,"Pearson correlation coefficient definition",2026-11-15,carried_read
+S-6A-14,https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.multivariate_normal.html,SciPy,"multivariate-normal / copula joint probability",2026-11-15,carried_read
+S-6A-15,https://www.statsmodels.org/stable/generated/statsmodels.stats.multitest.multipletests.html,statsmodels,"Bonferroni / Holm multiple-testing correction",2026-11-15,carried_read
+S-6A-16,https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site,GitHub Docs,"GitHub Pages publishing-source configuration",2026-11-15,carried_read
+S-6A-17,https://github.com/sassnarep3-star/Own6,GitHub,"repository of record for committed pre-registrations and the coordination board",2026-11-15,carried_read

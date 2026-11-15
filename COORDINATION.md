@@ -2472,3 +2472,67 @@ Appending this board changes `COORDINATION.md`, which is hashed by `data/assuran
 - **PR #96** (`arena/e5e38f9e-own6` → `main`), merged 2026-11-15T23:44:05Z as merge commit `b1a4d5a`. Checks on the pre-merge head `efc6229`: 16 of 16 success. Merge was attempted three times; each time `main` had moved (PR #97, #98, #99 from session `90b7491e`), so the branch was rebased, the board conflict resolved by keeping both sides, the generated inventories regenerated to a fixed point, and the local gates rerun (373 tests OK, release gate 0 issues, site check 13 strict pages with 0 errors, e5e38f9e checker and build-check OK).
 - **Post-merge.** All 14 runs on `b1a4d5a` completed with `success`, including the NFL e5e38f9e pack gate; the GitHub Pages build for `b1a4d5a` returned `built`. Live page `https://sassnarep3-star.github.io/Own6/docs/nfl-e5e38f9e/index.html` was fetched and shows the 76-row decision-readiness table.
 - **Open items after merge** (none block publication): E5-F01..F16 and Q-E5-01..14 are unchanged; S01–S11 await human choice; VR-04, VR-08, VR-17, VR-24, VQ-05, VQ-08 do not appear in the repo.
+## Session arena/6ab24751-own6 — consolidated requirements decision-readiness table on the landing page (2026-11-15)
+
+**Platform branch constraint (logged deviation).** Arena fixes this session to branch
+`arena/6ab24751-own6`; creating or switching to a `session-<id>/<task>` branch is disallowed.
+Scopes are therefore kept non-overlapping **by file path**, and all work is done on this one branch.
+
+**Pre-claim check (2026-11-15).** Read `COORDINATION.md` in full, `git log`, `git ls-remote --heads origin`,
+and `gh pr list --state open`. Open PRs at claim time: #94 (`arena/d966f630-own6`, COORDINATION.md +
+shared inventories), #84 (`arena/baa41d14-own6`, `data/nfl_desk/**`, `docs/nfl-decision-desk/**`), #79,
+#72, #68, #56, #54, #52, #48 (stale). Merged NFL packs already on `main`: `nfl`, `nfl_3b81013c`,
+`nfl_origination`, `nfl_wk`, `nfl_309921cc`, `nfl_f4`, `nfl_market`, `nfl_6cefc476`, `nfl_a411fed0`,
+`nfl_d966f630`. **No path claimed below exists in the tree at claim time** (`nfl_6ab24751` / `nfl-6ab24751`
+are new namespaces), and no file owned by another session is edited.
+
+**Objective.** The brief's explicit deliverable that is *not yet delivered anywhere* is the
+**decision-readiness table on the landing page: one row per requirement, with the gate that blocks it
+and the number that would clear it** (the root landing `index.html` currently carries cards but **zero
+`<tr>` table rows**). This session builds a consolidated, source-linked requirements→gate→clearing-number
+roll-up across the whole brief, renders it as a table on the landing page, and publishes a self-contained
+dashboard that a reviewer can read line by line. Statuses, blocking gates and clearing numbers are grounded
+in the validation-gate and flag registers that already exist in the merged packs; nothing is inferred.
+
+### Task board (session 6ab24751)
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| D1 Consolidated requirements decision-readiness dataset (one row per requirement: status, blocking gate, clearing number, evidence, official source) | claimed | `6ab24751` | `data/nfl_6ab24751/readiness.csv` |
+| D2 Gate reference register (gate id, what it blocks, threshold / clearing number) | claimed | `6ab24751` | `data/nfl_6ab24751/gates.csv` |
+| D3 Official source register (every URL used, with read date) | claimed | `6ab24751` | `data/nfl_6ab24751/sources.csv` |
+| D4 New flags for this consolidation | claimed | `6ab24751` | `data/nfl_6ab24751/flagged.csv` |
+| D5 Builder + checker + regression tests + CI workflow | claimed | `6ab24751` | `src/nfl_6ab24751/**`, `scripts/build_nfl_6ab24751.py`, `scripts/check_nfl_6ab24751.py`, `tests/test_nfl_6ab24751.py`, `.github/workflows/nfl-6ab24751-ci.yml` |
+| D6 Self-contained dashboard `docs/nfl-6ab24751/` (index with the decision-readiness table, gates, sources, flagged, executive summary) | claimed | `6ab24751` | `docs/nfl-6ab24751/**` |
+| D7 Executive summary | claimed | `6ab24751` | `NFL_6AB24751_EXECUTIVE_SUMMARY.md` |
+| D8 Landing integration: decision-readiness table on root `index.html` (explicit requirement), additive nav/card in `docs/index.html`, additive README, append COORDINATION.md | claimed | `6ab24751` | `index.html` (additive table section only), `docs/index.html` (additive links only), `README.md` (additive only), `COORDINATION.md` (append-only) |
+| D9 Final integration: rebase, regenerate shared inventories, all gates, PR → merge → verify live Pages | claimed | `6ab24751` | `COORDINATION.md` (append-only), `data/assurance/**`, `docs/assurance/**`, `data/source_coverage/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md` (regenerated) |
+
+**Status legend:** `unclaimed` · `in progress` · `done` · `needs review` (published on Flagged for Review; does not block).
+
+**Evidence policy (user-mandated, unchanged):** a status, gate or clearing number is published only if it is
+grounded in a validation-gate/flag register or an official page already read and recorded in the merged packs
+(each row carries its source link). Anything not confirmable stays blank and is flagged. No value is invented.
+
+**Claim log:** 2026-11-15 — session `6ab24751` read the board, `git log`, open PRs and remote state, and claims
+D1–D9 with the file scopes above. Claim committed and pushed immediately, before any data or code was produced.
+
+### Reconciliation of the landing-page decision-readiness table (session 6ab24751, 2026-11-15)
+
+After the rebase onto `origin/main` (which advanced via PR #97 / session `90b7491e` and the earlier
+`7c86bfb0` integration), the root landing page held **two** decision-readiness tables: a 16-row table
+(`REQ-01`..`REQ-16`, from the `nfl_origination` pack, added by session `7c86bfb0`) and this session's
+comprehensive 81-row table (`RQ-01`..`RQ-81`, the full brief). Two same-purpose tables with duplicate
+`id="readiness"` / `id="readiness-title"` values is a defect, so this integration **reconciles to one
+canonical table**:
+
+- The comprehensive 81-row table (`RQ-01`..`RQ-81`) is kept on the landing page; it is a superset of the
+  16 `REQ-*` rows in coverage and matches the brief's "one row per requirement" for the *full* list.
+- The partial 16-row `REQ-*` section is removed from the landing page. Its intent is preserved: every one
+  of its 16 requirements is represented in the kept table, and the underlying `docs/nfl-origination/`
+  pages it linked to remain live and unchanged.
+- The "fail closed" section's duplicate `id="readiness-title"` is renamed to `id="failclosed-title"` so
+  every element id on the landing page is unique.
+
+No value from either table was discarded; the kept table is the more complete roll-up. This reconciliation
+is logged here rather than left as a silent edit.

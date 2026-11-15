@@ -1,0 +1,59 @@
+name: NFL 6AB24751 Decision-Readiness Gate
+
+# Owns src/nfl_6ab24751, data/nfl_6ab24751 and docs/nfl-6ab24751, plus the
+# decision-readiness table injected into the root landing page (index.html).
+# Path-filtered so it only runs for this pack; the repository-wide gates
+# (release-gate, verify) still run on every pull request.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "src/nfl_6ab24751/**"
+      - "data/nfl_6ab24751/**"
+      - "docs/nfl-6ab24751/**"
+      - "scripts/build_nfl_6ab24751.py"
+      - "scripts/check_nfl_6ab24751.py"
+      - "tests/test_nfl_6ab24751.py"
+      - "NFL_6AB24751_EXECUTIVE_SUMMARY.md"
+      - "index.html"
+      - ".github/workflows/nfl-6ab24751-ci.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "src/nfl_6ab24751/**"
+      - "data/nfl_6ab24751/**"
+      - "docs/nfl-6ab24751/**"
+      - "scripts/build_nfl_6ab24751.py"
+      - "scripts/check_nfl_6ab24751.py"
+      - "tests/test_nfl_6ab24751.py"
+      - "NFL_6AB24751_EXECUTIVE_SUMMARY.md"
+      - "index.html"
+      - ".github/workflows/nfl-6ab24751-ci.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  verify-nfl-6ab24751:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Unit tests (pure stdlib, no network)
+        run: python3 -m unittest discover -s tests -p "test_nfl_6ab24751.py" -v
+      - name: Rebuild every table and page from the readiness data
+        run: python3 scripts/build_nfl_6ab24751.py
+      - name: Line-by-line verifier
+        run: python3 scripts/check_nfl_6ab24751.py
+      - name: Rebuilt artefacts must be byte-identical to what is committed
+        run: |
+          git add -A -- data/nfl_6ab24751 docs/nfl-6ab24751 index.html
+          git diff --cached --quiet -- data/nfl_6ab24751 docs/nfl-6ab24751 index.html \
+            || { echo "::error::committed artefacts differ from a fresh build"; \
+                 git --no-pager diff --cached --stat -- data/nfl_6ab24751 docs/nfl-6ab24751 index.html; \
+                 exit 1; }
+      - name: Repository release gate
+        run: python3 tools/release_gate.py
