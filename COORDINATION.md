@@ -2536,3 +2536,33 @@ canonical table**:
 
 No value from either table was discarded; the kept table is the more complete roll-up. This reconciliation
 is logged here rather than left as a silent edit.
+
+### Integration & merge result — session 6ab24751 (2026-11-15)
+
+- **PR:** https://github.com/sassnarep3-star/Own6/pull/101
+  (`arena/6ab24751-own6` → `main`, title: "NFL Decision-Readiness Table (session 6ab24751): full
+  requirements list, validation gates, decision dashboard + landing-page table").
+- **Result:** **MERGED** — merge commit `5613bbe53316a0de65f771c2576f296d29e65958`,
+  mergedAt `2026-11-15T23:48:11Z`. Merge command: `gh pr merge 101 --merge --delete-branch`.
+- **Rebase note:** the branch was rebased onto the advanced `origin/main` before pushing. Two
+  append-only `COORDINATION.md` conflicts (with sessions `e5e38f9e` / `90b7491e`) were resolved by
+  keeping both sides and stripping the conflict markers; two add/add inventory conflicts were resolved
+  by regenerating the shared Lab/Assurance/source-coverage/review/audit inventories from the combined
+  tree to a byte-stable fixpoint (no other sessions' data discarded).
+- **Landing reconciliation:** the duplicate decision-readiness tables were merged into a single
+  canonical 81-row table (see "Reconciliation of the landing-page decision-readiness table" above);
+  the partial 16-row `REQ-*` table was removed (superseded, its requirements all present in the kept
+  table), and the duplicate `id="readiness-title"` on the fail-closed section was renamed to
+  `id="failclosed-title"`.
+- **Verification on the merged tree:** `check_nfl_6ab24751.py` 344 checks / 0 failures; 13 unittests OK;
+  builder `--check` byte-identical; `release_gate.py` 0 issues; `check_site.py`, `linkcheck.py` and all
+  ten sibling pack checkers green.
+- **GitHub Pages:** source `main:/`; build **`built`** (build id `1373173100`, created
+  `2026-11-15T23:48:13Z`, no error). Live site: https://sassnarep3-star.github.io/Own6/
+  (the `.github.io` host is outside this sandbox's outbound allowlist, so the deployed HTML was not
+  curl-fetched here; confirmation is the Pages build status and the fact that `main` carries the
+  reconciled single-table `index.html` (1 table, 82 `RQ-` rows) plus the `docs/nfl-6ab24751/` pages).
+- **Flagged for review:** the 10 items in `data/nfl_6ab24751/flagged.csv` /
+  `docs/nfl-6ab24751/flagged.html` remain unverified and blank where no official source exists; per the
+  brief these do not block the merge.
+- **Session 6ab24751 is complete.**
