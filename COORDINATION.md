@@ -2322,3 +2322,28 @@ content edited or reordered):**
 `R.league_baseline(9)` → 22.963 ppg · `O.dispersion(9)` → σ 10.2808, ρ −0.0659, n 43 games ·
 `O.fit_total_shrinkage(10)` → shrink 0.00 · mean abs error side 10.50 vs 12.16 naive, total 11.24
 vs 10.63 naive · `DM.live_strategies()` → `['D966-STR-01']`.
+
+---
+
+## Session arena/7c86bfb0-own6 — integration: landing page, decision-readiness table, PR/merge/deploy
+
+All work on the fixed Arena branch `arena/7c86bfb0-own6`; no `session-*` branch is created.
+
+### Scope claim (integration session)
+
+| Task | Status | Owner session | Files touched |
+|---|---|---|---|
+| I1 Add decision-readiness table to the live landing page (one row per requirement REQ-01..REQ-16, with the blocking gate and the clearing number) | done | arena/7c86bfb0-own6 | `index.html` |
+| I2 Executive summary referenced from the landing page | done | arena/7c86bfb0-own6 | `index.html` → `docs/nfl-origination/executive-summary.html`, `NFL_ORIGINATION_EXECUTIVE_SUMMARY.md` |
+| I3 Build/verify the NFL Origination dashboard | done | arena/7c86bfb0-own6 | `scripts/build_nfl_origination.py`, `scripts/check_nfl_origination.py` (green: 11 pages, 348 sourced table rows, 462 blank cells, 0 `<input>` elements) |
+| I4 Flag irregularities incl. session official-source re-verification limitation | done | arena/7c86bfb0-own6 | `index.html` (session limitation note); existing `docs/nfl-origination/flagged.html` (NFL-F01..F25+) |
+| I5 PR from `arena/7c86bfb0-own6` to `main`, merge, confirm GitHub Pages deploy | in progress | arena/7c86bfb0-own6 | all integration outputs |
+
+### Coordination note
+This session is the integration session for its branch. All non-integration NFL packs (`docs/nfl-309921cc/`, `docs/nfl-6cefc476/`, `docs/nfl-d966f630/`, `docs/nfl-f4/`, `docs/nfl-market/`, `docs/nfl-wk/`, `docs/nfl/`, `docs/nfl-3b81013c/`, `docs/nfl-a411fed0/`) and their `data/`, `src/` trees are preserved untouched; this session only adds to the root `index.html` and appends this section to `COORDINATION.md`.
+
+### Official-source re-verification limitation (session-level flag)
+The sandbox for this session reaches github.com, npm and PyPI only; it cannot re-fetch official NFL pages (nfl.com, operations.nfl.com, club sites). No NFL value in the landing-page decision-readiness table was independently re-verified live in this session. Figures are carried forward from the source-linked `docs/nfl-origination/` pack (read 2026-11-12/13 on official NFL and club pages) and remain blank-or-flagged where unconfirmed. Blocking gates and clearing numbers are the project's own pass bars, not official NFL values. Nothing published is a pick, a line, or a profitability claim.
+
+### Inventory regen duty
+Appending this board changes `COORDINATION.md`, which is hashed by `data/assurance/inventory.csv` and asserted by `tests/assurance/test_audit.py::test_inventory_hashes_and_line_counts`. The integration step re-runs `scripts/source_coverage.py → tools/build_review.py → scripts/audit_repo.py → scripts/build_assurance.py → scripts/check_assurance.py` until `git diff --exit-code -- data/assurance docs/assurance` is clean before the PR is merged.
