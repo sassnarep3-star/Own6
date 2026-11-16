@@ -1,0 +1,5 @@
+policy_id,rule,state,source_url
+P-01,No backtest or forecast number in this pack is price-dependent; none is published.,active,https://github.com/sassnarep3-star/Own6
+P-02,"Opening/closing price columns may exist as schema, but stay empty until a licensed, timestamped feed is attached; empty never means zero.",active,https://github.com/sassnarep3-star/Own6
+P-03,"No settlement, ROI, CLV or payout figure may be published without both price rows (open AND close) and an official final.",active,https://github.com/sassnarep3-star/Own6
+P-04,"If a price source appears later, it must carry: market id, timestamp with zone, source name, and an immutable row id, or it is rejected.",active,https://github.com/sassnarep3-star/Own6

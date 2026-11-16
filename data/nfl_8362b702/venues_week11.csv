@@ -1,0 +1,14 @@
+game_id,away,home,date_on_card,kickoff_on_card,stadium_on_page,location_on_page,event_mark_on_card,read_at_utc,game_page_url,blank_reason
+W11-01,IND,HOU,"Thursday, November 19th",8:15 PM,RELIANT STADIUM,"HOUSTON, TX",,2026-11-16T00:35:00Z,https://www.nfl.com/games/colts-at-texans-2026-reg-11,
+W11-02,MIA,BUF,"Sunday, November 22nd",1:00 PM,,,,,https://www.nfl.com/games/dolphins-at-bills-2026-reg-11,game-centre Game Info not yet read for this fixture (gated at the venue row)
+W11-03,BAL,CAR,"Sunday, November 22nd",1:00 PM,,,,,https://www.nfl.com/games/ravens-at-panthers-2026-reg-11,game-centre Game Info not yet read for this fixture (gated at the venue row)
+W11-04,NO,CHI,"Sunday, November 22nd",1:00 PM,,,,,https://www.nfl.com/games/saints-at-bears-2026-reg-11,game-centre Game Info not yet read for this fixture (gated at the venue row)
+W11-05,TEN,DAL,"Sunday, November 22nd",1:00 PM,,,,,https://www.nfl.com/games/titans-at-cowboys-2026-reg-11,game-centre Game Info not yet read for this fixture (gated at the venue row)
+W11-06,TB,DET,"Sunday, November 22nd",1:00 PM,FORD FIELD,"DETROIT, MI",,2026-11-15T23:27:00Z,https://www.nfl.com/games/buccaneers-at-lions-2026-reg-11,
+W11-07,AZ,KC,"Sunday, November 22nd",1:00 PM,,,,,https://www.nfl.com/games/cardinals-at-chiefs-2026-reg-11,game-centre Game Info not yet read for this fixture (gated at the venue row)
+W11-08,PIT,PHI,"Sunday, November 22nd",1:00 PM,,,,,https://www.nfl.com/games/steelers-at-eagles-2026-reg-11,game-centre Game Info not yet read for this fixture (gated at the venue row)
+W11-09,NYJ,LAC,"Sunday, November 22nd",4:05 PM,,,,,https://www.nfl.com/games/jets-at-chargers-2026-reg-11,game-centre Game Info not yet read for this fixture (gated at the venue row)
+W11-10,JAX,NYG,"Sunday, November 22nd",4:25 PM,,,,,https://www.nfl.com/games/jaguars-at-giants-2026-reg-11,game-centre Game Info not yet read for this fixture (gated at the venue row)
+W11-11,LV,DEN,"Sunday, November 22nd",4:25 PM,,,,,https://www.nfl.com/games/raiders-at-broncos-2026-reg-11,game-centre Game Info not yet read for this fixture (gated at the venue row)
+W11-12,MIN,SF,"Sunday, November 22nd",8:20 PM,,,Mexico City 2026 (event mark printed above the card),,https://www.nfl.com/games/vikings-at-49ers-2026-reg-11,game-centre Game Info not yet read for this fixture (gated at the venue row)
+W11-13,CIN,WAS,"Monday, November 23rd",8:15 PM,,,,,https://www.nfl.com/games/bengals-at-commanders-2026-reg-11,game-centre Game Info not yet read for this fixture (gated at the venue row)

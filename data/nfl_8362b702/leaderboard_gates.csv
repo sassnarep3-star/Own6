@@ -1,0 +1,7 @@
+gate_id,rule,threshold,closes_if,source_url
+G-REG,Rule text frozen in git before the first kickoff of the evaluation window,registration commit predates 2026-11-19 8:15 PM ET (Colts at Texans card),never,https://github.com/sassnarep3-star/Own6
+G-PROB,Every model output stores a probability and its full input vector,100% of output rows,never,https://github.com/sassnarep3-star/Own6
+G-BACKTEST,No backtest number may appear on the leaderboard,leaderboard rows carry no fitted-sample statistic,never,https://github.com/sassnarep3-star/Own6
+G-JOINT,Combo divisions rank only with a validated joint probability AND operator void/push rules,n_validated_joint >= 1 and void rules on file,both conditions true,https://github.com/sassnarep3-star/Own6
+G-PRICE,"Any price-dependent evaluation (CLV, ROI, settlement) waits for a licensed price feed",timestamped opening AND closing price rows > 0,licensed feed exists,https://github.com/sassnarep3-star/Own6
+G-SETTLE,Leaderboard proper scores appear only after official finals settle the forecast window,n_settled >= 1 (week-11 games final on official pages),finals published,https://github.com/sassnarep3-star/Own6

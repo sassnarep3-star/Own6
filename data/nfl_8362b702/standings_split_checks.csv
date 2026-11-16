@@ -1,0 +1,33 @@
+team_abbr,w,l,t,home_rec,road_rec,home_plus_road_w,home_plus_road_l,home_plus_road_t,identity_holds,note,source_url
+BUF,8,1,0,3 - 1 - 0,5 - 0 - 0,8,1,0,yes,,https://www.nfl.com/standings/league/2026/REG
+SF,7,1,0,5 - 0 - 0,2 - 1 - 0,7,1,0,yes,,https://www.nfl.com/standings/league/2026/REG
+CHI,7,2,0,4 - 1 - 0,3 - 1 - 0,7,2,0,yes,,https://www.nfl.com/standings/league/2026/REG
+DEN,7,2,0,4 - 0 - 0,3 - 2 - 0,7,2,0,yes,,https://www.nfl.com/standings/league/2026/REG
+DET,7,2,0,5 - 0 - 0,2 - 2 - 0,7,2,0,yes,,https://www.nfl.com/standings/league/2026/REG
+JAX,7,2,0,4 - 1 - 0,3 - 1 - 0,7,2,0,yes,,https://www.nfl.com/standings/league/2026/REG
+KC,7,2,0,4 - 0 - 0,3 - 2 - 0,7,2,0,yes,,https://www.nfl.com/standings/league/2026/REG
+MIN,7,2,0,3 - 1 - 0,4 - 2 - 0,7,3,0,NO,page read 2026-11-15T23:26:00Z prints splits that sum to 7-3-0 against a W-L-T row of 7-2-0; kept verbatim and flagged,https://www.nfl.com/standings/league/2026/REG
+CIN,6,2,0,2 - 1 - 0,4 - 1 - 0,6,2,0,yes,,https://www.nfl.com/standings/league/2026/REG
+PIT,6,2,0,4 - 0 - 0,2 - 2 - 0,6,2,0,yes,,https://www.nfl.com/standings/league/2026/REG
+NYG,5,3,1,3 - 2 - 0,2 - 1 - 1,5,3,1,yes,,https://www.nfl.com/standings/league/2026/REG
+CLE,6,4,0,4 - 0 - 0,2 - 4 - 0,6,4,0,yes,,https://www.nfl.com/standings/league/2026/REG
+GB,6,4,0,3 - 2 - 0,3 - 2 - 0,6,4,0,yes,,https://www.nfl.com/standings/league/2026/REG
+LA,5,4,0,2 - 3 - 0,3 - 1 - 0,5,4,0,yes,,https://www.nfl.com/standings/league/2026/REG
+SEA,5,4,0,4 - 2 - 0,1 - 2 - 0,5,4,0,yes,,https://www.nfl.com/standings/league/2026/REG
+NE,5,5,0,3 - 1 - 0,2 - 4 - 0,5,5,0,yes,,https://www.nfl.com/standings/league/2026/REG
+BAL,4,5,0,1 - 3 - 0,3 - 2 - 0,4,5,0,yes,,https://www.nfl.com/standings/league/2026/REG
+CAR,4,5,0,1 - 3 - 0,3 - 2 - 0,4,5,0,yes,,https://www.nfl.com/standings/league/2026/REG
+DAL,4,5,0,1 - 3 - 0,3 - 2 - 0,4,5,0,yes,,https://www.nfl.com/standings/league/2026/REG
+LV,4,5,0,1 - 3 - 0,3 - 2 - 0,4,5,0,yes,,https://www.nfl.com/standings/league/2026/REG
+WAS,3,5,1,2 - 2 - 1,1 - 3 - 0,3,5,1,yes,,https://www.nfl.com/standings/league/2026/REG
+AZ,3,6,0,0 - 3 - 0,3 - 3 - 0,3,6,0,yes,,https://www.nfl.com/standings/league/2026/REG
+HOU,3,6,0,0 - 4 - 0,3 - 2 - 0,3,6,0,yes,,https://www.nfl.com/standings/league/2026/REG
+NO,3,6,0,1 - 5 - 0,2 - 1 - 0,3,6,0,yes,,https://www.nfl.com/standings/league/2026/REG
+TB,3,6,0,1 - 4 - 0,2 - 2 - 0,3,6,0,yes,,https://www.nfl.com/standings/league/2026/REG
+ATL,3,7,0,1 - 5 - 0,2 - 2 - 0,3,7,0,yes,,https://www.nfl.com/standings/league/2026/REG
+IND,3,7,0,2 - 3 - 0,1 - 4 - 0,3,7,0,yes,,https://www.nfl.com/standings/league/2026/REG
+PHI,2,7,0,1 - 4 - 0,1 - 3 - 0,2,7,0,yes,,https://www.nfl.com/standings/league/2026/REG
+NYJ,2,8,0,1 - 4 - 0,1 - 4 - 0,2,8,0,yes,,https://www.nfl.com/standings/league/2026/REG
+MIA,1,8,0,0 - 4 - 0,1 - 4 - 0,1,8,0,yes,,https://www.nfl.com/standings/league/2026/REG
+TEN,1,8,0,0 - 5 - 0,1 - 3 - 0,1,8,0,yes,,https://www.nfl.com/standings/league/2026/REG
+LAC,0,8,0,0 - 4 - 0,0 - 4 - 0,0,8,0,yes,,https://www.nfl.com/standings/league/2026/REG

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pre-registration — NFL 8362b702</title>
+<style>
+ body{font:15px/1.5 -apple-system,Segoe UI,Roboto,sans-serif;margin:0;color:#12233b;background:#f6f8fb}
+ header{background:#0b2545;color:#fff;padding:18px 22px}
+ header h1{margin:0;font-size:20px} header p{margin:4px 0 0;opacity:.85;font-size:13px}
+ nav{display:flex;flex-wrap:wrap;gap:2px;background:#13315c;padding:6px 10px}
+ nav a{color:#cfe0f5;text-decoration:none;padding:5px 9px;border-radius:4px;font-size:12.5px}
+ nav a.on,nav a:hover{background:#ee6c4d;color:#fff}
+ main{max-width:1180px;margin:0 auto;padding:18px}
+ section{background:#fff;border:1px solid #dfe6f0;border-radius:8px;padding:14px 16px;margin:14px 0}
+ h2{font-size:17px;margin:4px 0 10px} h3{font-size:14.5px;margin:12px 0 6px}
+ table{border-collapse:collapse;width:100%;font-size:12.5px}
+ th,td{border:1px solid #e3e9f2;padding:5px 7px;text-align:left;vertical-align:top}
+ th{background:#eef3fa;position:sticky;top:0}
+ td.blank{background:#fff7e6}
+ a{color:#0b5394} .pill{display:inline-block;padding:1px 8px;border-radius:10px;font-size:11px}
+ .ok{background:#d9f2e2;color:#1c6b3d} .no{background:#fde2e2;color:#8f1d1d}
+ .warn{background:#fff3cd;color:#7a5b00}
+ .note{background:#f2f6fc;border-left:3px solid #13315c;padding:8px 12px;margin:8px 0;font-size:13px}
+ footer{text-align:center;color:#7a8aa3;font-size:12px;padding:18px}
+</style></head><body>
+<header><h1>NFL Own-Lines Requirements Closure Pack (8362b702)</h1>
+<p>Capture date 2026-11-15/16 UTC · every row links an official source · blanks are flagged, never filled · no profitability claim</p></header>
+<nav><a href="index.html">Decision readiness</a><a href="corpus.html">136-game corpus</a><a href="results.html">Results feed</a><a href="standings.html">Standings + delta</a><a href="prereg.html" class="on">Pre-registration</a><a href="model.html">Model outputs</a><a href="backtest.html">Backtest (not leaderboard)</a><a href="controls.html">Control baselines</a><a href="luck.html">Removal of luck</a><a href="leaderboard.html">Leaderboard divisions</a><a href="mindchange.html">What would change our mind</a><a href="injuries.html">Injury series + deltas</a><a href="availability.html">Availability graph</a><a href="reserve.html">Reserve list</a><a href="venues.html">Week-11 venues</a><a href="drift.html">Scraper drift</a><a href="readiness.html">Full requirements ledger</a><a href="questions.html">Questions</a><a href="suggestions.html">Suggestions</a><a href="flagged.html">Flagged for review</a><a href="sources.html">Sources</a><a href="executive-summary.html">Executive summary</a></nav>
+<main>
+<section><h2>Pre-registration (REG-8362-2026-11-16)</h2>
+<div class="note">Registered 2026-11-16T00:20:00Z, before the first week-11 kickoff
+(2026-11-19 8:15 PM ET (Colts at Texans card)). The registration is the commit that first contains
+src/nfl_8362b702/prereg.py. Rule text, windows and gates are frozen there.</div>
+<h3>Strategy rules (frozen)</h3>
+<div style='overflow-x:auto'><table><thead><tr><th>Strategy</th><th>Division</th><th>Rule text (frozen)</th><th>Window</th><th>Frozen before kickoff</th><th>Price dependent</th></tr></thead><tbody><tr><td>S8362-SHADOW</td><td>singles</td><td>Pick the side with higher p_home_win from S8362-SHADOW-v1; publish the probability and its full input vector; no staking.</td><td>2026 regular season, weeks 1-9 finals (the 136-game log) for fit; week 10 (settling) and week 11 (prospective, unsettled at registration) for evaluation</td><td>yes</td><td>no</td></tr><tr><td>S8362-RANDOM</td><td>singles</td><td>Deterministic seeded coin flip per game (seed = first 8 hex of sha256('nfl_8362b702/controls/v1')); expected accuracy 0.5 exactly.</td><td>week 10 (settling) and week 11 (prospective, unsettled at registration)</td><td>yes</td><td>no</td></tr><tr><td>S8362-FAVORITE</td><td>singles</td><td>Pick the rating favorite (higher corpus S_t; tie-break higher PF/g). A market-favorite control is impossible without licensed prices and is not approximated.</td><td>2026 regular season, weeks 1-9 finals (the 136-game log) for fit; week 10 (settling) and week 11 (prospective, unsettled at registration) for evaluation</td><td>yes</td><td>no</td></tr><tr><td>S8362-PARLAY2</td><td>game_parlays</td><td>Two-leg game parlays may be RANKED only when a directly validated joint probability and the operator's void/push rules are both available. Multiplying marginal probabilities is invalid under dependence.</td><td>not opened</td><td>yes</td><td>no</td></tr><tr><td>S8362-SGP</td><td>same_game_parlays</td><td>Same-game parlays sit behind the joint-evidence gate; legs of one game are maximally dependent.</td><td>not opened</td><td>yes</td><td>no</td></tr><tr><td>S8362-PROPCOMBO</td><td>prop_combos</td><td>Prop combos require official prop prices AND a validated joint probability; neither exists.</td><td>not opened</td><td>yes</td><td>yes (blocked)</td></tr></tbody></table></div>
+<h3>Gates</h3><div style='overflow-x:auto'><table><thead><tr><th>Gate</th><th>Rule</th><th>Threshold</th><th>Closes when</th></tr></thead><tbody><tr><td>G-REG</td><td>Rule text frozen in git before the first kickoff of the evaluation window</td><td>registration commit predates 2026-11-19 8:15 PM ET (Colts at Texans card)</td><td>never</td></tr><tr><td>G-PROB</td><td>Every model output stores a probability and its full input vector</td><td>100% of output rows</td><td>never</td></tr><tr><td>G-BACKTEST</td><td>No backtest number may appear on the leaderboard</td><td>leaderboard rows carry no fitted-sample statistic</td><td>never</td></tr><tr><td>G-JOINT</td><td>Combo divisions rank only with a validated joint probability AND operator void/push rules</td><td>n_validated_joint &gt;= 1 and void rules on file</td><td>both conditions true</td></tr><tr><td>G-PRICE</td><td>Any price-dependent evaluation (CLV, ROI, settlement) waits for a licensed price feed</td><td>timestamped opening AND closing price rows &gt; 0</td><td>licensed feed exists</td></tr><tr><td>G-SETTLE</td><td>Leaderboard proper scores appear only after official finals settle the forecast window</td><td>n_settled &gt;= 1 (week-11 games final on official pages)</td><td>finals published</td></tr></tbody></table></div>
+<h3>Price-data policy (decided before any backtest is published)</h3>
+<div style='overflow-x:auto'><table><thead><tr><th>ID</th><th>Rule</th><th>State</th></tr></thead><tbody><tr><td>P-01</td><td>No backtest or forecast number in this pack is price-dependent; none is published.</td><td>active</td></tr><tr><td>P-02</td><td>Opening/closing price columns may exist as schema, but stay empty until a licensed, timestamped feed is attached; empty never means zero.</td><td>active</td></tr><tr><td>P-03</td><td>No settlement, ROI, CLV or payout figure may be published without both price rows (open AND close) and an official final.</td><td>active</td></tr><tr><td>P-04</td><td>If a price source appears later, it must carry: market id, timestamp with zone, source name, and an immutable row id, or it is rejected.</td><td>active</td></tr></tbody></table></div>
+</section></main>
+<footer>Built from src/nfl_8362b702 (deterministic builder; re-run is byte-identical). Values were read from the cited official pages on 2026-11-15/16 UTC.</footer>
+</body></html>

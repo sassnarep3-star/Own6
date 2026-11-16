@@ -1,0 +1,33 @@
+team_abbr,read_1_at_utc,read_2_at_utc,delta_kind,changed_fields,source_url
+ATL,2026-11-15T23:26:00Z,2026-11-16T01:20:00Z,no-change,,https://www.nfl.com/standings/league/2026/REG
+AZ,2026-11-15T23:26:00Z,2026-11-16T01:20:00Z,changed,l: 6 -> 7; pct: 0.333 -> 0.300; pf: 178 -> 184; pa: 255 -> 289; net: -77 -> -105; home_rec: 0 - 3 - 0 -> 0 - 4 - 0; div_rec: 1 - 3 - 0 -> 1 - 4 - 0; div_pct: 0.250 -> 0.200; conf_rec: 2 - 5 - 0 -> 2 - 6 - 0; conf_pct: 0.286 -> 0.250; strk: 1L -> 2L,https://www.nfl.com/standings/league/2026/REG
+BAL,2026-11-15T23:26:00Z,2026-11-16T01:20:00Z,no-change,,https://www.nfl.com/standings/league/2026/REG
+BUF,2026-11-15T23:26:00Z,2026-11-16T01:20:00Z,no-change,,https://www.nfl.com/standings/league/2026/REG
+CAR,2026-11-15T23:26:00Z,2026-11-16T01:20:00Z,no-change,,https://www.nfl.com/standings/league/2026/REG
+CHI,2026-11-15T23:26:00Z,2026-11-16T01:20:00Z,no-change,,https://www.nfl.com/standings/league/2026/REG
+CIN,2026-11-15T23:26:00Z,2026-11-16T01:20:00Z,no-change,,https://www.nfl.com/standings/league/2026/REG
+CLE,2026-11-15T23:26:00Z,2026-11-16T01:20:00Z,no-change,,https://www.nfl.com/standings/league/2026/REG
+DAL,2026-11-15T23:26:00Z,2026-11-16T01:20:00Z,no-change,,https://www.nfl.com/standings/league/2026/REG
+DEN,2026-11-15T23:26:00Z,2026-11-16T01:20:00Z,no-change,,https://www.nfl.com/standings/league/2026/REG
+DET,2026-11-15T23:26:00Z,2026-11-16T01:20:00Z,changed,rec_unlabeled_1: 3 - 1 - 0 -> 3 - 0 - 0,https://www.nfl.com/standings/league/2026/REG
+GB,2026-11-15T23:26:00Z,2026-11-16T01:20:00Z,no-change,,https://www.nfl.com/standings/league/2026/REG
+HOU,2026-11-15T23:26:00Z,2026-11-16T01:20:00Z,no-change,,https://www.nfl.com/standings/league/2026/REG
+IND,2026-11-15T23:26:00Z,2026-11-16T01:20:00Z,no-change,,https://www.nfl.com/standings/league/2026/REG
+JAX,2026-11-15T23:26:00Z,2026-11-16T01:20:00Z,no-change,,https://www.nfl.com/standings/league/2026/REG
+KC,2026-11-15T23:26:00Z,2026-11-16T01:20:00Z,no-change,,https://www.nfl.com/standings/league/2026/REG
+LA,2026-11-15T23:26:00Z,2026-11-16T01:20:00Z,changed,w: 5 -> 6; pct: 0.556 -> 0.600; pf: 214 -> 248; pa: 181 -> 187; net: 33 -> 61; road_rec: 3 - 1 - 0 -> 4 - 1 - 0; div_rec: 0 - 2 - 0 -> 1 - 2 - 0; div_pct: 0.000 -> 0.333; conf_rec: 3 - 2 - 0 -> 4 - 2 - 0; conf_pct: 0.600 -> 0.667; strk: 3W -> 4W; rec_unlabeled_2: 3 - 2 - 0 -> 4 - 1 - 0,https://www.nfl.com/standings/league/2026/REG
+LAC,2026-11-15T23:26:00Z,2026-11-16T01:20:00Z,no-change,,https://www.nfl.com/standings/league/2026/REG
+LV,2026-11-15T23:26:00Z,2026-11-16T01:20:00Z,no-change,,https://www.nfl.com/standings/league/2026/REG
+MIA,2026-11-15T23:26:00Z,2026-11-16T01:20:00Z,no-change,,https://www.nfl.com/standings/league/2026/REG
+MIN,2026-11-15T23:26:00Z,2026-11-16T01:20:00Z,changed,road_rec: 4 - 2 - 0 -> 4 - 1 - 0,https://www.nfl.com/standings/league/2026/REG
+NE,2026-11-15T23:26:00Z,2026-11-16T01:20:00Z,no-change,,https://www.nfl.com/standings/league/2026/REG
+NO,2026-11-15T23:26:00Z,2026-11-16T01:20:00Z,no-change,,https://www.nfl.com/standings/league/2026/REG
+NYG,2026-11-15T23:26:00Z,2026-11-16T01:20:00Z,no-change,,https://www.nfl.com/standings/league/2026/REG
+NYJ,2026-11-15T23:26:00Z,2026-11-16T01:20:00Z,no-change,,https://www.nfl.com/standings/league/2026/REG
+PHI,2026-11-15T23:26:00Z,2026-11-16T01:20:00Z,no-change,,https://www.nfl.com/standings/league/2026/REG
+PIT,2026-11-15T23:26:00Z,2026-11-16T01:20:00Z,no-change,,https://www.nfl.com/standings/league/2026/REG
+SEA,2026-11-15T23:26:00Z,2026-11-16T01:20:00Z,no-change,,https://www.nfl.com/standings/league/2026/REG
+SF,2026-11-15T23:26:00Z,2026-11-16T01:20:00Z,no-change,,https://www.nfl.com/standings/league/2026/REG
+TB,2026-11-15T23:26:00Z,2026-11-16T01:20:00Z,no-change,,https://www.nfl.com/standings/league/2026/REG
+TEN,2026-11-15T23:26:00Z,2026-11-16T01:20:00Z,no-change,,https://www.nfl.com/standings/league/2026/REG
+WAS,2026-11-15T23:26:00Z,2026-11-16T01:20:00Z,no-change,,https://www.nfl.com/standings/league/2026/REG
