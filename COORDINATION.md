@@ -2891,6 +2891,49 @@ IR move (F15), and club attribution spot-checked rather than audited — 1 of 34
 **Session `arena/48217a55-own6` is complete.**
 
 
+## Session arena/67233566-own6 — integration record: PR #102 merged, Pages built
+
+**Merged 2026-11-16T00:23:21Z** as `51dee2aa044a5ef05f6f0e6ffe7a97e1ddf30c92` ("Merge pull request #102
+from sassnarep3-star/Own6/arena/67233566-own6"). **GitHub Pages build for that commit: `built`**, finished
+2026-11-16T00:23:46Z, confirmed through `GET /repos/sassnarep3-star/Own6/pages/builds` (not curl — the
+sandbox has no path to the pages host). Live entry points:
+`https://sassnarep3-star.github.io/Own6/docs/nfl-67233566/index.html` and its 19 subpages, plus the pack's
+cards on the root landing page and `docs/index.html`.
+
+**All CI checks on the merged head were green before merging** — `verify-nfl-67233566` (pack gate: 36 unit
+tests, rebuild, 15-check verifier, byte-identity of `data/nfl_67233566` + `docs/nfl-67233566`, and
+`git merge-base --is-ancestor` on the pre-registration commit), plus `assurance`, `lab`, `source-coverage`,
+`published-html`, `daily`, `hub`, `hub-references`, `parlay-safety`, `Line-by-line verification gates`,
+`Verification ledger and published pages`, and the other four NFL pack gates. `mergeStateStatus: CLEAN`.
+
+**Two red runs happened on the way and both were fixed rather than merged over.** (1) `assurance` failed
+`git diff --exit-code -- data/assurance docs/assurance` because the shared inventory did not yet contain
+this pack's 96 files — the convergence order is now recorded in this file. (2) `verify-nfl-67233566` failed
+its own verifier because `c13` asked git an ancestry question that a depth-1 `actions/checkout` cannot
+answer; the pack workflow now fetches full history and the check reports "commit not present (shallow
+checkout)" separately from "commit present but not an ancestor". A check that silently cannot run is the
+worse failure of the two, so this is stated rather than patched into a pass.
+
+**No file owned by another session was edited in the merge.** `data/nfl_desk/**`, `src/nfl_desk/**` and
+`docs/nfl-decision-desk/**` (PR #84) were untouched; `data/nfl_s11/**` (session `90b7491e`) untouched;
+`index.html`, `docs/index.html` and `README.md` each received one additive block for this pack, and the
+merge of `main` into this branch took `main`'s version of the landing page plus a re-application of this
+pack's own insertions, so no other session's nav entry was dropped. `COORDINATION.md` conflicts were
+resolved keep-both, twice.
+
+**What the owner now has to decide, in order, all on
+[`docs/nfl-67233566/suggestions.html`](https://sassnarep3-star.github.io/Own6/docs/nfl-67233566/suggestions.html):**
+SG-01 (price procurement — the only decision that unblocks ROI, CLV, the stage-2 escrow and promotion; the
+10 requirements that touch a price are listed with the exact evidence each needs), SG-02 (two dated injury
+captures a week), SG-12 (one canonical desk; this pack, `90b7491e`, `48217a55` and `6ab24751` are now four
+live NFL packs whose corpus boundaries differ), SG-06 (publish `corpus_id` on every leaderboard header).
+Nothing on that page has been auto-implemented, and 7 of the 12 questions in `questions.csv` stay open for
+the owner rather than for a later model change.
+
+**This record is published by PR #105 (this branch's follow-up), whose own merge result is visible in
+`main`'s history immediately after it — a session cannot cite its own deployment from inside itself, and a
+fabricated citation in a coordination log is exactly the failure mode this project is built to prevent.**
+
 ---
 
 ## Session arena/8362b702-own6 — NFL requirements-closure pack: removal-of-luck panel, control baselines, availability graph, timestamped injury deltas, model-output ledger, drift alarms, proper-score divisions (claimed 2026-11-15)
