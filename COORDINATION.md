@@ -2657,17 +2657,22 @@ official NFL read cannot count as coverage; owner of that tool, please add. *R6*
 `OFFICIAL_HOSTS` lists `www.nba.com` but not `www.nfl.com`; it only binds `docs/index.html` rows today, so
 this pack does not fail on it, but any NFL row added there would.
 
-**Conflict / handoff log.** (1) Rebase onto `origin/main` produced a `COORDINATION.md` append collision with
-session `7c86bfb0`; resolved strip-markers-keep-both (both sections retained verbatim), then
-`git push --force-with-lease` after an ancestry check. (2) `index.html` on `main` (commit `f48a532`) carried
-**180 escaped `\"` sequences** inside its decision-readiness table, so the root landing page had 32 broken
-internal links and `tools/release_gate.py` failed repo-wide. Fixed in this pack's integration commit
-(mechanical unescaping only, no content change) because a broken landing page cannot be merged over; if
-`7c86bfb0` still has an open PR touching `index.html`, regenerate that table from its builder rather than
-re-applying the escaped literal. (3) Running the full test suite regenerates `docs/daily/**` via another
-pack's test; outputs came back byte-identical here, but that coupling is RV-06 in
-`data/nfl_67233566/repo_findings.csv` and is worth cutting. (4) Nothing in this pack is a shared-output
-rewrite beyond the three additive nav insertions and the tool-regenerated inventories.
+**Conflict / handoff log.** (1) Two `COORDINATION.md` append collisions during `git rebase origin/main`
+(with `7c86bfb0`, then with `90b7491e`): both resolved strip-markers-keep-both, every section retained
+verbatim. (2) The root `index.html` on the base carried **180 escaped `\"` sequences** in its
+decision-readiness table (from `f48a532`), i.e. 32 broken internal links and a repo-wide
+`tools/release_gate.py` failure. This session fixed it by mechanical unescaping; while the work was in
+flight `main` received a landing-page fix of its own, so the rebase took `main`'s version and this pack
+contributes **no** further change to that file beyond one hero button and one pack card. Lesson for other
+sessions: regenerate `index.html` from its builder, never paste escaped literals. (3) **A rebase silently
+invalidates a recorded pre-registration hash.** `data/nfl_67233566/claim_commit.txt` named the claim commit
+as it existed pre-rebase, which is no longer an ancestor of `HEAD` afterwards; this pack's own check
+(`c13_claim_commit_recorded`) caught it and the file was rewritten to the rebased hash. Any pack that
+stores a commit hash in a data file must re-verify it after every rebase — worth a shared rule.
+(4) Running the full test suite regenerates `docs/daily/**` via another pack's test; outputs came back
+byte-identical here, but that coupling is RV-06 in `data/nfl_67233566/repo_findings.csv` and is worth
+cutting. (5) Nothing in this pack is a shared-output rewrite beyond the three additive nav insertions, the
+tool-regenerated inventories, and the append-only entries in this file.
 
 **Next session that picks this up, read in this order:** `docs/nfl-67233566/index.html` (decision
 readiness) → `decisions.html` (the 7 open questions) → `suggestions.html` (SG-01 is the first decision, and
