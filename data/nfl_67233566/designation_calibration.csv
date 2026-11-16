@@ -1,0 +1,8 @@
+designation,rows_read_this_session,players_actually_played,play_rate,ci95_low,ci95_high,why_blank,official_source_url,captured_at_utc
+Out,8,,,,,requires an official inactive list or snap count; neither is captured anywhere in this repository (F-05),https://www.nfl.com/injuries/,2026-11-15T23:26:34Z
+Doubtful,0,,,,,requires an official inactive list or snap count; neither is captured anywhere in this repository (F-05),https://www.nfl.com/injuries/,2026-11-15T23:26:34Z
+Questionable,13,,,,,requires an official inactive list or snap count; neither is captured anywhere in this repository (F-05),https://www.nfl.com/injuries/,2026-11-15T23:26:34Z
+,29,,,,,requires an official inactive list or snap count; neither is captured anywhere in this repository (F-05),https://www.nfl.com/injuries/,2026-11-15T23:26:34Z
+practice: Full Participation in Practice,30,,,,,same as the game-status rows,https://www.nfl.com/injuries/,2026-11-15T23:26:34Z
+practice: Limited Participation in Practice,11,,,,,same as the game-status rows,https://www.nfl.com/injuries/,2026-11-15T23:26:34Z
+practice: Did Not Participate In Practice,9,,,,,same as the game-status rows,https://www.nfl.com/injuries/,2026-11-15T23:26:34Z

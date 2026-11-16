@@ -1,0 +1,2 @@
+stage,state,condition_a,condition_b,what_would_open_it,why_this_is_not_a_placeholder,official_source_url,captured_at_utc
+prospective CLV / ROI escrow,closed,one strategy qualified on proper scores - met by 0 of 9 ranked entries,a licensed price source - met by 0 sources (see market_price_capture_log.csv),both conditions; either alone leaves the escrow closed,an escrow that opened without prices would report a number that cannot be audited against anything,https://www.nfl.com/games/colts-at-texans-2026-reg-11?tab=overview,2026-11-15T23:26:34Z

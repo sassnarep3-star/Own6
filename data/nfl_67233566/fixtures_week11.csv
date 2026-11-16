@@ -1,0 +1,20 @@
+fixture_id,week,away,home,date_on_card,time_on_card,network,slot_on_card,away_record_on_card,home_record_on_card,venue,venue_source,venue_status,international_marker,official_source_url,captured_at_utc
+IND@HOU,11,IND,HOU,Nov 19,8:15 PM,PRIME,"Thursday Night Football, November 19th",3-7,3-6,RELIANT STADIUM,https://www.nfl.com/games/colts-at-texans-2026-reg-11?tab=overview,transcribed_from_official_game_centre,,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-15T23:26:34Z
+MIA@BUF,11,MIA,BUF,Nov 22,1:00 PM,CBS,"Sunday, November 22nd",1-8,8-1,,,venue_not_printed_on_the_by_week_page; game centre not read for this fixture,,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-15T23:26:34Z
+BAL@CAR,11,BAL,CAR,Nov 22,1:00 PM,FOX,"Sunday, November 22nd",4-5,4-5,,,venue_not_printed_on_the_by_week_page; game centre not read for this fixture,,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-15T23:26:34Z
+NO@CHI,11,NO,CHI,Nov 22,1:00 PM,FOX,"Sunday, November 22nd",3-6,7-2,,,venue_not_printed_on_the_by_week_page; game centre not read for this fixture,,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-15T23:26:34Z
+TEN@DAL,11,TEN,DAL,Nov 22,1:00 PM,FOX,"Sunday, November 22nd",1-8,4-5,,,venue_not_printed_on_the_by_week_page; game centre not read for this fixture,,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-15T23:26:34Z
+TB@DET,11,TB,DET,Nov 22,1:00 PM,FOX,"Sunday, November 22nd",3-6,7-2,,,venue_not_printed_on_the_by_week_page; game centre not read for this fixture,,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-15T23:26:34Z
+AZ@KC,11,AZ,KC,Nov 22,1:00 PM,CBS,"Sunday, November 22nd",3-6,7-2,,,venue_not_printed_on_the_by_week_page; game centre not read for this fixture,,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-15T23:26:34Z
+PIT@PHI,11,PIT,PHI,Nov 22,1:00 PM,CBS,"Sunday, November 22nd",6-2,2-7,,,venue_not_printed_on_the_by_week_page; game centre not read for this fixture,,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-15T23:26:34Z
+NYJ@LAC,11,NYJ,LAC,Nov 22,4:05 PM,FOX,"Sunday, November 22nd",2-8,0-8,,,venue_not_printed_on_the_by_week_page; game centre not read for this fixture,,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-15T23:26:34Z
+JAX@NYG,11,JAX,NYG,Nov 22,4:25 PM,CBS,"Sunday, November 22nd",7-2,5-3-1,,,venue_not_printed_on_the_by_week_page; game centre not read for this fixture,,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-15T23:26:34Z
+LV@DEN,11,LV,DEN,Nov 22,4:25 PM,CBS,"Sunday, November 22nd",4-5,7-2,,,venue_not_printed_on_the_by_week_page; game centre not read for this fixture,,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-15T23:26:34Z
+MIN@SF,11,MIN,SF,Nov 22,8:20 PM,NBC,"Sunday Night Football, November 22nd, Mexico City 2026",7-2,7-1,,,venue_not_printed_on_the_by_week_page; game centre not read for this fixture,Mexico City 2026,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-15T23:26:34Z
+CIN@WAS,11,CIN,WAS,Nov 23,8:15 PM,ESPN,"Monday Night Football, November 23rd",6-2,3-5-1,,,venue_not_printed_on_the_by_week_page; game centre not read for this fixture,,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-15T23:26:34Z
+BYE-ATL,11,ATL,,,,,Teams on Bye panel,3-7,,,,n/a - no fixture,,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-15T23:26:34Z
+BYE-CLE,11,CLE,,,,,Teams on Bye panel,6-4,,,,n/a - no fixture,,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-15T23:26:34Z
+BYE-GB,11,GB,,,,,Teams on Bye panel,6-4,,,,n/a - no fixture,,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-15T23:26:34Z
+BYE-LA,11,LA,,,,,Teams on Bye panel,5-4,,,,n/a - no fixture,,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-15T23:26:34Z
+BYE-NE,11,NE,,,,,Teams on Bye panel,5-5,,,,n/a - no fixture,,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-15T23:26:34Z
+BYE-SEA,11,SEA,,,,,Teams on Bye panel,5-4,,,,n/a - no fixture,,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-15T23:26:34Z

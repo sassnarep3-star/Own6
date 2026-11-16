@@ -1,0 +1,189 @@
+NFL official-source read, transcribed by session 67233566 on 2026-11-15T23:26:34Z (UTC).
+Method: fetch_page (markdown render of the live page), read in full for the chunks listed.
+This file is the ONLY input to the model, the price ledger, the leaderboard and the
+correlations. Nothing in this pack is typed into a derived table by hand: run
+`python3 scripts/build_nfl_67233566.py` and every CSV in this directory is rebuilt from here.
+
+Block format: a `#block name key=value ...` header line, then one record per line, fields
+separated by `|`. An empty field means the official page did not print a value - it is NOT zero.
+
+#capture session=67233566 read_utc=2026-11-15T23:26:34Z sandbox_clock_source=`date -u`
+#capture note=Week 10 was still in progress at read time: three games were live (two in Q4, one in Q3) and two were unplayed (SNF, MNF). Everything below is the page as displayed at read_utc.
+
+#source url=https://www.nfl.com/schedules/2026/by-week/week-10 chunks=0,1 title=NFL Schedules: Week 10, 2026 (by week) read_utc=2026-11-15T23:26:34Z
+#source url=https://www.nfl.com/standings/division/2026/reg chunks=0,1 title=2026 NFL Division Standings read_utc=2026-11-15T23:27:10Z
+#source url=https://www.nfl.com/schedules/2026/by-week/week-11 chunks=0,1,2 title=NFL Schedules: Week 11, 2026 (by week) read_utc=2026-11-15T23:31:05Z
+#source url=https://www.nfl.com/injuries/ chunks=0 title=Official Latest NFL Injury Report - Week 10 of the 2026 Season read_utc=2026-11-15T23:30:12Z
+#source url=https://www.nfl.com/games/colts-at-texans-2026-reg-11?tab=overview chunks=0 title=Indianapolis Colts at Houston Texans 2026 REG 11 - Game Center read_utc=2026-11-15T23:32:40Z
+
+#week10 away|home|away_points|home_points|card_status|card_date|card_slot|away_badge|home_badge
+WAS|NYG|24|21|Final|Nov 12|Thursday Night Football|3-5-1|5-3-1
+NE|DET|10|35|Final|Nov 15|International Game, November 15th (Munich 2026)|5-5|7-2
+KC|ATL|35|13|Final|Nov 15|Sunday, November 15th|7-2|3-7
+HOU|CLE|24|27|Final|Nov 15|Sunday, November 15th|3-6|6-4
+MIN|GB|30|10|Final|Nov 15|Sunday, November 15th|7-2|6-4
+MIA|IND|22|24|Final|Nov 15|Sunday, November 15th|1-8|3-7
+CAR|NO|20|17|Final|Nov 15|Sunday, November 15th|4-5|3-6
+BUF|NYJ|31|12|Final|Nov 15|Sunday, November 15th|8-1|2-8
+JAX|TEN|40|23|Final|Nov 15|Sunday, November 15th|7-2|1-8
+LA|AZ|34|6|Live|Nov 15|Sunday, November 15th (4:25 PM block)||
+SEA|LV|21|10|Live|Nov 15|Sunday, November 15th (4:25 PM block)||
+SF|DAL|24|19|Live|Nov 15|Sunday, November 15th (4:25 PM block)||
+PIT|CIN|||Scheduled|Nov 15|Sunday Night Football, November 15th, 8:20 PM, NBC|6-2|6-2
+LAC|BAL|||Scheduled|Nov 16|Monday Night Football, November 16th, 8:15 PM, ESPN|0-8|4-5
+
+#week10_byes abbr|badge
+CHI|7-2
+DEN|7-2
+PHI|2-7
+TB|3-6
+
+#week11_game away|home|card_date|card_time|network|card_slot|away_badge|home_badge
+IND|HOU|Nov 19|8:15 PM|PRIME|Thursday Night Football, November 19th|3-7|3-6
+MIA|BUF|Nov 22|1:00 PM|CBS|Sunday, November 22nd|1-8|8-1
+BAL|CAR|Nov 22|1:00 PM|FOX|Sunday, November 22nd|4-5|4-5
+NO|CHI|Nov 22|1:00 PM|FOX|Sunday, November 22nd|3-6|7-2
+TEN|DAL|Nov 22|1:00 PM|FOX|Sunday, November 22nd|1-8|4-5
+TB|DET|Nov 22|1:00 PM|FOX|Sunday, November 22nd|3-6|7-2
+AZ|KC|Nov 22|1:00 PM|CBS|Sunday, November 22nd|3-6|7-2
+PIT|PHI|Nov 22|1:00 PM|CBS|Sunday, November 22nd|6-2|2-7
+NYJ|LAC|Nov 22|4:05 PM|FOX|Sunday, November 22nd|2-8|0-8
+JAX|NYG|Nov 22|4:25 PM|CBS|Sunday, November 22nd|7-2|5-3-1
+LV|DEN|Nov 22|4:25 PM|CBS|Sunday, November 22nd|4-5|7-2
+MIN|SF|Nov 22|8:20 PM|NBC|Sunday Night Football, November 22nd, Mexico City 2026|7-2|7-1
+CIN|WAS|Nov 23|8:15 PM|ESPN|Monday Night Football, November 23rd|6-2|3-5-1
+
+#week11_byes abbr|badge
+ATL|3-7
+CLE|6-4
+GB|6-4
+LA|5-4
+NE|5-5
+SEA|5-4
+
+#standings club|w|l|t|pct|pf|pa|net_pts
+BUF|8|1|0|0.889|287|199|88
+NE|5|5|0|0.500|221|242|-21
+NYJ|2|8|0|0.200|194|254|-60
+MIA|1|8|0|0.111|148|224|-76
+PIT|6|2|0|0.750|180|144|36
+CIN|6|2|0|0.750|240|175|65
+CLE|6|4|0|0.600|188|220|-32
+BAL|4|5|0|0.444|189|236|-47
+JAX|7|2|0|0.778|269|144|125
+HOU|3|6|0|0.333|233|219|14
+IND|3|7|0|0.300|208|271|-63
+TEN|1|8|0|0.111|167|239|-72
+KC|7|2|0|0.778|237|156|81
+DEN|7|2|0|0.778|198|186|12
+LV|4|5|0|0.444|238|268|-30
+LAC|0|8|0|0.000|121|219|-98
+NYG|5|3|1|0.611|203|196|7
+DAL|4|5|0|0.444|246|236|10
+WAS|3|5|1|0.389|196|223|-27
+PHI|2|7|0|0.222|148|221|-73
+DET|7|2|0|0.778|257|199|58
+MIN|7|2|0|0.778|176|126|50
+CHI|7|2|0|0.778|241|184|57
+GB|6|4|0|0.600|226|221|5
+CAR|4|5|0|0.444|219|236|-17
+TB|3|6|0|0.333|202|178|24
+NO|3|6|0|0.333|202|236|-34
+ATL|3|7|0|0.300|201|258|-57
+SF|7|1|0|0.875|235|156|79
+SEA|5|4|0|0.556|202|162|40
+LA|5|4|0|0.556|214|181|33
+AZ|3|6|0|0.333|178|255|-77
+
+#standings_note key=value
+standings_note|the LEGEND on the page defines W, L, T, PCT, HOME, ROAD, DIV, CONF, PF, PA, NET PTS, STRK and the clinch markers; the rendered table also carries four additional split records and two percentages that the LEGEND does not define. Only the LEGEND-defined columns are used by this pack.
+standings_note|records for clubs with a game in progress at read time (SEA, LV, LA, AZ, SF, DAL) are the pre-game records; the page does not update a record until the game is final. Verified by comparison with the Week 10 card statuses above.
+
+#injuries_week10_report club|player|position|injury|practice_status|game_status
+WAS|John Bates|TE||Full Participation in Practice|
+WAS|Treylon Burks|WR||Did Not Participate In Practice|
+WAS|Jayden Daniels|QB||Full Participation in Practice|
+WAS|Matt Gulbin|C||Full Participation in Practice|
+WAS|Chig Okonkwo|TE||Full Participation in Practice|
+WAS|Lucas Patrick|C|Concussion|Did Not Participate In Practice|Out
+WAS|Amik Robertson|CB||Limited Participation in Practice|
+WAS|Shy Tuttle|DT||Full Participation in Practice|
+WAS|Colson Yankoff|TE|Knee|Did Not Participate In Practice|Out
+NYG|Abdul Carter|LB||Full Participation in Practice|
+NYG|Jermaine Eluemunor|T||Full Participation in Practice|
+NYG|Malik Harrison|LB|Groin|Limited Participation in Practice|Questionable
+NYG|Colton Hood|CB||Full Participation in Practice|
+NYG|Theo Johnson|TE||Full Participation in Practice|
+NYG|Charlie Jones|WR||Full Participation in Practice|
+NYG|J.J. McCarthy|QB||Full Participation in Practice|
+NYG|Darnell Mooney|WR||Full Participation in Practice|
+NYG|Malik Nabers|WR||Full Participation in Practice|
+NYG|Cam Skattebo|RB||Full Participation in Practice|
+NYG|Andrew Thomas|T||Full Participation in Practice|
+NE|Ben Brown|C|Knee|Did Not Participate In Practice|Out
+NE|A.J. Brown|WR|Ankle, Knee|Limited Participation in Practice|Questionable
+NE|Kevin Byard|S|Chest|Full Participation in Practice|Questionable
+NE|Carlton Davis III|CB|Knee|Did Not Participate In Practice|Out
+NE|Reggie Gilliam|FB|Knee|Limited Participation in Practice|Questionable
+NE|TreVeyon Henderson|RB|Illness|Did Not Participate In Practice|Out
+NE|Hunter Henry|TE||Limited Participation in Practice|
+NE|Cameron Latu|TE|Back|Limited Participation in Practice|Questionable
+NE|Drake Maye|QB||Full Participation in Practice|
+NE|Morgan Moses|T||Full Participation in Practice|
+NE|Walter Rouse|T|Concussion|Limited Participation in Practice|Questionable
+NE|Brenden Schooler|S|Hamstring|Limited Participation in Practice|Questionable
+NE|Rhamondre Stevenson|RB|Knee|Limited Participation in Practice|Questionable
+NE|Greg Van Roten|G|Hamstring|Full Participation in Practice|Questionable
+NE|Charles Woods|CB|Hamstring|Full Participation in Practice|Questionable
+DET|Brian Branch|S||Full Participation in Practice|
+DET|Jared Goff|QB||Full Participation in Practice|
+DET|Kerby Joseph|S|Knee|Did Not Participate In Practice|Out
+DET|Cade Mays|C|Ankle|Did Not Participate In Practice|Out
+DET|D.J. Reed|CB|Hip|Did Not Participate In Practice|Out
+DET|Jacob Saylors|RB||Full Participation in Practice|
+DET|Amon-Ra St. Brown|WR|Rib|Limited Participation in Practice|Questionable
+DET|Sione Vaki|RB|Ankle|Limited Participation in Practice|Questionable
+DET|DJ Wonnum|DE||Full Participation in Practice|
+KC|Jeffrey Bassa|LB||Full Participation in Practice|
+KC|Mansoor Delane|CB|Shoulder|Full Participation in Practice|Questionable
+KC|Justin Fields|QB||Full Participation in Practice|
+KC|Jaden Hicks|S||Full Participation in Practice|
+KC|Travis Kelce|TE||Full Participation in Practice|
+KC|Patrick Mahomes|QB||Full Participation in Practice|
+
+#injuries_note key=value
+injuries_note|coverage|page_week_selector=2026, WEEK 1..WEEK 10 (no WEEK 11 entry at read time)|report_header="Injuries - WEEK 10"|chunks_read=chunk 0 of 8|clubs_read=WAS, NYG, NE, DET complete; KC truncated at the chunk boundary|row_and_designation_counts=derived from the #injuries_week10_report block below, not typed here
+injuries_note|the page's own week selector is the evidence that no Week 11 report exists yet at read time; the Week 11 game centre for IND@HOU prints "Colts' Injury Report is not available at this time." and "Texans' Injury Report is not available at this time."
+
+#game_center_ind_hou field|club|value|rank
+venue||RELIANT STADIUM|
+location||HOUSTON, TX|
+network||PRIME (Prime Video)|
+kickoff||Nov 19 8:15 PM (page caption, no time zone printed)|
+points_per_game|IND|20.8|23rd
+points_per_game|HOU|25.9|10th
+yards_per_game|IND|287.6|27th
+yards_per_game|HOU|349.1|11th
+time_of_possession_per_game|IND|31:07|10th
+time_of_possession_per_game|HOU|29:33|23rd
+total_def_sacks|IND|22|13th
+total_def_sacks|HOU|33|2nd
+total_def_ints|IND|2|31st
+total_def_ints|HOU|5|23rd
+total_turnover_differential|IND|-12|32nd
+total_turnover_differential|HOU|+4|9th
+passing_leader|IND|D. Jones 1830 YDS 59.6%CMP 7TD 12INT|
+passing_leader|HOU|C. Stroud 2462 YDS 62.8%CMP 19TD 3INT|
+rushing_leader|IND|J. Taylor 739 YDS 177ATT 8TD 4.2AVG|
+rushing_leader|HOU|J. Marks 391 YDS 107ATT 2TD 3.7AVG|
+receiving_leader|IND|K. Allen 351 YDS 40REC 1TD 8.8AVG|
+receiving_leader|HOU|N. Collins 478 YDS 37REC 5TD 12.9AVG|
+injury_report_availability|IND|Warning: Colts' Injury Report is not available at this time.|
+injury_report_availability|HOU|Warning: Texans' Injury Report is not available at this time.|
+afc_south_row|JAX|7-2-0 0.778|
+afc_south_row|HOU|3-6-0 0.333|
+afc_south_row|IND|3-7-0 0.300|
+afc_south_row|TEN|1-8-0 0.111|
+
+#prior_capture path=data/nfl_f4/results.csv owner=session f4e592a7 (pack nfl_f4) read_date=2026-11-14 rows=137 pin=32a1b692ea6674b3755716e9926596e4772a3364
+#prior_capture_note Weeks 1-9 (136 games) from the pack above are used as a prior capture and are NOT re-read this session; every one of the 32 clubs is reconciled against the standings read above (W, L, T, PF, PA) and against the card badges printed in the week10 block. A club that fails reconciliation is excluded from the corpus and the failure is published on the flagged page.

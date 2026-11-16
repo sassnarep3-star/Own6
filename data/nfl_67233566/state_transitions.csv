@@ -1,0 +1,4 @@
+strategy_id,from,to,trigger,decision,official_source_url,captured_at_utc
+STR-01,registered,paper,pre-registration committed and forecasts recorded before kickoff (R-32),"automatic, by the claim commit",https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15T23:26:34Z
+STR-01,paper,live,all of G-03..G-07 plus a cleared price gate,"NOT TAKEN: skill lower bound and the price gate both fail, so promotion is blocked",https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15T23:26:34Z
+any,live,paper,any of DG-01..DG-07,armed: the evaluation table above shows which rule would fire first (DG-06),https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15T23:26:34Z

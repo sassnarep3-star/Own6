@@ -1,0 +1,10 @@
+metric,value,official_source_url,how_to_reproduce
+identity checks run against the official standings and card badges,220,https://www.nfl.com/standings/division/2026/reg,python3 scripts/build_nfl_67233566.py && python3 scripts/check_nfl_67233566.py
+mismatches,0,https://www.nfl.com/standings/division/2026/reg,python3 scripts/build_nfl_67233566.py && python3 scripts/check_nfl_67233566.py
+independent re-reads of the same fixture agreeing,1,https://www.nfl.com/schedules/2026/by-week/week-10,python3 scripts/build_nfl_67233566.py && python3 scripts/check_nfl_67233566.py
+rows published with an official source url,every row of every table in this pack,https://github.com/sassnarep3-star/Own6/blob/32a1b692ea6674b3755716e9926596e4772a3364/scripts/check_nfl_67233566.py,python3 scripts/build_nfl_67233566.py && python3 scripts/check_nfl_67233566.py
+blank cells published instead of an inferred value,2794,https://www.nfl.com/standings/division/2026/reg,python3 scripts/build_nfl_67233566.py && python3 scripts/check_nfl_67233566.py
+price-policy rows written before any graded table,5,https://github.com/sassnarep3-star/Own6/blob/32a1b692ea6674b3755716e9926596e4772a3364/scripts/check_nfl_67233566.py,python3 scripts/build_nfl_67233566.py && python3 scripts/check_nfl_67233566.py
+hash-chained price rows,130,https://github.com/sassnarep3-star/Own6/blob/32a1b692ea6674b3755716e9926596e4772a3364/scripts/check_nfl_67233566.py,python3 scripts/build_nfl_67233566.py && python3 scripts/check_nfl_67233566.py
+input controls on any page of this pack,0,https://github.com/sassnarep3-star/Own6/blob/32a1b692ea6674b3755716e9926596e4772a3364/scripts/check_nfl_67233566.py,python3 scripts/build_nfl_67233566.py && python3 scripts/check_nfl_67233566.py
+"profitability, ROI or pick claims",0,https://github.com/sassnarep3-star/Own6/blob/32a1b692ea6674b3755716e9926596e4772a3364/scripts/check_nfl_67233566.py,python3 scripts/build_nfl_67233566.py && python3 scripts/check_nfl_67233566.py

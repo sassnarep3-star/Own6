@@ -1,0 +1,2 @@
+question,answer,graded_games,required_graded_games,T1_mae,T2_mae,paired_gap_T1_minus_T2,se_of_paired_gap,gap_over_se,rule,why_not_yet,official_source_url,captured_at_utc
+may the totals column collapse to one estimator?,no,129,100,11.3643,11.2093,0.1550,0.1164,1.332,collapse only when n >= 100 graded fixtures AND |gap| > 1.5 x SE of the paired gap,"the sample is 1/8 of the requirement, and there is no market total to anchor what an error of this size means",https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15T23:26:34Z

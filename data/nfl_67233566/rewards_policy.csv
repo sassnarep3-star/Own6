@@ -1,0 +1,5 @@
+item,detail,note,availability,official_source_url,as_of
+RW-01,What a win is,The only reward this repository awards is precedence: a qualified strategy becomes the reference model for its division and its forecast replaces the naive one in the published table.,Available today,https://www.nfl.com/games/colts-at-texans-2026-reg-11?tab=overview,2026-11-15T23:26:34Z
+RW-02,What a win is not,"No money, no stake, no 'units won', no promotion to live staking while gate G-08 is closed.",Closed by policy,https://www.nfl.com/games/colts-at-texans-2026-reg-11?tab=overview,2026-11-15T23:26:34Z
+RW-03,Award condition,"Qualification = G-03..G-07 all pass and no blockers remain in leaderboard_signal.csv, and the count is carried in corpus_summary.csv rather than repeated as prose.",Not met,https://www.nfl.com/games/colts-at-texans-2026-reg-11?tab=overview,2026-11-15T23:26:34Z
+RW-04,Durability,A reward is withdrawn automatically by any demotion rule DG-01..DG-07 without a further decision.,Armed,https://www.nfl.com/games/colts-at-texans-2026-reg-11?tab=overview,2026-11-15T23:26:34Z

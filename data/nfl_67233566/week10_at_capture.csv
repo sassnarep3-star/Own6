@@ -1,0 +1,15 @@
+game_id,away,home,card_status,score_at_read,date_on_card,slot_on_card,counts_in_backtest,official_source_url,captured_at_utc
+2026-W10-01,WAS,NYG,final,24-21,Nov 12,Thursday Night Football,yes,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15T23:26:34Z
+2026-W10-02,NE,DET,final,10-35,Nov 15,"International Game, November 15th (Munich 2026)",yes,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15T23:26:34Z
+2026-W10-03,KC,ATL,final,35-13,Nov 15,"Sunday, November 15th",yes,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15T23:26:34Z
+2026-W10-04,HOU,CLE,final,24-27,Nov 15,"Sunday, November 15th",yes,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15T23:26:34Z
+2026-W10-05,MIN,GB,final,30-10,Nov 15,"Sunday, November 15th",yes,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15T23:26:34Z
+2026-W10-06,MIA,IND,final,22-24,Nov 15,"Sunday, November 15th",yes,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15T23:26:34Z
+2026-W10-07,CAR,NO,final,20-17,Nov 15,"Sunday, November 15th",yes,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15T23:26:34Z
+2026-W10-08,BUF,NYJ,final,31-12,Nov 15,"Sunday, November 15th",yes,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15T23:26:34Z
+2026-W10-09,JAX,TEN,final,40-23,Nov 15,"Sunday, November 15th",yes,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15T23:26:34Z
+2026-W10-10,LA,AZ,in_progress,34-6,Nov 15,"Sunday, November 15th (4:25 PM block)",no,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15T23:26:34Z
+2026-W10-11,SEA,LV,in_progress,21-10,Nov 15,"Sunday, November 15th (4:25 PM block)",no,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15T23:26:34Z
+2026-W10-12,SF,DAL,in_progress,24-19,Nov 15,"Sunday, November 15th (4:25 PM block)",no,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15T23:26:34Z
+2026-W10-13,PIT,CIN,unplayed,,Nov 15,"Sunday Night Football, November 15th, 8:20 PM, NBC",no,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15T23:26:34Z
+2026-W10-14,LAC,BAL,unplayed,,Nov 16,"Monday Night Football, November 16th, 8:15 PM, ESPN",no,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15T23:26:34Z
