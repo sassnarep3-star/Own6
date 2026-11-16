@@ -1,0 +1,3 @@
+route,url,http_result,depth_order_published,club_hosted_depth_link_found,notes,read_at_utc
+nfl.com per-club depth chart,https://www.nfl.com/teams/kansas-city-chiefs/depth-chart,HTTP 404 ('404 - Flag on the Play.'),,,Route does not exist on nfl.com. No depth data can be published from it.,2026-11-15T18:40Z
+nfl.com per-club roster,https://www.nfl.com/teams/kansas-city-chiefs/roster,HTTP 200,,https://www.chiefs.com/team/depth-chart,"Publishes jersey number, position, roster status (ACT/RES/DEV/CUT/PUP/TRD), height, weight, experience and college. It publishes NO depth order. The page links a DEPTH CHART on the club's own site.",2026-11-15T18:40Z

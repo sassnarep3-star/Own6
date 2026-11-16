@@ -1,0 +1,10 @@
+source_id,url,read_at_utc,chunks_total,chunks_read,what_it_supports
+S1,https://www.nfl.com/injuries/,2026-11-15T18:32Z,8,0-7,"Official Week 10 injury report: every club/player/position/injury/practice/game-status row; kickoff time, network and club record badge per fixture."
+S2,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15T18:34Z,2,0-1,"Week 10 slate: 14 fixtures, kickoff date/time, network, FINAL/LIVE/scheduled status and final scores for the games that had completed; the four bye clubs; the Week 16-18 flexible-scheduling note."
+S3,https://www.nfl.com/standings/division/2026/reg,2026-11-15T18:36Z,2,0-1,"All 32 clubs: W, L, T, PCT, PF, PA, NET PTS, HOME, ROAD, DIV, CONF, STRK as rendered at capture time."
+S4,https://www.nfl.com/news/week-10-injuries-sunday-pregame-2026-nfl-season,2026-11-15T18:37Z,1,0,"Sunday-pregame active/inactive confirmations for Week 10, each with the club record the page printed before kickoff."
+S5,https://www.nfl.com/news/nfl-week-9-inactives-players-ruled-out-sunday-2026-season,2026-11-15T18:38Z,2,0-1,"Official Week 9 inactive lists for all 13 Sunday games, with the venue and kickoff of each fixture."
+S6,https://www.nfl.com/transactions/,2026-11-15T18:39Z,1,0,"League trades for November 2026 (from/to club, date, player, transaction type) and the existence of the Reserve List, Signings, Waivers, Terminations and Other sub-routes."
+S7,https://www.nfl.com/transactions/league/reserve-list/2026/11,2026-11-15T18:39Z,2,0-1,"November 2026 Reserve/Injured entries: club, date and player for every player moved to a reserve list."
+S8,https://www.nfl.com/teams/kansas-city-chiefs/roster,2026-11-15T18:40Z,3,0-2,"Official club roster route: jersey number, position, roster status (ACT/RES/DEV/CUT/PUP/TRD), height, weight, experience, college; and the club-hosted DEPTH CHART link."
+S9,https://www.nfl.com/teams/kansas-city-chiefs/depth-chart,2026-11-15T18:40Z,1,0,Route probe only: the per-club /depth-chart path on nfl.com returns HTTP 404 ('404 - Flag on the Play.'). No depth data is published from it.

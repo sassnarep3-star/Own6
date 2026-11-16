@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="NFL decision-readiness pack: every row sourced to an official page, every blank cell flagged.">
+<title>Removal of luck | NFL Decision Readiness (48217a55)</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<nav aria-label="Pack navigation"><a class="brand" href="index.html">48217A55 <span>/ NFL</span></a><a href="index.html">Dashboard</a><a href="decision-readiness.html">Decision readiness</a><a href="injuries.html">Injuries</a><a href="depth.html">Depth &amp; starters</a><a href="inactives.html">Inactives &amp; venues</a><a href="schedule-results.html">Schedule &amp; results</a><a href="standings.html">Standings</a><a href="transactions.html">Transactions &amp; IR</a><a href="correlations.html">Correlations</a><a href="luck.html" aria-current=page>Removal of luck</a><a href="strategies.html">Strategies</a><a href="validation-gates.html">Gates</a><a href="questions.html">Questions</a><a href="suggestions.html">Suggestions</a><a href="repo-review.html">Repo review</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for review</a><a href="executive-summary.html">Executive summary</a><a href="../index.html">All sections</a></nav>
+<main>
+
+<p class="eyebrow">136 COMPLETED GAMES &#183; 32 CLUBS</p>
+<h1>How much of the table is luck</h1>
+<p class="lede">Before any strategy can claim skill, the spread it is trying to explain has
+to be separated from the spread a coin flip would produce anyway. Using only official
+numbers: the observed win-percentage variance across the 32 clubs is compared with the
+binomial variance of a fair coin flip over the same number of games.</p>
+
+<div class="kv">
+<div><span>Observed win-pct variance</span><strong>0.056970</strong></div>
+<div><span>Coin-flip null variance</span><strong>0.029514</strong></div>
+<div><span>Implied skill variance</span><strong>0.027457</strong></div>
+<div><span>Luck share</span><strong>0.518</strong></div>
+<div><span>Margin SD (points/game)</span><strong>6.179</strong></div>
+<div><span>League points per game</span><strong>23.010</strong></div>
+</div>
+
+<h2>Derivation</h2>
+<ul>
+<li><code>observed</code> = population variance of win percentage across the 32 clubs in the
+reconstructed through-Week-9 table.</li>
+<li><code>null</code> = mean over clubs of <code>0.25 / games</code>: the variance of a fair
+coin flip over that many games, i.e. the spread with no skill difference at all.</li>
+<li><code>skill</code> = observed &#8722; null. <code>luck share</code> = null / observed.</li>
+</ul>
+<p class="note">Roughly 52% of the win-percentage spread across
+the league at this point in the season is what a coin flip would produce anyway. Any model
+claiming to explain the standings has to beat that, not merely correlate with it. This is a
+share, not a probability, and it is one season slice.</p>
+
+<h2>What is blocked</h2>
+<p class="note">The strategy-level version of this panel - how much of a strategy's own
+record is luck - needs 100 prospective graded forecasts (gate G8). There are zero, so that
+number is blank rather than guessed. <a href="https://www.nfl.com/standings/division/2026/reg" rel="noopener noreferrer" target="_blank">official standings &#8599;</a></p>
+
+</main>
+<footer>
+<p>Session <code>arena/48217a55-own6</code> &#183; capture 2026-11-15T18:40Z &#183;
+sources read live on 2026-11-15 &#183; rebuild with
+<code>python3 scripts/build_nfl_48217a55.py</code>.</p>
+<p>A value is published only if it was read from the official page cited on its row. A blank
+cell is never zero: it is an empty cell with a flag. Nothing here demonstrates a profitable
+NFL edge, and no market price appears anywhere in this pack.</p>
+</footer>
+</body>
+</html>

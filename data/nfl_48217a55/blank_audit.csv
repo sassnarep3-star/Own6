@@ -1,0 +1,37 @@
+table,rows,columns,cells,blank_cells,blank_pct,why_blank,flag_ids
+announced_starters.csv,5,9,45,0,0.0,not expected: every blank here must be traced to a flag row,
+correlation_exclusions.csv,5,5,25,0,0.0,not expected: every blank here must be traced to a flag row,
+correlations.csv,6,13,78,0,0.0,not expected: every blank here must be traced to a flag row,
+depth_of_replacement.csv,151,11,1661,302,18.18,"replacement_named and replacement_source_url: the official report names no replacement, so the pack refuses to name one",48217-F02
+depth_route_probe.csv,2,7,14,3,21.43,not expected: every blank here must be traced to a flag row,"48217-F02,48217-F03,48217-F12"
+designation_calibration.csv,3,14,42,18,42.86,Out and Doubtful rows: no official page read this session publishes a designation-to-outcome join for those designations,"48217-F09,48217-F10"
+flagged.csv,17,7,119,0,0.0,not expected: every blank here must be traced to a flag row,
+injury_club_rollup.csv,28,13,364,0,0.0,not expected: every blank here must be traced to a flag row,
+injury_report_2026_11_15.csv,347,10,3470,352,10.14,injury and game_status: the official table printed nothing in these cells,"48217-F05,48217-F08,48217-F13,48217-F14,48217-F16"
+integrity_checks.csv,5,5,25,0,0.0,not expected: every blank here must be traced to a flag row,
+leaderboard.csv,5,5,25,0,0.0,not expected: every blank here must be traced to a flag row,48217-F01
+luck_panel.csv,12,3,36,1,2.78,strategy-level luck removal: blocked until a strategy has 100 prospective graded forecasts (gate G8),
+originated_lines_schema.csv,42,12,504,252,50.0,"model_fair_line, market_line, difference, inputs_json, probability and published_at_utc: no licensed price source, so no market was originated",48217-F01
+price_capture_attempts.csv,4,5,20,1,5.0,"what_the_page_actually_contains for the operator route: the route was deliberately not consulted, so there is nothing to report",
+questions.csv,18,7,126,0,0.0,not expected: every blank here must be traced to a flag row,
+repo_findings.csv,13,7,91,0,0.0,not expected: every blank here must be traced to a flag row,
+requirements_decision_readiness.csv,74,11,814,37,4.55,"blocking_gate is empty on every cleared requirement by construction, and the source cell is empty where the requirement is a property of this repository rather than of an external page",
+reserve_list.csv,25,8,200,0,0.0,not expected: every blank here must be traced to a flag row,48217-F15
+results_feed.csv,9,15,135,0,0.0,not expected: every blank here must be traced to a flag row,48217-F06
+reward_tiers.csv,4,5,20,0,0.0,not expected: every blank here must be traced to a flag row,
+roster_events.csv,12,9,108,12,11.11,starter_announced: the official transactions page does not say who starts,
+sources.csv,9,6,54,0,0.0,not expected: every blank here must be traced to a flag row,48217-F11
+standings_as_rendered.csv,32,16,512,0,0.0,not expected: every blank here must be traced to a flag row,
+standings_point_in_time.csv,32,15,480,0,0.0,not expected: every blank here must be traced to a flag row,48217-F04
+standings_reconstruction.csv,32,10,320,0,0.0,not expected: every blank here must be traced to a flag row,
+standings_verification.csv,10,6,60,0,0.0,not expected: every blank here must be traced to a flag row,
+strategy_registry.csv,9,15,135,0,0.0,not expected: every blank here must be traced to a flag row,
+suggestions.csv,16,7,112,0,0.0,not expected: every blank here must be traced to a flag row,
+team_ratings_naive.csv,32,9,288,0,0.0,not expected: every blank here must be traced to a flag row,48217-F17
+trades.csv,12,9,108,12,11.11,starter_announced: the official transactions page does not say who starts,
+validation_gates.csv,12,7,84,0,0.0,not expected: every blank here must be traced to a flag row,
+venues.csv,13,9,117,0,0.0,not expected: every blank here must be traced to a flag row,48217-F07
+week10_live_scores.csv,5,11,55,4,7.27,away_points and home_points for the two games that had not kicked off: nothing to report yet,
+week10_slate.csv,14,15,210,38,18.1,venue (the official by-week schedule page prints no venue) and the score columns for games that were not final at capture time,
+week9_inactives.csv,160,9,1440,0,0.0,not expected: every blank here must be traced to a flag row,48217-F03
+blank_audit.csv,35,8,280,22,7.86,flag_ids is empty for tables with no blanks; that is the point of the column,
