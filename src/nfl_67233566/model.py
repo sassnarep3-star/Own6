@@ -68,6 +68,7 @@ class Forecast:
     fair_spread_line: float = 0.0
     fair_moneyline: dict[str, str] = field(default_factory=dict)
     market: dict[str, object] = field(default_factory=dict)
+    p_home_decisive: float = 0.5
     estimator_totals: dict[str, float] = field(default_factory=dict)
     errors: dict[str, float] = field(default_factory=dict)
 
@@ -98,7 +99,12 @@ def fit(games: list[Game]):
     Returns a plain dict so it can be serialised into the ``inputs`` column of every forecast
     (requirement: store the probability *and* its inputs, not the pick alone).
     """
-    clubs = sorted({c for g in games for c in (g.away, g.home)})
+    playable = [g for g in games if g.countable and g.away_points is not None]
+    if len(playable) < 2:
+        # a ratings fit from fewer than two finals is not a forecast, it is a coin flip with a number
+        # on it; the leaderboard depends on week 1 being refused rather than approximated
+        raise ValueError(f"a walk-forward fit needs >=2 graded games, got {len(playable)}")
+    clubs = sorted({c for g in playable for c in (g.away, g.home)})
     idx = {c: i for i, c in enumerate(clubs)}
     n = len(clubs)
     p = n + 1  # + intercept = home-field advantage
@@ -143,14 +149,28 @@ def fit(games: list[Game]):
         pa.setdefault(g.home, []).append(g.away_points)
     all_pts = [x for v in pf.values() for x in v]
     league_ppg = mean(all_pts) if all_pts else 0.0
+    total_resid: list[float] = []
+    for g in games:
+        if not g.countable or g.away_points is None or g.home_points is None:
+            continue
+        total_resid.append(0.0)  # placeholder replaced below once rates exist
     off, defn = {}, {}
     for c in clubs:
         o, d = pf.get(c, []), pa.get(c, [])
         k = len(o) + ATTACK_K
         off[c] = (sum(o) + ATTACK_K * league_ppg) / k
         defn[c] = (sum(d) + ATTACK_K * league_ppg) / k
+    # spread of the total forecast, measured on the same training games (used for interval scores)
+    total_resid = []
+    for g in games:
+        if not g.countable or g.away_points is None or g.home_points is None:
+            continue
+        expected_total = 0.5 * (off[g.home] + defn[g.away]) + 0.5 * (off[g.away] + defn[g.home]) + hfa
+        total_resid.append((g.away_points + g.home_points) - expected_total)
+    sigma_total = pstdev(total_resid) if len(total_resid) > 2 else 0.0
     return {
         "model_version": MODEL_VERSION,
+        "sigma_total": sigma_total,
         "n_games": sum(1 for g in games if g.countable),
         "clubs": clubs,
         "ratings": ratings,
@@ -176,7 +196,7 @@ def _american(p: float) -> str:
     columns stay empty until the price-data policy in ``prices.py`` is cleared.
     """
     if p <= 0 or p >= 1:
-        return ""
+        return ""  # not priceable, published as a blank - never as +10000 or as a longshot quote
     dec = 1.0 / p
     if dec >= 2.0:
         return f"+{round((dec - 1) * 100)}"
@@ -224,6 +244,7 @@ def predict(fitd: dict, fx: Fixture, tie_rate: float = 0.0) -> Forecast:
     if abs(sum(probs.values()) - 1.0) > 1e-9:
         raise AssertionError("moneyline probabilities must sum to 1")
     se = math.sqrt(2.0 / (fitd["n_games"] + 1.0)) * sigma if fitd["n_games"] else float("nan")
+    p_home_decisive = p_home_given_decisive
     fair_odds = {k: _american(p) for k, p in (("home", probs["home"]), ("away", probs["away"]))}
     fair_spread_line = -side_fair  # American convention: negative = the home club lays points
     inputs = {
@@ -253,6 +274,7 @@ def predict(fitd: dict, fx: Fixture, tie_rate: float = 0.0) -> Forecast:
         away_win_prob=probs["away"],
         sigma_margin=sigma,
         se_margin=se,
+        p_home_decisive=p_home_decisive,
         estimator_totals=totals,
         market={},
     )
@@ -286,8 +308,11 @@ def walk_forward(games: list[Game], fixtures: list[Fixture]) -> list[tuple[Forec
     (week 1) as a ``ValueError`` case - there is none in this season, and the check is asserted.
     """
     weeks = sorted({g.week for g in games})
-    if min(weeks) > min(f.week for f in fixtures):
-        raise ValueError("a fixture predates the corpus; a forecast made with no prior game is not allowed")
+    for fx in fixtures:
+        if not any(g.countable and g.week < fx.week for g in games):
+            raise ValueError(
+                f"{fx.game_id}: no graded week precedes week {fx.week}; a forecast made with no prior "
+                "game is a guess, so the walk-forward design refuses it instead of fitting on nothing")
     cache: dict[int, dict] = {}
     out: list[tuple[Forecast, Game | None]] = []
     for fx in fixtures:
@@ -303,21 +328,34 @@ def walk_forward(games: list[Game], fixtures: list[Fixture]) -> list[tuple[Forec
             if g.away == fx.away and g.home == fx.home and g.week == fx.week and g.countable:
                 graded = g
                 break
-        if graded is not None and graded.away_points is not None and graded.home_points is not None:
-            actual_margin = graded.home_points - graded.away_points
-            actual_total = graded.away_points + graded.home_points
-            fc.errors = {
-                "abs_error_side": round(abs(actual_margin - fc.side_fair), 4),
-                "abs_error_total_T1": round(abs(actual_total - fc.estimator_totals["T1_offdef"]), 4),
-                "abs_error_total_T2": round(abs(actual_total - fc.estimator_totals["T2_halfshrunk"]), 4),
-                "home_covered_own_line": 1 if actual_margin > fc.side_fair else (0 if actual_margin < fc.side_fair else -1),
-                "over_T1": 1 if actual_total > fc.estimator_totals["T1_offdef"] else (0 if actual_total < fc.estimator_totals["T1_offdef"] else -1),
-                "over_T2": 1 if actual_total > fc.estimator_totals["T2_halfshrunk"] else (0 if actual_total < fc.estimator_totals["T2_halfshrunk"] else -1),
-                "actual_margin": actual_margin,
-                "actual_total": actual_total,
-            }
+        if graded is not None:
+            attach_errors(fc, graded)
         out.append((fc, graded))
     return out
+
+
+def attach_errors(fc: Forecast, graded: Game) -> None:
+    """Grade one forecast against a final game, in exactly one place.
+
+    Both the walk-forward helper and the leaderboard's per-week refit call this, so a number in a
+    graded table and a number on the leaderboard can never come from two different formulas. The
+    cover flags are three-way (win / loss / push) because a half-point-free line can land on the
+    actual margin; a push is recorded, not silently dropped.
+    """
+    if graded.away_points is None or graded.home_points is None or not graded.countable:
+        return
+    actual_margin = graded.home_points - graded.away_points
+    actual_total = graded.away_points + graded.home_points
+    fc.errors = {
+        "abs_error_side": round(abs(actual_margin - fc.side_fair), 4),
+        "abs_error_total_T1": round(abs(actual_total - fc.estimator_totals["T1_offdef"]), 4),
+        "abs_error_total_T2": round(abs(actual_total - fc.estimator_totals["T2_halfshrunk"]), 4),
+        "home_covered_own_line": 1 if actual_margin > fc.side_fair else (0 if actual_margin < fc.side_fair else -1),
+        "over_T1": 1 if actual_total > fc.estimator_totals["T1_offdef"] else (0 if actual_total < fc.estimator_totals["T1_offdef"] else -1),
+        "over_T2": 1 if actual_total > fc.estimator_totals["T2_halfshrunk"] else (0 if actual_total < fc.estimator_totals["T2_halfshrunk"] else -1),
+        "actual_margin": actual_margin,
+        "actual_total": actual_total,
+    }
 
 
 def _tie_rate(games: list[Game], before_week: int) -> float:
