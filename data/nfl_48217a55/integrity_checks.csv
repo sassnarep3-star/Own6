@@ -1,0 +1,6 @@
+check,value_a,value_b,result,note
+league points for equals league points against,6246,6246,pass,every point scored by one club is conceded by another
+wins equal losses,135,135,pass,2 tie game(s) counted on both clubs
+team-games is even,272,272,pass,"each game is counted twice, once per club"
+clubs in reconstructed table,32,32,pass,the sweep must cover all 32 clubs before any team-level model is trusted
+completed games through Week 9,136,136,info,"the brief refers to a 136-game log; this is the count the official standings imply, derived as half the summed team-games"

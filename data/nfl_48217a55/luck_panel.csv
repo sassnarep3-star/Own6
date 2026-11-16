@@ -1,0 +1,13 @@
+metric,value,derivation
+clubs,32,rows in the reconstructed table
+team-games,272,sum of club games
+completed games through Week 9,136,half the summed team-games
+observed win-pct variance,0.05697,population variance of win percentage across the 32 clubs
+observed win-pct SD,0.238685,square root of the above
+coin-flip null variance,0.029514,mean over clubs of 0.25 / games: the spread if every game were a fair flip
+implied skill variance,0.027457,observed variance minus null variance
+luck share,0.518056,null variance / observed variance
+margin SD (points per game),6.179168,population SD of points-for minus points-against per game
+league points per game,23.010417,mean of club points-for per game
+league points allowed per game,22.924479,mean of club points-against per game
+strategy-level luck removal,,blocked: needs 100 prospective graded forecasts (gate G8)

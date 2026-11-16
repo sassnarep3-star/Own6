@@ -1,0 +1,5 @@
+tier,condition,reward,monetary,evidence
+research priority 1,"Brier skill lower bound > 0 over >= 100 prospective forecasts, all gates pass",highest research priority; first call on new data sources,none,internal governance artifact: no external source; the conditions it names are the gates on validation-gates.html
+research priority 2,Brier skill point estimate > 0 but lower bound <= 0,maintained in paper with a published next-sample size,none,internal governance artifact: no external source; see validation-gates.html
+held,any required gate open,none; the blocking gate and its clearing number are published,none,internal governance artifact: no external source; see validation-gates.html
+demoted,demotion gate trips on a live strategy,returned to paper; the trip reason is published,none,internal governance artifact: no external source; see validation-gates.html
