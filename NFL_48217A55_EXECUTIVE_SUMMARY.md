@@ -112,9 +112,11 @@ Full list with source links on the
 3. **The by-week schedule page prints no venue**, so Week 10 venues are blank. The
    *inactives* page does print `WHERE`, and 13 Week 9 venues were transcribed from it.
    (`48217-F07`)
-4. **The injury page was served in eight chunks** and transcribed by hand. Every club's rows
-   are in surname order across the chunk joins, which is consistent with nothing being lost —
-   but that is a consistency check, not a proof. (`48217-F14`)
+4. **The injury page was served in eight chunks** and transcribed by hand. Chunk 0 was
+   re-read and diffed field-for-field: all 44 WAS/NYG/NE/DET rows match exactly, confirming
+   both the transcription and the `chunks 0-7` claim. Chunks 1–7 were not re-read, so their
+   completeness rests on the surname-ordering check — consistent with nothing being lost, but
+   a consistency check rather than a proof. (`48217-F14`, partially closed)
 5. **Eight overlapping NFL packs now exist in this repository**, and nothing tells a reader
    which is authoritative. The decision-readiness table is this pack's answer to that.
    (`RF-10`)

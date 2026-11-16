@@ -103,10 +103,13 @@ FLAGS = [
 
     ("48217-F14", "medium", "injury_report_2026_11_15.csv",
      "completeness of the transcription across the 8 chunks the page was served in",
-     "The page was served in eight chunks and each was transcribed by hand. Every club's rows "
-     "are in surname order across the chunk joins, which is consistent with no rows being "
-     "lost, but that is a consistency check, not a proof.",
-     "A machine-readable capture of the page, diffed against this transcription.", U["S1"]),
+     "PARTIALLY CLOSED 2026-11-15. Chunk 0 was re-read and diffed field-for-field against "
+     "this transcription: all 44 rows for WAS, NYG, NE and DET match exactly, which also "
+     "confirms the 'chunks 0-7' claim on source S1. Still open: chunks 1-7 were not "
+     "re-read, so their completeness rests on the surname-ordering check (every club's rows "
+     "are in surname order across the chunk joins, consistent with no rows lost, but that is "
+     "a consistency check rather than a proof).",
+     "Re-read chunks 1-7 and diff them the same way.", U["S1"]),
 
     ("48217-F15", "medium", "reserve_list.csv",
      "the Lamar Jackson reserve move",
