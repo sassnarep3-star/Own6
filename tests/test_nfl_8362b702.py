@@ -70,6 +70,16 @@ def test_model_probabilities_sum_to_one():
     assert info["hfa"] is not None and info["sigma"] > 0
 
 
+def test_standings_delta_published():
+    from nfl_8362b702 import results as R
+    deltas = R.standings_delta()
+    assert len(deltas) == 32
+    changed = {r["team_abbr"] for r in deltas if r["delta_kind"] == "changed"}
+    assert {"MIN", "LA", "AZ", "DET"} <= changed
+    min_row = next(r for r in deltas if r["team_abbr"] == "MIN")
+    assert "road_rec: 4 - 2 - 0 -> 4 - 1 - 0" in min_row["changed_fields"]
+
+
 def test_backtest_never_eligible():
     wf = M.walk_forward(R.corpus_rows())
     assert len(wf) == 120  # weeks 2-9

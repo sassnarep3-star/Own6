@@ -5,8 +5,37 @@ Nothing is inferred: a result exists only where an official card printed FINAL.
 """
 from __future__ import annotations
 
-from .capture import (LOG136, STANDINGS_READ_1_ROWS, WEEK10_GAMES,
-                      WEEK10_LIVE_SCORE_STRINGS)
+from .capture import (LOG136, STANDINGS_READ_1, STANDINGS_READ_1_ROWS,
+                      STANDINGS_READ_2, STANDINGS_READ_2_ROWS, STANDINGS_URL,
+                      WEEK10_GAMES, WEEK10_LIVE_SCORE_STRINGS)
+
+STANDINGS_FIELDS = ("team_abbr", "team_name", "w", "l", "t", "pct", "pf", "pa",
+                    "net", "home_rec", "road_rec", "div_rec", "div_pct",
+                    "conf_rec", "conf_pct", "rec_unlabeled_1", "strk",
+                    "rec_unlabeled_2")
+
+
+def standings_delta():
+    """Field-by-field diff of the two dated standings reads (the weekly
+    'what changed' view). Every changed field is published with both values;
+    unchanged clubs are listed as no-change so the cadence is visible."""
+    r1 = {r[0]: r for r in STANDINGS_READ_1_ROWS}
+    r2 = {r[0]: r for r in STANDINGS_READ_2_ROWS}
+    out = []
+    for abbr in sorted(r2):
+        a, b = r1[abbr], r2[abbr]
+        changed = []
+        for i, f in enumerate(STANDINGS_FIELDS):
+            if a[i] != b[i]:
+                changed.append(f"{f}: {a[i]} -> {b[i]}")
+        out.append({
+            "team_abbr": abbr,
+            "read_1_at_utc": STANDINGS_READ_1, "read_2_at_utc": STANDINGS_READ_2,
+            "delta_kind": "changed" if changed else "no-change",
+            "changed_fields": "; ".join(changed),
+            "source_url": STANDINGS_URL,
+        })
+    return out
 
 TEAMS = tuple(sorted({r[0] for r in STANDINGS_READ_1_ROWS}))
 

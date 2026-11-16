@@ -31,7 +31,7 @@ FLAGGED = [
      "MIN home splits 3-1-0 + road splits 4-2-0 sum to 7-3-0 while the W-L-T row and PCT "
      "print 7-2-0 (.778 = 7/9). All 32 clubs were checked; only MIN fails the identity.",
      "home_rec/road_rec kept verbatim, identity check published, nothing rewritten",
-     "re-read the standings page after week 10 completes and ask the league which cells are stale",
+     "resolved at the source itself: read 2 (2026-11-16T01:20:00Z) prints ROAD 4-1-0 and the identity now holds (see FLAG-14); keep the delta on record",
      STANDINGS_URL),
     ("FLAG-02", "high", "rights boundary",
      "NFL.com Terms §1.3 (carried verified read) limits use to individual non-commercial "
@@ -71,7 +71,7 @@ FLAGGED = [
      "Actual starters and game-day inactives live in NFL Game Books; no game book was reachable "
      "this session (no official PDF URL discovered from an official page).",
      "every actual_start/replacement_named cell blank and gated at G-GAMEBOOK",
-     "locate the official game-book URL pattern (from an official page) and parse 32 books",
+     "route FOUND (game-centre recap tab links a Game Book PDF on static.www.nfl.com, see GAMEBOOK_ROUTE in capture.py) but the PDF is not fetchable from this environment; parse the books where the PDF host is reachable",
      TB_DET_GAME_URL),
     ("FLAG-08", "low", "week-scoped injury URL 404",
      "https://www.nfl.com/injuries/2026/week-11 returns 404; the hub renders the current week "
@@ -99,6 +99,27 @@ FLAGGED = [
      "rows captured verbatim with their injury text",
      "G-CAL: split rest vs injury before scoring designation reliability",
      INJURY_URL),
+    ("FLAG-13", "medium", "week-11 venues not yet published at the source",
+     "11 of 13 week-11 game-centre pages return 404 at read time (only the two Thursday "
+     "fixtures have pages). Venue cells for those fixtures stay blank; every attempt is "
+     "logged with its URL and outcome in capture_attempts.csv.",
+     "blank venue + gate + attempt log; nothing inferred from ticketing or hotel links",
+     "re-read each game centre in the days before its kickoff and rebuild the venue table",
+     "https://www.nfl.com/games/colts-at-texans-2026-reg-11"),
+    ("FLAG-14", "medium", "source corrected itself between dated reads",
+     "MIN's ROAD split printed 4-2-0 at read 1 (2026-11-15T23:26:00Z) and 4-1-0 at read 2 "
+     "(2026-11-16T01:20:00Z). The read-1 value failed the HOME+ROAD=W-L-T identity (FLAG-01); "
+     "the source fixed its own inconsistency between the reads. LA and AZ rows also moved "
+     "between the reads when LAR@ARI settled (final 34-6).",
+     "both reads stored; the delta panel publishes every changed field with both values",
+     "keep reading on a schedule so source self-corrections surface as deltas",
+     STANDINGS_URL),
+    ("FLAG-15", "low", "unlabeled standings column moved without a game",
+     "DET's first unlabeled column printed 3-1-0 at read 1 and 3-0-0 at read 2, with no DET "
+     "game between the reads. The column is unlegended at the source; its meaning is unknown.",
+     "kept verbatim in both reads; delta published; column remains flagged as unlabeled",
+     "ask the publisher what the unlabeled columns mean before any use",
+     STANDINGS_URL),
     ("FLAG-12", "low", "standings read straddles live week-10 games",
      "At 2026-11-15T23:26Z the standings excluded the three live cards (LA-AZ, SEA-LV, SF-DAL) "
      "and the scheduled SNF/MNF games. Team game counts therefore range 8-10.",
@@ -201,5 +222,17 @@ def price_policy_rows():
 
 
 def attempt_rows():
-    return [{"read_at_utc": t, "url": u, "intent": i, "outcome": o, "note": n}
+    rows = [{"read_at_utc": t, "url": u, "intent": i, "outcome": o, "note": n}
             for t, u, i, o, n in CAPTURE_ATTEMPTS]
+    from .capture import GAMEBOOK_ROUTE, VENUE_ATTEMPTS
+    for t, u in VENUE_ATTEMPTS:
+        rows.append({"read_at_utc": t, "url": u,
+                     "intent": "week-11 game-centre Game Info (venue transcription)",
+                     "outcome": "404 - FLAG ON THE PLAY (page not published at read time)",
+                     "note": "venue cell stays blank and gated; attempt logged, nothing inferred"})
+    g = GAMEBOOK_ROUTE
+    rows.append({"read_at_utc": g["discovered_at_utc"], "url": g["pdf_url"],
+                 "intent": "official Game Book PDF (actual starters / inactives)",
+                 "outcome": g["fetch_outcome"],
+                 "note": "route discovered on " + g["discovered_on"] + "; " + g["note"]})
+    return rows

@@ -54,6 +54,13 @@ the source (the three Lions game-status designations; the reserve-list capture).
   from coin flips at this sample size — which is exactly the point of removing
   luck before believing anything.
 - Drift alarms: 7 of 7 source contracts OK at build (row counts pinned).
+- Weekly diff (two dated standings reads, 23:26Z → 01:20Z): 4 of 32 rows
+  changed — LA 5-4→6-4 and AZ 3-6→3-7 when LAR@ARI settled (final 34-6);
+  **MIN's ROAD split self-corrected 4-2-0 → 4-1-0 at the source** (the read-1
+  value was FLAG-01; the identity now holds); DET's first unlabeled column
+  moved 3-1-0 → 3-0-0 with no DET game between reads (FLAG-15). The injury
+  delta panel (hub read A 23:58Z → read B 00:50Z, 155 rows) shows zero changed
+  fields — the cadence is proven by the panel itself.
 
 ## Decisions frozen before Week 11 TNF (2026-11-19 20:15 ET)
 

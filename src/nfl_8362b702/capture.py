@@ -692,3 +692,96 @@ VENUE_READS = {
     "W11-06": ("FORD FIELD", "DETROIT, MI", "2026-11-15T23:27:00Z",
                "https://www.nfl.com/games/buccaneers-at-lions-2026-reg-11"),
 }
+
+# --------------------------------------------------------------------------
+# Standings Read #2 (same official page, second read at
+# 2026-11-16T01:20:00Z). Stored so the weekly "what changed" page can diff
+# two dated reads field by field. Observed deltas vs Read #1: LA and AZ moved
+# when LAR@ARI settled (final 34-6), MIN's ROAD split changed from 4-2-0 to
+# 4-1-0 (the source corrected its own inconsistency — see FLAG-01/FLAG-14),
+# and DET's first unlabeled column moved 3-1-0 -> 3-0-0 without any DET game
+# between the reads (see FLAG-15). Everything else is byte-identical.
+# --------------------------------------------------------------------------
+STANDINGS_READ_2 = "2026-11-16T01:20:00Z"
+
+STANDINGS_READ_2_ROWS = [
+    ("BUF", "Buffalo Bills", 8, 1, 0, "0.889", 287, 199, 88, "3 - 1 - 0", "5 - 0 - 0", "1 - 1 - 0", "0.500", "5 - 1 - 0", "0.833", "3 - 0 - 0", "5W", "5 - 0 - 0"),
+    ("SF", "San Francisco 49ers", 7, 1, 0, "0.875", 235, 156, 79, "5 - 0 - 0", "2 - 1 - 0", "3 - 0 - 0", "1.000", "4 - 1 - 0", "0.800", "3 - 0 - 0", "1W", "4 - 1 - 0"),
+    ("CHI", "Chicago Bears", 7, 2, 0, "0.778", 241, 184, 57, "4 - 1 - 0", "3 - 1 - 0", "0 - 2 - 0", "0.000", "5 - 2 - 0", "0.714", "2 - 0 - 0", "4W", "4 - 1 - 0"),
+    ("DEN", "Denver Broncos", 7, 2, 0, "0.778", 198, 186, 12, "4 - 0 - 0", "3 - 2 - 0", "2 - 1 - 0", "0.667", "3 - 1 - 0", "0.750", "4 - 1 - 0", "5W", "5 - 0 - 0"),
+    ("DET", "Detroit Lions", 7, 2, 0, "0.778", 257, 199, 58, "5 - 0 - 0", "2 - 2 - 0", "2 - 0 - 0", "1.000", "4 - 1 - 0", "0.800", "3 - 0 - 0", "5W", "5 - 0 - 0"),
+    ("JAX", "Jacksonville Jaguars", 7, 2, 0, "0.778", 269, 144, 125, "4 - 1 - 0", "3 - 1 - 0", "2 - 1 - 0", "0.667", "6 - 2 - 0", "0.750", "1 - 0 - 0", "3W", "4 - 1 - 0"),
+    ("KC", "Kansas City Chiefs", 7, 2, 0, "0.778", 237, 156, 81, "4 - 0 - 0", "3 - 2 - 0", "3 - 1 - 0", "0.750", "6 - 1 - 0", "0.857", "1 - 1 - 0", "2W", "3 - 2 - 0"),
+    ("MIN", "Minnesota Vikings", 7, 2, 0, "0.778", 176, 126, 50, "3 - 1 - 0", "4 - 1 - 0", "3 - 1 - 0", "0.750", "5 - 1 - 0", "0.833", "2 - 1 - 0", "1W", "3 - 2 - 0"),
+    ("CIN", "Cincinnati Bengals", 6, 2, 0, "0.750", 240, 175, 65, "2 - 1 - 0", "4 - 1 - 0", "1 - 1 - 0", "0.500", "4 - 2 - 0", "0.667", "2 - 0 - 0", "4W", "4 - 1 - 0"),
+    ("PIT", "Pittsburgh Steelers", 6, 2, 0, "0.750", 180, 144, 36, "4 - 0 - 0", "2 - 2 - 0", "2 - 1 - 0", "0.667", "3 - 2 - 0", "0.600", "3 - 0 - 0", "4W", "4 - 1 - 0"),
+    ("NYG", "New York Giants", 5, 3, 1, "0.611", 203, 196, 7, "3 - 2 - 0", "2 - 1 - 1", "2 - 1 - 1", "0.625", "3 - 3 - 1", "0.500", "2 - 0 - 0", "1L", "2 - 2 - 1"),
+    ("CLE", "Cleveland Browns", 6, 4, 0, "0.600", 188, 220, -32, "4 - 0 - 0", "2 - 4 - 0", "2 - 1 - 0", "0.667", "4 - 3 - 0", "0.571", "2 - 1 - 0", "1W", "3 - 2 - 0"),
+    ("GB", "Green Bay Packers", 6, 4, 0, "0.600", 226, 221, 5, "3 - 2 - 0", "3 - 2 - 0", "1 - 3 - 0", "0.250", "4 - 4 - 0", "0.500", "2 - 0 - 0", "1L", "3 - 2 - 0"),
+    ("LA", "Los Angeles Rams", 6, 4, 0, "0.600", 248, 187, 61, "2 - 3 - 0", "4 - 1 - 0", "1 - 2 - 0", "0.333", "4 - 2 - 0", "0.667", "2 - 2 - 0", "4W", "4 - 1 - 0"),
+    ("SEA", "Seattle Seahawks", 5, 4, 0, "0.556", 202, 162, 40, "4 - 2 - 0", "1 - 2 - 0", "2 - 1 - 0", "0.667", "2 - 3 - 0", "0.400", "3 - 1 - 0", "1W", "2 - 3 - 0"),
+    ("NE", "New England Patriots", 5, 5, 0, "0.500", 221, 242, -21, "3 - 1 - 0", "2 - 4 - 0", "3 - 0 - 0", "1.000", "5 - 1 - 0", "0.833", "0 - 4 - 0", "2L", "2 - 3 - 0"),
+    ("BAL", "Baltimore Ravens", 4, 5, 0, "0.444", 189, 236, -47, "1 - 3 - 0", "3 - 2 - 0", "0 - 2 - 0", "0.000", "2 - 4 - 0", "0.333", "2 - 1 - 0", "4L", "1 - 4 - 0"),
+    ("CAR", "Carolina Panthers", 4, 5, 0, "0.444", 219, 236, -17, "1 - 3 - 0", "3 - 2 - 0", "2 - 1 - 0", "0.667", "4 - 3 - 0", "0.571", "0 - 2 - 0", "1W", "2 - 3 - 0"),
+    ("DAL", "Dallas Cowboys", 4, 5, 0, "0.444", 246, 236, 10, "1 - 3 - 0", "3 - 2 - 0", "2 - 1 - 0", "0.667", "2 - 4 - 0", "0.333", "2 - 1 - 0", "1W", "2 - 3 - 0"),
+    ("LV", "Las Vegas Raiders", 4, 5, 0, "0.444", 238, 268, -30, "1 - 3 - 0", "3 - 2 - 0", "1 - 1 - 0", "0.500", "3 - 3 - 0", "0.500", "1 - 2 - 0", "1L", "1 - 4 - 0"),
+    ("WAS", "Washington Commanders", 3, 5, 1, "0.389", 196, 223, -27, "2 - 2 - 1", "1 - 3 - 0", "2 - 2 - 1", "0.500", "3 - 4 - 1", "0.438", "0 - 1 - 0", "1W", "2 - 2 - 1"),
+    ("HOU", "Houston Texans", 3, 6, 0, "0.333", 233, 219, 14, "0 - 4 - 0", "3 - 2 - 0", "2 - 1 - 0", "0.667", "3 - 4 - 0", "0.429", "0 - 2 - 0", "1L", "3 - 2 - 0"),
+    ("NO", "New Orleans Saints", 3, 6, 0, "0.333", 202, 236, -34, "1 - 5 - 0", "2 - 1 - 0", "0 - 2 - 0", "0.000", "1 - 4 - 0", "0.200", "2 - 2 - 0", "1L", "2 - 3 - 0"),
+    ("TB", "Tampa Bay Buccaneers", 3, 6, 0, "0.333", 202, 178, 24, "1 - 4 - 0", "2 - 2 - 0", "2 - 0 - 0", "1.000", "3 - 3 - 0", "0.500", "0 - 3 - 0", "1L", "3 - 2 - 0"),
+    ("AZ", "Arizona Cardinals", 3, 7, 0, "0.300", 184, 289, -105, "0 - 4 - 0", "3 - 3 - 0", "1 - 4 - 0", "0.200", "2 - 6 - 0", "0.250", "1 - 1 - 0", "2L", "2 - 3 - 0"),
+    ("ATL", "Atlanta Falcons", 3, 7, 0, "0.300", 201, 258, -57, "1 - 5 - 0", "2 - 2 - 0", "1 - 2 - 0", "0.333", "3 - 3 - 0", "0.500", "0 - 4 - 0", "3L", "1 - 4 - 0"),
+    ("IND", "Indianapolis Colts", 3, 7, 0, "0.300", 208, 271, -63, "2 - 3 - 0", "1 - 4 - 0", "1 - 2 - 0", "0.333", "2 - 5 - 0", "0.286", "1 - 2 - 0", "1W", "1 - 4 - 0"),
+    ("PHI", "Philadelphia Eagles", 2, 7, 0, "0.222", 148, 221, -73, "1 - 4 - 0", "1 - 3 - 0", "1 - 3 - 0", "0.250", "1 - 6 - 0", "0.143", "1 - 1 - 0", "7L", "0 - 5 - 0"),
+    ("NYJ", "New York Jets", 2, 8, 0, "0.200", 194, 254, -60, "1 - 4 - 0", "1 - 4 - 0", "0 - 3 - 0", "0.000", "2 - 5 - 0", "0.286", "0 - 3 - 0", "5L", "0 - 5 - 0"),
+    ("MIA", "Miami Dolphins", 1, 8, 0, "0.111", 148, 224, -76, "0 - 4 - 0", "1 - 4 - 0", "1 - 1 - 0", "0.500", "1 - 5 - 0", "0.167", "0 - 3 - 0", "3L", "1 - 4 - 0"),
+    ("TEN", "Tennessee Titans", 1, 8, 0, "0.111", 167, 239, -72, "0 - 5 - 0", "1 - 3 - 0", "1 - 2 - 0", "0.333", "1 - 6 - 0", "0.143", "0 - 2 - 0", "3L", "1 - 4 - 0"),
+    ("LAC", "Los Angeles Chargers", 0, 8, 0, "0.000", 121, 219, -98, "0 - 4 - 0", "0 - 4 - 0", "0 - 3 - 0", "0.000", "0 - 5 - 0", "0.000", "0 - 3 - 0", "8L", "0 - 5 - 0"),
+]
+
+# Injury-hub Read B: same official hub, second read at 2026-11-16T00:50:00Z.
+# The same 13-club window (chunks 0-2) was re-read row by row; every value is
+# identical to Read A (zero changed fields). The rows are re-declared here so
+# the series stores both reads self-contained.
+INJURY_READ_B = "2026-11-16T00:50:00Z"
+INJURY_READ_B_WINDOW = ("hub chunks 0-2 (same 13-club window as Read A: WAS NYG NE DET KC ATL "
+                        "MIN GB JAX TEN BUF NYJ MIA); the hub page currently spans 8 chunks — "
+                        "later club tables (IND CAR NO HOU CLE LAR AZ SEA LV SF DAL PIT CIN LAC BAL) "
+                        "were outside this window and are not diffed here")
+INJURY_ROWS_B = list(INJURY_ROWS_A)
+
+# Week-11 venue: TNF game centre read (Game Info block).
+VENUE_READS["W11-01"] = ("RELIANT STADIUM", "HOUSTON, TX", "2026-11-16T00:35:00Z",
+                         "https://www.nfl.com/games/colts-at-texans-2026-reg-11")
+
+# The 11 remaining week-11 game-centre pages returned "404 - FLAG ON THE PLAY"
+# at read time (the source publishes game centres close to each game; the two
+# Thursday fixtures have pages, the Sunday/Monday fixtures do not yet). Each
+# attempt is logged; venue cells stay blank and gated. Nothing is inferred.
+VENUE_ATTEMPTS = [
+    ("2026-11-16T00:36:00Z", "https://www.nfl.com/games/falcons-at-patriots-2026-reg-11"),
+    ("2026-11-16T00:36:30Z", "https://www.nfl.com/games/bears-at-vikings-2026-reg-11"),
+    ("2026-11-16T00:37:00Z", "https://www.nfl.com/games/broncos-at-chiefs-2026-reg-11"),
+    ("2026-11-16T00:38:00Z", "https://www.nfl.com/games/packers-at-giants-2026-reg-11"),
+    ("2026-11-16T00:38:30Z", "https://www.nfl.com/games/jets-at-ravens-2026-reg-11"),
+    ("2026-11-16T00:39:00Z", "https://www.nfl.com/games/steelers-at-browns-2026-reg-11"),
+    ("2026-11-16T00:39:30Z", "https://www.nfl.com/games/commanders-at-dolphins-2026-reg-11"),
+    ("2026-11-16T00:40:00Z", "https://www.nfl.com/games/chargers-at-titans-2026-reg-11"),
+    ("2026-11-16T00:40:30Z", "https://www.nfl.com/games/jaguars-at-cardinals-2026-reg-11"),
+    ("2026-11-16T00:41:00Z", "https://www.nfl.com/games/49ers-at-aztecas-2026-reg-11"),
+    ("2026-11-16T00:41:30Z", "https://www.nfl.com/games/bengals-at-raiders-2026-reg-11"),
+]
+
+# Game Books: the official game centre's recap tab links "Download Game Book
+# (PDF)" on static.www.nfl.com. Discovered on the HOU@CLE week-10 game centre
+# (chunk 0 of https://www.nfl.com/games/texans-at-browns-2026-reg-10). A fetch
+# of that PDF URL failed from this environment ("Failed to fetch page"), so no
+# starters are transcribed here; the route is recorded for the G-GAMEBOOK gate.
+GAMEBOOK_ROUTE = {
+    "discovered_on": "https://www.nfl.com/games/texans-at-browns-2026-reg-10",
+    "discovered_at_utc": "2026-11-16T01:10:00Z",
+    "pdf_url": "https://static.www.nfl.com/image/upload/v1794777616/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf",
+    "fetch_outcome": "failed (fetch error from this environment; static.www.nfl.com not reachable)",
+    "note": "pattern: game-centre recap tab -> 'Download Game Book (PDF)' -> static.www.nfl.com "
+            "gamecenter/<uuid>.pdf. Actual starters/inactives live in these books; 0 parsed here.",
+}

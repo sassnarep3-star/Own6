@@ -15,6 +15,7 @@ Rule 11 control baselines are reproducible from the frozen seed alone.
 Rule 12 model outputs are probabilities with complete input vectors.
 Rule 13 flagged.csv covers every irregularity class this pack publishes.
 Rule 14 readiness ledger covers every requirement id exactly once.
+Rule 15 second dated reads are consistent and their deltas are published.
 """
 from __future__ import annotations
 
@@ -45,6 +46,7 @@ REQUIRED_CSVS = [
     "reserve_mismatch.csv", "venues_week11.csv", "scraper_contracts.csv",
     "capture_attempts.csv", "sources.csv", "flagged.csv", "questions.csv",
     "suggestions.csv", "price_policy.csv", "readiness.csv", "prereg.csv",
+    "standings_delta.csv",
 ]
 
 REQUIRED_PAGES = [
@@ -211,13 +213,32 @@ def main():
             if not r["gate_that_blocks_it"] and r["status"] in ("open", "blocked"):
                 errs.append(f"rule 14: {r['requirement_id']} open/blocked without a gate")
 
+    # Rule 15
+    if not errs:
+        r2 = C.STANDINGS_READ_2_ROWS
+        if len(r2) != 32:
+            errs.append(f"rule 15: standings read 2 has {len(r2)} rows, want 32")
+        if sum(r[2] for r in r2) != 145 or sum(r[3] for r in r2) != 145 or sum(r[4] for r in r2) != 2:
+            errs.append("rule 15: read-2 W/L/T sums != 145/145/2")
+        if sum(r[6] for r in r2) != sum(r[7] for r in r2):
+            errs.append("rule 15: read-2 PF != PA")
+        deltas = rows("standings_delta.csv")
+        if len(deltas) != 32:
+            errs.append(f"rule 15: standings delta has {len(deltas)} rows, want 32")
+        changed = {r["team_abbr"] for r in deltas if r["delta_kind"] == "changed"}
+        if not {"MIN", "LA", "AZ"} <= changed:
+            errs.append(f"rule 15: expected MIN/LA/AZ deltas, got {sorted(changed)}")
+        for r in deltas:
+            if r["delta_kind"] == "changed" and not r["changed_fields"]:
+                errs.append(f"rule 15: {r['team_abbr']} changed without field detail")
+
     if errs:
         print(f"CHECK FAIL ({len(errs)}):")
         for e in errs:
             print(" -", e)
         return 1
     print(f"CHECK PASS ({len(REQUIRED_CSVS)} CSVs, {len(REQUIRED_PAGES)} pages, "
-          f"rules 1-14 green)")
+          f"rules 1-15 green)")
     return 0
 
 

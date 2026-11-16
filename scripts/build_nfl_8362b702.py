@@ -194,6 +194,7 @@ def build():
     write_csv("week10_nonfinal.csv", nonfinal)
     write_csv("standings_asof.csv", std, source_url=C.STANDINGS_URL)
     write_csv("standings_split_checks.csv", splits, source_url=C.STANDINGS_URL)
+    write_csv("standings_delta.csv", R.standings_delta(), source_url=C.STANDINGS_URL)
     write_csv("reconciliation.csv", recon, source_url=C.STANDINGS_URL)
 
     # model outputs + backtest
@@ -383,9 +384,12 @@ scheduled cards are never results; their on-card strings are kept beside the fee
         ("pct", "PCT"), ("pf", "PF"), ("pa", "PA"), ("net", "NET"), ("strk", "STRK"),
         ("home_rec", "HOME"), ("road_rec", "ROAD"), ("rec_unlabeled_1", "Unlabeled col (verbatim)"),
         ("rec_unlabeled_2", "Unlabeled col (verbatim)")], std)}
-<h3>What changed between dated reads</h3>
-{"<p>No second read has been taken yet in this build; the delta table fills when read B lands in capture.py.</p>"
- if not os.path.exists(os.path.join(DATA, "standings_delta.csv")) else ""}
+<h3>What changed between dated reads (the weekly diff)</h3>
+<div class="note">Read 1 {esc(C.STANDINGS_READ_1)} vs read 2 {esc(C.STANDINGS_READ_2)}.
+Changed rows are published with both values; source self-corrections are deltas too (FLAG-14).</div>
+{table([("team_abbr", "Club"), ("delta_kind", "Delta"), ("changed_fields", "Changed fields"),
+        ("read_1_at_utc", "Read 1"), ("read_2_at_utc", "Read 2"), ("source_url", "Source")],
+       R.standings_delta())}
 </section>"""
     save("standings.html", "Standings + delta", body)
 
@@ -561,7 +565,12 @@ FLAG-07). A blank is published as unknown, never as 'no deficiency'.</div>
                      ("location_on_page", "Location on page"), ("event_mark_on_card", "Event mark"),
                      ("read_at_utc", "Read at"), ("game_page_url", "Official game centre"),
                      ("blank_reason", "Blank reason")], vrows,
-                    blank_cols=("stadium_on_page",)) + "</section>")
+                    blank_cols=("stadium_on_page",))
+            + "<h3>Venue capture attempts (404s are data too)</h3>"
+            + table([("read_at_utc", "Read at"), ("url", "URL"), ("intent", "Intent"),
+                     ("outcome", "Outcome"), ("note", "Note")],
+                    [r for r in RG.attempt_rows() if "game-centre" in r["intent"] or "Game Book" in r["intent"]])
+            + "</section>")
     save("venues.html", "Week-11 venues", body)
 
     body = f"""
