@@ -963,8 +963,8 @@ def manifest_html() -> str:
 
 def page(slug: str, title: str, intro: str, blocks: str, cards=None) -> str:
     nav = "".join(
-        f"<a href='{s}.html\"{chr(32)}aria-current=\"page\">{esc(n)}</a>" if s == slug
-        else f"<a href='{s}.html'>{esc(n)}</a>"
+        '<a href="{u}" aria-current="page">{t}</a>'.format(u=s + ".html", t=esc(n)) if s == slug
+        else '<a href="{u}">{t}</a>'.format(u=s + ".html", t=esc(n))
         for s, n in NAV
     )
     cards_html = ""

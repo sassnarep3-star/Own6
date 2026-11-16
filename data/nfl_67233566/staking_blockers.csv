@@ -1,0 +1,7 @@
+field,state,reason,gate_that_owns_it,official_source_url
+stake,not computable,no odds exist to stake at,G-08,https://www.nfl.com/games/colts-at-texans-2026-reg-11?tab=overview
+roi,not computable,"no price, therefore no return",G-08,https://www.nfl.com/games/colts-at-texans-2026-reg-11?tab=overview
+closing_line_value,not computable,no closing number exists in this repository's evidence set,G-08 and the stage-2 escrow,https://www.nfl.com/games/colts-at-texans-2026-reg-11?tab=overview
+return,not computable,a return is (stake × price movement); neither term exists,G-08,https://www.nfl.com/games/colts-at-texans-2026-reg-11?tab=overview
+units_won,not published,"publishing it here would let a lucky run masquerade as signal, which is the exact failure the owner asked to prevent",G-12,https://www.nfl.com/games/colts-at-texans-2026-reg-11?tab=overview
+max_drawdown,not computable,a drawdown needs a stake series,"DG-04 (armed, nothing to measure)",https://www.nfl.com/games/colts-at-texans-2026-reg-11?tab=overview

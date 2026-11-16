@@ -1,0 +1,57 @@
+table,data_rows,blank_cells,blank_share,note,official_source_url
+ablations.csv,2,0,0.00 per row,0 blanks: every published field was read or computed from something published,https://www.nfl.com/schedules/2026/by-week/week-10
+availability_graph.csv,50,158,3.16 per row,"blanks are the point: a field with no official value is left empty, never filled",https://www.nfl.com/injuries/
+backtest_corpus.csv,145,129,0.89 per row,"blanks are the point: a field with no official value is left empty, never filled",https://www.nfl.com/schedules/2026/by-week/week-10
+capture_log.csv,7,0,0.00 per row,0 blanks: every published field was read or computed from something published,https://www.nfl.com/schedules/2026/by-week/week-10
+combo_joint_evidence.csv,1,0,0.00 per row,0 blanks: every published field was read or computed from something published,https://www.nfl.com/schedules/2026/by-week/week-10
+control_baselines.csv,4,1,0.25 per row,"blanks are the point: a field with no official value is left empty, never filled",https://www.nfl.com/schedules/2026/by-week/week-10
+corpus_summary.csv,24,0,0.00 per row,0 blanks: every published field was read or computed from something published,https://www.nfl.com/schedules/2026/by-week/week-10
+correlation_exclusions.csv,4,0,0.00 per row,0 blanks: every published field was read or computed from something published,https://www.nfl.com/schedules/2026/by-week/week-10
+correlations.csv,10,0,0.00 per row,0 blanks: every published field was read or computed from something published,https://www.nfl.com/schedules/2026/by-week/week-10
+demotion_gate.csv,63,1,0.02 per row,"blanks are the point: a field with no official value is left empty, never filled",https://www.nfl.com/schedules/2026/by-week/week-10
+depth_source_register.csv,4,0,0.00 per row,0 blanks: every published field was read or computed from something published,https://www.nfl.com/schedules/2026/by-week/week-10
+designation_calibration.csv,7,29,4.14 per row,"blanks are the point: a field with no official value is left empty, never filled",https://www.nfl.com/schedules/2026/by-week/week-10
+drift_alarms.csv,3,0,0.00 per row,0 blanks: every published field was read or computed from something published,https://www.nfl.com/schedules/2026/by-week/week-10
+escrow_stage2.csv,1,0,0.00 per row,0 blanks: every published field was read or computed from something published,https://www.nfl.com/schedules/2026/by-week/week-10
+fixture_context.csv,26,76,2.92 per row,"blanks are the point: a field with no official value is left empty, never filled",https://www.nfl.com/schedules/2026/by-week/week-10
+fixtures_week11.csv,19,84,4.42 per row,"blanks are the point: a field with no official value is left empty, never filled",https://www.nfl.com/schedules/2026/by-week/week-10
+flagged.csv,15,0,0.00 per row,0 blanks: every published field was read or computed from something published,https://www.nfl.com/schedules/2026/by-week/week-10
+independent_read_agreement.csv,1,0,0.00 per row,0 blanks: every published field was read or computed from something published,https://www.nfl.com/schedules/2026/by-week/week-10
+injuries_week10_read.csv,50,58,1.16 per row,"blanks are the point: a field with no official value is left empty, never filled",https://www.nfl.com/schedules/2026/by-week/week-10
+injury_surprise.csv,50,108,2.16 per row,"blanks are the point: a field with no official value is left empty, never filled",https://www.nfl.com/schedules/2026/by-week/week-10
+leaderboard_divisions.csv,5,0,0.00 per row,0 blanks: every published field was read or computed from something published,https://www.nfl.com/schedules/2026/by-week/week-10
+leaderboard_signal.csv,9,48,5.33 per row,"blanks are the point: a field with no official value is left empty, never filled",https://www.nfl.com/schedules/2026/by-week/week-10
+leaderboard_staking.csv,0,0,0.00 per row,0 blanks: every published field was read or computed from something published,https://www.nfl.com/schedules/2026/by-week/week-10
+luck_panel.csv,34,0,0.00 per row,0 blanks: every published field was read or computed from something published,https://www.nfl.com/schedules/2026/by-week/week-10
+market_decomposition.csv,5,0,0.00 per row,0 blanks: every published field was read or computed from something published,https://www.nfl.com/schedules/2026/by-week/week-10
+market_price_capture_log.csv,5,0,0.00 per row,0 blanks: every published field was read or computed from something published,https://www.nfl.com/schedules/2026/by-week/week-10
+originated_lines.csv,142,943,6.64 per row,"blanks are the point: a field with no official value is left empty, never filled",https://www.nfl.com/schedules/2026/by-week/week-11
+origination_order.csv,13,0,0.00 per row,0 blanks: every published field was read or computed from something published,https://www.nfl.com/schedules/2026/by-week/week-10
+preregistration.csv,12,0,0.00 per row,0 blanks: every published field was read or computed from something published,https://www.nfl.com/schedules/2026/by-week/week-10
+price_movement.csv,13,0,0.00 per row,0 blanks: every published field was read or computed from something published,https://www.nfl.com/schedules/2026/by-week/week-10
+price_policy.csv,5,0,0.00 per row,0 blanks: every published field was read or computed from something published,https://www.nfl.com/schedules/2026/by-week/week-10
+price_snapshots.csv,130,130,1.00 per row,"blanks are the point: a field with no official value is left empty, never filled",https://www.nfl.com/schedules/2026/by-week/week-10
+questions.csv,12,7,0.58 per row,"blanks are the point: a field with no official value is left empty, never filled",https://www.nfl.com/schedules/2026/by-week/week-10
+reconciliation_checks.csv,220,0,0.00 per row,0 blanks: every published field was read or computed from something published,https://www.nfl.com/schedules/2026/by-week/week-10
+replacement_depth.csv,32,96,3.00 per row,"blanks are the point: a field with no official value is left empty, never filled",https://www.nfl.com/schedules/2026/by-week/week-10
+repo_findings.csv,7,0,0.00 per row,0 blanks: every published field was read or computed from something published,https://www.nfl.com/schedules/2026/by-week/week-10
+requirements_trace.csv,79,0,0.00 per row,0 blanks: every published field was read or computed from something published,https://www.nfl.com/schedules/2026/by-week/week-10
+residual_publish_schedule.csv,13,13,1.00 per row,"blanks are the point: a field with no official value is left empty, never filled",https://www.nfl.com/schedules/2026/by-week/week-10
+results_feed.csv,150,425,2.83 per row,"blanks are the point: a field with no official value is left empty, never filled",https://www.nfl.com/schedules/2026/by-week/week-10
+rewards_policy.csv,4,0,0.00 per row,0 blanks: every published field was read or computed from something published,https://www.nfl.com/schedules/2026/by-week/week-10
+roster_ir_sweep.csv,32,272,8.50 per row,"blanks are the point: a field with no official value is left empty, never filled",https://www.nfl.com/schedules/2026/by-week/week-10
+snapshot_ledger.csv,7,0,0.00 per row,0 blanks: every published field was read or computed from something published,https://www.nfl.com/schedules/2026/by-week/week-10
+sources.csv,9,1,0.11 per row,"blanks are the point: a field with no official value is left empty, never filled",https://www.nfl.com/schedules/2026/by-week/week-10
+staking_blockers.csv,6,0,0.00 per row,0 blanks: every published field was read or computed from something published,https://www.nfl.com/schedules/2026/by-week/week-10
+standings.csv,32,0,0.00 per row,0 blanks: every published field was read or computed from something published,https://www.nfl.com/schedules/2026/by-week/week-10
+state_transitions.csv,3,0,0.00 per row,0 blanks: every published field was read or computed from something published,https://www.nfl.com/schedules/2026/by-week/week-10
+strategies.csv,12,0,0.00 per row,0 blanks: every published field was read or computed from something published,https://www.nfl.com/schedules/2026/by-week/week-10
+strategy_states.csv,9,0,0.00 per row,0 blanks: every published field was read or computed from something published,https://www.nfl.com/schedules/2026/by-week/week-10
+suggestions.csv,12,0,0.00 per row,0 blanks: every published field was read or computed from something published,https://www.nfl.com/schedules/2026/by-week/week-10
+team_view.csv,32,133,4.16 per row,"blanks are the point: a field with no official value is left empty, never filled",https://www.nfl.com/standings/division/2026/reg
+totals_two_estimators.csv,142,52,0.37 per row,"blanks are the point: a field with no official value is left empty, never filled",https://www.nfl.com/schedules/2026/by-week/week-10
+totals_winner_decision.csv,1,0,0.00 per row,0 blanks: every published field was read or computed from something published,https://www.nfl.com/schedules/2026/by-week/week-10
+validation_gates.csv,13,1,0.08 per row,"blanks are the point: a field with no official value is left empty, never filled",https://www.nfl.com/schedules/2026/by-week/week-10
+venues.csv,14,27,1.93 per row,"blanks are the point: a field with no official value is left empty, never filled",https://www.nfl.com/schedules/2026/by-week/week-10
+walk_forward_design.csv,9,0,0.00 per row,0 blanks: every published field was read or computed from something published,https://www.nfl.com/schedules/2026/by-week/week-10
+week10_at_capture.csv,14,2,0.14 per row,"blanks are the point: a field with no official value is left empty, never filled",https://www.nfl.com/schedules/2026/by-week/week-10

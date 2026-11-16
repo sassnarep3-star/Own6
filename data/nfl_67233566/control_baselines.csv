@@ -1,0 +1,5 @@
+control,what_it_tests,value,model_vs_control,verdict,official_source_url,captured_at_utc
+constant home-win rate (STR-03),does the model beat a number that never looks at the teams?,0.2573,-0.0244,the model's Brier minus the constant's; negative is better,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15T23:26:34Z
+coin 0.5 (STR-04),pure indecision floor,0.2500,-0.0171,"independent of the league's home rate, so it catches a model that only knows the home rate",https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15T23:26:34Z
+constant total = league mean (STR-09),the totals division's floor,46.9172,0.6186,"interval score, lower is better",https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15T23:26:34Z
+push accounting,how many graded fixtures were ties (excluded from the binary division and counted here),1,,"a tie is a push on a moneyline, not a loss; silently dropping it would inflate skill",https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-15T23:26:34Z

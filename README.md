@@ -11,6 +11,7 @@ An evidence-first research repository with an NFL line-origination and validatio
 - **Flagged for Review:** [`docs/nfl-origination/flagged.html`](docs/nfl-origination/flagged.html)
 - **NFL executive summary:** [`docs/nfl-origination/executive-summary.html`](docs/nfl-origination/executive-summary.html)
 - **Additional self-contained NFL Week pack:** [`docs/nfl-wk/index.html`](docs/nfl-wk/index.html) — separate input snapshots and quarantined strategy candidates; not combined with the main leaderboard.
+- **Decision desk (session `67233566`):** [`docs/nfl-67233566/index.html`](docs/nfl-67233566/index.html) — 145 finished games reconciled 220-for-220 against the official standings and card badges, a hash-chained opening/closing ledger for the lines we originate, a 12-strategy signal leaderboard ranked on proper scores with a game-cluster lower bound and a multiplicity adjustment, availability floors per position group, and one table per requirement naming the gate that blocks it. Market prices stay blank by written policy because no official page in the evidence set prints one.
 - **Other research domains:** [NBA assurance](docs/assurance/index.html) · [all sections hub](docs/index.html)
 
 The repository root now opens an NFL-focused portal. The separate `docs/` dashboard and NBA, NFL, and housing research packs remain available; they have separate evidence boundaries and should not be read as multiple independent performance records.

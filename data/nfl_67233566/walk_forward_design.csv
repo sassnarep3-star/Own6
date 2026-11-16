@@ -1,0 +1,10 @@
+item,value,official_source_url
+vintages,a forecast for week w uses only weeks strictly earlier than w,https://www.nfl.com/schedules/2026/by-week/week-10
+train / validation / final holdout,within-season chronology only; a season-level holdout needs a second season (R-66),https://www.nfl.com/schedules/2026/by-week/week-10
+graded fixtures,129,https://www.nfl.com/schedules/2026/by-week/week-10
+"mean absolute error, side (points)",9.7907,https://www.nfl.com/schedules/2026/by-week/week-10
+"mean absolute error, total T1 / T2 (points)",11.3643 / 11.2093,https://www.nfl.com/schedules/2026/by-week/week-10
+league points per team (fit through week 9),22.963,https://www.nfl.com/schedules/2026/by-week/week-10
+corroboration,session d966f630 independently reported 22.963 ppg through week 9; this pack recomputed 22.963 from a separate code path,https://github.com/sassnarep3-star/Own6/blob/32a1b692ea6674b3755716e9926596e4772a3364/COORDINATION.md
+estimated home-field effect (points),-0.4950,https://www.nfl.com/schedules/2026/by-week/week-10
+margin residual SD (points),10.663,https://www.nfl.com/schedules/2026/by-week/week-10

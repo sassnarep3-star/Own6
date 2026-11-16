@@ -1,0 +1,4 @@
+alarm_id,kind,detail,action,state,official_source_url
+DRIFT-CADENCE,freshness,"one capture on file for the injury page. A single read cannot support a surprise signal, a replay or an audit - the alarm is not about the value, it is about the count.","schedule Wed/Thu/Fri captures (R-28, SG-02)",fired,https://www.nfl.com/injuries/
+DRIFT-SCHEMA,schema,"the pinned prior capture of the same report page holds 50 rows; another pack's capture of it holds 347; the requirement text quotes 254 and 279. Four counts, one page, no retained hashes to adjudicate.",pin an expected row count per club and store the raw text hash with every capture,fired,https://www.nfl.com/injuries/
+DRIFT-OK-RESULTS,row-count,"the results and standings blocks match their pins exactly (14/13/6/4/32 rows), and 220 derived identities reconcile, so the results path is clean today",none,cleared,https://www.nfl.com/standings/division/2026/reg

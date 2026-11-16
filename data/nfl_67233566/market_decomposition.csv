@@ -1,0 +1,6 @@
+component,value_available,where_to_read_it,official_source_url
+our originated fair value,yes,"originated_lines.csv, stage1/2/3 fair columns",https://www.nfl.com/schedules/2026/by-week/week-10
+vig-free market consensus,no,"column exists in the table, values blank",https://www.nfl.com/games/colts-at-texans-2026-reg-11?tab=overview
+operator margin (vig),no,not derivable without two-sided prices,https://www.nfl.com/games/colts-at-texans-2026-reg-11?tab=overview
+origination alpha (fair minus consensus),no,difference_* columns blank by PX-01,https://www.nfl.com/games/colts-at-texans-2026-reg-11?tab=overview
+our own opening-to-closing movement,yes,price_movement.csv,https://www.nfl.com/games/colts-at-texans-2026-reg-11?tab=overview

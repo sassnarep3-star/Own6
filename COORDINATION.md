@@ -2596,3 +2596,80 @@ is logged here rather than left as a silent edit.
 | Q16 Final integration: rebase, re-verify combined tree, regenerate shared inventories with the existing tools, additive nav, PR → merge → Pages check | unclaimed | `67233566` | `COORDINATION.md` (append only), `docs/index.html` + `index.html` + `README.md` (one additive link each), `data/assurance/**`, `data/source_coverage/**`, `docs/assurance/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md` (tool-regenerated) |
 
 **Rules this session follows.** (1) No manual input requested from the owner; no page contains an input control. (2) A value is published only if it was read this session from the cited official page, or is arithmetic on such values with the derivation shown; anything else is an empty cell plus a row in `flagged.csv`. (3) No book prices exist on any official NFL page reachable from this sandbox, so `market_*` columns stay blank with a capture-attempt log rather than an estimate — the price-data policy says so explicitly before any backtest is published. (4) No profitability claim anywhere. (5) `needs review` items never block: they are published on the Flagged for Review page. (6) Suggestions are proposals only; the owner chooses the path.
+
+
+## Session arena/67233566-own6 — delivery: decision desk, verified feed, chained prices, gate register
+
+**Owner session id:** `67233566` · **Branch:** `arena/67233566-own6` · **Completed:** 2026-11-16T00:4xZ (started 2026-11-15T23:26Z)
+**Scope delivered exactly as claimed in Q1..Q16 above.** No file outside the claimed list was edited, and no
+claimed file of another session was touched — `data/nfl_desk/**`, `src/nfl_desk/**`, `docs/nfl-decision-desk/**`
+(PR #84) were left untouched; `data/nfl_f4/results.csv` and `data/nfl_market/injuries_week10.csv` were
+**read** as pinned prior captures, never rewritten.
+
+| Task | Status | Owner | Files |
+|---|---|---|---|
+| Q1 frozen official capture + capture ledger | done | `67233566` | `data/nfl_67233566/raw/2026-11-15T2326Z_official_reads.txt`, `capture_log.csv`, `snapshot_ledger.csv`, `drift_alarms.csv` |
+| Q2 verified results feed + reconciliation | done | `67233566` | `results_feed.csv` (150 rows / 145 countable), `reconciliation_checks.csv` (220 checks, 0 mismatches), `standings.csv`, `week10_at_capture.csv`, `corpus_summary.csv` |
+| Q3 price-snapshot store + policy | done | `67233566` | `price_snapshots.csv` (130 hash-chained rows, 0 chain problems), `price_policy.csv`, `market_price_capture_log.csv` (5 attempts), `price_movement.csv` |
+| Q4 origination side → total → moneyline | done | `67233566` | `originated_lines.csv` (13 open Week 11 fixtures + 129 graded), `origination_order.csv`, `fixtures_week11.csv`, `venues.csv` |
+| Q5 totals published twice | done | `67233566` | `totals_two_estimators.csv`, `totals_winner_decision.csv` (collapse rule fails on the gap, not on n) |
+| Q6 signal vs staking leaderboard | done | `67233566` | `leaderboard_signal.csv` (9 graded entrants, 4 qualify), `leaderboard_staking.csv` (header only), `staking_blockers.csv`, `escrow_stage2.csv` |
+| Q7 luck / selective skill | done | `67233566` | `luck_panel.csv` (78.8 % of win-total spread unexplained; best-of-12 noise win rate 0.6172) |
+| Q8 gates + demotion | done | `67233566` | `validation_gates.csv` (13), `demotion_gate.csv` (7 rules × 9), `strategy_states.csv`, `state_transitions.csv`, `rewards_policy.csv` |
+| Q9 correlations with n | done | `67233566` | `correlations.csv` (C-01..C-10), `correlation_exclusions.csv`, `combo_joint_evidence.csv` (n=128, Δ from independence −0.0161 [−0.0582, 0.0267]) |
+| Q10 availability, depth, surprise | done | `67233566` | `availability_graph.csv` (50 rows), `replacement_depth.csv`, `injury_surprise.csv`, `roster_ir_sweep.csv` (32 clubs), `designation_calibration.csv`, `depth_source_register.csv`, `ablations.csv` (personnel axis n=2 — reported as n=2) |
+| Q11 registers: requirements / suggestions / questions | done | `67233566` | `requirements_trace.csv` (79), `suggestions.csv` (12, all `awaiting_human_choice`), `questions.csv` (12: 5 answered, 7 open) |
+| Q12 site: 20 pages, tables, source links | done | `67233566` | `docs/nfl-67233566/**`, `assets/style.css`; every table row carries an official URL and 2,794 blanks are audited in `blank_audit.csv` |
+| Q13 flagged-for-review page | done | `67233566` | `flagged.csv` (15 flags: 3 high / 6 medium / 6 low; **0 block the merge**), `flagged.html`, `sources.csv` support-boundary column |
+| Q14 pre-registration + claim hash | done | `67233566` | `preregistration.csv` (rule-text hash + `registration_commit` = `c79e441…`, the commit that froze the rules), `data/nfl_67233566/claim_commit.txt`, CI step `merge-base --is-ancestor` |
+| Q15 CI + tests + docs | done | `67233566` | `.github/workflows/nfl-67233566-ci.yml` (rebuild, 15-check verifier, byte-identity), `tests/test_nfl_67233566.py` (36 tests), `NFL_67233566_EXECUTIVE_SUMMARY.md`, `audit/NFL_67233566_REPO_AND_SOURCE_AUDIT.md` |
+| Q16 integration: nav, inventories, PR → merge → Pages | in progress (this commit) | `67233566` | `index.html`, `docs/index.html`, `README.md` (one additive block each), `data/source_coverage/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md` (tool-regenerated) |
+
+**Verification performed.** `python3 scripts/build_nfl_67233566.py` (58 tables + 20 pages; refuses to publish
+if any identity check fails) · `python3 scripts/check_nfl_67233566.py` → 15 checks, 0 failures ·
+`python3 -m unittest discover -s tests` → OK (379 tests, 36 of them this pack's) ·
+`python3 tools/release_gate.py` → 0 issues · `python3 tools/check_site.py` → 0 errors ·
+`python3 scripts/source_coverage.py --check` → exit 0 · `git diff --exit-code -- data/nfl_67233566
+docs/nfl-67233566` after a rebuild → empty (nothing hand-edited).
+
+**Sources read (all live, 2026-11-15T23:26:34Z … 23:32:40Z UTC), and what each one refused to give.**
+`nfl.com/schedules/2026/by-week/week-10` (14 cards; 3 still live, 2 unplayed — so Week 10 is published as
+9 finals + 3 live-at-read + 2 unplayed, never as a finished week) · `…/week-11` (13 fixtures, byes, the
+Mexico City marker; no venues, no prices; Week 16–18 flex slots officially TBD) ·
+`nfl.com/standings/division/2026/reg` (32 rows; prints `AZ` where other pages print `ARI`) ·
+`nfl.com/injuries/` (Week 10 only — the page's own selector ends at `WEEK 10`; 4 complete club sections + 1
+truncated; no Week 11 report exists yet) · `nfl.com/games/colts-at-texans-2026-reg-11?tab=overview` (venue,
+At-a-glance, leaders, both clubs' injury blocks reading "not available at this time"; no price) ·
+`operations.nfl.com` searched for the report-cadence policy and **not found** → the Wed/Thu/Fri cadence is
+therefore used only as a capture *design* (SG-02), never asserted as verified. Full per-page support
+boundary is in `data/nfl_67233566/sources.csv`.
+
+**Irregularities flagged for review (none merged away).** F-01 Week 11 injury data does not exist at read
+time; F-02 the availability feature is therefore absent from Week 11 lines by construction; F-04 the
+pinned prior results capture stores no date column; F-05 no inactive lists or snap counts exist anywhere
+in the repo; F-11 one injury page has four circulating row counts (50 / 347 / 254 / 279) with no retained
+hash to adjudicate; plus the site's own `AZ`/`ARI` alias hazard and the 4-of-32 depth-chart text problem.
+`data/nfl_67233566/flagged.csv` and `docs/nfl-67233566/flagged.html` carry all 15 with links.
+
+**Requests to other owners (not edited here, per the rules).**
+*R5* — `scripts/source_coverage.py` has no `nfl.com` / `operations.nfl.com` entry in `PUBLISHERS`, so an
+official NFL read cannot count as coverage; owner of that tool, please add. *R6* — `tools/release_gate.py`
+`OFFICIAL_HOSTS` lists `www.nba.com` but not `www.nfl.com`; it only binds `docs/index.html` rows today, so
+this pack does not fail on it, but any NFL row added there would.
+
+**Conflict / handoff log.** (1) Rebase onto `origin/main` produced a `COORDINATION.md` append collision with
+session `7c86bfb0`; resolved strip-markers-keep-both (both sections retained verbatim), then
+`git push --force-with-lease` after an ancestry check. (2) `index.html` on `main` (commit `f48a532`) carried
+**180 escaped `\"` sequences** inside its decision-readiness table, so the root landing page had 32 broken
+internal links and `tools/release_gate.py` failed repo-wide. Fixed in this pack's integration commit
+(mechanical unescaping only, no content change) because a broken landing page cannot be merged over; if
+`7c86bfb0` still has an open PR touching `index.html`, regenerate that table from its builder rather than
+re-applying the escaped literal. (3) Running the full test suite regenerates `docs/daily/**` via another
+pack's test; outputs came back byte-identical here, but that coupling is RV-06 in
+`data/nfl_67233566/repo_findings.csv` and is worth cutting. (4) Nothing in this pack is a shared-output
+rewrite beyond the three additive nav insertions and the tool-regenerated inventories.
+
+**Next session that picks this up, read in this order:** `docs/nfl-67233566/index.html` (decision
+readiness) → `decisions.html` (the 7 open questions) → `suggestions.html` (SG-01 is the first decision, and
+it is procurement, not code) → `flagged.html`. Do not re-derive the Week 11 injury angle today: the report
+does not exist yet, and that is a fact about the source, not a task.
