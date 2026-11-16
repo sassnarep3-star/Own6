@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="NFL decision-readiness pack: every row sourced to an official page, every blank cell flagged.">
+<title>Executive summary | NFL Decision Readiness (48217a55)</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<nav aria-label="Pack navigation"><a class="brand" href="index.html">48217A55 <span>/ NFL</span></a><a href="index.html">Dashboard</a><a href="decision-readiness.html">Decision readiness</a><a href="injuries.html">Injuries</a><a href="depth.html">Depth &amp; starters</a><a href="inactives.html">Inactives &amp; venues</a><a href="schedule-results.html">Schedule &amp; results</a><a href="standings.html">Standings</a><a href="transactions.html">Transactions &amp; IR</a><a href="correlations.html">Correlations</a><a href="luck.html">Removal of luck</a><a href="strategies.html">Strategies</a><a href="validation-gates.html">Gates</a><a href="questions.html">Questions</a><a href="suggestions.html">Suggestions</a><a href="repo-review.html">Repo review</a><a href="sources.html">Sources</a><a href="flagged.html">Flagged for review</a><a href="executive-summary.html" aria-current=page>Executive summary</a><a href="../index.html">All sections</a></nav>
+<main>
+
+<p class="eyebrow">EXECUTIVE SUMMARY &#183; SESSION 48217A55</p>
+<h1>What is true, what is blocked, and what each block costs</h1>
+
+<h2>The short version</h2>
+<p class="lede">This pack read 9 official NFL pages on
+2026-11-15 and published what they say, row by row, with a source link on
+every row. It captured the full Week 10 injury report (347 rows,
+28 clubs), the Week 10 slate and its 9 completed games, the
+32-club standings, 25 reserve-list moves,
+12 trades and 160 official Week 9 inactive rows. It originated
+no line, ranked no strategy and claimed no edge, because the inputs those need are not
+available from any official source.</p>
+
+<h2>Numbers a reviewer can check in one step each</h2>
+<div class="kv">
+<div><span>Injury rows vs clubs</span><strong>347 / 28</strong></div>
+<div><span>Out / Questionable</span><strong>70 / 90</strong></div>
+<div><span>Standings checks matched</span><strong>10 of 10</strong></div>
+<div><span>Points for vs against, league-wide</span><strong>6246 = 6246</strong></div>
+<div><span>Completed games through Week 9</span><strong>136</strong></div>
+<div><span>Luck share of the standings spread</span><strong>0.518</strong></div>
+<div><span>Qualified strategies</span><strong>0</strong></div>
+<div><span>Gates passing</span><strong>1 of 12</strong></div>
+</div>
+
+<h2>What is genuinely new here</h2>
+<ul>
+<li><strong>The standings page is a live table, and that is handled.</strong> The
+through-Week-9 table is reconstructed by subtracting the nine completed Week 10 games and
+then checked against an independent official page: 10 of 10 matched. The
+brief's 136-game corpus is confirmed arithmetically, not assumed.</li>
+<li><strong>The depth route question is answered, not deferred.</strong> nfl.com's per-club
+depth page is a 404; the roster page publishes no depth order but links a club-hosted depth
+chart. The replacement-depth feature is therefore not built, and the report's Out counts are
+published as floors instead.</li>
+<li><strong>The reserve list closes the "not listed means available" hole.</strong>
+25 November reserve moves are cross-walked against the injury
+report, and 10
+of them also appear on it.</li>
+<li><strong>Five named starters are published, and only five</strong> - each with the
+official page that names them. No replacement is inferred anywhere.</li>
+<li><strong>Luck is quantified before any skill claim:</strong>
+52% of the win-percentage spread is what a coin flip would
+produce.</li>
+</ul>
+
+<h2>What is blocked, and by what</h2>
+<p class="note">Thirty-three of the 74 requirements are blocked. Nearly all of them
+trace to three missing inputs: operator prices (no official or licensed source), a depth
+order (no official route on nfl.com), and snap counts (no official source found). Each
+blocked row on the <a href="decision-readiness.html">decision-readiness table</a> names the
+number that would clear it.</p>
+
+<h2>Irregularities worth your attention</h2>
+<ul>
+<li>The November reserve-list table's earliest row is dated 11/07, yet an official NFL.com
+story dated 2026-11-05 reports a Reserve/Injured move with no row in that table. The route
+may be truncated (flag 48217-F15).</li>
+<li>The injury report groups players under clubs that read as wrong at first glance. One was
+checked end to end - Kenneth Walker III is on the Kansas City roster - and it held. The
+other 346 rows are unchecked (flag 48217-F13).</li>
+<li>The by-week schedule page prints no venue, so Week 10 venues are blank; the inactives
+page does print venues, and 13 Week 9 venues were transcribed from it (flag 48217-F07).</li>
+<li>Eight overlapping NFL packs now exist in this repository. Nothing tells a reader which is
+authoritative. The decision-readiness table is this pack's answer.</li>
+</ul>
+
+<h2>What to decide next</h2>
+<p class="note">The <a href="questions.html">questions register</a> has
+18 rows and the <a href="suggestions.html">suggestions register</a> has
+16. The three decisions that unblock the most are: where prices come
+from (Q01/Q02), whether to commit to reading Weeks 1&#8211;9 game by game (SUG-01), and
+whether to probe all 32 club-hosted depth pages (SUG-02).</p>
+
+</main>
+<footer>
+<p>Session <code>arena/48217a55-own6</code> &#183; capture 2026-11-15T18:40Z &#183;
+sources read live on 2026-11-15 &#183; rebuild with
+<code>python3 scripts/build_nfl_48217a55.py</code>.</p>
+<p>A value is published only if it was read from the official page cited on its row. A blank
+cell is never zero: it is an empty cell with a flag. Nothing here demonstrates a profitable
+NFL edge, and no market price appears anywhere in this pack.</p>
+</footer>
+</body>
+</html>

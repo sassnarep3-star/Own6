@@ -1,0 +1,5 @@
+route,kind,result,what_the_page_actually_contains,conclusion
+https://www.nfl.com/injuries/,official NFL page,"read, no price field","player, position, injury, practice status, game status, kickoff, network, club record",The official injury report carries no operator price for any market.
+https://www.nfl.com/schedules/2026/by-week/week-10,official NFL page,"read, no price field","fixtures, kickoff date and time, network, final or live scores, bye panel","The official schedule carries no spread, total or moneyline."
+https://www.nfl.com/standings/division/2026/reg,official NFL page,"read, no price field","W, L, T, PCT, PF, PA, NET PTS, HOME, ROAD, DIV, CONF, STRK","The official standings carry results, not prices."
+operator sportsbook sites,non-official commercial source,not consulted,,Not an official source. Consulted prices would need a written data-use position first; without one the pack leaves every market cell blank (flag 48217-F01).

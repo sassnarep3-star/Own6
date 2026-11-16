@@ -1,0 +1,33 @@
+club,club_name,rating_ppg,win_pct,pf_per_game,pa_per_game,opponent_adjusted,blocking_gate,note
+JAX,Jacksonville Jaguars,13.5,0.75,28.625,15.125,no,G3,margin per game with no opponent adjustment; unusable for origination
+SF,San Francisco 49ers,9.875,0.875,29.375,19.5,no,G3,margin per game with no opponent adjustment; unusable for origination
+BUF,Buffalo Bills,8.625,0.875,32.0,23.375,no,G3,margin per game with no opponent adjustment; unusable for origination
+CIN,Cincinnati Bengals,8.125,0.75,30.0,21.875,no,G3,margin per game with no opponent adjustment; unusable for origination
+KC,Kansas City Chiefs,7.375,0.75,25.25,17.875,no,G3,margin per game with no opponent adjustment; unusable for origination
+CHI,Chicago Bears,6.3333,0.7778,26.7778,20.4444,no,G3,margin per game with no opponent adjustment; unusable for origination
+PIT,Pittsburgh Steelers,4.5,0.75,22.5,18.0,no,G3,margin per game with no opponent adjustment; unusable for origination
+SEA,Seattle Seahawks,4.4444,0.5556,22.4444,18.0,no,G3,margin per game with no opponent adjustment; unusable for origination
+DET,Detroit Lions,4.125,0.75,27.75,23.625,no,G3,margin per game with no opponent adjustment; unusable for origination
+MIN,Minnesota Vikings,3.75,0.75,18.25,14.5,no,G3,margin per game with no opponent adjustment; unusable for origination
+LAR,Los Angeles Rams,3.6667,0.5556,23.7778,20.1111,no,G3,margin per game with no opponent adjustment; unusable for origination
+GB,Green Bay Packers,2.7778,0.6667,24.0,21.2222,no,G3,margin per game with no opponent adjustment; unusable for origination
+TB,Tampa Bay Buccaneers,2.6667,0.3333,22.4444,19.7778,no,G3,margin per game with no opponent adjustment; unusable for origination
+HOU,Houston Texans,2.125,0.375,26.125,24.0,no,G3,margin per game with no opponent adjustment; unusable for origination
+DEN,Denver Broncos,1.3333,0.7778,22.0,20.6667,no,G3,margin per game with no opponent adjustment; unusable for origination
+NYG,New York Giants,1.25,0.6875,22.75,21.5,no,G3,margin per game with no opponent adjustment; unusable for origination
+DAL,Dallas Cowboys,1.1111,0.4444,27.3333,26.2222,no,G3,margin per game with no opponent adjustment; unusable for origination
+NE,New England Patriots,0.4444,0.5556,23.4444,23.0,no,G3,margin per game with no opponent adjustment; unusable for origination
+CAR,Carolina Panthers,-2.5,0.375,24.875,27.375,no,G3,margin per game with no opponent adjustment; unusable for origination
+LV,Las Vegas Raiders,-3.3333,0.4444,26.4444,29.7778,no,G3,margin per game with no opponent adjustment; unusable for origination
+WAS,Washington Commanders,-3.75,0.3125,21.5,25.25,no,G3,margin per game with no opponent adjustment; unusable for origination
+NO,New Orleans Saints,-3.875,0.375,23.125,27.0,no,G3,margin per game with no opponent adjustment; unusable for origination
+CLE,Cleveland Browns,-3.8889,0.5556,17.8889,21.7778,no,G3,margin per game with no opponent adjustment; unusable for origination
+ATL,Atlanta Falcons,-3.8889,0.3333,20.8889,24.7778,no,G3,margin per game with no opponent adjustment; unusable for origination
+NYJ,New York Jets,-4.5556,0.2222,20.2222,24.7778,no,G3,margin per game with no opponent adjustment; unusable for origination
+BAL,Baltimore Ravens,-5.2222,0.4444,21.0,26.2222,no,G3,margin per game with no opponent adjustment; unusable for origination
+TEN,Tennessee Titans,-6.875,0.125,18.0,24.875,no,G3,margin per game with no opponent adjustment; unusable for origination
+IND,Indianapolis Colts,-7.2222,0.2222,20.4444,27.6667,no,G3,margin per game with no opponent adjustment; unusable for origination
+PHI,Philadelphia Eagles,-8.1111,0.2222,16.4444,24.5556,no,G3,margin per game with no opponent adjustment; unusable for origination
+AZ,Arizona Cardinals,-8.5556,0.3333,19.7778,28.3333,no,G3,margin per game with no opponent adjustment; unusable for origination
+MIA,Miami Dolphins,-9.25,0.125,15.75,25.0,no,G3,margin per game with no opponent adjustment; unusable for origination
+LAC,Los Angeles Chargers,-12.25,0.0,15.125,27.375,no,G3,margin per game with no opponent adjustment; unusable for origination

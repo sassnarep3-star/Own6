@@ -1,0 +1,4 @@
+designation,sample,n_published_resolutions,n_definite,n_active,n_inactive,play_rate,ci_low,ci_high,method,selection_warning,usable_as_feature,blocking_gate,source_url
+Questionable,"official Sunday pregame page, Week 10",14,11,10,1,0.9091,0.6226,0.9838,Wilson score interval on the definite subset,non-random sample: only players NFL.com wrote a note about; skews to starters and to genuinely doubtful cases,no,G6,https://www.nfl.com/news/week-10-injuries-sunday-pregame-2026-nfl-season
+Out,,,,,,,,,,no official page read this session publishes a designation-to-outcome join for this designation,no,G6,https://www.nfl.com/news/week-10-injuries-sunday-pregame-2026-nfl-season
+Doubtful,,,,,,,,,,no official page read this session publishes a designation-to-outcome join for this designation,no,G6,https://www.nfl.com/news/week-10-injuries-sunday-pregame-2026-nfl-season
