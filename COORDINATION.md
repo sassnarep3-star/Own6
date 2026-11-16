@@ -2712,3 +2712,55 @@ this" needs the same proof as any other negative claim.
   `tools/release_gate.py` `OFFICIAL_HOSTS` omit `www.nfl.com` / `operations.nfl.com`. Every NFL
   pack inherits this. Not edited by this session — the pack's own verifier enforces the
   allowlist locally. **Owner: please add the two hosts.**
+
+---
+
+## PR AND MERGE RESULT — session `arena/48217a55-own6`
+
+**PR:** https://github.com/sassnarep3-star/Own6/pull/103
+**State:** **MERGED** 2026-11-16T00:14:57Z
+**Merge commit:** `c640fee42e39364979c57d6250372bcb1ad440ed` (`arena/48217a55-own6` → `main`)
+**Merged by:** this session, without waiting for review, per the brief.
+
+### CI before merge — 17/17 green
+
+`verify-nfl-48217a55` **pass** · `assurance` **pass** · `lab` **pass** · `source-coverage` **pass** ·
+`published-html` **pass** · `Line-by-line verification gates` **pass** · `Verification ledger and
+published pages` **pass** · `hub` **pass** · `hub-references` **pass** · `daily` **pass** ·
+`parlay-safety` **pass** · `verify-nfl-309921cc` **pass** · `verify-nfl-6ab24751` **pass** ·
+`verify-nfl-6cefc476` **pass** · `verify-nfl-origination` **pass** · `verify-nfl-s11` **pass** ·
+`release-gate` **pass**.
+
+The `assurance` job passing is worth noting: it runs `scripts/audit_repo.py`, which needs
+`fetch-depth: 0` (see the shallow-clone note above). It was red-adjacent when this session
+arrived because the inventory was stale; it is now clean.
+
+### Pages deployment — confirmed
+
+- Build status: **`built`**, created 2026-11-16T00:14:58Z, `error: null`.
+- Live pack homepage fetched and verified:
+  https://sassnarep3-star.github.io/Own6/docs/nfl-48217a55/index.html
+  — serves the 74-requirement dashboard with the live counts (347 injury rows, 28 of 32 clubs,
+  4 byes, 70 Out, 90 Questionable, 9 of 14 finals, 10/10 standings checks, 136 games, luck 0.518).
+- Root landing page fetched and verified: https://sassnarep3-star.github.io/Own6/
+  — the "Week 10 capture (48217a55)" button is live and links to the pack.
+- `docs/index.html` hub card and nav entry are on the same deployment.
+
+### Sources
+
+Nine official pages, all read 2026-11-15, all linked from
+https://sassnarep3-star.github.io/Own6/docs/nfl-48217a55/sources.html :
+`nfl.com/injuries/` (S1) · `nfl.com/schedules/2026/by-week/week-10` (S2) ·
+`nfl.com/standings/division/2026/reg` (S3) · the Week 10 pre-game injury article (S4) · the
+Week 9 inactives article (S5) · `nfl.com/transactions/` (S6) · the November reserve-list route
+(S7) · the Chiefs roster page (S8) · the Chiefs depth-chart route, **HTTP 404** (S9).
+
+### Irregularities published, not silently fixed
+
+17 flags (`48217-F01` … `48217-F17`) at
+https://sassnarep3-star.github.io/Own6/docs/nfl-48217a55/flagged.html , each with its official
+source link. Per the brief these do not block the merge. Carried forward: chunks 1–7 of the
+injury page not re-read (F14), the reserve-list route possibly truncating the 2026-11-05 Jackson
+IR move (F15), and club attribution spot-checked rather than audited — 1 of 347 rows (F13).
+
+**Session `arena/48217a55-own6` is complete.**
