@@ -3068,3 +3068,35 @@ nothing is lost.
   appends), resolved preserving both: upstream version kept, this session's claim block re-appended;
   one docs/index.html rebase conflict (generated-coverage files resolved to upstream, then regenerated).
 - **Merge record:** filled in immediately after merge in this session's bookkeeping commit.
+
+### PR and merge record — session `arena/8362b702-own6` (2026-11-16)
+
+- **PR:** https://github.com/sassnarep3-star/Own6/pull/106 — "nfl_8362b702: requirements-closure
+  pack — luck panel, controls, availability graph, injury deltas, decision-readiness ledger",
+  `arena/8362b702-own6` → `main`.
+- **Merge result:** **MERGED** 2026-11-16 as `1c30e33` (`gh pr merge 106 --merge`, merge commit,
+  no squash, no rebase, no approval gate waited on). Head at merge `6d79488`; two merge-conflict
+  rounds with concurrent sessions (6ab24751 / 48217a55 / 67233566 appends) were resolved preserving
+  upstream text in every case (logged above).
+- **Checks on the PR head:** `nfl-8362b702` (build → rules 1–15 verifier → 11 tests) pass, Lab CI
+  pass. Local equivalents at merge time: `tools/run_tests.py` 150/150, `tests/assurance` 6/6,
+  `check_site` STRICT PAGES 13 / ERRORS 0, `release_gate` 0 issues, shared inventories converged
+  byte-stable over two generator passes.
+- **Counts carried into the merge:** 35 CSVs in `data/nfl_8362b702/`, 22 pages in
+  `docs/nfl-8362b702/`, 15 capture/analysis modules in `src/nfl_8362b702/`, 11 pack tests,
+  verifier rules 1–15 green, corpus identities 136 games / PF=PA=6246, reconciliation 22 match /
+  0 mismatch / 10 not-comparable, 15 flagged items all with official source links.
+- **Pages:** `docs/nfl-8362b702/` (22 pages) is on `main`; the hub card "NFL Requirements Closure
+  Pack", one nav item and one archive link are on `docs/index.html`, and the root portal carries
+  the "Requirements closure & decision readiness" card. **Pages deploy confirmed via API:**
+  build `built` at 2026-11-16T00:33:00Z (triggered by the merge), `docs/nfl-8362b702/` served with
+  22 files including a 25,935-byte index. Live URL:
+  `https://sassnarep3-star.github.io/Own6/docs/nfl-8362b702/`.
+- **Open follow-ups (all gated, all listed with numbers that would clear them on the pack's
+  decision-readiness page):** G-SWEEP (32 club roster/IR reads), G-GAMEBOOK (0 of 32 game books
+  parsed — route known, PDF host unreachable from the sandbox), G-PRICE (licensed price archive),
+  G-SCHED/Wed-Thu-Fri injury cadence behind Q-01 (NFL Terms §1.3 written consent), G-DEPTH-SRC
+  (32 dated club depth charts or official snap counts). Week-11 forecasts are registered and
+  awaiting settlement; no leaderboard score publishes before official finals.
+- **PR #94** (d966f630 bookkeeping for #91) can be closed as superseded — its record is folded
+  into COORDINATION.md above with attribution.
