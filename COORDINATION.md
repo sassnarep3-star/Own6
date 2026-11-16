@@ -2949,3 +2949,79 @@ misclassified `secondary_reference_only` by the shared tooling. Multiple session
 (`309921cc`, `d966f630`, `a411fed0`) left this request open. As the integrating session,
 `8362b702` will attempt the allowlist fix plus fixed-point regeneration at P11 and record the
 result either way.
+
+---
+
+### Folded record from open PR #94 (session `arena/d966f630-own6`) — handoff
+
+The following block is copied **verbatim** from open PR #94 (branch `arena/d966f630-own6`,
+"nfl-d966f630: record PR #91's merge on the coordination board + regenerate the shared
+inventories"). That PR is stale: its inventory regen has been superseded by this session's
+integration pass (which re-ran the same generators on the current tree). The d966f630 owner
+(or any integrator) may close #94 as superseded; the bookkeeping content is preserved here so
+nothing is lost.
+
+### PR and merge record — session `arena/d966f630-own6` (2026-11-14)
+
+- **PR:** https://github.com/sassnarep3-star/Own6/pull/91 — "nfl-d966f630: price ledger, verified results
+  feed, side→total→ML origination, signal/staking split, depth floors, correlations with n, demotion
+  gate + 17-page dashboard", `arena/d966f630-own6` → `main`.
+- **Merge result:** **MERGED** 2026-11-14T22:39:32Z as `32a1b692ea6674b3755716e9926596e4772a3364`
+  (`gh pr merge 91 --merge`, merge commit, no squash, no rebase, no approval gate waited on).
+- **Checks on the PR head (`9548a91`), all 14 green:** Line-by-line verification gates, Assurance CI,
+  Daily verified snapshot, Hub CI, Independent hub references, Lab CI, Legacy parlay safety,
+  published-html, Sitewide source coverage, `verify-nfl-309921cc`, `verify-nfl-6cefc476`,
+  **`verify-nfl-d966f630`** (this pack's gate, first run), `verify-nfl-origination`, Independent
+  verification ledger. Nothing was failing at merge time.
+- **Counts carried into the merge:** 41 CSVs in `data/nfl_d966f630/`, 17 pages in `docs/nfl-d966f630/`,
+  51 verifier checks (0 failures), 61 pack tests, 516 repo tests + 6 subtests under pinned pytest
+  (0 failures), `tools/run_tests.py` 139/139, `release_gate` 0 issues, `check_site` STRICT PAGES 13 /
+  ERRORS 0, `source_coverage --check` 0 stale, all 9 `scripts/check_nfl_*.py` green, builder
+  byte-identical.
+- **Two side effects of the merge, both recorded above:** (a) this branch re-ran the shared
+  inventories, which is what returned `tests/assurance/test_audit.py` to green on `main` after
+  PR #92; (b) `prices.ledger()` now hands callers copies of its rows, because a test that edited a
+  memoised row in place made the `D966-G08` chain gate depend on test order.
+- **Pages:** `docs/nfl-d966f630/` is on `main` (17 pages + `assets/style.css` + `.nojekyll`); the hub
+  card "D96 NFL Prices & Proof" and one nav item are on `docs/index.html`, and the root portal carries
+  one ghost button to the pack. Live URL:
+  `https://sassnarep3-star.github.io/Own6/docs/nfl-d966f630/`.
+- **Tasks P1–P12 are `done` and this session's claimed scope is closed.** No other session's owned
+  content was edited: `docs/index.html`, `index.html`, `README.md` and `COORDINATION.md` received
+  additive insertions only, and `data/assurance/**`, `data/source_coverage/**`, `docs/coverage/**`,
+  `docs/assurance/**` and `audit/SOURCE_COVERAGE.md` were changed only by running their own generators.
+  `data/verification_log.csv` was not touched, so nothing in this pack is "certified" in the hub
+  ledger sense.
+
+### Session `arena/8362b702-own6` — finish record (2026-11-16)
+
+- **Status:** P1–P11 **done**. Scope as claimed; shared files touched only at P11 (additive index
+  links + generator-only regen), per protocol.
+- **Deliverables:** `data/nfl_8362b702/` (35 CSVs), `src/nfl_8362b702/` (15 modules), `docs/nfl-8362b702/`
+  (22 pages incl. the decision-readiness ledger on the pack landing page), `scripts/{build,check}_nfl_8362b702.py`,
+  `tests/test_nfl_8362b702.py` (11 tests), `.github/workflows/nfl-8362b702-ci.yml`, root
+  `NFL_8362B702_EXECUTIVE_SUMMARY.md`, `audit/NFL_8362B702_REPO_REVIEW.md`.
+- **Closes the eight brief requirements owned by nobody:** removal-of-luck panel (exact binomial),
+  control baselines (seeded coin + rating favourite), availability graph as first-class data,
+  injury deltas between timestamped reads (surprise not level), model probability+full-input ledger,
+  scraper drift alarms, proper-score leaderboard divisions with the joint-evidence gate, two-sided
+  what-would-change-our-mind per strategy. Plus the pre-registered 136-game backtest corpus.
+- **Sources (all reads 2026-11-15/16 UTC, official nfl.com pages, clocked in `src/nfl_8362b702/capture.py`):**
+  standings (two dated reads), schedules weeks 1–11, injury hub (two dated reads, 155-row window),
+  GB roster, TB@DET + IND@HOU game centres (venues), texans-at-browns game centre (game-book route).
+- **Verification:** corpus identities (136 games, 135+1 ties, PF=PA=6246) and per-club
+  reconciliation of corpus + week-10 finals against the standings read (22 match, 0 mismatch,
+  10 not-comparable mid-week-10); pack verifier rules 1–15 green; 11/11 pack tests;
+  `tools/run_tests.py` 150/150; `tests/assurance/` 6/6 after inventory regen; `check_site` 0 errors;
+  `release_gate` 0 issues.
+- **Flagged for review (15 items, all with official source links on the pack's flagged page):**
+  MIN standings split self-corrected between reads (FLAG-01/FLAG-14), NFL Terms §1.3 rights boundary
+  (FLAG-02 — every read is a single manual fetch; no automation in CI; written consent = question
+  Q-01 before any scheduled capture), Malik Willis unknown roster state (FLAG-03), GB name/slug
+  conflict (FLAG-04), 11/13 week-11 venues unpublished at read (FLAG-13), game books found as PDF
+  routes but unfetchable from this environment (FLAG-07), DET unlabeled column moved without a game
+  (FLAG-15), and others on `docs/nfl-8362b702/flagged.html`.
+- **Conflict log:** one COORDINATION.md rebase conflict (claim commit vs sessions 6ab24751/48217a55
+  appends), resolved preserving both: upstream version kept, this session's claim block re-appended;
+  one docs/index.html rebase conflict (generated-coverage files resolved to upstream, then regenerated).
+- **Merge record:** filled in immediately after merge in this session's bookkeeping commit.
