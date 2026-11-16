@@ -266,3 +266,28 @@ re-verification of every underlying value, and no market price, ROI or CLV is pu
 test: `python3 scripts/build_nfl_6ab24751.py` · `python3 scripts/check_nfl_6ab24751.py` (344 checks) ·
 `python3 -m unittest discover -s tests -p "test_nfl_6ab24751.py"` (13 tests). Executive summary:
 [`NFL_6AB24751_EXECUTIVE_SUMMARY.md`](NFL_6AB24751_EXECUTIVE_SUMMARY.md).
+
+## NFL Pack 48217A55 (session 48217a55, 2026-11-15) — Week 10 game-day capture
+
+A pack built from a **single game-day reading of nine official NFL pages**, captured 2026-11-15 while Week 10
+was still being played. Published at [`docs/nfl-48217a55/`](docs/nfl-48217a55/) →
+https://sassnarep3-star.github.io/Own6/docs/nfl-48217a55/
+
+- **347 injury rows** across the 28 clubs playing in Week 10 (70 Out · 90 Questionable · 11 Doubtful · 176
+  with no game status, published as blank rather than as clearances). Four clubs were on bye and have no
+  section on the report; their absence is published as a bye, never as health.
+- **Through-Week-9 standings reconstructed by subtraction** from the live standings page and verified
+  **10 of 10** against an official pre-game page that printed each club's record before kickoff. League
+  points for equals points against (6,246 = 6,246); the implied completed-game count is **136**.
+- **Reserve list, trades and Week 9 inactives** captured so that *not listed* never reads as *available*.
+- **Luck share measured at 0.518** across 136 games — the bar any skill claim has to clear.
+- **74 requirements**, each with the gate that blocks it and the number that would clear it · 12 gates ·
+  9 pre-registered strategies · an empty five-division leaderboard · 18 questions with discovery paths ·
+  16 suggestions with options and a cost of doing nothing.
+- **1,054 blank cells, every one traced** to one of 17 flags or to a declared expected-blank reason. Where a
+  market price would go, the cell is blank and flagged — nothing is inferred.
+
+Build / check / test: `python3 scripts/build_nfl_48217a55.py` · `python3 scripts/check_nfl_48217a55.py`
+(115 checks) · `python3 -m unittest discover -s tests -p "test_nfl_48217a55.py"` (59 tests). The builder
+takes no arguments and touches no network, so a re-run reproduces byte-identical files. Executive summary:
+[`NFL_48217A55_EXECUTIVE_SUMMARY.md`](NFL_48217A55_EXECUTIVE_SUMMARY.md).
