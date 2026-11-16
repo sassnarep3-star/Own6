@@ -336,11 +336,20 @@ def c13_claim_commit_recorded() -> list[str]:
     sha = f.read_text(encoding="utf-8").strip()
     if not re.fullmatch(r"[0-9a-f]{40}", sha):
         return [f"claim_commit.txt is not a full commit hash: {sha!r}"]
+    have = subprocess.run(["git", "cat-file", "-e", f"{sha}^{{commit}}"], cwd=ROOT,
+                          stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    if have.returncode != 0:
+        # A shallow checkout cannot answer the question. Say so in the output rather than passing
+        # quietly: the pack's own CI fetches full history, so this branch only fires where the claim
+        # is unverifiable, and it never reports success it did not earn.
+        return [f"claim commit {sha[:7]} is not present in this checkout (shallow clone?): ancestry "
+                f"cannot be verified here - re-run with full history"]
     try:
         subprocess.run(["git", "merge-base", "--is-ancestor", sha, "HEAD"], cwd=ROOT, check=True,
                        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-    except Exception as exc:  # noqa: BLE001
-        return [f"claim commit {sha[:7]} is not an ancestor of HEAD ({exc})"]
+    except subprocess.CalledProcessError:
+        return [f"claim commit {sha[:7]} exists but is not an ancestor of HEAD - a rebase rewrote it; "
+                f"re-point data/nfl_67233566/claim_commit.txt at the rebased claim commit and rebuild"]
     for r in rows("preregistration.csv"):
         if r["registration_commit"] != sha:
             return [f"preregistration.csv row {r['strategy_id']} cites a different claim commit"]

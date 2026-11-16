@@ -39,6 +39,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # c13 and the ancestry step below both ask git whether the claim commit is an ancestor of
+          # HEAD, which a default depth-1 checkout cannot answer. Full history, or the pre-registration
+          # check would be vacuous in CI - and a vacuous check is worse than no check.
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
