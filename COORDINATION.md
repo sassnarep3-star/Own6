@@ -3100,3 +3100,51 @@ nothing is lost.
   awaiting settlement; no leaderboard score publishes before official finals.
 - **PR #94** (d966f630 bookkeeping for #91) can be closed as superseded — its record is folded
   into COORDINATION.md above with attribution.
+
+---
+
+## PR and merge record — session `arena/5a56d5d9-own6` (2026-11-17)
+
+### Integration scope
+
+Reviewed the consolidated NFL decision dashboard on branch `arena/5a56d5d9-own6` (branched from `main` at `d844122`). The branch equals `main`; the working tree was clean. All NFL packs, the root portal, and the shared site build and pass their checkers; GitHub Pages is already published from `main` root.
+
+### Official sources verified (read directly, 2026-11-17 UTC)
+
+| Source | Used for | Result |
+|---|---|---|
+| https://www.nfl.com/standings/division/2026/reg | 32-club 2026 standings | Verified page accessible; live W/L/T and PF/PA values read. Repo's dated snapshot (136W–136L–2T, PF = PA = 6,291 after WAS 24–NYG 21) is a dated source snapshot, not a live feed. |
+| https://www.nfl.com/injuries/ | Week 10 2026 injury report | Verified page accessible. Confirms Lions Kerby Joseph, Cade Mays and D.J. Reed as Out, matching flagged items VR-08 / VR-12; practice status (DNP/LP/FP) and game status (Out/Questionable/blank) columns present. |
+| https://www.nfl.com/schedules/2026/by-week/week-10 | Week 10 schedule and finals | Verified page accessible. Confirms Commanders 24–21 Giants (Thu Nov 12) and Patriots 10–35 Lions, Chiefs 35–13 Falcons, plus other Week 10 finals. |
+| https://www.nfl.com/legal/terms/ | Data-use rights | Verified. §1.3 limits the Services to individual non-commercial informational use and prohibits systematic retrieval / compilation of data without express prior written consent. This is a material data-rights boundary for any scheduled capture or price archive (flagged as Q-01 / consent-gated). |
+
+### Build and check results (local, stdlib, no network in builders)
+
+- `scripts/check_site.py`: OK — 9 pages, no broken internal links, all external links https
+- `build_nfl_origination.py` + `check_nfl_origination.py`: OK — 11 pages, 348 sourced rows, 462 blank cells, 0 `<input>`
+- `build_nfl_309921cc` / `check_nfl_309921cc`: OK — 18 pages, 770 sourced rows, 83 checks passed
+- `build_nfl_market` / `check_nfl_market`: OK — all 971 checks passed
+- `build_nfl_6cefc476` / `check_nfl_6cefc476`: OK — 0 issues
+- `build_nfl_d966f630` / `check_nfl_d966f630`: OK — 51 checks, all pass
+- `build_nfl_6ab24751` / `check_nfl_6ab24751`: OK — 344 checks (decision-readiness table RQ-01–RQ-81 injected into root `index.html`)
+- `build_nfl_48217a55` / `check_nfl_48217a55`: OK — 115 checks, 0 failures
+- `build_nfl_e5e38f9e` / `check_nfl_e5e38f9e`: OK — 76 brief rows, links and drift clean
+- `build_nfl_wk` / `check_nfl_wk`: OK — 13 pages, 0 broken internal links, 0 invented market values
+- `build_nfl_67233566` / `check_nfl_67233566`: 15 run, 1 failure — c13 requires pre-registration claim commit `a867280` to be present in the checkout; this is a shallow clone so the commit object is unavailable. Not a content failure; the check honestly reports ancestry cannot be verified here.
+
+### Irregularities flagged (none block publication)
+
+- NFL.com Terms §1.3: systematic retrieval of NFL.com data is prohibited absent express prior written consent. No scheduled/automated capture is enabled in CI; every read above is a single manual fetch. Written consent (Q-01) is a prerequisite before any scheduled capture or licensed price archive.
+- Shallow clone: pre-registration claim-commit ancestry (nfl-67233566 c13) cannot be verified in this checkout.
+- Market price: `https://www.nfl.com/odds/` is the NFL 404 page; no official or licensed source in this environment publishes a price. Market-line and difference cells are blank with explicit status; no edge, CLV or ROI is published.
+- All unverified values remain blank and flagged across packs; nothing is inferred.
+
+### Pages
+
+GitHub Pages source: `main` root, status `built`, live at https://sassnarep3-star.github.io/Own6/. Root portal carries the decision-readiness table (RQ-01–RQ-81), suggestions register, strategy leaderboard (0 qualified; rewards disabled), and category subpages under `docs/`.
+
+### PR and merge
+
+- **PR:** pending (to be created from `arena/5a56d5d9-own6` → `main`)
+- **Merge result:** pending
+- **Pages deploy:** to be confirmed after merge via the Pages API
