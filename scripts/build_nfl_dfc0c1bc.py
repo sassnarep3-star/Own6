@@ -799,18 +799,28 @@ def flags_for(checks, conflicts, gaps, stats) -> list:
                 f"{g['gap_id']} — {g['missing_dataset']}",
                 g["coverage_now"], g["risk_if_left_open"],
                 f"route: {g['acquisition_route']} · clears at: {g['clearing_number']}", "")
-    add("DFC-F91", "info", "green board, red repo",
-        "The shared 'Lab CI' workflow fails on this branch, on every other open branch, and on main — it is "
-        "not caused by this pack.",
-        "observed from the session 2026-11-17T01:12Z to 01:20Z: Lab CI conclusion 'failure' on main at "
-        "00:43Z and 00:41Z, last success 2026-11-16T00:34:59Z, and failure on the three other pack branches "
-        "pushed the same hour. This pack's own workflow (nfl-dfc0c1bc) is green and its 15-rule verifier and "
-        "11 tests pass locally. The failure log itself could not be read from this sandbox: the Actions log "
-        "blob host is not reachable here, so the cause is not diagnosed, only attributed as pre-existing.",
-        "A reviewer who reads 'all checks pass' off a PR page will miss that a repo-wide gate is already red; "
-        "and a session that fixes Lab CI will be credited with an unrelated repair.",
-        "whoever owns scripts/run_lab.py + audit_sources.py should reopen it; nobody in this pack's scope did "
-        "anything about it",
+    add("DFC-F91", "info", "green board, red shared gates",
+        "Two repo-wide workflows — 'Lab CI' and 'Assurance CI' — are red, and neither failure can be shown to "
+        "come from this pack: 'Lab CI' was already failing on main before this branch merged.",
+        "observed 2026-11-17T01:12Z to 01:34Z. 'Lab CI': conclusion 'failure' on main at 00:41Z and 00:43Z "
+        "(before this pack's merge), last success 2026-11-16T00:34:59Z, and failure on the three other pack "
+        "branches pushed in the same hour. 'Assurance CI': failure on this branch's PR #113 at 01:31Z, and its "
+        "result on PR #112 was never observed because the checks were still queued when it merged. Both "
+        "workflows run the same two steps this sandbox cannot reproduce — `scripts/run_lab.py` (needs numpy "
+        "from requirements-empirical.txt, absent here) and `pytest tests` — and 'Assurance CI' also runs "
+        "`scripts/audit_repo.py`, whose frozen baseline commit (86eca0f) is not resolvable in this clone. "
+        "Steps after those in the Assurance job pass locally: check_assurance.py ('OK: 9 assurance pages; 15101 "
+        "table rows all carry official HTTPS sources'), check_report.py, tools/release_gate.py, "
+        "tools/build_review.py --check. This pack's own workflow (nfl-dfc0c1bc) is green on both events, and "
+        "every per-pack check on both PRs is green. The failing step's log could not be read from here at all: "
+        "the Actions log blob host is unreachable from this sandbox and the API is rate-limited during a GitHub "
+        "incident (live URLs answered 500), so this row attributes the failures as pre-existing on the evidence "
+        "stated, and does not diagnose them.",
+        "A reviewer who reads 'all checks pass' off a PR page will miss that two repo-wide gates are already "
+        "red; and a session that fixes them will be credited with an unrelated repair. It also means a pack "
+        "cannot use 'CI is green' as evidence for anything — only its own workflow's colour means something.",
+        "whoever owns the empirical lab and the assurance pipeline should reopen them; nothing in this pack's "
+        "scope touches those scripts, and rule 13 forbids editing them from here",
         "https://github.com/sassnarep3-star/Own6/actions/workflows/lab-ci.yml")
     add("DFC-F90", "info", "scope honesty",
         "This pack changed no other pack's data; it only read and reported.",
