@@ -110,6 +110,26 @@ def link(url: str, label: str = "source") -> str:
     return f'<a href="{esc(url)}" rel="noopener noreferrer" target="_blank">{esc(label)} &#8599;</a>'
 
 
+def _cell(value):
+    """Serialise one CSV cell so the bytes do not depend on the platform's libm.
+
+    `math.erf`/`exp` are allowed to differ in the last bit between C libraries;
+    this machine and the CI runner do not share one. Every probability in this
+    pack flows through the normal CDF, so an unrounded float would print a
+    different final digit on the runner and the "rebuild is byte-identical" test
+    would fail for a reason that has no statistical meaning at all. Twelve
+    significant digits is ~1e-12 relative: far beyond what a probability
+    estimate supports, and far above any last-bit difference.
+    """
+    if value is None:
+        return ""
+    if isinstance(value, float):
+        if value == 0.0:
+            return "0"          # never emit "-0" for a value that is arithmetically zero
+        return format(value, ".12g")
+    return value
+
+
 def write_csv(name: str, rows, cols=None) -> str:
     os.makedirs(DATA, exist_ok=True)
     rows = list(rows)
@@ -119,7 +139,7 @@ def write_csv(name: str, rows, cols=None) -> str:
         w = csv.DictWriter(fh, fieldnames=cols, extrasaction="ignore")
         w.writeheader()
         for r in rows:
-            w.writerow({k: ("" if r.get(k) is None else r.get(k)) for k in cols})
+            w.writerow({k: _cell(r.get(k)) for k in cols})
     return path
 
 
@@ -219,6 +239,19 @@ def build() -> dict:
     prereg = E.prereg_rows()
     lb = E.leaderboard(wf, meta)
     demotion = E.demotion_rules()
+
+    # Quantise every derived float *once*, before anything reads it, so the
+    # pages and the CSVs show the same digits and no number in this pack can
+    # depend on the host math library. See _cell() for why that matters.
+    def _q(v):
+        if isinstance(v, float):
+            return float(format(v, ".12g"))
+        return v
+    for _r in wf:
+        for _k, _v in list(_r.items()):
+            _r[_k] = _q(_v)
+    luck = [[_q(x) for x in row] for row in luck] if luck and isinstance(luck[0], list) else luck
+    lines = [{ _k: _q(_v) for _k, _v in row.items()} for row in lines]
 
     train = [(g[0], g[1], g[2], g[3]) for g in games]
     pfit = ridge_fit(train, teams)

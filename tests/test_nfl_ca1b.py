@@ -124,17 +124,35 @@ def test_builder_is_byte_identical_on_rebuild():
                 out[f"{root}/{f}"] = hashlib.sha256(open(p, "rb").read()).hexdigest()
         return out
     before = snapshot()
+    _BEFORE = {}
+    for root in ("data/nfl_ca1b", "docs/nfl-ca1b"):
+        for f in sorted(os.listdir(os.path.join(REPO, root))):
+            p = os.path.join(REPO, root, f)
+            _BEFORE[f"{root}/{f}"] = open(p, "rb").read().decode("utf-8", "replace")
     proc = subprocess.run([sys.executable, os.path.join(REPO, "scripts", "build_nfl_ca1b.py")],
                           capture_output=True, text=True)
     assert proc.returncode == 0, proc.stdout + proc.stderr
     after = snapshot()
     changed = [k for k in sorted(before) if before[k] != after[k]]
-    # Name the files: a bare digest mismatch is undiagnosable in CI, where the
-    # action log is not downloadable and only the assertion text survives.
+    # Name the files and the first differing line: a bare digest mismatch is
+    # undiagnosable in CI, where the action log is not downloadable and only the
+    # assertion text survives.
+    detail = []
+    for k in changed[:3]:
+        old_lines = open(os.path.join(REPO, k.replace("/nfl_ca1b/", "/nfl_ca1b/_before_")), "rb").read() if False else None
+        detail.append(k)
+    if changed:
+        import difflib
+        for k in changed[:2]:
+            after_b = open(os.path.join(REPO, k), "rb").read().decode()
+            before_b = _BEFORE.get(k, "")
+            diff = list(difflib.unified_diff(before_b.splitlines(), after_b.splitlines(),
+                                             "committed", "rebuilt", lineterm="", n=0))
+            detail.append(f"--- {k} ---")
+            detail.extend(diff[:12])
     assert not changed, (
-        "rebuild changed " + ", ".join(changed)
-        + "\n--- builder stdout ---\n" + proc.stdout[-1500:]
-        + "\n--- builder stderr ---\n" + proc.stderr[-1500:]
+        "rebuild changed " + ", ".join(changed) + "\n" + "\n".join(detail)
+        + "\n--- builder stdout ---\n" + proc.stdout[-800:]
     )
 
 
