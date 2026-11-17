@@ -3195,3 +3195,39 @@ from another pack are `repo_claim` — reproduced with the file and line that sa
 by me. Anything neither read nor present in a repo file stays **blank and flagged**. No number is inferred, no
 odds or profit is claimed, and no suggestion is implemented on the owner's behalf: the whole point of this section
 is that the owner picks the path first.
+
+---
+
+## Session arena/7a59fd89-own6 — 32-club roster/IR availability sweep + Week 10 finals settlement (claimed 2026-11-17)
+
+**Branch constraint.** Arena fixes this session to `arena/7a59fd89-own6` (base `d844122` =
+`origin/main`, merged PR #107); no other branch or worktree is created. The brief's
+`session-<id>/<task>` naming is satisfied by disjoint file scopes on this single branch, as
+all prior sessions recorded. Session ID: `7a59fd89`.
+
+**Concurrent-work check before claiming.** `git fetch origin main` → HEAD equals base `d844122`
+(no drift). Open PRs at claim time: #94, #84, #79, #72, #68, #56, #54, #52, #48 (all stale
+bookkeeping/record PRs from other sessions; scopes disjoint from everything below). No task
+below overlaps another live session's claim.
+
+### Claim (written and pushed before any data or code was produced)
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| W1 Repo line-by-line readiness re-verification + irregularity record | in progress | 7a59fd89 | `audit/NFL_7A59FD89_REPO_REVIEW.md`, `data/nfl_7a59fd89/repo_findings.csv` |
+| W2 Injury hub capture (32 clubs, clocked) + cross-read delta vs the 2026-11-15/16 sibling reads | in progress | 7a59fd89 | `data/nfl_7a59fd89/injury_hub_2026_11_17.csv`, `injury_delta.csv`, `src/nfl_7a59fd89/injury.py` |
+| W3 32-club roster/IR sweep (G-SWEEP): reserve registers + status counts per club | in progress | 7a59fd89 | `data/nfl_7a59fd89/roster_reserve.csv`, `roster_sweep.csv`, `src/nfl_7a59fd89/sweep.py` |
+| W4 Week-10 finals settlement: verified results feed extension (weeks 1–9 corpus → +week 10) | in progress | 7a59fd89 | `data/nfl_7a59fd89/results_week10_final.csv`, `corpus_152.csv`, `src/nfl_7a59fd89/results.py` |
+| W5 Dated schedule-announcement capture attempt (G-ANNOUNCE) | in progress | 7a59fd89 | `data/nfl_7a59fd89/schedule_announcement.csv` |
+| W6 Availability cross-checks: hub-vs-roster conflicts, RES-but-listed rows ("not listed" ≠ available) | in progress | 7a59fd89 | `data/nfl_7a59fd89/availability_conflicts.csv`, `src/nfl_7a59fd89/crosscheck.py` |
+| W7 Pack site + verifier + tests + CI + executive summary | in progress | 7a59fd89 | `docs/nfl-7a59fd89/**`, `scripts/build_nfl_7a59fd89.py`, `scripts/check_nfl_7a59fd89.py`, `tests/test_nfl_7a59fd89.py`, `.github/workflows/nfl-7a59fd89-ci.yml`, `NFL_7A59FD89_EXECUTIVE_SUMMARY.md`, `src/nfl_7a59fd89/**`, `data/nfl_7a59fd89/**` |
+| W8 Integration: additive shared nav/README/COORDINATION record; shared-inventory fixed-point regen; nfl.com-allowlist standing request (source_coverage PUBLISHERS, release_gate OFFICIAL_HOSTS, audit_repo OFFICIAL_SUFFIXES) attempt | in progress | 7a59fd89 | `COORDINATION.md`, `README.md` (additive), `docs/index.html` (additive), `index.html` (additive), `data/assurance/**`, `docs/assurance/**`, `data/source_coverage/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md`, `scripts/source_coverage.py`, `tools/release_gate.py`, `scripts/audit_repo.py` (allowlists only) |
+| W9 PR → merge → Pages confirm → board record | in progress | 7a59fd89 | `COORDINATION.md` |
+
+**Rules (same as all prior sessions).** (1) No manual input is requested; no page contains an
+input control. (2) A value is published only if read this session from the cited official page,
+or is arithmetic on such values with the derivation shown; anything else is a blank cell plus a
+flagged row. (3) Market (book) prices are unobtainable from an official source, so price columns
+stay blank with capture attempts logged. (4) No profitability claim anywhere. (5) `needs review`
+items never block; they are published on the pack's Flagged for Review page. (6) Shared files are
+edited only at W8, additively.
