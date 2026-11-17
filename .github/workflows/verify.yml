@@ -19,7 +19,25 @@ jobs:
         with:
           python-version: '3.11'
       - name: Engine unit tests (dependency-free runner)
-        run: python3 tools/run_tests.py
+        run: |
+          # Publish the failing assertions to the job summary: the sandbox that
+          # maintains this repo cannot download action logs, so a red job must be
+          # diagnosable from the API alone.
+          set +e
+          python3 tools/run_tests.py > /tmp/tests.log 2>&1
+          rc=$?
+          grep -v '^PASS' /tmp/tests.log || true
+          if [ $rc -ne 0 ]; then
+            {
+              echo '### run_tests.py failed'
+              echo '```'
+              grep -v '^PASS' /tmp/tests.log | tail -80
+              echo '```'
+              echo 'Python:'; python3 -V
+              echo 'Commit:'; git rev-parse HEAD
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+          exit $rc
       - name: Generated review pages are up to date
         run: python3 tools/build_review.py --check
       - name: Official-source / link / table-row gate
