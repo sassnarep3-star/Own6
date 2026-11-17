@@ -41,9 +41,7 @@ jobs:
         run: |
           if ! git diff --exit-code -- data/nfl_45abd396 docs/nfl-45abd396; then
             echo "::error::builder output differs from the committed files in CI"
-            git diff --stat -- data/nfl_45abd396 docs/nfl-45abd396
-            git diff -- data/nfl_45abd396 docs/nfl-45abd396 | head -200
-            git status --short -- data/nfl_45abd396 docs/nfl-45abd396
+            git diff -- data/nfl_45abd396 docs/nfl-45abd396 | head -160 | sed 's/^/::error::/'
             exit 1
           fi
       - name: Second build must be identical (determinism)
