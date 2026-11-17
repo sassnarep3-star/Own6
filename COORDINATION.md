@@ -3145,6 +3145,6 @@ GitHub Pages source: `main` root, status `built`, live at https://sassnarep3-sta
 
 ### PR and merge
 
-- **PR:** pending (to be created from `arena/5a56d5d9-own6` → `main`)
-- **Merge result:** pending
-- **Pages deploy:** to be confirmed after merge via the Pages API
+- **PR:** https://github.com/sassnarep3-star/Own6/pull/108 — session `arena/5a56d5d9-own6` → `main`
+- **Merge result:** **MERGED** as merge commit `5874f2e` (`gh pr merge 108 --merge`, merge commit, no squash, no rebase, no approval gate waited on)
+- **Pages deploy:** confirmed — Pages build `built` after the merge; live site at https://sassnarep3-star.github.io/Own6/ serving the root portal with the decision-readiness table (RQ-01–RQ-81), suggestions register (14 entries `pending_human_choice`), strategy leaderboard (0 of 10 qualified; rewards disabled), and category subpages under `docs/`
