@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Control baselines — NFL 45abd396</title>
+<style>
+:root{--ink:#12233b;--muted:#5b6b80;--line:#dde5ef;--bg:#f5f8fb;--card:#fff;--accent:#0b5394;
+--ok:#1c6b3d;--okbg:#d9f2e2;--warn:#7a5b00;--warnbg:#fff3cd;--no:#8f1d1d;--nobg:#fde2e2;--nav:#0b2545;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent)}
+header.top{background:var(--nav);color:#fff;padding:20px 22px 16px}
+header.top h1{margin:0;font-size:21px;letter-spacing:.01em}
+header.top p{margin:6px 0 0;opacity:.86;font-size:13px;max-width:70ch}
+nav.main{display:flex;flex-wrap:wrap;gap:3px;background:#13315c;padding:7px 10px;position:sticky;top:0;z-index:5}
+nav.main a{color:#cfe0f5;text-decoration:none;padding:5px 9px;border-radius:4px;font-size:12.5px}
+nav.main a.on,nav.main a:hover{background:#ee6c4d;color:#fff}
+main{max-width:1200px;margin:0 auto;padding:16px 18px 40px}
+section{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:14px 16px;margin:14px 0}
+h2{font-size:17px;margin:2px 0 10px}
+h3{font-size:14px;margin:14px 0 6px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+table{border-collapse:collapse;width:100%;font-size:12.5px}
+th,td{border:1px solid #e5ebf3;padding:5px 7px;text-align:left;vertical-align:top}
+th{background:#eef3fa;font-weight:600;position:sticky;top:38px}
+tbody tr:nth-child(even){background:#fafcfe}
+.wrap{overflow-x:auto;max-height:70vh;overflow-y:auto;border:1px solid var(--line);border-radius:6px}
+td.blank{background:#fff8e8}
+.pill{display:inline-block;padding:1px 8px;border-radius:10px;font-size:11px;font-weight:600}
+.ok{background:var(--okbg);color:var(--ok)}.warn{background:var(--warnbg);color:var(--warn)}.no{background:var(--nobg);color:var(--no)}
+.note{background:#f2f6fc;border-left:3px solid #13315c;padding:9px 12px;margin:9px 0;font-size:13px}
+.banner{background:var(--nobg);border:1px solid #f2b8b8;color:var(--no);padding:11px 14px;border-radius:8px;margin:12px 0;font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:10px 0}
+.kpi{background:#f7fafd;border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.kpi b{display:block;font-size:22px;line-height:1.1}
+.kpi span{font-size:12px;color:var(--muted)}
+footer{text-align:center;color:#7a8aa3;font-size:12px;padding:22px}
+ul.tight{margin:6px 0 6px 18px;padding:0}ul.tight li{margin:3px 0}
+</style></head><body>
+<header class="top"><h1>Control baselines</h1><p>A seeded coin and a rating favourite on the identical fixtures, so skill can be compared with no skill</p></header>
+<nav class="main"><a href="index.html">Decision desk</a><a href="leaderboard.html">Settled leaderboard</a><a href="settlement.html">Forecast settlement</a><a href="luck.html">Removal of luck</a><a href="controls.html" class="on">Control baselines</a><a href="results.html">Week-10 finals</a><a href="injuries.html">Injury deltas</a><a href="availability.html">Availability sweep</a><a href="depth.html">Depth &amp; stale rows</a><a href="questions.html">Questions → answers</a><a href="suggestions.html">Suggestions</a><a href="gates.html">Gates &amp; readiness</a><a href="flagged.html">Flagged for review</a><a href="sources.html">Sources</a><a href="executive-summary.html">Executive summary</a></nav>
+<main>
+
+<section><h2>Control baselines on the same twelve fixtures</h2>
+<div class="note">A control is only useful if it faces the same games. Both controls here forecast
+exactly the fixtures the strategies forecast, and both were defined before scoring.</div>
+<div class="wrap"><table><thead><tr><th>Control</th><th>Definition</th><th>n</th><th>Brier</th><th>Hits</th><th>Hit rate</th><th>Note</th><th>Source</th></tr></thead><tbody><tr><td>CTRL-COIN</td><td>0.5 home probability on a seeded coin flip</td><td>12</td><td>0.250000</td><td>5</td><td>0.4167</td><td>a coin cannot beat 0.25 Brier; it is here to show what 'no skill' scores</td><td><a href="https://www.nfl.com/standings/" rel="noopener noreferrer" target="_blank">source &#8599;</a></td></tr><tr><td>CTRL-FAVOURITE</td><td>0.5 on the higher (PF-PA)/games side; no probability information by construction</td><td>12</td><td>0.250000</td><td>11</td><td>0.9167</td><td>the rating favourite has no probability attached; its Brier is 0.25 by construction and only its hit rate is informative</td><td><a href="https://www.nfl.com/standings/" rel="noopener noreferrer" target="_blank">source &#8599;</a></td></tr></tbody></table></div>
+<div class="note"><b>Why the favourite control has no probability.</b> Attaching a probability to
+"the better team" would smuggle a model in as a control. Its hit rate is the only number reported;
+its Brier of 0.25 is true by construction and says nothing.</div>
+</section>
+</main>
+<footer>Built by <code>scripts/build_nfl_45abd396.py</code> from <code>src/nfl_45abd396</code> with no network access · every value read from a cited official nfl.com page on 2026-11-17 UTC · blanks are flagged, never filled · no profitability claim · <a href="https://github.com/sassnarep3-star/Own6">repository</a></footer>
+</body></html>

@@ -1,0 +1,9 @@
+source_id,read_at_utc,url,used_for,official,how_read
+R1_week10_schedule,2026-11-17T00:41:00Z,https://www.nfl.com/schedules/2026/by-week/week-10,13 finals + the one card not yet played; kickoff clocks,yes,"single manual page fetch, no automation"
+R2_standings,2026-11-17T00:43:00Z,https://www.nfl.com/standings/,"32-club W-L-T, PF, PA; the rating favourite control; the luck panel denominators",yes,"single manual page fetch, no automation"
+R3_injury_hub,2026-11-17T00:47:00Z,https://www.nfl.com/injuries/,347 player rows across 28 club tables,yes,"single manual page fetch, no automation"
+R4_week11_schedule,2026-11-17T00:52:00Z,https://www.nfl.com/schedules/2026/by-week/week-11,"13 fixtures, 4 bye clubs, venue cross-check",yes,"single manual page fetch, no automation"
+R5_transactions,2026-11-17T00:56:00Z,https://www.nfl.com/transactions/,12 November trades; stale-depth check,yes,"single manual page fetch, no automation"
+R6_reserve_list,2026-11-17T00:57:00Z,https://www.nfl.com/transactions/league/reserve-list/2026/11,25 November reserve/injured entries,yes,"single manual page fetch, no automation"
+R7_news_willis,2026-11-17T00:58:00Z,https://www.nfl.com/news/dolphins-place-qb-malik-willis-groin-on-injured-reserve-kyle-mccord-in-line-for-first-start,the one roster-state question this session could close,yes,"single manual page fetch, no automation"
+R8_game_lac_bal,2026-11-17T00:54:00Z,https://www.nfl.com/games/chargers-at-ravens-2026-reg-10,venue + the game-centre injury wording conflict,yes,"single manual page fetch, no automation"

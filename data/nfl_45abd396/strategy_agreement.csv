@@ -1,0 +1,14 @@
+game_id,away,home,n_strategies_with_a_probability,min_p_home,max_p_home,disagreement_points,unanimous_on_side,actual_winner,source_url
+W10-02,NE,DET,5,0.5498,0.6224,0.0726,yes,DET,https://www.nfl.com/schedules/2026/by-week/week-10
+W10-03,KC,ATL,5,0.1701,0.3509,0.1808,yes,KC,https://www.nfl.com/schedules/2026/by-week/week-10
+W10-04,HOU,CLE,5,0.2333,0.4190,0.1857,yes,CLE,https://www.nfl.com/schedules/2026/by-week/week-10
+W10-05,MIN,GB,5,0.4083,0.4868,0.0785,yes,MIN,https://www.nfl.com/schedules/2026/by-week/week-10
+W10-06,MIA,IND,5,0.4250,0.5682,0.1432,no,IND,https://www.nfl.com/schedules/2026/by-week/week-10
+W10-07,CAR,NO,5,0.4537,0.5563,0.1026,no,CAR,https://www.nfl.com/schedules/2026/by-week/week-10
+W10-08,BUF,NYJ,5,0.1322,0.3270,0.1948,yes,BUF,https://www.nfl.com/schedules/2026/by-week/week-10
+W10-09,JAX,TEN,5,0.0422,0.2442,0.2020,yes,JAX,https://www.nfl.com/schedules/2026/by-week/week-10
+W10-10,LA,AZ,5,0.1503,0.3389,0.1886,yes,LA,https://www.nfl.com/schedules/2026/by-week/week-10
+W10-11,SEA,LV,5,0.2167,0.3957,0.1790,yes,SEA,https://www.nfl.com/schedules/2026/by-week/week-10
+W10-12,SF,DAL,5,0.2000,0.3829,0.1829,yes,SF,https://www.nfl.com/schedules/2026/by-week/week-10
+W10-13,PIT,CIN,5,0.5490,0.6206,0.0716,yes,CIN,https://www.nfl.com/schedules/2026/by-week/week-10
+W10-14,LAC,BAL,5,0.5944,0.7241,0.1297,yes,,https://www.nfl.com/schedules/2026/by-week/week-10

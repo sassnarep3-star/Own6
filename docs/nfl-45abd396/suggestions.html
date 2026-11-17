@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suggestions for review — NFL 45abd396</title>
+<style>
+:root{--ink:#12233b;--muted:#5b6b80;--line:#dde5ef;--bg:#f5f8fb;--card:#fff;--accent:#0b5394;
+--ok:#1c6b3d;--okbg:#d9f2e2;--warn:#7a5b00;--warnbg:#fff3cd;--no:#8f1d1d;--nobg:#fde2e2;--nav:#0b2545;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent)}
+header.top{background:var(--nav);color:#fff;padding:20px 22px 16px}
+header.top h1{margin:0;font-size:21px;letter-spacing:.01em}
+header.top p{margin:6px 0 0;opacity:.86;font-size:13px;max-width:70ch}
+nav.main{display:flex;flex-wrap:wrap;gap:3px;background:#13315c;padding:7px 10px;position:sticky;top:0;z-index:5}
+nav.main a{color:#cfe0f5;text-decoration:none;padding:5px 9px;border-radius:4px;font-size:12.5px}
+nav.main a.on,nav.main a:hover{background:#ee6c4d;color:#fff}
+main{max-width:1200px;margin:0 auto;padding:16px 18px 40px}
+section{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:14px 16px;margin:14px 0}
+h2{font-size:17px;margin:2px 0 10px}
+h3{font-size:14px;margin:14px 0 6px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+table{border-collapse:collapse;width:100%;font-size:12.5px}
+th,td{border:1px solid #e5ebf3;padding:5px 7px;text-align:left;vertical-align:top}
+th{background:#eef3fa;font-weight:600;position:sticky;top:38px}
+tbody tr:nth-child(even){background:#fafcfe}
+.wrap{overflow-x:auto;max-height:70vh;overflow-y:auto;border:1px solid var(--line);border-radius:6px}
+td.blank{background:#fff8e8}
+.pill{display:inline-block;padding:1px 8px;border-radius:10px;font-size:11px;font-weight:600}
+.ok{background:var(--okbg);color:var(--ok)}.warn{background:var(--warnbg);color:var(--warn)}.no{background:var(--nobg);color:var(--no)}
+.note{background:#f2f6fc;border-left:3px solid #13315c;padding:9px 12px;margin:9px 0;font-size:13px}
+.banner{background:var(--nobg);border:1px solid #f2b8b8;color:var(--no);padding:11px 14px;border-radius:8px;margin:12px 0;font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:10px 0}
+.kpi{background:#f7fafd;border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.kpi b{display:block;font-size:22px;line-height:1.1}
+.kpi span{font-size:12px;color:var(--muted)}
+footer{text-align:center;color:#7a8aa3;font-size:12px;padding:22px}
+ul.tight{margin:6px 0 6px 18px;padding:0}ul.tight li{margin:3px 0}
+</style></head><body>
+<header class="top"><h1>Suggestions for review</h1><p>Ten proposals, each with a review state, an effort estimate, the facts it depends on and how it would be validated</p></header>
+<nav class="main"><a href="index.html">Decision desk</a><a href="leaderboard.html">Settled leaderboard</a><a href="settlement.html">Forecast settlement</a><a href="luck.html">Removal of luck</a><a href="controls.html">Control baselines</a><a href="results.html">Week-10 finals</a><a href="injuries.html">Injury deltas</a><a href="availability.html">Availability sweep</a><a href="depth.html">Depth &amp; stale rows</a><a href="questions.html">Questions → answers</a><a href="suggestions.html" class="on">Suggestions</a><a href="gates.html">Gates &amp; readiness</a><a href="flagged.html">Flagged for review</a><a href="sources.html">Sources</a><a href="executive-summary.html">Executive summary</a></nav>
+<main>
+
+<section><h2>Suggestions for review</h2>
+<div class="note">Each proposal carries its own <code>review_state</code> and an empty
+<code>decided_by</code> / <code>decision_date</code> pair, so the path can be chosen deliberately before
+anything is built. Nothing in this table has been implemented beyond what is marked
+<span class="pill ok">implemented here</span>.</div>
+<div class="wrap"><table><thead><tr><th>ID</th><th>Area</th><th>Suggestion</th><th>Problem it solves</th><th>Proposal</th><th>Effort</th><th>Depends on</th><th>How it would be validated</th><th>Review state</th></tr></thead><tbody><tr><td>S-01</td><td>decision making</td><td><b>Publish a one-number decision for each club, not a dashboard of counts</b></td><td>A reader cannot act on 347 injury rows. They can act on 'is this club missing more expected starters than its opponent, by how much, and is that number inside noise'.</td><td>One row per fixture: expected-starters-missing difference, the players named, and the interval around the difference. Blank until depth is verified.</td><td>medium</td><td>Q-08, Q-10</td><td>compare the difference with the settled result over &gt;= 3 weeks</td><td><span class="pill warn">proposed - awaiting the owner's choice</span></td></tr><tr><td>S-02</td><td>decision making</td><td><b>Show the sample size next to every rank</b></td><td>A rank at n=12 invites a bet a rank at n=12 does not support; the dashboard currently shows rank and hides n.</td><td>Every leaderboard row prints n_games, the 95% interval and the multiplicity-adjusted threshold in the same visual block as the rank.</td><td>low</td><td></td><td>nothing - implemented in this pack on the settled leaderboard page</td><td><span class="pill ok">implemented here</span></td></tr><tr><td>S-03</td><td>process</td><td><b>One pre-registration commit per strategy, with the hash printed on the page</b></td><td>Pre-registration exists as a CSV. A CSV can be edited after the fact; a commit hash cannot.</td><td>Each strategy's rule text is added in its own commit; the leaderboard prints that commit hash beside the strategy.</td><td>low</td><td></td><td>re-derive that each printed hash predates its first forecast row</td><td><span class="pill warn">proposed - awaiting the owner's choice</span></td></tr><tr><td>S-04</td><td>data</td><td><b>Treat the transactions table as the roster clock</b></td><td>The hub names a traded player at his old club (C-01); depth and availability tables go stale between transactions.</td><td>Every availability read is stamped with the latest transactions-table entry, and any hub row contradicting a trade is flagged automatically.</td><td>medium</td><td></td><td>zero unflagged mismatches over four consecutive reads</td><td><span class="pill warn">proposed - awaiting the owner's choice</span></td></tr><tr><td>S-05</td><td>method</td><td><b>Score win probability and margin separately; never let one hide the other</b></td><td>A strategy can be well calibrated on winners and useless on margin. The repo's leaderboards mix the two.</td><td>Two panels per strategy: probability skill (Brier/log-loss with cluster interval) and margin error (mean absolute error vs a zero-margin line).</td><td>low</td><td>Q-02 for the market line</td><td>margin panel exists only when an official line exists, otherwise blank</td><td><span class="pill ok">partly implemented here</span></td></tr><tr><td>S-06</td><td>data</td><td><b>Log every capture attempt, including the failures</b></td><td>A blank cell currently says nothing about whether the page was absent, unreachable or empty.</td><td>A capture-attempt table with URL, clock, HTTP outcome and row count, published beside the data.</td><td>low</td><td></td><td>each published table row traceable to an attempt row</td><td><span class="pill ok">implemented here</span></td></tr><tr><td>S-07</td><td>process</td><td><b>Stop adding packs; consolidate before adding a fourteenth site</b></td><td>The repo now carries 20+ per-session sites with overlapping tables. Duplicate tables drift apart and a reader cannot tell which is current.</td><td>Freeze new packs for 30 days; make one index that names, for each dataset, the single current file and the date it was superseded.</td><td>medium</td><td></td><td>a duplicate-dataset audit listing every file that holds the same fact</td><td><span class="pill warn">proposed - needs owner decision before any deletion</span></td></tr><tr><td>S-08</td><td>safety</td><td><b>Publish a 'do not bet this' state explicitly</b></td><td>Absence of evidence reads as approval. No strategy currently qualifies, and the site should say so in words, not just in empty cells.</td><td>A state banner computed from the gate register: if no strategy qualifies, the landing page prints 'no strategy qualifies; nothing here is a recommendation'.</td><td>low</td><td></td><td>the banner flips automatically when a strategy clears its gates</td><td><span class="pill ok">implemented here</span></td></tr><tr><td>S-09</td><td>method</td><td><b>Require a pre-declared ablation pair before any feature is trusted</b></td><td>Fixed point penalties for injuries are unfalsifiable. A paired ablation with a frozen holdout is falsifiable.</td><td>A feature ships only with an identical twin model without it, both scored chronologically, with the paired difference and its interval published.</td><td>high</td><td>Q-08, Q-16</td><td>the interval excluding zero on a holdout never used for selection</td><td><span class="pill warn">proposed - awaiting the owner's choice</span></td></tr><tr><td>S-10</td><td>process</td><td><b>Publish a weekly 'what changed' diff, computed not typed</b></td><td>Static snapshots force the reader to remember last week's numbers.</td><td>The site diffs two dated captures and publishes rank/rating/availability deltas with the two read clocks.</td><td>low</td><td>Q-01 for a scheduled cadence</td><td>two dated captures of the same source existing in the repo</td><td><span class="pill warn">proposed - awaiting the owner's choice</span></td></tr></tbody></table></div>
+<h3>How to choose</h3>
+<ul class="tight">
+<li><b>S-08 first</b> — it costs nothing and stops the site from ever reading as approval.</li>
+<li><b>S-02 and S-03 next</b> — they make every later result harder to over-read.</li>
+<li><b>S-07 before adding any new pack</b> — the duplicate-table problem grows faster than the data does.</li>
+<li><b>S-09 last</b> — an ablation cannot be run until Q-08 and Q-06 are closed.</li>
+</ul>
+</section>
+</main>
+<footer>Built by <code>scripts/build_nfl_45abd396.py</code> from <code>src/nfl_45abd396</code> with no network access · every value read from a cited official nfl.com page on 2026-11-17 UTC · blanks are flagged, never filled · no profitability claim · <a href="https://github.com/sassnarep3-star/Own6">repository</a></footer>
+</body></html>

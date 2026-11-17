@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Settled leaderboard — NFL 45abd396</title>
+<style>
+:root{--ink:#12233b;--muted:#5b6b80;--line:#dde5ef;--bg:#f5f8fb;--card:#fff;--accent:#0b5394;
+--ok:#1c6b3d;--okbg:#d9f2e2;--warn:#7a5b00;--warnbg:#fff3cd;--no:#8f1d1d;--nobg:#fde2e2;--nav:#0b2545;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent)}
+header.top{background:var(--nav);color:#fff;padding:20px 22px 16px}
+header.top h1{margin:0;font-size:21px;letter-spacing:.01em}
+header.top p{margin:6px 0 0;opacity:.86;font-size:13px;max-width:70ch}
+nav.main{display:flex;flex-wrap:wrap;gap:3px;background:#13315c;padding:7px 10px;position:sticky;top:0;z-index:5}
+nav.main a{color:#cfe0f5;text-decoration:none;padding:5px 9px;border-radius:4px;font-size:12.5px}
+nav.main a.on,nav.main a:hover{background:#ee6c4d;color:#fff}
+main{max-width:1200px;margin:0 auto;padding:16px 18px 40px}
+section{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:14px 16px;margin:14px 0}
+h2{font-size:17px;margin:2px 0 10px}
+h3{font-size:14px;margin:14px 0 6px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+table{border-collapse:collapse;width:100%;font-size:12.5px}
+th,td{border:1px solid #e5ebf3;padding:5px 7px;text-align:left;vertical-align:top}
+th{background:#eef3fa;font-weight:600;position:sticky;top:38px}
+tbody tr:nth-child(even){background:#fafcfe}
+.wrap{overflow-x:auto;max-height:70vh;overflow-y:auto;border:1px solid var(--line);border-radius:6px}
+td.blank{background:#fff8e8}
+.pill{display:inline-block;padding:1px 8px;border-radius:10px;font-size:11px;font-weight:600}
+.ok{background:var(--okbg);color:var(--ok)}.warn{background:var(--warnbg);color:var(--warn)}.no{background:var(--nobg);color:var(--no)}
+.note{background:#f2f6fc;border-left:3px solid #13315c;padding:9px 12px;margin:9px 0;font-size:13px}
+.banner{background:var(--nobg);border:1px solid #f2b8b8;color:var(--no);padding:11px 14px;border-radius:8px;margin:12px 0;font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:10px 0}
+.kpi{background:#f7fafd;border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.kpi b{display:block;font-size:22px;line-height:1.1}
+.kpi span{font-size:12px;color:var(--muted)}
+footer{text-align:center;color:#7a8aa3;font-size:12px;padding:22px}
+ul.tight{margin:6px 0 6px 18px;padding:0}ul.tight li{margin:3px 0}
+</style></head><body>
+<header class="top"><h1>Settled leaderboard</h1><p>Five strategies, 12 settled fixtures each, proper scores with a game-cluster interval and a Šidák multiplicity adjustment over m=5</p></header>
+<nav class="main"><a href="index.html">Decision desk</a><a href="leaderboard.html" class="on">Settled leaderboard</a><a href="settlement.html">Forecast settlement</a><a href="luck.html">Removal of luck</a><a href="controls.html">Control baselines</a><a href="results.html">Week-10 finals</a><a href="injuries.html">Injury deltas</a><a href="availability.html">Availability sweep</a><a href="depth.html">Depth &amp; stale rows</a><a href="questions.html">Questions → answers</a><a href="suggestions.html">Suggestions</a><a href="gates.html">Gates &amp; readiness</a><a href="flagged.html">Flagged for review</a><a href="sources.html">Sources</a><a href="executive-summary.html">Executive summary</a></nav>
+<main>
+
+<div class="banner">NO STRATEGY QUALIFIES. Every strategy has a positive point estimate and every 95% game-cluster interval still contains zero at n = 12 settled games. Nothing on this site is a recommendation, and no market price exists to bet against even if it were.</div>
+<section><h2>Scoring table</h2>
+<div class="wrap"><table><thead><tr><th>Rank</th><th>Strategy</th><th>Pack / file</th><th>Column</th><th>n</th><th>Hits</th><th>Brier</th><th>Brier (climatology)</th><th>Brier (coin)</th><th>Skill vs climatology</th><th>Skill vs coin</th><th>Log loss</th><th>Log loss (climatology)</th><th>Sharpness</th><th>Cluster 95% CI</th><th>P(skill &gt; 0)</th><th>p (hits vs coin)</th><th>Šidák alpha</th><th>Qualified</th><th>Backtest numbers</th><th>Source</th></tr></thead><tbody><tr><td>1</td><td>WK-ML</td><td>nfl_wk (own_lines.csv)</td><td>own_win_prob_home</td><td>12</td><td>11 (0.9167)</td><td>0.130667</td><td>0.222222</td><td>0.250000</td><td>+0.4120</td><td>+0.4773</td><td>0.418832</td><td>0.636514</td><td>0.2172</td><td>[-0.2595, +0.6377]</td><td>0.9420</td><td>0.0063</td><td>0.01021</td><td><span class="pill no">no</span></td><td>none - settled forecasts only</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-10" rel="noopener noreferrer" target="_blank">source &#8599;</a></td></tr><tr><td>2</td><td>A411-ML-NORMAL</td><td>nfl_a411fed0 (origination_2026_w10.psv)</td><td>origination_step_3_p_home_win_normal</td><td>12</td><td>9 (0.7500)</td><td>0.158596</td><td>0.222222</td><td>0.250000</td><td>+0.2863</td><td>+0.3656</td><td>0.481996</td><td>0.636514</td><td>0.2119</td><td>[-0.4350, +0.5400]</td><td>0.8631</td><td>0.1460</td><td>0.01021</td><td><span class="pill no">no</span></td><td>none - settled forecasts only</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-10" rel="noopener noreferrer" target="_blank">source &#8599;</a></td></tr><tr><td>3</td><td>D966-ML</td><td>nfl_d966f630 (originated_lines.csv)</td><td>moneyline_prob_home</td><td>12</td><td>11 (0.9167)</td><td>0.161949</td><td>0.222222</td><td>0.250000</td><td>+0.2712</td><td>+0.3522</td><td>0.505203</td><td>0.636514</td><td>0.1351</td><td>[-0.7262, +0.4178]</td><td>0.8809</td><td>0.0063</td><td>0.01021</td><td><span class="pill no">no</span></td><td>none - settled forecasts only</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-10" rel="noopener noreferrer" target="_blank">source &#8599;</a></td></tr><tr><td>4</td><td>A411-ML-EMPIRICAL</td><td>nfl_a411fed0 (origination_2026_w10.psv)</td><td>origination_step_3_p_home_win_empirical</td><td>12</td><td>9 (0.7500)</td><td>0.162531</td><td>0.222222</td><td>0.250000</td><td>+0.2686</td><td>+0.3499</td><td>0.492266</td><td>0.636514</td><td>0.2139</td><td>[-0.4148, +0.5264]</td><td>0.8455</td><td>0.1460</td><td>0.01021</td><td><span class="pill no">no</span></td><td>none - settled forecasts only</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-10" rel="noopener noreferrer" target="_blank">source &#8599;</a></td></tr><tr><td>5</td><td>N6F-ML</td><td>nfl_6cefc476 (originated_lines.csv)</td><td>model_win_prob_home</td><td>12</td><td>11 (0.9167)</td><td>0.178613</td><td>0.222222</td><td>0.250000</td><td>+0.1962</td><td>+0.2855</td><td>0.544956</td><td>0.636514</td><td>0.1000</td><td>[-1.0866, +0.3343]</td><td>0.8028</td><td>0.0063</td><td>0.01021</td><td><span class="pill no">no</span></td><td>none - settled forecasts only</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-10" rel="noopener noreferrer" target="_blank">source &#8599;</a></td></tr></tbody></table></div>
+<div class="note"><b>What is deliberately absent.</b> There is no ROI column, no staking column and no
+closing-line column. NFL.com publishes no price, so a return cannot be computed without inventing
+one. The brief's rule that a lucky staking run must not mask a bad signal is met by having no staking
+column at all rather than by a column filled with a guess.</div>
+</section>
+<section><h2>Where the strategies disagree</h2>
+<div class="note">Across 13 fixtures with a probability from more than one strategy, the
+mean gap between the most and least confident home probability is
+<b>0.147</b> (max 0.202,
+sd 0.048). They are not independent models: they all derive from
+PF/PA per game, which is why their scores move together.</div>
+<div class="wrap"><table><thead><tr><th>Game</th><th>Fixture</th><th>n strategies</th><th>Min p(home)</th><th>Max p(home)</th><th>Gap</th><th>Unanimous</th><th>Winner</th><th>Source</th></tr></thead><tbody><tr><td>W10-02</td><td>NE @ DET</td><td>5</td><td>0.5498</td><td>0.6224</td><td>0.0726</td><td>yes</td><td>DET</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-10" rel="noopener noreferrer" target="_blank">source &#8599;</a></td></tr><tr><td>W10-03</td><td>KC @ ATL</td><td>5</td><td>0.1701</td><td>0.3509</td><td>0.1808</td><td>yes</td><td>KC</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-10" rel="noopener noreferrer" target="_blank">source &#8599;</a></td></tr><tr><td>W10-04</td><td>HOU @ CLE</td><td>5</td><td>0.2333</td><td>0.4190</td><td>0.1857</td><td>yes</td><td>CLE</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-10" rel="noopener noreferrer" target="_blank">source &#8599;</a></td></tr><tr><td>W10-05</td><td>MIN @ GB</td><td>5</td><td>0.4083</td><td>0.4868</td><td>0.0785</td><td>yes</td><td>MIN</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-10" rel="noopener noreferrer" target="_blank">source &#8599;</a></td></tr><tr><td>W10-06</td><td>MIA @ IND</td><td>5</td><td>0.4250</td><td>0.5682</td><td>0.1432</td><td>no</td><td>IND</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-10" rel="noopener noreferrer" target="_blank">source &#8599;</a></td></tr><tr><td>W10-07</td><td>CAR @ NO</td><td>5</td><td>0.4537</td><td>0.5563</td><td>0.1026</td><td>no</td><td>CAR</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-10" rel="noopener noreferrer" target="_blank">source &#8599;</a></td></tr><tr><td>W10-08</td><td>BUF @ NYJ</td><td>5</td><td>0.1322</td><td>0.3270</td><td>0.1948</td><td>yes</td><td>BUF</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-10" rel="noopener noreferrer" target="_blank">source &#8599;</a></td></tr><tr><td>W10-09</td><td>JAX @ TEN</td><td>5</td><td>0.0422</td><td>0.2442</td><td>0.2020</td><td>yes</td><td>JAX</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-10" rel="noopener noreferrer" target="_blank">source &#8599;</a></td></tr><tr><td>W10-10</td><td>LA @ AZ</td><td>5</td><td>0.1503</td><td>0.3389</td><td>0.1886</td><td>yes</td><td>LA</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-10" rel="noopener noreferrer" target="_blank">source &#8599;</a></td></tr><tr><td>W10-11</td><td>SEA @ LV</td><td>5</td><td>0.2167</td><td>0.3957</td><td>0.1790</td><td>yes</td><td>SEA</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-10" rel="noopener noreferrer" target="_blank">source &#8599;</a></td></tr><tr><td>W10-12</td><td>SF @ DAL</td><td>5</td><td>0.2000</td><td>0.3829</td><td>0.1829</td><td>yes</td><td>SF</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-10" rel="noopener noreferrer" target="_blank">source &#8599;</a></td></tr><tr><td>W10-13</td><td>PIT @ CIN</td><td>5</td><td>0.5490</td><td>0.6206</td><td>0.0716</td><td>yes</td><td>CIN</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-10" rel="noopener noreferrer" target="_blank">source &#8599;</a></td></tr><tr><td>W10-14</td><td>LAC @ BAL</td><td>5</td><td>0.5944</td><td>0.7241</td><td>0.1297</td><td>yes</td><td></td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-10" rel="noopener noreferrer" target="_blank">source &#8599;</a></td></tr></tbody></table></div>
+</section>
+</main>
+<footer>Built by <code>scripts/build_nfl_45abd396.py</code> from <code>src/nfl_45abd396</code> with no network access · every value read from a cited official nfl.com page on 2026-11-17 UTC · blanks are flagged, never filled · no profitability claim · <a href="https://github.com/sassnarep3-star/Own6">repository</a></footer>
+</body></html>

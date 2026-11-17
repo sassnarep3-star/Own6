@@ -1,0 +1,15 @@
+gate_id,state,why_it_is_closed,current_value,number_that_clears_it,question_ref,source_url
+G-RIGHTS,open,written consent or a licence naming this use,0,1 written reply,Q-01,https://www.nfl.com/legal/terms/
+G-PRICE,blocked,no official page prints a price,0 price rows,>= 1 licensed timestamped opening and closing price per market,Q-02,https://github.com/sassnarep3-star/Own6
+G-SETTLE-13,open,1 of 14 Week-10 fixtures not final at this read,13 of 14 finals,14 of 14 finals,Q-03,https://www.nfl.com/schedules/2026/by-week/week-10
+G-SAMPLE,open,12 games per strategy is too few for a cluster interval to exclude zero,n=12 per strategy,a game-cluster 95% lower bound above zero; at current variance ~60-120 games,Q-15,https://www.nfl.com/schedules/2026/by-week/week-10
+G-SWEEP,open,"the Week-10 hub renders 28 club tables, not 32",28 of 32 clubs,32 of 32 clubs covered by an official source in one week,Q-07,https://www.nfl.com/injuries/
+G-DEPTH-SRC,blocked,no club depth chart and no snap-count table obtained,0 of 32,"32 of 32 club depth charts verified, or an official snap-count table",Q-08,https://www.nfl.com/games/chargers-at-ravens-2026-reg-10
+G-ACTUAL,blocked,"no Game Book obtained, so no actual-starter evidence",0 of 14 Week-10 games,>= 1 Game Book naming starters per game,Q-08,https://www.nfl.com/games/chargers-at-ravens-2026-reg-10
+G-CADENCE,blocked,rights boundary blocks scheduled capture,0 pre-kickoff intra-week pairs,">= 4 dated reads in one week (Wed, Thu, Fri, gameday)",Q-01,https://www.nfl.com/injuries/
+G-CAL,blocked,no designation-to-inactive join exists,0 joined seasons,">= 2 seasons of designations joined to official inactives, with n and CI per designation",Q-09,https://www.nfl.com/injuries/
+G-WEATHER,open,no official roof/surface register and no NWS grid read,0 of 32 venues,32 of 32 venues with a published roof and surface,Q-13,https://www.nfl.com/schedules/2026/by-week/week-11
+G-VENUE,open,3 of 13 Week-11 venues read from a game-centre Game Info block,3 of 13,13 of 13,Q-11,https://www.nfl.com/schedules/2026/by-week/week-11
+G-TRIALS,open,the true trial count is larger than the 5 columns scored,m=5 scored,a frozen trial ledger with one row per variant ever run,Q-12,https://github.com/sassnarep3-star/Own6
+G-TOTAL2,open,two total estimators are published but neither is scored,0 totals scored,both totals scored on the same settled fixtures with a walk-forward comparison,Q-14,https://www.nfl.com/schedules/2026/by-week/week-10
+G-W11-REPORT,open,the Week-11 injury report is not published yet,Week 10 only,a Week-11 tab on the hub,Q-06,https://www.nfl.com/injuries/

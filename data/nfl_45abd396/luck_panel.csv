@@ -1,0 +1,6 @@
+strategy_id,n_games,hits,hit_rate,coin_expected_hits,coin_95_band_hits,p_two_sided_vs_coin,alpha_after_multiplicity,significant_after_adjustment,reading,source_url
+A411-ML-EMPIRICAL,12,9,0.7500,6.0,3-9,0.1460,0.01021,no,no evidence of skill beyond coin-flipping at this sample size,https://www.nfl.com/schedules/2026/by-week/week-10
+A411-ML-NORMAL,12,9,0.7500,6.0,3-9,0.1460,0.01021,no,no evidence of skill beyond coin-flipping at this sample size,https://www.nfl.com/schedules/2026/by-week/week-10
+D966-ML,12,11,0.9167,6.0,3-9,0.0063,0.01021,yes,hit rate is unlikely under coin-flipping after the multiplicity adjustment,https://www.nfl.com/schedules/2026/by-week/week-10
+N6F-ML,12,11,0.9167,6.0,3-9,0.0063,0.01021,yes,hit rate is unlikely under coin-flipping after the multiplicity adjustment,https://www.nfl.com/schedules/2026/by-week/week-10
+WK-ML,12,11,0.9167,6.0,3-9,0.0063,0.01021,yes,hit rate is unlikely under coin-flipping after the multiplicity adjustment,https://www.nfl.com/schedules/2026/by-week/week-10
