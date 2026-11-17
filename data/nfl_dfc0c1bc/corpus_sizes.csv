@@ -1,0 +1,12 @@
+metric_id,pack,file,rows,weeks,games_with_final_scores,rows_counted_in_backtest,status
+M-RES-309921,nfl_309921cc,data/nfl_309921cc/results_feed.csv,14,,1,,present
+M-RES-48217,nfl_48217a55,data/nfl_48217a55/results_feed.csv,9,1,9,,present
+M-RES-67233,nfl_67233566,data/nfl_67233566/results_feed.csv,150,10,148,145,present
+M-RES-6CEFC,nfl_6cefc476,data/nfl_6cefc476/results_feed.csv,16,2,16,,present
+M-CORP-8362,nfl_8362b702,data/nfl_8362b702/corpus_136.csv,136,9,136,,present
+M-RES-8362,nfl_8362b702,data/nfl_8362b702/results_week10.csv,9,1,9,,present
+M-RES-A411,nfl_a411fed0,data/nfl_a411fed0/results_2026_verified.psv,120,8,120,,present
+M-RES-D966,nfl_d966f630,data/nfl_d966f630/results_feed.csv,44,4,44,,present
+M-FIN-E5E38,nfl_e5e38f9e,data/nfl_e5e38f9e/official_w10_finals.csv,14,1,12,,present
+M-RES-F4,nfl_f4,data/nfl_f4/results.csv,137,10,137,,present
+M-RES-MKT,nfl_market,data/nfl_market/results.csv,137,10,137,,present

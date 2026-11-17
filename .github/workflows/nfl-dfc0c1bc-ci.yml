@@ -1,0 +1,45 @@
+name: nfl-dfc0c1bc
+
+on:
+  push:
+    branches: [main, 'arena/**']
+    paths:
+      - 'src/nfl_dfc0c1bc/**'
+      - 'scripts/build_nfl_dfc0c1bc.py'
+      - 'scripts/check_nfl_dfc0c1bc.py'
+      - 'tests/test_nfl_dfc0c1bc.py'
+      - 'data/nfl_dfc0c1bc/**'
+      - 'docs/nfl-dfc0c1bc/**'
+      - 'NFL_DFC0C1BC_EXECUTIVE_SUMMARY.md'
+  pull_request:
+    paths:
+      - 'src/nfl_dfc0c1bc/**'
+      - 'scripts/build_nfl_dfc0c1bc.py'
+      - 'scripts/check_nfl_dfc0c1bc.py'
+      - 'tests/test_nfl_dfc0c1bc.py'
+      - 'data/nfl_dfc0c1bc/**'
+      - 'docs/nfl-dfc0c1bc/**'
+      - 'NFL_DFC0C1BC_EXECUTIVE_SUMMARY.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Build the board from the registers already in the repo (no inputs, no network)
+        run: python3 scripts/build_nfl_dfc0c1bc.py
+      - name: Committer check — the build changed nothing that was published
+        run: git diff --exit-code -- data/nfl_dfc0c1bc docs/nfl-dfc0c1bc
+      - name: Verify (rules 1-15)
+        run: python3 scripts/check_nfl_dfc0c1bc.py
+      - name: Tests (verifier + identities + determinism)
+        run: python3 tests/test_nfl_dfc0c1bc.py

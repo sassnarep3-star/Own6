@@ -3148,3 +3148,50 @@ GitHub Pages source: `main` root, status `built`, live at https://sassnarep3-sta
 - **PR:** https://github.com/sassnarep3-star/Own6/pull/108 — session `arena/5a56d5d9-own6` → `main`
 - **Merge result:** **MERGED** as merge commit `5874f2e` (`gh pr merge 108 --merge`, merge commit, no squash, no rebase, no approval gate waited on)
 - **Pages deploy:** confirmed — Pages build `built` after the merge; live site at https://sassnarep3-star.github.io/Own6/ serving the root portal with the decision-readiness table (RQ-01–RQ-81), suggestions register (14 entries `pending_human_choice`), strategy leaderboard (0 of 10 qualified; rewards disabled), and category subpages under `docs/`
+---
+
+## Session `arena/dfc0c1bc-own6` — NFL Cross-Pack Decision Board: consolidated suggestions, Q/I/A register, information-gap discovery (claimed 2026-11-17)
+
+**Session ID:** `dfc0c1bc` · **Branch:** `arena/dfc0c1bc-own6` (Arena fixes this session to the branch; the
+`session-<id>/<task>` naming rule is therefore a deviation, logged the same way by 05e359b8, d966f630 and
+8362b702 before me). **Claimed and pushed before any data or code was produced.**
+
+**Why this pack exists.** The owner's newest instruction is not another model: it is *"make suggestions on how to
+improve the site to improve decision making and create a section dedicated for suggestions so someone can review
+suggestions and choose the best path before implementing any changes"* plus *"a clear list of questions,
+informations and answers that need to be addressed before any decision can be reasonably made based upon the
+information that we already have and do not have"*. Today that material exists, but scattered: **16 separate
+suggestion registers** (`data/nfl/suggestions.csv`, `data/nfl_309921cc/`, `data/nfl_3b81013c/site_suggestions`,
+`data/nfl_48217a55/`, `data/nfl_67233566/`, `data/nfl_6cefc476/`, `data/nfl_8362b702/`, `data/nfl_a411fed0/*.psv`,
+`data/nfl_d966f630/`, `data/nfl_e5e38f9e/`, `data/nfl_f4/`, `data/nfl_market/`, `data/nfl_origination/`,
+`data/nfl_wk/`) and **10 question registers**, each with a *different* column vocabulary, so no reviewer can
+compare two proposals, let alone choose between them. Nothing in the repo consolidates them. A repo-wide search at
+claim time found no cross-pack suggestion master, no dedup/contradiction register between packs, and no
+information-gap register with the acquisition route for each gap. Those three are this pack's scope.
+
+**Task board (session `dfc0c1bc`)**
+
+| Task | Status | Owner | Files touched |
+|---|---|---|---|
+| D1 Inventory + line-by-line read of every suggestion/question/flag register in `data/**`; canonical-schema normalizer | in progress | `dfc0c1bc` | `src/nfl_dfc0c1bc/registers.py`, `src/nfl_dfc0c1bc/consolidate.py` |
+| D2 Consolidated suggestion master (dedup, option paths, evidence needed, review-before-implement decision columns) | in progress | `dfc0c1bc` | `data/nfl_dfc0c1bc/suggestions_master.csv` |
+| D3 Consolidated Q/I/A master: question, what we have, what we lack, answer status, discovery route | in progress | `dfc0c1bc` | `data/nfl_dfc0c1bc/questions_master.csv` |
+| D4 Information-gap register: missing dataset, why it blocks, the exact acquisition route, the number that clears it | in progress | `dfc0c1bc` | `data/nfl_dfc0c1bc/information_gaps.csv` |
+| D5 Cross-pack contradiction register (claim vs. the file it cites, recomputed, not asserted) | in progress | `dfc0c1bc` | `data/nfl_dfc0c1bc/cross_pack_conflicts.csv`, `data/nfl_dfc0c1bc/claim_checks.csv` |
+| D6 Live official reads that CLOSE open questions (dated, hashed, blank where unread) | in progress | `dfc0c1bc` | `src/nfl_dfc0c1bc/capture.py`, `data/nfl_dfc0c1bc/official_reads.csv`, `data/nfl_dfc0c1bc/answers.csv` |
+| D7 Recommended decision paths + sequencing (what to do first and why), review UI columns for the owner | in progress | `dfc0c1bc` | `data/nfl_dfc0c1bc/decision_paths.csv`, `data/nfl_dfc0c1bc/gate_updates.csv` |
+| D8 Site: dedicated Suggestions section + Q/I/A + gaps + conflicts + paths + flagged + exec summary | in progress | `dfc0c1bc` | `docs/nfl-dfc0c1bc/**`, `scripts/build_nfl_dfc0c1bc.py` |
+| D9 Verifier + tests + CI (no unsourced row, no invented value, register integrity) | in progress | `dfc0c1bc` | `scripts/check_nfl_dfc0c1bc.py`, `tests/test_nfl_dfc0c1bc.py`, `.github/workflows/nfl-dfc0c1bc-ci.yml` |
+| D10 Repo review record + executive summary at root | in progress | `dfc0c1bc` | `audit/NFL_DFC0C1BC_REPO_REVIEW.md`, `NFL_DFC0C1BC_EXECUTIVE_SUMMARY.md` |
+| D11 Integration: additive hub links, PR → merge → Pages check → board record | unclaimed→in progress | `dfc0c1bc` | `docs/index.html` (additive only), `index.html` (additive only), `COORDINATION.md` |
+
+**Non-overlapping scope guarantee.** Every file above is new (`nfl_dfc0c1bc` / `nfl-dfc0c1bc` namespaced) except
+`COORDINATION.md` (append-only) and the two shared index files at D11, where I will make **additive insertions
+only** and rebase rather than rewrite. I will not edit any other pack's data, HTML, src, tests or CI.
+
+**Evidence rule this pack lives by.** A row is `verified` only if the exact text was read this session from the
+official host named in its `source_url`, with the read logged and hashed in `official_reads.csv`. Values inherited
+from another pack are `repo_claim` — reproduced with the file and line that says them, never upgraded to verified
+by me. Anything neither read nor present in a repo file stays **blank and flagged**. No number is inferred, no
+odds or profit is claimed, and no suggestion is implemented on the owner's behalf: the whole point of this section
+is that the owner picks the path first.
