@@ -1,0 +1,4 @@
+probe_id,url,intent,observed,read_at_utc,consequence
+P-01,https://www.nfl.com/teams/houston-texans/depth-chart,official club depth chart route,404 - Flag on the Play,2026-11-17T00:46:00Z,locks SG-05 route (a) for HOU; every other club route assumed identical only after it is tested
+P-02,https://www.nfl.com/games/colts-at-texans-2026-reg-11,injury module on the game centre,'Colts' Injury Report is not available at this time' (both clubs),2026-11-17T00:47:00Z,week-11 club injury modules are empty on the game centre
+P-03,https://www.nfl.com/injuries/,week-scoped injury hub URL for week 11,no WEEK 11 option; hub renders WEEK 10,2026-11-17T00:44:00Z,same result the 8362b702 session recorded 2026-11-15T23:52Z

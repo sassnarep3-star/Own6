@@ -292,3 +292,35 @@ Build / check / test: `python3 scripts/build_nfl_48217a55.py` · `python3 script
 (115 checks) · `python3 -m unittest discover -s tests -p "test_nfl_48217a55.py"` (59 tests). The builder
 takes no arguments and touches no network, so a re-run reproduces byte-identical files. Executive summary:
 [`NFL_48217A55_EXECUTIVE_SUMMARY.md`](NFL_48217A55_EXECUTIVE_SUMMARY.md).
+
+
+## NFL convergence & verification pack (session ca1b3769, 2026-11-17)
+
+Live: **https://sassnarep3-star.github.io/Own6/docs/nfl-ca1b/**
+
+This pack exists because the repo had grown to sixteen merged NFL packs that publish
+overlapping versions of the same facts, with seven separate requirement registers and
+no single list. It re-reads the official pages, states value by value which stored
+numbers survive that re-read, and publishes the one requirement register.
+
+* 971 stored values re-tested against today's official pages — **0 contradictions**
+  (`docs/nfl-ca1b/verify.html`).
+* 342 requirement rows collapsed to **210 distinct requirements**, worst status kept
+  (`docs/nfl-ca1b/requirements.html`).
+* Fair spread, fair total and fair moneyline for all **13 live week-11 fixtures**, with
+  the full input vector on every row; every market cell blank because no official NFL
+  page publishes a price (`docs/nfl-ca1b/lines.html`).
+* Walk-forward proper scores on **101 games**: Brier skill 0.1142, cluster 95% CI
+  [−0.0069, 0.2230] — the lower bound includes zero, so **no rank is published**
+  (`docs/nfl-ca1b/backtest.html`, `docs/nfl-ca1b/leaderboard.html`).
+* Empirical answer to what a game designation means: Week-10 "Questionable" players
+  played **80.4%** (n=56, 95% CI 68.2–88.7), joined to the official inactive lists
+  (`docs/nfl-ca1b/availability.html`).
+* 10 decisions that are currently unreachable, each with the number that would settle
+  it (`docs/nfl-ca1b/qia.html`), and 11 suggestions ranked **for the owner to choose** —
+  none implemented (`docs/nfl-ca1b/suggestions.html`).
+* Executive summary: `NFL_CA1B_EXECUTIVE_SUMMARY.md`. Repo review:
+  `audit/NFL_CA1B_REPO_REVIEW.md`.
+
+Deterministic build: `python3 scripts/build_nfl_ca1b.py` · verifier (14 rules):
+`python3 scripts/check_nfl_ca1b.py` · tests: `tests/test_nfl_ca1b.py`.

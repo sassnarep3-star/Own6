@@ -1,0 +1,4 @@
+control,n,hits,brier,logloss,accuracy,note
+C0 coin-flip (p=0.500),101,,0.25,0.69314718056,,no picks; p=0.5 on every game
+C1 always-home,101,43,0.244485834722,0.682077946678,0.425742574257,constant p = observed home-win rate; the accuracy of picking home every time
+C2 rating-favourite (sign of margin_hat),101,66,0.25,0.69314718056,0.653465346535,"pick the side the ratings favour; probability still 0.5, so Brier equals coin by construction"

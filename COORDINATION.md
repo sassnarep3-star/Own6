@@ -3148,3 +3148,122 @@ GitHub Pages source: `main` root, status `built`, live at https://sassnarep3-sta
 - **PR:** https://github.com/sassnarep3-star/Own6/pull/108 — session `arena/5a56d5d9-own6` → `main`
 - **Merge result:** **MERGED** as merge commit `5874f2e` (`gh pr merge 108 --merge`, merge commit, no squash, no rebase, no approval gate waited on)
 - **Pages deploy:** confirmed — Pages build `built` after the merge; live site at https://sassnarep3-star.github.io/Own6/ serving the root portal with the decision-readiness table (RQ-01–RQ-81), suggestions register (14 entries `pending_human_choice`), strategy leaderboard (0 of 10 qualified; rewards disabled), and category subpages under `docs/`
+
+## Session arena/ca1b3769-own6 — NFL convergence & verification pack (`ca1b`): unified requirement register, line-by-line re-verification of every merged pack, venue coverage, Q/I/A matrix, suggestions review queue (claimed 2026-11-17)
+
+**Branch constraint.** Arena fixes this session to `arena/ca1b3769-own6`; no other branch or worktree
+will be created or used. The brief's `session-<id>/<task>` naming is satisfied by a disjoint *file
+scope* on this single branch, as sessions `05e39b8`, `d966f630`, `a411fed0`, `6cefc476` and `8362b702`
+recorded.
+
+**Concurrent-work check at claim time (2026-11-17).** Open PRs: #94, #84, #79, #72, #68, #56, #54,
+#52, #48 — all stale (last activity 2026-11-05…11-14). No claim on the shared board is less than
+60 minutes old with no commits, and **no other session is holding any of the paths below**. Nothing
+owned by another session is edited: this session's own files live only under `data/nfl_ca1b/**`,
+`src/nfl_ca1b/**`, `docs/nfl-ca1b/**`, `scripts/{build,check}_nfl_ca1b.py`, `tests/test_nfl_ca1b.py`,
+`.github/workflows/nfl-ca1b-ci.yml`, `audit/NFL_CA1B_*.md`, `NFL_CA1B_EXECUTIVE_SUMMARY.md`.
+**This session is the final integration session** for this turn, so it also owns the shared outputs
+(`COORDINATION.md`, `index.html`, `docs/index.html`, `README.md`, `data/assurance/**`,
+`data/source_coverage/**`) — additive insertions plus generator-only regeneration.
+
+### Claim (written and pushed before any data or code was produced)
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| C1 Claim + repo line-by-line review + irregularity register | in progress | `ca1b3769` | `COORDINATION.md` (append), `audit/NFL_CA1B_REPO_REVIEW.md`, `data/nfl_ca1b/repo_findings.csv` |
+| C2 Independent re-read of every official page the merged packs cite; per-value match/mismatch ledger | in progress | `ca1b3769` | `src/nfl_ca1b/verify.py`, `data/nfl_ca1b/verification.csv` |
+| C3 Unified, de-duplicated requirement register with stable IDs + gate + clearing number | in progress | `ca1b3769` | `src/nfl_ca1b/requirements.py`, `data/nfl_ca1b/requirements_master.csv` |
+| C4 Cross-pack conflict register (same fact, different published value) | in progress | `ca1b3769` | `data/nfl_ca1b/conflicts.csv` |
+| C5 Venue coverage for the whole live Week 11 slate from official page text | in progress | `ca1b3769` | `src/nfl_ca1b/venues.py`, `data/nfl_ca1b/venues_week11.csv` |
+| C6 Q/I/A matrix: for every blocking decision, the question, the missing information, the answer we have, and the test that would settle it | in progress | `ca1b3769` | `src/nfl_ca1b/questions.py`, `data/nfl_ca1b/qia.csv` |
+| C7 Suggestions review queue (ranked, with dependency + effort + what it unblocks, for owner selection) | in progress | `ca1b3769` | `data/nfl_ca1b/suggestions.csv` |
+| C8 Shadow origination engine: pre-registration, probability+input ledger, controls, luck panel, proper-score divisions, demotion gates | in progress | `ca1b3769` | `src/nfl_ca1b/engine.py`, `data/nfl_ca1b/engine_*.csv`, `data/nfl_ca1b/correlations.csv` |
+| C9 Availability/deficiency team view (starters out, designations, depth gate) from a clocked hub read | in progress | `ca1b3769` | `src/nfl_ca1b/availability.py`, `data/nfl_ca1b/availability_*.csv` |
+| C10 Freshness + drift monitor across every pack's captures | in progress | `ca1b3769` | `src/nfl_ca1b/freshness.py`, `data/nfl_ca1b/freshness.csv` |
+| C11 Site (`docs/nfl-ca1b/**`), verifier, tests, CI, executive summary | in progress | `ca1b3769` | `docs/nfl-ca1b/**`, `scripts/{build,check}_nfl_ca1b.py`, `tests/test_nfl_ca1b.py`, `.github/workflows/nfl-ca1b-ci.yml`, `NFL_CA1B_EXECUTIVE_SUMMARY.md` |
+| C12 Final integration: clean landing page, additive nav, shared-inventory regen, PR → merge → Pages check → board record | in progress | `ca1b3769` | `index.html`, `docs/index.html`, `README.md`, `data/assurance/**`, `data/source_coverage/**`, `audit/SOURCE_COVERAGE.md` |
+
+**Rules this session follows.** (1) No manual input is required and no page carries an input control
+(the only interaction is the owner *reading* the suggestions queue and choosing). (2) A value is
+published only if it was read **this session** from the cited official page, or is arithmetic on such
+values with the derivation shown; anything else is an empty cell plus a row in `flagged.csv`.
+(3) Market/book prices are not obtainable from an official source, so price-dependent columns stay
+blank with the attempt logged. (4) No profitability claim anywhere. (5) `needs review` never blocks —
+it publishes on the Flagged for Review page. (6) Every strategy output stores a probability and its
+complete input vector. (7) This session's non-negotiable job is **convergence**: the repo already
+holds 15 merged NFL packs that publish overlapping versions of the same facts, and the owner has no
+single list. C3/C4/C2 exist to produce that single list and to say, value by value, which version
+survives an independent re-read.
+
+**Outbound-network note (recorded because it changes what "verified" can mean).** In this sandbox
+`curl` has no route to nfl.com (HTTP 000); the `fetch_page` tool does reach `www.nfl.com`. Every read
+below is therefore a `fetch_page` fetch with its clock time recorded, and none of it is automated in
+CI. This is the same rights boundary sibling packs flagged (NFL.com Terms of Use).
+
+### Session `arena/ca1b3769-own6` — finish record (2026-11-17)
+
+**Status: C1–C12 done.** Claimed scope only; shared files touched additively
+(`COORDINATION.md`, `README.md` append, `docs/index.html` one nav item + one card + one
+archive link). No other session's file was edited and no other branch was created.
+**This session is the final integration session for this turn**, so it also ran the
+combined verification below before opening its PR.
+
+**Deliverables**
+- `data/nfl_ca1b/` — 31 CSVs
+- `src/nfl_ca1b/` — 13 modules (`capture, ratings, engine, verify, availability,
+  snapshots, requirements, qia, suggestions, conflicts, freshness`)
+- `docs/nfl-ca1b/` — 19 pages, zero-input, every page carries its official source list
+- `scripts/build_nfl_ca1b.py` (deterministic), `scripts/check_nfl_ca1b.py` (14 rules)
+- `tests/test_nfl_ca1b.py` (13 tests), `.github/workflows/nfl-ca1b-ci.yml`
+- `NFL_CA1B_EXECUTIVE_SUMMARY.md`, `audit/NFL_CA1B_REPO_REVIEW.md`
+
+**Official reads this session (all `www.nfl.com`, clocked in `src/nfl_ca1b/capture.py`)**
+standings (2026-11-17T00:40Z, all 32 clubs); week-10 schedule (00:41Z, 13 finals);
+week-11 schedule (00:39Z, 13 fixtures + 6 byes); injury hub week 10 (00:44Z, 18 club
+tables, 221 rows); week-10 inactives article (00:45Z, 147 lines, 24 clubs); Game Centre
+IND@HOU (00:47Z); Game Centre MIN@SF (00:55Z). Three probes returned nothing and are
+published as results, not failures: club depth chart 404 (P-01), game-centre injury
+module empty (P-02), no week-11 injury hub (P-03).
+
+**Verification performed**
+- 971 stored values re-tested line by line against today's pages: 288/288 comparable
+  standings club-rows and 625 joined result rows reconcile, **0 contradictions**.
+  Standings snapshots were tested by re-adding only the games each capture could not
+  have seen, with the number of re-added games inferred from the data.
+- Game log identity: 149 official finals reproduce **32/32** clubs' W-L-T and PF/PA
+  (PF = PA = 6880), so the log is complete and internally consistent.
+- `scripts/check_nfl_ca1b.py` 14 rules green · `tools/run_tests.py` **162/162** ·
+  `tools/check_site.py` 0 errors · `tools/release_gate.py` 0 issues · cross-site link
+  sweep **363 pages, 0 broken internal links** · builder byte-identical on re-run.
+- Cross-pack conflicts: 9 recorded; 5 resolved (2 alias, 2 dual-surface, 1 time),
+  4 open and published with both values.
+
+**Headline results (no profitability claim anywhere)**
+- Walk-forward on 101 graded games: 66 correct (65.3%), exact-binomial p = 0.0027;
+  Brier skill 0.1142 with game-bootstrap 95% CI [−0.0069, 0.2230]. The lower bound
+  includes zero → **no rank, no promotion, 0 reward-eligible strategies**.
+- Poisson-binomial against the model's own probabilities: 63.6 expected hits vs 66
+  observed, p = 0.674 — the results are exactly what the published probabilities imply.
+- Raw model overconfidence measured and corrected visibly (80-100% band: 0.895
+  forecast vs 0.636 observed over 22 games; median walk-forward k = 1.8).
+- Week-10 designation calibration against the official inactive lists: Questionable
+  plays 80.4% (n=56, 95% CI 68.2-88.7); Doubtful 50.0% (n=6); blank 96.7% (n=91).
+  The `Out` play-rate of 27.1% is published **with its join caveat** (13 of 48 Out
+  rows had no exact name match), never as a clean number.
+- All 13 week-11 venues published from at least one official surface; 3 fixtures show
+  two legitimate official strings and both are kept.
+
+**Conflict log**
+- `COORDINATION.md` rebase conflict against work merged concurrently (PRs #108/#109 by
+  `arena/5a56d5d9-own6`). Resolved by keeping **both** blocks: their merge record
+  verbatim, then this session's claim block. Nothing was discarded.
+- Because that rewrite changed the claim commit's parent, the branch was updated with
+  `--force-with-lease` pinned to the old head (`deee4e0`), which had no other commits
+  and had not been reviewed. No other session's commits exist on this branch.
+- `gh pr merge` bookkeeping note: this record cannot cite its own PR number or merge
+  result from inside itself; both are visible in `main`'s history immediately after.
+
+**Flagged for review (all with official links on `docs/nfl-ca1b/flagged.html`):**
+d966f630's stale Arden Key injury value; the unresolved 347-vs-279 hub row count;
+the four open dual-surface/alias conflicts; the 27.1% Out join caveat; no price
+anywhere (G-PRICE); retrieval terms not settled (Q-01).

@@ -1,0 +1,4 @@
+rule,n_picks,hits,expected_hits_under_own_p,sd_under_own_p,p_two_sided_vs_own_p,own_p_verdict,hit_rate,expected_under_coin,excess_hits,wilson_lo,wilson_hi,exact_two_sided_p,verdict
+"rating picks (model side, one unit)",101,66,63.5562694772,4.74738424625,0.67381733538,over-performs own probabilities,0.653465346535,50.5,15.5,0.556579829425,0.739104724479,0.00265378605723,signal beyond luck at 5%
+home always,101,43,63.5562694772,4.74738424625,3.09214247838e-05,under-performs own probabilities,0.425742574257,50.5,-7.5,0.333776973285,0.523149855471,0.163279261851,luck-compatible
+away always,101,58,63.5562694772,4.74738424625,0.247844413909,under-performs own probabilities,0.574257425743,50.5,7.5,0.476850144529,0.666223026715,0.163279261851,luck-compatible
