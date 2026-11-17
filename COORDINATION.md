@@ -3100,3 +3100,46 @@ nothing is lost.
   awaiting settlement; no leaderboard score publishes before official finals.
 - **PR #94** (d966f630 bookkeeping for #91) can be closed as superseded — its record is folded
   into COORDINATION.md above with attribution.
+
+---
+
+## Session `arena/99a1199e-own6` — NFL 32-club official roster/IR sweep (claimed 2026-11-17)
+
+**Branch constraint (platform deviation logged):** Arena fixes this session to branch
+`arena/99a1199e-own6` (creating/switching to `session-<id>/<task>` branches is disallowed by the
+platform rule). Checked `COORDINATION.md`, `origin/main` (`d844122`, PR #107 merged), the working
+tree (clean), and open PRs before claiming.
+
+**Task claimed:** Close gate **G-SWEEP / R-13** — the 32-club official roster/IR sweep. The
+8362b702 pack marked R-13 "delivered_here" via `availability_sweep.csv`, but that table shows only
+13 of 32 hub tables and **1 of 32 roster pages** (GB) actually read; SG-02 names this as the
+highest-priority open data gate ("capture 32 club roster/IR pages before any team-level model").
+This session reads the official NFL roster page for every one of the 32 clubs and publishes a dated,
+source-linked register.
+
+**File scope (100% disjoint from every prior/concurrent pack):** `data/nfl_99a1199e/**` (new),
+`src/nfl_99a1199e/**` (new), `scripts/build_nfl_99a1199e.py` + `scripts/check_nfl_99a1199e.py`
+(new), `tests/test_nfl_99a1199e.py` (new), `docs/nfl-99a1199e/**` (new),
+`NFL_99A1199E_EXECUTIVE_SUMMARY.md` (new), `audit/NFL_99A1199E_REPO_REVIEW.md` (new),
+`COORDINATION.md` (append-only). Shared `docs/index.html` / `README.md` edited only at final
+integration, additive links only, and only if free at that time.
+
+**Status legend:** `unclaimed` · `in progress` · `done` · `needs review`.
+
+### Task Board (session `99a1199e`)
+
+| Task | Status | Owner | Files touched |
+|---|---|---|---|
+| N99-1 Claim G-SWEEP; read official roster page for all 32 clubs (verbatim, clocked) | in progress | 99a1199e | `data/nfl_99a1199e/roster_sweep.csv`, `data/nfl_99a1199e/roster_register.csv`, `data/nfl_99a1199e/reserve_register.csv`, `data/nfl_99a1199e/capture_log.csv` |
+| N99-2 Publish sweep dashboard (per-club table + reserve register + flagged) | unclaimed | 99a1199e | `docs/nfl-99a1199e/**`, `scripts/build_nfl_99a1199e.py` |
+| N99-3 Automated line-by-line verifier + regression tests | unclaimed | 99a1199e | `scripts/check_nfl_99a1199e.py`, `tests/test_nfl_99a1199e.py` |
+| N99-4 Executive summary + repo/source audit | unclaimed | 99a1199e | `NFL_99A1199E_EXECUTIVE_SUMMARY.md`, `audit/NFL_99A1199E_REPO_REVIEW.md` |
+| N99-5 Final integration: additive nav links, gates, PR, merge, Pages confirmation | unclaimed | 99a1199e | `COORDINATION.md` (append-only), `README.md` (append-only), `docs/index.html` (additive link only) |
+
+**Evidence boundary:** every row is read verbatim from the official NFL roster page named beside
+it and carries that page's URL plus a UTC read clock. Status codes (ACT/CUT/DEV/PUP/RES/RSR/TRC/
+TRD/TRT and any others printed) are stored verbatim; none is expanded to an invented meaning. A
+club whose roster page cannot be read is left blank and flagged — never inferred. No price,
+correlation, ROI or profitability value is produced.
+
+**Claim recorded at start of session (this commit).**
