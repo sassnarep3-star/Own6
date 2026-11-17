@@ -200,7 +200,7 @@ def build() -> dict:
     reg = S.build_register()
     reg_cols = ["forecast_id", "strategy_id", "family", "pack", "source_path", "game_id",
                 "away", "home", "p_home_win", "kickoff_utc", "value_committed_utc", "commit",
-                "point_in_time", "note", "source_url"]
+                "commits_touching_file", "point_in_time", "note", "source_url"]
     counts["forecast_register"] = write_csv("forecast_register.csv", reg, reg_cols)
 
     settled = S.settle_all(reg)
@@ -425,6 +425,23 @@ def build() -> dict:
          "the row's link text is empty while the URL contains /players/brenen-thompson/",
          "a parser keyed on link text loses the row",
          "pin a drift contract on the player-link pattern"),
+        ("F-13", "high", "forecast file mutated after publication",
+         "a published Week-10 forecast row was deleted in a later commit, before that game kicked off",
+         "the deleted row is reproduced on the settlement page from its own commit, not from the current file",
+         C.URL_REPO,
+         "data/nfl_wk/own_lines.csv: commit 1abbff4 published a W10-01 row (Commanders at Giants, p_home=0.6255); "
+         "commit c0eb6ef removed it; the file now holds 13 rows and no W10-01",
+         "a pre-registration that can be edited silently is not a pre-registration; this is why the rule text "
+         "and the forecast must be committed before the result, and why the commit is published",
+         "adopt S-03: one commit per strategy whose hash is printed on the leaderboard, and forbid deleting "
+         "a published forecast row (supersede it with a new dated row instead)"),
+        ("F-14", "medium", "corpus scope drift",
+         "the 136-game corpus covers weeks 1-9 while the prose counts 'finished games' differently in other packs",
+         "this pack scores only what it can settle from the official page and states its own n on every row",
+         C.URL_W10_SCHED,
+         "week 10 now has 13 finals; adding them to the 136-game log gives 149, not the 145 or 137 quoted elsewhere",
+         "a reader comparing two packs can see two different 'finished games' totals for the same league",
+         "publish one canonical results table with a dated row count and let every pack cite it"),
         ("F-12", "low", "duplicate sources", "the repo holds the same fact in many packs",
          "this pack reads the other packs and re-publishes nothing as official", C.URL_REPO,
          "at least 5 files carry a Week-10 home-win probability and 3 carry Week-10 finals",
@@ -441,6 +458,31 @@ def build() -> dict:
             "review_action": action,
         })
     counts["flagged"] = write_csv("flagged.csv", flagged_rows, list(flagged_rows[0]))
+
+    # 9b. rows that were published and later deleted from a forecast file
+    #     (read from the historical commit, never from the current file)
+    deleted = [
+        {
+            "game_id": "W10-01",
+            "matchup": "Commanders at Giants",
+            "kickoff_et": "2026-11-12 20:15",
+            "p_home_win_as_published": "0.6255",
+            "own_total_as_published": "45.44",
+            "own_spread_home_as_published": "1.89",
+            "published_in_commit": "1abbff4 (2026-11-13T21:46:37+00:00)",
+            "deleted_in_commit": "c0eb6ef (2026-11-13T21:46:37+00:00)",
+            "kickoff_utc": "2026-11-13T01:15:00Z",
+            "official_result": "",
+            "settled_here": "no",
+            "reason_not_settled": (
+                "this pack's register reads current files only; a deleted row is not a published "
+                "forecast, so it is shown for review and excluded from every score rather than "
+                "quietly re-scored"),
+            "source_url": C.URL_REPO + "/blob/1abbff4/data/nfl_wk/own_lines.csv",
+        }
+    ]
+    counts["deleted_forecast_rows"] = write_csv(
+        "deleted_forecast_rows.csv", deleted, list(deleted[0]))
 
     # 10. registers
     counts["questions"] = write_csv("questions_qia.csv", RG.QUESTIONS, list(RG.QUESTIONS[0]))
@@ -643,6 +685,29 @@ A number taken from another pack's CSV would not be an official source, so none 
 {table(["Forecast", "Game", "Fixture", "p(home win)", "Value committed (UTC)", "Commit",
         "Kickoff (UTC)", "Point in time", "Settled", "Winner", "Brier", "Pick right", "File"],
        rows)}</section>"""
+    d = _read_csv("deleted_forecast_rows.csv")
+    deleted_tbl = table(
+        ["Game", "Fixture", "p(home) as published", "Total as published", "Published in",
+         "Deleted in", "Official result", "Settled here", "Why not", "Evidence"],
+        [[esc(r["game_id"]), esc(r["matchup"]), esc(r["p_home_win_as_published"]),
+          esc(r["own_total_as_published"]), esc(r["published_in_commit"]),
+          esc(r["deleted_in_commit"]), esc(r["official_result"]),
+          f'<span class="pill warn">{esc(r["settled_here"])}</span>',
+          esc(r["reason_not_settled"]), link(r["source_url"], "the commit itself")]
+         for r in d])
+    body = body.replace("</main>", "")
+    body += f"""
+<section><h2>A published forecast that was later deleted</h2>
+<div class="note">A forecast that can be removed after publication is not a pre-registration. This is
+the one case found in this repository, and it is published rather than repaired.</div>
+{deleted_tbl}
+<div class="note">The row is shown from
+<code>git show 1abbff4:data/nfl_wk/own_lines.csv</code>, not from the current file, which no longer
+contains it. It is <b>excluded from every score</b> on this site: a deleted row is evidence about the
+process, not a forecast this pack may grade after the fact. The general rule this argues for is
+<a href="suggestions.html">suggestion S-03</a>: one commit per strategy, its hash printed beside its
+result, and no deletion — supersede a forecast with a new dated row instead.</div>
+</section>"""
     page("settlement.html", "Forecast settlement",
          "Every pre-kickoff probability found in the repository, traced to its commit, compared with its kickoff, and scored against the official final",
          body)

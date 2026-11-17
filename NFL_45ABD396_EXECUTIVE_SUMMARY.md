@@ -86,6 +86,28 @@ fixtures, so "skill" and "no skill" are compared on identical games.
 - **No replacement is ever named.** The report publishes a designation, not a depth chart, and no
   Game Book was obtained. Every `actual_start` cell is blank with a printed reason.
 
+## 5b. A published forecast that was later deleted (new finding, flagged F-13)
+
+While making the point-in-time check ref-independent, the verifier found that
+`data/nfl_wk/own_lines.csv` was **edited after publication**: commit `1abbff4`
+published a Week-10 Thursday row (Commanders at Giants, `own_win_prob_home =
+0.6255`, total 45.44), and commit `c0eb6ef` **removed that row** — before the game
+kicked off. The current file holds 13 rows and no W10-01.
+
+- The row is republished on the [settlement page](docs/nfl-45abd396/settlement.html)
+  from the commit itself (`git show 1abbff4:data/nfl_wk/own_lines.csv`), not from
+  the current file.
+- It is **excluded from every score**: a deleted row is evidence about the
+  process, not a forecast this pack may grade after the fact.
+- The register now records, for every forecast file, how many commits touched it
+  (`commits_touching_file`), so a reader can see at a glance which files are
+  stable and which were edited.
+- Verifier rule 21 re-checks the frozen provenance against git.
+
+This is the strongest argument on the site for suggestion S-03: one commit per
+strategy, its hash printed beside its result, and no deletion — supersede a
+forecast with a new dated row instead.
+
 ## 6. What is deliberately absent
 
 - **No market line.** No nfl.com page prints a price. There is no ROI, no closing-line value, no

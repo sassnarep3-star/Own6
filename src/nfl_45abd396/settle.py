@@ -117,35 +117,45 @@ SOURCE_SPECS = [
 # Provenance is *captured data*, not derived at build time.
 #
 # Each entry was read once, in this session, with
-#     git log --diff-filter=A --format=%H -- <path>   (take the earliest)
-#     git show -s --format=%cI <sha>
+#     git log --format='%H %cI' -- <path>          (every commit that touched it)
+#     git show <sha>:<path>                        (the contents at that commit)
 # and is frozen here. Deriving it inside the builder would make the published
 # point-in-time labels depend on the commit graph the builder happens to see:
-# on a GitHub pull-request merge ref the same files resolve to different commits,
-# so the same CSV rebuilt in CI differed from the committed one. A frozen table
-# is reproducible everywhere and is checkable by hand with the two commands above.
+# on a GitHub pull-request merge ref the same files resolve to different commits.
+#
+# The recorded instant is the LATEST commit that changed the file before the
+# fixture it forecasts, because that is when the published numbers last existed
+# in that form. One file shows why this matters: `data/nfl_wk/own_lines.csv` had
+# its Week-10 Thursday row *deleted* in commit c0eb6ef, and the file's first-add
+# commit 1abbff4 is not the version the numbers on this page came from.
 FIRST_ADD_COMMIT = {
     "data/nfl_a411fed0/origination_2026_w10.psv": (
         "2026-11-14T22:28:35+00:00", "e919855d",
-        "e919855d0a3d6faa136165d6ec865a5c2aad30ef"),
+        "e919855d0a3d6faa136165d6ec865a5c2aad30ef", 1),
     "data/nfl_d966f630/originated_lines.csv": (
         "2026-11-14T22:21:15+00:00", "f5c0790e",
-        "f5c0790e2f183025549c8e6360198d1c8f4b34c2"),
+        "f5c0790e2f183025549c8e6360198d1c8f4b34c2", 1),
     "data/nfl_6cefc476/originated_lines.csv": (
         "2026-11-14T22:14:54+00:00", "834555be",
-        "834555bea41500ef112512ef5539ea196e8a9022"),
+        "834555bea41500ef112512ef5539ea196e8a9022", 1),
     "data/nfl_wk/own_lines.csv": (
-        "2026-11-13T21:46:37+00:00", "1abbff43",
-        "1abbff430ff30d36812ae112f1278404d2b914bc"),
+        # latest edit, the one that deleted the Thursday row before kickoff
+        "2026-11-13T21:46:37+00:00", "c0eb6efc",
+        "c0eb6efc8a0be37907f78d2da69cf24949a2174e", 2),
 }
 
 
 def first_add_commit(path: str) -> tuple[str, str]:
-    """(committed_iso_utc, short_sha) of the commit that first added ``path``."""
+    """(committed_iso_utc, short_sha) when the file last changed pre-kickoff."""
     entry = FIRST_ADD_COMMIT.get(path)
     if entry is None:
         return "", ""
     return entry[0], entry[1]
+
+
+def commit_count(path: str) -> int:
+    entry = FIRST_ADD_COMMIT.get(path)
+    return entry[3] if entry else 0
 
 
 def parse_iso(s: str) -> datetime | None:
@@ -284,6 +294,7 @@ def build_register() -> list[dict]:
             "value_committed_utc": add_iso,
             "commit": add_sha,
             "point_in_time": pit,
+            "commits_touching_file": commit_count(spec["path"]),
             "note": note,
             "source_url": C.URL_REPO + "/blob/main/" + spec["path"],
         })

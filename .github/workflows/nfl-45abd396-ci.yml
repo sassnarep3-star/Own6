@@ -49,9 +49,17 @@ jobs:
           python3 scripts/build_nfl_45abd396.py
           git diff --exit-code -- data/nfl_45abd396 docs/nfl-45abd396
       - name: Fail-closed verifier (rules 1-21)
-        run: python3 scripts/check_nfl_45abd396.py
+        run: |
+          python3 scripts/check_nfl_45abd396.py 2>&1 | tee /tmp/verify.txt || {
+            sed 's/^/::error::/' /tmp/verify.txt | tail -30
+            exit 1
+          }
       - name: Pack tests
-        run: python3 -m unittest discover -s tests -p 'test_nfl_45abd396.py' -v
+        run: |
+          python3 -m unittest discover -s tests -p 'test_nfl_45abd396.py' -v 2>&1 | tee /tmp/tests.txt || {
+            sed 's/^/::error::/' /tmp/tests.txt | tail -40
+            exit 1
+          }
       - name: No page carries an input control or a profit claim
         run: |
           python3 - <<'PY'

@@ -203,6 +203,30 @@ class TestRegisters(unittest.TestCase):
             self.assertIn(g[1], {"open", "blocked", "closed"})
 
 
+class TestProvenance(unittest.TestCase):
+    def test_frozen_provenance_records_the_mutation(self):
+        entry = S.FIRST_ADD_COMMIT["data/nfl_wk/own_lines.csv"]
+        self.assertEqual(entry[3], 2, "the mutated file must record two commits")
+        self.assertEqual(entry[2], "c0eb6efc8a0be37907f78d2da69cf24949a2174e")
+        for path, e in S.FIRST_ADD_COMMIT.items():
+            self.assertEqual(len(e[2]), 40, path)
+            self.assertEqual(e[1], e[2][:8], path)
+
+    def test_deleted_forecast_row_is_published_but_not_scored(self):
+        d = rows("deleted_forecast_rows.csv")
+        self.assertEqual(len(d), 1)
+        self.assertEqual(d[0]["game_id"], "W10-01")
+        self.assertEqual(d[0]["settled_here"], "no")
+        self.assertTrue(d[0]["reason_not_settled"])
+        scored = [r for r in rows("settled_forecasts.csv")
+                  if r["strategy_id"] == "WK-ML" and r["game_id"] == "W10-01"]
+        self.assertEqual(scored, [], "a deleted row must not be re-scored")
+
+    def test_every_register_row_records_how_many_commits_touched_its_file(self):
+        for r in rows("forecast_register.csv"):
+            self.assertIn(r["commits_touching_file"], {"1", "2"})
+
+
 class TestPublishedArtifacts(unittest.TestCase):
     def test_leaderboard_matches_the_settled_rows(self):
         pre = [r for r in rows("settled_forecasts.csv") if r["point_in_time"] == "pre_kickoff"]
