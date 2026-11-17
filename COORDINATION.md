@@ -3195,3 +3195,42 @@ from another pack are `repo_claim` — reproduced with the file and line that sa
 by me. Anything neither read nor present in a repo file stays **blank and flagged**. No number is inferred, no
 odds or profit is claimed, and no suggestion is implemented on the owner's behalf: the whole point of this section
 is that the owner picks the path first.
+
+---
+
+## Session `arena/45abd396-own6` — Week-10 settlement, first settled proper-score leaderboard, 32-club availability sweep (claimed 2026-11-17)
+
+**Branch constraint.** Arena fixes this session to `arena/45abd396-own6` (branched from `main` @
+`d8441221`, merged PR #107). No other branch or worktree is created. Disjoint *file scopes* on this
+single branch, exactly as sessions 05e39b8, d966f630, 411fed0, 6cefc476, 8362b702 recorded.
+
+**Concurrency check at claim time.** Open PRs: #94, #84, #79, #72, #68, #56, #54, #52, #48 (all stale,
+2026-11-05…11-14). None touches the paths claimed below. Every CSV/HTML file listed is **new**;
+`COORDINATION.md`, `README.md`, `docs/index.html`, `index.html` receive additive insertions only.
+
+### Claim (written and pushed before any data or code was produced)
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| W1 Live re-verification of the week-10 official finals + corpus/standings reconciliation at 2026-11-17 read | in progress | `45abd396` | `src/nfl_45abd396/capture.py`, `data/nfl_45abd396/week10_finals_2026_11_17.csv`, `data/nfl_45abd396/reconciliation_2026_11_17.csv` |
+| W2 Settlement engine: settle every pre-kickoff registered probability found in the repo against today's official finals | in progress | `45abd396` | `src/nfl_45abd396/settle.py`, `data/nfl_45abd396/forecast_register.csv`, `data/nfl_45abd396/settled_forecasts.csv` |
+| W3 First settled proper-score leaderboard: Brier skill vs base rate, game-cluster CI, multiplicity adjustment, control baselines, removal-of-luck panel | in progress | `45abd396` | `src/nfl_45abd396/scores.py`, `src/nfl_45abd396/luck.py`, `data/nfl_45abd396/leaderboard_settled.csv`, `data/nfl_45abd396/luck_panel.csv` |
+| W4 Availability sweep: 32-club injury hub read with clock time, reserve/IR evidence, per-club starters-out rollup, depth-of-replacement status | in progress | `45abd396` | `src/nfl_45abd396/availability.py`, `data/nfl_45abd396/injury_hub_2026_11_17.csv`, `data/nfl_45abd396/club_availability_rollup.csv` |
+| W5 Correlations on officially sourced numbers with n and CI | in progress | `45abd396` | `data/nfl_45abd396/correlations_n.csv` |
+| W6 Decision questions / information gaps / answers register + suggestions register with a review-and-choose workflow | in progress | `45abd396` | `src/nfl_45abd396/registers.py`, `data/nfl_45abd396/questions_qia.csv`, `data/nfl_45abd396/suggestions.csv` |
+| W7 Gate register + decision-readiness rows for the items this session can newly close | in progress | `45abd396` | `data/nfl_45abd396/gates.csv`, `data/nfl_45abd396/readiness_delta.csv` |
+| W8 Site (landing + category subpages), verifier, tests, CI, executive summary | in progress | `45abd396` | `docs/nfl-45abd396/**`, `scripts/build_nfl_45abd396.py`, `scripts/check_nfl_45abd396.py`, `tests/test_nfl_45abd396.py`, `.github/workflows/nfl-45abd396-ci.yml`, `NFL_45ABD396_EXECUTIVE_SUMMARY.md` |
+| W9 Integration: additive hub links, PR → merge → Pages verify → board record | in progress | `45abd396` | `COORDINATION.md`, `README.md` (additive), `docs/index.html` (additive link), `index.html` (additive link) |
+
+**Evidence rules.** (1) A number is published only if read this session from the cited official page,
+or is arithmetic on such numbers with the derivation printed. (2) No prices exist from any official
+source, so no ROI, CLV or vig-free market column is published — those cells stay blank and flagged.
+(3) No profitability claim. (4) `needs review` rows never block; they publish on the Flagged page.
+(5) Sibling packs' data is **read**, never edited.
+
+**Why this scope.** Week 10 was still live at the previous capture (sessions 8362b702/67233566/48217a55
+read 2026-11-15/16: 5 of 14 cards not final). Today 13 of 14 are final, so the repo can, for the first
+time, settle the week-10 pre-kickoff forecasts it pre-registered and publish a *settled* proper-score
+leaderboard instead of a promise. Nothing in the repo does that yet; a repo-wide search at claim time
+found no `settled` forecast table, no game-cluster lower bound on a settled score, and no multiplicity
+adjustment computed over the number of strategies tried.
