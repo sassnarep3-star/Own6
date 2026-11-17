@@ -38,7 +38,13 @@ jobs:
       - name: Build the pack (offline, deterministic)
         run: python3 scripts/build_nfl_45abd396.py
       - name: Generated files must match the builder byte for byte
-        run: git diff --exit-code -- data/nfl_45abd396 docs/nfl-45abd396
+        run: |
+          if ! git diff --exit-code -- data/nfl_45abd396 docs/nfl-45abd396; then
+            echo "::error::builder output differs from the committed files in CI"
+            git diff --stat -- data/nfl_45abd396 docs/nfl-45abd396
+            git diff -- data/nfl_45abd396 docs/nfl-45abd396 | head -120
+            exit 1
+          fi
       - name: Second build must be identical (determinism)
         run: |
           python3 scripts/build_nfl_45abd396.py
