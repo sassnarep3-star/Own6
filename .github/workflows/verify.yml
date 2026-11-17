@@ -36,6 +36,16 @@ jobs:
               echo 'Python:'; python3 -V
               echo 'Commit:'; git rev-parse HEAD
             } >> "$GITHUB_STEP_SUMMARY"
+            # Annotations are readable through the REST API even when action logs
+            # are not downloadable, so put the first failing lines there.
+            grep -E '^FAIL|Error|error:' /tmp/tests.log | head -12 | while IFS= read -r line; do
+              msg=$(printf '%s' "$line" | tr -d '\r' | cut -c1-400)
+              echo "::error title=run_tests::${msg}"
+            done
+            tail -25 /tmp/tests.log | while IFS= read -r line; do
+              msg=$(printf '%s' "$line" | tr -d '\r' | cut -c1-400)
+              echo "::error title=tail::${msg}"
+            done
           fi
           exit $rc
       - name: Generated review pages are up to date
