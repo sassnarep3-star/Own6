@@ -480,7 +480,7 @@ def repo_findings(stats: Dict[str, str]) -> List[Dict[str, str]]:
         "The two entry points disagree about what exists. Anyone deciding from one page is deciding on a different repository than someone using the other.",
         "Generate both card lists from one file (also removes a class of drift the link checker cannot see).")
     add("RF-03", "The coordination board is no longer reviewable as a board.",
-        f"{stats['coord_lines']} lines / {stats['coord_bytes']} bytes in COORDINATION.md, with {stats['coord_inprogress']} rows still marked in progress",
+        f"{stats['coord_lines']} lines / {stats['coord_bytes']} in COORDINATION.md, with {stats['coord_inprogress']} rows still marked in progress",
         "The takeover and de-duplication rules depend on reading the board. At this size nobody does, so work duplicates.",
         "T14 — split into a live board plus an append-only archive; add the board-path checker.")
     add("RF-04", "Every session wrote its own executive summary at the repository root.",
