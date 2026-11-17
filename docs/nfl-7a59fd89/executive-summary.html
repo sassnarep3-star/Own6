@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Executive summary — nfl 7a59fd89</title>
+<style>
+body{font-family:system-ui,sans-serif;margin:0;background:#101418;color:#e8eaed}
+header{padding:18px 22px;border-bottom:1px solid #2a2f36}
+h1{font-size:20px;margin:0 0 4px} h2{font-size:16px;margin:18px 0 8px}
+nav{padding:10px 22px;border-bottom:1px solid #2a2f36;display:flex;flex-wrap:wrap;gap:10px}
+nav a{color:#8ab4f8;text-decoration:none;font-size:13px} nav a.on{color:#fff;font-weight:600}
+main{padding:18px 22px;max-width:1200px}
+p{font-size:14px;line-height:1.5;max-width:900px}
+table{border-collapse:collapse;width:100%;font-size:12px;margin:10px 0 18px}
+th,td{border:1px solid #2a2f36;padding:5px 7px;text-align:left;vertical-align:top}
+th{background:#1a2027;position:sticky;top:0}
+tr:nth-child(even) td{background:#141a20}
+td a{color:#8ab4f8;text-decoration:none}
+.flag{color:#f6c344} .ok{color:#81c995} .blank{color:#5f6368}
+.note{font-size:12px;color:#9aa0a6}
+</style></head><body>
+<header><h1>nfl 7a59fd89 — 32-club roster/IR sweep + Week-10 finals settlement</h1>
+<p class="note">Every published value was read from a cited official page or is arithmetic on such
+values with the derivation shown. Unverifiable values stay blank and are flagged.
+"Not listed" never means "available". Nothing is inferred.</p></header>
+<nav><a href="index.html">Decision readiness</a><a href="finals.html">Week-10 finals</a><a href="sweep.html">32-club sweep</a><a href="conflicts.html">Availability conflicts</a><a href="delta.html">Injury cross-read delta</a><a href="announcement.html">Schedule announcement</a><a href="findings.html">Repo review findings</a><a href="flagged.html">Flagged for review</a><a href="sources.html">Sources</a><a href="executive-summary.html" class="on">Executive summary</a></nav>
+<main>
+<h2>Executive Summary — Session 7a59fd89</h2><p>**Pack:** 32-club roster/IR availability sweep + Week-10 finals settlement
+**Branch:** `arena/7a59fd89-own6` · **Capture date:** 2026-11-17 (all page reads manual, single-fetch)</p><h2>What this pack adds</h2><p>1. **W1 — Repository readiness re-verification.** All 73 rows (R-01..R-73) of the 8362b702
+   decision-readiness ledger re-verified against the working tree: every cited artifact exists,
+   claimed counts match (corpus 136; injury series 2×155/13 clubs; price snapshots 210 rows),
+   and no fabricated artifacts. Two wording mismatches recorded (drift logic lives in
+   `contracts.py`, not a `drift.py`; the reserve artifact is `reserve_register.csv`).
+   Deliverables: `audit/NFL_7A59FD89_REPO_REVIEW.md`, `data/nfl_7a59fd89/repo_findings.csv`.</p><p>2. **W2 — Injury hub capture + cross-read delta.** Week-10 hub captured 2026-11-17T00:45:48Z
+   (347 rows, 28 clubs — CHI/DEN/PHI/TB are bye clubs and are *not listed* on the hub page;
+   flagged, never inferred). Cross-read against every dated sibling read (11-15T18:40Z,
+   11-15T23:58Z, 11-16T00:50Z): the report is byte-stable — zero practice/game-status changes,
+   zero injury-text changes, one display-name variant (LAR "Kam Curl" → "Kamren Curl").
+   An earlier session note of "170 injury-field diffs" is superseded (it corresponds to the
+   171 non-empty injury cells — a count, not a diff).</p><p>3. **W3 — 32-club roster/IR sweep (G-SWEEP).** All 32 club roster pages read (2,845 rows;
+   window 00:47–01:11Z). Non-ACT register: **1,142 rows**. League status codes:
+   CUT 160 · DEV 511 · EXE 1 · PUP 19 · RES 256 · RLS 1 · RSN 6 · RSR 31 · TRC 82 · TRD 58 ·
+   TRT 17. New codes recorded verbatim: **RLS** (SF Brandon Aiyuk), **EXE** (SEA Terrion
+   Arnold). AZ and BAL aggregates were settled by full official-page re-reads; every sweep
+   block re-derives exactly from the row-level register.</p><p>4. **W4 — Week-10 finals settlement.** 13 finals verified from the official scores page and
+   independently corroborated by the schedules page and the club-record headers on all 32
+   roster pages (BUF/SF 8-1; KC/CHI/CIN/DEN/DET/JAX/MIN 7-2; … LAC 0-8; MIA/TEN 1-8).
+   **LAC@BAL was in progress (Q1) at capture time** — its score cells stay blank until a
+   final read. An earlier session note claiming "final BAL 24-14" is unverifiable and was
+   contradicted by three page reads; it was never published as a result. The verified results
+   feed extends weeks 1–9 to **corpus_150.csv** (136 + 14).</p><p>5. **W5 — Dated schedule-announcement capture (G-ANNOUNCE).** The league's dated schedule
+   announcements were captured verbatim: the official *2026 Flexible Scheduling Procedures
+   and Scheduling for Week 18* page (flex windows; SNF/MNF decided ≥12 days ahead, SNF weeks
+   14-17 generally ≥6 days, TNF ≥21 days; Week-18 announced at the conclusion of Week 17) and
+   the on-schedule-page TBD-games block (Week 16 announced no later than immediately after
+   Week 14; Week 17 after Week 15; Week 18 following Week 17). Interpretation flagged for
+   review — no standalone season-schedule press release was located.</p><p>6. **W6 — Availability cross-checks.** 96 flagged conflicts in 6 kinds: 32 reserve-code-vs-hub
+   status pairs (mechanically derived), 3 ACT-vs-hub-Out (each side re-verified by full page
+   re-reads), 1 news-vs-table (NE Drake Maye: hub news "possibly out rest of season" vs hub
+   table Full Participation vs roster ACT), 4 hub-absent clubs ("not listed" ≠ available),
+   51 same-slug-multi-page status conflicts (the cross-page trade/transaction ledger), and
+   5 display-vs-slug mismatches. Conflicts are flagged, never resolved by inference.</p><h2>Discipline</h2><p>Every published value was read this session from a cited official page or is arithmetic on
+such values with the derivation shown. Unverifiable values are blank and flagged
+(`flagged.csv`, F-01..F-13). Nothing is inferred; "not listed" never means "available";
+flagged items never block. No profitability claims are made anywhere in this pack.</p><h2>Verification</h2><p>&#8226; Pack verifier: `scripts/check_nfl_7a59fd89.py` — 14 numbered rules.<br>&#8226; Tests: `tests/test_nfl_7a59fd89.py` — verifier, module identities (register ↔ sweep<br>&#8226; consistency, code totals, delta = 1 name variant, corpus arithmetic, conflict counts), and<br>&#8226; build determinism (byte-identical pages on re-run).<br>&#8226; CI: `.github/workflows/nfl-7a59fd89-ci.yml` — build + verify + tests on push/PR.</p><h2>Gates after this session</h2><p>G-SWEEP roster leg **satisfied** (32/32 clubs; hub leg 28/32 with 4 flagged bye-club
+absences) · G-ANNOUNCE evidence captured (interpretation flagged) · G-GAMEBOOK blocked
+(host unreachable, carried) · G-SNAP / G-DEPTH-SRC / G-PRICE / G-TERMS / G-SCHED /
+G-SETTLE / G-JOINT open, unchanged and carried with their numbers.</p>
+</main></body></html>

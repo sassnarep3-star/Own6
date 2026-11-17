@@ -1,0 +1,13 @@
+source_id,url,read_at_utc,what_was_read,pack_use
+S-01,https://www.nfl.com/injuries/,2026-11-17T00:45:48Z,Week-10 league injury hub (28 clubs listed; CHI DEN PHI TB absent as week-10 bye clubs),injury_hub_2026_11_17.csv + injury_delta.csv current side
+S-02,https://www.nfl.com/injuries/,2026-11-15T18:40Z,"prior sibling read (48217a55) of the same hub",injury_delta.csv prior side
+S-03,https://www.nfl.com/teams/arizona-cardinals/roster/,2026-11-17T01:11:00Z,Cardinals roster page (3 chunks; re-read in full to settle sweep-tally dispute),roster_reserve.csv + roster_sweep.csv (AZ block re-verified)
+S-04,https://www.nfl.com/teams/baltimore-ravens/roster/,2026-11-17T01:11:00Z,Ravens roster page (3 chunks; re-read in full to settle sweep-tally dispute),roster_reserve.csv + roster_sweep.csv (BAL block re-verified)
+S-05,https://www.nfl.com/teams/detroit-lions/roster/,2026-11-17T01:14:00Z,Lions roster page re-read (Cade Mays + D.J. Reed confirmed ACT),availability_conflicts.csv ACT_VS_HUB_OUT rows
+S-06,https://www.nfl.com/teams/seattle-seahawks/roster/,2026-11-17T01:14:00Z,Seahawks roster page re-read (Quenton Nelson confirmed ACT),availability_conflicts.csv ACT_VS_HUB_OUT row
+S-07,https://www.nfl.com/teams/new-england-patriots/roster/,2026-11-17T01:18:00Z,Patriots roster page re-read (Drake Maye confirmed ACT),availability_conflicts.csv NEWS_VS_TABLE row
+S-08,https://www.nfl.com/scores/,2026-11-17T01:15:22Z,NFL scores page week-10 view (13 finals + MNF pre-game state at this read),week10_finals.csv
+S-09,https://www.nfl.com/schedules/,2026-11-17T01:26:00Z,NFL schedules page (corroborates 13 finals; MNF live Q1 LAC 7-0; dated TBD-games announcement block),week10_finals corroboration + schedule_announcement.csv CAP-02
+S-10,https://www.nfl.com/legal/flexible-scheduling-procedures,2026-11-17T01:26:58Z,Official dated schedule-announcement procedures page (captured verbatim),schedule_announcement.csv CAP-01 (G-ANNOUNCE evidence)
+S-11,https://operations.nfl.com/gameday/nfl-schedule/,2026-11-17T01:26:00Z,Attempted ops schedule page - 404,schedule_announcement.csv A-02
+S-12,https://www.nfl.com/teams/<club>/roster/ (all 32 clubs),2026-11-17T01:11:00Z,32-club roster sweep (3 chunks each; window 00:47-01:11Z),roster_reserve.csv (1142 rows) + roster_sweep.csv

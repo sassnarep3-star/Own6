@@ -203,10 +203,11 @@ def conflicts(register: list[dict], hub: list[dict]) -> list[dict]:
     # K5 slug ledger
     for player, pairs, note in SLUG_LEDGER:
         detail = "same player slug carries different status codes on club roster pages: " + pairs
+        detail += " | ledger also recorded in roster_sweep.csv notes (32-club sweep 2026-11-17)"
         if note:
             detail += " | " + note
-        add("SAME_SLUG_MULTI_PAGE", "", player, "", "", "roster_sweep.csv notes ledger (32-club sweep 2026-11-17)", detail,
-            "https://www.nfl.com/teams/ (per-club roster URLs in roster_sweep.csv)")
+        add("SAME_SLUG_MULTI_PAGE", "", player, "", "", "https://www.nfl.com/teams/", detail,
+            "https://www.nfl.com/teams/")
 
     # K6 display vs slug mismatch
     for club, display, slug in DISPLAY_SLUG_MISMATCH:

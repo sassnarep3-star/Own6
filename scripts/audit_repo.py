@@ -32,6 +32,7 @@ GENERATED_PREFIXES = ("docs/assurance/", "docs/coverage/", "data/source_coverage
 OFFICIAL_SUFFIXES = (
     "nba.com", "github.com", "github.io", "docs.github.com", "scikit-learn.org",
     "scipy.org", "nist.gov", "statsmodels.org", "python.org", "law.go.kr", "draftkings.com",
+    "nfl.com",
 )
 URL = re.compile(r"https?://[^\s\"'<>]+")
 MARKER = re.compile(r"^(<<<<<<<(?: .*)?|=======|>>>>>>>(?: .*)?)$")

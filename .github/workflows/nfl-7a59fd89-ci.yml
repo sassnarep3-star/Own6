@@ -1,0 +1,39 @@
+name: nfl-7a59fd89
+
+on:
+  push:
+    branches: [main, 'arena/**']
+    paths:
+      - 'src/nfl_7a59fd89/**'
+      - 'scripts/build_nfl_7a59fd89.py'
+      - 'scripts/check_nfl_7a59fd89.py'
+      - 'tests/test_nfl_7a59fd89.py'
+      - 'data/nfl_7a59fd89/**'
+      - 'docs/nfl-7a59fd89/**'
+  pull_request:
+    paths:
+      - 'src/nfl_7a59fd89/**'
+      - 'scripts/build_nfl_7a59fd89.py'
+      - 'scripts/check_nfl_7a59fd89.py'
+      - 'tests/test_nfl_7a59fd89.py'
+      - 'data/nfl_7a59fd89/**'
+      - 'docs/nfl-7a59fd89/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Build pack (zero inputs, network-free)
+        run: python3 scripts/build_nfl_7a59fd89.py
+      - name: Verify (rules 1-14)
+        run: python3 scripts/check_nfl_7a59fd89.py
+      - name: Tests (verifier + identities + determinism)
+        run: python3 tests/test_nfl_7a59fd89.py
