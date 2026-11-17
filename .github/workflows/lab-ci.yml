@@ -43,8 +43,10 @@ jobs:
         shell: bash
         run: |
           set -o pipefail
-          python -m pytest -q tests/ 2>&1 | tee /tmp/pytest.txt | tail -60 | sed 's/^/::error::/'
-          status=${PIPESTATUS[0]}
+          python -m pytest -q tests/ > /tmp/pytest.txt 2>&1
+          status=$?
+          grep -E "^(FAILED|ERROR|E  |_____)" /tmp/pytest.txt | head -40 | sed 's/^/::error::/'
+          tail -5 /tmp/pytest.txt | sed 's/^/::error::/'
           exit $status
 
       - name: Verify no fabricated data in report
