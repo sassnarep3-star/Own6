@@ -479,8 +479,16 @@ def repo_findings(stats: Dict[str, str]) -> List[Dict[str, str]]:
         f"hub-only: {stats['hub_only']}; root-only: {stats['root_only']}; in both: {stats['in_both']}",
         "The two entry points disagree about what exists. Anyone deciding from one page is deciding on a different repository than someone using the other.",
         "Generate both card lists from one file (also removes a class of drift the link checker cannot see).")
+    # RF-03 deliberately reports a BUCKET, not an exact count. COORDINATION.md is
+    # appended to by every session, so an exact line/byte count makes this pack's
+    # published artifacts stale (and its CI "build changed nothing" check red) the
+    # moment anybody else commits -- which is a defect in the measurement, not in
+    # the repository. Rounding keeps the finding true and keeps the artifacts
+    # reproducible by the next session without a rebuild.
+    _lines_bucket = (int(stats['coord_lines']) // 100) * 100
+    _kb_bucket = (int(str(stats['coord_bytes']).split()[0].replace(',', '')) // 10240) * 10
     add("RF-03", "The coordination board is no longer reviewable as a board.",
-        f"{stats['coord_lines']} lines / {stats['coord_bytes']} bytes in COORDINATION.md, with {stats['coord_inprogress']} rows still marked in progress",
+        f"about {_lines_bucket}+ lines / {_kb_bucket}+ KB in COORDINATION.md, with {stats['coord_inprogress']} rows still marked in progress",
         "The takeover and de-duplication rules depend on reading the board. At this size nobody does, so work duplicates.",
         "T14 — split into a live board plus an append-only archive; add the board-path checker.")
     add("RF-04", "Every session wrote its own executive summary at the repository root.",

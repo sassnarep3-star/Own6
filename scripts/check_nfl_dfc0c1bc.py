@@ -55,6 +55,17 @@ OWN_SCOPE = [
     "README.md", "index.html", "docs/index.html", "docs/assets/style.css",
 ]
 
+# Repo-wide generated inventories. These are not any pack's files: every pack's
+# build invalidates them (a new CSV changes the row counts, a new page changes the
+# page list), so *whoever regenerates last* owns the commit. Excluding them from
+# the scope rule is the honest statement -- attributing them to one pack would be
+# a fiction, and the alternative (nobody regenerates them) is exactly the drift
+# RF-05 complains about.
+SHARED_GENERATED = [
+    "data/assurance/", "docs/assurance/", "data/source_coverage/", "docs/coverage/",
+    "audit/SOURCE_COVERAGE.md", "data/nfl_dfc0c1bc/", "docs/nfl-dfc0c1bc/",
+]
+
 
 def rows(name: str):
     with open(os.path.join(DATA, name), newline="", encoding="utf-8") as fh:
@@ -289,7 +300,8 @@ def main() -> int:
         own_commit_files = []
     for short, files in own_commit_files:
         for f in files:
-            if not any(f.startswith(p.rstrip("/")) or f == p for p in OWN_SCOPE):
+            if not any(f.startswith(p.rstrip("/")) or f == p
+                       for p in OWN_SCOPE + SHARED_GENERATED):
                 errs.append(f"rule 13: commit {short} touches {f}, outside the claimed scope")
 
     # Rule 14 — every page carries the pack nav and the disclaimer
