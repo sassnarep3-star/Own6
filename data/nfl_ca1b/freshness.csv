@@ -1,0 +1,75 @@
+dataset_kind,file,first_seen_in_repo,age_days,authoritative_source,status,why
+standings,data/nfl_309921cc/standings_2026_w10.csv,2026-11-16,1,https://www.nfl.com/standings/,stale_by_source_change,captured before the week-10 block; 13 week-10 finals have since been played
+standings,data/nfl_48217a55/standings_as_rendered.csv,2026-11-16,1,https://www.nfl.com/standings/,fresh,captured after the Sunday week-10 block; reconciles 32/32 clubs today
+standings,data/nfl_48217a55/standings_point_in_time.csv,2026-11-16,1,https://www.nfl.com/standings/,fresh,captured after the Sunday week-10 block; reconciles 32/32 clubs today
+standings,data/nfl_48217a55/standings_reconstruction.csv,2026-11-16,1,https://www.nfl.com/standings/,fresh,captured after the Sunday week-10 block; reconciles 32/32 clubs today
+standings,data/nfl_48217a55/standings_verification.csv,2026-11-16,1,https://www.nfl.com/standings/,fresh,captured after the Sunday week-10 block; reconciles 32/32 clubs today
+standings,data/nfl_67233566/standings.csv,2026-11-16,1,https://www.nfl.com/standings/,fresh,captured after the Sunday week-10 block; reconciles 32/32 clubs today
+standings,data/nfl_6cefc476/standings_2026_11_14.csv,2026-11-16,1,https://www.nfl.com/standings/,stale_by_source_change,captured before the Sunday week-10 block; 12 week-10 finals have since been played
+standings,data/nfl_8362b702/standings_asof.csv,2026-11-16,1,https://www.nfl.com/standings/,fresh,captured after the Sunday week-10 block; reconciles 32/32 clubs today
+standings,data/nfl_8362b702/standings_delta.csv,2026-11-16,1,https://www.nfl.com/standings/,fresh,captured after the Sunday week-10 block; reconciles 32/32 clubs today
+standings,data/nfl_8362b702/standings_split_checks.csv,2026-11-16,1,https://www.nfl.com/standings/,fresh,captured after the Sunday week-10 block; reconciles 32/32 clubs today
+standings,data/nfl_ca1b/standings_official_2026-11-17.csv,2026-11-17,0,https://www.nfl.com/standings/,stale_by_source_change,captured before the week-10 block; 13 week-10 finals have since been played
+standings,data/nfl_d966f630/standings_2026_w10.csv,2026-11-16,1,https://www.nfl.com/standings/,stale_by_source_change,captured before the Sunday week-10 block; 12 week-10 finals have since been played
+standings,data/nfl_market/standings.csv,2026-11-16,1,https://www.nfl.com/standings/,stale_by_source_change,captured before the Sunday week-10 block; 12 week-10 finals have since been played
+standings,data/nfl_origination/standings_live_2026_11_13.csv,2026-11-16,1,https://www.nfl.com/standings/,stale_by_source_change,captured before the week-10 block; 13 week-10 finals have since been played
+standings,data/nfl_wk/standings_2026_w11.csv,2026-11-16,1,https://www.nfl.com/standings/,stale_by_source_change,captured before the week-10 block; 13 week-10 finals have since been played
+standings,data/nfl_wk/standings_aggregates.csv,2026-11-16,1,https://www.nfl.com/standings/,stale_by_source_change,captured before the week-10 block; 13 week-10 finals have since been played
+results,data/nfl_309921cc/results_feed.csv,2026-11-16,1,https://www.nfl.com/schedules/2026/by-week/week-10,fresh,official cards are immutable once final; a results feed only ages when a new final appears
+results,data/nfl_48217a55/results_feed.csv,2026-11-16,1,https://www.nfl.com/schedules/2026/by-week/week-10,fresh,official cards are immutable once final; a results feed only ages when a new final appears
+results,data/nfl_67233566/results_feed.csv,2026-11-16,1,https://www.nfl.com/schedules/2026/by-week/week-10,fresh,official cards are immutable once final; a results feed only ages when a new final appears
+results,data/nfl_6cefc476/results_feed.csv,2026-11-16,1,https://www.nfl.com/schedules/2026/by-week/week-10,fresh,official cards are immutable once final; a results feed only ages when a new final appears
+results,data/nfl_8362b702/results_week10.csv,2026-11-16,1,https://www.nfl.com/schedules/2026/by-week/week-10,fresh,official cards are immutable once final; a results feed only ages when a new final appears
+results,data/nfl_ca1b/results_week10_official.csv,2026-11-17,0,https://www.nfl.com/schedules/2026/by-week/week-10,fresh,official cards are immutable once final; a results feed only ages when a new final appears
+results,data/nfl_d966f630/results_feed.csv,2026-11-16,1,https://www.nfl.com/schedules/2026/by-week/week-10,fresh,official cards are immutable once final; a results feed only ages when a new final appears
+results,data/nfl_d966f630/results_feed_identities.csv,2026-11-16,1,https://www.nfl.com/schedules/2026/by-week/week-10,fresh,official cards are immutable once final; a results feed only ages when a new final appears
+results,data/nfl_d966f630/results_reconciliation.csv,2026-11-16,1,https://www.nfl.com/schedules/2026/by-week/week-10,fresh,official cards are immutable once final; a results feed only ages when a new final appears
+results,data/nfl_f4/results.csv,2026-11-16,1,https://www.nfl.com/schedules/2026/by-week/week-10,fresh,official cards are immutable once final; a results feed only ages when a new final appears
+results,data/nfl_f4/results_reconciliation.csv,2026-11-16,1,https://www.nfl.com/schedules/2026/by-week/week-10,fresh,official cards are immutable once final; a results feed only ages when a new final appears
+results,data/nfl_market/results.csv,2026-11-16,1,https://www.nfl.com/schedules/2026/by-week/week-10,fresh,official cards are immutable once final; a results feed only ages when a new final appears
+corpus,data/nfl_67233566/corpus_summary.csv,2026-11-16,1,https://www.nfl.com/schedules/2026/by-week/week-9,fresh,official cards are immutable once final; a results feed only ages when a new final appears
+corpus,data/nfl_8362b702/corpus_136.csv,2026-11-16,1,https://www.nfl.com/schedules/2026/by-week/week-9,fresh,official cards are immutable once final; a results feed only ages when a new final appears
+injury,data/nfl_48217a55/injury_club_rollup.csv,2026-11-16,1,https://www.nfl.com/injuries/,stale_by_clock,the hub is week-scoped and re-rendered; only reads with a clock time are replayable
+injury,data/nfl_48217a55/injury_report_2026_11_15.csv,2026-11-16,1,https://www.nfl.com/injuries/,stale_by_clock,the hub is week-scoped and re-rendered; only reads with a clock time are replayable
+injury,data/nfl_67233566/injury_surprise.csv,2026-11-16,1,https://www.nfl.com/injuries/,stale_by_clock,the hub is week-scoped and re-rendered; only reads with a clock time are replayable
+injury,data/nfl_8362b702/injury_cross_read.csv,2026-11-16,1,https://www.nfl.com/injuries/,stale_by_clock,the hub is week-scoped and re-rendered; only reads with a clock time are replayable
+injury,data/nfl_8362b702/injury_deltas.csv,2026-11-16,1,https://www.nfl.com/injuries/,stale_by_clock,the hub is week-scoped and re-rendered; only reads with a clock time are replayable
+injury,data/nfl_8362b702/injury_series.csv,2026-11-16,1,https://www.nfl.com/injuries/,stale_by_clock,the hub is week-scoped and re-rendered; only reads with a clock time are replayable
+injury,data/nfl_ca1b/injury_deltas.csv,2026-11-17,0,https://www.nfl.com/injuries/,stale_by_clock,the hub is week-scoped and re-rendered; only reads with a clock time are replayable
+injury,data/nfl_ca1b/injury_series.csv,2026-11-17,0,https://www.nfl.com/injuries/,stale_by_clock,the hub is week-scoped and re-rendered; only reads with a clock time are replayable
+injury,data/nfl_d966f630/injury_report_rows.csv,2026-11-16,1,https://www.nfl.com/injuries/,stale_by_clock,the hub is week-scoped and re-rendered; only reads with a clock time are replayable
+injury,data/nfl_e5e38f9e/injury_pack_comparison.csv,2026-11-16,1,https://www.nfl.com/injuries/,stale_by_clock,the hub is week-scoped and re-rendered; only reads with a clock time are replayable
+injury,data/nfl_origination/injury_and_depth_deficiency.csv,2026-11-16,1,https://www.nfl.com/injuries/,stale_by_clock,the hub is week-scoped and re-rendered; only reads with a clock time are replayable
+injury,data/nfl_s11/injury_reconciliation_w10.csv,2026-11-16,1,https://www.nfl.com/injuries/,stale_by_clock,the hub is week-scoped and re-rendered; only reads with a clock time are replayable
+price,data/nfl_309921cc/price_snapshots.csv,2026-11-16,1,https://www.nfl.com/legal/terms/,structurally_blank,no official price source exists (G-PRICE)
+price,data/nfl_48217a55/price_capture_attempts.csv,2026-11-16,1,https://www.nfl.com/legal/terms/,structurally_blank,no official price source exists (G-PRICE)
+price,data/nfl_67233566/price_movement.csv,2026-11-16,1,https://www.nfl.com/legal/terms/,structurally_blank,no official price source exists (G-PRICE)
+price,data/nfl_67233566/price_policy.csv,2026-11-16,1,https://www.nfl.com/legal/terms/,structurally_blank,no official price source exists (G-PRICE)
+price,data/nfl_67233566/price_snapshots.csv,2026-11-16,1,https://www.nfl.com/legal/terms/,structurally_blank,no official price source exists (G-PRICE)
+price,data/nfl_6cefc476/price_snapshots.csv,2026-11-16,1,https://www.nfl.com/legal/terms/,structurally_blank,no official price source exists (G-PRICE)
+price,data/nfl_8362b702/price_policy.csv,2026-11-16,1,https://www.nfl.com/legal/terms/,structurally_blank,no official price source exists (G-PRICE)
+price,data/nfl_d966f630/price_capture_attempts.csv,2026-11-16,1,https://www.nfl.com/legal/terms/,structurally_blank,no official price source exists (G-PRICE)
+price,data/nfl_d966f630/price_snapshots.csv,2026-11-16,1,https://www.nfl.com/legal/terms/,structurally_blank,no official price source exists (G-PRICE)
+price,data/nfl_d966f630/price_snapshots_open_close.csv,2026-11-16,1,https://www.nfl.com/legal/terms/,structurally_blank,no official price source exists (G-PRICE)
+price,data/nfl_f4/price_snapshots.csv,2026-11-16,1,https://www.nfl.com/legal/terms/,structurally_blank,no official price source exists (G-PRICE)
+price,data/nfl_market/price_snapshot_coverage.csv,2026-11-16,1,https://www.nfl.com/legal/terms/,structurally_blank,no official price source exists (G-PRICE)
+price,data/nfl_market/price_snapshots.csv,2026-11-16,1,https://www.nfl.com/legal/terms/,structurally_blank,no official price source exists (G-PRICE)
+depth,data/nfl_309921cc/depth_charts.csv,2026-11-16,1,https://www.nfl.com/legal/terms/,unverifiable_source,the club depth-chart route 404s (probe P-01)
+depth,data/nfl_309921cc/depth_deficiency.csv,2026-11-16,1,https://www.nfl.com/legal/terms/,unverifiable_source,the club depth-chart route 404s (probe P-01)
+depth,data/nfl_309921cc/depth_unlisted_designations.csv,2026-11-16,1,https://www.nfl.com/legal/terms/,unverifiable_source,the club depth-chart route 404s (probe P-01)
+depth,data/nfl_3b81013c/depth_deficiency_summary.csv,2026-11-16,1,https://www.nfl.com/legal/terms/,unverifiable_source,the club depth-chart route 404s (probe P-01)
+depth,data/nfl_48217a55/depth_of_replacement.csv,2026-11-16,1,https://www.nfl.com/legal/terms/,unverifiable_source,the club depth-chart route 404s (probe P-01)
+depth,data/nfl_48217a55/depth_route_probe.csv,2026-11-16,1,https://www.nfl.com/legal/terms/,unverifiable_source,the club depth-chart route 404s (probe P-01)
+depth,data/nfl_67233566/depth_source_register.csv,2026-11-16,1,https://www.nfl.com/legal/terms/,unverifiable_source,the club depth-chart route 404s (probe P-01)
+depth,data/nfl_d966f630/depth_of_replacement.csv,2026-11-16,1,https://www.nfl.com/legal/terms/,unverifiable_source,the club depth-chart route 404s (probe P-01)
+depth,data/nfl_f4/depth_chart_verified.csv,2026-11-16,1,https://www.nfl.com/legal/terms/,unverifiable_source,the club depth-chart route 404s (probe P-01)
+depth,data/nfl_f4/depth_replacement.csv,2026-11-16,1,https://www.nfl.com/legal/terms/,unverifiable_source,the club depth-chart route 404s (probe P-01)
+depth,data/nfl_f4/depth_unit_summary.csv,2026-11-16,1,https://www.nfl.com/legal/terms/,unverifiable_source,the club depth-chart route 404s (probe P-01)
+depth,data/nfl_market/depth_conflicts.csv,2026-11-16,1,https://www.nfl.com/legal/terms/,unverifiable_source,the club depth-chart route 404s (probe P-01)
+depth,data/nfl_wk/depth_cascade.csv,2026-11-16,1,https://www.nfl.com/legal/terms/,unverifiable_source,the club depth-chart route 404s (probe P-01)
+depth,data/nfl_wk/depth_deficiency.csv,2026-11-16,1,https://www.nfl.com/legal/terms/,unverifiable_source,the club depth-chart route 404s (probe P-01)
+depth,data/nfl_wk/depth_summary.csv,2026-11-16,1,https://www.nfl.com/legal/terms/,unverifiable_source,the club depth-chart route 404s (probe P-01)
+venue,data/nfl_48217a55/venues.csv,2026-11-16,1,https://www.nfl.com/schedules/2026/by-week/week-11,fresh,week-11 venues captured 2026-11-17 for all 13 fixtures
+venue,data/nfl_67233566/venues.csv,2026-11-16,1,https://www.nfl.com/schedules/2026/by-week/week-11,fresh,week-11 venues captured 2026-11-17 for all 13 fixtures
+venue,data/nfl_8362b702/venues_week11.csv,2026-11-16,1,https://www.nfl.com/schedules/2026/by-week/week-11,fresh,week-11 venues captured 2026-11-17 for all 13 fixtures
+venue,data/nfl_ca1b/venues_week11.csv,2026-11-17,0,https://www.nfl.com/schedules/2026/by-week/week-11,fresh,week-11 venues captured 2026-11-17 for all 13 fixtures

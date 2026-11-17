@@ -1,0 +1,31 @@
+name: verify-nfl-ca1b
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    paths:
+      - "src/nfl_ca1b/**"
+      - "data/nfl_ca1b/**"
+      - "docs/nfl-ca1b/**"
+      - "scripts/build_nfl_ca1b.py"
+      - "scripts/check_nfl_ca1b.py"
+      - "tests/test_nfl_ca1b.py"
+      - ".github/workflows/nfl-ca1b-ci.yml"
+
+jobs:
+  build-and-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Build the pack (deterministic; no network)
+        run: python3 scripts/build_nfl_ca1b.py
+      - name: Verifier (14 rules incl. hash chain, links, no-price policy)
+        run: python3 scripts/check_nfl_ca1b.py
+      - name: Pack tests
+        run: |
+          python3 -m pip install --quiet pytest
+          python3 -m pytest tests/test_nfl_ca1b.py -q

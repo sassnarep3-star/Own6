@@ -1,0 +1,6 @@
+corr_id,pair,r,n,ci_lo,ci_hi,method,inputs,source_url
+CORR-01,home points vs away points (same game),0.04851620686989891,149,-0.11316660528511081,0.20769584150627643,"Pearson, Fisher z 95% CI","official FINAL scores, weeks 1-10 (149 games)",https://www.nfl.com/schedules/2026/by-week/week-10
+CORR-02,home margin vs game total,-0.14081493006003182,149,-0.2949366237566971,0.020448029131864987,"Pearson, Fisher z 95% CI","official FINAL scores, weeks 1-10",https://www.nfl.com/schedules/2026/by-week/week-10
+CORR-03,model expected total vs actual total (in-sample),0.5101819975154179,149,0.3806059020973542,0.6201098497152965,"Pearson, Fisher z 95% CI","official FINAL scores; model fitted on all 149 games (in-sample, optimistic)",https://www.nfl.com/schedules/2026/by-week/week-10
+CORR-04,model margin vs actual margin (in-sample),0.6392205110631501,149,0.5332294107060974,0.7254535411148207,"Pearson, Fisher z 95% CI",official FINAL scores; in-sample,https://www.nfl.com/schedules/2026/by-week/week-10
+CORR-05,week number vs game total (scoring drift),-0.020972487748916455,145,-0.18335488289752827,0.14252399248442302,"Pearson, Fisher z 95% CI",official FINAL scores with the week index from the official schedule,https://www.nfl.com/schedules/2026/by-week/week-1

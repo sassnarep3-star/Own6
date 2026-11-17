@@ -1,0 +1,6 @@
+gate_id,scope,to_state,trigger,measured,action
+D-01,S01,paper,cluster-bootstrap 95% lower bound of Brier skill <= 0 after 100 prospective games,not reached (n=0 prospective; backtest only),demote and re-register the rule text before re-testing
+D-02,S01,paper,"calibration slope outside [0.80, 1.25] on the prospective sample",in-sample slope is the k multiplier history; not yet measurable prospectively,refit sigma guard only; never refit on prospective data
+D-03,S01,paper,decay: 8 consecutive settled picks at chance or worse,not reached,"freeze registrations, publish the losing run"
+D-04,any staking,paper,live ROI < 0 over 50 settled priced bets,unmeasurable: no price exists (G-PRICE),a staking run cannot carry a strategy that failed D-01
+D-05,all,paper,a source re-read contradicts a stored value and the stored value was used in a published number,0 such cases as of 2026-11-17 re-read (see conflicts.csv),republish with the corrected value; the old row keeps its hash

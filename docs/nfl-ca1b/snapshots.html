@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Snapshots — NFL convergence pack (ca1b)</title>
+<style>
+:root{--ink:#12233b;--muted:#5b6b82;--navy:#0b2545;--navy2:#13315c;--accent:#ee6c4d;
+--paper:#f6f8fb;--line:#dfe6f0;--ok:#d9f2e2;--okink:#1c6b3d;--no:#fde2e2;--noink:#8f1d1d;
+--warn:#fff3cd;--warnink:#7a5b00;--blank:#fff7e6}
+*{box-sizing:border-box}
+body{font:15px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,sans-serif;margin:0;color:var(--ink);background:var(--paper)}
+a{color:#0b5394;text-underline-offset:.15em}
+header.top{background:var(--navy);color:#fff;padding:16px 22px 14px}
+header.top h1{margin:0;font-size:19px;letter-spacing:.01em}
+header.top p{margin:4px 0 0;font-size:12.5px;opacity:.85}
+nav.crumbs{display:flex;flex-wrap:wrap;gap:2px;background:var(--navy2);padding:6px 10px;position:sticky;top:0;z-index:5}
+nav.crumbs a{color:#cfe0f5;text-decoration:none;padding:5px 9px;border-radius:4px;font-size:12.5px}
+nav.crumbs a.on,nav.crumbs a:hover{background:var(--accent);color:#fff}
+main{max-width:1200px;margin:0 auto;padding:16px}
+section{background:#fff;border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin:14px 0}
+h2{font-size:17px;margin:2px 0 8px}h3{font-size:14.5px;margin:12px 0 6px}
+p.lede{color:var(--muted);margin:2px 0 10px;font-size:13.5px}
+.tablewrap{overflow-x:auto;max-height:70vh}
+table{border-collapse:collapse;width:100%;font-size:12.5px}
+th,td{border:1px solid #e3e9f2;padding:5px 7px;text-align:left;vertical-align:top}
+th{background:#eef3fa;position:sticky;top:0;white-space:nowrap}
+td.blank{background:var(--blank)}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+.pill{display:inline-block;padding:1px 8px;border-radius:10px;font-size:11px;white-space:nowrap}
+.ok{background:var(--ok);color:var(--okink)}.no{background:var(--no);color:var(--noink)}
+.warn{background:var(--warn);color:var(--warnink)}
+.note{background:#f2f6fc;border-left:3px solid var(--navy2);padding:8px 12px;margin:8px 0;font-size:13px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+a.card{display:block;background:#fff;border:1px solid var(--line);border-radius:8px;padding:11px 13px;
+text-decoration:none;color:var(--ink)}
+a.card:hover{border-color:var(--accent);box-shadow:0 2px 10px rgba(11,37,69,.08)}
+a.card b{display:block;font-size:13.5px;margin-bottom:3px}
+a.card span{font-size:12px;color:var(--muted)}
+.kpi{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:6px 0}
+.kpi div{background:#fff;border:1px solid var(--line);border-radius:8px;padding:9px 11px}
+.kpi b{display:block;font-size:19px;line-height:1.2}
+.kpi span{font-size:11.5px;color:var(--muted)}
+footer{text-align:center;color:#7a8aa3;font-size:12px;padding:20px}
+</style></head><body>
+<header class="top"><h1>NFL Convergence &amp; Verification Pack</h1>
+<p>Session ca1b3769 · every value read from an official NFL page on 2026-11-17 UTC · blanks are
+flagged, never filled · no profitability claim · no input required</p></header>
+<nav class="crumbs" aria-label="Section"><a href="index.html">Start here</a><a href="decision.html">Decision readiness</a><a href="lines.html">Originated lines</a><a href="signal.html">Signal vs luck</a><a href="backtest.html">Backtest (not a ranking)</a><a href="leaderboard.html">Leaderboard + gates</a><a href="availability.html">Availability &amp; designations</a><a href="injuries.html">Injury series &amp; deltas</a><a href="depth.html">Depth &amp; deficiency</a><a href="venues.html">Week-11 venues</a><a href="verify.html">Verification ledger</a><a href="conflicts.html">Cross-pack conflicts</a><a href="snapshots.html" class="on">Snapshot ledger</a><a href="freshness.html">Freshness &amp; drift</a><a href="requirements.html">Requirement register</a><a href="qia.html">Questions &amp; answers</a><a href="suggestions.html">Suggestions queue</a><a href="flagged.html">Flagged for review</a><a href="sources.html">Sources</a></nav>
+<main><section><h2>Point-in-time snapshot ledger</h2><p class='lede'>Each entry is hash-chained to the one before it. The build recomputes the chain on every run; any edit to a captured value breaks it and fails the check.</p><div class='tablewrap'><table><thead><tr><th>Entry</th><th>Read at</th><th>Dataset</th><th>Rows</th><th>Content hash</th><th>Previous hash</th><th>Chain hash</th><th>Captured by</th><th>Replay note</th><th>Source</th></tr></thead><tbody><tr><td>SNP-0001</td><td>2026-11-15T23:58:00Z</td><td>injury_hub_week10</td><td>310</td><td>a24c68f9e6a2a5a6993575c1a448713a</td><td></td><td>f55bcf158188ad6e0a9e5ed81f850e60</td><td>session 8362b702 (frozen in data/nfl_8362b702/injury_series.csv)</td><td>two reads exist, so designations can be replayed as they were known</td><td><a href="https://www.nfl.com/injuries/" rel="noopener noreferrer" target="_blank">source &#8599;</a></td></tr><tr><td>SNP-0002</td><td>2026-11-17T00:44:00Z</td><td>injury_hub_week10</td><td>221</td><td>259dd0acec250ba1be190013f47c092b</td><td>f55bcf158188ad6e0a9e5ed81f850e60</td><td>e640a8b374bf008a32e8277120748768</td><td>session ca1b3769 (this read)</td><td>second dated read of the same page; delta published in injury_deltas.csv</td><td><a href="https://www.nfl.com/injuries/" rel="noopener noreferrer" target="_blank">source &#8599;</a></td></tr><tr><td>SNP-0003</td><td>2026-11-17T00:45:00Z</td><td>week10_inactives</td><td>147</td><td>6d0a155ab14d25eb6e48728cd889c420</td><td>e640a8b374bf008a32e8277120748768</td><td>d8d89da976c301c7d83758d220fed71b</td><td>session ca1b3769</td><td>the article is immutable once published, so this is a true point-in-time record</td><td><a href="https://www.nfl.com/news/nfl-week-10-inactives-players-ruled-out-sunday-2026-season" rel="noopener noreferrer" target="_blank">source &#8599;</a></td></tr><tr><td>SNP-0004</td><td>2026-11-17T00:41:00Z</td><td>week10_results</td><td>14</td><td>219e5a8eb9c608302131b51a7edb0750</td><td>d8d89da976c301c7d83758d220fed71b</td><td>70d57bcbf776d21bcef92d84d7ff771e</td><td>session ca1b3769</td><td>supersedes the 2026-11-15T23:35Z read, which saw 9 finals; that read is kept in pack 8362b702</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-10" rel="noopener noreferrer" target="_blank">source &#8599;</a></td></tr><tr><td>SNP-0005</td><td>2026-11-17T00:39:00Z</td><td>week11_fixtures</td><td>13</td><td>fe52397efd187fdf8069064431fc1740</td><td>70d57bcbf776d21bcef92d84d7ff771e</td><td>c7ab4375314cdfab08d7a8ea3623c44d</td><td>session ca1b3769</td><td>13 fixtures + 6 byes; venue text taken from each card's hotel deep-link</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-11" rel="noopener noreferrer" target="_blank">source &#8599;</a></td></tr></tbody></table></div></section><section><h2>What the ledger still cannot replay</h2><p class='lede'>2 dated reads is not a series. A Questionable-&gt;Out replay needs a read on each of Wed/Thu/Fri/Sat for many weeks; that is scheduled capture and is blocked on the retrieval-terms question Q-01.</p><p class='lede'>Dated reads of the injury hub currently in the repo: <b>2</b>. Datasets with a dated capture: <b>5</b>. Reads a designation-replay backtest would need: about <b>40</b>.</p></section><section><h2>Official sources for this page</h2><p class='lede'>Every table on this page is derived from these official NFL pages, read on 2026-11-17 UTC. The clock time of each read is on <a href='sources.html'>Sources</a>.</p><ul><li><a href='https://www.nfl.com/standings/' rel='noopener noreferrer' target='_blank'>nfl.com/standings/</a> - club records and points, read 2026-11-17T00:40Z</li><li><a href='https://www.nfl.com/schedules/2026/by-week/week-10' rel='noopener noreferrer' target='_blank'>nfl.com/schedules/2026/by-week/week-10</a> - the 13 week-10 finals, read 00:41Z</li><li><a href='https://www.nfl.com/schedules/2026/by-week/week-11' rel='noopener noreferrer' target='_blank'>nfl.com/schedules/2026/by-week/week-11</a> - the 13 live fixtures, read 00:39Z</li><li><a href='https://www.nfl.com/injuries/' rel='noopener noreferrer' target='_blank'>nfl.com/injuries/</a> - designations and practice status, read 00:44Z</li><li><a href='https://www.nfl.com/news/nfl-week-10-inactives-players-ruled-out-sunday-2026-season' rel='noopener noreferrer' target='_blank'>NFL Week 10 inactives</a> - who did not dress, read 00:45Z</li><li><a href='https://www.nfl.com/legal/terms/' rel='noopener noreferrer' target='_blank'>NFL.com Terms of Use</a> - the retrieval boundary every blank on this site respects</li></ul></section></main>
+<footer>Built deterministically from <code>src/nfl_ca1b</code> by
+<code>scripts/build_nfl_ca1b.py</code>. Re-running the builder reproduces every table byte for byte.</footer>
+</body></html>
