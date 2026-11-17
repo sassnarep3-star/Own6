@@ -1,0 +1,15 @@
+game_id,game_date,kickoff_et,network,away_team,home_team,away_score,home_score,status,score_source,read_at_utc,source_url,notes
+commanders-at-giants-2026-reg-10,2026-11-12,TNF Nov 12,,WAS,NYG,24,21,FINAL,nfl.com/scores week-10 final-score module,2026-11-17T01:15:22Z,https://www.nfl.com/scores/,roster-page record corroboration: WAS 3-5-1 / NYG 5-3-1 as read this session
+patriots-at-lions-2026-reg-10,2026-11-15,Intl Nov 15 (Munich),,NE,DET,10,35,FINAL,nfl.com/scores week-10 final-score module,2026-11-17T01:15:22Z,https://www.nfl.com/scores/,DET 7-2 / NE 5-5 corroborated
+chiefs-at-falcons-2026-reg-10,2026-11-15,Sun Nov 15,,KC,ATL,35,13,FINAL,nfl.com/scores week-10 final-score module,2026-11-17T01:15:22Z,https://www.nfl.com/scores/,UPGRADE vs prior 11-15 Q4-only snapshot (was 20-13 LIVE): now official final 35-13; KC 7-2 / ATL 3-7 corroborated
+texans-at-browns-2026-reg-10,2026-11-15,Sun Nov 15,,HOU,CLE,24,27,FINAL,nfl.com/scores week-10 final-score module,2026-11-17T01:15:22Z,https://www.nfl.com/scores/,CLE 6-4 / HOU 3-6 corroborated
+vikings-at-packers-2026-reg-10,2026-11-15,Sun Nov 15,,MIN,GB,30,10,FINAL,nfl.com/scores week-10 final-score module,2026-11-17T01:15:22Z,https://www.nfl.com/scores/,MIN 7-2 / GB 6-4 corroborated
+dolphins-at-colts-2026-reg-10,2026-11-15,Sun Nov 15,,MIA,IND,22,24,FINAL,nfl.com/scores week-10 final-score module,2026-11-17T01:15:22Z,https://www.nfl.com/scores/,IND 3-7 / MIA 1-8 corroborated
+panthers-at-saints-2026-reg-10,2026-11-15,Sun Nov 15,,CAR,NO,20,17,FINAL,nfl.com/scores week-10 final-score module,2026-11-17T01:15:22Z,https://www.nfl.com/scores/,CAR 4-5 / NO 3-6 corroborated
+bills-at-jets-2026-reg-10,2026-11-15,Sun Nov 15,,BUF,NYJ,31,12,FINAL,nfl.com/scores week-10 final-score module,2026-11-17T01:15:22Z,https://www.nfl.com/scores/,BUF 8-1 / NYJ 2-8 corroborated
+jaguars-at-titans-2026-reg-10,2026-11-15,Sun Nov 15,,JAX,TEN,40,23,FINAL,nfl.com/scores week-10 final-score module,2026-11-17T01:15:22Z,https://www.nfl.com/scores/,JAX 7-2 / TEN 1-8 corroborated
+rams-at-cardinals-2026-reg-10,2026-11-15,Sun Nov 15,,LAR,AZ,34,6,FINAL,nfl.com/scores week-10 final-score module,2026-11-17T01:15:22Z,https://www.nfl.com/scores/,LAR 6-4 / AZ 3-7 corroborated
+seahawks-at-raiders-2026-reg-10,2026-11-15,Sun Nov 15,,SEA,LV,21,13,FINAL,nfl.com/scores week-10 final-score module,2026-11-17T01:15:22Z,https://www.nfl.com/scores/,SEA 6-4 / LV 4-6 corroborated
+49ers-at-cowboys-2026-reg-10,2026-11-15,Sun Nov 15,,SF,DAL,46,40,FINAL,nfl.com/scores week-10 final-score module,2026-11-17T01:15:22Z,https://www.nfl.com/scores/,SF 8-1 / DAL 4-6 corroborated
+steelers-at-bengals-2026-reg-10,2026-11-15,SNF Nov 15,,PIT,CIN,18,38,FINAL,nfl.com/scores week-10 final-score module,2026-11-17T01:15:22Z,https://www.nfl.com/scores/,CIN 7-2 / PIT 6-3 corroborated
+chargers-at-ravens-2026-reg-10,2026-11-16,MNF Nov 16 8:15 PM,ESPN,LAC,BAL,,,SCHEDULED,,2026-11-17T01:15:22Z,https://www.nfl.com/scores/,"FLAGGED: page shows scheduled/no score at this read; earlier session read (~00:5xZ) showed final BAL 24-14 — page states conflict between reads; scores left blank, not inferred. Records LAC 0-8 / BAL 4-5 match roster pages (pre-game)"
