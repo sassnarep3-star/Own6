@@ -35,8 +35,36 @@ def _mtime_date(p: pathlib.Path) -> str:
     return dt.date.fromtimestamp(p.stat().st_mtime).isoformat()
 
 
+_DATE_COL = "first_seen_in_repo"
+
+
+def load_provenance(path: str = "data/nfl_ca1b/freshness.csv") -> Dict[str, str]:
+    """Read the committed provenance table (path -> date) if it exists.
+
+    The builder must be reproducible from a *clone*, not from this sandbox's git
+    history: CI checks out shallow, where `git log --diff-filter=A` returns a
+    different answer and the rebuild would silently differ. So git is used only
+    once, by the session that adds a dataset; afterwards the committed table is
+    the input. If the table is missing, the builder falls back to git and then to
+    file mtime, and the fallback is recorded on every row.
+    """
+    p = ROOT / path
+    out: Dict[str, str] = {}
+    if not p.exists():
+        return out
+    with p.open(newline="") as fh:
+        for r in csv.DictReader(fh):
+            if r.get("file") and r.get(_DATE_COL):
+                out[r["file"]] = r[_DATE_COL]
+    return out
+
+
 def git_dates() -> Dict[str, str]:
-    """First commit date per path, read once from git (cheap, no network)."""
+    """First commit date per path, read once from git (cheap, no network).
+
+    Only used to seed the committed table. Never used at build time when the
+    table already exists.
+    """
     import subprocess
     out: Dict[str, str] = {}
     try:
@@ -58,7 +86,9 @@ def git_dates() -> Dict[str, str]:
 
 
 def rows() -> List[Dict[str, object]]:
-    gd = git_dates()
+    committed = load_provenance()
+    gd = committed if committed else git_dates()
+    provenance_source = "committed data/nfl_ca1b/freshness.csv" if committed else "git history (seed run)"
     out: List[Dict[str, object]] = []
     for kind, pat, url in WATCH:
         if not url:
@@ -75,6 +105,7 @@ def rows() -> List[Dict[str, object]]:
             out.append({
                 "dataset_kind": kind, "file": rel,
                 "first_seen_in_repo": first_seen, "age_days": age,
+                "provenance_source": provenance_source,
                 "authoritative_source": url,
                 "status": status, "why": why,
             })

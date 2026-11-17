@@ -243,6 +243,8 @@ def build() -> dict:
     qrows = Q.rows()
     sug = SG.rows()
     conf = CF.ROWS
+    # provenance is read from the committed table when it exists, so a shallow CI
+    # clone rebuilds byte-identically; git is only consulted on the seed run.
     fresh = FR.rows()
 
     write_csv("sources.csv", C.SNAPSHOTS)
