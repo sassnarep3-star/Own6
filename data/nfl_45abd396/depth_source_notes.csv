@@ -1,0 +1,5 @@
+claim,status,detail,source_url
+a club's published depth chart is the only official source naming a backup,not obtained this session,no club depth-chart page was read this session; earlier packs found 32/32 unverified or unreachable,https://www.nfl.com/transactions/league/reserve-list/2026/11
+snap counts could stand in for depth,no official snapshot source read,"the game-centre pages read this session expose overview and statistics tabs, no snap-count table",https://www.nfl.com/games/chargers-at-ravens-2026-reg-10
+a player who is Out is replaced by 'the next man up' at the same position,rejected,"that is an inference, not a published fact; the league publishes the designation, not the replacement",https://www.nfl.com/injuries/
+reserve/IR entries explain blank weekly-report cells,supported for one case this session,Malik Willis is on the reserve list 11/10 and absent from the week-10 hub (conflict C-02),https://www.nfl.com/transactions/league/reserve-list/2026/11

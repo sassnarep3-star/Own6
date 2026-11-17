@@ -1,0 +1,13 @@
+from_club,to_club,date_on_page,player,transaction_on_page,hub_club_at_this_read,stale_risk,source_url
+ATL,JAX,11/10,Jessie Bates,Traded,JAX,hub names the receiving club,https://www.nfl.com/transactions/
+PHI,JAX,11/10,Jordan Davis,Traded,JAX,hub names the receiving club,https://www.nfl.com/transactions/
+TEN,BUF,11/10,Amani Hooker,Traded,absent from the week-10 hub,no,https://www.nfl.com/transactions/
+IND,SF,11/10,Keenan Allen,Traded,absent from the week-10 hub,no,https://www.nfl.com/transactions/
+LV,MIN,11/10,Kirk Cousins,Traded,absent from the week-10 hub,no,https://www.nfl.com/transactions/
+LAC,DEN,11/10,Daiyan Henley,Traded,LAC,yes - the hub still names the sending club,https://www.nfl.com/transactions/
+IND,KC,11/10,Josh Downs,Traded,absent from the week-10 hub,no,https://www.nfl.com/transactions/
+ATL,BAL,11/10,Ryan Neuzil,Traded,absent from the week-10 hub,no,https://www.nfl.com/transactions/
+BAL,ATL,11/10,Andrew Vorhees,Traded,absent from the week-10 hub,no,https://www.nfl.com/transactions/
+NYJ,DET,11/09,Andre Cisco,Traded,absent from the week-10 hub,no,https://www.nfl.com/transactions/
+NO,JAX,11/09,Davon Godchaux,Traded,absent from the week-10 hub,no,https://www.nfl.com/transactions/
+AZ,BAL,11/06,Jacoby Brissett,Traded,absent from the week-10 hub,no,https://www.nfl.com/transactions/
