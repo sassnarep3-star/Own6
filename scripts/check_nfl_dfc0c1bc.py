@@ -53,6 +53,11 @@ OWN_SCOPE = [
     "tests/test_nfl_dfc0c1bc.py", ".github/workflows/nfl-dfc0c1bc-ci.yml",
     "NFL_DFC0C1BC_EXECUTIVE_SUMMARY.md", "audit/NFL_DFC0C1BC_REPO_REVIEW.md", "COORDINATION.md",
     "README.md", "index.html", "docs/index.html", "docs/assets/style.css",
+    # mechanically regenerated shared fixed point (see DFC-F91 / RF-11): any commit that grows a tracked
+    # file must rewrite these, and this pack grew one. No hand-edit of another pack's data lives here.
+    "data/assurance/", "data/source_coverage/", "audit/SOURCE_COVERAGE.md",
+    "docs/assurance/", "docs/coverage/", "docs/lab/", "data/lab/", "docs/assets/",
+    "data/empirical/", "audit/link_check_report.md",
 ]
 
 

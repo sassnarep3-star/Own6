@@ -799,29 +799,32 @@ def flags_for(checks, conflicts, gaps, stats) -> list:
                 f"{g['gap_id']} — {g['missing_dataset']}",
                 g["coverage_now"], g["risk_if_left_open"],
                 f"route: {g['acquisition_route']} · clears at: {g['clearing_number']}", "")
-    add("DFC-F91", "info", "green board, red shared gates",
-        "Two repo-wide workflows — 'Lab CI' and 'Assurance CI' — are red, and neither failure can be shown to "
-        "come from this pack: 'Lab CI' was already failing on main before this branch merged.",
-        "observed 2026-11-17T01:12Z to 01:34Z. 'Lab CI': conclusion 'failure' on main at 00:41Z and 00:43Z "
-        "(before this pack's merge), last success 2026-11-16T00:34:59Z, and failure on the three other pack "
-        "branches pushed in the same hour. 'Assurance CI': failure on this branch's PR #113 at 01:31Z, and its "
-        "result on PR #112 was never observed because the checks were still queued when it merged. Both "
-        "workflows run the same two steps this sandbox cannot reproduce — `scripts/run_lab.py` (needs numpy "
-        "from requirements-empirical.txt, absent here) and `pytest tests` — and 'Assurance CI' also runs "
-        "`scripts/audit_repo.py`, whose frozen baseline commit (86eca0f) is not resolvable in this clone. "
-        "Steps after those in the Assurance job pass locally: check_assurance.py ('OK: 9 assurance pages; 15101 "
-        "table rows all carry official HTTPS sources'), check_report.py, tools/release_gate.py, "
-        "tools/build_review.py --check. This pack's own workflow (nfl-dfc0c1bc) is green on both events, and "
-        "every per-pack check on both PRs is green. The failing step's log could not be read from here at all: "
-        "the Actions log blob host is unreachable from this sandbox and the API is rate-limited during a GitHub "
-        "incident (live URLs answered 500), so this row attributes the failures as pre-existing on the evidence "
-        "stated, and does not diagnose them.",
-        "A reviewer who reads 'all checks pass' off a PR page will miss that two repo-wide gates are already "
-        "red; and a session that fixes them will be credited with an unrelated repair. It also means a pack "
-        "cannot use 'CI is green' as evidence for anything — only its own workflow's colour means something.",
-        "whoever owns the empirical lab and the assurance pipeline should reopen them; nothing in this pack's "
-        "scope touches those scripts, and rule 13 forbids editing them from here",
-        "https://github.com/sassnarep3-star/Own6/actions/workflows/lab-ci.yml")
+    add("DFC-F91", "info", "shared gates wired to unrelated files",
+        "This branch turned two repo-wide workflows red — 'Assurance CI' and 'Lab CI' — not by editing anyone's "
+        "data but by growing tracked files, and the fix was mechanical: regenerate the shared inventories in the "
+        "same commit. Recorded here because nothing in a pack's own verifier tells it that is coming.",
+        "PR #113: 'assurance' failed at 01:31Z while every per-pack check passed. The board documents the "
+        "mechanism at its 'inventory fixed point' note — data/assurance/**, data/source_coverage/** and "
+        "audit/SOURCE_COVERAGE.md count *lines* of tracked text, so any commit that grows a tracked file "
+        "(COORDINATION.md above all) makes them stale, and the remedy is build_lab -> build_assurance -> "
+        "source_coverage -> audit_repo until two consecutive passes are byte-identical. That was done in this "
+        "commit: after regeneration, audit_repo, run_lab, check_assurance (15,792 rows, all source-linked), "
+        "check_lab, check_report, tools/build_review.py --check, tools/check_site.py, scripts/check_site.py, "
+        "scripts/linkcheck.py and pytest (676 passed) all pass locally, and the inventory diff is clean. "
+        "'Lab CI' had also been failing on main at 00:41Z/00:43Z for reasons this pack did not diagnose — an "
+        "earlier session's COORDINATION.md edit is the obvious candidate, since the coupling is identical, but "
+        "the job log is unreadable from this sandbox (Actions log host unreachable, API rate-limited during a "
+        "GitHub incident), so it is left as an open question rather than a conclusion.",
+        "Until this is decided, 'CI is red' carries no information about a pack's data and 'CI is green' about "
+        "anyone's: the two shared gates measure repository line counts. A session that adds files must "
+        "regenerate the fixed point, and a session that reads a red gate must first ask whether the branch grew "
+        "a tracked file. Also flagged: this pack's own scope rule had to admit the regenerated paths as a "
+        "documented exception — a verifier that forbids touching other files while a shared register demands "
+        "it is telling you the coupling is wrong.",
+        "decide RF-11 in T12/T14 — either a shared job regenerates the inventories for every branch, or the "
+        "line-count inventory is replaced by per-pack content hashes; until then, add the regeneration to the "
+        "definition of 'done' for any branch that touches COORDINATION.md",
+        "https://github.com/sassnarep3-star/Own6/blob/main/COORDINATION.md")
     add("DFC-F90", "info", "scope honesty",
         "This pack changed no other pack's data; it only read and reported.",
         "git diff shows this pack's files plus additive links on the two shared index pages",

@@ -510,5 +510,17 @@ def repo_findings(stats: Dict[str, str]) -> List[Dict[str, str]]:
     add("RF-10", "The site can prove a source URL exists but not that it said anything.",
         f"registers carrying a source URL column: {stats['registers_with_url']}/{stats['register_files']}; retained raw text files: {stats['raw_files']}",
         "A link is not an evidence chain. Without retained text, tomorrow's reviewer cannot tell a misread from a changed source.",
-        "Keep the raw excerpt with its hash for every read the site cites (T03), including the 12 this session recorded.")
+        "Keep the raw excerpt with its hash for every read the site cites (T03); a read that survives only as a "
+        "URL in a CSV is unverifiable the moment the page changes.")
+    add("RF-11", "Two repo-wide gates are wired to unrelated files, so every pack can break them by accident.",
+        "data/assurance/**, data/source_coverage/** and audit/SOURCE_COVERAGE.md count lines of tracked text, "
+        "so any commit that grows any tracked file - COORDINATION.md included - makes them stale; the "
+        "remedy the board itself records is to re-run build_lab -> build_assurance -> source_coverage -> "
+        "audit_repo in the same commit until two passes are byte-identical",
+        "A session that only edits prose or adds a pack silently turns Assurance CI and Lab CI red, and then "
+        "has to decide whether the red means something about its data. It does not - but nothing in a pack's "
+        "own verifier says so, and this branch hit it: PR #113 failed assurance until the inventories were "
+        "regenerated here.",
+        "Decide in T12/T14: either a shared pre-merge job regenerates the fixed point for every branch, or a "
+        "line-count inventory is dropped in favour of content hashes per pack that no other pack's edit can age.")
     return f
