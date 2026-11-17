@@ -178,10 +178,13 @@ def designation_calibration() -> Tuple[List[Dict[str, object]], List[Dict[str, o
             "wilson_lo": lo if n else "",
             "wilson_hi": hi if n else "",
             "suggested_feature_use": (
-                "Out rows never appeared on an inactive list — treat Out as a hard exclusion, not a probability" if d == "Out" else
-                "sample too small to separate Doubtful from Questionable" if d == "Doubtful" else
-                "blank is not a designation; do not score it as healthy" if d == "" else
-                "wide interval: usable as a weak prior only after a multi-week sample"),
+                ("%d of %d Out rows appear on the official inactive list, so Out is a strong exclusion; %d do "
+                 "not, and a row that does not join may simply have escaped exact-name matching - so the "
+                 "denominator is the joinable subset, not every Out designation. The names are in "
+                 "designation_players.csv." % (a["inactive"], n, k)) if d == "Out" else
+                "n=%d: far too small to separate Doubtful from Questionable" % n if d == "Doubtful" else
+                ("n=%d: blank is not a designation; do not score it as healthy" % n) if d == "" else
+                ("n=%d, wide interval: usable as a weak prior only after a multi-week sample" % n)),
             "source_url": "https://www.nfl.com/injuries/ + https://www.nfl.com/news/nfl-week-10-inactives-players-ruled-out-sunday-2026-season",
         })
     return rows, per_player

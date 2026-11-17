@@ -150,6 +150,18 @@ def main() -> int:
         if not x.get("n_players_joined") or not x.get("observed_play_rate"):
             fail("8", "calibration row %r missing n or rate" % x.get("game_designation"))
 
+    # 8b ------------------------------- calibration prose equals calibration data
+    from nfl_ca1b import availability as AV
+    for row in cal:
+        n = int(row["n_players_joined"])
+        if str(n) not in row["suggested_feature_use"]:
+            fail("8", "calibration row %r does not quote its own n=%d in its guidance text"
+                 % (row["game_designation"], n))
+        if row["game_designation"] == "Out":
+            k = int(row["n_on_inactive_list"])
+            if str(k) not in row["suggested_feature_use"]:
+                fail("8", "Out guidance does not quote the joined-inactive count %d it relies on" % k)
+
     # 9/10/11 ---------------------------------------------------------- pages
     pages = sorted(f for f in os.listdir(DOCS) if f.endswith(".html"))
     if len(pages) < 18:
