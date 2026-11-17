@@ -3130,11 +3130,11 @@ integration, additive links only, and only if free at that time.
 
 | Task | Status | Owner | Files touched |
 |---|---|---|---|
-| N99-1 Claim G-SWEEP; read official roster page for all 32 clubs (verbatim, clocked) | in progress | 99a1199e | `data/nfl_99a1199e/roster_sweep.csv`, `data/nfl_99a1199e/roster_register.csv`, `data/nfl_99a1199e/reserve_register.csv`, `data/nfl_99a1199e/capture_log.csv` |
-| N99-2 Publish sweep dashboard (per-club table + reserve register + flagged) | unclaimed | 99a1199e | `docs/nfl-99a1199e/**`, `scripts/build_nfl_99a1199e.py` |
-| N99-3 Automated line-by-line verifier + regression tests | unclaimed | 99a1199e | `scripts/check_nfl_99a1199e.py`, `tests/test_nfl_99a1199e.py` |
-| N99-4 Executive summary + repo/source audit | unclaimed | 99a1199e | `NFL_99A1199E_EXECUTIVE_SUMMARY.md`, `audit/NFL_99A1199E_REPO_REVIEW.md` |
-| N99-5 Final integration: additive nav links, gates, PR, merge, Pages confirmation | unclaimed | 99a1199e | `COORDINATION.md` (append-only), `README.md` (append-only), `docs/index.html` (additive link only) |
+| N99-1 Claim G-SWEEP; read official roster page for all 32 clubs (verbatim, clocked) | done | 99a1199e | `src/nfl_99a1199e/roster_data.py`, `data/nfl_99a1199e/roster_sweep.csv`, `data/nfl_99a1199e/reserve_register.csv`, `data/nfl_99a1199e/capture_log.csv` |
+| N99-2 Publish sweep dashboard (per-club table + reserve register + flagged) | done | 99a1199e | `docs/nfl-99a1199e/**`, `src/nfl_99a1199e/sweep.py`, `scripts/build_nfl_99a1199e.py` |
+| N99-3 Automated line-by-line verifier + regression tests | done | 99a1199e | `scripts/check_nfl_99a1199e.py`, `tests/test_nfl_99a1199e.py` |
+| N99-4 Executive summary + repo/source audit | done | 99a1199e | `NFL_99A1199E_EXECUTIVE_SUMMARY.md`, `audit/NFL_99A1199E_REPO_REVIEW.md` |
+| N99-5 Final integration: additive nav links, gates, PR, merge, Pages confirmation | in progress | 99a1199e | `COORDINATION.md` (append-only), `README.md` (append-only), `docs/index.html` (additive link only) |
 
 **Evidence boundary:** every row is read verbatim from the official NFL roster page named beside
 it and carries that page's URL plus a UTC read clock. Status codes (ACT/CUT/DEV/PUP/RES/RSR/TRC/

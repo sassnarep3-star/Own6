@@ -12,6 +12,7 @@ An evidence-first research repository with an NFL line-origination and validatio
 - **NFL executive summary:** [`docs/nfl-origination/executive-summary.html`](docs/nfl-origination/executive-summary.html)
 - **Additional self-contained NFL Week pack:** [`docs/nfl-wk/index.html`](docs/nfl-wk/index.html) — separate input snapshots and quarantined strategy candidates; not combined with the main leaderboard.
 - **Decision desk (session `67233566`):** [`docs/nfl-67233566/index.html`](docs/nfl-67233566/index.html) — 145 finished games reconciled 220-for-220 against the official standings and card badges, a hash-chained opening/closing ledger for the lines we originate, a 12-strategy signal leaderboard ranked on proper scores with a game-cluster lower bound and a multiplicity adjustment, availability floors per position group, and one table per requirement naming the gate that blocks it. Market prices stay blank by written policy because no official page in the evidence set prints one.
+- **32-club roster sweep (session `99a1199e`):** [`docs/nfl-99a1199e/index.html`](docs/nfl-99a1199e/index.html) — all 32 official NFL roster pages read on 2026-11-17 UTC and transcribed verbatim: 2,858 rows (1,715 active, 1,143 reserve), 12 status codes stored exactly as printed, 95 flagged irregularities, every row linked to its official roster page. No interpretation, no merging of repeated names, no price values.
 - **Other research domains:** [NBA assurance](docs/assurance/index.html) · [all sections hub](docs/index.html)
 
 The repository root now opens an NFL-focused portal. The separate `docs/` dashboard and NBA, NFL, and housing research packs remain available; they have separate evidence boundaries and should not be read as multiple independent performance records.
@@ -292,3 +293,28 @@ Build / check / test: `python3 scripts/build_nfl_48217a55.py` · `python3 script
 (115 checks) · `python3 -m unittest discover -s tests -p "test_nfl_48217a55.py"` (59 tests). The builder
 takes no arguments and touches no network, so a re-run reproduces byte-identical files. Executive summary:
 [`NFL_48217A55_EXECUTIVE_SUMMARY.md`](NFL_48217A55_EXECUTIVE_SUMMARY.md).
+
+## NFL 32-Club Roster Sweep (`docs/nfl-99a1199e/`) — added 2026-11-17
+
+A pack that closes the **G-SWEEP / R-13** gap: `data/nfl_8362b702/readiness.csv` had marked the
+32-club roster/IR sweep as delivered while its own sweep table showed only 1 of 32 roster pages read.
+This pack reads **all 32 official NFL club roster pages** on 2026-11-17 UTC and transcribes them
+verbatim. Published at [`docs/nfl-99a1199e/`](docs/nfl-99a1199e/) →
+https://sassnarep3-star.github.io/Own6/docs/nfl-99a1199e/
+
+- **2,858 roster rows** across 32 clubs, read from the official roster table
+  `| [Name](player-url) | jersey | pos | STATUS | … |`: 1,715 active rows (counted per club) and
+  1,143 reserve rows captured per player, in page order, each with its source URL and UTC read clock.
+- **12 status codes stored verbatim** — ACT, CUT, DEV, EXE, PUP, RES, RLS, RSN, RSR, TRC, TRD, TRT —
+  exactly as the publisher printed them. No code is expanded to an invented meaning.
+- **95 flagged irregularities**, captured and not interpreted: the GB name/slug mismatch, the IND
+  unusual status listing, the NE embedded-quote name, the two unlinked reserve rows (NO, TB), the CAR
+  row-total reconciliation, and 95 cross-club repeated-name occurrences (each kept on its own club page,
+  never merged).
+- **Zero-input, offline, deterministic**: the builder takes no arguments and touches no network; a
+  re-run reproduces byte-identical files.
+
+Build / check / test: `python3 scripts/build_nfl_99a1199e.py` · `python3 scripts/check_nfl_99a1199e.py`
+(10 rules) · `python3 tests/test_nfl_99a1199e.py` (10 tests). Executive summary:
+[`NFL_99A1199E_EXECUTIVE_SUMMARY.md`](NFL_99A1199E_EXECUTIVE_SUMMARY.md). Repo review:
+[`audit/NFL_99A1199E_REPO_REVIEW.md`](audit/NFL_99A1199E_REPO_REVIEW.md).
