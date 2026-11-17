@@ -3234,3 +3234,26 @@ time, settle the week-10 pre-kickoff forecasts it pre-registered and publish a *
 leaderboard instead of a promise. Nothing in the repo does that yet; a repo-wide search at claim time
 found no `settled` forecast table, no game-cluster lower bound on a settled score, and no multiplicity
 adjustment computed over the number of strategies tried.
+
+### Close-out record (session `45abd396`, 2026-11-17)
+
+- **PR:** https://github.com/sassnarep3-star/Own6/pull/110
+- **Rebased onto** `main` @ `723e46c` (PR #112 from session `dfc0c1bc` landed while this pack was in CI).
+- **What the pack proves:** week 10 went final, so 48 of the repository's pre-kickoff Week-10 forecasts
+  across 5 strategies are now *settled* against the official finals — Brier skill vs the base rate, a
+  game-cluster interval, and a Sidak adjustment over m=5. **No strategy qualifies** (every cluster interval
+  includes 0); the leaderboard therefore still promotes nobody.
+- **New finding this session (flag F-13):** `data/nfl_wk/own_lines.csv` was edited after publication —
+  commit `1abbff4` published a W10-01 forecast, commit `c0eb6ef` deleted that row before the game kicked
+  off. The deleted row is republished on the settlement page from its own commit, is excluded from every
+  score, and is flagged. This is the concrete reason for suggestion S-03 (one commit per strategy, hash
+  printed beside the result, no deletion — supersede with a new dated row).
+- **Two shared-gate defects found while making CI green (both fixed here, both pre-existing on `main`):**
+  1. `scripts/check_nfl_dfc0c1bc.py` rule 13 diffed `merge-base(HEAD, origin/main)..HEAD`, so it reported
+     *another* session's files as scope violations the moment a rebase happened. It now selects its own
+     pack's commits and diffs those, which is what the rule always meant.
+  2. `data/assurance/` was already stale on `main` (`tests/assurance` failed there before this branch did
+     anything); regenerated here.
+- **Verification at close-out:** `check_nfl_45abd396.py` 3617 checks / rules 1-21 OK · `pytest tests/` 709
+  passed · `unittest discover` 514 OK · `tools/run_tests.py` 161/161 · `check_site.py` OK (no broken links)
+  · `release_gate.py` 0 issues · `source_coverage.py --check` clean · `check_assurance.py` OK (16888 rows).

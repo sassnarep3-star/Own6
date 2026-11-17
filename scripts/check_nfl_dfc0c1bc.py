@@ -268,17 +268,29 @@ def main() -> int:
         if re.search(r"\bT\d\d\b", g["blocks_themes"]) is None:
             errs.append(f"rule 12: gap {g['gap_id']} blocks no decision — then why list it?")
 
-    # Rule 13 — scope: no other pack's file was touched by this branch
+    # Rule 13 — scope: none of THIS pack's commits touched another pack's file.
+    #
+    # The previous version diffed merge-base(HEAD, origin/main)..HEAD, which is
+    # only equal to "this pack's commits" while HEAD is the pack's own branch.
+    # Once the pack is merged, or once another session rebases its branch onto a
+    # main that already contains this pack, the same diff also reports that other
+    # session's files and this rule fails on innocent work. Selecting the pack's
+    # own commits first makes the rule say what it means on any branch.
+    own_commit_files = []
     try:
-        base = subprocess.run(["git", "merge-base", "HEAD", "origin/main"], cwd=REPO,
-                              capture_output=True, text=True).stdout.strip() or "HEAD~1"
-        changed = subprocess.run(["git", "diff", "--name-only", base, "HEAD"], cwd=REPO,
-                                 capture_output=True, text=True).stdout.split()
+        commits = subprocess.run(["git", "log", "--format=%H", "--",
+                                  "data/nfl_dfc0c1bc", "scripts/build_nfl_dfc0c1bc.py"],
+                                 cwd=REPO, capture_output=True, text=True).stdout.split()
+        for c in commits:
+            files = subprocess.run(["git", "diff-tree", "--no-commit-id", "--name-only", "-r",
+                                    "--root", c], cwd=REPO, capture_output=True, text=True).stdout.split()
+            own_commit_files.append((c[:8], files))
     except Exception:  # pragma: no cover - no git available
-        changed = []
-    for f in changed:
-        if not any(f.startswith(p.rstrip("/")) or f == p for p in OWN_SCOPE):
-            errs.append(f"rule 13: this branch touches {f}, outside the claimed scope")
+        own_commit_files = []
+    for short, files in own_commit_files:
+        for f in files:
+            if not any(f.startswith(p.rstrip("/")) or f == p for p in OWN_SCOPE):
+                errs.append(f"rule 13: commit {short} touches {f}, outside the claimed scope")
 
     # Rule 14 — every page carries the pack nav and the disclaimer
     for name in REQUIRED_PAGES:
