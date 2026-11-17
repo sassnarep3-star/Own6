@@ -629,9 +629,14 @@ With m={len(STRATEGIES)} strategies tried, the Šidák-adjusted per-test level i
     body = f"""
 <section><h2>Forecast settlement register — {len(p['settled'])} rows</h2>
 <div class="note"><b>Why the commit time is published.</b> A forecast is only usable if it existed
-before the game. Each row's <code>value_committed_utc</code> is the commit that first added the file
-holding it (<code>git log --diff-filter=A</code>). Four rows were committed <i>after</i> their game
-kicked off — all for the Thursday fixture, whose kickoff was 2026-11-13T01:15Z — so they are labelled
+before the game. Each row's <code>value_committed_utc</code> is the committer date of the commit that
+first added the file holding it, read once with
+<code>git log --diff-filter=A --format=%H -- &lt;path&gt;</code> and
+<code>git show -s --format=%cI &lt;sha&gt;</code>, then frozen in
+<code>src/nfl_45abd396/settle.py</code> so the label cannot change with the commit graph a builder
+happens to see. Verifier rule 21 re-checks the frozen value against git and can be reproduced by hand
+with those two commands. Seven rows were committed <i>after</i> their game kicked off — all for the
+Thursday fixture, whose kickoff was 2026-11-13T01:15Z — so they are labelled
 <code>post_kickoff</code> and excluded from every score on this site.</div>
 <div class="note">Results come only from this session's read of the official week-10 schedule page.
 A number taken from another pack's CSV would not be an official source, so none is used.</div>

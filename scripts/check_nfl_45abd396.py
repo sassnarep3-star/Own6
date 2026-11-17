@@ -33,7 +33,9 @@ Rules
 17 Every finished game in the finals table has a recomputable margin and total.
 18 The two strategy columns from a411fed0 are both present and scored separately.
 19 Every page in the pack is reachable from the navigation.
-20 The builder is deterministic: two consecutive builds are byte-identical
+20 The builder embeds no build timestamp.
+21 Frozen provenance: the commit and committer date of each forecast file
+   match git, and the register carries them verbatim.
     (checked separately by CI; here we assert no timestamp is embedded).
 """
 from __future__ import annotations
@@ -264,13 +266,39 @@ def main() -> int:
         body = open(page, encoding="utf-8").read()
         check("generated at" not in body.lower(), "20", f"{os.path.basename(page)} embeds a build time")
 
+    # ---- rule 21: frozen provenance is honest (checked only when git has the objects)
+    sys.path.insert(0, os.path.join(REPO, "src"))
+    from nfl_45abd396 import settle as ST
+    import subprocess
+    git_ok = subprocess.run(["git", "cat-file", "-e", "e919855d0a3d6faa136165d6ec865a5c2aad30ef"],
+                            cwd=REPO, capture_output=True).returncode == 0
+    for path, (iso, short, full) in ST.FIRST_ADD_COMMIT.items():
+        check(len(full) == 40, "21", f"{path} full sha is not 40 chars")
+        check(short == full[:8], "21", f"{path} short sha does not match the full sha")
+        if git_ok:
+            real = subprocess.run(["git", "show", "-s", "--format=%cI", full],
+                                  cwd=REPO, capture_output=True, text=True).stdout.strip()
+            check(real == iso, "21", f"{path} committer date {real} != frozen {iso}")
+            added = subprocess.run(["git", "log", "--diff-filter=A", "--format=%H", "--", path],
+                                   cwd=REPO, capture_output=True, text=True).stdout.split()
+            check(added and added[-1] == full, "21",
+                  f"{path} was first added by {added[-1] if added else '?'}, not {full}")
+    # the register must carry the frozen values verbatim
+    for r in settled:
+        entry = ST.FIRST_ADD_COMMIT.get(r["source_path"])
+        if entry is None:
+            continue
+        check(r["value_committed_utc"] == entry[0], "21",
+              f"{r['forecast_id']} committed time differs from the frozen table")
+        check(r["commit"] == entry[1], "21", f"{r['forecast_id']} commit differs")
+
     print(f"pages: {len(pages)}  csv files: {len(csv_files)}  checks: {checks}")
     if errors:
         print(f"FAIL: {len(errors)} rule failures", file=sys.stderr)
         for e in errors[:40]:
             print("  " + e, file=sys.stderr)
         return 1
-    print("OK: all rules 1-20 pass")
+    print("OK: all rules 1-21 pass")
     return 0
 
 

@@ -22,7 +22,6 @@ from __future__ import annotations
 
 import csv
 import os
-import subprocess
 from datetime import datetime, timezone
 
 from . import capture as C
@@ -115,18 +114,38 @@ SOURCE_SPECS = [
 ]
 
 
-def run(cmd):
-    return subprocess.run(cmd, cwd=REPO, capture_output=True, text=True, check=False).stdout.strip()
+# Provenance is *captured data*, not derived at build time.
+#
+# Each entry was read once, in this session, with
+#     git log --diff-filter=A --format=%H -- <path>   (take the earliest)
+#     git show -s --format=%cI <sha>
+# and is frozen here. Deriving it inside the builder would make the published
+# point-in-time labels depend on the commit graph the builder happens to see:
+# on a GitHub pull-request merge ref the same files resolve to different commits,
+# so the same CSV rebuilt in CI differed from the committed one. A frozen table
+# is reproducible everywhere and is checkable by hand with the two commands above.
+FIRST_ADD_COMMIT = {
+    "data/nfl_a411fed0/origination_2026_w10.psv": (
+        "2026-11-14T22:28:35+00:00", "e919855d",
+        "e919855d0a3d6faa136165d6ec865a5c2aad30ef"),
+    "data/nfl_d966f630/originated_lines.csv": (
+        "2026-11-14T22:21:15+00:00", "f5c0790e",
+        "f5c0790e2f183025549c8e6360198d1c8f4b34c2"),
+    "data/nfl_6cefc476/originated_lines.csv": (
+        "2026-11-14T22:14:54+00:00", "834555be",
+        "834555bea41500ef112512ef5539ea196e8a9022"),
+    "data/nfl_wk/own_lines.csv": (
+        "2026-11-13T21:46:37+00:00", "1abbff43",
+        "1abbff430ff30d36812ae112f1278404d2b914bc"),
+}
 
 
 def first_add_commit(path: str) -> tuple[str, str]:
-    """(iso_utc, short_sha) of the commit that first added ``path``."""
-    sha = run(["git", "log", "--diff-filter=A", "--format=%H", "--", path])
-    if not sha:
+    """(committed_iso_utc, short_sha) of the commit that first added ``path``."""
+    entry = FIRST_ADD_COMMIT.get(path)
+    if entry is None:
         return "", ""
-    sha = sha.splitlines()[-1]
-    iso = run(["git", "show", "-s", "--format=%cI", sha])
-    return iso, sha[:8]
+    return entry[0], entry[1]
 
 
 def parse_iso(s: str) -> datetime | None:
