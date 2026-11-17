@@ -5,6 +5,11 @@ Registers: `data/nfl_dfc0c1bc/` (19 files, verified by `scripts/check_nfl_dfc0c1
 **Nothing on this board is implemented.** Every decision column is blank by design, and rule 4 of the
 verifier fails the build if a session writes into one.
 
+**Where the axes live, so a reviewer answers in the right place:** requirements and their gates belong to
+`nfl_6ab24751` (81 rows, RQ-01…RQ-81) and to `nfl_48217a55` (74); per-pack *implementation* rows belong to the
+pack that wrote them. This board owns only the two axes the owner asked for — the consolidated suggestion queue
+and the questions/information/answers surface that must be settled before a decision is reasonable.
+
 ## Why this pack exists
 
 Two instructions were open on the coordination board and neither was satisfied by the 17 packs already in

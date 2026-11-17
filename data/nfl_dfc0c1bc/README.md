@@ -82,6 +82,8 @@ here (e.g. the wrong-club attribution in `nfl_8362b702`) are published as reques
 ## What this pack does **not** do
 
 * It builds no model, no capture pipeline, and no price store — those are other packs' rows on the board.
+* It does not own the requirements axis: `nfl_6ab24751` (81 readiness rows) and `nfl_48217a55` (74) do. This
+  board reads their registers as evidence and never renumbers them.
 * It publishes no price and no pick. That the six price stores hold no market number is reported as a
   measurement (`price_semantics.csv`), not as a price.
 * It does not mark a row `verified` because another pack's CSV said so; inheritance is labelled `repo_claim`.
