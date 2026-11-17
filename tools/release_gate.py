@@ -18,7 +18,7 @@ from urllib.parse import unquote, urlparse
 ROOT = Path(__file__).resolve().parents[1]
 TEXT_SUFFIXES = {".html", ".py", ".js", ".md", ".json", ".csv", ".yml", ".yaml", ".css", ".txt"}
 MARKER = re.compile(r"^(?:<{7}(?:\s|$)|={7}$|>{7}(?:\s|$))", re.MULTILINE)
-OFFICIAL_HOSTS = {"www.nba.com", "official.nba.com", "github.com", "docs.github.com"}
+OFFICIAL_HOSTS = {"www.nba.com", "official.nba.com", "github.com", "docs.github.com", "www.nfl.com", "nfl.com", "operations.nfl.com"}
 
 
 class Page(html.parser.HTMLParser):

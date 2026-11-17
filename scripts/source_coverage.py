@@ -23,7 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 REPO = "https://github.com/sassnarep3-star/Own6"
 # This is a declared structural reference policy, not a trust/accuracy verdict.
 PUBLISHERS = {
-    "nba.com": "NBA", "law.go.kr": "Korean legislation portal",
+    "nba.com": "NBA", "nfl.com": "NFL", "law.go.kr": "Korean legislation portal",
     "nist.gov": "NIST", "scikit-learn.org": "scikit-learn",
     "scipy.org": "SciPy", "statsmodels.org": "statsmodels",
     "docs.github.com": "GitHub documentation", "docs.python.org": "Python documentation",
