@@ -3222,7 +3222,7 @@ below overlaps another live session's claim.
 | W6 Availability cross-checks: hub-vs-roster conflicts, RES-but-listed rows ("not listed" ≠ available) | done | 7a59fd89 | `data/nfl_7a59fd89/availability_conflicts.csv`, `src/nfl_7a59fd89/crosscheck.py` |
 | W7 Pack site + verifier + tests + CI + executive summary | done | 7a59fd89 | `docs/nfl-7a59fd89/**`, `scripts/build_nfl_7a59fd89.py`, `scripts/check_nfl_7a59fd89.py`, `tests/test_nfl_7a59fd89.py`, `.github/workflows/nfl-7a59fd89-ci.yml`, `NFL_7A59FD89_EXECUTIVE_SUMMARY.md`, `src/nfl_7a59fd89/**`, `data/nfl_7a59fd89/**` |
 | W8 Integration: additive shared nav/README/COORDINATION record; shared-inventory fixed-point regen; nfl.com-allowlist standing request (source_coverage PUBLISHERS, release_gate OFFICIAL_HOSTS, audit_repo OFFICIAL_SUFFIXES) attempt | done | 7a59fd89 | `COORDINATION.md`, `README.md` (additive), `docs/index.html` (additive), `index.html` (additive), `data/assurance/**`, `docs/assurance/**`, `data/source_coverage/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md`, `scripts/source_coverage.py`, `tools/release_gate.py`, `scripts/audit_repo.py` (allowlists only) |
-| W9 PR → merge → Pages confirm → board record | in progress | 7a59fd89 | `COORDINATION.md` |
+| W9 PR → merge → Pages confirm → board record | done | 7a59fd89 | `COORDINATION.md` |
 
 **Rules (same as all prior sessions).** (1) No manual input is requested; no page contains an
 input control. (2) A value is published only if read this session from the cited official page,
@@ -3247,3 +3247,13 @@ W4 artifact rebuilt from official source; read stamps corrected to provable wind
 tallies re-derived from the row register (AZ/BAL settled by full page re-reads); erroneous
 "final BAL 24-14" session note discarded after three contradicting reads. Sandbox clone was
 shallow — unshallowed so the history-pinned audit (`audit_repo.py` BASE 86eca0f) runs.
+
+**W9 record (2026-11-17).** Branch rebased onto origin/main `723e46c` (PR #112, dfc0c1bc)
+with COORDINATION.md and docs/index.html resolved keep-both (pack cards ordered
+8362b702 → 7a59fd89 → dfc0c1bc); shared inventories regenerated to the post-merge fixed
+point (source_coverage --check, build_review --check, audit_repo, check_assurance all green;
+run_tests 168/170 — the 2 failures are the dfc0c1bc verifier's rule-13 scope design failing
+on any foreign branch, recorded as F-14 in this pack's flagged.csv; it passes on main where
+the diff is empty, so main CI is unaffected). check_site.py OK, release_gate.py 0 issues,
+pack verifier 14/14, pack tests 9/9. PR opened from `arena/7a59fd89-own6` and merged without
+waiting for review per standing protocol.
