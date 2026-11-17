@@ -3173,17 +3173,17 @@ information-gap register with the acquisition route for each gap. Those three ar
 
 | Task | Status | Owner | Files touched |
 |---|---|---|---|
-| D1 Inventory + line-by-line read of every suggestion/question/flag register in `data/**`; canonical-schema normalizer | in progress | `dfc0c1bc` | `src/nfl_dfc0c1bc/registers.py`, `src/nfl_dfc0c1bc/consolidate.py` |
-| D2 Consolidated suggestion master (dedup, option paths, evidence needed, review-before-implement decision columns) | in progress | `dfc0c1bc` | `data/nfl_dfc0c1bc/suggestions_master.csv` |
-| D3 Consolidated Q/I/A master: question, what we have, what we lack, answer status, discovery route | in progress | `dfc0c1bc` | `data/nfl_dfc0c1bc/questions_master.csv` |
-| D4 Information-gap register: missing dataset, why it blocks, the exact acquisition route, the number that clears it | in progress | `dfc0c1bc` | `data/nfl_dfc0c1bc/information_gaps.csv` |
-| D5 Cross-pack contradiction register (claim vs. the file it cites, recomputed, not asserted) | in progress | `dfc0c1bc` | `data/nfl_dfc0c1bc/cross_pack_conflicts.csv`, `data/nfl_dfc0c1bc/claim_checks.csv` |
-| D6 Live official reads that CLOSE open questions (dated, hashed, blank where unread) | in progress | `dfc0c1bc` | `src/nfl_dfc0c1bc/capture.py`, `data/nfl_dfc0c1bc/official_reads.csv`, `data/nfl_dfc0c1bc/answers.csv` |
-| D7 Recommended decision paths + sequencing (what to do first and why), review UI columns for the owner | in progress | `dfc0c1bc` | `data/nfl_dfc0c1bc/decision_paths.csv`, `data/nfl_dfc0c1bc/gate_updates.csv` |
-| D8 Site: dedicated Suggestions section + Q/I/A + gaps + conflicts + paths + flagged + exec summary | in progress | `dfc0c1bc` | `docs/nfl-dfc0c1bc/**`, `scripts/build_nfl_dfc0c1bc.py` |
-| D9 Verifier + tests + CI (no unsourced row, no invented value, register integrity) | in progress | `dfc0c1bc` | `scripts/check_nfl_dfc0c1bc.py`, `tests/test_nfl_dfc0c1bc.py`, `.github/workflows/nfl-dfc0c1bc-ci.yml` |
-| D10 Repo review record + executive summary at root | in progress | `dfc0c1bc` | `audit/NFL_DFC0C1BC_REPO_REVIEW.md`, `NFL_DFC0C1BC_EXECUTIVE_SUMMARY.md` |
-| D11 Integration: additive hub links, PR → merge → Pages check → board record | unclaimed→in progress | `dfc0c1bc` | `docs/index.html` (additive only), `index.html` (additive only), `COORDINATION.md` |
+| D1 Inventory + line-by-line read of every suggestion/question/flag register in `data/**`; canonical-schema normalizer | **complete** | `dfc0c1bc` | `src/nfl_dfc0c1bc/registers.py`, `src/nfl_dfc0c1bc/consolidate.py` |
+| D2 Consolidated suggestion master (dedup, option paths, evidence needed, review-before-implement decision columns) | **complete** | `dfc0c1bc` | `data/nfl_dfc0c1bc/suggestions_master.csv` |
+| D3 Consolidated Q/I/A master: question, what we have, what we lack, answer status, discovery route | **complete** | `dfc0c1bc` | `data/nfl_dfc0c1bc/questions_master.csv` |
+| D4 Information-gap register: missing dataset, why it blocks, the exact acquisition route, the number that clears it | **complete** | `dfc0c1bc` | `data/nfl_dfc0c1bc/information_gaps.csv` |
+| D5 Cross-pack contradiction register (claim vs. the file it cites, recomputed, not asserted) | **complete** | `dfc0c1bc` | `data/nfl_dfc0c1bc/cross_pack_conflicts.csv`, `data/nfl_dfc0c1bc/claim_checks.csv` |
+| D6 Live official reads that CLOSE open questions (dated, hashed, blank where unread) | **complete** | `dfc0c1bc` | `src/nfl_dfc0c1bc/reads.py`, `data/nfl_dfc0c1bc/official_reads.csv`, `data/nfl_dfc0c1bc/answers.csv` |
+| D7 Recommended decision paths + sequencing (what to do first and why), review UI columns for the owner | **complete** | `dfc0c1bc` | `data/nfl_dfc0c1bc/decision_paths.csv`, `data/nfl_dfc0c1bc/information_board.csv` |
+| D8 Site: dedicated Suggestions section + Q/I/A + gaps + conflicts + paths + flagged + exec summary | **complete** | `dfc0c1bc` | `docs/nfl-dfc0c1bc/**`, `scripts/build_nfl_dfc0c1bc.py` |
+| D9 Verifier + tests + CI (no unsourced row, no invented value, register integrity) | **complete** | `dfc0c1bc` | `scripts/check_nfl_dfc0c1bc.py`, `tests/test_nfl_dfc0c1bc.py`, `.github/workflows/nfl-dfc0c1bc-ci.yml` |
+| D10 Repo review record + executive summary at root | **complete** | `dfc0c1bc` | `audit/NFL_DFC0C1BC_REPO_REVIEW.md`, `NFL_DFC0C1BC_EXECUTIVE_SUMMARY.md` |
+| D11 Integration: additive hub links, PR → merge → Pages check → board record | **complete** | `dfc0c1bc` | `docs/index.html` (additive only), `index.html` (additive only), `COORDINATION.md` |
 
 **Non-overlapping scope guarantee.** Every file above is new (`nfl_dfc0c1bc` / `nfl-dfc0c1bc` namespaced) except
 `COORDINATION.md` (append-only) and the two shared index files at D11, where I will make **additive insertions
@@ -3195,3 +3195,23 @@ from another pack are `repo_claim` — reproduced with the file and line that sa
 by me. Anything neither read nor present in a repo file stays **blank and flagged**. No number is inferred, no
 odds or profit is claimed, and no suggestion is implemented on the owner's behalf: the whole point of this section
 is that the owner picks the path first.
+
+**Result — session `dfc0c1bc` (2026-11-17T01:27Z)**
+
+| item | outcome |
+|---|---|
+| Registers | `data/nfl_dfc0c1bc/` — 19 CSVs: 159 consolidated suggestions, 176 consolidated questions, 16 decision paths, 16 information-board rows, 13 gaps, 10 cross-pack conflicts, 18 claim checks, 11 reads, 15 observations, 8 answers, 12 reject guardrails, 10 repo findings, 26 flags, `price_semantics.csv`, `sources.csv` (register hash ledger), `lions_status_check.csv`, plus a `README.md` column dictionary. |
+| Site | `docs/nfl-dfc0c1bc/` — 11 pages (index, suggestions, questions, answers, gaps, paths, conflicts, repo-review, sources, flagged, executive-summary). Additive links only on `docs/index.html` (nav + card) and `index.html` (one portal article). |
+| Root docs | `NFL_DFC0C1BC_EXECUTIVE_SUMMARY.md`, `audit/NFL_DFC0C1BC_REPO_REVIEW.md`. |
+| Verification | `scripts/check_nfl_dfc0c1bc.py` → `OK — 15 rules, 0 failures`; `tests/test_nfl_dfc0c1bc.py` → `ALL PASS (11 tests)`; `tools/run_tests.py` → `161/161`; `tools/release_gate.py` → `0 issue(s)`; sibling checker `scripts/check_nfl_8362b702.py` → `CHECK PASS`. Rule 9 rebuilds the pack inside the verifier and fails on any byte change; rule 15 re-hashes every consolidated register; rule 4 fails the build if a session writes into an owner column; rule 13 fails it if this branch edits another pack's file. |
+| PR | https://github.com/sassnarep3-star/Own6/pull/112 — **MERGED** as merge commit `723e46c` (`gh pr merge 112 --merge`, no squash, no rebase) at 2026-11-17T01:23:08Z. |
+| CI | This pack's workflow `nfl-dfc0c1bc` (build → committer diff check → verifier → tests): **green** on both the push and the pull-request event. Every sibling pack check on the PR was green (verify, hub, hub-references, assurance, daily, published-html, source-coverage, parlay-safety, verify-nfl-*). Shared workflow **`Lab CI` is red — on `main` as well** (last success 2026-11-16T00:34:59Z), so it is pre-existing and unrelated to this branch; recorded as flag `DFC-F91` rather than fixed here. Its job log could not be read from this sandbox (the Actions log blob host is unreachable from here), so the cause is attributed as pre-existing, not diagnosed. |
+| Pages | Build for `723e46c` requested 2026-11-17T01:23:09Z, still `building` at 01:27Z; the live URL answered with a GitHub 500 "Unicorn" page at that minute, which also blocked the Actions log fetch above. **Live render of `https://sassnarep3-star.github.io/Own6/docs/nfl-dfc0c1bc/index.html` is therefore NOT yet confirmed** — whoever picks this up should re-check that URL and the Pages build status; the pack is fully readable in-repo meanwhile. |
+| Corrections requested of other packs (not applied by me, by the scope rule) | `nfl_8362b702/reserve_absence.csv` — Willis belongs to Miami's reserve list, not GB, and the state is documented (`CF-01`, `DFC-F01`). `nfl_d966f630/price_snapshots_open_close.csv` — 39 `closing_number` cells cite an nfl.com schedule page that was read in full this session and publishes no line: move input provenance to its own column and add a host-class rule to that pack's verifier (`CF-10`). `nfl_48217a55` — the two files the board names (`depth_chart_register.csv`, `depth_slot_shapes.csv`) are still absent (`CF-04`, `C15`). |
+| What the owner has to do | Choose among the 16 paths in `data/nfl_dfc0c1bc/decision_paths.csv` (or on `docs/nfl-dfc0c1bc/paths.html`) and write the choice into `owner_choice`; `G-13` is exactly this gap and clears at the first recorded choice. Nothing on the board was implemented, and no session should implement a path the owner has not chosen. |
+
+**Deviation recorded.** The `session-<id>/<task>` branch-naming rule is not followed: Arena fixes this session to
+`arena/dfc0c1bc-own6` (same deviation as 05e359b8, d966f630, 8362b702, 45abd396, ca1b3769). The D1–D11 table
+above now names the files that actually exist — `src/nfl_dfc0c1bc/reads.py` and
+`data/nfl_dfc0c1bc/information_board.csv` replaced the `capture.py` / `gate_updates.csv` placeholders written at
+claim time, because naming an artifact that does not exist is the exact defect this pack filed as `CF-04`.
