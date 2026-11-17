@@ -115,19 +115,27 @@ def test_cross_pack_verification_finds_no_contradiction():
 
 
 def test_builder_is_byte_identical_on_rebuild():
-    def digest():
+    def snapshot():
         import hashlib
-        h = hashlib.sha256()
+        out = {}
         for root in ("data/nfl_ca1b", "docs/nfl-ca1b"):
             for f in sorted(os.listdir(os.path.join(REPO, root))):
                 p = os.path.join(REPO, root, f)
-                h.update(f.encode())
-                h.update(open(p, "rb").read())
-        return h.hexdigest()
-    before = digest()
-    subprocess.check_call([sys.executable, os.path.join(REPO, "scripts", "build_nfl_ca1b.py")],
-                          stdout=subprocess.DEVNULL)
-    assert digest() == before
+                out[f"{root}/{f}"] = hashlib.sha256(open(p, "rb").read()).hexdigest()
+        return out
+    before = snapshot()
+    proc = subprocess.run([sys.executable, os.path.join(REPO, "scripts", "build_nfl_ca1b.py")],
+                          capture_output=True, text=True)
+    assert proc.returncode == 0, proc.stdout + proc.stderr
+    after = snapshot()
+    changed = [k for k in sorted(before) if before[k] != after[k]]
+    # Name the files: a bare digest mismatch is undiagnosable in CI, where the
+    # action log is not downloadable and only the assertion text survives.
+    assert not changed, (
+        "rebuild changed " + ", ".join(changed)
+        + "\n--- builder stdout ---\n" + proc.stdout[-1500:]
+        + "\n--- builder stderr ---\n" + proc.stderr[-1500:]
+    )
 
 
 def test_pack_verifier_passes():
