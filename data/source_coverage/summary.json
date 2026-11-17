@@ -2,12 +2,12 @@
   "coverage": {
     "no_https_reference": 826,
     "official_reference_present": 15820,
-    "repository_reference_only": 1812,
-    "secondary_reference_only": 9829
+    "repository_reference_only": 1814,
+    "secondary_reference_only": 9830
   },
-  "data_rows": 28287,
+  "data_rows": 28290,
   "independently_value_verified_by_this_audit": 0,
-  "input_manifest_sha256": "accb0e8005224100c5f8273bb438cea87caa3fae94345bae51b597ed3eb59a65",
+  "input_manifest_sha256": "43a6dc2f2d67aaca60855596060b3c840903338adc1f552af82398612216a5d1",
   "note": "Zero certified by this structural audit is not a claim that all prior facts are false. Official link presence never verifies a row value.",
   "pages": 355,
   "scope": "root index.html and docs/**/*.html excluding docs/coverage/** (self-generated audit)"
