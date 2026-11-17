@@ -799,6 +799,19 @@ def flags_for(checks, conflicts, gaps, stats) -> list:
                 f"{g['gap_id']} — {g['missing_dataset']}",
                 g["coverage_now"], g["risk_if_left_open"],
                 f"route: {g['acquisition_route']} · clears at: {g['clearing_number']}", "")
+    add("DFC-F91", "info", "green board, red repo",
+        "The shared 'Lab CI' workflow fails on this branch, on every other open branch, and on main — it is "
+        "not caused by this pack.",
+        "observed from the session 2026-11-17T01:12Z to 01:20Z: Lab CI conclusion 'failure' on main at "
+        "00:43Z and 00:41Z, last success 2026-11-16T00:34:59Z, and failure on the three other pack branches "
+        "pushed the same hour. This pack's own workflow (nfl-dfc0c1bc) is green and its 15-rule verifier and "
+        "11 tests pass locally. The failure log itself could not be read from this sandbox: the Actions log "
+        "blob host is not reachable here, so the cause is not diagnosed, only attributed as pre-existing.",
+        "A reviewer who reads 'all checks pass' off a PR page will miss that a repo-wide gate is already red; "
+        "and a session that fixes Lab CI will be credited with an unrelated repair.",
+        "whoever owns scripts/run_lab.py + audit_sources.py should reopen it; nobody in this pack's scope did "
+        "anything about it",
+        "https://github.com/sassnarep3-star/Own6/actions/workflows/lab-ci.yml")
     add("DFC-F90", "info", "scope honesty",
         "This pack changed no other pack's data; it only read and reported.",
         "git diff shows this pack's files plus additive links on the two shared index pages",
