@@ -1,0 +1,75 @@
+name: nfl-45abd396
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/nfl_45abd396/**'
+      - 'data/nfl_45abd396/**'
+      - 'docs/nfl-45abd396/**'
+      - 'scripts/build_nfl_45abd396.py'
+      - 'scripts/check_nfl_45abd396.py'
+      - 'tests/test_nfl_45abd396.py'
+      - '.github/workflows/nfl-45abd396-ci.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'src/nfl_45abd396/**'
+      - 'data/nfl_45abd396/**'
+      - 'docs/nfl-45abd396/**'
+      - 'scripts/build_nfl_45abd396.py'
+      - 'scripts/check_nfl_45abd396.py'
+      - 'tests/test_nfl_45abd396.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-verify-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0        # the settlement register reads commit times
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Build the pack (offline, deterministic)
+        run: python3 scripts/build_nfl_45abd396.py
+      - name: Generated files must match the builder byte for byte
+        run: |
+          if ! git diff --exit-code -- data/nfl_45abd396 docs/nfl-45abd396; then
+            echo "::error::builder output differs from the committed files in CI"
+            git diff -- data/nfl_45abd396 docs/nfl-45abd396 | head -160 | sed 's/^/::error::/'
+            exit 1
+          fi
+      - name: Second build must be identical (determinism)
+        run: |
+          python3 scripts/build_nfl_45abd396.py
+          git diff --exit-code -- data/nfl_45abd396 docs/nfl-45abd396
+      - name: Fail-closed verifier (rules 1-21)
+        run: |
+          python3 scripts/check_nfl_45abd396.py 2>&1 | tee /tmp/verify.txt || {
+            sed 's/^/::error::/' /tmp/verify.txt | tail -30
+            exit 1
+          }
+      - name: Pack tests
+        run: |
+          python3 -m unittest discover -s tests -p 'test_nfl_45abd396.py' -v 2>&1 | tee /tmp/tests.txt || {
+            sed 's/^/::error::/' /tmp/tests.txt | tail -40
+            exit 1
+          }
+      - name: No page carries an input control or a profit claim
+        run: |
+          python3 - <<'PY'
+          import glob
+          bad = []
+          for f in glob.glob('docs/nfl-45abd396/*.html'):
+              t = open(f, encoding='utf-8').read().lower()
+              for token in ('<input', '<form', 'guaranteed', 'units won', 'sure thing'):
+                  if token in t:
+                      bad.append((f, token))
+          print('violations:', bad)
+          raise SystemExit(1 if bad else 0)
+          PY

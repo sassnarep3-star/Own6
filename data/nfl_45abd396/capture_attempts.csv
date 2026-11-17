@@ -1,0 +1,9 @@
+attempt_id,url,read_at_utc,outcome,detail
+A-01,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-17T00:41:00Z,ok,14 cards; 13 FINAL
+A-02,https://www.nfl.com/standings/,2026-11-17T00:43:00Z,ok,32 rows; 2 unlabelled columns
+A-03,https://www.nfl.com/injuries/,2026-11-17T00:47:00Z,ok,347 rows; 28 clubs; Week 11 tab absent
+A-04,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-17T00:52:00Z,ok,13 cards; 4 bye clubs
+A-05,https://www.nfl.com/transactions/,2026-11-17T00:56:00Z,ok,12 trade rows for November
+A-06,https://www.nfl.com/transactions/league/reserve-list/2026/11,2026-11-17T00:57:00Z,ok,25 reserve/injured rows for November
+A-07,https://www.nfl.com/news/dolphins-place-qb-malik-willis-groin-on-injured-reserve-kyle-mccord-in-line-for-first-start,2026-11-17T00:58:00Z,ok,article body read
+A-08,https://www.nfl.com/games/chargers-at-ravens-2026-reg-10,2026-11-17T00:54:00Z,ok,Game Info block + 8 injury snippets

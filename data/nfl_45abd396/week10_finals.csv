@@ -1,0 +1,15 @@
+game_id,day_on_card,slot_on_card,away,home,status_on_card,away_score,home_score,margin_home,total,winner,event_mark,is_final,game_page_url,schedule_url,read_at_utc
+W10-01,"Thursday, November 12th",8:15 PM,WAS,NYG,FINAL,24,21,-3,45,WAS,,yes,https://www.nfl.com/games/commanders-at-giants-2026-reg-10,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-17T00:41:00Z
+W10-02,"Sunday, November 15th",9:30 AM,NE,DET,FINAL,10,35,25,45,DET,Munich 2026,yes,https://www.nfl.com/games/patriots-at-lions-2026-reg-10,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-17T00:41:00Z
+W10-03,"Sunday, November 15th",1:00 PM,KC,ATL,FINAL,35,13,-22,48,KC,,yes,https://www.nfl.com/games/chiefs-at-falcons-2026-reg-10,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-17T00:41:00Z
+W10-04,"Sunday, November 15th",1:00 PM,HOU,CLE,FINAL,24,27,3,51,CLE,,yes,https://www.nfl.com/games/texans-at-browns-2026-reg-10,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-17T00:41:00Z
+W10-05,"Sunday, November 15th",1:00 PM,MIN,GB,FINAL,30,10,-20,40,MIN,,yes,https://www.nfl.com/games/vikings-at-packers-2026-reg-10,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-17T00:41:00Z
+W10-06,"Sunday, November 15th",1:00 PM,MIA,IND,FINAL,22,24,2,46,IND,,yes,https://www.nfl.com/games/dolphins-at-colts-2026-reg-10,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-17T00:41:00Z
+W10-07,"Sunday, November 15th",1:00 PM,CAR,NO,FINAL,20,17,-3,37,CAR,,yes,https://www.nfl.com/games/panthers-at-saints-2026-reg-10,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-17T00:41:00Z
+W10-08,"Sunday, November 15th",1:00 PM,BUF,NYJ,FINAL,31,12,-19,43,BUF,,yes,https://www.nfl.com/games/bills-at-jets-2026-reg-10,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-17T00:41:00Z
+W10-09,"Sunday, November 15th",1:00 PM,JAX,TEN,FINAL,40,23,-17,63,JAX,,yes,https://www.nfl.com/games/jaguars-at-titans-2026-reg-10,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-17T00:41:00Z
+W10-10,"Sunday, November 15th",4:05 PM,LA,AZ,FINAL,34,6,-28,40,LA,,yes,https://www.nfl.com/games/rams-at-cardinals-2026-reg-10,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-17T00:41:00Z
+W10-11,"Sunday, November 15th",4:05 PM,SEA,LV,FINAL,21,13,-8,34,SEA,,yes,https://www.nfl.com/games/seahawks-at-raiders-2026-reg-10,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-17T00:41:00Z
+W10-12,"Sunday, November 15th",4:25 PM,SF,DAL,FINAL,46,40,-6,86,SF,,yes,https://www.nfl.com/games/49ers-at-cowboys-2026-reg-10,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-17T00:41:00Z
+W10-13,"Sunday, November 15th",8:20 PM,PIT,CIN,FINAL,18,38,20,56,CIN,,yes,https://www.nfl.com/games/steelers-at-bengals-2026-reg-10,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-17T00:41:00Z
+W10-14,"Monday, November 16th",8:15 PM,LAC,BAL,scheduled (8:15 PM),,,,,,,no,https://www.nfl.com/games/chargers-at-ravens-2026-reg-10,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-17T00:41:00Z

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Executive summary — NFL 45abd396</title>
+<style>
+:root{--ink:#12233b;--muted:#5b6b80;--line:#dde5ef;--bg:#f5f8fb;--card:#fff;--accent:#0b5394;
+--ok:#1c6b3d;--okbg:#d9f2e2;--warn:#7a5b00;--warnbg:#fff3cd;--no:#8f1d1d;--nobg:#fde2e2;--nav:#0b2545;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent)}
+header.top{background:var(--nav);color:#fff;padding:20px 22px 16px}
+header.top h1{margin:0;font-size:21px;letter-spacing:.01em}
+header.top p{margin:6px 0 0;opacity:.86;font-size:13px;max-width:70ch}
+nav.main{display:flex;flex-wrap:wrap;gap:3px;background:#13315c;padding:7px 10px;position:sticky;top:0;z-index:5}
+nav.main a{color:#cfe0f5;text-decoration:none;padding:5px 9px;border-radius:4px;font-size:12.5px}
+nav.main a.on,nav.main a:hover{background:#ee6c4d;color:#fff}
+main{max-width:1200px;margin:0 auto;padding:16px 18px 40px}
+section{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:14px 16px;margin:14px 0}
+h2{font-size:17px;margin:2px 0 10px}
+h3{font-size:14px;margin:14px 0 6px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+table{border-collapse:collapse;width:100%;font-size:12.5px}
+th,td{border:1px solid #e5ebf3;padding:5px 7px;text-align:left;vertical-align:top}
+th{background:#eef3fa;font-weight:600;position:sticky;top:38px}
+tbody tr:nth-child(even){background:#fafcfe}
+.wrap{overflow-x:auto;max-height:70vh;overflow-y:auto;border:1px solid var(--line);border-radius:6px}
+td.blank{background:#fff8e8}
+.pill{display:inline-block;padding:1px 8px;border-radius:10px;font-size:11px;font-weight:600}
+.ok{background:var(--okbg);color:var(--ok)}.warn{background:var(--warnbg);color:var(--warn)}.no{background:var(--nobg);color:var(--no)}
+.note{background:#f2f6fc;border-left:3px solid #13315c;padding:9px 12px;margin:9px 0;font-size:13px}
+.banner{background:var(--nobg);border:1px solid #f2b8b8;color:var(--no);padding:11px 14px;border-radius:8px;margin:12px 0;font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:10px 0}
+.kpi{background:#f7fafd;border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.kpi b{display:block;font-size:22px;line-height:1.1}
+.kpi span{font-size:12px;color:var(--muted)}
+footer{text-align:center;color:#7a8aa3;font-size:12px;padding:22px}
+ul.tight{margin:6px 0 6px 18px;padding:0}ul.tight li{margin:3px 0}
+</style></head><body>
+<header class="top"><h1>Executive summary</h1><p>What changed, what it means, what it does not mean, and what to do next</p></header>
+<nav class="main"><a href="index.html">Decision desk</a><a href="leaderboard.html">Settled leaderboard</a><a href="settlement.html">Forecast settlement</a><a href="luck.html">Removal of luck</a><a href="controls.html">Control baselines</a><a href="results.html">Week-10 finals</a><a href="injuries.html">Injury deltas</a><a href="availability.html">Availability sweep</a><a href="depth.html">Depth &amp; stale rows</a><a href="questions.html">Questions → answers</a><a href="suggestions.html">Suggestions</a><a href="gates.html">Gates &amp; readiness</a><a href="flagged.html">Flagged for review</a><a href="sources.html">Sources</a><a href="executive-summary.html" class="on">Executive summary</a></nav>
+<main>
+
+<div class="banner">NO STRATEGY QUALIFIES. Every strategy has a positive point estimate and every 95% game-cluster interval still contains zero at n = 12 settled games. Nothing on this site is a recommendation, and no market price exists to bet against even if it were.</div>
+<section><h2>Executive summary</h2>
+<h3>What changed since the last capture</h3>
+<ul class="tight">
+<li>Week 10 is now settled on the official schedule page: <b>13 of 14 cards print FINAL</b>. The
+previous capture (2026-11-15/16) had 5 of 14 unsettled, which is why no leaderboard score could be
+published.</li>
+<li>For the first time the repo's pre-kickoff Week-10 forecasts could be <b>scored</b>: 48 settled rows
+across five strategies, each traced to the commit that published it and checked against that fixture's
+kickoff.</li>
+<li>Fourteen forecast rows were committed <i>after</i> their game kicked off and are labelled
+<code>post_kickoff</code>; they are excluded from every score. Publishing that label is the difference
+between a backtest and a fantasy.</li>
+<li>Ten more official pages were read for availability, roster and venue facts: 347 injury rows across
+28 clubs, 25 reserve/injured entries, 12 November trades, 13 Week-11 fixtures.</li>
+</ul>
+<h3>What the numbers say</h3>
+<ul class="tight">
+<li>Every strategy has a <b>positive point estimate</b> of Brier skill against the same-games
+climatology. Best is <b>WK-ML</b> at +0.4120 (Brier
+0.130667 vs 0.222222); weakest is
+N6F-ML at +0.1962.</li>
+<li><b>None of the five is qualified.</b> Every 95% game-cluster interval contains zero at n = 12. The
+strategies forecast the same twelve games, so their agreement is not independent confirmation.</li>
+<li>Three strategies hit 11 of 12 against a coin's expectation of 6. That is unusual under
+coin-flipping (p ≈ 0.003) <b>and still not evidence of skill</b>, because twelve games is one draw and
+the multiplicity adjustment over five strategies is 0.01021.</li>
+<li>Strategy disagreement is small: a mean gap of 0.147 in home
+win probability. They share one input (PF/PA per game), so they are not five opinions.</li>
+</ul>
+<h3>What it does not mean</h3>
+<ul class="tight">
+<li><b>No profit claim is possible.</b> NFL.com publishes no price, so there is no market line, no
+residual, no closing-line value and no ROI anywhere on this site — not because they were hard, but
+because the data does not exist without a licence (Q-02).</li>
+<li><b>No injury signal is claimed.</b> Zero of 155 paired designations moved between the available
+reads, because both reads came after the games. The delta is zero for a reason that is about timing,
+not about football.</li>
+<li><b>No replacement is named.</b> The weekly report publishes a designation, not a depth chart. Every
+"replacement" and "actual starter" cell is blank and flagged.</li>
+</ul>
+<h3>What would change the conclusion</h3>
+<ul class="tight">
+<li><b>A game-cluster lower bound above zero</b> after the multiplicity adjustment — roughly 60–120
+settled games at the observed variance, i.e. four to eight more weeks.</li>
+<li><b>A licensed price archive</b>, which would let the same probabilities be scored on CLV and
+residual-vs-market instead of Brier alone.</li>
+<li><b>Game Books or an official snap-count table</b>, which would turn the availability graph from
+expected-only into expected-vs-actual and make a personnel ablation possible.</li>
+<li><b>A single pre-declared ablation pair</b> for any availability feature, scored on a holdout never
+used for selection — the only way "injuries matter by X points" becomes falsifiable.</li>
+</ul>
+<h3>The three things to do next, in order</h3>
+<ol>
+<li><b>Re-read the Week-10 page once the Monday game ends</b> (one page). That closes the fourteenth
+fixture and makes the sample complete without any new work.</li>
+<li><b>Answer Q-01 (rights).</b> Nothing scheduled — the Wed/Thu/Fri injury cadence, the price archive,
+the daily depth sweep — can start until that is answered in writing.</li>
+<li><b>Read the 13 Week-11 game-centre Game Info blocks</b> to finish the venue register, which is the
+cheapest remaining gate that is blocked only by effort rather than by rights.</li>
+</ol>
+<h3>Irregularities a reviewer should look at first</h3>
+<ul class="tight">
+<li><b>C-01</b> — Daiyan Henley is still in the <i>Chargers</i> injury table eleven days after the
+official transactions table moved him to Denver.</li>
+<li><b>F-07</b> — the Rams' injury table lists players who are not Rams, suggesting the hub is
+season-cumulative rather than current-roster.</li>
+<li><b>F-09</b> — four "pre-kickoff" forecasts were in fact committed after kickoff. If an earlier
+pack's leaderboard had scored them, it would have been scoring a forecast that knew the answer.</li>
+<li><b>F-06</b> — four clubs that played in Week 10 have no table on the Week-10 hub.</li>
+</ul>
+<p>All 14 flags, with both source links, are on the
+<a href="flagged.html">Flagged for review</a> page.</p>
+</section>
+</main>
+<footer>Built by <code>scripts/build_nfl_45abd396.py</code> from <code>src/nfl_45abd396</code> with no network access · every value read from a cited official nfl.com page on 2026-11-17 UTC · blanks are flagged, never filled · no profitability claim · <a href="https://github.com/sassnarep3-star/Own6">repository</a></footer>
+</body></html>

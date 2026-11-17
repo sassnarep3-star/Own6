@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sources — NFL 45abd396</title>
+<style>
+:root{--ink:#12233b;--muted:#5b6b80;--line:#dde5ef;--bg:#f5f8fb;--card:#fff;--accent:#0b5394;
+--ok:#1c6b3d;--okbg:#d9f2e2;--warn:#7a5b00;--warnbg:#fff3cd;--no:#8f1d1d;--nobg:#fde2e2;--nav:#0b2545;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent)}
+header.top{background:var(--nav);color:#fff;padding:20px 22px 16px}
+header.top h1{margin:0;font-size:21px;letter-spacing:.01em}
+header.top p{margin:6px 0 0;opacity:.86;font-size:13px;max-width:70ch}
+nav.main{display:flex;flex-wrap:wrap;gap:3px;background:#13315c;padding:7px 10px;position:sticky;top:0;z-index:5}
+nav.main a{color:#cfe0f5;text-decoration:none;padding:5px 9px;border-radius:4px;font-size:12.5px}
+nav.main a.on,nav.main a:hover{background:#ee6c4d;color:#fff}
+main{max-width:1200px;margin:0 auto;padding:16px 18px 40px}
+section{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:14px 16px;margin:14px 0}
+h2{font-size:17px;margin:2px 0 10px}
+h3{font-size:14px;margin:14px 0 6px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+table{border-collapse:collapse;width:100%;font-size:12.5px}
+th,td{border:1px solid #e5ebf3;padding:5px 7px;text-align:left;vertical-align:top}
+th{background:#eef3fa;font-weight:600;position:sticky;top:38px}
+tbody tr:nth-child(even){background:#fafcfe}
+.wrap{overflow-x:auto;max-height:70vh;overflow-y:auto;border:1px solid var(--line);border-radius:6px}
+td.blank{background:#fff8e8}
+.pill{display:inline-block;padding:1px 8px;border-radius:10px;font-size:11px;font-weight:600}
+.ok{background:var(--okbg);color:var(--ok)}.warn{background:var(--warnbg);color:var(--warn)}.no{background:var(--nobg);color:var(--no)}
+.note{background:#f2f6fc;border-left:3px solid #13315c;padding:9px 12px;margin:9px 0;font-size:13px}
+.banner{background:var(--nobg);border:1px solid #f2b8b8;color:var(--no);padding:11px 14px;border-radius:8px;margin:12px 0;font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:10px 0}
+.kpi{background:#f7fafd;border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.kpi b{display:block;font-size:22px;line-height:1.1}
+.kpi span{font-size:12px;color:var(--muted)}
+footer{text-align:center;color:#7a8aa3;font-size:12px;padding:22px}
+ul.tight{margin:6px 0 6px 18px;padding:0}ul.tight li{margin:3px 0}
+</style></head><body>
+<header class="top"><h1>Sources</h1><p>Eight manual reads, each with a clock time, plus the attempts that produced nothing</p></header>
+<nav class="main"><a href="index.html">Decision desk</a><a href="leaderboard.html">Settled leaderboard</a><a href="settlement.html">Forecast settlement</a><a href="luck.html">Removal of luck</a><a href="controls.html">Control baselines</a><a href="results.html">Week-10 finals</a><a href="injuries.html">Injury deltas</a><a href="availability.html">Availability sweep</a><a href="depth.html">Depth &amp; stale rows</a><a href="questions.html">Questions → answers</a><a href="suggestions.html">Suggestions</a><a href="gates.html">Gates &amp; readiness</a><a href="flagged.html">Flagged for review</a><a href="sources.html" class="on">Sources</a><a href="executive-summary.html">Executive summary</a></nav>
+<main>
+
+<section><h2>Every page read this session</h2>
+<div class="wrap"><table><thead><tr><th>ID</th><th>URL</th><th>Read at (UTC)</th><th>Used for</th><th>Official</th><th>How read</th></tr></thead><tbody><tr><td>R1_week10_schedule</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-10" rel="noopener noreferrer" target="_blank">https://www.nfl.com/schedules/2026/by-week/week-10 &#8599;</a></td><td>2026-11-17T00:41:00Z</td><td>13 finals + the one card not yet played; kickoff clocks</td><td>yes</td><td>single manual page fetch, no automation</td></tr><tr><td>R2_standings</td><td><a href="https://www.nfl.com/standings/" rel="noopener noreferrer" target="_blank">https://www.nfl.com/standings/ &#8599;</a></td><td>2026-11-17T00:43:00Z</td><td>32-club W-L-T, PF, PA; the rating favourite control; the luck panel denominators</td><td>yes</td><td>single manual page fetch, no automation</td></tr><tr><td>R3_injury_hub</td><td><a href="https://www.nfl.com/injuries/" rel="noopener noreferrer" target="_blank">https://www.nfl.com/injuries/ &#8599;</a></td><td>2026-11-17T00:47:00Z</td><td>347 player rows across 28 club tables</td><td>yes</td><td>single manual page fetch, no automation</td></tr><tr><td>R4_week11_schedule</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-11" rel="noopener noreferrer" target="_blank">https://www.nfl.com/schedules/2026/by-week/week-11 &#8599;</a></td><td>2026-11-17T00:52:00Z</td><td>13 fixtures, 4 bye clubs, venue cross-check</td><td>yes</td><td>single manual page fetch, no automation</td></tr><tr><td>R5_transactions</td><td><a href="https://www.nfl.com/transactions/" rel="noopener noreferrer" target="_blank">https://www.nfl.com/transactions/ &#8599;</a></td><td>2026-11-17T00:56:00Z</td><td>12 November trades; stale-depth check</td><td>yes</td><td>single manual page fetch, no automation</td></tr><tr><td>R6_reserve_list</td><td><a href="https://www.nfl.com/transactions/league/reserve-list/2026/11" rel="noopener noreferrer" target="_blank">https://www.nfl.com/transactions/league/reserve-list/2026/11 &#8599;</a></td><td>2026-11-17T00:57:00Z</td><td>25 November reserve/injured entries</td><td>yes</td><td>single manual page fetch, no automation</td></tr><tr><td>R7_news_willis</td><td><a href="https://www.nfl.com/news/dolphins-place-qb-malik-willis-groin-on-injured-reserve-kyle-mccord-in-line-for-first-start" rel="noopener noreferrer" target="_blank">https://www.nfl.com/news/dolphins-place-qb-malik-willis-groin-on-injured-reserve-kyle-mccord-in-line-for-first-start &#8599;</a></td><td>2026-11-17T00:58:00Z</td><td>the one roster-state question this session could close</td><td>yes</td><td>single manual page fetch, no automation</td></tr><tr><td>R8_game_lac_bal</td><td><a href="https://www.nfl.com/games/chargers-at-ravens-2026-reg-10" rel="noopener noreferrer" target="_blank">https://www.nfl.com/games/chargers-at-ravens-2026-reg-10 &#8599;</a></td><td>2026-11-17T00:54:00Z</td><td>venue + the game-centre injury wording conflict</td><td>yes</td><td>single manual page fetch, no automation</td></tr></tbody></table></div>
+<div class="note">NFL.com Terms §1.3 was read by earlier sessions in this repository and limits use to
+individual, non-commercial, informational purposes, prohibiting systematic retrieval. This session
+therefore performed <b>eight single manual page reads</b> and ran no scheduled automation. The rights
+question remains open as Q-01 and blocks every cadence-dependent requirement.</div>
+</section>
+<section><h2>Capture attempts, including what was not obtained</h2>
+<div class="wrap"><table><thead><tr><th>ID</th><th>URL</th><th>Read at (UTC)</th><th>Outcome</th><th>Detail</th></tr></thead><tbody><tr><td>A-01</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-10" rel="noopener noreferrer" target="_blank">source &#8599;</a></td><td>2026-11-17T00:41:00Z</td><td>ok</td><td>14 cards; 13 FINAL</td></tr><tr><td>A-02</td><td><a href="https://www.nfl.com/standings/" rel="noopener noreferrer" target="_blank">source &#8599;</a></td><td>2026-11-17T00:43:00Z</td><td>ok</td><td>32 rows; 2 unlabelled columns</td></tr><tr><td>A-03</td><td><a href="https://www.nfl.com/injuries/" rel="noopener noreferrer" target="_blank">source &#8599;</a></td><td>2026-11-17T00:47:00Z</td><td>ok</td><td>347 rows; 28 clubs; Week 11 tab absent</td></tr><tr><td>A-04</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-11" rel="noopener noreferrer" target="_blank">source &#8599;</a></td><td>2026-11-17T00:52:00Z</td><td>ok</td><td>13 cards; 4 bye clubs</td></tr><tr><td>A-05</td><td><a href="https://www.nfl.com/transactions/" rel="noopener noreferrer" target="_blank">source &#8599;</a></td><td>2026-11-17T00:56:00Z</td><td>ok</td><td>12 trade rows for November</td></tr><tr><td>A-06</td><td><a href="https://www.nfl.com/transactions/league/reserve-list/2026/11" rel="noopener noreferrer" target="_blank">source &#8599;</a></td><td>2026-11-17T00:57:00Z</td><td>ok</td><td>25 reserve/injured rows for November</td></tr><tr><td>A-07</td><td><a href="https://www.nfl.com/news/dolphins-place-qb-malik-willis-groin-on-injured-reserve-kyle-mccord-in-line-for-first-start" rel="noopener noreferrer" target="_blank">source &#8599;</a></td><td>2026-11-17T00:58:00Z</td><td>ok</td><td>article body read</td></tr><tr><td>A-08</td><td><a href="https://www.nfl.com/games/chargers-at-ravens-2026-reg-10" rel="noopener noreferrer" target="_blank">source &#8599;</a></td><td>2026-11-17T00:54:00Z</td><td>ok</td><td>Game Info block + 8 injury snippets</td></tr></tbody></table></div>
+<div class="note"><b>Attempted and not obtained:</b> NFL Game Books (no link from the game-centre tabs
+read; the Football Operations publications route was not reachable from this environment), club depth
+charts (not read this session), an official snap-count table (not present on the pages read), any price
+(no official page prints one).</div>
+</section>
+</main>
+<footer>Built by <code>scripts/build_nfl_45abd396.py</code> from <code>src/nfl_45abd396</code> with no network access · every value read from a cited official nfl.com page on 2026-11-17 UTC · blanks are flagged, never filled · no profitability claim · <a href="https://github.com/sassnarep3-star/Own6">repository</a></footer>
+</body></html>
