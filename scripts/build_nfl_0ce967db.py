@@ -650,7 +650,7 @@ compared to the official standings read the same day.</p>
 
 
 def page_questions() -> str:
-    qs = read("questions.csv")
+    qs = read("desk_questions.csv")
     counts: dict[str, int] = {}
     for q in qs:
         counts[q["answer_status"]] = counts.get(q["answer_status"], 0) + 1
@@ -687,7 +687,7 @@ already have, what we do not, and — for every gap — the route to closing it.
 
 
 def page_suggestions() -> str:
-    sug = read("suggestions.csv")
+    sug = read("desk_suggestions.csv")
     body = [f"""
 <h1>Suggestions</h1>
 <p class="lead">Improvements proposed for the owner to review <em>before</em> any of them is implemented.
