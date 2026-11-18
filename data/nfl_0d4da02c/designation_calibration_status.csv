@@ -1,0 +1,4 @@
+question,numerator_available,denominator_available,n_numerator,n_denominator,status,what_is_missing,source_url
+"Of players listed Questionable, what share actually played?",yes,no,90,0,not computable,the official inactive list for the same games (gate G-INACT),https://www.nfl.com/injuries/
+"Of players listed Doubtful, what share actually played?",yes,no,11,0,not computable,the official inactive list for the same games (gate G-INACT),https://www.nfl.com/injuries/
+"Of players who did not practise, what share were ruled Out?",yes,yes,94,347,computable - see designation_xtab.csv,,https://www.nfl.com/injuries/

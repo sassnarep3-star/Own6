@@ -1,0 +1,52 @@
+name: nfl-0d4da02c
+
+on:
+  push:
+    branches: [main, 'arena/**']
+    paths:
+      - 'src/nfl_0d4da02c/**'
+      - 'scripts/build_nfl_0d4da02c.py'
+      - 'scripts/check_nfl_0d4da02c.py'
+      - 'tests/test_nfl_0d4da02c.py'
+      - 'data/nfl_0d4da02c/**'
+      - 'docs/nfl-0d4da02c/**'
+      - '.github/workflows/nfl-0d4da02c-ci.yml'
+  pull_request:
+    paths:
+      - 'src/nfl_0d4da02c/**'
+      - 'scripts/build_nfl_0d4da02c.py'
+      - 'scripts/check_nfl_0d4da02c.py'
+      - 'tests/test_nfl_0d4da02c.py'
+      - 'data/nfl_0d4da02c/**'
+      - 'docs/nfl-0d4da02c/**'
+      - '.github/workflows/nfl-0d4da02c-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Regenerate the data from the committed capture (network-free)
+        run: |
+          python3 -m src.nfl_0d4da02c.capture
+          python3 -m src.nfl_0d4da02c.register
+          python3 -m src.nfl_0d4da02c.analysis
+          python3 -m src.nfl_0d4da02c.decisions
+          python3 -m src.nfl_0d4da02c.flags
+      - name: Regeneration must not change a committed CSV
+        run: git diff --exit-code -- data/nfl_0d4da02c
+      - name: Build pack (zero inputs, network-free)
+        run: python3 scripts/build_nfl_0d4da02c.py
+      - name: Verify (rules 1-10)
+        run: python3 scripts/check_nfl_0d4da02c.py
+      - name: Tests (verifier + identities + determinism)
+        run: python3 tests/test_nfl_0d4da02c.py

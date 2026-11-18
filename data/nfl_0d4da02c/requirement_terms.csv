@@ -1,0 +1,209 @@
+req_id,search_term
+R-01,price snapshot
+R-01,opening
+R-01,closing
+R-02,results feed
+R-02,corpus
+R-02,settled
+R-03,originate side total moneyline
+R-04,fair line
+R-04,market line
+R-04,difference
+R-05,signal
+R-05,staking
+R-05,leaderboard
+R-06,depth
+R-06,replacement
+R-06,string
+R-07,correlation
+R-07,published n
+R-07,officially sourced
+R-08,demotion gate
+R-08,paper
+R-09,pre-register
+R-09,backtest
+R-09,leaderboard
+R-10,availability graph
+R-10,expected starter
+R-10,actual
+R-11,snap counts
+R-11,playing time
+R-11,jersey
+R-12,delta
+R-12,never level
+R-12,surprise
+R-13,32-team sweep
+R-13,roster
+R-13,IR
+R-14,fixture context
+R-14,schedule facts
+R-14,rest
+R-15,probability
+R-15,inputs
+R-15,not a pick
+R-16,removal of luck
+R-16,luck panel
+R-17,change our mind
+R-17,falsify
+R-18,residual
+R-18,schedule
+R-18,day one
+R-19,136-game
+R-19,backtest corpus
+R-20,price-data policy
+R-21,clock time
+R-21,delta
+R-21,injury-hub read
+R-22,decision-readiness
+R-22,landing page
+R-22,gate
+R-23,venue
+R-23,game centre
+R-23,stadium
+R-24,schedule announcement
+R-24,TBD games
+R-25,game book
+R-25,actual starters
+R-25,game-day status
+R-26,opponent-aware
+R-26,ratings
+R-26,game-level results
+R-27,ablation
+R-27,fixed penalty
+R-28,ablation
+R-28,chronological holdout
+R-29,automate
+R-29,immutable
+R-29,multi-day
+R-30,immutable snapshot
+R-30,conflict flags
+R-31,inactive list
+R-31,snap counts
+R-32,depth parsing
+R-32,Texans
+R-32,Packers
+R-33,depth slot
+R-33,group
+R-33,rank 1
+R-34,roster turnover
+R-34,transactions
+R-34,first-class
+R-35,singles-only
+R-35,shadow baseline
+R-36,parlay
+R-36,prop combo
+R-36,joint-evidence gate
+R-37,proper score
+R-37,divisions
+R-38,brier skill
+R-38,uncertainty
+R-38,win rate
+R-39,durable storage
+R-39,alerts
+R-39,freshness
+R-40,public analysis
+R-40,private data
+R-41,per-team view
+R-41,starters out
+R-41,replacements named
+R-42,announced starter
+R-42,evidence field
+R-43,depth-chart register
+R-43,date and source
+R-44,calibrate
+R-44,questionable
+R-44,inactive
+R-45,matchup deficiency matrix
+R-45,1st-4th string
+R-46,stale depth
+R-46,transactions log
+R-47,point-in-time
+R-47,snapshot ledger
+R-48,Lions
+R-48,game status
+R-48,missing designation
+R-49,re-capture
+R-49,week 10
+R-49,injury tables
+R-50,reject
+R-50,jersey number
+R-50,salary
+R-51,shared slot
+R-51,empty slot
+R-52,depth-order source
+R-52,32 clubs
+R-53,designation reliability
+R-53,inactive lists
+R-53,confidence interval
+R-54,wednesday thursday friday
+R-54,dated history
+R-55,timestamped series
+R-55,not a snapshot
+R-56,snap counts
+R-56,starter proxy
+R-57,control baseline
+R-57,random
+R-57,favourites
+R-58,roof
+R-58,surface
+R-58,NWS
+R-58,wind
+R-59,two-stage
+R-59,CLV
+R-59,escrow
+R-60,vig-free
+R-60,consensus
+R-60,decomposition
+R-61,what changed
+R-61,diff
+R-61,weekly
+R-62,two estimators
+R-62,gap column
+R-63,drift alarm
+R-63,expected row counts
+R-63,required fields
+R-64,reserve list
+R-64,not listed
+R-65,reject
+R-65,season-long ROI
+R-66,archive
+R-66,past seasons
+R-67,pre-register
+R-67,definition frozen
+R-68,kickoff
+R-68,onside
+R-68,regime priors
+R-69,freeze
+R-69,commit hash
+R-69,registration
+R-70,train validation holdout
+R-71,suggestions
+R-71,review before implement
+R-72,questions
+R-72,information
+R-72,answers
+R-73,originate
+R-73,leaderboard
+R-73,rewards
+R-73,singles parlays props
+R-74,deficiency
+R-74,backups
+R-74,starters
+R-75,executive summary
+P-01,no manual input
+P-02,official source
+P-02,no hallucinations
+P-03,repo review
+P-03,flag irregularities
+P-04,github pages
+P-04,landing page
+P-04,subpages
+P-05,source link
+P-05,blank and flag
+P-06,coordination
+P-06,parallel sessions
+P-07,pull request
+P-07,merge
+P-07,pages deploy
+P-08,flagged for review
+P-08,does not block

@@ -1,0 +1,8 @@
+read_date,position_group,positions_included,n_rows,n_out,n_doubtful,n_questionable,n_blank_game_status,pct_out,source_url
+2026-11-18,QB,QB,11,2,0,0,9,18.2,https://www.nfl.com/injuries/
+2026-11-18,Skill (RB/FB/WR/TE),"RB, FB, WR, TE",103,19,4,27,53,18.4,https://www.nfl.com/injuries/
+2026-11-18,Offensive line (T/G/C),"T, G, C, LS",65,18,2,13,32,27.7,https://www.nfl.com/injuries/
+2026-11-18,Defensive line (DE/DT),"DE, DT",49,10,0,12,27,20.4,https://www.nfl.com/injuries/
+2026-11-18,Linebacker,LB,43,10,2,9,22,23.3,https://www.nfl.com/injuries/
+2026-11-18,Secondary (CB/S),"CB, S",74,10,3,29,32,13.5,https://www.nfl.com/injuries/
+2026-11-18,Specialists (K/P),"K, P",2,1,0,0,1,50.0,https://www.nfl.com/injuries/
