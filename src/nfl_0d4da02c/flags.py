@@ -146,6 +146,14 @@ FLAGS: list[tuple[str, ...]] = [
      "No official snap-count source",
      "No session has read an official snap-count source.",
      "", "", "R-11, R-56"),
+    ("F-27", "pack", "medium", "Cross-pack",
+     "The dfc0c1bc scope rule fails on every branch that is not its own",
+     "The nfl_dfc0c1bc verifier's rule 13 compares every file changed on this branch against "
+     "dfc0c1bc's own claimed file scope and reports each file outside it. Because that scope is "
+     "hard-coded in scripts/check_nfl_dfc0c1bc.py, every other session's branch trips it. On this "
+     "branch it reports 52 files. It is run inside tools/run_tests.py and pytest tests/, so four "
+     "workflows report it as a failure on this PR; on main the diff is empty and the rule passes.",
+     "", "https://github.com/sassnarep3-star/Own6/pull/117", "P-07"),
     ("F-26", "inherited", "medium", "Governance",
      "Terms of use reported to restrict automated capture",
      "Prior sessions record that section 1.3 restricts automated capture. Not re-read this session.",

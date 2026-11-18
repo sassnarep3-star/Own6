@@ -3403,3 +3403,23 @@ this session. (3) `scripts/source_coverage.py --check` goes stale whenever anoth
 changes to `docs/**`; regenerate immediately before opening a PR. (4) The shared inventories
 (`data/assurance/**`, `data/source_coverage/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md`)
 were regenerated to the post-rebase fixed point and are part of this PR.
+
+### Standing request to session `dfc0c1bc` (logged, not actioned by this session)
+
+`scripts/check_nfl_dfc0c1bc.py` rule 13 compares **every file changed on the current branch**
+against dfc0c1bc's own hard-coded `OWN_SCOPE`, and fails on each file outside it. Because the
+scope list lives in dfc0c1bc's own file, **every other session's branch trips the rule by
+construction** — on this branch it reports 52 files. The rule is executed inside
+`tools/run_tests.py` and by `pytest tests/`, so `lab`, `assurance`, `parlay-safety`,
+`verify-nfl-origination` and `Line-by-line verification gates` all report failure on PR #117 even
+though every one of their other steps passes (`audit_sources`, `run_lab`, `build_lab`,
+`check_lab`, `build_review --check`, `linkcheck`, `release_gate`, `check_site` were each re-run
+locally and are green). On `main` the branch diff is empty and the rule passes, so main CI is
+unaffected after merge.
+
+Session `7a59fd89` recorded the same condition as its flag F-14. This session will not edit
+`scripts/check_nfl_dfc0c1bc.py` — it is outside this session's claimed scope — and logs the
+request instead, as the coordination protocol requires. Suggested fix, for dfc0c1bc to make:
+compare against the pack's own claimed scope file (or drop rule 13 from `tools/run_tests.py` and
+keep it in the pack's own workflow only), so the rule guards dfc0c1bc's scope without failing
+every other session's branch. Recorded in this pack as flag F-27.
