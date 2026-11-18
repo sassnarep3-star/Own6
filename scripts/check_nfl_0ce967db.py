@@ -245,7 +245,7 @@ def rule10(c: Checker) -> None:
 
 
 def rule11(c: Checker) -> None:
-    bad = ("TODO", "TBD", "lorem", "XXX", "{{", "PLACEHOLDER")
+    bad = ("TODO", "TBD", "lorem", "XXX", "{{", "PLACEHOLDER", "{}", "{}+{}", "None<", "nan")
     for name in os.listdir(DOCS):
         if not name.endswith(".html"):
             continue

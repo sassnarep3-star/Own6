@@ -563,8 +563,8 @@ Any feature that maps practice to availability would be wrong on these rows.</li
 <li><strong>The hub carries non-injury absences.</strong> Two Jaguars rows read
 <span class="mono">"Not injury related - resting player"</span> with game status Out. A parser that
 counts them as injuries inflates the injury burden.</li>
-<li><strong>Only {}+{} of these rows carry a game designation.</strong> The vast majority carry a practice
-status and a blank game status, which is why designation counts alone cannot support a replacement model.</li>
+<li><strong>84 of these 164 rows carry a game designation; 80 carry only a practice status.</strong>
+That split is why designation counts alone cannot support a replacement model.</li>
 </ul>
 <h2>What this page cannot tell you — and the exact reason</h2>
 """)
