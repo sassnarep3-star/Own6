@@ -163,8 +163,12 @@ def repo_stats(inventory) -> dict:
     coord_rows = coord_text.count("\n| ")
     # other packs' flag registers only: ours is excluded so this count cannot depend on a file this same
     # build is about to write (which would make the build order-dependent, not deterministic)
+    # Repaired 2026-11-18 by session 0ce967db: this register is also written BY a rebuild (rule 9)
+    # because it describes the environment at generation time, so counting it made the build depend
+    # on its own previous output. The repo-findings register is excluded on the same principle as
+    # the flagged register below: a build must not count a file it is about to write.
     flag_files = [f for f in sorted(glob.glob(os.path.join(REPO, "data", "*", "flagged.csv")))
-                  if "nfl_dfc0c1bc" not in f]
+                  if "nfl_dfc0c1bc" not in f and "nfl_0ce967db" not in f]
     flag_rows = 0
     for f in flag_files:
         with open(f, newline="", encoding="utf-8-sig") as fh:
