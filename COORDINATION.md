@@ -3257,3 +3257,43 @@ on any foreign branch, recorded as F-14 in this pack's flagged.csv; it passes on
 the diff is empty, so main CI is unaffected). check_site.py OK, release_gate.py 0 issues,
 pack verifier 14/14, pack tests 9/9. PR opened from `arena/7a59fd89-own6` and merged without
 waiting for review per standing protocol.
+
+---
+
+## Session `arena/b2511a5c-own6` — focused official-source re-check: Week 11 slate, Colts–Texans venue, Willis and Ravens QB roster status, Week 10 Lions designations (claimed 2026-11-18)
+
+**Session ID:** `b2511a5c` · **Branch:** `arena/b2511a5c-own6` (Arena fixes this session to the branch; the
+`session-<id>/<task>` naming rule is therefore a deviation, logged the same way by dfc0c1bc, 7a59fd89 and earlier
+sessions). Base: `main` at `aa82798` (PR #114). **Protocol deviation (logged):** pack CSVs, raw captures and
+the build/verify scripts were written before this claim was committed. This commit is the claim, and it is pushed
+before any further commit on this branch.
+
+**Scope (session decision).** A focused pack limited to what official reads support: the Week 11 slate (13 games,
+6 byes, official schedule), the Colts–Texans venue (game centre), Malik Willis and Ravens QB roster status (reserve
+list, nfl.com roster, news article), and the Week 10 Lions Out designations (official injury report). Every read is
+stored verbatim under `data/nfl_b2511a5c/raw/` with its source URL and chunk. Club-website reads (Packers, Ravens
+depth charts) sit in a separately labelled list, never in standard official-source rows, because the release gate
+allows only nfl.com.
+
+**Task board (session `b2511a5c`)**
+
+| Task | Status | Owner | Files touched |
+|---|---|---|---|
+| T1 Claim this session in COORDINATION.md; log branch and protocol deviations | done (this commit) | b2511a5c | `COORDINATION.md` |
+| T2 Official reads R01–R12 stored verbatim, with SHA-256 and verbatim excerpts | written; hash and excerpt check passes; **fresh re-fetch comparison pending** | b2511a5c | `data/nfl_b2511a5c/official_reads.csv`, `raw/R01–R12.txt` |
+| T3 Week 11 slate and bye clubs (13 games, 6 byes, 32 clubs) | done | b2511a5c | `data/nfl_b2511a5c/week11_slate.csv`, `week11_byes.csv` |
+| T4 Claim checks CC01–CC14 with live verdicts | done (CC13–CC14 not re-verified) | b2511a5c | `data/nfl_b2511a5c/claim_checks.csv` |
+| T5 Flags, suggestions, Q/I/A register, sources | written | b2511a5c | `flagged.csv`, `suggestions.csv`, `questions.csv`, `sources.csv` |
+| T6 Pages `docs/nfl-b2511a5c/` (9 pages) and verifier `scripts/check_nfl_b2511a5c.py` (rules 1–9) | built; verifier passes | b2511a5c | `scripts/build_nfl_b2511a5c.py`, `scripts/check_nfl_b2511a5c.py`, `docs/nfl-b2511a5c/` |
+| T7 Integration to `main` (PR, merge, Pages check) | **not started; integration session only** | integration | none in this pack |
+
+**Shared outputs.** This session does **not** edit shared table data (`data/nfl/`), the site index (`docs/index.html`)
+or the navigation. Those change only in the single integration session that merges, re-verifies, confirms no broken
+links, and publishes.
+
+**Known gaps (carried, not inferred).** Week 11 injury report not posted (404 at read time). Ravens reserve
+transaction and date for Jackson and Huntley not verified (full reserve log not read). Week 10 injury report read to
+chunk 1 of 8 only (CC13 and CC14 not re-verified). Al-Shaair: official labels conflict (R04 "Did not participate" vs
+R06 reserve 11/17). No official 32-club depth-order route exists in this pack.
+
+---
