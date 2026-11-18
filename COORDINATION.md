@@ -3333,14 +3333,14 @@ hashed; no earlier pack has a 2026-11-18 read.
 
 | Task | Status | Owner | Exclusive file scope |
 |---|---|---|---|
-| G1 Line-by-line repo review at pinned base + irregularity register | unclaimed → in progress | 0d4da02c | `audit/NFL_0D4DA02C_REPO_REVIEW.md`, `data/nfl_0d4da02c/repo_findings.csv` |
-| G2 Owner-requirement register: every bullet → id, category, repo evidence, status | in progress | 0d4da02c | `data/nfl_0d4da02c/requirements.csv`, `src/nfl_0d4da02c/requirements.py` |
-| G3 Decision-readiness table: blocking gate + the number that clears it, per requirement | in progress | 0d4da02c | `data/nfl_0d4da02c/gates.csv`, `data/nfl_0d4da02c/clear_numbers.csv` |
-| G4 Suggestions board (review before implement): option paths, evidence needed, decision column blank | in progress | 0d4da02c | `data/nfl_0d4da02c/suggestions.csv`, `data/nfl_0d4da02c/suggestion_options.csv` |
-| G5 Q/I/A register: question, what we have, what we lack, answer, discovery route | in progress | 0d4da02c | `data/nfl_0d4da02c/qia.csv` |
-| G6 Information-gap register: missing dataset, why it blocks, acquisition route, clearing number | in progress | 0d4da02c | `data/nfl_0d4da02c/information_gaps.csv` |
-| G7 Live official reads 2026-11-18 (dated, hashed, blank where unread): injury hub, standings, schedule/week 11, transactions, depth/team pages | in progress | 0d4da02c | `src/nfl_0d4da02c/capture.py`, `data/nfl_0d4da02c/official_reads.csv`, `data/nfl_0d4da02c/raw/*.txt`, `data/nfl_0d4da02c/injury_hub_2026_11_18.csv` |
-| G8 Pack site (landing + subpages by category), verifier, tests, CI, executive summary | in progress | 0d4da02c | `docs/nfl-0d4da02c/**`, `scripts/build_nfl_0d4da02c.py`, `scripts/check_nfl_0d4da02c.py`, `tests/test_nfl_0d4da02c.py`, `.github/workflows/nfl-0d4da02c-ci.yml`, `NFL_0D4DA02C_EXECUTIVE_SUMMARY.md` |
+| G1 Line-by-line repo review at pinned base + irregularity register | done | 0d4da02c | `audit/NFL_0D4DA02C_REPO_REVIEW.md`, `data/nfl_0d4da02c/repo_findings.csv` |
+| G2 Owner-requirement register: every bullet → id, category, repo evidence, status | done | 0d4da02c | `data/nfl_0d4da02c/requirements.csv`, `requirement_terms.csv`, `src/nfl_0d4da02c/register.py` |
+| G3 Decision-readiness table: blocking gate + the number that clears it, per requirement | done | 0d4da02c | `data/nfl_0d4da02c/gates.csv` (the clearing number lives on each requirement row) |
+| G4 Suggestions board (review before implement): option paths, evidence needed, decision column blank | done | 0d4da02c | `data/nfl_0d4da02c/suggestions.csv`, `data/nfl_0d4da02c/suggestion_options.csv` |
+| G5 Q/I/A register: question, what we have, what we lack, answer, discovery route | done | 0d4da02c | `data/nfl_0d4da02c/qia.csv` |
+| G6 Information-gap register: missing dataset, why it blocks, acquisition route, clearing number | done | 0d4da02c | `data/nfl_0d4da02c/information_gaps.csv` |
+| G7 Live official reads 2026-11-18 (dated, hashed, blank where unread): injury hub, standings, schedule/week 11, transactions, depth/team pages | done | 0d4da02c | `src/nfl_0d4da02c/capture.py`, `data/nfl_0d4da02c/official_reads.csv` (+4 dated reads), `injury_report_2026_11_18.csv`, `week11_schedule.csv`, `week11_byes.csv`, `starter_announcements.csv`, `schedule_announcement.csv`, `week10_absent_clubs.csv` |
+| G8 Pack site (landing + subpages by category), verifier, tests, CI, executive summary | done | 0d4da02c | `docs/nfl-0d4da02c/**`, `scripts/build_nfl_0d4da02c.py`, `scripts/check_nfl_0d4da02c.py`, `tests/test_nfl_0d4da02c.py`, `.github/workflows/nfl-0d4da02c-ci.yml`, `NFL_0D4DA02C_EXECUTIVE_SUMMARY.md` |
 | G9 Integration: rebase, additive shared nav/README/board, regenerate shared inventories, PR → merge → Pages check → record | in progress | 0d4da02c | `COORDINATION.md`, `README.md` (additive), `docs/index.html` (additive), `index.html` (additive), `data/assurance/**`, `data/source_coverage/**` |
 
 ### Evidence rule (identical to every prior session)
@@ -3352,3 +3352,54 @@ that states them, never upgraded. Anything neither read nor provably present in 
 **blank and flagged**. Market (book) prices are unobtainable from an official source, so every
 price column stays blank with the capture attempt logged. No profitability claim is made anywhere.
 No page contains an input control.
+
+### Session `0d4da02c` completion record (2026-11-18)
+
+G1–G8 done; G9 executing.
+
+**As-built deviations from the claim names.** All nine tasks materialized under the claimed file
+scopes. One addition: `data/nfl_0d4da02c/claim_checks.csv` (5 rows) was added at integration to
+record published claims recomputed against this session's own read, because the re-read reproduced
+a prior pack's Week 10 counts exactly and contradicted one owner-reported defect — both are
+evidence, so both are published rather than left in prose.
+
+**Sources read (all 2026-11-18, single manual read per page; logged in `official_reads.csv`)**
+
+| ID | Official source | Canonical URL the page resolved to | Used for |
+|---|---|---|---|
+| S-01 | https://www.nfl.com/injuries/ | /injuries/league/2026/reg10 | Week 10 injury register: 347 rows, 28 clubs |
+| S-02 | https://www.nfl.com/schedules/2026/REG11/ | /schedules/2026/by-week/week-11 | 13 Week 11 fixtures, 6 byes, records, venue text, TBD block |
+| S-03 | https://www.nfl.com/injuries/league/2026/REG11/ | /injuries/league/2026/reg10 | absence check — **the Week 11 report is NOT published at read time** |
+| S-04 | news rail on https://www.nfl.com/injuries/ | same | 19 dated official starter / injury / transaction headlines |
+
+No other host was read. No market price source exists, so every price column is blank.
+
+**Verification performed**
+
+- Pack verifier `scripts/check_nfl_0d4da02c.py`: **26/26** (missing files, per-row source link,
+  official-host allowlist, no interactive controls, internal links, byte-identical rebuild,
+  register consistency, no profitability language, decision columns blank, arithmetic on the
+  official counts).
+- Pack tests `tests/test_nfl_0d4da02c.py`: **24/24**.
+- Full repo suite `python3 -m unittest discover -s tests`: **481 tests, OK**.
+- `scripts/check_site.py` OK · `tools/release_gate.py` 0 issues · `scripts/source_coverage.py --check`
+  OK (regenerated) · `scripts/check_assurance.py` OK · `scripts/audit_repo.py` OK after the sandbox
+  clone was unshallowed (it was shallow again in this sandbox; the script is history-pinned at
+  `86eca0f`).
+- Rebuild determinism asserted by the verifier and by a test.
+
+**Irregularities.** 26 flags in `data/nfl_0d4da02c/flagged.csv`, published on
+`docs/nfl-0d4da02c/flagged.html`. Headline: F-01 (Week 11 injury report unpublished), F-02 (twelve
+of thirteen Week 11 venue strings come from the page's own Hotel affiliate link, not a venue
+field), F-10 (no official price source), F-12 (data CSVs with no source column), F-13 (13 pages
+contain interactive controls), F-20 (designation counts have no outcome leg). Six further defects
+are inherited from prior packs and are labelled `inherited`, not re-verified: F-21..F-26.
+
+**Coordination notes for later sessions.** (1) Two COORDINATION.md merge conflicts were resolved
+keep-both (once against session `65b130f7` during the rebase, once against the appended claim); no
+other session's text was removed. (2) The branch had to be force-pushed once, after
+`git pull --rebase origin main` rewrote the two pre-rebase commits — the branch is owned solely by
+this session. (3) `scripts/source_coverage.py --check` goes stale whenever another session lands
+changes to `docs/**`; regenerate immediately before opening a PR. (4) The shared inventories
+(`data/assurance/**`, `data/source_coverage/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md`)
+were regenerated to the post-rebase fixed point and are part of this PR.
