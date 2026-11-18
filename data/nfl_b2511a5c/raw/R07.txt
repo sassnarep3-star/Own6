@@ -1,0 +1,15 @@
+# R07 | https://www.nfl.com/transactions/ | chunk 0 of 1 read | page title as read: 2026 NFL League Transactions - Trades Waivers, Signings & more.
+# Heading as read: "## Trades — November"   Columns: From | To | Date | Name | Position | Transaction (club names only)
+Falcons | Jaguars | 11/10 | Jessie Bates |  | Traded
+Eagles | Jaguars | 11/10 | Jordan Davis |  | Traded
+Titans | Bills | 11/10 | Amani Hooker |  | Traded
+Colts | 49ers | 11/10 | Keenan Allen |  | Traded
+Raiders | Vikings | 11/10 | Kirk Cousins |  | Traded
+Chargers | Broncos | 11/10 | Daiyan Henley |  | Traded
+Colts | Chiefs | 11/10 | Josh Downs |  | Traded
+Falcons | Ravens | 11/10 | Ryan Neuzil |  | Traded
+Ravens | Falcons | 11/10 | Andrew Vorhees |  | Traded
+Jets | Lions | 11/09 | Andre Cisco |  | Traded
+Saints | Jaguars | 11/09 | Davon Godchaux |  | Traded
+Cardinals | Ravens | 11/06 | Jacoby Brissett |  | Traded
+# hasMore=false; 12 trade rows as read. The page does not state whether any traded player was a starter.

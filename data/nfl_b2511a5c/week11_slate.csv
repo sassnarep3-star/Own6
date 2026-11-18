@@ -1,0 +1,14 @@
+game_no,matchup,weekday,date_2026,time_et,network,away,away_record,home,home_record,venue,venue_status,game_centre_url,schedule_url,schedule_read_id,venue_read_id
+1,Colts at Texans,Thu,"Nov 19, 2026",8:15 PM,PRIME,IND,3-7,HOU,3-6,"Houston, TX - Reliant Stadium",read,https://www.nfl.com/games/colts-at-texans-2026-reg-11,https://www.nfl.com/schedules/2026/by-week/week-11,R03,R04
+2,Dolphins at Bills,Sun,"Nov 22, 2026",1:00 PM,CBS,MIA,1-8,BUF,8-1,,not read,https://www.nfl.com/games/dolphins-at-bills-2026-reg-11,https://www.nfl.com/schedules/2026/by-week/week-11,R03,
+3,Ravens at Panthers,Sun,"Nov 22, 2026",1:00 PM,FOX,BAL,4-6,CAR,4-5,,not read,https://www.nfl.com/games/ravens-at-panthers-2026-reg-11,https://www.nfl.com/schedules/2026/by-week/week-11,R03,
+4,Saints at Bears,Sun,"Nov 22, 2026",1:00 PM,FOX,NO,3-6,CHI,7-2,,not read,https://www.nfl.com/games/saints-at-bears-2026-reg-11,https://www.nfl.com/schedules/2026/by-week/week-11,R03,
+5,Titans at Cowboys,Sun,"Nov 22, 2026",1:00 PM,FOX,TEN,1-8,DAL,4-6,,not read,https://www.nfl.com/games/titans-at-cowboys-2026-reg-11,https://www.nfl.com/schedules/2026/by-week/week-11,R03,
+6,Buccaneers at Lions,Sun,"Nov 22, 2026",1:00 PM,FOX,TB,3-6,DET,7-2,,not read,https://www.nfl.com/games/buccaneers-at-lions-2026-reg-11,https://www.nfl.com/schedules/2026/by-week/week-11,R03,
+7,Cardinals at Chiefs,Sun,"Nov 22, 2026",1:00 PM,CBS,ARI,3-7,KC,7-2,,not read,https://www.nfl.com/games/cardinals-at-chiefs-2026-reg-11,https://www.nfl.com/schedules/2026/by-week/week-11,R03,
+8,Steelers at Eagles,Sun,"Nov 22, 2026",1:00 PM,CBS,PIT,6-3,PHI,2-7,,not read,https://www.nfl.com/games/steelers-at-eagles-2026-reg-11,https://www.nfl.com/schedules/2026/by-week/week-11,R03,
+9,Jets at Chargers,Sun,"Nov 22, 2026",4:05 PM,FOX,NYJ,2-8,LAC,1-8,,not read,https://www.nfl.com/games/jets-at-chargers-2026-reg-11,https://www.nfl.com/schedules/2026/by-week/week-11,R03,
+10,Jaguars at Giants,Sun,"Nov 22, 2026",4:25 PM,CBS,JAX,7-2,NYG,5-3-1,,not read,https://www.nfl.com/games/jaguars-at-giants-2026-reg-11,https://www.nfl.com/schedules/2026/by-week/week-11,R03,
+11,Raiders at Broncos,Sun,"Nov 22, 2026",4:25 PM,CBS,LV,4-6,DEN,7-2,,not read,https://www.nfl.com/games/raiders-at-broncos-2026-reg-11,https://www.nfl.com/schedules/2026/by-week/week-11,R03,
+12,Vikings at 49ers,Sun,"Nov 22, 2026",8:20 PM,NBC,MIN,7-2,SF,8-1,Mexico City - Estadio Banorte,read,https://www.nfl.com/games/vikings-at-49ers-2026-reg-11,https://www.nfl.com/schedules/2026/by-week/week-11,R03,R05
+13,Bengals at Commanders,Mon,"Nov 23, 2026",8:15 PM,ESPN,CIN,7-2,WAS,3-5-1,,not read,https://www.nfl.com/games/bengals-at-commanders-2026-reg-11,https://www.nfl.com/schedules/2026/by-week/week-11,R03,

@@ -1,0 +1,9 @@
+# R10 | https://www.packers.com/team/depth-chart | chunk 0 of 1 (club website, not nfl.com) | title as read: Packers Depth Chart | Green Bay Packers – packers.com
+# Heading as read: "# Green Bay Packers Depth Chart"; table cells verbatim (empty cells shown as blank)
+| WR | 9 Christian Watson | 16 Bo Melton |  |
+| WR | 0 Matthew Golden | 87 J. Michael Sturdivant |  |
+| QB | 10 Jordan Love | 6 Tyrod Taylor |  |
+| S | 29 Xavier McKinney | 27 Kitan Oladapo |  |
+| S | 33 Evan Williams | 27 Kitan Oladapo |  |
+| PR |  | 0 Matthew Golden |  |
+Unofficial, Nov. 10, 2026

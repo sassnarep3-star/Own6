@@ -1,0 +1,13 @@
+# R01 | https://www.nfl.com/injuries/ | chunk 0 of 8 (only chunk read) | page title as read: Official Latest NFL Injury Report for Players - Week 10 of the 2026 Season | NFL.com
+# Links stripped; cell text verbatim. Headline as read: "## Injuries - WEEK 10"
+Lions
+| Player | Position | Injuries | Practice Status | Game Status |
+| Brian Branch | S |  | Full Participation in Practice |  |
+| Jared Goff | QB |  | Full Participation in Practice |  |
+| Kerby Joseph | S | Knee | Did Not Participate In Practice | Out |
+| Cade Mays | C | Ankle | Did Not Participate In Practice | Out |
+| D.J. Reed | CB | Hip | Did Not Participate In Practice | Out |
+| Jacob Saylors | RB |  | Full Participation in Practice |  |
+| Amon-Ra St. Brown | WR | Rib | Limited Participation in Practice | Questionable |
+| Sione Vaki | RB | Ankle | Limited Participation in Practice | Questionable |
+| DJ Wonnum | DE |  | Full Participation in Practice |  |

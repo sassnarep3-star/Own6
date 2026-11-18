@@ -1,0 +1,35 @@
+# R03 | https://www.nfl.com/schedules/2026/by-week/week-11 | chunks 0,1,2 of 3 read | page title as read: NFL Week 11 Schedule 2026: Games, Times, Matchups & Tickets
+# Links stripped. Record strings are the team records printed beside each club logo.
+Thursday Night Football, November 19th
+Colts at Texans, Thursday, November 19th, 8:15 PM, PRIME
+COLTS 3-7 (3 wins, 7 losses, 0 ties) | TEXANS 3-6 (3 wins, 6 losses, 0 ties)
+Sunday, November 22nd
+Dolphins at Bills, Sunday, November 22nd, 1:00 PM, CBS
+DOLPHINS 1-8 | BILLS 8-1
+Ravens at Panthers, Sunday, November 22nd, 1:00 PM, FOX
+RAVENS 4-6 | PANTHERS 4-5
+Saints at Bears, Sunday, November 22nd, 1:00 PM, FOX
+SAINTS 3-6 | BEARS 7-2
+Titans at Cowboys, Sunday, November 22nd, 1:00 PM, FOX
+TITANS 1-8 | COWBOYS 4-6
+Buccaneers at Lions, Sunday, November 22nd, 1:00 PM, FOX
+BUCCANEERS 3-6 | LIONS 7-2
+Cardinals at Chiefs, Sunday, November 22nd, 1:00 PM, CBS
+CARDINALS 3-7 | CHIEFS 7-2
+Steelers at Eagles, Sunday, November 22nd, 1:00 PM, CBS
+STEELERS 6-3 | EAGLES 2-7
+Jets at Chargers, Sunday, November 22nd, 4:05 PM, FOX
+JETS 2-8 | CHARGERS 1-8
+Jaguars at Giants, Sunday, November 22nd, 4:25 PM, CBS
+JAGUARS 7-2 | GIANTS 5-3-1
+Raiders at Broncos, Sunday, November 22nd, 4:25 PM, CBS
+RAIDERS 4-6 | BRONCOS 7-2
+Sunday Night Football, November 22nd
+Vikings at 49ers, Sunday, November 22nd, 8:20 PM, NBC
+VIKINGS 7-2 | 49ERS 8-1
+Monday Night Football, November 23rd
+Bengals at Commanders, Monday, November 23rd, 8:15 PM, ESPN
+BENGALS 7-2 | COMMANDERS 3-5-1
+Teams on Bye
+ATL Atlanta Falcons 3-7 | CLE Cleveland Browns 6-4 | GB Green Bay Packers 6-4 | LAR Los Angeles Rams 6-4 | NE New England Patriots 5-5 | SEA Seattle Seahawks 6-4
+Week navigation as read: "Chevron Left Week 10 WEEK 11 Chevron Right Week 12"

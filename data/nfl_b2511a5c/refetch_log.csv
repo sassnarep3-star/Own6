@@ -1,0 +1,14 @@
+read_id,url,refetch_chunks,refetch_result,notes
+R01,https://www.nfl.com/injuries/,0,MATCH,"Lions block (Kerby Joseph / Cade Mays / D.J. Reed, all Out) is in chunk 0; chunks 1-7 not re-fetched"
+R02,https://www.nfl.com/injuries/2026/week-11,0,MATCH,404 - Flag on the Play. returned again
+R03,https://www.nfl.com/schedules/2026/by-week/week-11,"0,2",MATCH,"Colts at Texans, Vikings at 49ers, ATL 3-7 in chunk 0; Bengals at Commanders (Mon Nov 23 8:15 ESPN) and the bye block in chunk 2; chunk 1 not re-fetched"
+R04,https://www.nfl.com/games/colts-at-texans-2026-reg-11?tab=overview,"0,1",MATCH_AFTER_HEADER_FIX,"Al-Shaair and Carlies 'Did not participate' in chunk 0; Location HOUSTON, TX and Stadium RELIANT STADIUM in chunk 1. Raw header said 'chunk 0 of 3'; corrected to chunks 0,1 and the SHA-256 recomputed"
+R05,https://www.nfl.com/games/vikings-at-49ers-2026-reg-11?tab=overview,0,MATCH,"Location MEXICO CITY, Stadium ESTADIO BANORTE, 7-2 and 8-1 all in chunk 0"
+R06,https://www.nfl.com/transactions/league/reserve-list/2026/11,"0,1",MATCH,Al-Shaair and Carlies 11/17 in chunk 0; Willis 11/10 Reserve/Injured in chunk 1; no Jackson or Huntley row in either chunk
+R07,https://www.nfl.com/transactions/,0,MATCH,Allen (IND to SF) and Downs (IND to KC) 11/10; Brissett (ARI to BAL) 11/06
+R08,https://www.nfl.com/news/dolphins-place-qb-malik-willis-groin-on-injured-reserve-kyle-mccord-in-line-for-first-start,0,MATCH,'placed on injured reserve Tuesday' and 'Weeks 10-13' match; the article carries no byline date
+R09,https://www.nfl.com/players/malik-willis/,none,NOT RE-FETCHED,identity-only read; no claim depends on it in this pack
+R10,https://www.packers.com/team/depth-chart,0,MATCH,"QB 10 Jordan Love; S 29 Xavier McKinney and 33 Evan Williams both list 27 Kitan Oladapo; 'Unofficial, Nov. 10, 2026' present. Club site, not in release-gate allowlist"
+R11,https://www.baltimoreravens.com/team/depth-chart,"0,1",MATCH_AFTER_LINK_STRIP,"QB Brissett/Fagnano/Slovis; LG and C both Ryan Neuzil; P and H both Ryan Eckley; RUSH and SAM both Mike Green; DT link slug justin-madubuike. Chunk 1 is footer text only. No 'Unofficial' label in either chunk. Raw capture rewritten to include these rows (earlier raw lacked the DT, RUSH, SAM, P and H rows). Club site, not in release-gate allowlist"
+R12,https://www.nfl.com/teams/baltimore-ravens/roster/,"0,1,2",MATCH,"Brissett, Fagnano, Slovis ACT in chunks 0-1; Tyler Huntley (#5) and Lamar Jackson (#8) RES in chunk 2"
+R13,https://www.nfl.com/transactions/league/reserve-list/2026/10,none,NOT RE-FETCHED,first read in this pass; all 25 rows transcribed from chunks 0 and 1. Jackson and Huntley absent

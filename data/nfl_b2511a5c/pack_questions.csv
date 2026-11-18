@@ -1,0 +1,9 @@
+q_id,question,we_have,we_lack,answer_now,read_ids,next_route
+Q01,Has the Week 11 injury report been published?,Route returns 404 at read time (R02),Any Week 11 designation,"No, not at read time",R02,Capture on the first day the route returns 200
+Q02,When did the Ravens club depth page stop listing Jackson and Huntley at QB?,One dated read today (R11),Any earlier capture of this page,Unknown; not listed on 2026-11-18 read,R11|R12,Daily depth capture (S03)
+Q03,Is there an official depth-order page for Green Bay?,Club page labelled Unofficial (R10),Official depth source,No official page found this session,R10,Route (b) snap counts if verified (S02)
+Q04,Where is every Week 11 game played?,"2 of 13 venues read from game centres (R04, R05)",11 venues,2 of 13,R04|R05,Read 11 game-centre pages
+Q05,Is Azeez Al-Shaair active or reserve for Week 11?,RES 11/17 (R06); game-centre practice label (R04),Week 11 injury report,RES as of 11/17 reserve list,R06|R04,Week 11 injury report and reserve list after posting
+Q06,Were Keenan Allen or Josh Downs starters?,Trades dated 11/10 (R07),Depth or snap evidence for starter status,Not stated by the source,R07,Snap counts or official depth page
+Q07,Do the Week 10 injury table counts (254 vs 279) hold?,Chunk 1 of 8 read (R01),Full row count,Not re-verified,R01,Read all 8 chunks (S07)
+Q08,Is the Texans depth chart available from an authorized structured source?,Not read this session,Any structured Texans depth source,Not answered in this pack,,Owner decision on an authorized source (not transcription by eye)

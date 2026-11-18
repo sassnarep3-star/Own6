@@ -1,0 +1,8 @@
+# R04 | https://www.nfl.com/games/colts-at-texans-2026-reg-11?tab=overview | chunks 0,1 of 3 read (venue lines are from chunk 1) | page title as read: Indianapolis Colts at Houston Texans 2026 REG 11 - Game Center
+Indianapolis Colts 3-7 | Houston Texans 3-6
+Nov 19 8:15PM Prime Video network icon
+Game Info
+Location: HOUSTON, TX
+Stadium: RELIANT STADIUM
+COLTS: J. Carlies LB #57 A Did not participate | S. Gardner DB #1 A Did not participate | A. Gould WR #6 A Did participate | C. Heck OL A Did not participate
+TEXANS: A. Al-Shaair LB #0 A Did not participate | R. Blankenship DB #6 A Full participation | T. Dell WR #1 A Full participation | B. Fisher OL #57 A Full participation

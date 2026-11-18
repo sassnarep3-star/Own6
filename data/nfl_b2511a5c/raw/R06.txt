@@ -1,0 +1,29 @@
+# R06 | https://www.nfl.com/transactions/league/reserve-list/2026/11 | chunks 0,1 of 2 read | page title as read: 2026 NFL reserve-list by month | NFL.com
+# Heading as read: "## Reserve List — November" / "## November 2026"
+# Columns as read: From | To | Date | Name | Position | Transaction   (From/To cells are club logos + names; shown here as the club name only; From and To are the same club on every row)
+Texans | 11/17 | Azeez Al-Shaair |  | Reserve/Injured
+Dolphins | 11/17 | Zeek Biggers |  | Reserve/Injured
+Dolphins | 11/17 | Jordan Phillips |  | Reserve/Injured
+Cardinals | 11/17 | Andrew Wingard |  | Reserve/Injured
+Cardinals | 11/17 | Jordan Burch |  | Reserve/Injured
+Bills | 11/17 | Ar'maj Reed-Adams |  | Reserve/Injured
+Colts | 11/17 | Jaylon Carlies |  | Reserve/Injured
+Titans | 11/17 | Wan'Dale Robinson |  | Reserve/Injured
+Rams | 11/16 | Dylan McMahon |  | Reserve/Injured
+Chargers | 11/16 | Branson Taylor |  | Reserve/Injured
+Saints | 11/14 | Christen Miller |  | Reserve/Injured
+Patriots | 11/14 | TreVeyon Henderson |  | Reserve/Injured
+Browns | 11/14 | Michael Burton |  | Reserve/Injured
+Colts | 11/14 | Mo Alie-Cox |  | Reserve/Injured
+Colts | 11/14 | Akeem Davis-Gaither |  | Reserve/Injured
+Titans | 11/14 | Peter Skoronski |  | Reserve/Injured
+Titans | 11/14 | Tommy Townsend |  | Reserve/Injured
+Cowboys | 11/14 | Tyler Goodson |  | Reserve/Injured
+Packers | 11/14 | Josh Whyle |  | Reserve/Injured
+Rams | 11/12 | Puka Nacua |  | Reserve/Injured
+Rams | 11/10 | Jordan Whittington |  | Reserve/Injured
+Dolphins | 11/10 | Zach Sieler |  | Reserve/Injured
+Dolphins | 11/10 | Malik Willis |  | Reserve/Injured
+49ers | 11/10 | Gracen Halton |  | Reserve/Injured
+Cardinals | 11/10 | Gardner Minshew |  | Reserve/Injured
+# Page end: hasMore=false after chunk 1 (25 Reserve/Injured rows dated 11/10 to 11/17 in this read).

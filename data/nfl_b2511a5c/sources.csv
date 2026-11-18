@@ -1,0 +1,14 @@
+source_id,url,host,source_class,read_ids,used_for
+SRC1,https://www.nfl.com/injuries/,www.nfl.com,official_nfl,R01,Week 10 Lions rows; default route
+SRC2,https://www.nfl.com/injuries/2026/week-11,www.nfl.com,official_nfl,R02,Week 11 route status
+SRC3,https://www.nfl.com/schedules/2026/by-week/week-11,www.nfl.com,official_nfl,R03,"Week 11 slate, byes"
+SRC4,https://www.nfl.com/games/colts-at-texans-2026-reg-11,www.nfl.com,official_nfl,R04,Venue TNF
+SRC5,https://www.nfl.com/games/vikings-at-49ers-2026-reg-11,www.nfl.com,official_nfl,R05,Venue SNF
+SRC6,https://www.nfl.com/transactions/league/reserve-list/2026/11,www.nfl.com,official_nfl,R06,Reserve/Injured dates
+SRC7,https://www.nfl.com/transactions/,www.nfl.com,official_nfl,R07,Trades 11/06-11/10
+SRC8,https://www.nfl.com/news/dolphins-place-qb-malik-willis-groin-on-injured-reserve-kyle-mccord-in-line-for-first-start,www.nfl.com,official_nfl,R08,Willis IR article
+SRC9,https://www.nfl.com/players/malik-willis/,www.nfl.com,official_nfl,R09,Identity
+SRC10,https://www.packers.com/team/depth-chart,www.packers.com,official_club,R10,Club depth page (Unofficial label)
+SRC11,https://www.baltimoreravens.com/team/depth-chart,www.baltimoreravens.com,official_club,R11,Club depth page QB row
+SRC12,https://www.nfl.com/teams/baltimore-ravens/roster/,www.nfl.com,official_nfl,R12,RES status for Jackson and Huntley
+SRC13,https://www.nfl.com/transactions/league/reserve-list/2026/10,www.nfl.com,official_nfl,R13,October reserve list (all rows); check for Jackson and Huntley transactions

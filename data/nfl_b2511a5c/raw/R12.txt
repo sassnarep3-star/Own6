@@ -1,0 +1,9 @@
+# R12 | https://www.nfl.com/teams/baltimore-ravens/roster/ | chunks 0,1,2 of 3 read | title as read: Baltimore Ravens 2026 Player Roster | NFL.com | header as read: "4 - 6 - 0" / "4th AFC North"
+# Columns as read: Name | No. | Position | Status | Height | Weight | Experience | College   (status codes as printed: ACT, CUT, DEV, RES, TRC, TRT)
+Jacoby Brissett |  | QB | ACT | 76 | 235 | 11 | N.C. State
+Joe Fagnano | 12 | QB | ACT | 75 | 230 | R | Connecticut
+Kedon Slovis |  | QB | ACT | 74 | 223 | 2 | BYU
+Austin Reed |  | QB | CUT | 73 | 214 | 1 | Western Kentucky
+Skylar Thompson | 11 | QB | RES | 74 | 210 | 5 | Kansas State
+Tyler Huntley | 5 | QB | RES | 73 | 204 | 7 | Utah
+Lamar Jackson | 8 | QB | RES | 74 | 205 | 9 | Louisville

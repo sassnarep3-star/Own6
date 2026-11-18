@@ -1,0 +1,13 @@
+read_id,club,page,row,cells,observation,flag_id
+R10,Green Bay Packers,https://www.packers.com/team/depth-chart,QB,10 Jordan Love | 6 Tyrod Taylor | (empty),Jersey number prefix on every name,F02
+R10,Green Bay Packers,https://www.packers.com/team/depth-chart,S (row 1),29 Xavier McKinney | 27 Kitan Oladapo | (empty),Oladapo (27) also in S row 2,F02
+R10,Green Bay Packers,https://www.packers.com/team/depth-chart,S (row 2),33 Evan Williams | 27 Kitan Oladapo | (empty),Same player and number as S row 1; not inferred as shared,F02
+R10,Green Bay Packers,https://www.packers.com/team/depth-chart,page label,"Unofficial, Nov. 10, 2026",The club labels this page Unofficial,F01
+R11,Baltimore Ravens,https://www.baltimoreravens.com/team/depth-chart,QB,Jacoby Brissett | Joe Fagnano | Kedon Slovis,Jackson and Huntley not on this row (read today),F04
+R11,Baltimore Ravens,https://www.baltimoreravens.com/team/depth-chart,LG,John Simpson | Ryan Neuzil | (empty),Ryan Neuzil also in the C row,F03
+R11,Baltimore Ravens,https://www.baltimoreravens.com/team/depth-chart,C,Cam Jurgens | Ryan Neuzil | (empty),Ryan Neuzil also in the LG row,F03
+R11,Baltimore Ravens,https://www.baltimoreravens.com/team/depth-chart,DT,Nnamdi Madubuike | Broderick Washington Jr.,Displayed name differs from link slug justin-madubuike,F13
+R11,Baltimore Ravens,https://www.baltimoreravens.com/team/depth-chart,P,Ryan Eckley,Also listed in the H row,F14
+R11,Baltimore Ravens,https://www.baltimoreravens.com/team/depth-chart,H,Ryan Eckley,Also listed in the P row,F14
+R11,Baltimore Ravens,https://www.baltimoreravens.com/team/depth-chart,RUSH,Trey Hendrickson | Mike Green,Mike Green also listed in the SAM row,F15
+R11,Baltimore Ravens,https://www.baltimoreravens.com/team/depth-chart,SAM,Mike Green | Zion Young | Ethan Burke,Mike Green also listed in the RUSH row,F15
