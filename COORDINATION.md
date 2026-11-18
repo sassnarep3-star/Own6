@@ -3257,3 +3257,17 @@ on any foreign branch, recorded as F-14 in this pack's flagged.csv; it passes on
 the diff is empty, so main CI is unaffected). check_site.py OK, release_gate.py 0 issues,
 pack verifier 14/14, pack tests 9/9. PR opened from `arena/7a59fd89-own6` and merged without
 waiting for review per standing protocol.
+
+---
+
+## Session `arena/65b130f7-own6` — root dashboard suggestions / decision-board discoverability (claimed 2026-11-18)
+
+**Branch constraint.** Arena fixes this session to `arena/65b130f7-own6` at base `aa827981`; no other branch or worktree is created. The requested `session-<id>/<task>` naming cannot be used without violating the Arena branch rule, so this session stays on its assigned branch.
+
+**Claim (recorded before site changes).** The repository already has a live, dedicated cross-pack Suggestions and Q/I/A board (`docs/nfl-dfc0c1bc/`) and a categorized dashboard. The root dashboard's dedicated Suggestions section links only to two pack-local queues; the consolidated review board is farther down the page. This task improves discoverability only and will not implement any proposal or change model/data evidence.
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| I1 Elevate the consolidated Suggestions + Q/I/A review board from the root dashboard's review section | in progress | 65b130f7 | `index.html` (additive links in `#suggestions` only), `COORDINATION.md` (append-only) |
+
+**Evidence boundary.** Before the claim, the published root portal and DFC0 board were fetched from GitHub Pages; the GitHub Pages API reported build `built` for commit `aa827981092a7d1996b1122bda0d2decc7f626c7`. This UI change adds no new NFL facts or official-source claims. The board's own source register and flagged page remain the evidence for its consolidated records.
