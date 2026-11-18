@@ -293,3 +293,46 @@ Build / check / test: `python3 scripts/build_nfl_48217a55.py` · `python3 script
 (115 checks) · `python3 -m unittest discover -s tests -p "test_nfl_48217a55.py"` (59 tests). The builder
 takes no arguments and touches no network, so a re-run reproduces byte-identical files. Executive summary:
 [`NFL_48217A55_EXECUTIVE_SUMMARY.md`](NFL_48217A55_EXECUTIVE_SUMMARY.md).
+
+---
+
+## NFL Decision Gate — owner-requirement board (session `0d4da02c`, added 2026-11-18)
+
+[`docs/nfl-0d4da02c/index.html`](docs/nfl-0d4da02c/index.html) ·
+executive summary: [`NFL_0D4DA02C_EXECUTIVE_SUMMARY.md`](NFL_0D4DA02C_EXECUTIVE_SUMMARY.md) ·
+repo review: [`audit/NFL_0D4DA02C_REPO_REVIEW.md`](audit/NFL_0D4DA02C_REPO_REVIEW.md)
+
+This pack takes the owner's **own requirement list** (75 product requirements + 8 process
+instructions from the 2026-11-18 brief) as the authoritative row set, rather than re-registering
+suggestions in a pack's own vocabulary. Every row carries the gate that blocks it and the number
+that would clear it.
+
+- **Decision-readiness table** — 83 requirement rows, 23 gates, each gate with a measurable
+  clearing number. 17 cleared by this session's official reads, 32 blocked, 18 structural.
+- **Suggestions section, review before implement** — 30 suggestions with 68 option paths, each
+  path carrying cost, risk, required evidence and a clearing number. **The decision columns ship
+  blank on purpose**: the owner chooses the path before anything is built.
+- **Questions / information / answers** — 28 questions with what we have, what we lack and a
+  discovery route; 22 information gaps with the exact acquisition route. 8 of 28 are answered by an
+  official source read this session; the rest are blank by design.
+- **Official reads taken 2026-11-18** (logged with requested URL, canonical URL and a SHA-256 of
+  the transcript):
+  - the Week 10 injury report, **347 rows across 28 clubs**, re-read and re-published;
+  - the **Week 11 schedule**, 13 games plus 6 clubs on bye (26 + 6 = 32), with kickoff times,
+    networks, records, venue text and the league's scheduling statement verbatim;
+  - **the Week 11 injury report is not published** — the Week 11 URL resolves to the Week 10 page;
+  - 19 dated official announcements, including starter changes for Lock, McCord, Watson and Beck.
+- **Independent claim checks** — this session's re-read reproduces the previously published Week 10
+  counts exactly (347 rows; 70 Out / 90 Questionable / 11 Doubtful / 176 blank), and shows that the
+  three Lions designations the owner reported as blank are **no longer blank**.
+- **Repo review, computed** — 1,166 tracked files scanned at the pinned base. Findings include data
+  CSVs with no source column at all, 18 parallel NFL packs duplicating the same registers, 13 pages
+  containing interactive controls, one broken internal link and five files over 1 MB.
+
+No prices, no odds, no leaderboard rows and no profitability claim. Where a value cannot be
+confirmed from an official source it is left blank and flagged.
+
+Build / check / test: `python3 scripts/build_nfl_0d4da02c.py` ·
+`python3 scripts/check_nfl_0d4da02c.py` (26 checks) ·
+`python3 tests/test_nfl_0d4da02c.py` (24 tests). The builder takes no arguments and touches no
+network, so a re-run reproduces byte-identical files.

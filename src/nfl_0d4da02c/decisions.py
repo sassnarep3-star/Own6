@@ -919,6 +919,55 @@ GAPS: list[tuple[str, ...]] = [
 ]
 
 
+# ---------------------------------------------------------------------------
+# CLAIM CHECKS. A published claim from elsewhere in the repository, recomputed
+# this session from this session's own official read. "match" means the numbers
+# agree; "superseded" means the page has moved on since the claim was written;
+# "not attempted" means this session did not re-derive it and says so.
+# (id, claim, where_it_was_published, recomputed_this_session, result, note)
+# ---------------------------------------------------------------------------
+CLAIM_CHECKS: list[tuple[str, ...]] = [
+    ("C-01",
+     "Week 10 injury report: 347 rows across 28 clubs; 70 Out, 90 Questionable, 11 Doubtful, "
+     "176 with no game status",
+     "docs/nfl-48217a55/index.html and README.md (session 48217a55, read 2026-11-15)",
+     "347 rows across 28 clubs; 70 Out, 90 Questionable, 11 Doubtful, 176 blank",
+     "match",
+     "An independent re-read three days later on 2026-11-18 reproduces the counts exactly."),
+    ("C-02",
+     "Four clubs have no Week 10 injury section because they were on bye",
+     "docs/nfl-48217a55/index.html",
+     "CHI, DEN, PHI and TB absent; all four play in Week 11, and the Week 11 page lists six "
+     "other clubs as the bye group - the complement confirms it",
+     "match",
+     "Absence is a bye presentation, not health. Published as absence with the reason, never as zero."),
+    ("C-03",
+     "Kerby Joseph, Cade Mays and D.J. Reed are published with a blank game-status cell (the "
+     "owner's requirement R-48)",
+     "owner brief 2026-11-18; prior pack registers",
+     "All three read Out with Did Not Participate on 2026-11-18: Joseph (Knee), Mays (Ankle), "
+     "Reed (Hip)",
+     "superseded",
+     "The defect the owner reported is no longer present on the live page. R-48 is marked "
+     "cleared, and the change is recorded rather than back-filled."),
+    ("C-04",
+     "The implied completed-game count is 136 (league points for equals points against, "
+     "6,246 = 6,246)",
+     "docs/nfl-48217a55/index.html and README.md",
+     "",
+     "not attempted",
+     "This session did not re-read the results or standings pages, so it neither confirms nor "
+     "contradicts the figure. It is left as a repo claim."),
+    ("C-05",
+     "Luck share measured at 0.518 across 136 games",
+     "docs/nfl-48217a55/index.html and README.md",
+     "",
+     "not attempted",
+     "Requires the results corpus this session did not re-read. Left as a repo claim, and no "
+     "luck number is republished here."),
+]
+
+
 def main() -> int:
     os.makedirs(DATA, exist_ok=True)
 
@@ -957,6 +1006,14 @@ def main() -> int:
                     "source_url"])
         w.writerows([list(g) for g in GAPS])
     print(f"wrote information_gaps.csv: {len(GAPS)} rows")
+
+    with open(os.path.join(DATA, "claim_checks.csv"), "w", newline="",
+              encoding="utf-8") as fh:
+        w = csv.writer(fh)
+        w.writerow(["check_id", "claim", "where_it_was_published",
+                    "recomputed_this_session", "result", "note"])
+        w.writerows([list(c) for c in CLAIM_CHECKS])
+    print(f"wrote claim_checks.csv: {len(CLAIM_CHECKS)} rows")
     return 0
 
 

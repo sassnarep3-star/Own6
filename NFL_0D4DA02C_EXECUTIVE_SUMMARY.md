@@ -74,6 +74,15 @@ data — not a fingerprint of the page's own bytes; that caveat is published as 
 - **R-14 is cleared.** Thirteen fixtures of fixture-context features, restricted to facts the
   official page prints: date, kickoff, network, venue, records. No derived rest days or travel.
 
+### Independent claim checks
+
+This session's re-read **reproduces the previously published Week 10 counts exactly** (347 rows;
+70 Out / 90 Questionable / 11 Doubtful / 176 blank) and confirms the four bye-club absences. It
+also shows that **C-03 — the three blank Lions designations — is superseded**: the live page no
+longer has the defect. Two further published figures (the implied 136-game count and the 0.518
+luck share) were **not attempted**, because this session did not re-read the results corpus; they
+are left as repo claims rather than repeated or disputed.
+
 ### Numbers published with n (from official counts only)
 
 347 rows: **176 blank game status · 90 Questionable · 70 Out · 11 Doubtful**. Of the 70 Out, 62 did
@@ -127,5 +136,6 @@ yet, and filling them is the exact failure mode this project exists to avoid.
 | `scripts/build_nfl_0d4da02c.py` · `scripts/check_nfl_0d4da02c.py` | deterministic renderer and 10-rule verifier |
 | `tests/test_nfl_0d4da02c.py` | 24 tests (verifier, identities, determinism) |
 | `audit/NFL_0D4DA02C_REPO_REVIEW.md` | the line-by-line repo review |
+| `data/nfl_0d4da02c/claim_checks.csv` | 5 published claims recomputed against this session's read |
 
 Verification at the time of writing: verifier **26/26**, tests **24/24**, rebuild byte-identical.

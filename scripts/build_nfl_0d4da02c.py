@@ -612,6 +612,20 @@ def build_repo_review() -> None:
         f'<strong>{esc(v)}</strong></div>'
         for k, v in stats.items() if not k.endswith("commit"))
     nosrc = [i for i in inv if i["file_kind"] == "data" and not i["source_columns"]]
+    cc = read("claim_checks.csv")
+    cc_rows = []
+    for c in cc:
+        cls = {"match": "t-cleared", "superseded": "t-structural",
+               "not attempted": "t-open"}.get(c["result"], "")
+        cc_rows.append(
+            "<tr>"
+            + cell(c["check_id"], "mono")
+            + f"<td>{esc(c['claim'])}</td>"
+            + cell(c["where_it_was_published"])
+            + cell(c["recomputed_this_session"])
+            + f'<td><span class="tag {cls}">{esc(c["result"])}</span></td>'
+            + cell(c["note"])
+            + "</tr>")
     body = f"""
 <p>Computed by <code>src/nfl_0d4da02c/repo_review.py</code> against the pinned base commit
 <code>{esc(stats.get("base_commit", ""))}</code>. Nothing on this page is hand-written: every
@@ -632,6 +646,13 @@ contrary to the requirement that every table row carry a source link.</li>
 <code>docs/lab/</code> has no <code>index.html</code>.</li>
 <li>Five committed files exceed 1 MB, the largest being an 11 MB coverage table.</li>
 </ul>
+<h2>Independent claim checks</h2>
+<p>A published claim from elsewhere in the repository, recomputed this session from this session's
+own official read. <em>match</em> means the numbers agree; <em>superseded</em> means the page has
+moved on since the claim was written; <em>not attempted</em> means this session did not re-derive
+it and says so rather than guessing.</p>
+""" + table(["Check", "Claim", "Where it was published", "Recomputed this session",
+             "Result", "Note"], cc_rows) + """
 """
     write("repo-review.html", page(
         "Repository review", "Line-by-line, computed at a pinned base commit",
