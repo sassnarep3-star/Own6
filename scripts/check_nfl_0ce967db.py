@@ -245,14 +245,22 @@ def rule10(c: Checker) -> None:
 
 
 def rule11(c: Checker) -> None:
-    bad = ("TODO", "TBD", "lorem", "XXX", "{{", "PLACEHOLDER", "{}", "{}+{}", "None<", "nan")
+    bad_literals = ("TODO", "TBD", "lorem", "XXX", "{{", "PLACEHOLDER", "{}", "{}+{}", "None<")
+    # numeric artefacts must be caught on word boundaries, or "Financial" and "provenance"
+    # trip a naive substring search (that false positive is what this comment replaces)
+    # "None" is deliberately absent: it is an ordinary English word on this site ("None of them
+    # blocks publication"). A numeric artefact is what must be caught, so the patterns are numeric.
+    bad_patterns = (r"\bnan\b", r"\bNaN\b", r"\binf\b", r"(?<![\w.])-?\d+\.\d{e}[+-]\d+")
     for name in os.listdir(DOCS):
         if not name.endswith(".html"):
             continue
         t = open(os.path.join(DOCS, name), encoding="utf-8").read()
-        for b in bad:
+        for b in bad_literals:
             if b in t:
                 c.bad("R11 placeholder", f"{name} contains {b}")
+        for pat in bad_patterns:
+            if re.search(pat, t):
+                c.bad("R11 numeric artefact", f"{name} matches /{pat}/")
     c.ok("R11", "no placeholder text")
 
 
