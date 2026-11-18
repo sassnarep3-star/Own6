@@ -1,5 +1,5 @@
 page,page_sha256,data_rows,official_reference_present,repository_reference_only,secondary_reference_only,no_https_reference,repository_source
-index.html,76759383c0b8fffc204886f42339d5b9815375e2f943c090c4f79ff45178e68c,81,75,2,4,0,https://github.com/sassnarep3-star/Own6/blob/main/index.html
+index.html,860b9d21c5e6d91124fffed092371d2acb4a431314ca554f8050ec37ed52ef40,81,75,2,4,0,https://github.com/sassnarep3-star/Own6/blob/main/index.html
 docs/assurance/correlations.html,6dd66a3bac399fe188e402fa9142083a1d677e6be1b5191fd81969bf4b46d049,6,6,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/correlations.html
 docs/assurance/flagged.html,a8407ad7cd7ab20b1fd64b4628e8a13e03181bd2183cbcde50e1f11a5d03e59a,400,396,4,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/flagged.html
 docs/assurance/index.html,1f9ba8fe9ca2a07a22d3848252bee0a472a48b8bf1f84534c94f3bae7fdfa630,4,0,4,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/index.html
@@ -34,7 +34,7 @@ docs/hub/strategies.html,5ed4f083b385748cd20329045b8814fb1808185905343d985fba7fd
 docs/hub/summary.html,efdbcc01626ca76623e03ae37beb350a1378c5040e5a572151fa2a934e9f6fd7,9,0,9,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/hub/summary.html
 docs/hub/validation.html,e91d4bf97b612e74a63c2e7f195180478dd7c8edd9168b6dce818fcfae36b42c,10,0,10,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/hub/validation.html
 docs/hub-evidence/index.html,1f42d8cae1ebd35b167d230090e65870034c4f473a24767a073a5ec64b86945a,9,4,5,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/hub-evidence/index.html
-docs/index.html,148fda010a29b0adb72835c2fb800bdd2c485345eebeae745b3d9ca3b0781f98,4,4,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/index.html
+docs/index.html,5c3e17297f4f633c21230b6327e0192485c2c755ab807a75d83cc9c26c3812a1,4,4,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/index.html
 docs/lab/correlations.html,a33de14e67c4d7eb7587da5d20aaf8284edf7239c91e92c1e6896130df510f38,6,6,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/lab/correlations.html
 docs/lab/findings.html,82f3c6d9a3de4bc653743a43898c3df4daabd586af8dfbf64b1b191ea3e98505,20,4,16,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/lab/findings.html
 docs/lab/flagged.html,f7b6de2d7bbaa3f273f0a69a2923fa19d5ceb5c7bdb539cbd3b73a4d543d1895,93,74,19,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/lab/flagged.html
@@ -57,6 +57,16 @@ docs/nfl/sources.html,ee1afeb13c9d3232d9a6b469d5b1c1ae864bfab48efb86f2601186925d
 docs/nfl/strategies.html,7a1712fd7d7b8d10167e8098b989c6bd7d6578963de2f2fe97ff261209c58a8d,10,10,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl/strategies.html
 docs/nfl/suggestions.html,e121e09945d14e0ce43451ae080f04009bfd759eca245ee81ebc9957da015dd1,3,3,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl/suggestions.html
 docs/nfl/validation.html,005599908582170d6ee1ad2ad12157663089ba3e536c189c4897c340aba42fa3,10,10,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl/validation.html
+docs/nfl-0ce967db/availability.html,456c8778e148baba339615d550961aac2db8f4a5c6119d2802c892560ca90381,183,164,0,0,19,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-0ce967db/availability.html
+docs/nfl-0ce967db/board.html,a0bc6eec61610631ef5c93bb9599aa66a886680677c1e26e19e85eab3d6a53bf,51,6,0,0,45,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-0ce967db/board.html
+docs/nfl-0ce967db/evidence.html,fd5deb47379dd112c69cd69cd22cc88daa46ff0a5b44c1d93e8a219dd8fe6419,77,45,0,0,32,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-0ce967db/evidence.html
+docs/nfl-0ce967db/flagged.html,ba168b1fd10b71143c4d8989c87ffc0e9743cfbe03ac626bc9ab6cb5bc31a9c4,23,15,0,0,8,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-0ce967db/flagged.html
+docs/nfl-0ce967db/index.html,4fed18d9abf49d39fea5216cfc12bb739806989f06d8b59add93c337c5fa966e,11,0,0,0,11,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-0ce967db/index.html
+docs/nfl-0ce967db/origination.html,895e447c4f148e8cf78d75de9b87c892bc005206be53b25f307f1cf3b8037859,18,18,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-0ce967db/origination.html
+docs/nfl-0ce967db/questions.html,cb187cbf5dd2d0209df3756ff5f2e455fc547b87bd54db92a428a8bc8ab3aae8,29,22,0,0,7,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-0ce967db/questions.html
+docs/nfl-0ce967db/readiness.html,e041a352b973f5cd1421452e379c10f4f8d88b0b5ad0f5b3d68679c750739207,102,96,0,0,6,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-0ce967db/readiness.html
+docs/nfl-0ce967db/sources.html,01b535f0d6b3b3255e961f9e759b84e0fa26eecffb52fe7eb2e0bbe507cf6244,9,9,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-0ce967db/sources.html
+docs/nfl-0ce967db/suggestions.html,bd36399e71b0c05ea73041bd9b6058abd2f38fc2e518e1100b21425353757e90,18,0,0,0,18,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-0ce967db/suggestions.html
 docs/nfl-309921cc/correlations.html,b3e992c73144af9e1e83bb8e92565c5fe6f8dfe80252838882b8d349e29ea8fd,40,40,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-309921cc/correlations.html
 docs/nfl-309921cc/decision-ledger.html,c23c5271c707be2c53e0356601bf6c482ec75098284e52bee5af8b75ad8096ca,16,13,2,1,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-309921cc/decision-ledger.html
 docs/nfl-309921cc/depth.html,41d8b33a57f21ce4ba47da02d8d2d3df24f0508a128ab0bc613d56243a7423a0,94,49,0,45,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-309921cc/depth.html
@@ -150,7 +160,7 @@ docs/nfl-7a59fd89/delta.html,4d9ad32919136bc93b8e9fa557db4262d70a33815de32a4f1f6
 docs/nfl-7a59fd89/executive-summary.html,7a86903b47f521d38871640b11bb90c5fa79b8710b13846f85ad068066a7f964,0,0,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-7a59fd89/executive-summary.html
 docs/nfl-7a59fd89/finals.html,58985b7eba87f3fa12b2b6f2aff9d5c1a0ce1f4dc6aa0634a76cabcc46d770a8,14,14,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-7a59fd89/finals.html
 docs/nfl-7a59fd89/findings.html,c2d57277a66f1f7c3febe5ba2297120a7ea7d7f973044501fe5afcfbf4107e0d,73,0,73,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-7a59fd89/findings.html
-docs/nfl-7a59fd89/flagged.html,00cf52e76e0ceccdc64c85b8512f1ff46a44d0a93fdffede0a2e81e8b3f65f0f,13,13,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-7a59fd89/flagged.html
+docs/nfl-7a59fd89/flagged.html,ebd50be20e6959be586e8f0bf636fd79a1bf1d8fef05e0e59bd26f53c9db45fc,14,13,1,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-7a59fd89/flagged.html
 docs/nfl-7a59fd89/index.html,a92f7fee912d4a15c119c577805f79dc1dcea39c272311e814d67e68924db78f,10,0,10,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-7a59fd89/index.html
 docs/nfl-7a59fd89/sources.html,88eeec9497ec48c67f86ba1c687c176d94b506f77537efa077e140f5b3bbb823,12,12,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-7a59fd89/sources.html
 docs/nfl-7a59fd89/sweep.html,539d307418f3de099c72be21b980af5359485ecbce0224f1a2968b94e5f20f9d,32,32,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-7a59fd89/sweep.html
@@ -209,12 +219,12 @@ docs/nfl-d966f630/suggestions.html,6d5f782e6bee340aa1f61bd9ed23a0545036ba5555312
 docs/nfl-dfc0c1bc/answers.html,2217707ffbdaad4b0919bc89b72cbed791df6296ded5d95f756b5e19c3878320,37,9,0,2,26,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-dfc0c1bc/answers.html
 docs/nfl-dfc0c1bc/conflicts.html,e6ca383443c88c89f53cad93074ef6ea5dee6c599d1d539b04b121a88a11fa33,34,0,24,0,10,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-dfc0c1bc/conflicts.html
 docs/nfl-dfc0c1bc/executive-summary.html,b6b148fc5b0a240e47c66d3406dd77857d3df0db01d24c7f2acabf78dfb0ecf0,7,0,0,0,7,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-dfc0c1bc/executive-summary.html
-docs/nfl-dfc0c1bc/flagged.html,63a526398a92423f9e61fe6debc058dcc6f2b3820f99856dfebcf99a77e08d72,26,1,12,0,13,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-dfc0c1bc/flagged.html
+docs/nfl-dfc0c1bc/flagged.html,1bf85cbe829767d70b929fee7935c6c5772b2c5cdc3898cf9e0734500e634aef,26,1,12,0,13,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-dfc0c1bc/flagged.html
 docs/nfl-dfc0c1bc/gaps.html,e23c3bd6535ea73b0e41bdac247f2ae1fd003f09ee30fb5fda5ccefcadc199d5,24,0,11,0,13,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-dfc0c1bc/gaps.html
 docs/nfl-dfc0c1bc/index.html,f71bb6e8e14d85fc7d49def48fbace5cf9c3b7bd7eb27dd3c0abeb3a5810eb6d,26,0,0,0,26,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-dfc0c1bc/index.html
 docs/nfl-dfc0c1bc/paths.html,a09e6d7795db94094f189378f0686c370da277c84814d68ab0f0ceb304ec7314,28,0,0,0,28,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-dfc0c1bc/paths.html
 docs/nfl-dfc0c1bc/questions.html,9e145d404071895e1234da868c6d36dc902624ecc4b00606c3c740851d58732e,192,154,22,0,16,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-dfc0c1bc/questions.html
-docs/nfl-dfc0c1bc/repo-review.html,f26d9820ae9210abf426bd86e4046a37475b3b785cbe08f608cf61d4d526fdc3,59,0,26,0,33,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-dfc0c1bc/repo-review.html
+docs/nfl-dfc0c1bc/repo-review.html,38d3f12d2882cb4c601d75d83b7decd646b6872f1912e2740b4752872a29489b,59,0,26,0,33,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-dfc0c1bc/repo-review.html
 docs/nfl-dfc0c1bc/sources.html,3ea69c8e32defcd3749546e114b89f810bbe6cdbd7420c237819e56c6e9980b7,45,9,26,2,8,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-dfc0c1bc/sources.html
 docs/nfl-dfc0c1bc/suggestions.html,9004a93ab4c37df1231182d1a4dc5e0ff18ebae18bc51cf9ac732e72ff1414e4,175,77,82,0,16,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-dfc0c1bc/suggestions.html
 docs/nfl-e5e38f9e/flagged.html,6e936f302f22620f884e63170008cf358817bf00ef461f8a6c9749189ea8459a,16,10,0,0,6,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-e5e38f9e/flagged.html
