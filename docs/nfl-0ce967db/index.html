@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Overview · Own6 NFL decision desk</title>
+<style>
+:root{--ink:#16232e;--muted:#5d7183;--navy:#0f2433;--teal:#0a7d74;--line:#dbe3e8;--paper:#f5f8f9;
+--white:#fff;--warn:#fff4dc;--warnink:#7a4b00;--ok:#0a6b4f;--bad:#9c2b2b;--soft:#eef4f5}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);line-height:1.55;
+font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:15px}
+a{color:var(--teal);text-underline-offset:.16em}
+header{background:var(--navy);color:#fff}
+.wrap{width:min(1220px,calc(100% - 2rem));margin:0 auto}
+.top{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;align-items:baseline;padding:.95rem 0}
+.top b{letter-spacing:.06em}
+.top span{color:#9fc7c2;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
+nav{display:flex;flex-wrap:wrap;gap:.25rem .9rem;padding:0 0 .7rem}
+nav a{color:#cfe3e0;text-decoration:none;font-size:.86rem;padding:.15rem 0;border-bottom:2px solid transparent}
+nav a:hover{border-bottom-color:#7fd3c6}
+nav a.on{color:#fff;border-bottom-color:#7fd3c6;font-weight:600}
+main{padding:1.4rem 0 3rem}
+h1{font-size:1.5rem;margin:.2rem 0 .4rem}
+h2{font-size:1.12rem;margin:1.9rem 0 .55rem;padding-bottom:.3rem;border-bottom:1px solid var(--line)}
+h3{font-size:.98rem;margin:1.2rem 0 .35rem}
+p{max-width:78ch}
+.lead{color:var(--muted);max-width:82ch}
+.cards{display:grid;gap:.7rem;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin:1rem 0 .4rem}
+.card{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:.8rem .9rem}
+.card .k{font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.card .v{font-size:1.65rem;font-weight:700;line-height:1.15;margin-top:.15rem}
+.card .s{font-size:.78rem;color:var(--muted)}
+.tw{overflow-x:auto;background:var(--white);border:1px solid var(--line);border-radius:10px;margin:.6rem 0 1rem}
+table{border-collapse:collapse;width:100%;font-size:.84rem}
+th,td{padding:.42rem .6rem;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--soft);font-size:.74rem;letter-spacing:.05em;text-transform:uppercase;color:#39505f;
+position:sticky;top:0;white-space:nowrap}
+tbody tr:hover{background:#fbfdfd}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+.nb{color:#93a6b3;cursor:help}
+.pill{display:inline-block;padding:.05rem .42rem;border-radius:999px;font-size:.72rem;font-weight:600;
+white-space:nowrap;border:1px solid}
+.p-met{background:#e7f6ef;color:var(--ok);border-color:#b9e3d0}
+.p-blocked{background:#fdeaea;color:var(--bad);border-color:#f2c6c6}
+.p-partially_met{background:var(--warn);color:var(--warnink);border-color:#f0d9a8}
+.p-not_run,.p-out_of_scope{background:#eceff1;color:#4a5c69;border-color:#d3dae0}
+.p-rejected_adopted{background:#eef0fb;color:#3d3f8a;border-color:#cfd4ef}
+.note{background:var(--warn);border:1px solid #f0d9a8;border-left:4px solid #d99b1a;color:#4a3300;
+padding:.7rem .9rem;border-radius:8px;margin:.9rem 0;max-width:92ch;font-size:.88rem}
+.good{background:#eef8f3;border:1px solid #bfe3d2;border-left:4px solid var(--ok);color:#134a37;
+padding:.7rem .9rem;border-radius:8px;margin:.9rem 0;max-width:92ch;font-size:.88rem}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.8rem;word-break:break-all}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:.8rem;padding:1rem 0 2rem}
+.tag{font-size:.72rem;color:var(--muted)}
+ul.tight{margin:.3rem 0 .8rem;padding-left:1.1rem}
+ul.tight li{margin:.18rem 0;max-width:86ch}
+</style></head>
+<body>
+<header><div class="wrap">
+  <div class="top"><b>OWN6</b><span>NFL decision desk · session 0ce967db</span>
+  <span style="margin-left:auto;color:#8fb7b2">reads of 2026-11-18 UTC</span></div>
+  <nav><a href="index.html" class="on">Overview</a><a href="readiness.html">Decision readiness</a><a href="board.html">Strategy board</a><a href="origination.html">Originated lines</a><a href="availability.html">Injuries &amp; depth</a><a href="evidence.html">Schedule &amp; results</a><a href="questions.html">Q / I / A</a><a href="suggestions.html">Suggestions</a><a href="flagged.html">Flagged for review</a><a href="sources.html">Sources &amp; method</a></nav>
+</div></header>
+<main class="wrap">
+
+<h1>Own6 NFL decision desk</h1>
+<p class="lead">A working decision surface, not a tout sheet. It publishes what the official sources
+actually say as of <strong>2026-11-18 UTC</strong>, what the model measures on 150 settled games, and —
+in the same table — every requirement it cannot yet satisfy and the exact number that would clear it.
+No page accepts input; nothing here is a recommendation.</p>
+
+<div class="cards">
+  <div class="card"><div class="k">Settled games scored</div><div class="v">150</div>
+    <div class="s">weeks 1–10, 32/32 clubs reconciled</div></div>
+  <div class="card"><div class="k">Strategies qualified</div><div class="v">0</div>
+    <div class="s">of 6 candidates; 0 rewards paid</div></div>
+  <div class="card"><div class="k">Requirements blocked</div><div class="v">19</div>
+    <div class="s">of 96 rows in the ledger</div></div>
+  <div class="card"><div class="k">Correlations published</div><div class="v">6</div>
+    <div class="s">1 with an interval excluding zero</div></div>
+  <div class="card"><div class="k">Week-11 games captured</div><div class="v">13</div>
+    <div class="s">kickoff, network and bye verified</div></div>
+  <div class="card"><div class="k">Availability rows</div><div class="v">164</div>
+    <div class="s">designations, 14 clubs read in full</div></div>
+  <div class="card"><div class="k">Flagged for review</div><div class="v">15</div>
+    <div class="s">including 2 bugs found and fixed today</div></div>
+  <div class="card"><div class="k">Market price</div><div class="v">none</div>
+    <div class="s">no official source prints one</div></div>
+</div>
+
+<div class="note"><strong>Read this before any number below.</strong> Every scored model shows a
+<em>positive</em> point estimate of Brier skill against a climatology control, and every one of them has a
+<em>negative</em> lower bound once whole weeks are resampled. So the apparent skill is not distinguishable
+from luck at this sample size. The removal-of-luck panel goes further and shows the models are also
+<em>miscalibrated</em>: they expect a 55% home-win rate in a season where home clubs won 46% of the games
+scored, because the registration adds a fixed +2.5 points of home field and 2026 has produced −0.53. That
+defect is measured, published and registered for a prospective fix — not quietly tuned away.</div>
+
+<h2>The five numbers that decide the project</h2>
+<div class="tw"><table ><thead><tr><th class="">What</th><th class="n">Value</th><th class="">Why it matters</th><th class="">Where</th></tr></thead><tbody><tr><td class="">Best week-cluster lower bound of Brier skill</td><td class="n">-0.0664</td><td class="">negative ⇒ no candidate survives clustering</td><td class="">board.html</td></tr><tr><td class="">Best totals MAE (points)</td><td class="n">11.58</td><td class="">two estimators published, neither collapsed</td><td class="">board.html</td></tr><tr><td class="">Clubs reconciled against official standings</td><td class="n">32 / 32</td><td class="">record, PF and PA all match after one code repair</td><td class="">evidence.html</td></tr><tr><td class="">Requirements blocked on a missing source</td><td class="n">19</td><td class="">each names the gate and the clearing number</td><td class="">readiness.html</td></tr><tr><td class="">Questions still needing the owner</td><td class="n">2</td><td class="">consent for scheduled reads; a private data layer</td><td class="">questions.html</td></tr></tbody></table></div>
+<h2>What changed today (2026-11-18)</h2>
+<ul class="tight">
+<li><strong>The corpus is settled at 150 games.</strong> The Monday game left blank by the previous
+session is officially final: <a href="https://www.nfl.com/schedules/2026/by-week/week-10" rel="noopener">Chargers 23, Ravens 20</a>.</li>
+<li><strong>One real data defect found and repaired read-only.</strong> The inherited corpus writes the
+Rams as both <span class="mono">LA</span> and <span class="mono">LAR</span>; per-club reconciliation
+against the official standings failed for exactly one club until that was repaired.</li>
+<li><strong>Two of my own bugs found and fixed before publication</strong> — totals were first scored as
+probabilities, and a league-mean unit error inflated every total by about 23 points. Both are on the
+Flagged for Review page with the numbers that exposed them.</li>
+<li><strong>The week-11 injury report does not exist yet.</strong> The hub still serves WEEK 10 and a
+week-11 URL redirects to week 10, so 18 clubs' blocks are blank rather than "healthy".</li>
+<li><strong>Three previously flagged blanks are closed</strong>: the Lions' Joseph, Mays and Reed are
+published as <span class="mono">Out</span> today.</li>
+</ul>
+
+<h2>Start with these</h2>
+<div class="tw"><table ><thead><tr><th class="">Page</th><th class="">What is on it</th></tr></thead><tbody><tr><td class=""><a href="readiness.html">Decision readiness</a></td><td class="">96 rows, one per requirement, each with its blocking gate and the number that clears it</td></tr><tr><td class=""><a href="board.html">Strategy board</a></td><td class="">proper scores, week-cluster intervals, multiplicity adjustment, controls, luck panel, demotion gate</td></tr><tr><td class=""><a href="origination.html">Originated lines</a></td><td class="">13 week-11 games priced side → total → moneyline, with the market columns deliberately empty</td></tr><tr><td class=""><a href="availability.html">Injuries &amp; depth</a></td><td class="">164 dated designation rows and an honest account of what is missing</td></tr><tr><td class=""><a href="questions.html">Q / I / A</a></td><td class="">what we know, what we lack, and the route to each missing answer</td></tr><tr><td class=""><a href="flagged.html">Flagged for review</a></td><td class="">15 items, none of which block publication but all of which the owner should see</td></tr></tbody></table></div>
+</main>
+<footer class="wrap">
+  Every number on this site is either read from the official nfl.com page linked beside it, or is
+  arithmetic on such numbers with the derivation shown. Market prices are not published by any source in
+  this evidence set, so every price, ROI and CLV cell is empty. No profitability claim is made anywhere.
+  <a href="sources.html">Sources &amp; method</a>.
+</footer>
+</body></html>

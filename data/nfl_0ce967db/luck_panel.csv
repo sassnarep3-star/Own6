@@ -1,0 +1,9 @@
+strategy_id,strategy,n,mean_probability,observed_home_win_rate,base_rate,brier,reliability,resolution,uncertainty,luck_share_reliability_over_brier,distinct_forecast_values,note
+S01,ML-SEASON,118,0.549312,0.457627,0.457627,0.235544,0.231306,0.243967,0.248205,0.982011,113,exact per-value Murphy decomposition (binned table is the readable approximation)
+S02,ML-FITHFA,118,0.491777,0.457627,0.457627,0.229151,0.224914,0.243967,0.248205,0.981509,116,exact per-value Murphy decomposition (binned table is the readable approximation)
+S03,ML-RECENCY,118,0.541780,0.457627,0.457627,0.237597,0.237597,0.248205,0.248205,1.000000,118,exact per-value Murphy decomposition (binned table is the readable approximation)
+S04,TOT-SEASON,118,,,,,,,,,,not a probability forecaster
+S05,TOT-RECENCY,118,,,,,,,,,,not a probability forecaster
+S06,ML-ROLLING-HFA,118,0.491777,0.457627,0.457627,0.229151,0.224914,0.243967,0.248205,0.981509,116,exact per-value Murphy decomposition (binned table is the readable approximation)
+C01,CONTROL-CLIMATOLOGY,118,0.525412,0.457627,0.457627,0.254094,0.029845,0.023956,0.248205,0.117458,8,exact per-value Murphy decomposition (binned table is the readable approximation)
+C02,CONTROL-HOME-ALWAYS,118,1.000000,0.457627,0.457627,0.542373,0.294168,0.000000,0.248205,0.542373,1,exact per-value Murphy decomposition (binned table is the readable approximation)

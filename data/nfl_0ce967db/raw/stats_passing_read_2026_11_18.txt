@@ -1,0 +1,17 @@
+VERBATIM EXTRACT — https://www.nfl.com/stats/team-stats/offense/passing/2026/reg/all
+(read as https://www.nfl.com/stats/team-stats/ redirect; same table)
+Read 2026-11-18 ~03:45Z. Column order per the page: club | ATT | CMP | PCT | AVG | YDS | TD | INT | SACKS | RATE | ... 
+SF 264 185 70.1 9 2369 20 5 115.2 | CHI 312 211 67.6 7.4 2310 10 9 88 | CIN 340 254 74.7 8.2 2795 27 6 117.7
+BUF 257 167 65 8.6 2223 13 7 97.8 | DEN 287 174 60.6 6 1730 11 4 84.7 | CLE 323 210 65 7.5 2417 9 4 91.6
+TB 240 146 60.8 5.9 1423 6 9 70.2 | AZ 377 243 64.5 5.8 2188 13 9 81.5 | LAC 261 158 60.5 6.7 1744 7 11 71.8
+KC 298 199 66.8 8 2385 19 4 106.7 | IND 326 195 59.8 5.6 1838 7 12 67.2 | WAS 299 187 62.5 6.8 2025 15 3 95
+DAL 387 248 64.1 7 2724 21 6 96.4 | MIA 242 140 57.8 7 1685 7 6 78.6 | PHI 303 179 59.1 5.7 1740 10 6 78
+ATL 299 179 59.9 6.9 2052 11 13 74.7 | NYG 304 188 61.8 7.2 2193 13 7 88.3 | JAX 262 172 65.6 8.8 2292 21 5 112
+NYJ 312 207 66.4 7.6 2363 12 4 96.4 | DET 306 207 67.6 8 2455 18 4 106 | GB 370 233 63 7.7 2841 20 7 96.7
+CAR 343 206 60.1 7.1 2444 16 6 90.1 | NE 309 198 64.1 8 2478 19 12 93.2 | LV 353 226 64 7.2 2544 20 8 94.9
+LA 375 250 66.7 7 2636 19 10 92.7 | BAL 296 198 66.9 7.4 2182 10 6 91.4 | NO 343 229 66.8 6.3 2173 15 7 90.2
+SEA 305 196 64.3 7.6 2329 17 9 93.7 | PIT 322 191 59.3 6.3 2016 15 6 85.4 | HOU 323 202 62.5 7.6 2469 19 3 101.8
+TEN 287 183 63.8 6 1714 8 6 80.7 | MIN 256 158 61.7 6.4 1644 10 6 83.5
+NOTE: the column-header row is not present in the captured text; the mapping above is the reader's
+inference from the value shapes (ATT>=CMP, PCT two-decimal <=100, AVG one-decimal, YDS ~1500-2900).
+Only YDS is used downstream (a descriptive availability check), and it is labelled inferred-column.

@@ -1,0 +1,48 @@
+VERBATIM EXTRACT — https://www.nfl.com/injuries/  (and /injuries/league/2026/reg11, which redirected to reg10)
+Read 2026-11-18 ~03:44Z. Page title: "Official Latest NFL Injury Report for Players - Week 10 of the 2026 Season".
+Header: "## Injuries - WEEK 10"; week selector lists WEEK 1..WEEK 11 as links.
+FINDING (decisive for this pack): the hub still publishes WEEK 10. Requesting /injuries/league/2026/reg11
+returned the WEEK 10 page with canonical URL .../reg10. Therefore NO week-11 game-status designation exists
+on the official hub as of this read, and none is invented here.
+
+Spot-check rows read verbatim (club, player, position, injury, practice, game status):
+WAS | Lucas Patrick | C | Concussion | Did Not Participate In Practice | Out
+WAS | Colson Yankoff | TE | Knee | Did Not Participate In Practice | Out
+NYG | Malik Harrison | LB | Groin | Limited Participation in Practice | Questionable
+NE  | Ben Brown | C | Knee | DNP | Out
+NE  | A.J. Brown | WR | Ankle, Knee | LP | Questionable
+NE  | TreVeyon Henderson | RB | Illness | DNP | Out
+DET | Kerby Joseph | S | Knee | DNP | Out          <-- closes the earlier VR-08/VR-12 blank-cell flag
+DET | Cade Mays | C | Ankle | DNP | Out          <-- ditto
+DET | D.J. Reed | CB | Hip | DNP | Out           <-- ditto
+DET | Amon-Ra St. Brown | WR | Rib | LP | Questionable
+KC  | Mansoor Delane | CB | Shoulder | FP | Questionable
+KC  | Jaylon Moore | T | Ankle | DNP | Out
+KC  | Omarr Norman-Lott | DT | Knee | LP | Out      <-- LP practice but Out game status: an official
+KC  | Kenneth Walker III | RB | Groin | DNP | Questionable   combination that breaks any "practice
+KC  | Peter Woods | DT | Neck | DNP | Out           status predicts game status" shortcut
+ATL | Divine Deablo | LB | Forearm | DNP | Doubtful
+ATL | Zachariah Branch | WR | Hamstring | DNP | Out
+MIN | Kyler Murray | QB | Hamstring | DNP | Out     <-- QB1 out
+MIN | T.J. Hockenson | TE | Wrist, Chest | DNP | Out
+GB  | Josh Jacobs | RB | Finger | DNP | Out
+GB  | Micah Parsons | LB | Knee, Illness | LP | Out
+GB  | Zaire Franklin | LB | Shin | DNP | Doubtful
+GB  | Sean Rhyan | C | Ankle | DNP | Out
+JAX | Jessie Bates | S | "Not injury related - resting player" | LP | Out   <-- non-injury designation
+JAX | Jordan Davis | DT | "Not injury related - resting player" | LP | Out <-- ditto
+JAX | BJ Green II | DE | Forearm | FP | Out          <-- full practice, still Out
+TEN | Cody Barton | LB | Concussion | DNP | Out
+TEN | Peter Skoronski | G | Hamstring | DNP | Out
+TEN | Carnell Tate | WR | Shoulder | DNP | Out
+BUF | Spencer Brown | T | Ankle | DNP | Doubtful
+BUF | Ed Oliver | DE | (blank) | DNP | (blank)
+MIA | Aaron Brewer | C | Concussion | DNP | Out
+MIA | Chris Bell | WR | Knee | DNP | Doubtful
+IND | Mo Alie-Cox | TE | Groin | DNP | Out
+IND | Jaylon Carlies | LB | Neck | DNP | Out
+IND | Akeem Davis-Gaither | LB | Knee | DNP | Out
+NYJ | Trevin Wallace | LB | Groin | DNP | Out
+NYJ | Garrett Wilson | WR | Concussion | FP | Questionable
+NOTE: only the first three game blocks were read in full this session (chunks 0-2 of 8). Clubs whose
+week-10 block was not read are blank in the published table and marked unread, not injury-free.

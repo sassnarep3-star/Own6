@@ -1,0 +1,28 @@
+VERBATIM EXTRACT — https://www.nfl.com/schedules/2026/by-week/week-11
+Read 2026-11-18 ~03:44Z by session 0ce967db through the sandbox page-fetch tool (this sandbox has no
+network route to nfl.com from a shell; the page content, not a byte stream, is what was read, so no
+sha256 of raw bytes exists — recorded as a provenance limitation, not invented).
+
+Thursday Night Football, November 19th
+  Colts at Texans, Thursday, November 19th, 8:15 PM, PRIME          (IND 3-7, HOU 3-6)
+Sunday, November 22nd
+  Dolphins at Bills, Sunday, November 22nd, 1:00 PM, CBS            (MIA 1-8, BUF 8-1)
+  Ravens at Panthers, Sunday, November 22nd, 1:00 PM, FOX           (BAL 4-6, CAR 4-5)
+  Saints at Bears, Sunday, November 22nd, 1:00 PM, FOX              (NO 3-6, CHI 7-2)
+  Titans at Cowboys, Sunday, November 22nd, 1:00 PM, FOX            (TEN 1-8, DAL 4-6)
+  Buccaneers at Lions, Sunday, November 22nd, 1:00 PM, FOX          (TB 3-6, DET 7-2)
+  Cardinals at Chiefs, Sunday, November 22nd, 1:00 PM, CBS         (AZ 3-7, KC 7-2)
+  Steelers at Eagles, Sunday, November 22nd, 1:00 PM, CBS          (PIT 6-3, PHI 2-7)
+  Jets at Chargers, Sunday, November 22nd, 4:05 PM, FOX            (NYJ 2-8, LAC 1-8)
+  Jaguars at Giants, Sunday, November 22nd, 4:25 PM, CBS           (JAX 7-2, NYG 5-3-1)
+  Raiders at Broncos, Sunday, November 22nd, 4:25 PM, CBS          (LV 4-6, DEN 7-2)
+Sunday Night Football, November 22nd  [event mark: "Mexico City 2026" logo + Mexico flag graphic]
+  Vikings at 49ers, Sunday, November 22nd, 8:20 PM, NBC            (MIN 7-2, SF 8-1)
+Monday Night Football, November 23rd
+  Bengals at Commanders, Monday, November 23rd, 8:15 PM, ESPN      (CIN 7-2, WAS 3-5-1)
+Teams on Bye: ATL 3-7, CLE 6-4, GB 6-4, LA 6-4, NE 5-5, SEA 6-4
+Weather line present on the final card: "Weather Clear night"
+Stadium names appear only inside ticket/hotel partner URLs, e.g. "destinationAddress.location=NRG+Stadium",
+  "Highmark+Stadium", "Bank+of+America+Stadium", "Soldier+Field", "AT+T+Stadium", "Ford+Field",
+  "GEHA+Field+at+Arrowhead+Stadium", "Lincoln+Financial+Field", "SoFi+Stadium", "MetLife+Stadium",
+  "Empower+Field+at+Mile+High", "FedEx+Field".
