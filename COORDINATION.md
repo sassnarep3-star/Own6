@@ -3298,3 +3298,57 @@ The committed-branch scope rule in `scripts/check_nfl_dfc0c1bc.py` would reject 
 - **Verification before PR:** `check_nfl_dfc0c1bc.py` — 15 rules, 0 failures (26 registers; 159 suggestion rows; 176 question rows; 16 paths; 13 gaps; 10 conflicts; 18 claim checks; 11 reads; 26 flags); DFC0 tests 11/11; `source_coverage.py --check` passes; assurance checker 9/9 pages and 17,720 rows; lab checker 8/8 pages; `check_site.py` passes; `release_gate.py` reports 0 issues; `tools/run_tests.py` 170/170. Shared generated outputs converge byte-stably across a full second pass.
 - **Structural-audit caveat:** The source-coverage scan classified 31,301 table rows across 361 HTML pages: 27,525 with an official reference link, 2,080 repository-only, 716 secondary-only, 980 with no HTTPS reference; it independently value-verified **0** rows. These are link-coverage counts, not fact-verification counts; official-link presence alone never proves a row's value. Source coverage's gaps remain published for review.
 - **Live site / outstanding PRs:** Before this session's changes, the Pages API reported `built` for current `main` commit `aa827981`; live root and DFC0 pages returned content. PRs #110, #111 and #113 remain open and conflicting against `main`; this session did not merge their stale heads or alter their pack-specific datasets. Their status remains a coordination irregularity, not a claim that their deliverables are integrated.
+
+---
+
+## Session arena/0d4da02c-own6 — owner-requirement decision gate, suggestions board, Q/I/A register + Week 11 live official reads (claimed 2026-11-18)
+
+**Branch constraint.** Arena fixes this session to `arena/0d4da02c-own6` (base `aa82798` =
+`origin/main`, merged PR #114). No other branch or worktree is created; the brief's
+`session-<id>/<task>` naming is satisfied by disjoint **file scopes** on this single branch, as
+every prior session recorded. Session ID: `0d4da02c`.
+
+**Concurrent-work check at claim time.** `git fetch origin main` → base `aa82798`. Open PRs:
+#113 (dfc0c1bc, `data/nfl_dfc0c1bc/**`, `docs/nfl-dfc0c1bc/**`, shared coverage/assurance),
+#111 (ca1b, `data/nfl_ca1b/**`, `NFL_CA1B_EXECUTIVE_SUMMARY.md`, `audit/NFL_CA1B_REPO_REVIEW.md`,
+shared assurance), #110 (45abd396, `data/nfl_45abd396/**`), plus stale record PRs #94/#84/#79/#72/#68/#56/#54/#52/#48.
+**Every file this session writes is new and `nfl_0d4da02c` / `nfl-0d4da02c` namespaced, so it
+cannot collide with any of them.** Shared files (`COORDINATION.md`, `README.md`, `docs/index.html`,
+`index.html`, `data/assurance/**`, `data/source_coverage/**`) are edited **only** at the
+integration task (G9), additively, after a `git pull --rebase origin main`.
+
+### What this pack is for (and why it is not a duplicate)
+
+Prior packs register suggestions and questions **as the packs themselves wrote them**
+(`data/nfl_dfc0c1bc/*` consolidates 159 suggestions / 176 questions across 16 registers;
+`data/nfl_ca1b/{suggestions,qia}.csv` is another compiler-written set). None of them takes the
+**owner's own requirement list** — the ~75 numbered bullets in the 2026-11-18 brief — as the
+authoritative row set, ties each bullet to what the repository actually contains *today* at a
+named commit, and then returns a **review-before-implement decision table** with the
+blocking gate, the number that clears it, and the option paths. That is this pack's scope.
+Live official reads are taken fresh on **2026-11-18** (Week 11 week-of-game) and are dated and
+hashed; no earlier pack has a 2026-11-18 read.
+
+### Claim (written and pushed before any data or code is produced)
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| G1 Line-by-line repo review at pinned base + irregularity register | unclaimed → in progress | 0d4da02c | `audit/NFL_0D4DA02C_REPO_REVIEW.md`, `data/nfl_0d4da02c/repo_findings.csv` |
+| G2 Owner-requirement register: every bullet → id, category, repo evidence, status | in progress | 0d4da02c | `data/nfl_0d4da02c/requirements.csv`, `src/nfl_0d4da02c/requirements.py` |
+| G3 Decision-readiness table: blocking gate + the number that clears it, per requirement | in progress | 0d4da02c | `data/nfl_0d4da02c/gates.csv`, `data/nfl_0d4da02c/clear_numbers.csv` |
+| G4 Suggestions board (review before implement): option paths, evidence needed, decision column blank | in progress | 0d4da02c | `data/nfl_0d4da02c/suggestions.csv`, `data/nfl_0d4da02c/suggestion_options.csv` |
+| G5 Q/I/A register: question, what we have, what we lack, answer, discovery route | in progress | 0d4da02c | `data/nfl_0d4da02c/qia.csv` |
+| G6 Information-gap register: missing dataset, why it blocks, acquisition route, clearing number | in progress | 0d4da02c | `data/nfl_0d4da02c/information_gaps.csv` |
+| G7 Live official reads 2026-11-18 (dated, hashed, blank where unread): injury hub, standings, schedule/week 11, transactions, depth/team pages | in progress | 0d4da02c | `src/nfl_0d4da02c/capture.py`, `data/nfl_0d4da02c/official_reads.csv`, `data/nfl_0d4da02c/raw/*.txt`, `data/nfl_0d4da02c/injury_hub_2026_11_18.csv` |
+| G8 Pack site (landing + subpages by category), verifier, tests, CI, executive summary | in progress | 0d4da02c | `docs/nfl-0d4da02c/**`, `scripts/build_nfl_0d4da02c.py`, `scripts/check_nfl_0d4da02c.py`, `tests/test_nfl_0d4da02c.py`, `.github/workflows/nfl-0d4da02c-ci.yml`, `NFL_0D4DA02C_EXECUTIVE_SUMMARY.md` |
+| G9 Integration: rebase, additive shared nav/README/board, regenerate shared inventories, PR → merge → Pages check → record | in progress | 0d4da02c | `COORDINATION.md`, `README.md` (additive), `docs/index.html` (additive), `index.html` (additive), `data/assurance/**`, `data/source_coverage/**` |
+
+### Evidence rule (identical to every prior session)
+
+A cell is `verified` only if the exact text was read **this session** from the official host named
+in its `source_url`, with the read logged (timestamp + SHA-256 of the exact text) in
+`official_reads.csv`. Values inherited from another pack are labelled `repo_claim` with the file
+that states them, never upgraded. Anything neither read nor provably present in a repo file stays
+**blank and flagged**. Market (book) prices are unobtainable from an official source, so every
+price column stays blank with the capture attempt logged. No profitability claim is made anywhere.
+No page contains an input control.
