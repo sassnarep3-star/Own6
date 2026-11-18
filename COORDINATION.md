@@ -3271,3 +3271,11 @@ waiting for review per standing protocol.
 | I1 Elevate the consolidated Suggestions + Q/I/A review board from the root dashboard's review section | in progress | 65b130f7 | `index.html` (additive links in `#suggestions` only), `COORDINATION.md` (append-only) |
 
 **Evidence boundary.** Before the claim, the published root portal and DFC0 board were fetched from GitHub Pages; the GitHub Pages API reported build `built` for commit `aa827981092a7d1996b1122bda0d2decc7f626c7`. This UI change adds no new NFL facts or official-source claims. The board's own source register and flagged page remain the evidence for its consolidated records.
+
+### Takeover claim — DFC0 post-integration generated-output refresh (2026-11-18)
+
+The close-out claim for session `dfc0c1bc` is more than 60 minutes old with no newer commits (PR #113 head `fc6165300b6162b647ceb4ed05268947542094da`, latest commit 2026-11-17T01:39:34Z). PR #113's checks pass, but GitHub reports it `CONFLICTING` against current `main` at `aa827981`; on this checkout, the DFC0 generated repo-review row is stale after the later merged integration, and the full test runner reproduces 169/170 with only `test_rebuild_is_byte_identical` failing. Taking over only the post-merge regeneration and fixed-point verification; no source register, model, official-read, or other pack's business data will be changed. The PR itself will not be merged from its conflicting head.
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| I2 Regenerate DFC0's stale repository-audit outputs against current main and converge the shared assurance/source-coverage inventories after the final coordination/index text | in progress | 65b130f7 | `data/nfl_dfc0c1bc/repo_findings.csv`, `docs/nfl-dfc0c1bc/repo-review.html` (generated only); shared generated outputs under `data/assurance/**`, `docs/assurance/**`, `data/source_coverage/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md`; `COORDINATION.md` (append-only) |
