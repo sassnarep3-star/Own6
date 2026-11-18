@@ -3260,6 +3260,47 @@ waiting for review per standing protocol.
 
 ---
 
+## Session `arena/65b130f7-own6` — root dashboard suggestions / decision-board discoverability (claimed 2026-11-18)
+
+**Branch constraint.** Arena fixes this session to `arena/65b130f7-own6` at base `aa827981`; no other branch or worktree is created. The requested `session-<id>/<task>` naming cannot be used without violating the Arena branch rule, so this session stays on its assigned branch.
+
+**Claim (recorded before site changes).** The repository already has a live, dedicated cross-pack Suggestions and Q/I/A board (`docs/nfl-dfc0c1bc/`) and a categorized dashboard. The root dashboard's dedicated Suggestions section links only to two pack-local queues; the consolidated review board is farther down the page. This task improves discoverability only and will not implement any proposal or change model/data evidence.
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| I1 Verify and expose the existing consolidated Suggestions + Q/I/A review board from the root dashboard | done (already present; no edit) | 65b130f7 | `COORDINATION.md` (append-only); `index.html` and `docs/index.html` inspected read-only |
+
+**Evidence boundary.** Before the claim, the published root portal and DFC0 board were fetched from GitHub Pages; the GitHub Pages API reported build `built` for commit `aa827981092a7d1996b1122bda0d2decc7f626c7`. This UI change adds no new NFL facts or official-source claims. The board's own source register and flagged page remain the evidence for its consolidated records.
+
+### Takeover claim — DFC0 post-integration generated-output refresh (2026-11-18)
+
+The close-out claim for session `dfc0c1bc` is more than 60 minutes old with no newer commits (PR #113 head `fc6165300b6162b647ceb4ed05268947542094da`, latest commit 2026-11-17T01:39:34Z). PR #113's checks pass, but GitHub reports it `CONFLICTING` against current `main` at `aa827981`; on this checkout, the DFC0 generated repo-review row is stale after the later merged integration, and the full test runner reproduces 169/170 with only `test_rebuild_is_byte_identical` failing. Taking over only the post-merge regeneration and fixed-point verification; no source register, model, official-read, or other pack's business data will be changed. The PR itself will not be merged from its conflicting head.
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| I2 Regenerate DFC0's stale repository-audit outputs against current main and converge the shared assurance/source-coverage inventories after the final coordination/index text | in progress | 65b130f7 | `data/nfl_dfc0c1bc/{repo_findings.csv,flagged.csv}`, `docs/nfl-dfc0c1bc/{repo-review.html,flagged.html}` (generated only); shared generated outputs under `data/assurance/**`, `docs/assurance/**`, `data/source_coverage/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md`; `scripts/check_nfl_dfc0c1bc.py` (allow only those generated paths in the scope gate); `COORDINATION.md` (append-only) |
+
+### I1 disposition and I2 scope correction (2026-11-18)
+
+- **I1 completed without an edit.** The current root site already has a dedicated `#suggestions` review section and a separate, prominent Cross-Pack Decision Board card in its workspaces section, with the DFC0 board also linked from `docs/index.html`. Live fetches confirmed the root and DFC0 suggestions pages are served. PR #110 also owns an `index.html` change; to keep file scopes non-overlapping, the uncommitted navigation experiment was reverted rather than layered onto that shared page. No model or suggestion was implemented.
+- **I2 generated-file scope corrected from the actual deterministic build diff:** it also includes `data/nfl_dfc0c1bc/flagged.csv` and `docs/nfl-dfc0c1bc/flagged.html`, which are generated alongside the repo-review artifacts.
+- **Overlap / takeover boundary:** PR #110 (`arena/45abd396-own6`, head `a349c01`) and PR #113 (`arena/dfc0c1bc-own6`, head `fc61653`) have no commits newer than 2026-11-17 and GitHub reports both `CONFLICTING` against current `main`; #110's `lab` check is red while its `verify` check passes, and #113's two checks pass. Both touch shared generated DFC0/inventory outputs. Under the >60-minute takeover rule, this session takes over only regeneration of those shared/current-tree derived outputs and does **not** edit #110's forecast/availability domain data, its root-index change, or #113's source code, except for the narrow DFC0 scope-verifier path allowlist explicitly taken over below. The stale PR heads will not be merged as-is. PR #111 (`arena/ca1b3769-own6`, head `f05f81b9`) is also older than 60 minutes with no newer commits and `CONFLICTING`; its checks report `lab` and `verify` passing, and it overlaps only the shared assurance inventories that I2 regenerates. This takeover excludes its `nfl_ca1b` model/data and pack pages.
+
+### I2 scope extension — verifier path allowlist (claimed before edit, 2026-11-18)
+
+The committed-branch scope rule in `scripts/check_nfl_dfc0c1bc.py` would reject the shared generated outputs in this integration diff; PR #113 contains a similar fix but is conflicting against current `main`. Taking over only the verifier's path allowlist and adjacent comment, for these exact mechanically regenerated paths: `data/assurance/`, `docs/assurance/`, `data/source_coverage/`, `docs/coverage/`, and `audit/SOURCE_COVERAGE.md`. This does not authorize hand edits in those directories or any NFL model, source, forecast, result, or pack-domain file. I2 remains in progress until this committed-branch gate and the full suite pass.
+
+### Completion record — session `65b130f7` (2026-11-18)
+
+- **I1:** The requested review-first Suggestions section already exists on the live root portal; the DFC0 cross-pack board is linked from its workspace list and from the `/docs/` hub. This session made no duplicate link change, because open PR #110 also edits the shared root `index.html`. The root portal, consolidated suggestions page, Q/I/A pages and gaps page were fetched and their local links checked. No suggestion or strategy was implemented.
+- **I2:** Rebuilt the stale DFC0 generated repo-review/flag outputs from the current tree, then regenerated the shared `audit_repo → build_assurance → source_coverage` outputs until two consecutive passes were byte-identical. The initial shallow checkout was unshallowed so the audit's pinned baseline `86eca0f` was available. This changed derived repository/inventory counts only; no NFL source rows, forecasts, prices or model logic were changed.
+- **Official-source boundary:** This UI/inventory task made no new NFL fact claim and performed no new NFL source read. The DFC0 official-read log and source register remain at `data/nfl_dfc0c1bc/official_reads.csv` and `data/nfl_dfc0c1bc/sources.csv`; all carried claims remain bounded by those records and the pack's Flagged for Review page.
+- **Verification before PR:** `check_nfl_dfc0c1bc.py` — 15 rules, 0 failures (26 registers; 159 suggestion rows; 176 question rows; 16 paths; 13 gaps; 10 conflicts; 18 claim checks; 11 reads; 26 flags); DFC0 tests 11/11; `source_coverage.py --check` passes; assurance checker 9/9 pages and 17,720 rows; lab checker 8/8 pages; `check_site.py` passes; `release_gate.py` reports 0 issues; `tools/run_tests.py` 170/170. Shared generated outputs converge byte-stably across a full second pass.
+- **Structural-audit caveat:** The source-coverage scan classified 31,301 table rows across 361 HTML pages: 27,525 with an official reference link, 2,080 repository-only, 716 secondary-only, 980 with no HTTPS reference; it independently value-verified **0** rows. These are link-coverage counts, not fact-verification counts; official-link presence alone never proves a row's value. Source coverage's gaps remain published for review.
+- **Live site / outstanding PRs:** Before this session's changes, the Pages API reported `built` for current `main` commit `aa827981`; live root and DFC0 pages returned content. PRs #110, #111 and #113 remain open and conflicting against `main`; this session did not merge their stale heads or alter their pack-specific datasets. Their status remains a coordination irregularity, not a claim that their deliverables are integrated.
+
+---
+
 ## Session `arena/0ce967db-own6` — Week 11 live settlement, first measured proper-score board, one-row-per-bullet requirement ledger (claimed 2026-11-18)
 
 **Session ID:** `0ce967db` · **Branch:** `arena/0ce967db-own6` (base `aa82798`, PR #114).

@@ -53,6 +53,9 @@ OWN_SCOPE = [
     "tests/test_nfl_dfc0c1bc.py", ".github/workflows/nfl-dfc0c1bc-ci.yml",
     "NFL_DFC0C1BC_EXECUTIVE_SUMMARY.md", "audit/NFL_DFC0C1BC_REPO_REVIEW.md", "COORDINATION.md",
     "README.md", "index.html", "docs/index.html", "docs/assets/style.css",
+    # Final integration may regenerate these whole-repo inventories; it must not hand-edit them.
+    "data/assurance/", "docs/assurance/", "data/source_coverage/", "docs/coverage/",
+    "audit/SOURCE_COVERAGE.md",
 ]
 
 
