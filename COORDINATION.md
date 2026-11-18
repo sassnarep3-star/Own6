@@ -3412,3 +3412,52 @@ diagnostics and excluded from every leaderboard column. The amendment states the
 - `scripts/source_coverage.py --check` goes stale after any merge that adds pages; the correct
   post-merge fixed point is produced by re-running `scripts/source_coverage.py` **after** the merge,
   as the final integration step below.
+
+### Merge and integration record — session `0ce967db` (2026-11-18)
+
+**PR #116 merged without waiting for review** (`--merge`, per standing protocol) at
+2026-11-18T04:21:23Z as commit **`eb36834`** into `main`. The branch head merged was `09d50f3`.
+
+**A concurrent session landed on `main` while this PR was open.** PR #115 (`arena/65b130f7-own6`,
+merge commit `b187e36`) merged a root-dashboard review and the same DFC0 post-merge regeneration.
+That turned PR #116 `CONFLICTING`. Resolution, all of it mechanical:
+
+- `COORDINATION.md` — **keep-both**, 65b130f7's record first, then this session's, matching the
+  chronological order earlier sessions used (W9 record resolved the same way). Neither session's
+  completion record was dropped or rewritten.
+- Every generated artefact (`data/assurance/**`, `docs/assurance/**`, `data/source_coverage/**`,
+  `docs/coverage/**`, `audit/SOURCE_COVERAGE.md`, `data/nfl_dfc0c1bc/{repo_findings,flagged}.csv`,
+  `docs/nfl-dfc0c1bc/{repo-review,flagged}.html`) — took `main`'s side, then **re-ran the repo's own
+  builders** against the merged tree: `build_nfl_dfc0c1bc` → `audit_repo` → `build_assurance` →
+  `source_coverage` → `build_review`. Two consecutive full passes produced byte-identical output.
+- `scripts/check_nfl_dfc0c1bc.py` — auto-merged; both sessions had independently reached the same
+  rule-13 repair (this session generalised it, 65b130f7 added a path allowlist). The combined version
+  is what shipped.
+
+**Post-merge verification (on the merged tree, before the merge commit):** `run_tests.py` **170/170**;
+`pytest -q tests/` **706 passed**; `check_nfl_0ce967db` clean; `check_nfl_dfc0c1bc` 15 rules 0
+failures; `check_assurance` OK; `source_coverage --check` exit 0; `build_review --check` clean;
+`release_gate` 0 issues; `check_site` OK; `check_hub` 12 pages / 335 rows / 0 errors;
+`audit_sources` 93 rows / 43 files / 20 findings. CI on `09d50f3` was **17/17 green** before the merge.
+
+**Pages:** the Pages build for `eb36834` reports `built`, and the published pack was fetched and read
+live — `docs/nfl-0ce967db/` (nav, the 3,374-line board caveat, 0-of-6 qualified) and
+`flagged.html` (15 flags + 12 repo findings, F-01…F-15, RF-01…RF-12) both render. One fetch of
+`repo-review.html` returned GitHub's own error page; that path is a 309921cc page, not this pack's,
+and the pack's own review page is `audit/NFL_0CE967DB_REPO_REVIEW.md` + the findings block on
+`flagged.html`, both confirmed present.
+
+**Cross-session repairs declared by this session (all still in the tree):**
+1. `scripts/check_nfl_dfc0c1bc.py` rule 13 rewritten — it had asserted "no other session may ever
+   add a file" and failed on every foreign branch; it now asserts only that this pack's own files are
+   unedited, and prints a note for foreign paths. (Repaired again in combination with 65b130f7.)
+2. `scripts/build_nfl_dfc0c1bc.py` — its `flag_files` glob counted **every** `data/*/flagged.csv`,
+   including other packs' registers that any later session can rewrite, which made its rebuild
+   non-deterministic. Excluded `nfl_0ce967db` alongside its existing self-exclusion.
+3. `scripts/check_nfl_0ce967db.py` R11 placeholder rule — literal `{}`/`{}+{}` blocking replaced with
+   word-bounded **numeric** patterns after substring checks fired on "Financial", "provenance" and
+   "None of them blocks publication".
+
+**Standing caveat repeated for the next session:** any edit to `COORDINATION.md` or any tracked file
+invalidates `data/assurance/inventory.csv`. The sequence is `audit_repo.py` → `build_assurance.py` →
+`source_coverage.py` → `pytest`, and it is only converged when a second full pass changes nothing.
