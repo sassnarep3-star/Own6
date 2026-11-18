@@ -1,0 +1,42 @@
+name: nfl-b2511a5c
+
+on:
+  push:
+    branches: [main, 'arena/**']
+    paths:
+      - 'scripts/build_nfl_b2511a5c.py'
+      - 'scripts/check_nfl_b2511a5c.py'
+      - 'tests/test_nfl_b2511a5c.py'
+      - 'data/nfl_b2511a5c/**'
+      - 'docs/nfl-b2511a5c/**'
+      - '.github/workflows/nfl-b2511a5c-ci.yml'
+  pull_request:
+    paths:
+      - 'scripts/build_nfl_b2511a5c.py'
+      - 'scripts/check_nfl_b2511a5c.py'
+      - 'tests/test_nfl_b2511a5c.py'
+      - 'data/nfl_b2511a5c/**'
+      - 'docs/nfl-b2511a5c/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Build the pages from the registers already in the repo (no inputs, no network)
+        run: python3 scripts/build_nfl_b2511a5c.py
+      - name: Committer check - the build changed nothing that was published
+        run: git diff --exit-code -- data/nfl_b2511a5c docs/nfl-b2511a5c
+      - name: Verify (rules 1-9)
+        run: python3 scripts/check_nfl_b2511a5c.py
+      - name: Tests (verifier, negative cases, determinism)
+        run: python3 tests/test_nfl_b2511a5c.py
