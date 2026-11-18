@@ -3297,3 +3297,37 @@ chunk 1 of 8 only (CC13 and CC14 not re-verified). Al-Shaair: official labels co
 R06 reserve 11/17). No official 32-club depth-order route exists in this pack.
 
 ---
+### b2511a5c progress and handoff (2026-11-18)
+
+**Commits on `arena/b2511a5c-own6`:** claim `4934cc4`; pack `9f905b2` (builder, verifier, tests, CI workflow), `666bf44` (data and raw captures), `9a387ab` (pages); this handoff commit follows.
+
+**Done.**
+- Pack verifier `scripts/check_nfl_b2511a5c.py`: rules 1–9 pass. Tests `tests/test_nfl_b2511a5c.py`: 5/5, including negative cases (a row without an official link is refused; a tampered raw capture fails its SHA-256).
+- Re-fetch of every read (`data/nfl_b2511a5c/refetch_log.csv`): 11 of 12 original reads match their raw captures; R09 not re-fetched (identity-only, no claim depends on it). Partial chunk coverage is recorded per read.
+- R13 (October reserve list, all 25 rows) added. No Lamar Jackson or Tyler Huntley row in October or November (R06, R13).
+- R11 (Ravens club page) rewritten to include the DT, RUSH, SAM, P and H rows that the flags cite. Both chunks read; no "Unofficial" label.
+- Repo flags: F12 re-checked by grep. nfl.com is in the three gate allowlists; packers.com and baltimoreravens.com are in none. The IDs VR-17, VR-26 and VQ-07 are cited only as references (E5-F14 says they do not resolve), so they are not cited as repo flags here.
+- Release gate (`tools/release_gate.py`): 0 errors across the repo, including the new pages. `tools/check_site.py`: 0 errors. `tools/build_review.py --check`: OK.
+
+**Corrections made this session (logged).**
+- R04 raw header said "chunk 0 of 3", but the venue lines are in chunk 1. Header corrected to chunks 0,1; SHA-256 recomputed. The original hash was not kept.
+- Pack registers renamed to `pack_suggestions.csv` and `pack_questions.csv`. The `dfc0c1bc` consolidator scans every `data/nfl_*/suggestions.*` and `questions.*`, and its classifier fails on rows it cannot place (its test "every row lands on a defined theme" failed on this pack's Q04). The integration session decides whether to register these rows.
+- Club-website reads (Packers, Ravens) appear only in separate labelled lists, never in standard official-source rows (the release gate allows only nfl.com).
+
+**Open, not verified (flagged, no value inferred).**
+- F05 Week 11 injury report: 404 at read time (R02).
+- F11 Week 10 injury row counts (254 vs 279) and CC13/CC14 (Seattle and Cincinnati): first of 8 chunks only.
+- F06 Azeez Al-Shaair: official labels disagree (R04 "Did not participate"; R06 reserve 11/17).
+- F16 Jackson and Huntley: RES on nfl.com (R12) but no reserve transaction in the October or November lists. Transaction date and category unverified; earlier 2026 months not read.
+- CC03 Downs and Allen: trades confirmed (R07); starter status not verified.
+- Colts–Texans game centre chunk 2 not read.
+- F13–F15 Ravens club-page irregularities (Madubuike slug, Eckley at P and H, Green at RUSH and SAM) recorded for manual review.
+
+**Shared gates on this branch that do not pass (not regenerated here; integration step).** Repo-wide counts moved because this branch adds files and lines. Do not hand-edit these outputs.
+- `scripts/source_coverage.py --check`: STALE (`data/source_coverage/*`, `docs/coverage/*`, `audit/SOURCE_COVERAGE.md`).
+- `data/assurance/*`: files inventoried 1197 → 1234; lines 118214 → 119897. `scripts/check_assurance.py` FAILED: "legacy unverified count missing from overview". Not diagnosed in this session.
+- `tools/run_tests.py`: 169/170. The one failure is `test_nfl_dfc0c1bc.py::test_rebuild_is_byte_identical`. Its verifier passes 15/15. The build changes `data/nfl_dfc0c1bc/flagged.csv`, `repo_findings.csv` and two pages (repo-wide measurements). Note: `arena/dfc0c1bc-own6` at `fc61653` has commits that are **not** in `main`. The integration session must decide which head is canonical before regenerating that snapshot.
+
+**Integration session (not done here, per the claim).** Regenerate the shared inventories to the post-merge fixed point (`source_coverage`, `build_assurance`, `build_review`, `audit_repo`, `check_assurance`). Decide whether to register `pack_suggestions.csv` and `pack_questions.csv`. Add this pack's cards to the site index and nav. Open the PR from the integration branch to `main`, merge it, and confirm the Pages deploy. This session did not open a PR, did not edit `docs/index.html`, the nav, or `data/nfl/`, and did not touch the `dfc0c1bc` pack's published output.
+
+---
