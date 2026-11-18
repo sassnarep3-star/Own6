@@ -55,7 +55,7 @@ PINNED = {
     "metrics.csv": 7,
     "homefield_diagnostic.csv": 4,
     "flagged.csv": 15,
-    "repo_findings.csv": 8,
+    "repo_findings.csv": 12,
     "leaderboard.csv": 8,
     "control_baselines.csv": 2,
     "luck_panel.csv": 8,
