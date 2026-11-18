@@ -3257,3 +3257,48 @@ on any foreign branch, recorded as F-14 in this pack's flagged.csv; it passes on
 the diff is empty, so main CI is unaffected). check_site.py OK, release_gate.py 0 issues,
 pack verifier 14/14, pack tests 9/9. PR opened from `arena/7a59fd89-own6` and merged without
 waiting for review per standing protocol.
+
+---
+
+## Session `arena/72db3008-own6` — canonical results corpus (G-02), dated re-read pass, requirement-closure audit, final integration (claimed 2026-11-18)
+
+**Session ID:** `72db3008` · **Branch:** `arena/72db3008-own6` (base `aa82798` = `origin/main`, merged PR #114).
+Arena fixes this session to this branch; the brief's `session-<id>/<task>` naming is therefore a deviation, logged the
+same way by 05e359b8, d966f630, 8362b702, 7a59fd89 and dfc0c1bc before me. Disjoint file scopes are kept inside this
+single branch so any other session can still take a task independently.
+
+**Claim is written and pushed before any data row, capture or page is produced.**
+
+### Concurrent-work check at claim time
+`git fetch --unshallow origin`; `origin/main` = `aa82798` (no drift from my base). Open PRs at claim time:
+#110 (`arena/45abd396-own6`, 87 files), #111 (`arena/ca1b3769-own6`, 78 files), #113 (`arena/dfc0c1bc-own6`, 22 files),
+and stale bookkeeping PRs #94, #84, #79, #72, #68, #56, #54, #52, #48. #113 is the bookkeeping follow-up to #112
+(already merged). #110 and #111 are other sessions' packs, last committed 2026-11-17 01:45 / 01:28 UTC — more than 60
+minutes with no commits, so this session takes them over as the final integration session (handoff recorded below).
+No live session holds a claim on any file in this session's scope.
+
+### Task board (session `72db3008`)
+
+| Task | Status | Owner session | Exclusive file scope |
+|---|---|---|---|
+| V1 Canonical results corpus: every finished 2026 fixture (Weeks 1–10) with final score, date, venue and week-page source, read this session from the official by-week schedule pages; standings reconciliation | in progress | 72db3008 | `src/nfl_72db3008/corpus.py`, `data/nfl_72db3008/results_corpus.csv`, `data/nfl_72db3008/corpus_reconciliation.csv` |
+| V2 Cross-pack corpus comparison: recompute every other pack's score rows against the canonical corpus (recomputed, never asserted) | in progress | 72db3008 | `data/nfl_72db3008/cross_pack_scores.csv`, `data/nfl_72db3008/score_disagreements.csv` |
+| V3 Dated official re-read pass 2026-11-18 (injury hub, Week 10/11 schedules, division standings) with clocked read window, byte hash and delta vs the 2026-11-17 capture | in progress | 72db3008 | `src/nfl_72db3008/reads.py`, `data/nfl_72db3008/official_reads_2026_11_18.csv`, `data/nfl_72db3008/injury_delta_2026_11_18.csv`, `data/nfl_72db3008/standings_delta_2026_11_18.csv`, `data/nfl_72db3008/schedule_delta_2026_11_18.csv` |
+| V4 Requirement-closure register: every requirement in the owner's brief → status, the gate that blocks it, the evidence link, the number that would clear it, and the pack that owns it | in progress | 72db3008 | `data/nfl_72db3008/requirement_closure.csv`, `data/nfl_72db3008/open_gates.csv` |
+| V5 Pack site (landing + subpages by category), verifier, tests, CI, executive summary, repo review record | in progress | 72db3008 | `docs/nfl-72db3008/**`, `scripts/build_nfl_72db3008.py`, `scripts/check_nfl_72db3008.py`, `tests/test_nfl_72db3008.py`, `.github/workflows/nfl-72db3008-ci.yml`, `NFL_72DB3008_EXECUTIVE_SUMMARY.md`, `audit/NFL_72DB3008_REPO_REVIEW.md` |
+| V6 Take over + merge the stale branches (#110 45abd396, #111 ca1b3769, #113 dfc0c1bc), resolve conflicts preserving both sides, re-verify the combined data line by line, rebuild every shared inventory to a fixed point, confirm no broken links | in progress | 72db3008 | integration-only: `COORDINATION.md`, `README.md`, `docs/index.html`, `index.html`, shared `data/assurance/**`, `docs/assurance/**`, `data/source_coverage/**` |
+| V7 PR → merge → GitHub Pages confirm → board record | unclaimed | 72db3008 | `COORDINATION.md` |
+
+### Evidence rule this pack lives by
+(1) No manual input is requested; no published page contains an input control. (2) A published value is either read
+this session from the official page named in its `source_url`, or arithmetic on such values with the derivation shown.
+Anything else is a blank cell plus a flagged row — never inferred. (3) Market (book) prices remain blank with the
+capture attempt logged; no official NFL page publishes a line. (4) No profitability claim anywhere. (5) `needs
+review` items never block; they are published on this pack's Flagged for Review page with source links. (6) Shared
+files are touched additively only, at V6, after every pack is in place.
+
+### Handoff log
+- 2026-11-18 — `45abd396` (PR #110) and `ca1b3769` (PR #111): claims older than 60 minutes with no new commits;
+  taken over by session `72db3008` under the brief's takeover rule. Their packs are merged intact at V6, not rewritten.
+- 2026-11-18 — `dfc0c1bc` (PR #113): bookkeeping follow-up to the already-merged PR #112; merged at V6 for the same
+  reason, conflicts resolved keep-both.
