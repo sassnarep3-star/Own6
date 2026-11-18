@@ -1,0 +1,4 @@
+ablation_id,comparison,feature_removed,metric_without,metric_with,paired_difference,lower_95,upper_95,interval_excludes_zero,n,note
+ABL-01,S01 vs S03,recency weighting,0.235543,0.237597,-0.002054,-0.019449,+0.014057,no,118,negative difference means the simpler model scored better (lower Brier / lower MAE); interval is a week-cluster percentile bootstrap
+ABL-02,S01 vs S02,fitted home field,0.235543,0.229151,+0.006392,-0.007762,+0.017926,no,118,negative difference means the simpler model scored better (lower Brier / lower MAE); interval is a week-cluster percentile bootstrap
+ABL-03,S04 vs S05,recency in totals,11.582446,12.015437,-0.432991,-0.937971,+0.032796,no,118,negative difference means the simpler model scored better (lower Brier / lower MAE); interval is a week-cluster percentile bootstrap

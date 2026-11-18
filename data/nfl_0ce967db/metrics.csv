@@ -1,0 +1,8 @@
+metric,value,derivation
+corpus_games,150,results_feed.csv rows
+corpus_points_total,6923,sum over the feed
+clubs_reconciled_all_three,32,corpus_reconciliation.csv
+candidates_scored,5,leaderboard.csv
+candidates_qualified,0,leaderboard.csv
+bss_lower_bound_best,-0.066402,max over candidates (negative = unqualified)
+totals_mae_best,11.582446,min over the two totals estimators

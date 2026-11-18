@@ -1,0 +1,12 @@
+VERBATIM EXTRACT — https://www.nfl.com/schedules/2026/by-week/week-10
+Read 2026-11-18 ~03:46Z by session 0ce967db (page-fetch tool). Card text form: "<Away> N, <Home> M, FINAL".
+WAS 24, NYG 21, FINAL (Thu Nov 12, TNF)
+NE 10, DET 35, FINAL (Sun Nov 15, International Game - Munich)
+KC 35, ATL 13, FINAL | HOU 24, CLE 27, FINAL | MIN 30, GB 10, FINAL | MIA 22, IND 24, FINAL
+CAR 20, NO 17, FINAL | BUF 31, NYJ 12, FINAL | JAX 40, TEN 23, FINAL | LAR 34, AZ 6, FINAL
+SEA 21, LV 13, FINAL | SF 46, DAL 40, FINAL | PIT 18, CIN 38, FINAL (SNF)
+LAC 23, BAL 20, FINAL (Mon Nov 16, MNF)
+Teams on Bye: CHI 7-2, DEN 7-2, PHI 2-7, TB 3-6
+Correction made this session: the pack corpus (data/nfl_7a59fd89/corpus_150.csv row 2026-W10-14) left
+LAC@BAL blank because the game was live at that session's capture time. Today's read publishes it as a
+final, 23-20. The corpus is settled from this read, and the blank is preserved in the source pack.

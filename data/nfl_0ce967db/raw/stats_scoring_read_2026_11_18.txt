@@ -1,0 +1,13 @@
+VERBATIM EXTRACT — https://www.nfl.com/stats/team-stats/offense/scoring/2026/reg/all
+Read 2026-11-18 ~03:46Z. Four numeric columns per club, header row not captured:
+  [rushing TD] [passing TD] [total TD] [2-pt conversions?] (reader inference from 49ers 15+20=37, +2)
+SF 15 20 37 2 | CHI 17 10 28 0 | CIN 6 27 34 0 | BUF 20 13 33 1 | DEN 9 11 21 4 | CLE 9 9 18 1
+TB 11 6 19 1 | AZ 4 13 17 0 | LAC 6 7 13 0 | KC 10 19 29 0 | IND 12 7 20 0 | WAS 5 15 21 2
+DAL 11 21 33 3 | MIA 8 7 16 1 | PHI 8 10 18 1 | ATL 10 11 22 3 | NYG 8 13 22 2 | JAX 9 21 31 0
+NYJ 5 12 17 2 | DET 12 18 30 0 | GB 6 20 26 2 | CAR 9 16 26 0 | NE 7 19 27 1 | LV 6 20 27 1
+LA 12 19 31 0 | BAL 13 10 23 1 | NO 8 15 24 1 | SEA 8 17 25 2 | PIT 4 15 20 2 | HOU 6 19 25 1
+TEN 8 8 17 3 | MIN 4 10 15 2
+Cross-check: the third column equals the sum of the passing TD column on the passing page and the
+rushing TD column above for 32/32 clubs ONLY IF the passing page's TD column is the one used; this was
+verified for SF (20+15=35 != 37) -> the sum check FAILS for SF, so the third column is NOT claimed to be
+rushing+passing TD. It is recorded but not used in any computation. Flagged.

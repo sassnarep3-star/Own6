@@ -127,3 +127,37 @@ directly validated *joint* probability exists; multiplying marginal probabilitie
 No edits to thresholds after seeing results. No dropping games that behaved badly. No
 re-specification of `k`, the half-life, `σ_M` bounds or the family size. No claim of
 profitability. No market line, market probability, CLV or ROI value anywhere in this pack.
+
+---
+
+## Amendment A1 — declared 2026-11-18, after the backtest and BEFORE the week-11 kickoff
+
+**Why this section exists, stated plainly.** The backtest in §5–§6 showed that the registered
+constant `H = 2.5` points is the model's dominant error. In the 150-game corpus the *realised*
+mean home margin is **−0.53 points** and home clubs won **47.3%** of games, so a +2.5-point home
+edge pushes the mean forecast probability to 0.549 while the realised rate is 0.458. The removal-of-luck
+panel then reports that about 98% of the Brier score is miscalibration rather than lack of information.
+
+I am **not** changing §1. That would be exactly the post-hoc re-specification this registration
+forbids. Instead this amendment is disclosed for what it is: a new candidate motivated by having seen
+the data, registered prospectively so the motivation cannot contaminate its test.
+
+**Candidate added (prospective evaluation only)**
+
+| ID | Candidate | Frozen definition |
+|---|---|---|
+| `S06` | `ML-ROLLING-HFA` | Identical to `S01` in every respect except that `H` is the **realised mean home margin over all completed prior weeks of this season**, recomputed each week from data available before that week. No other parameter changes. |
+
+**Family size.** The backtest family stays **7** and its Bonferroni threshold stays
+`0.05/7 = 0.007143`. The **prospective** family is **8** (`S01`–`S06` plus the two controls are not
+counted, since controls are not candidates), and its threshold is `0.05/8 = 0.00625`. Both numbers are
+published; neither silently replaces the other.
+
+**What S06 may never do.** It may not be scored on weeks 3–10 and presented as a backtest result —
+it was defined after seeing those weeks. Any week-3–10 number for S06 that appears anywhere in this
+pack is labelled `post_hoc_diagnostic`, is excluded from every leaderboard column, and does not count
+toward its 100-game promotion sample.
+
+**If the owner rejects this amendment,** nothing else in the pack changes: S06 disappears, the
+prospective family returns to 7, and the diagnostics that motivated it remain published as the reason
+it was proposed.
