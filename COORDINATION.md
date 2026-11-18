@@ -3644,3 +3644,26 @@ until `git fetch --unshallow` is run.
 category card twice, so `docs/index.html` briefly rendered two identical "NFL Decision Gate (0d4da02c)"
 cards. Removed; the hub now carries exactly one nav link, one category card and one archive-list
 entry for this pack.
+
+### Session `0d4da02c` — second PR and final Pages confirmation
+
+**PR #119:** https://github.com/sassnarep3-star/Own6/pull/119 — merged 2026-11-18T05:01:07Z as
+`562ac8c`, all 16 checks green. Carries the G9 coordination record, the F-27/F-28 findings
+published in the pack, the hub card de-duplication, and the post-merge fixed-point regeneration.
+
+**Pages re-confirmed live by fetching the deployed pages** (not just the workflow status):
+- https://sassnarep3-star.github.io/Own6/docs/nfl-0d4da02c/ — landing decision-readiness table,
+  83 rows, status counts 32/18/17/5/4/3/2/1/1.
+- .../suggestions.html — 30 suggestions, decision column "owner decides — blank by design".
+- .../questions.html — 28 questions, "8 of 28 are answered by an official source read this session".
+- .../flagged.html — 28 flags with source links.
+- https://sassnarep3-star.github.io/Own6/docs/index.html — exactly one nav link, one category card
+  and one archive-list entry for this pack.
+
+**Gotcha worth recording for every session that verifies a Pages deployment.** A plain re-fetch of a
+GitHub Pages URL can return a cached copy: after the duplicate hub card was removed in `562ac8c`,
+three consecutive fetches of `docs/index.html` still showed two cards, while
+`git show origin/main:docs/index.html` showed one. Appending a cache-busting query string
+(`?cachebust=9x`) returned the correct single-card page. **Before concluding that a fix failed to
+deploy, re-fetch with a fresh query string and compare against `git show origin/main:<path>`.** Do
+not "fix" a stale-cache artefact by editing the file again.
