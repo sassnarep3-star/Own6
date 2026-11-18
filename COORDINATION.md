@@ -3308,3 +3308,66 @@ its `source_url`, logged in `capture_log.csv` with UTC clock and sha256 of the b
 on such values with the derivation shown in the row. Everything else is a blank cell plus a row on
 Flagged for Review. Market prices are not published by any official page, so market columns stay blank with
 the capture policy stated. No profitability claim, no staking instruction, no input control on any page.
+
+### Session `0ce967db` — completion record (2026-11-18)
+
+**All twelve claimed tasks are done.** Files actually added (all namespaced; no other pack's data,
+src, tests, CI or HTML was edited, except the additive shared links listed below):
+
+```
+src/nfl_0ce967db/{model,score,run,correlate}.py
+data/nfl_0ce967db/{preregistration.md, raw/*.txt (7), capture_log.csv, results_feed.csv,
+  corpus_reconciliation.csv, standings_2026_11_18.csv, week11_slate.csv, club_stats_2026.csv,
+  availability_week10_read.csv, model_outputs.csv, leaderboard.csv, control_baselines.csv,
+  luck_panel.csv, homefield_diagnostic.csv, week11_forecasts.csv, originated_lines.csv,
+  price_policy.csv, correlated… → correlations.csv, combo_gate.csv, ablations.csv,
+  ablations_run.csv, demotion_gate.csv, requirements.csv, desk_questions.csv,
+  desk_suggestions.csv, flagged.csv, repo_findings.csv, metrics.csv}
+scripts/{build,check}_nfl_0ce967db.py · tests/test_nfl_0ce967db.py
+.github/workflows/nfl-0ce967db-ci.yml · docs/nfl-0ce967db/** (10 pages)
+NFL_0CE967DB_EXECUTIVE_SUMMARY.md · audit/NFL_0CE967DB_REPO_REVIEW.md
+```
+
+**Verification performed (all re-run immediately before the PR):**
+
+| Check | Result |
+|---|---|
+| `scripts/check_nfl_0ce967db.py` (15 rules) | **50 passed, 0 failed** |
+| `tests/test_nfl_0ce967db.py` | **21 passed** |
+| `tools/run_tests.py` (whole repo) | **170/170** |
+| `scripts/check_nfl_dfc0c1bc.py` (cross-pack crawler) | OK, 0 failures |
+| `tools/release_gate.py` | 0 issues |
+| `scripts/check_site.py` | OK |
+| Internal links across all of `docs/` | **6,902 checked, 0 broken** |
+| Market / ROI / CLV values published | 0 |
+
+**One cross-session repair made, declared.** `src/nfl_dfc0c1bc/registers.py` globs
+`data/*/questions*.csv` and `data/*/suggestions*.csv` across the whole repository and fails its theme
+classifier on any foreign row. Mine were renamed to `desk_questions.csv` / `desk_suggestions.csv`
+rather than editing that pack's code, which turned two red whole-repo tests green. No dfc0c1bc file
+was modified.
+
+**Six real defects found and fixed in this session** (all published, none hidden):
+1. inherited corpus used two club codes for one club (LA / LAR) — per-club reconciliation failed 1/32;
+2. my totals candidates were scored on moneyline Brier (duplicated the margin model);
+3. a league-mean unit error inflated every forecast total by ~23 points (MAE 24.07 → 11.58);
+4. the Murphy decomposition was computed over coarse bins, so the identity failed by 0.0008;
+5. a question row had its source URL jammed into the requirement field, shifting every later column;
+6. an unreplaced `{}+{}` brace pair rendered literally on the availability page.
+
+**Post-hoc disclosure, not concealed.** After seeing the backtest I found the registered `H = +2.5`
+home-field constant is the model's dominant error (realised 2026 home margin −0.53 pts). Rather than
+retune the registration, I appended **amendment A1** in a new commit declaring candidate `S06`
+(rolling home field) for prospective evaluation only, with the post-hoc diagnostics published as
+diagnostics and excluded from every leaderboard column. The amendment states the motives explicitly.
+
+**Known state inherited from other sessions (not caused here, not fixed here):**
+- `main` itself was red on `Verify site and engine` and `Lab CI` at PR #114. Root cause found while
+  investigating: this sandbox's clone was **shallow**, so `scripts/audit_sources.py` could not read a
+  historical tree (`77a28cc`) and one dfc0c1bc determinism test truncated a long text field on
+  rebuild. `git fetch --unshallow` resolved both on a clean `main` worktree: **170/170 green**.
+  CI's `fetch-depth: 0` already covers that in Actions, so the red runs are not reproducible from a
+  complete clone.
+- `scripts/source_coverage.py --check` goes stale after any merge that adds pages; the correct
+  post-merge fixed point is produced by re-running `scripts/source_coverage.py` **after** the merge,
+  as the final integration step below.
