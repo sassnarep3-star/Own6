@@ -1,11 +1,11 @@
 page,page_sha256,data_rows,official_reference_present,repository_reference_only,secondary_reference_only,no_https_reference,repository_source
 index.html,9def8b576f2aacbd407f8a8865a3497893f6d9b3108bb163c3c1b39aa41ad456,81,75,2,4,0,https://github.com/sassnarep3-star/Own6/blob/main/index.html
 docs/assurance/correlations.html,6dd66a3bac399fe188e402fa9142083a1d677e6be1b5191fd81969bf4b46d049,6,6,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/correlations.html
-docs/assurance/flagged.html,8a6720b227544e2d8dba1ccedac393d7ba70f2bbd42ad94ae82dec4b28f98df5,448,444,4,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/flagged.html
-docs/assurance/index.html,f0c8ce73050af85d81d5a17a643950c5ebee094482bb08ea8222e0e01da60b24,4,0,4,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/index.html
+docs/assurance/flagged.html,f2c7900316008d381f52595aa9a3e11a5ed912801ae446a06841edeea79c5112,448,444,4,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/flagged.html
+docs/assurance/index.html,5d449da4f54c941cb71191c84bcce27b44681c48a98ca99e52e9637465915af3,4,0,4,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/index.html
 docs/assurance/leaderboard.html,84deb8de2e9ec81e7255d469a43548dbde5aa46ac562f7fb540f9c9633ed68e7,1,1,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/leaderboard.html
 docs/assurance/lines.html,2d5b7828dba3bd886311890c89d73be0e2297f2deeb00cc48171ef4d4b00744c,6,6,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/lines.html
-docs/assurance/repo-audit.html,997211a733631b64461821e44d7afa5249f7ac665b87bf3caceb1ee95fac3461,20725,19421,1304,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/repo-audit.html
+docs/assurance/repo-audit.html,c50a0b5eb65adbe183d8562fcab1bd27841603010fbeca5bc416196530e863cc,20726,19422,1304,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/repo-audit.html
 docs/assurance/sources.html,9ba30cd3ba03ccc6d3664ecef7854d570f0de1514b6e2dd34f3d53cb989cc1bc,22,21,1,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/sources.html
 docs/assurance/strategies.html,ac8dbe0d3c5e918cabb8cc6387499d049217007b6fc1db5077ee84db5a3f765e,6,6,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/strategies.html
 docs/assurance/validation.html,fd125c702155effff9a982837b3321f1ef465d0d8038b21ca3ae50e4165cf319,10,9,1,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/assurance/validation.html
@@ -68,8 +68,8 @@ docs/nfl-0ce967db/readiness.html,e041a352b973f5cd1421452e379c10f4f8d88b0b5ad0f5b
 docs/nfl-0ce967db/sources.html,01b535f0d6b3b3255e961f9e759b84e0fa26eecffb52fe7eb2e0bbe507cf6244,9,9,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-0ce967db/sources.html
 docs/nfl-0ce967db/suggestions.html,bd36399e71b0c05ea73041bd9b6058abd2f38fc2e518e1100b21425353757e90,18,0,0,0,18,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-0ce967db/suggestions.html
 docs/nfl-0d4da02c/availability.html,3bf071fb53a37fe219a7cc80a1c2b20664ca8bd5f27f51603e2024d479662cdb,62,62,0,0,0,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-0d4da02c/availability.html
-docs/nfl-0d4da02c/executive-summary.html,e5d443d5b93879304e59b4ba7835ac5ca4e07e8e88f4d63e602e325c77451d26,6,0,0,0,6,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-0d4da02c/executive-summary.html
-docs/nfl-0d4da02c/flagged.html,86feadc7e150780bd81faae60dfbcdeebfcbb8b01343f8727b66b68a51c0e35f,27,12,7,0,8,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-0d4da02c/flagged.html
+docs/nfl-0d4da02c/executive-summary.html,70a477c113366e3281b9df8e1cbf80e4c0d5c25aaf38d8a62be3eda5de5806f9,6,0,0,0,6,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-0d4da02c/executive-summary.html
+docs/nfl-0d4da02c/flagged.html,f5792878ffb691174950b60fefc9677c007d4fcdb3286e86751d217957aa92c4,28,12,8,0,8,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-0d4da02c/flagged.html
 docs/nfl-0d4da02c/gaps.html,3a3b6027627025ffa5942a9e44721a668e0f0be59c570f4c642195f5612d6cbf,22,2,0,0,20,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-0d4da02c/gaps.html
 docs/nfl-0d4da02c/gates.html,4595982ae79a0a24d6b8bdf969d0f32fcd77613d355415c978921e5645b8e25d,23,0,0,0,23,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-0d4da02c/gates.html
 docs/nfl-0d4da02c/index.html,1a37eb6d8d1a0be3dd5098a839b15999b1497f1da1d33b9b35344871ae924733,83,0,0,0,83,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-0d4da02c/index.html
@@ -238,7 +238,7 @@ docs/nfl-dfc0c1bc/gaps.html,e23c3bd6535ea73b0e41bdac247f2ae1fd003f09ee30fb5fda5c
 docs/nfl-dfc0c1bc/index.html,0901ab1aae644d46fb4611904b81554580b273df856c645ec676dd58ab815d74,26,0,0,0,26,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-dfc0c1bc/index.html
 docs/nfl-dfc0c1bc/paths.html,5836667daee3c7b0d0e82b23c75f2722ce03f148be89aa251d586902bbd6cf29,28,0,0,0,28,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-dfc0c1bc/paths.html
 docs/nfl-dfc0c1bc/questions.html,9e145d404071895e1234da868c6d36dc902624ecc4b00606c3c740851d58732e,192,154,22,0,16,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-dfc0c1bc/questions.html
-docs/nfl-dfc0c1bc/repo-review.html,1d10ec594ac228a9a41d80b9b228c77f5ad0c1ae28b7dab1d62753a59f7a2bc5,60,0,27,0,33,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-dfc0c1bc/repo-review.html
+docs/nfl-dfc0c1bc/repo-review.html,1d45d4088839335320cf4990f7aab838c892e0136cfaa819001fe1e924e41a9e,60,0,27,0,33,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-dfc0c1bc/repo-review.html
 docs/nfl-dfc0c1bc/sources.html,0125cf62c9d2b109d885db99fb2bebf93976dbaf877aa045434dc010f93080a1,46,9,27,2,8,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-dfc0c1bc/sources.html
 docs/nfl-dfc0c1bc/suggestions.html,c1a3c0f8877cfcb2e93e08615df99a1a06225dc56bea7af5f5f38bbe934c6c46,205,77,112,0,16,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-dfc0c1bc/suggestions.html
 docs/nfl-e5e38f9e/flagged.html,6e936f302f22620f884e63170008cf358817bf00ef461f8a6c9749189ea8459a,16,10,0,0,6,https://github.com/sassnarep3-star/Own6/blob/main/docs/nfl-e5e38f9e/flagged.html
