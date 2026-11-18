@@ -1,0 +1,47 @@
+name: nfl-0ce967db
+
+on:
+  push:
+    branches: [main, 'arena/**']
+    paths:
+      - 'src/nfl_0ce967db/**'
+      - 'scripts/build_nfl_0ce967db.py'
+      - 'scripts/check_nfl_0ce967db.py'
+      - 'tests/test_nfl_0ce967db.py'
+      - 'data/nfl_0ce967db/**'
+      - 'docs/nfl-0ce967db/**'
+  pull_request:
+    paths:
+      - 'src/nfl_0ce967db/**'
+      - 'scripts/build_nfl_0ce967db.py'
+      - 'scripts/check_nfl_0ce967db.py'
+      - 'tests/test_nfl_0ce967db.py'
+      - 'data/nfl_0ce967db/**'
+      - 'docs/nfl-0ce967db/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Rebuild derived artifacts from committed inputs (no network)
+        run: |
+          python3 src/nfl_0ce967db/run.py
+          python3 src/nfl_0ce967db/correlate.py
+      - name: Check the tree is unchanged by the rebuild (determinism)
+        run: git diff --exit-code
+      - name: Build the pack site
+        run: python3 scripts/build_nfl_0ce967db.py
+      - name: Check the tree is unchanged by the site build
+        run: git diff --exit-code
+      - name: Verifier (rules 1-15)
+        run: python3 scripts/check_nfl_0ce967db.py
+      - name: Tests
+        run: python3 tests/test_nfl_0ce967db.py
