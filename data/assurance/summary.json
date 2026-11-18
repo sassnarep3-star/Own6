@@ -1,22 +1,22 @@
 {
   "baseline_commit": "86eca0f",
-  "data_records_reviewed": 17691,
+  "data_records_reviewed": 19422,
   "external_source_policy": "Direct source reads are recorded separately. A URL, checksum or internal consistency check does not verify an external fact or grant rights.",
-  "files_inventoried": 1252,
+  "files_inventoried": 1304,
   "findings": 17,
-  "lines_scanned": 123981,
+  "lines_scanned": 131975,
   "open_findings_at_baseline": 4,
   "record_categories": {
-    "legacy_data": 16984,
+    "legacy_data": 18182,
     "project_design": 28,
-    "review_ledger": 350,
-    "source_registry": 329
+    "review_ledger": 878,
+    "source_registry": 334
   },
   "record_statuses": {
     "project_design": 28,
-    "registry_record": 329,
-    "review_record": 350,
-    "unverified": 16984
+    "registry_record": 334,
+    "review_record": 878,
+    "unverified": 18182
   },
   "resolved_in_session": 9,
   "resolved_upstream": 4,

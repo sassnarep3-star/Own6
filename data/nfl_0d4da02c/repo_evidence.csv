@@ -1,0 +1,209 @@
+req_id,search_term,n_files_matching,example_paths
+R-01,price snapshot,117,COORDINATION.md; NFL_7A59FD89_EXECUTIVE_SUMMARY.md; NFL_A411FED0_EXECUTIVE_SUMMARY.md; data/nfl_309921cc/flagged.csv; data/nfl_market/validation_gates.csv
+R-01,opening,179,COORDINATION.md; NFL_67233566_EXECUTIVE_SUMMARY.md; NFL_6CEFC476_EXECUTIVE_SUMMARY.md; NFL_8362B702_EXECUTIVE_SUMMARY.md; NFL_A411FED0_EXECUTIVE_SUMMARY.md
+R-01,closing,309,COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_309921CC_EXECUTIVE_SUMMARY.md; NFL_6CEFC476_EXECUTIVE_SUMMARY.md; NFL_8362B702_EXECUTIVE_SUMMARY.md
+R-02,results feed,214,COORDINATION.md; NFL_6CEFC476_EXECUTIVE_SUMMARY.md; NFL_8362B702_EXECUTIVE_SUMMARY.md; NFL_A411FED0_EXECUTIVE_SUMMARY.md; NFL_D966F630_EXECUTIVE_SUMMARY.md
+R-02,corpus,149,COORDINATION.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_67233566_EXECUTIVE_SUMMARY.md; NFL_7A59FD89_EXECUTIVE_SUMMARY.md; NFL_8362B702_EXECUTIVE_SUMMARY.md
+R-02,settled,176,COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_7A59FD89_EXECUTIVE_SUMMARY.md; NFL_8362B702_EXECUTIVE_SUMMARY.md; NFL_A411FED0_EXECUTIVE_SUMMARY.md
+R-03,originate side total moneyline,0,
+R-04,fair line,104,COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_6CEFC476_EXECUTIVE_SUMMARY.md; NFL_A411FED0_EXECUTIVE_SUMMARY.md; NFL_D966F630_EXECUTIVE_SUMMARY.md
+R-04,market line,109,COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_6AB24751_EXECUTIVE_SUMMARY.md; NFL_6CEFC476_EXECUTIVE_SUMMARY.md; NFL_A411FED0_EXECUTIVE_SUMMARY.md
+R-04,difference,206,COORDINATION.md; NFL_309921CC_EXECUTIVE_SUMMARY.md; NFL_67233566_EXECUTIVE_SUMMARY.md; NFL_6AB24751_EXECUTIVE_SUMMARY.md; NFL_6CEFC476_EXECUTIVE_SUMMARY.md
+R-05,signal,322,COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_67233566_EXECUTIVE_SUMMARY.md; NFL_6CEFC476_EXECUTIVE_SUMMARY.md; NFL_8362B702_EXECUTIVE_SUMMARY.md
+R-05,staking,213,COORDINATION.md; NFL_67233566_EXECUTIVE_SUMMARY.md; NFL_6CEFC476_EXECUTIVE_SUMMARY.md; NFL_A411FED0_EXECUTIVE_SUMMARY.md; NFL_D966F630_EXECUTIVE_SUMMARY.md
+R-05,leaderboard,479,COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_309921CC_EXECUTIVE_SUMMARY.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_67233566_EXECUTIVE_SUMMARY.md
+R-06,depth,495,.github/workflows/assurance-ci.yml; .github/workflows/lab-ci.yml; .github/workflows/nfl-67233566-ci.yml; .github/workflows/nfl-dfc0c1bc-ci.yml; COORDINATION.md
+R-06,replacement,270,COORDINATION.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_6CEFC476_EXECUTIVE_SUMMARY.md; NFL_8362B702_EXECUTIVE_SUMMARY.md; NFL_A411FED0_EXECUTIVE_SUMMARY.md
+R-06,string,310,COORDINATION.md; NFL_309921CC_EXECUTIVE_SUMMARY.md; NFL_6CEFC476_EXECUTIVE_SUMMARY.md; NFL_A411FED0_EXECUTIVE_SUMMARY.md; NFL_D966F630_EXECUTIVE_SUMMARY.md
+R-07,correlation,509,COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_309921CC_EXECUTIVE_SUMMARY.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_67233566_EXECUTIVE_SUMMARY.md
+R-07,published n,54,COORDINATION.md; NFL_MARKET_EXECUTIVE_SUMMARY.md; audit/NFL_67233566_REPO_AND_SOURCE_AUDIT.md; audit/NFL_D966F630_REPO_AND_SOURCE_AUDIT.md; audit/NFL_DFC0C1BC_REPO_REVIEW.md
+R-07,officially sourced,50,COORDINATION.md; NFL_6CEFC476_EXECUTIVE_SUMMARY.md; NFL_F4_EXECUTIVE_SUMMARY.md; NFL_MARKET_EXECUTIVE_SUMMARY.md; README.md
+R-08,demotion gate,145,COORDINATION.md; NFL_6CEFC476_EXECUTIVE_SUMMARY.md; NFL_A411FED0_EXECUTIVE_SUMMARY.md; NFL_D966F630_EXECUTIVE_SUMMARY.md; NFL_E5E38F9E_EXECUTIVE_SUMMARY.md
+R-08,paper,162,COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_67233566_EXECUTIVE_SUMMARY.md; NFL_6CEFC476_EXECUTIVE_SUMMARY.md; NFL_A411FED0_EXECUTIVE_SUMMARY.md
+R-09,pre-register,104,COORDINATION.md; NFL_67233566_EXECUTIVE_SUMMARY.md; NFL_8362B702_EXECUTIVE_SUMMARY.md; NFL_A411FED0_EXECUTIVE_SUMMARY.md; NFL_WEEK_EXECUTIVE_SUMMARY.md
+R-09,backtest,254,COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_67233566_EXECUTIVE_SUMMARY.md; NFL_6AB24751_EXECUTIVE_SUMMARY.md
+R-09,leaderboard,479,COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_309921CC_EXECUTIVE_SUMMARY.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_67233566_EXECUTIVE_SUMMARY.md
+R-10,availability graph,54,COORDINATION.md; NFL_8362B702_EXECUTIVE_SUMMARY.md; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/flagged.csv
+R-10,expected starter,10,data/nfl/injury_tracking.csv; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_e5e38f9e/brief_trace.csv; data/nfl_origination/injury_and_depth_deficiency.csv; data/nfl_origination/live_check_2026_11_13.csv
+R-10,actual,267,.github/workflows/hub-references.yml; COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_67233566_EXECUTIVE_SUMMARY.md
+R-11,snap counts,100,COORDINATION.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_67233566_EXECUTIVE_SUMMARY.md; NFL_DFC0C1BC_EXECUTIVE_SUMMARY.md; NFL_E5E38F9E_EXECUTIVE_SUMMARY.md
+R-11,playing time,30,data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/depth_source_register.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/readiness.csv; data/nfl_7a59fd89/repo_findings.csv
+R-11,jersey,80,COORDINATION.md; NFL_67233566_EXECUTIVE_SUMMARY.md; NFL_6AB24751_EXECUTIVE_SUMMARY.md; NFL_E5E38F9E_EXECUTIVE_SUMMARY.md; README.md
+R-12,delta,148,COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_67233566_EXECUTIVE_SUMMARY.md; NFL_7A59FD89_EXECUTIVE_SUMMARY.md; NFL_8362B702_EXECUTIVE_SUMMARY.md
+R-12,never level,7,data/nfl_e5e38f9e/brief_trace.csv; docs/nfl-8362b702/injuries.html; docs/nfl-e5e38f9e/index.html; scripts/build_nfl_8362b702.py; src/nfl_67233566/availability.py
+R-12,surprise,62,COORDINATION.md; NFL_67233566_EXECUTIVE_SUMMARY.md; data/assurance/inventory.csv; data/assurance/row_audit.csv; data/nfl_48217a55/flagged.csv
+R-13,32-team sweep,0,
+R-13,roster,227,COORDINATION.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_7A59FD89_EXECUTIVE_SUMMARY.md; NFL_8362B702_EXECUTIVE_SUMMARY.md; NFL_A411FED0_EXECUTIVE_SUMMARY.md
+R-13,IR,863,.github/workflows/assurance-ci.yml; .github/workflows/hub-ci.yml; .github/workflows/lab-ci.yml; .github/workflows/source-coverage.yml; COORDINATION.md
+R-14,fixture context,21,data/nfl_67233566/questions.csv; data/nfl_67233566/strategies.csv; data/nfl_7a59fd89/repo_findings.csv; data/nfl_dfc0c1bc/decision_paths.csv; data/nfl_dfc0c1bc/information_board.csv
+R-14,schedule facts,31,data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/flagged.csv; data/nfl_67233566/questions.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/readiness.csv
+R-14,rest,317,COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_67233566_EXECUTIVE_SUMMARY.md; NFL_6CEFC476_EXECUTIVE_SUMMARY.md
+R-15,probability,284,COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_309921CC_EXECUTIVE_SUMMARY.md; NFL_8362B702_EXECUTIVE_SUMMARY.md; NFL_A411FED0_EXECUTIVE_SUMMARY.md
+R-15,inputs,251,.github/workflows/nfl-7a59fd89-ci.yml; .github/workflows/nfl-8362b702-ci.yml; .github/workflows/nfl-dfc0c1bc-ci.yml; COORDINATION.md; EXECUTIVE_SUMMARY.md
+R-15,not a pick,4,docs/nfl/index.html; docs/reverify/slate.html; scripts/build_nfl.py; scripts/build_reverify.py
+R-16,removal of luck,73,COORDINATION.md; NFL_8362B702_EXECUTIVE_SUMMARY.md; audit/NFL_8362B702_REPO_REVIEW.md; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv
+R-16,luck panel,24,COORDINATION.md; NFL_67233566_EXECUTIVE_SUMMARY.md; NFL_8362B702_EXECUTIVE_SUMMARY.md; data/nfl_6ab24751/readiness.csv; data/nfl_8362b702/readiness.csv
+R-17,change our mind,41,COORDINATION.md; NFL_8362B702_EXECUTIVE_SUMMARY.md; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_7a59fd89/repo_findings.csv
+R-17,falsify,0,
+R-18,residual,216,COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_309921CC_EXECUTIVE_SUMMARY.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_67233566_EXECUTIVE_SUMMARY.md
+R-18,schedule,480,COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_309921CC_EXECUTIVE_SUMMARY.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_67233566_EXECUTIVE_SUMMARY.md
+R-18,day one,22,data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_67233566/residual_publish_schedule.csv; data/nfl_67233566/suggestions.csv; data/nfl_6ab24751/readiness.csv
+R-19,136-game,70,COORDINATION.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_8362B702_EXECUTIVE_SUMMARY.md; data/nfl_48217a55/integrity_checks.csv; data/nfl_48217a55/repo_findings.csv
+R-19,backtest corpus,36,COORDINATION.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; audit/NFL_8362B702_REPO_REVIEW.md; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_48217a55/suggestions.csv
+R-20,price-data policy,52,COORDINATION.md; data/nfl_48217a55/correlation_exclusions.csv; data/nfl_48217a55/flagged.csv; data/nfl_48217a55/questions.csv; data/nfl_48217a55/requirements_decision_readiness.csv
+R-21,clock time,55,COORDINATION.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_A411FED0_EXECUTIVE_SUMMARY.md; audit/NFL_D966F630_REPO_AND_SOURCE_AUDIT.md; data/nfl_48217a55/questions.csv
+R-21,delta,148,COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_67233566_EXECUTIVE_SUMMARY.md; NFL_7A59FD89_EXECUTIVE_SUMMARY.md; NFL_8362B702_EXECUTIVE_SUMMARY.md
+R-21,injury-hub read,23,data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/readiness.csv; data/nfl_7a59fd89/repo_findings.csv; data/nfl_8362b702/readiness.csv
+R-22,decision-readiness,117,.github/workflows/nfl-6ab24751-ci.yml; COORDINATION.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_6AB24751_EXECUTIVE_SUMMARY.md; NFL_7A59FD89_EXECUTIVE_SUMMARY.md
+R-22,landing page,69,.github/workflows/nfl-6ab24751-ci.yml; COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_6AB24751_EXECUTIVE_SUMMARY.md; NFL_8362B702_EXECUTIVE_SUMMARY.md
+R-22,gate,651,.github/workflows/assurance-ci.yml; .github/workflows/hub-references.yml; .github/workflows/lab-ci.yml; .github/workflows/nfl-309921cc-ci.yml; .github/workflows/nfl-48217a55-ci.yml
+R-23,venue,196,COORDINATION.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_8362B702_EXECUTIVE_SUMMARY.md; NFL_DFC0C1BC_EXECUTIVE_SUMMARY.md; NFL_S11_EXECUTIVE_SUMMARY.md
+R-23,game centre,87,COORDINATION.md; NFL_8362B702_EXECUTIVE_SUMMARY.md; NFL_DFC0C1BC_EXECUTIVE_SUMMARY.md; NFL_S11_EXECUTIVE_SUMMARY.md; data/nfl_48217a55/flagged.csv
+R-23,stadium,117,COORDINATION.md; NFL_ORIGINATION_EXECUTIVE_SUMMARY.md; NFL_S11_EXECUTIVE_SUMMARY.md; audit/NFL_3B81013C_REPO_AND_SOURCE_AUDIT.md; data/assurance/row_audit.csv
+R-24,schedule announcement,38,data/nfl_48217a55/questions.csv; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/readiness.csv; data/nfl_7a59fd89/repo_findings.csv
+R-24,TBD games,6,data/nfl_7a59fd89/schedule_announcement.csv; data/nfl_dfc0c1bc/official_reads.csv; docs/nfl-7a59fd89/announcement.html; docs/nfl-dfc0c1bc/answers.html; src/nfl_8362b702/capture.py
+R-25,game book,47,COORDINATION.md; NFL_8362B702_EXECUTIVE_SUMMARY.md; NFL_S11_EXECUTIVE_SUMMARY.md; audit/NFL_7A59FD89_REPO_REVIEW.md; data/nfl_48217a55/questions.csv
+R-25,actual starters,26,COORDINATION.md; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/readiness.csv; data/nfl_7a59fd89/repo_findings.csv
+R-25,game-day status,20,data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/readiness.csv; data/nfl_6ab24751/sources.csv; data/nfl_7a59fd89/repo_findings.csv
+R-26,opponent-aware,43,NFL_48217A55_EXECUTIVE_SUMMARY.md; data/nfl_48217a55/questions.csv; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_48217a55/strategy_registry.csv; data/nfl_48217a55/suggestions.csv
+R-26,ratings,143,COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_67233566_EXECUTIVE_SUMMARY.md; NFL_F4_EXECUTIVE_SUMMARY.md
+R-26,game-level results,31,data/nfl_48217a55/correlation_exclusions.csv; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/readiness.csv; data/nfl_7a59fd89/repo_findings.csv
+R-27,ablation,54,COORDINATION.md; NFL_67233566_EXECUTIVE_SUMMARY.md; audit/NFL_67233566_REPO_AND_SOURCE_AUDIT.md; audit/NFL_8362B702_REPO_REVIEW.md; data/assurance/inventory.csv
+R-27,fixed penalty,10,data/nfl_6ab24751/readiness.csv; data/nfl_7a59fd89/repo_findings.csv; data/nfl_8362b702/readiness.csv; data/nfl_dfc0c1bc/reject_guardrails.csv; docs/nfl-67233566/model.html
+R-28,ablation,54,COORDINATION.md; NFL_67233566_EXECUTIVE_SUMMARY.md; audit/NFL_67233566_REPO_AND_SOURCE_AUDIT.md; audit/NFL_8362B702_REPO_REVIEW.md; data/assurance/inventory.csv
+R-28,chronological holdout,28,audit/HUB_EVIDENCE_2026_11_03.md; audit/HUB_PUBLICATION_2026_11_03.md; audit/NFL_FINAL_REVIEW_709D3C80.md; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_48217a55/strategy_registry.csv
+R-29,automate,98,COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_6CEFC476_EXECUTIVE_SUMMARY.md; NFL_A411FED0_EXECUTIVE_SUMMARY.md; NFL_E5E38F9E_EXECUTIVE_SUMMARY.md
+R-29,immutable,54,EXECUTIVE_SUMMARY.md; audit/NFL_67233566_REPO_AND_SOURCE_AUDIT.md; audit/RELEASE_2026_11_03.md; data/assurance/findings.csv; data/assurance/row_audit.csv
+R-29,multi-day,30,NFL_E5E38F9E_EXECUTIVE_SUMMARY.md; data/nfl_48217a55/questions.csv; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/readiness.csv
+R-30,immutable snapshot,6,data/nfl_6ab24751/readiness.csv; data/nfl_e5e38f9e/flagged.csv; docs/nfl-6ab24751/executive-summary.html; docs/nfl-6ab24751/index.html; docs/nfl-6ab24751/landing-table.fragment.html
+R-30,conflict flags,7,data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_6ab24751/readiness.csv; docs/nfl-48217a55/decision-readiness.html; docs/nfl-6ab24751/executive-summary.html; docs/nfl-6ab24751/index.html
+R-31,inactive list,103,COORDINATION.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_67233566_EXECUTIVE_SUMMARY.md; NFL_S11_EXECUTIVE_SUMMARY.md; NFL_WEEK_EXECUTIVE_SUMMARY.md
+R-31,snap counts,100,COORDINATION.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_67233566_EXECUTIVE_SUMMARY.md; NFL_DFC0C1BC_EXECUTIVE_SUMMARY.md; NFL_E5E38F9E_EXECUTIVE_SUMMARY.md
+R-32,depth parsing,0,
+R-32,Texans,204,COORDINATION.md; NFL_A411FED0_EXECUTIVE_SUMMARY.md; NFL_E5E38F9E_EXECUTIVE_SUMMARY.md; audit/NFL_67233566_REPO_AND_SOURCE_AUDIT.md; audit/NFL_7A59FD89_REPO_REVIEW.md
+R-32,Packers,190,COORDINATION.md; NFL_8362B702_EXECUTIVE_SUMMARY.md; NFL_DFC0C1BC_EXECUTIVE_SUMMARY.md; NFL_ORIGINATION_EXECUTIVE_SUMMARY.md; audit/NFL_7A59FD89_REPO_REVIEW.md
+R-33,depth slot,34,NFL_F4_EXECUTIVE_SUMMARY.md; NFL_MARKET_EXECUTIVE_SUMMARY.md; audit/NFL_LIVE_REVERIFICATION_2026_11_13.md; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv
+R-33,group,165,COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_67233566_EXECUTIVE_SUMMARY.md; NFL_D966F630_EXECUTIVE_SUMMARY.md
+R-33,rank 1,4,docs/nfl-3b81013c/leaderboard.html; docs/nfl-d966f630/index.html; scripts/build_nfl_3b81013c.py; scripts/build_nfl_d966f630.py
+R-34,roster turnover,42,data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/flagged.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/gates.csv; data/nfl_6ab24751/readiness.csv
+R-34,transactions,89,COORDINATION.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; audit/NFL_FINAL_REVIEW_709D3C80.md; data/assurance/inventory.csv; data/assurance/row_audit.csv
+R-34,first-class,37,COORDINATION.md; NFL_8362B702_EXECUTIVE_SUMMARY.md; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/readiness.csv
+R-35,singles-only,20,COORDINATION.md; NFL_8362B702_EXECUTIVE_SUMMARY.md; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/readiness.csv
+R-35,shadow baseline,24,COORDINATION.md; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/questions.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/readiness.csv
+R-36,parlay,337,.github/workflows/parlay-safety.yml; COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_309921CC_EXECUTIVE_SUMMARY.md; NFL_48217A55_EXECUTIVE_SUMMARY.md
+R-36,prop combo,175,COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_309921CC_EXECUTIVE_SUMMARY.md; NFL_8362B702_EXECUTIVE_SUMMARY.md; NFL_A411FED0_EXECUTIVE_SUMMARY.md
+R-36,joint-evidence gate,35,COORDINATION.md; NFL_8362B702_EXECUTIVE_SUMMARY.md; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_48217a55/validation_gates.csv; data/nfl_67233566/leaderboard_divisions.csv
+R-37,proper score,74,COORDINATION.md; NFL_67233566_EXECUTIVE_SUMMARY.md; NFL_8362B702_EXECUTIVE_SUMMARY.md; NFL_DFC0C1BC_EXECUTIVE_SUMMARY.md; README.md
+R-37,divisions,74,COORDINATION.md; NFL_309921CC_EXECUTIVE_SUMMARY.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_8362B702_EXECUTIVE_SUMMARY.md; audit/NFL_7A59FD89_REPO_REVIEW.md
+R-38,brier skill,64,COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_WEEK_EXECUTIVE_SUMMARY.md; audit/SESSION_27fdbe09.md; audit/SESSION_63A5B5EF_RECHECK.md
+R-38,uncertainty,149,COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_309921CC_EXECUTIVE_SUMMARY.md; README.md; audit/HUB_EVIDENCE_2026_11_03.md
+R-38,win rate,59,COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_67233566_EXECUTIVE_SUMMARY.md; NFL_6AB24751_EXECUTIVE_SUMMARY.md; NFL_A411FED0_EXECUTIVE_SUMMARY.md
+R-39,durable storage,1,NFL_67233566_EXECUTIVE_SUMMARY.md
+R-39,alerts,35,data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/readiness.csv; data/nfl_7a59fd89/repo_findings.csv; data/nfl_8362b702/readiness.csv
+R-39,freshness,65,COORDINATION.md; audit/NFL_309921CC_REPO_REVIEW.md; audit/NFL_8362B702_REPO_REVIEW.md; audit/SOURCE_COVERAGE.md; data/nfl_309921cc/decision_ledger.csv
+R-40,public analysis,30,data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_67233566/sources.csv; data/nfl_6ab24751/readiness.csv; data/nfl_7a59fd89/repo_findings.csv
+R-40,private data,25,data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_48217a55/suggestions.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/readiness.csv; data/nfl_7a59fd89/repo_findings.csv
+R-41,per-team view,15,data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/readiness.csv; data/nfl_7a59fd89/repo_findings.csv; data/nfl_8362b702/readiness.csv
+R-41,starters out,29,data/nfl_3b81013c/correlations.csv; data/nfl_3b81013c/injuries_and_depth.csv; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/readiness.csv
+R-41,replacements named,16,data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/readiness.csv; data/nfl_7a59fd89/repo_findings.csv; data/nfl_8362b702/readiness.csv
+R-42,announced starter,17,data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_6ab24751/readiness.csv; data/nfl_dfc0c1bc/flagged.csv; data/nfl_dfc0c1bc/information_gaps.csv; data/nfl_e5e38f9e/brief_trace.csv
+R-42,evidence field,17,data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/readiness.csv; data/nfl_7a59fd89/repo_findings.csv; data/nfl_8362b702/readiness.csv
+R-43,depth-chart register,25,COORDINATION.md; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/readiness.csv; data/nfl_7a59fd89/repo_findings.csv
+R-43,date and source,17,data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/readiness.csv; data/nfl_7a59fd89/repo_findings.csv; data/nfl_8362b702/readiness.csv
+R-44,calibrate,115,COORDINATION.md; NFL_6CEFC476_EXECUTIVE_SUMMARY.md; NFL_A411FED0_EXECUTIVE_SUMMARY.md; README.md; audit/NFL_3B81013C_REPO_AND_SOURCE_AUDIT.md
+R-44,questionable,193,COORDINATION.md; NFL_309921CC_EXECUTIVE_SUMMARY.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_67233566_EXECUTIVE_SUMMARY.md; NFL_6CEFC476_EXECUTIVE_SUMMARY.md
+R-44,inactive,184,COORDINATION.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_67233566_EXECUTIVE_SUMMARY.md; NFL_E5E38F9E_EXECUTIVE_SUMMARY.md; NFL_S11_EXECUTIVE_SUMMARY.md
+R-45,matchup deficiency matrix,11,data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_6ab24751/readiness.csv; data/nfl_7a59fd89/repo_findings.csv; data/nfl_8362b702/readiness.csv; docs/nfl-48217a55/decision-readiness.html
+R-45,1st-4th string,29,data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/flagged.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_67233566/suggestions.csv; data/nfl_6ab24751/readiness.csv
+R-46,stale depth,27,data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/readiness.csv; data/nfl_7a59fd89/repo_findings.csv; data/nfl_8362b702/readiness.csv
+R-46,transactions log,26,data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/flagged.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/readiness.csv; data/nfl_7a59fd89/repo_findings.csv
+R-47,point-in-time,36,COORDINATION.md; audit/NFL_67233566_REPO_AND_SOURCE_AUDIT.md; audit/NFL_D966F630_REPO_AND_SOURCE_AUDIT.md; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv
+R-47,snapshot ledger,44,COORDINATION.md; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/readiness.csv; data/nfl_7a59fd89/repo_findings.csv
+R-48,Lions,216,COORDINATION.md; NFL_8362B702_EXECUTIVE_SUMMARY.md; NFL_DFC0C1BC_EXECUTIVE_SUMMARY.md; NFL_E5E38F9E_EXECUTIVE_SUMMARY.md; NFL_ORIGINATION_EXECUTIVE_SUMMARY.md
+R-48,game status,129,COORDINATION.md; NFL_309921CC_EXECUTIVE_SUMMARY.md; NFL_8362B702_EXECUTIVE_SUMMARY.md; NFL_ORIGINATION_EXECUTIVE_SUMMARY.md; NFL_S11_EXECUTIVE_SUMMARY.md
+R-48,missing designation,3,docs/nfl-f4/depth.html; scripts/build_nfl_f4.py; src/nfl_f4/depth.py
+R-49,re-capture,20,COORDINATION.md; NFL_S11_EXECUTIVE_SUMMARY.md; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/readiness.csv; data/nfl_7a59fd89/repo_findings.csv
+R-49,week 10,341,COORDINATION.md; NFL_309921CC_EXECUTIVE_SUMMARY.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_67233566_EXECUTIVE_SUMMARY.md; NFL_6CEFC476_EXECUTIVE_SUMMARY.md
+R-49,injury tables,18,data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/readiness.csv; data/nfl_7a59fd89/repo_findings.csv; data/nfl_8362b702/readiness.csv; data/nfl_dfc0c1bc/suggestions_master.csv
+R-50,reject,142,.github/workflows/release-gate.yml; COORDINATION.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_67233566_EXECUTIVE_SUMMARY.md; NFL_6AB24751_EXECUTIVE_SUMMARY.md
+R-50,jersey number,51,NFL_6AB24751_EXECUTIVE_SUMMARY.md; data/nfl_48217a55/correlation_exclusions.csv; data/nfl_48217a55/depth_route_probe.csv; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_48217a55/sources.csv
+R-50,salary,47,NFL_67233566_EXECUTIVE_SUMMARY.md; NFL_6AB24751_EXECUTIVE_SUMMARY.md; README.md; audit/NFL_67233566_REPO_AND_SOURCE_AUDIT.md; data/nfl_48217a55/correlation_exclusions.csv
+R-51,shared slot,2,COORDINATION.md; docs/nfl-67233566/depth.html
+R-51,empty slot,13,COORDINATION.md; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/readiness.csv; data/nfl_e5e38f9e/brief_trace.csv
+R-52,depth-order source,28,NFL_48217A55_EXECUTIVE_SUMMARY.md; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/readiness.csv; data/nfl_7a59fd89/repo_findings.csv
+R-52,32 clubs,170,COORDINATION.md; NFL_309921CC_EXECUTIVE_SUMMARY.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_6AB24751_EXECUTIVE_SUMMARY.md; NFL_6CEFC476_EXECUTIVE_SUMMARY.md
+R-53,designation reliability,37,data/nfl_48217a55/questions.csv; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_48217a55/suggestions.csv; data/nfl_48217a55/validation_gates.csv; data/nfl_67233566/flagged.csv
+R-53,inactive lists,63,COORDINATION.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_67233566_EXECUTIVE_SUMMARY.md; NFL_S11_EXECUTIVE_SUMMARY.md; audit/NFL_FINAL_REVIEW_709D3C80.md
+R-53,confidence interval,74,EXECUTIVE_SUMMARY.md; audit/NFL_FINAL_REVIEW_709D3C80.md; audit/PARLAY_SAFETY_2026_11_03.md; data/nfl/sources.csv; data/nfl_309921cc/validation_gates.csv
+R-54,wednesday thursday friday,0,
+R-54,dated history,15,data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/readiness.csv; data/nfl_7a59fd89/repo_findings.csv; data/nfl_8362b702/readiness.csv
+R-55,timestamped series,17,data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_6ab24751/readiness.csv; data/nfl_7a59fd89/repo_findings.csv; data/nfl_8362b702/readiness.csv; data/nfl_dfc0c1bc/decision_paths.csv
+R-55,not a snapshot,0,
+R-56,snap counts,100,COORDINATION.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_67233566_EXECUTIVE_SUMMARY.md; NFL_DFC0C1BC_EXECUTIVE_SUMMARY.md; NFL_E5E38F9E_EXECUTIVE_SUMMARY.md
+R-56,starter proxy,21,data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/readiness.csv; data/nfl_7a59fd89/repo_findings.csv; data/nfl_8362b702/readiness.csv
+R-57,control baseline,55,COORDINATION.md; NFL_8362B702_EXECUTIVE_SUMMARY.md; audit/NFL_8362B702_REPO_REVIEW.md; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_48217a55/validation_gates.csv
+R-57,random,80,COORDINATION.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_8362B702_EXECUTIVE_SUMMARY.md; audit/PARLAY_SAFETY_2026_11_03.md; audit/SOURCE_COVERAGE.md
+R-57,favourites,19,NFL_48217A55_EXECUTIVE_SUMMARY.md; data/nfl_3b81013c/pricing_methods.csv; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_48217a55/strategy_registry.csv; data/nfl_67233566/requirements_trace.csv
+R-58,roof,137,COORDINATION.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_D966F630_EXECUTIVE_SUMMARY.md; NFL_ORIGINATION_EXECUTIVE_SUMMARY.md; README.md
+R-58,surface,69,NFL_DFC0C1BC_EXECUTIVE_SUMMARY.md; NFL_WEEK_EXECUTIVE_SUMMARY.md; audit/NFL_67233566_REPO_AND_SOURCE_AUDIT.md; audit/NFL_DFC0C1BC_REPO_REVIEW.md; audit/NFL_FINAL_REVIEW_709D3C80.md
+R-58,NWS,39,data/nfl_48217a55/questions.csv; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/flagged.csv; data/nfl_6ab24751/readiness.csv
+R-58,wind,214,COORDINATION.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_6CEFC476_EXECUTIVE_SUMMARY.md; NFL_7A59FD89_EXECUTIVE_SUMMARY.md; NFL_8362B702_EXECUTIVE_SUMMARY.md
+R-59,two-stage,22,COORDINATION.md; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/readiness.csv; data/nfl_7a59fd89/repo_findings.csv
+R-59,CLV,236,COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_6AB24751_EXECUTIVE_SUMMARY.md; NFL_6CEFC476_EXECUTIVE_SUMMARY.md
+R-59,escrow,39,COORDINATION.md; NFL_67233566_EXECUTIVE_SUMMARY.md; data/assurance/inventory.csv; data/assurance/row_audit.csv; data/nfl_48217a55/requirements_decision_readiness.csv
+R-60,vig-free,27,data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/market_decomposition.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/readiness.csv; data/nfl_7a59fd89/repo_findings.csv
+R-60,consensus,32,data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/market_decomposition.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/readiness.csv; data/nfl_7a59fd89/repo_findings.csv
+R-60,decomposition,51,COORDINATION.md; NFL_309921CC_EXECUTIVE_SUMMARY.md; audit/PARLAY_SAFETY_2026_11_03.md; data/assurance/inventory.csv; data/assurance/row_audit.csv
+R-61,what changed,34,COORDINATION.md; data/nfl_48217a55/questions.csv; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_48217a55/suggestions.csv; data/nfl_67233566/requirements_trace.csv
+R-61,diff,434,.github/workflows/assurance-ci.yml; .github/workflows/daily-verify.yml; .github/workflows/hub-ci.yml; .github/workflows/nfl-309921cc-ci.yml; .github/workflows/nfl-48217a55-ci.yml
+R-61,weekly,108,NFL_8362B702_EXECUTIVE_SUMMARY.md; NFL_A411FED0_EXECUTIVE_SUMMARY.md; NFL_ORIGINATION_EXECUTIVE_SUMMARY.md; audit/NFL_AUDIT.md; audit/NFL_ORIGINATION_REPO_AND_SOURCE_AUDIT.md
+R-62,two estimators,19,data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/questions.csv; data/nfl_67233566/suggestions.csv; data/nfl_6ab24751/readiness.csv; data/nfl_dfc0c1bc/questions_master.csv
+R-62,gap column,18,data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/validation_gates.csv; data/nfl_6ab24751/readiness.csv; data/nfl_8362b702/suggestions.csv; data/nfl_dfc0c1bc/decision_paths.csv
+R-63,drift alarm,48,COORDINATION.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_8362B702_EXECUTIVE_SUMMARY.md; audit/NFL_67233566_REPO_AND_SOURCE_AUDIT.md; audit/NFL_8362B702_REPO_REVIEW.md
+R-63,expected row counts,15,COORDINATION.md; data/nfl_48217a55/validation_gates.csv; data/nfl_67233566/suggestions.csv; data/nfl_8362b702/readiness.csv; data/nfl_dfc0c1bc/decision_paths.csv
+R-63,required fields,29,COORDINATION.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_48217a55/validation_gates.csv; data/nfl_67233566/requirements_trace.csv
+R-64,reserve list,73,NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_8362B702_EXECUTIVE_SUMMARY.md; NFL_DFC0C1BC_EXECUTIVE_SUMMARY.md; README.md; audit/NFL_8362B702_REPO_REVIEW.md
+R-64,not listed,80,COORDINATION.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_7A59FD89_EXECUTIVE_SUMMARY.md; NFL_8362B702_EXECUTIVE_SUMMARY.md; README.md
+R-65,reject,142,.github/workflows/release-gate.yml; COORDINATION.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_67233566_EXECUTIVE_SUMMARY.md; NFL_6AB24751_EXECUTIVE_SUMMARY.md
+R-65,season-long ROI,23,NFL_6AB24751_EXECUTIVE_SUMMARY.md; README.md; audit/NFL_67233566_REPO_AND_SOURCE_AUDIT.md; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv
+R-66,archive,223,COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_309921CC_EXECUTIVE_SUMMARY.md; NFL_6AB24751_EXECUTIVE_SUMMARY.md; NFL_6CEFC476_EXECUTIVE_SUMMARY.md
+R-66,past seasons,17,data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/readiness.csv; data/nfl_7a59fd89/repo_findings.csv; data/nfl_8362b702/readiness.csv
+R-67,pre-register,104,COORDINATION.md; NFL_67233566_EXECUTIVE_SUMMARY.md; NFL_8362B702_EXECUTIVE_SUMMARY.md; NFL_A411FED0_EXECUTIVE_SUMMARY.md; NFL_WEEK_EXECUTIVE_SUMMARY.md
+R-67,definition frozen,17,data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_48217a55/strategy_registry.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/readiness.csv; data/nfl_7a59fd89/repo_findings.csv
+R-68,kickoff,260,COORDINATION.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_8362B702_EXECUTIVE_SUMMARY.md; NFL_DFC0C1BC_EXECUTIVE_SUMMARY.md; NFL_ORIGINATION_EXECUTIVE_SUMMARY.md
+R-68,onside,41,COORDINATION.md; NFL_ORIGINATION_EXECUTIVE_SUMMARY.md; data/nfl_309921cc/decision_ledger.csv; data/nfl_309921cc/sources.csv; data/nfl_48217a55/questions.csv
+R-68,regime priors,15,data/nfl_48217a55/questions.csv; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_6ab24751/readiness.csv; data/nfl_7a59fd89/repo_findings.csv; data/nfl_8362b702/readiness.csv
+R-69,freeze,69,audit/NFL_3B81013C_REPO_AND_SOURCE_AUDIT.md; audit/NFL_7A59FD89_REPO_REVIEW.md; data/nfl/decision_questions.csv; data/nfl_3b81013c/official_inputs.csv; data/nfl_48217a55/questions.csv
+R-69,commit hash,35,COORDINATION.md; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_67233566/suggestions.csv; data/nfl_6ab24751/gates.csv
+R-69,registration,143,.github/workflows/nfl-67233566-ci.yml; COORDINATION.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_67233566_EXECUTIVE_SUMMARY.md; NFL_8362B702_EXECUTIVE_SUMMARY.md
+R-70,train validation holdout,0,
+R-71,suggestions,345,COORDINATION.md; NFL_309921CC_EXECUTIVE_SUMMARY.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_67233566_EXECUTIVE_SUMMARY.md; NFL_6CEFC476_EXECUTIVE_SUMMARY.md
+R-71,review before implement,7,COORDINATION.md; NFL_MARKET_EXECUTIVE_SUMMARY.md; docs/nfl-a411fed0/suggestions.html; docs/nfl-dfc0c1bc/executive-summary.html; docs/nfl-dfc0c1bc/suggestions.html
+R-72,questions,344,COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_309921CC_EXECUTIVE_SUMMARY.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_67233566_EXECUTIVE_SUMMARY.md
+R-72,information,279,COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_309921CC_EXECUTIVE_SUMMARY.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_6CEFC476_EXECUTIVE_SUMMARY.md
+R-72,answers,118,COORDINATION.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_6CEFC476_EXECUTIVE_SUMMARY.md; NFL_DFC0C1BC_EXECUTIVE_SUMMARY.md; audit/NFL_ORIGINATION_REPO_AND_SOURCE_AUDIT.md
+R-73,originate,315,.github/workflows/nfl-a411fed0-ci.yml; COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_309921CC_EXECUTIVE_SUMMARY.md; NFL_6CEFC476_EXECUTIVE_SUMMARY.md
+R-73,leaderboard,479,COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_309921CC_EXECUTIVE_SUMMARY.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_67233566_EXECUTIVE_SUMMARY.md
+R-73,rewards,140,COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_309921CC_EXECUTIVE_SUMMARY.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_6CEFC476_EXECUTIVE_SUMMARY.md
+R-73,singles parlays props,0,
+R-74,deficiency,206,COORDINATION.md; NFL_309921CC_EXECUTIVE_SUMMARY.md; NFL_6AB24751_EXECUTIVE_SUMMARY.md; NFL_8362B702_EXECUTIVE_SUMMARY.md; NFL_D966F630_EXECUTIVE_SUMMARY.md
+R-74,backups,42,COORDINATION.md; NFL_ORIGINATION_EXECUTIVE_SUMMARY.md; NFL_WEEK_EXECUTIVE_SUMMARY.md; audit/NFL_LIVE_REVERIFICATION_2026_11_13.md; data/nfl/depth_model.csv
+R-74,starters,122,COORDINATION.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_MARKET_EXECUTIVE_SUMMARY.md; data/assurance/inventory.csv; data/assurance/row_audit.csv
+R-75,executive summary,309,COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_309921CC_EXECUTIVE_SUMMARY.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_67233566_EXECUTIVE_SUMMARY.md
+P-01,no manual input,43,COORDINATION.md; NFL_67233566_EXECUTIVE_SUMMARY.md; data/nfl/requirements.csv; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv
+P-02,official source,415,.github/workflows/verify-ledger.yml; COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_6AB24751_EXECUTIVE_SUMMARY.md
+P-02,no hallucinations,6,COORDINATION.md; data/nfl/requirements.csv; data/nfl_6ab24751/readiness.csv; docs/nfl-6ab24751/index.html; docs/nfl-6ab24751/landing-table.fragment.html
+P-03,repo review,182,COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_6CEFC476_EXECUTIVE_SUMMARY.md; README.md; audit/NFL_8362B702_REPO_REVIEW.md
+P-03,flag irregularities,15,COORDINATION.md; data/nfl/requirements.csv; data/nfl_67233566/requirements_trace.csv; data/nfl_6ab24751/readiness.csv; data/nfl_wk/requirements.csv
+P-04,github pages,86,COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_ORIGINATION_EXECUTIVE_SUMMARY.md; README.md; audit/HUB_EVIDENCE_2026_11_03.md
+P-04,landing page,69,.github/workflows/nfl-6ab24751-ci.yml; COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_6AB24751_EXECUTIVE_SUMMARY.md; NFL_8362B702_EXECUTIVE_SUMMARY.md
+P-04,subpages,21,COORDINATION.md; audit/NFL_AUDIT.md; data/nfl/requirements.csv; data/nfl_48217a55/requirements_decision_readiness.csv; data/nfl_67233566/requirements_trace.csv
+P-05,source link,171,.github/workflows/release-gate.yml; COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_6AB24751_EXECUTIVE_SUMMARY.md
+P-05,blank and flag,101,COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_48217A55_EXECUTIVE_SUMMARY.md; NFL_6AB24751_EXECUTIVE_SUMMARY.md; NFL_6CEFC476_EXECUTIVE_SUMMARY.md
+P-06,coordination,158,COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_309921CC_EXECUTIVE_SUMMARY.md; NFL_8362B702_EXECUTIVE_SUMMARY.md; NFL_DFC0C1BC_EXECUTIVE_SUMMARY.md
+P-06,parallel sessions,23,EXECUTIVE_SUMMARY.md; audit/REPO_REVIEW.md; data/nfl_6ab24751/readiness.csv; data/nfl_dfc0c1bc/decision_paths.csv; data/nfl_dfc0c1bc/information_board.csv
+P-07,pull request,15,.github/workflows/nfl-48217a55-ci.yml; .github/workflows/nfl-67233566-ci.yml; .github/workflows/nfl-6ab24751-ci.yml; .github/workflows/nfl-d966f630-ci.yml; COORDINATION.md
+P-07,merge,186,.github/workflows/nfl-67233566-ci.yml; .github/workflows/release-gate.yml; COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_67233566_EXECUTIVE_SUMMARY.md
+P-07,pages deploy,18,COORDINATION.md; EXECUTIVE_SUMMARY.md; audit/HUB_EVIDENCE_2026_11_03.md; audit/NFL_FINAL_REVIEW_709D3C80.md; audit/SESSION_3D3954D6_VERIFICATION.md
+P-08,flagged for review,416,.github/workflows/source-coverage.yml; COORDINATION.md; EXECUTIVE_SUMMARY.md; NFL_309921CC_EXECUTIVE_SUMMARY.md; NFL_48217A55_EXECUTIVE_SUMMARY.md
+P-08,does not block,5,COORDINATION.md; EXECUTIVE_SUMMARY.md; docs/nfl-d966f630/flagged.html; docs/review/flagged.html; scripts/build_nfl_d966f630.py

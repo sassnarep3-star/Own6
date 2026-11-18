@@ -3301,6 +3301,131 @@ The committed-branch scope rule in `scripts/check_nfl_dfc0c1bc.py` would reject 
 
 ---
 
+## Session arena/0d4da02c-own6 — owner-requirement decision gate, suggestions board, Q/I/A register + Week 11 live official reads (claimed 2026-11-18)
+
+**Branch constraint.** Arena fixes this session to `arena/0d4da02c-own6` (base `aa82798` =
+`origin/main`, merged PR #114). No other branch or worktree is created; the brief's
+`session-<id>/<task>` naming is satisfied by disjoint **file scopes** on this single branch, as
+every prior session recorded. Session ID: `0d4da02c`.
+
+**Concurrent-work check at claim time.** `git fetch origin main` → base `aa82798`. Open PRs:
+#113 (dfc0c1bc, `data/nfl_dfc0c1bc/**`, `docs/nfl-dfc0c1bc/**`, shared coverage/assurance),
+#111 (ca1b, `data/nfl_ca1b/**`, `NFL_CA1B_EXECUTIVE_SUMMARY.md`, `audit/NFL_CA1B_REPO_REVIEW.md`,
+shared assurance), #110 (45abd396, `data/nfl_45abd396/**`), plus stale record PRs #94/#84/#79/#72/#68/#56/#54/#52/#48.
+**Every file this session writes is new and `nfl_0d4da02c` / `nfl-0d4da02c` namespaced, so it
+cannot collide with any of them.** Shared files (`COORDINATION.md`, `README.md`, `docs/index.html`,
+`index.html`, `data/assurance/**`, `data/source_coverage/**`) are edited **only** at the
+integration task (G9), additively, after a `git pull --rebase origin main`.
+
+### What this pack is for (and why it is not a duplicate)
+
+Prior packs register suggestions and questions **as the packs themselves wrote them**
+(`data/nfl_dfc0c1bc/*` consolidates 159 suggestions / 176 questions across 16 registers;
+`data/nfl_ca1b/{suggestions,qia}.csv` is another compiler-written set). None of them takes the
+**owner's own requirement list** — the ~75 numbered bullets in the 2026-11-18 brief — as the
+authoritative row set, ties each bullet to what the repository actually contains *today* at a
+named commit, and then returns a **review-before-implement decision table** with the
+blocking gate, the number that clears it, and the option paths. That is this pack's scope.
+Live official reads are taken fresh on **2026-11-18** (Week 11 week-of-game) and are dated and
+hashed; no earlier pack has a 2026-11-18 read.
+
+### Claim (written and pushed before any data or code is produced)
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| G1 Line-by-line repo review at pinned base + irregularity register | done | 0d4da02c | `audit/NFL_0D4DA02C_REPO_REVIEW.md`, `data/nfl_0d4da02c/repo_findings.csv` |
+| G2 Owner-requirement register: every bullet → id, category, repo evidence, status | done | 0d4da02c | `data/nfl_0d4da02c/requirements.csv`, `requirement_terms.csv`, `src/nfl_0d4da02c/register.py` |
+| G3 Decision-readiness table: blocking gate + the number that clears it, per requirement | done | 0d4da02c | `data/nfl_0d4da02c/gates.csv` (the clearing number lives on each requirement row) |
+| G4 Suggestions board (review before implement): option paths, evidence needed, decision column blank | done | 0d4da02c | `data/nfl_0d4da02c/suggestions.csv`, `data/nfl_0d4da02c/suggestion_options.csv` |
+| G5 Q/I/A register: question, what we have, what we lack, answer, discovery route | done | 0d4da02c | `data/nfl_0d4da02c/qia.csv` |
+| G6 Information-gap register: missing dataset, why it blocks, acquisition route, clearing number | done | 0d4da02c | `data/nfl_0d4da02c/information_gaps.csv` |
+| G7 Live official reads 2026-11-18 (dated, hashed, blank where unread): injury hub, standings, schedule/week 11, transactions, depth/team pages | done | 0d4da02c | `src/nfl_0d4da02c/capture.py`, `data/nfl_0d4da02c/official_reads.csv` (+4 dated reads), `injury_report_2026_11_18.csv`, `week11_schedule.csv`, `week11_byes.csv`, `starter_announcements.csv`, `schedule_announcement.csv`, `week10_absent_clubs.csv` |
+| G8 Pack site (landing + subpages by category), verifier, tests, CI, executive summary | done | 0d4da02c | `docs/nfl-0d4da02c/**`, `scripts/build_nfl_0d4da02c.py`, `scripts/check_nfl_0d4da02c.py`, `tests/test_nfl_0d4da02c.py`, `.github/workflows/nfl-0d4da02c-ci.yml`, `NFL_0D4DA02C_EXECUTIVE_SUMMARY.md` |
+| G9 Integration: rebase, additive shared nav/README/board, regenerate shared inventories, PR → merge → Pages check → record | in progress | 0d4da02c | `COORDINATION.md`, `README.md` (additive), `docs/index.html` (additive), `index.html` (additive), `data/assurance/**`, `data/source_coverage/**` |
+
+### Evidence rule (identical to every prior session)
+
+A cell is `verified` only if the exact text was read **this session** from the official host named
+in its `source_url`, with the read logged (timestamp + SHA-256 of the exact text) in
+`official_reads.csv`. Values inherited from another pack are labelled `repo_claim` with the file
+that states them, never upgraded. Anything neither read nor provably present in a repo file stays
+**blank and flagged**. Market (book) prices are unobtainable from an official source, so every
+price column stays blank with the capture attempt logged. No profitability claim is made anywhere.
+No page contains an input control.
+
+### Session `0d4da02c` completion record (2026-11-18)
+
+G1–G8 done; G9 executing.
+
+**As-built deviations from the claim names.** All nine tasks materialized under the claimed file
+scopes. One addition: `data/nfl_0d4da02c/claim_checks.csv` (5 rows) was added at integration to
+record published claims recomputed against this session's own read, because the re-read reproduced
+a prior pack's Week 10 counts exactly and contradicted one owner-reported defect — both are
+evidence, so both are published rather than left in prose.
+
+**Sources read (all 2026-11-18, single manual read per page; logged in `official_reads.csv`)**
+
+| ID | Official source | Canonical URL the page resolved to | Used for |
+|---|---|---|---|
+| S-01 | https://www.nfl.com/injuries/ | /injuries/league/2026/reg10 | Week 10 injury register: 347 rows, 28 clubs |
+| S-02 | https://www.nfl.com/schedules/2026/REG11/ | /schedules/2026/by-week/week-11 | 13 Week 11 fixtures, 6 byes, records, venue text, TBD block |
+| S-03 | https://www.nfl.com/injuries/league/2026/REG11/ | /injuries/league/2026/reg10 | absence check — **the Week 11 report is NOT published at read time** |
+| S-04 | news rail on https://www.nfl.com/injuries/ | same | 19 dated official starter / injury / transaction headlines |
+
+No other host was read. No market price source exists, so every price column is blank.
+
+**Verification performed**
+
+- Pack verifier `scripts/check_nfl_0d4da02c.py`: **26/26** (missing files, per-row source link,
+  official-host allowlist, no interactive controls, internal links, byte-identical rebuild,
+  register consistency, no profitability language, decision columns blank, arithmetic on the
+  official counts).
+- Pack tests `tests/test_nfl_0d4da02c.py`: **24/24**.
+- Full repo suite `python3 -m unittest discover -s tests`: **481 tests, OK**.
+- `scripts/check_site.py` OK · `tools/release_gate.py` 0 issues · `scripts/source_coverage.py --check`
+  OK (regenerated) · `scripts/check_assurance.py` OK · `scripts/audit_repo.py` OK after the sandbox
+  clone was unshallowed (it was shallow again in this sandbox; the script is history-pinned at
+  `86eca0f`).
+- Rebuild determinism asserted by the verifier and by a test.
+
+**Irregularities.** 26 flags in `data/nfl_0d4da02c/flagged.csv`, published on
+`docs/nfl-0d4da02c/flagged.html`. Headline: F-01 (Week 11 injury report unpublished), F-02 (twelve
+of thirteen Week 11 venue strings come from the page's own Hotel affiliate link, not a venue
+field), F-10 (no official price source), F-12 (data CSVs with no source column), F-13 (13 pages
+contain interactive controls), F-20 (designation counts have no outcome leg). Six further defects
+are inherited from prior packs and are labelled `inherited`, not re-verified: F-21..F-26.
+
+**Coordination notes for later sessions.** (1) Two COORDINATION.md merge conflicts were resolved
+keep-both (once against session `65b130f7` during the rebase, once against the appended claim); no
+other session's text was removed. (2) The branch had to be force-pushed once, after
+`git pull --rebase origin main` rewrote the two pre-rebase commits — the branch is owned solely by
+this session. (3) `scripts/source_coverage.py --check` goes stale whenever another session lands
+changes to `docs/**`; regenerate immediately before opening a PR. (4) The shared inventories
+(`data/assurance/**`, `data/source_coverage/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md`)
+were regenerated to the post-rebase fixed point and are part of this PR.
+
+### Standing request to session `dfc0c1bc` (logged, not actioned by this session)
+
+`scripts/check_nfl_dfc0c1bc.py` rule 13 compares **every file changed on the current branch**
+against dfc0c1bc's own hard-coded `OWN_SCOPE`, and fails on each file outside it. Because the
+scope list lives in dfc0c1bc's own file, **every other session's branch trips the rule by
+construction** — on this branch it reports 52 files. The rule is executed inside
+`tools/run_tests.py` and by `pytest tests/`, so `lab`, `assurance`, `parlay-safety`,
+`verify-nfl-origination` and `Line-by-line verification gates` all report failure on PR #117 even
+though every one of their other steps passes (`audit_sources`, `run_lab`, `build_lab`,
+`check_lab`, `build_review --check`, `linkcheck`, `release_gate`, `check_site` were each re-run
+locally and are green). On `main` the branch diff is empty and the rule passes, so main CI is
+unaffected after merge.
+
+Session `7a59fd89` recorded the same condition as its flag F-14. This session will not edit
+`scripts/check_nfl_dfc0c1bc.py` — it is outside this session's claimed scope — and logs the
+request instead, as the coordination protocol requires. Suggested fix, for dfc0c1bc to make:
+compare against the pack's own claimed scope file (or drop rule 13 from `tools/run_tests.py` and
+keep it in the pack's own workflow only), so the rule guards dfc0c1bc's scope without failing
+every other session's branch. Recorded in this pack as flag F-27.
+
+---
+
 ## Session `arena/0ce967db-own6` — Week 11 live settlement, first measured proper-score board, one-row-per-bullet requirement ledger (claimed 2026-11-18)
 
 **Session ID:** `0ce967db` · **Branch:** `arena/0ce967db-own6` (base `aa82798`, PR #114).

@@ -1,0 +1,13 @@
+read_date,game_status,practice_status,n_cells,n_with_that_game_status,pct_of_game_status,source_url
+2026-11-18,Out,Did Not Participate In Practice,62,70,88.6,https://www.nfl.com/injuries/
+2026-11-18,Out,Limited Participation in Practice,7,70,10.0,https://www.nfl.com/injuries/
+2026-11-18,Out,Full Participation in Practice,1,70,1.4,https://www.nfl.com/injuries/
+2026-11-18,Doubtful,Did Not Participate In Practice,6,11,54.5,https://www.nfl.com/injuries/
+2026-11-18,Doubtful,Limited Participation in Practice,2,11,18.2,https://www.nfl.com/injuries/
+2026-11-18,Doubtful,Full Participation in Practice,3,11,27.3,https://www.nfl.com/injuries/
+2026-11-18,Questionable,Did Not Participate In Practice,10,90,11.1,https://www.nfl.com/injuries/
+2026-11-18,Questionable,Limited Participation in Practice,46,90,51.1,https://www.nfl.com/injuries/
+2026-11-18,Questionable,Full Participation in Practice,34,90,37.8,https://www.nfl.com/injuries/
+2026-11-18,(blank),Did Not Participate In Practice,16,176,9.1,https://www.nfl.com/injuries/
+2026-11-18,(blank),Limited Participation in Practice,18,176,10.2,https://www.nfl.com/injuries/
+2026-11-18,(blank),Full Participation in Practice,142,176,80.7,https://www.nfl.com/injuries/

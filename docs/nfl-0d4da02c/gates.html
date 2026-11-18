@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gates — NFL Decision Gate 0D4DA02C</title>
+<style>
+:root{--bg:#f6f7f9;--card:#ffffff;--ink:#1a1d21;--muted:#5f6672;--line:#e2e5ea;
+--accent:#1b5e9c;--ok:#1a7f45;--warn:#9a6400;--bad:#a32b2b;--blank:#9aa1ab}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+header{background:#10161d;color:#fff;padding:20px 24px}
+header h1{margin:0 0 6px;font-size:21px;font-weight:650;letter-spacing:-.2px}
+header p{margin:0;color:#b6c0cc;font-size:13px;max-width:1050px}
+nav{background:#fff;border-bottom:1px solid var(--line);padding:0 24px;
+display:flex;flex-wrap:wrap;gap:2px;position:sticky;top:0;z-index:5}
+nav a{color:var(--muted);text-decoration:none;font-size:12.5px;padding:11px 10px;
+border-bottom:2px solid transparent}
+nav a:hover{color:var(--ink)}
+nav a.on{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+main{padding:22px 24px 60px;max-width:1400px}
+h2{font-size:16px;margin:26px 0 8px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+h2:first-child{margin-top:4px}
+h3{font-size:14px;margin:18px 0 6px}
+p{max-width:1000px;margin:8px 0}
+.note{color:var(--muted);font-size:12.5px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(184px,1fr));gap:12px;margin:16px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.card span{display:block;color:var(--muted);font-size:11.5px;text-transform:uppercase;
+letter-spacing:.4px}
+.card strong{display:block;font-size:22px;margin-top:4px;font-weight:650}
+.card small{display:block;color:var(--muted);font-size:11.5px;margin-top:3px}
+.tw{overflow:auto;border:1px solid var(--line);border-radius:8px;background:var(--card);
+margin:10px 0 20px;max-height:78vh}
+table{border-collapse:collapse;width:100%;font-size:12.5px}
+th,td{border-bottom:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:#eef1f5;position:sticky;top:0;font-weight:600;white-space:nowrap;z-index:2}
+tbody tr:nth-child(even){background:#fafbfc}
+tbody tr:hover{background:#f0f5fa}
+td a{color:var(--accent);text-decoration:none}
+td a:hover{text-decoration:underline}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px}
+.blank{color:var(--blank);font-style:italic}
+.tag{display:inline-block;padding:1px 7px;border-radius:10px;font-size:11px;font-weight:600;
+white-space:nowrap}
+.t-cleared{background:#e4f5ea;color:var(--ok)}
+.t-cleared_repo{background:#eef3f8;color:#2b5a86}
+.t-partially{background:#eef0f5;color:#4a5260}
+.t-structural{background:#fdf3e0;color:var(--warn)}
+.t-blocked{background:#fbe9e9;color:var(--bad)}
+.t-open{background:#f1f2f4;color:#5f6672}
+.t-rejected{background:#efeaf4;color:#64468a}
+.t-needs{background:#fdf3e0;color:var(--warn)}
+.t-progress{background:#e6f0f8;color:#1b5e9c}
+.t-info{background:#f1f2f4;color:#5f6672}
+.t-medium{background:#fdf3e0;color:var(--warn)}
+.t-high{background:#fbe9e9;color:var(--bad)}
+.t-low{background:#f1f2f4;color:#5f6672}
+.t-out{background:#fbe9e9;color:var(--bad)}
+.t-questionable{background:#fdf3e0;color:var(--warn)}
+.t-doubtful{background:#f3ecf9;color:#64468a}
+ul{max-width:1000px}
+li{margin:4px 0}
+code{background:#eef1f5;padding:1px 5px;border-radius:4px;font-size:12px}
+footer{padding:20px 24px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+footer a{color:var(--accent)}
+</style></head><body>
+<header><h1>Gates</h1><p>Named conditions, each with the observation that closes it</p></header>
+<nav><a href="index.html">Decision readiness</a><a href="requirements.html">Requirements</a><a href="gates.html" class="on">Gates</a><a href="suggestions.html">Suggestions</a><a href="questions.html">Questions &amp; answers</a><a href="gaps.html">Information gaps</a><a href="week11.html">Week 11 fixtures</a><a href="injury.html">Injury register</a><a href="availability.html">Availability counts</a><a href="starters.html">Starter evidence</a><a href="repo-review.html">Repo review</a><a href="flagged.html">Flagged for review</a><a href="sources.html">Sources</a><a href="executive-summary.html">Executive summary</a></nav>
+<main>
+
+<p>A gate is a named condition. A gate is only ever closed by the observation written in its
+<em>clearing number</em> column, which is deliberately measurable so it cannot be argued away
+after the fact.</p>
+<div class="tw"><table><thead><tr><th>Gate</th><th>Name</th><th>Definition</th><th>State</th><th>The number that clears it</th><th>Current observation</th></tr></thead><tbody><tr><td class="mono">G-PRICE</td><td>Market price source</td><td>No official (league-operated) source publishes book prices, so opening and closing market numbers cannot be captured lawfully or verifiably.</td><td><span class="tag t-blocked">blocked</span></td><td>&gt;=1 dated, hash-stored opening AND closing price row for &gt;=90% of originated markets, in &gt;=2 consecutive weeks, each with a first-party capture URL</td><td>current: 0 dated price rows in the repo (inherited as repo claim from the price-store packs)</td></tr><tr><td class="mono">G-RESULTS</td><td>Verified results feed</td><td>Backtests and ROI need a results feed that has been read from an official source at a dated commit. Prior packs built one; this session did not re-read it.</td><td><span class="tag t-cleared_repo">cleared_repo</span></td><td>every result row re-read from an official page at a named commit, with the read date and the page URL stored on the row</td><td>current: a 136-150 game corpus exists across packs (inherited as a repo claim); 0 rows re-read by this session</td></tr><tr><td class="mono">G-SWEEP</td><td>32-club roster / IR sweep</td><td>No team-level model is trusted before the 32-club sweep is run.</td><td><span class="tag t-cleared_repo">cleared_repo</span></td><td>32/32 clubs swept, reserve codes transcribed verbatim, read date stored</td><td>current: prior pack 7a59fd89 reports 32/32 on the roster leg and 28/32 on the hub leg; inherited, not re-run here</td></tr><tr><td class="mono">G-PREREG</td><td>Pre-registration proof</td><td>A rule is registered by committing it before the evaluation window opens; the commit hash is the registration.</td><td><span class="tag t-structural">structural</span></td><td>for every strategy, a commit whose hash predates the first kickoff in its evaluation window</td><td>current: the registration format is defined; 0 strategies have a pre-window commit hash</td></tr><tr><td class="mono">G-ABLATION</td><td>Injury / depth ablation</td><td>The owner forbids fixed penalties. The substitute is a paired ablation on chronological holdouts, reported with uncertainty.</td><td><span class="tag t-blocked">blocked</span></td><td>the identical model run with and without verified availability features on chronological holdouts, with the difference and an uncertainty interval</td><td>current: 0 ablations; blocked behind G-DEPTH-SRC and G-RESULTS</td></tr><tr><td class="mono">G-INJ</td><td>Injury report as a timestamped series</td><td>The injury signal must be a delta between two dated reads, never a level.</td><td><span class="tag t-partially">partially cleared</span></td><td>&gt;=3 dated reads inside one week (Wed, Thu, Fri), each with a fetch timestamp and hash</td><td>current: this pack contributes 1 dated read (2026-11-18); the repo holds reads dated 2026-11-15, 2026-11-17 and 2026-11-18 across different packs</td></tr><tr><td class="mono">G-W11-INJ</td><td>Week 11 injury report published</td><td>The NFL injury hub still serves Week 10; a Week 11 request resolves to reg10.</td><td><span class="tag t-blocked">blocked</span></td><td>https://www.nfl.com/injuries/league/2026/reg11 returns a page whose heading reads 'Injuries - WEEK 11'</td><td>observed 2026-11-18: the request resolved to .../reg10 with the Week 10 heading</td></tr><tr><td class="mono">G-DEPTH-SRC</td><td>Official depth-order source for all 32 clubs</td><td>Two club pages are known to break the parser (Texans publish depth as an image; Packers prepend jersey numbers) and no route is verified for all 32 clubs.</td><td><span class="tag t-blocked">blocked</span></td><td>one official depth page per club, read and parsed, 32/32, with the raw string retained</td><td>current: 0/32 verified by this session; the defect list is inherited as a repo claim</td></tr><tr><td class="mono">G-GAMEBOOK</td><td>Official NFL Game Books (actual starters, game-day status)</td><td>The Game Book host could not be reached by prior sessions; no actual-starter evidence has been captured from it.</td><td><span class="tag t-blocked">blocked</span></td><td>&gt;=1 Game Book PDF/HTML per settled game in the backtest corpus, with the game-date and the declared starters transcribed</td><td>current: 0 Game Books captured (inherited)</td></tr><tr><td class="mono">G-SNAP</td><td>Official snap counts</td><td>Depth modelled from playing time requires a snap-count source; none has been read.</td><td><span class="tag t-open">open</span></td><td>one official snap-count read per club-game, stored with its date, for &gt;=1 full season</td><td>current: 0 snap-count rows</td></tr><tr><td class="mono">G-INACT</td><td>Official inactive lists</td><td>Whether a designation turned into 'did not play' is only provable from the inactive list.</td><td><span class="tag t-open">open</span></td><td>the official inactive list for every game in the sample window, joined 1:1 to the designation rows</td><td>current: 6 of 254 report rows carry a game designation (inherited as a repo claim)</td></tr><tr><td class="mono">G-JOINT</td><td>Validated joint probability for combos</td><td>Parlays and prop combos need a joint distribution, not a product of marginals.</td><td><span class="tag t-blocked">blocked</span></td><td>a directly validated joint probability for the specific leg set, plus the operator's void/push rules in writing</td><td>current: 0 validated joint probabilities</td></tr><tr><td class="mono">G-SETTLE</td><td>Prospective settled leaderboard window</td><td>Skill claims need a prospective sample, scored after the fact.</td><td><span class="tag t-open">open</span></td><td>&gt;=8 consecutive weeks of pre-registered, pre-kickoff forecasts settled against official results, scored on a proper score</td><td>current: 0 settled prospective weeks</td></tr><tr><td class="mono">G-SCHED-AUTO</td><td>Scheduled capture automation</td><td>Multi-day snapshots require automation; none is built and the rights question is open.</td><td><span class="tag t-blocked">blocked</span></td><td>a scheduled job that writes an immutable, hashed capture with a fetch timestamp, running Wed/Thu/Fri, with a rights decision recorded first</td><td>current: 0 automated captures; all captures in the repo are single manual reads</td></tr><tr><td class="mono">G-TERMS</td><td>Rights / terms decision</td><td>Automated capture and republication of league data raise a terms question that has never been resolved in writing.</td><td><span class="tag t-open">open</span></td><td>a written decision recorded in the repo: which hosts may be captured, at what rate, and what may be republished</td><td>current: no decision recorded</td></tr><tr><td class="mono">G-ROOF-WX</td><td>Stadium roof/surface + NWS overlay</td><td>Roof designation comes from the league 90 minutes before kickoff; weather from NWS. Neither was read this session.</td><td><span class="tag t-open">open</span></td><td>one dated official roof/surface designation per fixture plus the matching NWS grid forecast, for &gt;=1 full week</td><td>current: 0 rows</td></tr><tr><td class="mono">G-KICKOFF-REGIME</td><td>2026 kickoff / onside-kick regime priors</td><td>The rule change needs an official rule text before a prior can be set.</td><td><span class="tag t-open">open</span></td><td>the official 2026 rule text for kickoff and the declared onside-kick option, quoted with its source URL</td><td>current: no official rule text read</td></tr><tr><td class="mono">G-VENUE</td><td>Venue transcription</td><td>Venues were transcribed for Week 11, but only one row is labelled directly on the page; the other twelve come from the page's own Hotel affiliate link destination.</td><td><span class="tag t-needs">needs review</span></td><td>the venue named in the official game centre (or the box score) text itself, for all fixtures in a week</td><td>current: 13/13 Week 11 rows transcribed; 1/13 with direct on-page venue text</td></tr><tr><td class="mono">G-STARTER</td><td>Announced-starter evidence</td><td>The league publishes dated starter changes; this session captured them as dated headlines.</td><td><span class="tag t-cleared">cleared</span></td><td>n/a - cleared for the Week 10 window; the headline text is the evidence, the body is not read</td><td>current: 19 dated official announcement headlines captured 2026-11-18</td></tr><tr><td class="mono">G-CORR</td><td>Correlations from officially sourced numbers with n</td><td>Any correlation must be computed only on numbers an official page published, with n shown.</td><td><span class="tag t-partially">partially cleared</span></td><td>every published correlation carries n, the two official series it joins, and the window</td><td>current: the designation-mix table is computed on 347 official rows with n shown; no market/price correlation exists because G-PRICE is blocked</td></tr><tr><td class="mono">G-SUGGEST</td><td>Suggestions section with review-before-implement</td><td>The owner wants a dedicated section where suggestions are reviewed and a path chosen before anything is implemented.</td><td><span class="tag t-cleared">cleared</span></td><td>n/a - this pack publishes it; the decision column stays blank until the owner fills it</td><td>current: published with blank decision columns by design</td></tr><tr><td class="mono">G-QIA</td><td>Questions / information / answers register</td><td>The owner wants the open questions, what we have, what we lack, and the route to close each one.</td><td><span class="tag t-cleared">cleared</span></td><td>n/a - this pack publishes it; answers stay blank where no official source closes them</td><td>current: published</td></tr><tr><td class="mono">G-READINESS</td><td>Decision-readiness table on the landing page</td><td>One row per requirement with the gate that blocks it and the number that clears it.</td><td><span class="tag t-cleared">cleared</span></td><td>n/a - this pack publishes it</td><td>current: published</td></tr></tbody></table></div>
+</main>
+<footer>Research only. No prices, no profitability claim, and no wagers. Statistical validation
+can reduce uncertainty; it can never remove luck. Every value on this site was read from the
+official page named in its row, inherited from another pack and labelled as a claim, or left
+blank and flagged. <a href="flagged.html">Flagged for review &#8599;</a></footer>
+</body></html>

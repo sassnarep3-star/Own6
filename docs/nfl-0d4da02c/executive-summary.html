@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Executive summary — NFL Decision Gate 0D4DA02C</title>
+<style>
+:root{--bg:#f6f7f9;--card:#ffffff;--ink:#1a1d21;--muted:#5f6672;--line:#e2e5ea;
+--accent:#1b5e9c;--ok:#1a7f45;--warn:#9a6400;--bad:#a32b2b;--blank:#9aa1ab}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+header{background:#10161d;color:#fff;padding:20px 24px}
+header h1{margin:0 0 6px;font-size:21px;font-weight:650;letter-spacing:-.2px}
+header p{margin:0;color:#b6c0cc;font-size:13px;max-width:1050px}
+nav{background:#fff;border-bottom:1px solid var(--line);padding:0 24px;
+display:flex;flex-wrap:wrap;gap:2px;position:sticky;top:0;z-index:5}
+nav a{color:var(--muted);text-decoration:none;font-size:12.5px;padding:11px 10px;
+border-bottom:2px solid transparent}
+nav a:hover{color:var(--ink)}
+nav a.on{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+main{padding:22px 24px 60px;max-width:1400px}
+h2{font-size:16px;margin:26px 0 8px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+h2:first-child{margin-top:4px}
+h3{font-size:14px;margin:18px 0 6px}
+p{max-width:1000px;margin:8px 0}
+.note{color:var(--muted);font-size:12.5px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(184px,1fr));gap:12px;margin:16px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.card span{display:block;color:var(--muted);font-size:11.5px;text-transform:uppercase;
+letter-spacing:.4px}
+.card strong{display:block;font-size:22px;margin-top:4px;font-weight:650}
+.card small{display:block;color:var(--muted);font-size:11.5px;margin-top:3px}
+.tw{overflow:auto;border:1px solid var(--line);border-radius:8px;background:var(--card);
+margin:10px 0 20px;max-height:78vh}
+table{border-collapse:collapse;width:100%;font-size:12.5px}
+th,td{border-bottom:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:#eef1f5;position:sticky;top:0;font-weight:600;white-space:nowrap;z-index:2}
+tbody tr:nth-child(even){background:#fafbfc}
+tbody tr:hover{background:#f0f5fa}
+td a{color:var(--accent);text-decoration:none}
+td a:hover{text-decoration:underline}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px}
+.blank{color:var(--blank);font-style:italic}
+.tag{display:inline-block;padding:1px 7px;border-radius:10px;font-size:11px;font-weight:600;
+white-space:nowrap}
+.t-cleared{background:#e4f5ea;color:var(--ok)}
+.t-cleared_repo{background:#eef3f8;color:#2b5a86}
+.t-partially{background:#eef0f5;color:#4a5260}
+.t-structural{background:#fdf3e0;color:var(--warn)}
+.t-blocked{background:#fbe9e9;color:var(--bad)}
+.t-open{background:#f1f2f4;color:#5f6672}
+.t-rejected{background:#efeaf4;color:#64468a}
+.t-needs{background:#fdf3e0;color:var(--warn)}
+.t-progress{background:#e6f0f8;color:#1b5e9c}
+.t-info{background:#f1f2f4;color:#5f6672}
+.t-medium{background:#fdf3e0;color:var(--warn)}
+.t-high{background:#fbe9e9;color:var(--bad)}
+.t-low{background:#f1f2f4;color:#5f6672}
+.t-out{background:#fbe9e9;color:var(--bad)}
+.t-questionable{background:#fdf3e0;color:var(--warn)}
+.t-doubtful{background:#f3ecf9;color:#64468a}
+ul{max-width:1000px}
+li{margin:4px 0}
+code{background:#eef1f5;padding:1px 5px;border-radius:4px;font-size:12px}
+footer{padding:20px 24px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+footer a{color:var(--accent)}
+</style></head><body>
+<header><h1>Executive summary</h1><p>Read this first — the state of the programme in one page</p></header>
+<nav><a href="index.html">Decision readiness</a><a href="requirements.html">Requirements</a><a href="gates.html">Gates</a><a href="suggestions.html">Suggestions</a><a href="questions.html">Questions &amp; answers</a><a href="gaps.html">Information gaps</a><a href="week11.html">Week 11 fixtures</a><a href="injury.html">Injury register</a><a href="availability.html">Availability counts</a><a href="starters.html">Starter evidence</a><a href="repo-review.html">Repo review</a><a href="flagged.html">Flagged for review</a><a href="sources.html">Sources</a><a href="executive-summary.html" class="on">Executive summary</a></nav>
+<main>
+
+<h2>Where the project actually stands</h2>
+<div class="cards"><div class="card"><span>blocked</span><strong>32</strong></div><div class="card"><span>structural</span><strong>18</strong></div><div class="card"><span>cleared</span><strong>17</strong></div><div class="card"><span>cleared_repo</span><strong>5</strong></div><div class="card"><span>partially cleared</span><strong>4</strong></div><div class="card"><span>open</span><strong>3</strong></div><div class="card"><span>rejected</span><strong>2</strong></div><div class="card"><span>needs review</span><strong>1</strong></div><div class="card"><span>in progress</span><strong>1</strong></div></div>
+<p>The owner's brief contains 75 product requirements and 8 process instructions. Of those,
+<strong>17 are cleared</strong> by evidence read this session from an
+official page, 5 are inherited from earlier packs as claims,
+18 exist as schema or code with no data behind them,
+32 are blocked by a named gate, 4 are
+partly cleared, 3 are open with no evidence either way, and
+2 were rejected by the owner and are recorded so they are not
+re-proposed.</p>
+<h2>The three things that decide everything else</h2>
+<ol>
+<li><strong>No official market-price source exists.</strong> Until one does, the residual,
+closing line value and the vig decomposition cannot be published, and neither can any backtest
+that uses prices. The owner's own ordering rule (R-20) says decide the price policy first.</li>
+<li><strong>No depth-order source is verified for all 32 clubs.</strong> Fourteen requirements
+sit behind this, including the entire backup-deficiency feature the owner asked for. The owner
+ordered this resolved before the feature is built, and that order is respected.</li>
+<li><strong>No official inactive list has been captured.</strong> The injury register is now
+verifiable every week, but the question "did the player actually play" is unanswerable without it,
+so "Questionable" cannot be calibrated and no designation may become a model feature.</li>
+</ol>
+<h2>What this session verified from official pages</h2>
+<ul>
+<li>The Week 10 injury report: <strong>347 rows across 28 clubs</strong>, re-read and
+re-published on 2026-11-18, with four bye clubs recorded as absent rather than healthy.</li>
+<li>The Week 11 schedule: <strong>13 games and 6 clubs on bye</strong>, with kickoff
+times, networks, records and venue text, plus the league's own scheduling statement verbatim.</li>
+<li>That the <strong>Week 11 injury report was not published</strong> at read time — a request for
+the Week 11 URL resolves to the Week 10 page.</li>
+<li>Dated official starter announcements for Lock, McCord, Watson and Beck; none found for
+Brissett, which is left blank rather than filled.</li>
+<li>That the three Lions designations the owner reported as blank are <strong>no longer
+blank</strong>: Joseph, Mays and Reed each read Out with Did Not Participate.</li>
+</ul>
+<h2>Gates that block the most requirements</h2>
+<div class="tw"><table><thead><tr><th>Gate</th><th>Requirements blocked</th></tr></thead><tbody><tr><td class="mono">G-DEPTH-SRC</td><td class="mono">10</td></tr><tr><td class="mono">G-SETTLE</td><td class="mono">9</td></tr><tr><td class="mono">G-PRICE</td><td class="mono">6</td></tr><tr><td class="mono">G-SCHED-AUTO</td><td class="mono">6</td></tr><tr><td class="mono">G-RESULTS</td><td class="mono">4</td></tr><tr><td class="mono">G-INJ</td><td class="mono">4</td></tr></tbody></table></div>
+<h2>The decision board</h2>
+<p>30 suggestions with 68 option paths, 28 questions with what we have
+and what we lack, and 22 information gaps with the route that closes each one. The
+decision columns are blank by design: the owner picks the path before anything is implemented.</p>
+<h2>Flagged</h2>
+<p>28 items are published on the
+<a href="flagged.html">Flagged for review</a> page with their source links. None blocks the
+merge.</p>
+<h2>What is deliberately missing</h2>
+<p>No prices, no odds, no correlation between a designation and playing, no leaderboard rows, and
+no statement that any strategy is profitable. Those cells are blank because the evidence does not
+exist yet, and filling them would be the exact failure mode this project is built to avoid.</p>
+
+</main>
+<footer>Research only. No prices, no profitability claim, and no wagers. Statistical validation
+can reduce uncertainty; it can never remove luck. Every value on this site was read from the
+official page named in its row, inherited from another pack and labelled as a claim, or left
+blank and flagged. <a href="flagged.html">Flagged for review &#8599;</a></footer>
+</body></html>
