@@ -3257,3 +3257,54 @@ on any foreign branch, recorded as F-14 in this pack's flagged.csv; it passes on
 the diff is empty, so main CI is unaffected). check_site.py OK, release_gate.py 0 issues,
 pack verifier 14/14, pack tests 9/9. PR opened from `arena/7a59fd89-own6` and merged without
 waiting for review per standing protocol.
+
+---
+
+## Session `arena/0ce967db-own6` — Week 11 live settlement, first measured proper-score board, one-row-per-bullet requirement ledger (claimed 2026-11-18)
+
+**Session ID:** `0ce967db` · **Branch:** `arena/0ce967db-own6` (base `aa82798`, PR #114).
+Arena fixes this session to that branch, so the `session-<id>/<task>` naming rule is satisfied by
+disjoint file scopes on the single Arena branch — the same deviation every prior session logged.
+
+**Concurrent-work check at claim time.** `git fetch` → branch base equals `origin/main` HEAD `aa82798`.
+Open PRs: #113, #111, #110, #94, #84, #79, #72, #68, #56, #54, #52, #48. All are stale record/close-out
+PRs from other sessions. None claims a `nfl_0ce967db` scope, and no file below is in another live scope.
+More than 60 minutes have passed with no commits on those claims; the takeover rule permits this claim,
+and it touches none of their files.
+
+**What is actually new here.** The tree already holds 18 NFL packs, ~90 requirement rows spread over
+five different ledgers, and *zero* measured leaderboard values — every pack publishes an empty board
+because it refuses to invent numbers. This pack does three things the tree does not have:
+
+1. **A live read of the current slate (Week 11, 2026-11-18 UTC) with venues parsed from the official
+   schedule page**, plus a re-read of Week 10 finals to settle the corpus at its true size.
+2. **The first board with real numbers on it that are not ROI:** a frozen, pre-registered naive
+   team-strength model is scored against official results over the 150-game corpus with Brier skill,
+   a game-cluster lower bound, a multiplicity adjustment, a random control and a favourites control.
+   That is a proper score on official outcomes, not a staking claim, and the strategy state stays `paper`.
+3. **One ledger row per requirement in the owner's *current* bullet list** (the message of 2026-11-18),
+   each with its blocking gate and the number that would clear it — the earlier ledgers answer earlier
+   briefs, and the owner asked for this one specifically.
+
+**Claim (written and pushed before any data or code was produced)**
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| C1 Line-by-line repo review of this session + irregularity register | in progress | `0ce967db` | `audit/NFL_0CE967DB_REPO_REVIEW.md`, `data/nfl_0ce967db/repo_findings.csv` |
+| C2 Live official capture 2026-11-18: Week 11 slate + venues, Week 10 finals, standings, injury hub; each read hashed with UTC clock | in progress | `0ce967db` | `src/nfl_0ce967db/capture.py`, `data/nfl_0ce967db/raw/**`, `data/nfl_0ce967db/capture_log.csv`, `data/nfl_0ce967db/week11_slate.csv`, `data/nfl_0ce967db/standings_2026_11_18.csv`, `data/nfl_0ce967db/week10_finals.csv`, `data/nfl_0ce967db/injuries_2026_11_18.csv` |
+| C3 Verified results feed: 150-game corpus re-derived and reconciled to official standings totals | in progress | `0ce967db` | `data/nfl_0ce967db/results_feed.csv`, `data/nfl_0ce967db/corpus_reconciliation.csv` |
+| C4 Pre-registered frozen baseline (rule text committed before it sees the corpus) + model-output ledger: every output stores probability and its full input vector | in progress | `0ce967db` | `data/nfl_0ce967db/preregistration.md`, `data/nfl_0ce967db/model_outputs.csv`, `src/nfl_0ce967db/model.py` |
+| C5 Measured board: Brier skill vs controls, game-cluster lower bound, multiplicity adjustment, signal separated from staking, demotion gate state | in progress | `0ce967db` | `data/nfl_0ce967db/leaderboard.csv`, `data/nfl_0ce967db/control_baselines.csv`, `data/nfl_0ce967db/luck_panel.csv`, `data/nfl_0ce967db/demotion_gate.csv`, `src/nfl_0ce967db/score.py` |
+| C6 Correlations from official numbers only, n and interval published with every value; joint-evidence combo gate | in progress | `0ce967db` | `data/nfl_0ce967db/correlations.csv`, `data/nfl_0ce967db/combo_gate.csv`, `src/nfl_0ce967db/correlate.py` |
+| C7 Week 11 origination: side → total → moneyline, fair line / market line / difference as separate columns, residual policy | in progress | `0ce967db` | `data/nfl_0ce967db/originated_lines.csv`, `data/nfl_0ce967db/price_policy.csv` |
+| C8 Injury/depth: designated status per club from the live hub, replacement depth where the official page names it, ablations instead of penalties | in progress | `0ce967db` | `data/nfl_0ce967db/availability_week11.csv`, `data/nfl_0ce967db/injury_burden.csv`, `data/nfl_0ce967db/ablations.csv` |
+| C9 Requirement ledger, one row per owner bullet (2026-11-18 list), with blocking gate and clearing number; Q/I/A register; suggestion queue | in progress | `0ce967db` | `data/nfl_0ce967db/requirements.csv`, `data/nfl_0ce967db/questions.csv`, `data/nfl_0ce967db/suggestions.csv`, `data/nfl_0ce967db/flagged.csv` |
+| C10 Site `docs/nfl-0ce967db/**` + builder + verifier + tests + CI | in progress | `0ce967db` | `docs/nfl-0ce967db/**`, `scripts/build_nfl_0ce967db.py`, `scripts/check_nfl_0ce967db.py`, `tests/test_nfl_0ce967db.py`, `.github/workflows/nfl-0ce967db-ci.yml` |
+| C11 Executive summary at root | in progress | `0ce967db` | `NFL_0CE967DB_EXECUTIVE_SUMMARY.md` |
+| C12 Integration: additive hub link, PR → merge → Pages check → board record | in progress | `0ce967db` | `COORDINATION.md` (append only), `docs/index.html` + `index.html` + `README.md` (one additive block each) |
+
+**Evidence rule.** A published value is either (a) text read this session from the official page named in
+its `source_url`, logged in `capture_log.csv` with UTC clock and sha256 of the bytes read, or (b) arithmetic
+on such values with the derivation shown in the row. Everything else is a blank cell plus a row on
+Flagged for Review. Market prices are not published by any official page, so market columns stay blank with
+the capture policy stated. No profitability claim, no staking instruction, no input control on any page.
