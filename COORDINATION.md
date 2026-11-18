@@ -3341,7 +3341,7 @@ hashed; no earlier pack has a 2026-11-18 read.
 | G6 Information-gap register: missing dataset, why it blocks, acquisition route, clearing number | done | 0d4da02c | `data/nfl_0d4da02c/information_gaps.csv` |
 | G7 Live official reads 2026-11-18 (dated, hashed, blank where unread): injury hub, standings, schedule/week 11, transactions, depth/team pages | done | 0d4da02c | `src/nfl_0d4da02c/capture.py`, `data/nfl_0d4da02c/official_reads.csv` (+4 dated reads), `injury_report_2026_11_18.csv`, `week11_schedule.csv`, `week11_byes.csv`, `starter_announcements.csv`, `schedule_announcement.csv`, `week10_absent_clubs.csv` |
 | G8 Pack site (landing + subpages by category), verifier, tests, CI, executive summary | done | 0d4da02c | `docs/nfl-0d4da02c/**`, `scripts/build_nfl_0d4da02c.py`, `scripts/check_nfl_0d4da02c.py`, `tests/test_nfl_0d4da02c.py`, `.github/workflows/nfl-0d4da02c-ci.yml`, `NFL_0D4DA02C_EXECUTIVE_SUMMARY.md` |
-| G9 Integration: rebase, additive shared nav/README/board, regenerate shared inventories, PR → merge → Pages check → record | in progress | 0d4da02c | `COORDINATION.md`, `README.md` (additive), `docs/index.html` (additive), `index.html` (additive), `data/assurance/**`, `data/source_coverage/**` |
+| G9 Integration: rebase, additive shared nav/README/board, regenerate shared inventories, PR → merge → Pages check → record | done | 0d4da02c | `COORDINATION.md`, `README.md` (additive), `docs/index.html` (additive), `index.html` (additive), `data/assurance/**`, `data/source_coverage/**` |
 
 ### Evidence rule (identical to every prior session)
 
@@ -3586,3 +3586,61 @@ and the pack's own review page is `audit/NFL_0CE967DB_REPO_REVIEW.md` + the find
 **Standing caveat repeated for the next session:** any edit to `COORDINATION.md` or any tracked file
 invalidates `data/assurance/inventory.csv`. The sequence is `audit_repo.py` → `build_assurance.py` →
 `source_coverage.py` → `pytest`, and it is only converged when a second full pass changes nothing.
+
+### Session `0d4da02c` — PR, merge and Pages result (G9 closed)
+
+**PR:** https://github.com/sassnarep3-star/Own6/pull/117
+`arena/0d4da02c-own6` → `main`. **Merged 2026-11-18T04:54:25Z** as merge commit `9ae406f`, without
+waiting for review. **All 20 required checks were green at merge** (including this pack's own
+`nfl-0d4da02c` gate), and every workflow on `main` after the merge completed green — `Assurance CI`,
+`Lab CI`, `Verify site and engine`, `Legacy parlay safety`, `Release integrity`, `Sitewide source
+coverage`, `nfl-dfc0c1bc`, `Hub CI`, `Daily verified snapshot`, `Independent verification ledger`,
+`Independent hub references`, `pages build and deployment`.
+
+**Pages:** https://sassnarep3-star.github.io/Own6/docs/nfl-0d4da02c/ — **live and confirmed by
+fetching the deployed page** (landing table renders 83 requirement rows and the correct status
+counts; `suggestions.html` renders all 30 suggestions with the decision column reading
+"owner decides — blank by design"). GitHub Pages build: `built`, 2026-11-18T04:54:45Z.
+
+**Merge route.** The branch was rebased onto `main` at `b187e36`, then `main` moved again; a second
+rebase would have rewritten the two pre-rebase commits a third time, so the branch instead merged
+`origin/main` (`366d4c2`). Two COORDINATION.md conflicts were resolved **keep-both** and nothing was
+discarded. Because the branch had been rebased after its first push it was force-pushed once with
+`--force-with-lease`; the branch is owned solely by this session.
+
+**Two cross-pack CI defects were met, recorded, and one of them repaired here.**
+
+1. **F-27 (repaired upstream).** `check_nfl_dfc0c1bc.py` rule 13 failed on every file a later session
+   owns — 52 files on this branch, five checks red. Session `0ce967db` repaired the rule on
+   2026-11-18 in commit `726e8b6` (it now asserts what it meant: this pack's own files unedited, and
+   prints foreign files as a note). Confirmed repaired on this branch — the rule passes and prints
+   the 52-file note. Session `7a59fd89` had recorded the same condition as its flag F-14.
+2. **F-28 (resolved at integration).** `build_nfl_dfc0c1bc.py` counts every pack's suggestion and
+   flag registers across the whole repo, so its committed pages go stale the moment any pack lands.
+   Adding this pack moved those totals (registers 26→27, suggestion rows 159→189, packs 14→15) and
+   failed dfc0c1bc's own rule 9 determinism check. Resolved by re-running **that pack's own
+   generator** at the integration fixed point — no hand-editing — so the published counts match the
+   tree. **Any future session that adds a register must regenerate `data/nfl_dfc0c1bc/**` and
+   `docs/nfl-dfc0c1bc/**` at its own integration step**, or that pack's rule 9 will fail on its
+   branch for the same reason.
+
+**Fixed-point discipline that made CI green.** Several generated artifacts depend on the whole tree,
+so the order matters and a single pass is not enough. The sequence that converges:
+`build_nfl_0d4da02c.py` → `build_nfl_dfc0c1bc.py` (twice, for its rule 9) → `source_coverage.py` →
+`audit_repo.py` → `build_assurance.py` → `build_review.py`, repeated until the working tree stops
+changing (it converged in two passes). Regenerating `source_coverage.py` alone leaves the assurance
+inventory stale, because `audit_repo.py` hashes `audit/SOURCE_COVERAGE.md`; regenerating
+`build_assurance.py` without `audit_repo.py` first leaves `data/assurance/inventory.csv` stale. The
+sandbox clone is shallow again, which makes `scripts/audit_repo.py` fail on `git show 86eca0f:...`
+until `git fetch --unshallow` is run.
+
+**Final verification at merge:** pack verifier 26/26 · pack tests 24/24 · full pytest suite
+730 passed · `tools/run_tests.py` 194/194 · `check_nfl_dfc0c1bc.py` 15 rules 0 failures ·
+`source_coverage --check` clean · `check_assurance.py` OK (21,229 sourced rows) ·
+`build_review.py --check` OK · `check_site.py` OK · `tools/check_site.py` OK ·
+`linkcheck.py` PASS · `check_lab.py` OK · `check_report.py` OK · `release_gate.py` 0 issues.
+
+**Known cosmetic defect fixed after the merge:** the merge resolution script inserted the hub
+category card twice, so `docs/index.html` briefly rendered two identical "NFL Decision Gate (0d4da02c)"
+cards. Removed; the hub now carries exactly one nav link, one category card and one archive-list
+entry for this pack.
