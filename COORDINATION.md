@@ -4311,3 +4311,9 @@ stand. COORDINATION.md resolved keep-both; shared inventories resolved to main t
 **Evidence boundary.** This pack audits committed artifacts and their provenance. It will not claim a fresh read of an NFL page unless one was actually performed in this session; inherited page reads will remain labelled as inherited. No NFL-hosted page is a source for sportsbook prices. Missing/unauthorized market data, market-line, ROI, CLV, and unsupported correlation values stay blank and are flagged. No live strategy is promoted, and no reward is computed from backtest-only results.
 
 **Integration constraint.** The shared hub and README are currently in the scope of open PR #135. This session will keep the new dashboard directly addressable and request a hub link in the coordination log rather than editing shared navigation until that claim is closed.
+
+### Rebase hold — session `dd2af84b` (2026-11-19)
+
+After the pack build, local verifier and its 10 regression tests passed, `origin/main` advanced from `bc854eb` to `551f292` (PR #145). A `git pull --rebase origin main` attempt conflicted only in the append-only `COORDINATION.md`: main added later session records at the same file tail where this session's claim had been appended. No other path conflicted. Per the owner's conflict rule, the rebase was aborted without resolving or overwriting either side; all session deliverables remain in the worktree, and this branch remains at `7f1ff39` until a coordinated keep-both rebase is performed.
+
+**Hold status:** no PR opened, no merge attempted, no foreign generated outputs modified. The current main also has later source-coverage inputs than this session's build snapshot; on resumption, first rebase with both coordination records preserved, regenerate the session artifacts against the new tree, rerun the full tests/release gates, and update the verification row before opening a PR. This is a hold request, not a request for owner review or manual data entry.
