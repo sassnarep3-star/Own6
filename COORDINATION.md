@@ -3771,3 +3771,23 @@ scopes above stay non-overlapping so other sessions can still claim their own ta
 - **Flagged irregularities (non-blocking):** NFL-0050-F01..F05 published on Flagged for Review pages; none blocks publication of the research framework.
 
 Session `arena/0050c939-own6` complete (C1-C6 all done).
+
+---
+
+## Session `arena/0f3037e8-own6` — NFL decision-review entrypoint freshness (claimed 2026-11-19)
+
+**Session ID:** `0f3037e8` · **Branch:** `arena/0f3037e8-own6` (fixed by Arena; based on `ffbbce6` at claim time).
+
+**Concurrent-work check at claim time.** The then-current tree contained the completed A67 integration at `ffbbce6`; the open PR list had no claim for this session's checker, audit or portal-freshness scope. A later main update merged session `0050c939`, whose C3/C6 scopes include shared root landing content and the final shared-inventory regeneration. Those newly visible overlapping files are not edited by this session; requests are logged below.
+
+**Claim (recorded before implementation; claim commit pushed before other work).**
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| U1 Audit the live NFL portal's decision/suggestion route and compare static cross-pack counts with current generated registers; publish a review record and flag inherited stale claims | in progress | `0f3037e8` | `audit/NFL_0F3037E8_SITE_DECISION_REVIEW.md`, append-only `COORDINATION.md` |
+| U2 Make the root Suggestions section a direct review path to consolidated suggestion, question/answer, information-gap and decision-path registers; refresh shared landing summaries | in progress | `0f3037e8` | `index.html`, `docs/index.html`, `README.md` |
+| U3 Add a no-network freshness/link regression check and CI for the decision board; introduce no NFL facts, prices, predictions or model scores | in progress | `0f3037e8` | `scripts/check_nfl_0f3037e8.py`, `tests/test_nfl_0f3037e8.py`, `.github/workflows/nfl-0f3037e8-ci.yml` |
+
+**Evidence boundary.** The suggestion/question/gap totals are repository-register counts, not official NFL facts, results, market data, model performance or recommendations. They are read from DFC0 CSVs and checked against its generated board. No external NFL content is newly asserted; official source URLs and dated reads remain in the existing source registers. Owner-choice fields stay blank. Any discrepancy in another pack's files is logged as a request/flag, not silently edited.
+
+**Branch-rule note.** The user brief asks for `session-<id>/<task>` branches; the Arena rule fixes this session to `arena/0f3037e8-own6`. All work stays on that branch and within the assigned scopes.
