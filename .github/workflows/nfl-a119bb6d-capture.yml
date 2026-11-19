@@ -113,6 +113,7 @@ jobs:
           python3 scripts/capture_nfl_a119bb6d.py \
             --weeks "${{ steps.plan.outputs.weeks }}" \
             --archive-seasons "${{ steps.plan.outputs.archive }}" \
+            --matchups data/nfl_a119bb6d/matchups.csv \
             --out "capture" \
             --diagnostic capture/diagnostic.txt \
             ${{ steps.plan.outputs.rosters }} ${{ steps.plan.outputs.no_gb }}
@@ -120,17 +121,20 @@ jobs:
       - name: Summary
         run: python3 scripts/summarise_capture.py capture/capture_log.csv
 
-      - name: Commit the capture manifest
+      - name: Commit the capture manifest and the parsed outputs
         run: |
           set -euo pipefail
-          mkdir -p data/nfl_a119bb6d/_capture
+          mkdir -p data/nfl_a119bb6d/_capture data/nfl_a119bb6d/parsed
           cp capture/capture_log.csv data/nfl_a119bb6d/_capture/capture_log.csv
           if [ -f capture/diagnostic.txt ]; then
             cp capture/diagnostic.txt data/nfl_a119bb6d/_capture/diagnostic.txt
           fi
+          if [ -d capture/parsed ]; then
+            cp capture/parsed/*.csv data/nfl_a119bb6d/parsed/
+          fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/nfl_a119bb6d/_capture
+          git add data/nfl_a119bb6d/_capture data/nfl_a119bb6d/parsed
           if git diff --cached --quiet; then
             echo "no capture output to commit"
             exit 0
