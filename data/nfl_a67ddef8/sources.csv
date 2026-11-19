@@ -1,0 +1,29 @@
+source_id,url,publisher,what_it_supports,last_read,trust_class
+S-01,https://www.nfl.com/standings/division/2026/reg,NFL.com,32-club 2026 standings (W-L-T PCT PF PA NET STRK),2026-11-19,official-primary
+S-02,https://www.nfl.com/schedules/2026/by-week/week-11,NFL.com,Week 11 slate times networks records byes hotel params,2026-11-19,official-primary
+S-03,https://www.nfl.com/schedules/2026/by-week/week-10,NFL.com,Week 10 finals incl LAC 23 BAL 20 and byes,2026-11-19,official-primary
+S-04,https://www.nfl.com/schedules/2026/by-week/week-12,NFL.com,Week 12 slate 16 games heading mismatches hotel params,2026-11-19,official-primary
+S-05,https://www.nfl.com/injuries/league/2026/reg11,NFL.com,Week 11 injury report all 13 games news rail,2026-11-19,official-primary
+S-06,https://www.nfl.com/injuries/league/2026/reg10,NFL.com,Lions re-test Joseph Mays Reed Out,2026-11-19,official-primary
+S-07,https://www.nfl.com/transactions/league/reserve-list/2026/11,NFL.com,November reserve-list rows 11/10-11/18 window,2026-11-19,official-primary
+S-08,https://www.nfl.com/games/colts-at-texans-2026-reg-11,NFL.com,IND@HOU venue RELIANT STADIUM + Thursday designations,2026-11-19,official-primary
+S-09,https://www.nfl.com/games/dolphins-at-bills-2026-reg-11,NFL.com,MIA@BUF venue HIGHMARK STADIUM,2026-11-19,official-primary
+S-10,https://www.nfl.com/games/ravens-at-panthers-2026-reg-11,NFL.com,BAL@CAR venue BANK OF AMERICA STADIUM,2026-11-19,official-primary
+S-11,https://www.nfl.com/games/saints-at-bears-2026-reg-11,NFL.com,NO@CHI venue SOLDIER FIELD,2026-11-19,official-primary
+S-12,https://www.nfl.com/games/titans-at-cowboys-2026-reg-11,NFL.com,TEN@DAL venue AT&T STADIUM,2026-11-19,official-primary
+S-13,https://www.nfl.com/games/buccaneers-at-lions-2026-reg-11,NFL.com,TB@DET venue FORD FIELD,2026-11-19,official-primary
+S-14,https://www.nfl.com/games/cardinals-at-chiefs-2026-reg-11,NFL.com,AZ@KC venue ARROWHEAD STADIUM,2026-11-19,official-primary
+S-15,https://www.nfl.com/games/steelers-at-eagles-2026-reg-11,NFL.com,PIT@PHI venue LINCOLN FINANCIAL FIELD,2026-11-19,official-primary
+S-16,https://www.nfl.com/games/jets-at-chargers-2026-reg-11,NFL.com,NYJ@LAC venue SOFI STADIUM,2026-11-19,official-primary
+S-17,https://www.nfl.com/games/jaguars-at-giants-2026-reg-11,NFL.com,JAX@NYG venue METLIFE STADIUM,2026-11-19,official-primary
+S-18,https://www.nfl.com/games/raiders-at-broncos-2026-reg-11,NFL.com,LV@DEN venue EMPOWER FIELD AT MILE HIGH,2026-11-19,official-primary
+S-19,https://www.nfl.com/games/vikings-at-49ers-2026-reg-11,NFL.com,MIN@SF venue ESTADIO BANORTE Mexico City,2026-11-19,official-primary
+S-20,https://www.nfl.com/games/bengals-at-commanders-2026-reg-11,NFL.com,CIN@WAS venue NORTHWEST STADIUM + no-injuries panels,2026-11-19,official-primary
+S-21,https://www.nfl.com/games/broncos-at-steelers-2026-reg-12,NFL.com,DEN@PIT venue ACRISURE STADIUM + week-12 panels unavailable,2026-11-19,official-primary
+S-22,https://www.baltimoreravens.com/team/depth-chart/, Baltimore Ravens,Ravens depth QB group Brissett Fagnano Slovis,2026-11-19,official-club
+S-23,https://operations.nfl.com/rules-officiating/2026-nfl-rulebook,NFL Football Operations,2026 rulebook + 2026 rule changes,2026-11-19,official-primary
+S-24,https://www.houstontexans.com/team/depth-chart,Houston Texans,image-only depth render evidence,2026-11-19,official-club
+S-25,https://www.packers.com/team/depth-chart,Green Bay Packers,jersey-prefix cells + Unofficial Nov 10 footer,2026-11-19,official-club
+S-26,https://www.nfl.com/teams/,NFL.com,club directory used for host verification texans.com 404,2026-11-19,official-primary
+S-27,https://github.com/sassnarep3-star/Own6,GitHub,repo structure CI pages PR state,2026-11-19,repo-internal
+S-28,https://www.marriott.com/search/findHotels.mi?...destinationAddress.location=... (linked from schedule cards),Marriott (linked by NFL.com),hotel affiliate params used only as cross-check never as venue source,2026-11-19,third-party-linked
