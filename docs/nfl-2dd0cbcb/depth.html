@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Depth · nfl-2dd0cbcb</title>
+<style>
+:root{--ink:#16232e;--muted:#5d7183;--navy:#0f2433;--teal:#0a7d74;--line:#dbe3e8;--paper:#f5f8f9;
+--white:#fff;--warn:#fff4dc;--warnink:#7a4b00;--ok:#0a6b4f;--bad:#9c2b2b;--soft:#eef4f5}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);line-height:1.55;
+font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:15px}
+a{color:var(--teal);text-underline-offset:.16em}
+header{background:var(--navy);color:#fff}
+.wrap{width:min(1220px,calc(100% - 2rem));margin:0 auto}
+.top{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;align-items:baseline;padding:.95rem 0}
+.top b{letter-spacing:.06em}
+.top span{color:#9fc7c2;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
+nav{display:flex;flex-wrap:wrap;gap:.25rem .9rem;padding:0 0 .7rem}
+nav a{color:#cfe3e0;text-decoration:none;font-size:.86rem;padding:.15rem 0;border-bottom:2px solid transparent}
+nav a:hover{border-bottom-color:#7fd3c6}
+nav a.on{color:#fff;border-bottom-color:#7fd3c6;font-weight:600}
+main{padding:1.4rem 0 3rem}
+h1{font-size:1.5rem;margin:.2rem 0 .4rem}
+h2{font-size:1.12rem;margin:1.9rem 0 .55rem;padding-bottom:.3rem;border-bottom:1px solid var(--line)}
+h3{font-size:.98rem;margin:1.2rem 0 .35rem}
+p{max-width:78ch}
+.lead{color:var(--muted);max-width:82ch}
+.cards{display:grid;gap:.7rem;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin:1rem 0 .4rem}
+.card{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:.8rem .9rem}
+.card .k{font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.card .v{font-size:1.65rem;font-weight:700;line-height:1.15;margin-top:.15rem}
+.card .s{font-size:.78rem;color:var(--muted)}
+.tw{overflow-x:auto;background:var(--white);border:1px solid var(--line);border-radius:10px;margin:.6rem 0 1rem}
+table{border-collapse:collapse;width:100%;font-size:.84rem}
+th,td{padding:.42rem .6rem;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--soft);font-size:.74rem;letter-spacing:.05em;text-transform:uppercase;color:#39505f;
+position:sticky;top:0;white-space:nowrap}
+tbody tr:hover{background:#fbfdfd}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+.pill{display:inline-block;padding:.05rem .42rem;border-radius:999px;font-size:.72rem;font-weight:600}
+.pill.ok{background:#dff3ec;color:var(--ok)}
+.pill.warn{background:var(--warn);color:var(--warnink)}
+.pill.bad{background:#fbe6e6;color:var(--bad)}
+.pill.info{background:#e7eef4;color:#31556e}
+.note{background:var(--warn);border:1px solid #f0dcb2;color:var(--warnink);
+border-radius:8px;padding:.55rem .8rem;font-size:.86rem;margin:.7rem 0}
+.blank{color:#93a6b3;font-style:italic}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:.8rem;padding:1rem 0 2rem}
+code{background:var(--soft);padding:.05rem .3rem;border-radius:4px;font-size:.85em}
+</style></head>
+<body>
+<header><div class="wrap">
+<div class="top"><b>NFL PROGRAM · SESSION 2dd0cbcb</b>
+<span>week-12 capture series · decision-readiness re-baseline · 2026-11-19</span></div>
+<nav><a href="index.html">Overview</a><a href="requirements.html">Readiness</a><a href="captures.html">Captures</a><a href="depth.html" class=on>Depth</a><a href="flags.html">Flags &amp; queues</a><a href="sources.html">Sources</a></nav>
+</div></header>
+<main><div class="wrap">
+<h1>Club depth charts: three re-tests, three different failures</h1>
+<p class="lead">The brief's line is blunt: "fix the two depth-parsing failures before
+widening coverage". One of the two is a parsing problem we can demonstrate a fix for; the
+other is not a parsing problem at all, and re-reading the page a second time today is what
+proves that. This page is deliberately small — three clubs, because those are the three
+whose blocker was named in the inherited registers.</p>
+<div class="tw"><table class=""><thead><tr><th>club</th><th>render</th><th>text rows</th><th>date stamp as read</th><th>jersey prefixes</th><th>QB group</th><th>finding</th><th>source</th></tr></thead><tbody><tr><td><b>AZ</b></td><td>text-table</td><td>29</td><td>(none — no publication date rendered on the page)</td><td>no</td><td>Carson Beck | Josh Johnson | Joey Aguilar</td><td>QB1 is Carson Beck; Brissett absent; Murray and Minshew also absent while the game centre still lists G. Minshew as season passing leader — blank+flag, no inference</td><td><a href="https://www.azcardinals.com/team/depth-chart" rel="noopener noreferrer" target="_blank">club page&nbsp;&#8599;</a></td></tr><tr><td><b>GB</b></td><td>text-table</td><td>29</td><td>Unofficial, Nov. 10, 2026</td><td>yes</td><td>10 Jordan Love | 6 Tyrod Taylor</td><td>jersey prefixes still present (strip+keep-raw exercised); footer unchanged since the 09:01Z read (nine days stale, self-labelled Unofficial); Kitan Oladapo printed in both S rows</td><td><a href="https://www.packers.com/team/depth-chart" rel="noopener noreferrer" target="_blank">club page&nbsp;&#8599;</a></td></tr><tr><td><b>HOU</b></td><td>image-only</td><td>0</td><td>(none rendered)</td><td>n/a</td><td><span class="blank">not readable</span></td><td>image-only render persists (third consecutive session); club banner names &#x27;Reliant Stadium&#x27; for tonight&#x27;s game while schedule hotel param says NRG Stadium</td><td><a href="https://www.houstontexans.com/team/depth-chart" rel="noopener noreferrer" target="_blank">club page&nbsp;&#8599;</a></td></tr></tbody></table></div>
+<h2>Why the counts and stamps matter more than the chart</h2>
+<ul>
+<li><b>Arizona publishes a usable chart and no date.</b> No publication date is rendered
+anywhere on the page, so a freshness alarm cannot be built from it. The chart's content is
+still the most consequential read of the day (Beck at QB1; Brissett absent) — but the
+register has to record the <i>date state</i>, not just the players.</li>
+<li><b>Green Bay publishes a date and says it does not trust it.</b> The footer reads
+"Unofficial, Nov. 10, 2026" — nine days old at read time, unchanged since the morning
+read, and self-labelled unofficial. The jersey-number prefix on every cell is the case the
+parsing fix exists for: the register now stores the raw cell text and the stripped name
+side by side, so the number is preserved as evidence without ever becoming a ranking.
+That is the line the brief's rejection draws — depth order must never be derived from
+jersey number, experience or salary.</li>
+<li><b>Houston publishes an image.</b> Third consecutive session with zero text rows. It
+is not a parser defect: there is nothing to parse. Any Texans depth row therefore stays
+blank-and-flagged, and the register says so rather than eyeballing an image into fake
+certainty. The same page's gameday banner is also where the Reliant/NRG naming inconsistency
+showed up a second time this week (see <a href="captures.html">captures</a>).</li>
+</ul>
+<div class="note">Shared and empty slots are reproduced exactly as printed: Arizona lists
+Zaven Collins and Baron Browning in <i>one</i> OLB cell (a shared slot, not two rankings),
+Green Bay prints Kaleb Johnson under a blank position cell and repeats Kitan Oladapo in
+both safety rows. Splitting or de-duplicating those rows would manufacture a depth order
+that the club did not publish.</div>
+</div></main>
+<footer><div class="wrap">
+<p>Static build: <code>python3 scripts/build_nfl_2dd0cbcb.py</code> from
+<code>data/nfl_2dd0cbcb/*.csv</code>. No network, no clock, no form controls, nothing
+computed at page-view time. <a href="../../index.html">Program landing</a> ·
+<a href="../index.html">Pack hub</a> ·
+<a href="https://github.com/sassnarep3-star/Own6/tree/main/data/nfl_2dd0cbcb">Data
+directory on GitHub</a>.</p>
+</div></footer>
+</body></html>

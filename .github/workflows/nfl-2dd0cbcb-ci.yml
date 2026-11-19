@@ -1,0 +1,53 @@
+name: nfl-2dd0cbcb
+
+on:
+  push:
+    branches: [main, 'arena/**']
+    paths:
+      - 'src/nfl_2dd0cbcb/**'
+      - 'scripts/build_nfl_2dd0cbcb.py'
+      - 'scripts/build_nfl_2dd0cbcb_data.py'
+      - 'scripts/authored_2dd0cbcb_requirements.py'
+      - 'scripts/check_nfl_2dd0cbcb.py'
+      - 'tests/test_nfl_2dd0cbcb.py'
+      - 'data/nfl_2dd0cbcb/**'
+      - 'docs/nfl-2dd0cbcb/**'
+  pull_request:
+    paths:
+      - 'src/nfl_2dd0cbcb/**'
+      - 'scripts/build_nfl_2dd0cbcb.py'
+      - 'scripts/build_nfl_2dd0cbcb_data.py'
+      - 'scripts/authored_2dd0cbcb_requirements.py'
+      - 'scripts/check_nfl_2dd0cbcb.py'
+      - 'tests/test_nfl_2dd0cbcb.py'
+      - 'data/nfl_2dd0cbcb/**'
+      - 'docs/nfl-2dd0cbcb/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Rebuild data CSVs from raw transcriptions (no network, no clock)
+        run: python3 scripts/build_nfl_2dd0cbcb_data.py
+      - name: Fail if the derived data is not exactly what the transcriptions produce
+        run: git diff --exit-code -- data/nfl_2dd0cbcb
+      - name: Re-author the readiness register and assert every evidence pointer resolves
+        run: python3 scripts/authored_2dd0cbcb_requirements.py
+      - name: Fail if the authored register drifted from its generator
+        run: git diff --exit-code -- data/nfl_2dd0cbcb/requirements.csv
+      - name: Build the pack site
+        run: python3 scripts/build_nfl_2dd0cbcb.py
+      - name: Fail if the site is not byte-identical to a rebuild
+        run: git diff --exit-code -- docs/nfl-2dd0cbcb
+      - name: Run the pack verifier (19 rules)
+        run: python3 scripts/check_nfl_2dd0cbcb.py
+      - name: Run pack unit tests (stdlib harness)
+        run: python3 tests/test_nfl_2dd0cbcb.py

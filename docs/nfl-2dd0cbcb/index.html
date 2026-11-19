@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Overview · nfl-2dd0cbcb</title>
+<style>
+:root{--ink:#16232e;--muted:#5d7183;--navy:#0f2433;--teal:#0a7d74;--line:#dbe3e8;--paper:#f5f8f9;
+--white:#fff;--warn:#fff4dc;--warnink:#7a4b00;--ok:#0a6b4f;--bad:#9c2b2b;--soft:#eef4f5}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);line-height:1.55;
+font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:15px}
+a{color:var(--teal);text-underline-offset:.16em}
+header{background:var(--navy);color:#fff}
+.wrap{width:min(1220px,calc(100% - 2rem));margin:0 auto}
+.top{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;align-items:baseline;padding:.95rem 0}
+.top b{letter-spacing:.06em}
+.top span{color:#9fc7c2;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
+nav{display:flex;flex-wrap:wrap;gap:.25rem .9rem;padding:0 0 .7rem}
+nav a{color:#cfe3e0;text-decoration:none;font-size:.86rem;padding:.15rem 0;border-bottom:2px solid transparent}
+nav a:hover{border-bottom-color:#7fd3c6}
+nav a.on{color:#fff;border-bottom-color:#7fd3c6;font-weight:600}
+main{padding:1.4rem 0 3rem}
+h1{font-size:1.5rem;margin:.2rem 0 .4rem}
+h2{font-size:1.12rem;margin:1.9rem 0 .55rem;padding-bottom:.3rem;border-bottom:1px solid var(--line)}
+h3{font-size:.98rem;margin:1.2rem 0 .35rem}
+p{max-width:78ch}
+.lead{color:var(--muted);max-width:82ch}
+.cards{display:grid;gap:.7rem;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin:1rem 0 .4rem}
+.card{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:.8rem .9rem}
+.card .k{font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.card .v{font-size:1.65rem;font-weight:700;line-height:1.15;margin-top:.15rem}
+.card .s{font-size:.78rem;color:var(--muted)}
+.tw{overflow-x:auto;background:var(--white);border:1px solid var(--line);border-radius:10px;margin:.6rem 0 1rem}
+table{border-collapse:collapse;width:100%;font-size:.84rem}
+th,td{padding:.42rem .6rem;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--soft);font-size:.74rem;letter-spacing:.05em;text-transform:uppercase;color:#39505f;
+position:sticky;top:0;white-space:nowrap}
+tbody tr:hover{background:#fbfdfd}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+.pill{display:inline-block;padding:.05rem .42rem;border-radius:999px;font-size:.72rem;font-weight:600}
+.pill.ok{background:#dff3ec;color:var(--ok)}
+.pill.warn{background:var(--warn);color:var(--warnink)}
+.pill.bad{background:#fbe6e6;color:var(--bad)}
+.pill.info{background:#e7eef4;color:#31556e}
+.note{background:var(--warn);border:1px solid #f0dcb2;color:var(--warnink);
+border-radius:8px;padding:.55rem .8rem;font-size:.86rem;margin:.7rem 0}
+.blank{color:#93a6b3;font-style:italic}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:.8rem;padding:1rem 0 2rem}
+code{background:var(--soft);padding:.05rem .3rem;border-radius:4px;font-size:.85em}
+</style></head>
+<body>
+<header><div class="wrap">
+<div class="top"><b>NFL PROGRAM · SESSION 2dd0cbcb</b>
+<span>week-12 capture series · decision-readiness re-baseline · 2026-11-19</span></div>
+<nav><a href="index.html" class=on>Overview</a><a href="requirements.html">Readiness</a><a href="captures.html">Captures</a><a href="depth.html">Depth</a><a href="flags.html">Flags &amp; queues</a><a href="sources.html">Sources</a></nav>
+</div></header>
+<main><div class="wrap">
+<h1>Week-12 capture series and decision-readiness re-baseline</h1>
+<p class="lead">Session <code>2dd0cbcb</code> did two things on 2026-11-19: it read the
+official pages a second time in the day (Week-12 venues, the injury-report path, the
+monthly reserve list, three club depth charts), and it re-baselined the owner's
+requirement list against the repository at base commit <code>ffbbce6</code>. Nothing here
+is modelled, priced, or projected: the pack publishes reads, deltas and gates.</p>
+<div class="cards">
+<div class="card"><div class="k">Week-12 venues</div><div class="v">16/16</div>
+<div class="s">all captured from game centres; 3 venue-name mismatches vs the schedule-page
+hotel param, published side by side</div></div>
+<div class="card"><div class="k">Week-12 injury panels</div><div class="v">0/16</div>
+<div class="s">every game centre said "Injury Report is not available at this time" —
+and <code>/reg12</code> quietly serves Week 11 instead</div></div>
+<div class="card"><div class="k">Reserve rows, Nov window</div><div class="v">25</div>
+<div class="s">11/10–11/18, identical at both 2026-11-19 clocks; no intra-month
+pagination</div></div>
+<div class="card"><div class="k">Re-tested flags</div><div class="v">20</div>
+<div class="s">each with the inherited question, the read clock, the finding and a new
+status</div></div>
+<div class="card"><div class="k">Owner queue delta</div><div class="v">8 + 13</div>
+<div class="s">new questions + new suggestions; every decision cell left blank for the
+owner</div></div>
+<div class="card"><div class="k">Captures pinned</div><div class="v">7</div>
+<div class="s">rows in the capture log, each with a sha256 over its transcription
+artifact</div></div>
+</div>
+<div class="note">Provenance limit, stated once and meant: the hashes in this pack cover the transcription artifacts under <code>data/nfl_2dd0cbcb/raw/</code>, not the live NFL.com or club pages. They prove the artifact has not changed since it was written, not what the page said when it was read.</div>
+<h2>What the day's second read changed</h2>
+<ul>
+<li><b>Week-12 venues are no longer blank.</b> A prior pack captured 13 of 13 Week-11
+venues and 1 of 16 for Week 12; this session captured all 16 from game-centre pages and
+kept the schedule-page hotel param as a separate, clearly-labelled cross-check column
+rather than a source of truth.</li>
+<li><b>The injury-report URL does not 404 when a week is unpublished — it serves the most
+recent published week</b> with that week's own title. A consumer that trusts the URL would
+have stored Week-11 rows as Week-12 data today. Flagged
+<code>2DD-F01</code>, with the detection recipe on the <a href="flags.html">flags page</a>.</li>
+<li><b>Two of tonight's Thursday-game rows still carry a blank game status while the
+players sit on the 11/17 IR list</b> (Teague Carlies, Azeez Al-Shaair). The blank is
+explained by joining two official surfaces, not by inference — see
+<a href="captures.html">captures</a>.</li>
+<li><b>Arizona's own depth chart now prints Carson Beck at QB1</b>, and does not print
+Jacob Brissett at all: the strongest official corroboration yet of a move a prior session
+could only leave blank-and-flagged. It is recorded as closure of that test, and as a new
+question, because the same page omits Gardner Minshew while a Week-12 game centre still
+shows him as the Cardinals' season passing leader (<code>2DD-F04</code>).</li>
+</ul>
+<h2>Registers published by this pack</h2>
+<div class="tw"><table class="[['<code>requirements.csv</code>', '80', 'one row per line of the owner brief: status at base commit, the gate that blocks it, what clears it, and a pointer the build asserts exists — <a href="requirements.html">rendered</a>'], ['<code>week12_venues.csv</code>', '16', 'Week-12 fixtures with both venue fields as read, and two comparison columns — <a href="captures.html">rendered</a>'], ['<code>thursday_status_reg11.csv</code>', '26', 'the full Week-11 Thursday game table (IND@HOU) at 11:08 UTC, the last read before the 8 PM designation deadline'], ['<code>reserve_rows.csv</code>', '25', 'the November reserve-list window as rendered, row for row, with the window recorded beside it'], ['<code>depth_retest.csv</code>', '3', 'the three club depth-chart re-tests with row counts, date stamps and the parsing verdict — <a href="depth.html">rendered</a>'], ['<code>rechecks.csv</code>', '20', 'the flag re-test chain: inherited question, method, finding, new status — <a href="flags.html">rendered</a>'], ['<code>questions.csv</code> · <code>suggestions.csv</code>', '8 · 13', 'the queue delta for the owner: what to answer next, and how to discover what is missing — decisions blank'], ['<code>flagged.csv</code>', '10', 'irregularities found while doing the above, none of which blocks a merge — <a href="flags.html">rendered</a>'], ['<code>repo_findings.csv</code>', '11', 'repository findings from the line-by-line review (hub/landing drift, a pack with no CI, a dangling evidence pointer, 108 register rows the board cannot see, no scheduled workflows), each with the command that measured it and the link to fix it — summarised in <code>audit/NFL_2DD0CBCB_REPO_REVIEW.md</code>'], ['<code>capture_log.csv</code>', '7', 'read-by-read provenance for every artifact in <code>raw/</code> — <a href="sources.html">rendered</a>']]"><thead><tr><th>file</th><th>rows</th><th>what it is</th></tr></thead><tbody><tr><td>f</td><td>i</td><td>l</td><td>e</td></tr><tr><td>r</td><td>o</td><td>w</td><td>s</td></tr><tr><td>w</td><td>h</td><td>a</td><td>t</td><td> </td><td>i</td><td>t</td><td> </td><td>i</td><td>s</td></tr></tbody></table></div>
+<p class="lead">Cross-pack context: <a href="../nfl-a67ddef8/index.html">session a67ddef8</a>
+(morning reads, Week-11 slate, standings re-verification) and
+<a href="../nfl-dfc0c1bc/index.html">session dfc0c1bc</a> (the consolidated question and
+suggestion masters, 198 suggestions and the conflict register) are the two registers this
+pack's deltas are meant to be read against. This pack adds rows; it does not rewrite
+theirs.</p>
+<h2>Standing rules this pack follows</h2>
+<ul>
+<li><b>No market prices.</b> No official page read by any session carries a market price,
+so price columns stay blank by written policy — not by oversight, and not filled with a
+model output relabelled as a market line.</li>
+<li><b>No profit or return claims.</b> Nothing on this site is priced, and the release gate
+bans profit vocabulary; the leaderboard's honest current answer is that no strategy has
+qualified, which is the scoreboard working rather than failing.</li>
+<li><b>Blank beats invented.</b> Where the official record is contradictory (venue names,
+schedule headings, the Arizona quarterback room), both readings are published verbatim and
+the contradiction is flagged. Reconciliation is an owner decision, not a build step.</li>
+<li><b><code>needs review</code> never blocks a merge</b>, and a flag here never edits
+another pack's files: requests against other sessions' registers are logged as rows in
+this pack's queue.</li>
+</ul>
+</div></main>
+<footer><div class="wrap">
+<p>Static build: <code>python3 scripts/build_nfl_2dd0cbcb.py</code> from
+<code>data/nfl_2dd0cbcb/*.csv</code>. No network, no clock, no form controls, nothing
+computed at page-view time. <a href="../../index.html">Program landing</a> ·
+<a href="../index.html">Pack hub</a> ·
+<a href="https://github.com/sassnarep3-star/Own6/tree/main/data/nfl_2dd0cbcb">Data
+directory on GitHub</a>.</p>
+</div></footer>
+</body></html>
