@@ -23,6 +23,8 @@ Rules
 18 correlations check: 4 rows, n == 150 each, Fisher bounds present
 19 reserve list: 25 rows within the 11/10-11/18 window
 20 week12 venue match counts: 11 exact, 3 mismatch, 2 variance
+21 every repository blob/tree href on a pack page resolves to a real tracked path (no joined or
+   space-encoded hrefs)
 """
 from __future__ import annotations
 
@@ -318,6 +320,22 @@ def check_venue_counts() -> None:
         fail(20, f"week12 venue counts {dict(c)} != 11 exact / 3 mismatch / 2 variance")
 
 
+def check_repo_links() -> None:
+    """Rule 21: every repository blob/tree href on a pack page must resolve to a real path."""
+    for fn in EXPECTED_PAGES:
+        path = os.path.join(DOCS, fn)
+        if not os.path.exists(path):
+            continue
+        text = open(path, encoding="utf-8").read()
+        for href in re.findall(r'href="(https://github\.com/sassnarep3-star/Own6/(?:blob|tree)/main/[^"]+)"', text):
+            if "%20" in href or ";" in href or " " in href:
+                fail(21, f"{fn}: malformed repository href {href}")
+                continue
+            rel = href.split("/main/", 1)[1].strip("/")
+            if not os.path.exists(os.path.join(REPO, rel)):
+                fail(21, f"{fn}: repository href points at a missing path: {rel}")
+
+
 def main() -> int:
     check_pinned()
     check_sources()
@@ -339,12 +357,13 @@ def main() -> int:
     check_corrs()
     check_reserve()
     check_venue_counts()
+    check_repo_links()
     if problems:
         print(f"FAIL — {len(problems)} problem(s):")
         for p in problems:
             print(" -", p)
         return 1
-    print(f"OK — 20 rules, {sum(PINNED.values())} data rows, "
+    print(f"OK — 21 rules, {sum(PINNED.values())} data rows, "
           f"{len(EXPECTED_PAGES)} pages, capture log verified")
     return 0
 
