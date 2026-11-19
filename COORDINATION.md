@@ -4541,3 +4541,24 @@ Site pages, scoring, strategies and the other NFL packs are **not** touched in t
 - The **scheduled cron** (16:00 UTC, Sun/Wed/Thu/Fri/Sat) has not yet fired in this record. Its first run is the next check; it will show as a bot commit on `data/nfl_capture/index.csv` if it succeeds.
 
 **New flag (non-blocking):** F-79-5 — the capture does not yet record "No Injuries Reported" clubs (CIN and WAS this week). They appear as absent tables, not as a count. Add an explicit per-club record before the team-level model uses these counts.
+
+### PR, merge and Pages record — session `79fd4958` (final, 2026-11-19)
+
+| PR | Purpose | Merge result | Checks at merge |
+|---|---|---|---|
+| #139 | Capture script, workflow, index, tests, gate repairs | merged 2026-11-19T12:39:25Z, merge commit `68bda5a` | 13/13 pass |
+| #147 | Push trigger on `main` for the capture code | merged 2026-11-19T12:45:10Z, merge commit `f1b0c16`; **this merge ran the live capture** (run `44526812258`, success) | 16/16 pass |
+| #148 | C4 record (run result, cross-check, flags) | merged 2026-11-19T12:52:20Z, merge commit `400a78b` | 16/16 pass |
+| this record PR | Final board state | see the PR page | see the PR page |
+
+**GitHub Pages:** `gh api repos/sassnarep3-star/Own6/pages/builds/latest` → status `built`, commit `400a78b`, error none (2026-11-19T12:52:44Z). Site source `main /`. Live landing page fetched via the fetch tool and rendered (title "Own6 | NFL Decision Dashboard").
+
+**Task board, final state (session `79fd4958`):**
+- C1 capture script — **done** (16 unit tests on synthetic HTML; live run `44526812258` success).
+- C2 workflow — **done** (cron + manual + push-on-change; first live run verified; the first scheduled cron run is **not yet observed**, and is checked by the bot commit on `data/nfl_capture/index.csv`).
+- C3 index and README — **done**.
+- C4 live proof — **done for the push path**; dispatch returned HTTP 403 from this token; cron path still to be observed.
+
+**Not built in this session (honest scope):** site pages for the capture (not added to the public site), the freshness alarm beyond GitHub's failure notice, the depth-image source, roster/transaction checks, the Week 11 pick board and strategy work. Those remain open on the board of earlier packs or are listed in the flags above.
+
+**Flags for owner review (non-blocking):** F-79-1 (raw bytes 90 days; retention is a terms decision), F-79-2 (capture on Sun/Wed/Thu/Fri/Sat only), F-79-3 (unversioned URL: one observation), F-79-4 (alert = GitHub failure notice only), F-79-5 ("No Injuries Reported" clubs not recorded explicitly).
