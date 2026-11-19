@@ -94,6 +94,10 @@ jobs:
             archive="$IN_ARCHIVE"
             [ -n "$IN_ROSTERS" = "true" ] && rosters="--rosters"
             [ -n "$IN_NO_GB" = "true" ] && no_gb="--no-gamebooks"
+            if [ -z "$weeks" ]; then
+              weeks="10"
+              echo "Push-triggered run: capturing week 10 by default."
+            fi
           fi
           echo "weeks=$weeks" >> "$GITHUB_OUTPUT"
           echo "extra=$extra" >> "$GITHUB_OUTPUT"
