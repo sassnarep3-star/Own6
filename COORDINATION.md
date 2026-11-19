@@ -4453,3 +4453,57 @@ Claim recorded here after the first build of the pack; no other session's files 
 - Checks on the PR head before merge: all 18 workflow checks pass, including `lab`, `assurance`, `verify`, `verify-nfl-origination`, `verify-nfl-0fef3044`, `published-html`, `source-coverage`.
 - Merge result and the merge commit are recorded on the PR page (state at merge time). The session branch cannot push to `main`, so no post-merge record commit is made (a second commit would make the derived inventories stale again).
 - Live Pages page for this pack: https://sassnarep3-star.github.io/Own6/docs/nfl-0fef3044/ (checked after merge; result in the chat summary).
+
+---
+
+## Session `arena/79fd4958-own6` — scheduled official injury-report capture with hashes and drift alarm (claimed 2026-11-19)
+
+**Session ID:** `79fd4958` · **Branch:** `arena/79fd4958-own6` (base `e9185b3` = `origin/main` at claim time). Arena fixes this session to that branch.
+
+**Gap found at claim time (checked, not assumed):**
+- `grep -l "schedule:" .github/workflows/*.yml` returns no file: **no workflow runs on a timer**. Every official-page capture in this repo is a manual, in-session transcription (`src/nfl_ade166a4/capture.py` says so in its docstring: the sha256 covers the transcription, not the page bytes).
+- The brief asks for scheduled, immutable, raw-hash captures with timestamps and drift alarms. None exists.
+- The sandbox cannot fetch nfl.com (`curl` to www.nfl.com fails at TLS; egress is limited to github/npm/pypi hosts). The capture can therefore only be proven by a run inside GitHub Actions; the run log is the evidence.
+- Policy from the brief: raw row-level data stays in a private store until the terms are read. So raw page bytes are **not** committed to git. They go to a private workflow artifact (90-day retention); git holds only derived metadata (time, URL, byte count, sha256, header-marker check, row counts, status).
+
+**Claim (written before any code)**
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| C1 Capture script: fetch official injury report, keep raw bytes, sha256, UTC clock, marker and row-count drift check, append-only index | in progress | `79fd4958` | `scripts/capture_nfl_official.py`, `tests/test_capture_nfl_official.py` |
+| C2 Scheduled + manual workflow with failure alert and commit-of-index | in progress | `79fd4958` | `.github/workflows/nfl-official-capture.yml` |
+| C3 Index and pack README; raw dir git-ignored | in progress | `79fd4958` | `data/nfl_capture/README.md`, `data/nfl_capture/index.csv`, `.gitignore` (one line) |
+| C4 Live proof: `workflow_dispatch` run, log read, index row verified | pending | `79fd4958` | GitHub Actions run record (logged here) |
+
+Site pages, scoring, strategies and the other NFL packs are **not** touched in this session.
+
+### Completion record — session `79fd4958` (2026-11-19, before PR)
+
+| Task | Status | Result |
+|---|---|---|
+| C1 capture script | **done (locally)** | `scripts/capture_nfl_official.py`: stdlib only; raw bytes kept; sha256 and UTC clock per run; drift checks (title, week label, exact 5-column header, >=8 injury tables, >=100 player rows, row shape, empty body, fetch error); one append-only index row per run; exit 1 on failure. 16 unit tests on **synthetic** HTML (`tests/test_capture_nfl_official.py`): 16/16 pass. |
+| C2 workflow | **done (defined); live run pending** | `.github/workflows/nfl-official-capture.yml`: cron `0 16 * * 0,3,4,5,6` (Sun, Wed–Sat; Mon/Tue skipped on purpose) + `workflow_dispatch`; raw bytes uploaded as a private artifact (90 days); index row committed by `github-actions[bot]`; failure fails the job. A `schedule:` trigger only runs from the default branch, so the first scheduled run follows the merge. |
+| C3 index and README | **done** | `data/nfl_capture/README.md` (storage table, drift rules, limits); `data/nfl_capture/index.csv` header only; `.gitignore` adds `data/nfl_capture/raw/`. |
+| C4 live proof | **pending** | Requires `gh workflow run nfl-official-capture.yml` on `main` after the merge. The run record will be appended below. The sandbox cannot reach nfl.com (TLS failure on `curl`; egress is github/npm/pypi only), so this run is the only possible proof. |
+
+**Sources read this session (official, direct):**
+- https://www.nfl.com/injuries/ — read 2026-11-19 via fetch tool. Title "Official Latest NFL Injury Report for Players - Week 11 of the 2026 Season | NFL.com". Table header `Player | Position | Injuries | Practice Status | Game Status`. Structure matches the drift checks. The unversioned URL served the Week 11 report on that day. One observation, not a guarantee.
+- https://www.nfl.com/injuries/league/2026/reg11 — same content, versioned URL (read 2026-11-19 via fetch tool; earlier in the session).
+
+**Gate state on the combined tree (all local, sandbox):** `tools/run_tests.py` 202/202 PASS lines · `pytest tests/` 843 passed · `tools/build_review.py --check` · `tools/check_site.py` · `scripts/check_site.py` · `scripts/linkcheck.py` · `scripts/check_lab.py` · `scripts/check_report.py` · `scripts/check_nfl_dfc0c1bc.py` (15 rules) · `scripts/source_coverage.py --check` · regeneration is idempotent (a second round changed nothing).
+
+**Irregularities found and repaired in this session (logged, not hidden):**
+1. **Lab CI red on this branch (test_inventory_hashes_and_line_counts).** The assurance inventory stores sha256 of every repo file; `.gitignore` edit made it stale. Repaired by `scripts/audit_repo.py` on unshallowed history, not by editing the test.
+2. **`verify.yml` red on `origin/main` at `7879cf5`:** `tests/test_nfl_cdf86c07.py` imported `pytest` at module level and used fixtures (`tmp_path`, `monkeypatch`), which `tools/run_tests.py` cannot provide. This branch first patched the runner and the test; session `0fef3044` then rewrote the test file stdlib-only on `main`. **This branch keeps main's version and carries no runner or test change of its own.** No test was removed or weakened on either path.
+3. **`dfc0c1bc` board check red on `origin/main`:** `nfl_cdf86c07|suggestions|S-01` fell to theme T00. Three sessions touched it in parallel: this branch first chose T09; `08fefbf` set T03; `0fef3044` added T09 above T03 in the same dict. Python keeps the last duplicate key, so the effective value was T03 throughout. This branch removes the stray T09 line (dict has one key, T03). Owners may reclassify S-01 (designation reliability) later; logged, not decided here.
+4. **`source_coverage --check` stale on `origin/main`.** Regenerated.
+5. **Branch history rewritten (force-with-lease) once.** A `git pull --rebase` against this branch's own older remote tip tried to replay main's commits, so I aborted it. The branch was then reset to `origin/main` and only this session's own files were reapplied. Content is identical to the pre-rewrite commits; the remote held no other session's work.
+6. **Logs unreadable from the sandbox.** `gh run view --log-failed` returns EOF for the Actions log blob (same limitation recorded in `dfc0c1bc` DFC-F91). Lab CI failure was therefore diagnosed from `gh api …/jobs` step conclusions and reproduced locally in a venv with `requirements-empirical.txt`.
+
+**Not done in this session (honest scope):** of the ~100-item brief, this session implements only the scheduled-capture slice (C1–C3). Everything else, including the snapshot-freshness alarm, the Texans depth-image source, the Colts/Lions/Lamar record checks, the Week 11 pick board and the executive summary, is either already covered by earlier packs (see the `dfc0c1bc` board) or remains open. No new strategy, price, or model output was produced, and no profitability claim is made.
+
+**Flags for owner review (do not block merge):**
+- F-79-1 Raw captures are kept 90 days as artifacts only. Keeping them longer needs a terms-of-use decision by the repo owner. This is a decision, not a default.
+- F-79-2 Capture cadence is 5 days a week; Monday and Tuesday are not captured. The NFL may publish mid-week changes outside that window.
+- F-79-3 The unversioned URL behaviour is one observation on one day.
+- F-79-4 The job alert is GitHub's built-in failure notification to the workflow owner. No issue is opened automatically.
