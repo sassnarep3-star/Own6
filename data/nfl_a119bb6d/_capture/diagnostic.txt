@@ -1,1 +1,145 @@
-no game books captured
+# SCHEDULE PAGE SAMPLE: week-10.html (2262563 bytes)
+# occurrences of '/games/': 54
+#   ...-2c54536568a9&quot;,&quot;linkModule&quot;:&quot;Score Strip&quot;,&quot;linkName&quot;:&quot;IND @ HOU&quot;,&quot;linkPosition&quot;:&quot;2:14&quot;}" href="/games/colts-at-texans-2026-reg-11" data-headlessui-state=""><div class="flex flex-col w-full bg-ls-level-1 dark:bg-ds-level-1 border-l border-l-ls-200 dark:bor...
+#   ...-2c54536568a9&quot;,&quot;linkModule&quot;:&quot;Score Strip&quot;,&quot;linkName&quot;:&quot;MIA @ BUF&quot;,&quot;linkPosition&quot;:&quot;3:14&quot;}" href="/games/dolphins-at-bills-2026-reg-11" data-headlessui-state=""><div class="flex flex-col w-full bg-ls-level-1 dark:bg-ds-level-1 border-l border-l-ls-200 dark:b...
+#   ...-2c54536568a9&quot;,&quot;linkModule&quot;:&quot;Score Strip&quot;,&quot;linkName&quot;:&quot;BAL @ CAR&quot;,&quot;linkPosition&quot;:&quot;4:14&quot;}" href="/games/ravens-at-panthers-2026-reg-11" data-headlessui-state=""><div class="flex flex-col w-full bg-ls-level-1 dark:bg-ds-level-1 border-l border-l-ls-200 dark:...
+#   ...a-2c54536568a9&quot;,&quot;linkModule&quot;:&quot;Score Strip&quot;,&quot;linkName&quot;:&quot;NO @ CHI&quot;,&quot;linkPosition&quot;:&quot;5:14&quot;}" href="/games/saints-at-bears-2026-reg-11" data-headlessui-state=""><div class="flex flex-col w-full bg-ls-level-1 dark:bg-ds-level-1 border-l border-l-ls-200 dark:bor...
+#   ...-2c54536568a9&quot;,&quot;linkModule&quot;:&quot;Score Strip&quot;,&quot;linkName&quot;:&quot;TEN @ DAL&quot;,&quot;linkPosition&quot;:&quot;6:14&quot;}" href="/games/titans-at-cowboys-2026-reg-11" data-headlessui-state=""><div class="flex flex-col w-full bg-ls-level-1 dark:bg-ds-level-1 border-l border-l-ls-200 dark:b...
+#   ...a-2c54536568a9&quot;,&quot;linkModule&quot;:&quot;Score Strip&quot;,&quot;linkName&quot;:&quot;TB @ DET&quot;,&quot;linkPosition&quot;:&quot;7:14&quot;}" href="/games/buccaneers-at-lions-2026-reg-11" data-headlessui-state=""><div class="flex flex-col w-full bg-ls-level-1 dark:bg-ds-level-1 border-l border-l-ls-200 dark...
+
+# GAME BOOK SAMPLE: 49ers-at-cowboys-2026-reg-10.txt
+# lines shown: 133 of 964
+
+00000| San Francisco 49ers at Dallas Cowboys Start Time: 3:25 PM CST
+00001| at AT&T Stadium, Arlington, TX
+00002| Retractable Roof - Closed on Field Turf
+00003| Game Weather: Rainy Temp: 49° F (9.4° C) Humidity: 86%, Wind: NE 3 mph
+00004| Wind Chill: 49
+00005| Officials
+00006| Referee:
+00007| Line Judge:
+00008| Down Judge:
+00009| Side Judge:
+00010| Umpire:
+00011| Field Judge:
+00012| Back Judge:
+00013| Hussey, John (35)
+00014| Causey, Max (21)
+00015| Bowers, Derick (74)
+00016| Flemming, Anthony (90)
+00017| Slaughter, Tab (110)
+00018| Petty, Sean (28)
+00019| Meyer, Greg (78)
+00020| Lineups
+00021| VISITOR: San Francisco 49ers 7 10 14 15 0 46
+00022| HOME: Dallas Cowboys 10 6 3 21 0 40
+00023| 1 2 3 4 OT Total
+00024| Replay Official: Wakefield, Chad (0)
+00025| Game Day Weather
+00026| Field Goals (made ( )  & missed)
+00027| Scoring Plays
+00028| Date: Sunday, 11/15/2026
+00029| Dallas CowboysSan Francisco 49ers
+00030| Offense Defense Offense Defense
+00031| WR 19 D.Samuel DL 97 N.Bosa WR 88 C.Lamb OLB 40 V.Miller
+00032| FB 44 K.Juszczyk DL 99 D.Buckner WR 19 R.Flournoy DT 92 Q.Williams
+00033| TE 85 G.Kittle DL 92 O.Odighizuwa LT 60 T.Guyton DT 97 K.Clark
+00034| LT 71 T.Williams DL 56 K.White LG 73 T.Smith OLB 7 R.Gary
+00035| LG 75 C.Colby LB 57 D.Greenlaw C 56 C.Beebe LB 53 D.Winters
+00036| C 64 J.Brendel LB 54 F.Warner RG 52 T.Booker LB 50 S.James
+00037| RG 77 D.Puni DB 2 D.Lenoir RT 78 T.Steele DB 13 C.Downs
+00038| RT 68 C.McKivitz CB 20 U.Stout TE 89 B.Spann-Ford CB 25 J.Porter
+00039| WR 17 J.Watkins CB 0 R.Green WR 3 G.Pickens CB 26 D.Bland
+00040| QB 13 B.Purdy S 27 J.Brown QB 4 D.Prescott S 14 M.Bell
+00041| RB 23 C.McCaffrey S 6 M.Mustapha RB 33 J.Williams S 24 M.Hooker
+00042| Substitutions Substitutions
+00043| WR 3 K.Allen, WR 4 J.Cowing, TE 9 B.Willis, WR 11 D.Robinson, P 15
+00044| C.Waitman, K 18 E.Pineiro, S 24 A.Davis, RB 26 K.Black, CB 28 E.Prysock, RB
+00045| 29 J.James, DB 33 S.Neal, S 36 M.Sigle, LS 46 J.Weeks, DL 47 K.Kareem, LB
+00046| 49 G.Wallow, LB 51 L.Gifford, LB 53 J.Dugger, DL 55 S.Valdez, OL 58
+00047| J.Patterson, OL 74 C.Willis, OL 76 V.Lowe, TE 89 L.Farrell, DL 94 R.Height, DL
+00048| 96 J.Thompson, DL 98 M.Williams
+00049| LB 0 D.Overshown, CB 2 C.Durant, P 5 B.Anger, WR 9 K.Turpin, S 11 A.Clark,
+00050| K 17 B.Aubrey, CB 23 A.Speed, CB 28 S.Revel, FB 30 H.Luepke, OLB 35
+00051| M.Liufau, RB 37 I.Abanikanda, OLB 41 J.Houston, LS 44 T.Sieg, LB 45
+00052| J.Barron, LB 55 J.Barham, G 66 T.Bass, T 67 D.Shelton, T 77 B.Jones, WR 80
+00053| C.Brown, TE 84 J.Mitchell, TE 86 L.Schoonmaker, DT 90 J.Bullard, DT 91
+00054| O.Ogbonnia, DT 93 E.Garcia, DT 99 L.Overton
+00055| Did Not Play Did Not Play
+00056| QB 10 M.Jones QB 16 S.Howell
+00057| Not Active Not Active
+00058| WR 5 M.Evans, 3QB 14 K.Rourke, LB 48 T.Bethune, OL 69 E.Cruz, WR 84
+00059| B.Cooks
+00060| S 1 P.Locke, OLB 6 D.Ezeiruaku, CB 15 D.Kendrick, WR 18 J.Mingo, S 43
+00061| J.Thomas, T 65 A.Cornelius, TE 87 J.Ferguson
+00062| E.Pineiro (28) B.Aubrey (52) (52)
+00063| Play Description (Extra Point) (Drive Info)Team Qtr Time Visitor Home
+00064| Cowboys B.Aubrey 52 yd. Field Goal (8-35, 2:49) 0 31 12:11
+00065| 49ers D.Samuel 11 yd. pass from B.Purdy (E.Pineiro kick) (8-78, 5:15) 7 31 6:56
+00066| Cowboys G.Pickens 35 yd. pass from D.Prescott (B.Aubrey kick) (11-71, 5:48) 7 101 1:08
+00067| 49ers E.Pineiro 28 yd. Field Goal (14-61, 7:45) 10 102 6:54
+00068| Cowboys G.Pickens 39 yd. pass from D.Prescott (kick failed, wl) (7-61, 2:46) 10 162 4:08
+00069| 49ers C.McCaffrey 74 yd. pass from B.Purdy (E.Pineiro kick) (3-76, 1:42) 17 162 2:26
+00070| 49ers K.Black 25 yd. run (E.Pineiro kick) (5-81, 2:50) 24 163 12:10
+00071| Cowboys B.Aubrey 52 yd. Field Goal (7-38, 3:34) 24 193 8:36
+00072| 49ers D.Samuel 70 yd. run (E.Pineiro kick) (3-80, 1:37) 31 193 6:59
+00073| National Football League Game Summary
+00074| NFL Copyright © 2026 by The National Football League. All rights reserved. This summary and play-by-play is for the express purpose of assisting media in their
+00075| coverage of the game; any other use of this material is prohibited without the written permission of the National Football League.
+00076| National Football League Game Summary
+00077| NFL Copyright © 2026 by The National Football League. All rights reserved. This summary and play-by-play is for the express purpose of assisting media in their
+00078| coverage of the game; any other use of this material is prohibited without the written permission of the National Football League.
+00079| Paid Attendance: 90,763 Time: 3:19
+00080| 49ers C.McCaffrey 16 yd. run (E.Pineiro kick) (12-90, 7:10) 38 194 11:26
+00081| Cowboys G.Pickens 5 yd. pass from D.Prescott (pass failed) (6-65, 2:18) 38 254 9:08
+00082| Cowboys R.Flournoy 11 yd. pass from D.Prescott (B.Aubrey kick) (10-66, 3:00) 38 324 3:42
+00083| 49ers C.McCaffrey 66 yd. pass from B.Purdy (B.Purdy-C.McCaffrey pass) (2-66, 0:19) 46 324 3:23
+00084| Cowboys C.Lamb 1 yd. pass from D.Prescott (D.Prescott run) (12-76, 2:40) 46 404 0:43
+00085| San Francisco 49ers Dallas Cowboys
+00086| RUSHING ATT YDS LG TDAVG RUSHING ATT YDS LG TDAVG
+00087| D.Samuel 78 26.0 13 70 J.Williams 63 3.9 016 9
+00088| C.McCaffrey 62 4.8 113 17 H.Luepke 9 9.0 01 9
+00089| K.Black 53 4.8 111 25 K.Turpin 9 9.0 01 9
+00090| B.Purdy 21 10.5 02 12 I.Abanikanda 8 4.0 02 6
+00091| D.Prescott 7 1.8 04 5
+00092| 29 214 7.4 70 3Total 24 96 4.0 9 0Total
+00093| PASSING ATT YDS LGTDSK/YDCMP IN RT PASSING ATT YDS LGTDSK/YDCMP IN RT
+00094| B.Purdy 389 328 22 5/19 0 154.5 D.Prescott 343 551 30 1/0 1 103.63974
+00095| 51 343 530 1/0 1 103.622 389 328 5/19 0 154.5Total Total 3974
+00096| PASS RECEIVING REC YDS LG TDAVGTAR PASS RECEIVING REC YDS LG TDAVGTAR
+00097| G.Kittle 74 12.3 069 G.Pickens 145 13.2 31118 3920
+00098| K.Allen 61 12.2 057 C.Lamb 72 10.3 1713 2723
+00099| C.McCaffrey 161 40.3 244 R.Flournoy 71 11.8 167 2374
+00100| D.Samuel 31 10.3 133 B.Spann-Ford 26 26.0 013 2611
+00101| J.Watkins 49 24.5 023 L.Schoonmaker 12 12.0 012 1227
+00102| K.Black 13 6.5 022 K.Turpin 10 10.0 013 1011
+00103| H.Luepke 6 6.0 011 6
+00104| J.Williams 4 4.0 011 4
+00105| I.Abanikanda 2 2.0 011 2
+00106| T.Bass 1 0.0 000 1
+00107| C.Beebe -6 0.0 000 -6
+00108| 22 389 17.7 74 3Total 28 30 343 11.4 39 5Total 49
+00109| INTERCEPTIONS NO YDS LG TDAVG INTERCEPTIONS NO YDS LG TDAVG
+00110| M.Mustapha 0 0.0 01 0
+00111| Total 0 0.0 0 01 Total 0 0 0 00
+00112| PUNTING YDS LGNO AVG TB IN20NETPUNTING YDS LGNO AVG TB IN20NET
+00113| C.Waitman 173 494 43.3 1 236.3 B.Anger 96 572 48.0 1 038.0
+00114| Total 173 494 43.3 1 236.3 Total 96 572 48.0 1 038.0
+00115| PUNT RETURNS NO YDS LG TDAVG PUNT RETURNS NO YDS LG TDAVGFC FC
+00116| J.Cowing 0 0.0 00 K.Turpin 8 4.0 02 01 80
+00117| [TOUCHBACK] 0 0.0 01 [DOWNED] 0 0.0 01 00 00
+00118| [TOUCHBACK] 0 0.0 01 0 0
+00119| Total 0 0.0 0 00 Total 8 4.0 8 02 01
+00120| KICKOFF RETURNS NO YDS LG TDAVG KICKOFF RETURNS NO YDS LG TDAVGFC FC
+00121| J.James 101 20.2 05 C.Brown 93 23.3 04 00 2526
+00122| D.Samuel 41 20.5 02 I.Abanikanda 50 25.0 02 00 2624
+00123| [TOUCHBACK] 0 0.0 02 0 0
+00124| Total 142 20.3 26 07 Total 143 23.8 26 06 00
+00125| FUMBLES FUM YDS FORCEDTDOWN-REC OPP-REC YDS TD OUT-BDS
+00126| San Francisco 49ers
+00127| LOST
+00128| K.Black 0 001 0 01 0 00
+00129| M.Sigle 0 000 0 00 1 10
+00139| Final Individual Statistics
+00142| Final Individual Statistics
+00351| Scoring Plays
