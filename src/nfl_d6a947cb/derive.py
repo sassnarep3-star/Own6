@@ -113,13 +113,28 @@ def write_csv(path: Path, rows: list[dict]) -> None:
         w.writerows(rows)
 
 
+# The ten requirement ledgers that exist at base commit e9185b3 (this pack's snapshot).
+# A later ledger (data/nfl_cdf86c07, PR #141) landed on main after the base; it is recorded as
+# finding RF-21 and is not reconciled here, so every number in this pack refers to one commit.
+BASE_LEDGERS = [
+    "data/nfl/requirements.csv",
+    "data/nfl_0ce967db/requirements.csv",
+    "data/nfl_0d4da02c/requirements.csv",
+    "data/nfl_4c8cf5a6/requirements.csv",
+    "data/nfl_51698d74/requirements.csv",
+    "data/nfl_a67ddef8/requirements.csv",
+    "data/nfl_ade166a4/requirements.csv",
+    "data/nfl_b72e2687/requirements.csv",
+    "data/nfl_d713b52f/requirements.csv",
+    "data/nfl_wk/requirements.csv",
+]
+
+
 def discover_ledgers() -> list[tuple[str, str]]:
-    """Every requirements.csv in the data tree except this pack's own register."""
+    """The ten base-commit ledgers, with the status column each one uses."""
     found = []
-    for p in sorted((ROOT / "data").rglob("requirements.csv")):
-        rel = p.relative_to(ROOT).as_posix()
-        if rel.startswith("data/nfl_d6a947cb/"):
-            continue
+    for rel in BASE_LEDGERS:
+        p = ROOT / rel
         header = p.open(newline="", encoding="utf-8").readline()
         cols = [c.strip() for c in next(csv.reader([header]))]
         col = next((c for c in ("state", "status") if c in cols), "")

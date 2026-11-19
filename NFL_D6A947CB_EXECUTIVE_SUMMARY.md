@@ -69,4 +69,5 @@ Full list with links: Flagged for Review page. The most material:
 - Re-checked 7 requirement rows against official text. The other 89 rows keep their carried state from earlier packs and show "not re-read this session".
 - Repo counts were taken from git at the base commit e9185b3. The clone was shallow at claim time; it was unshallowed (539 commits) before history was read (RF-20).
 - No parallel session's work was edited. Other sessions' packs are listed as irregularities only.
+- The pack is a snapshot of base commit e9185b3. A later ledger (data/nfl_cdf86c07, PR #141) landed on main during the session and is recorded as RF-21, not reconciled here.
 - No hallucinated values. Any field the official text did not show is blank or marked unverified.

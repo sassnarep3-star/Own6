@@ -4379,3 +4379,5 @@ stand. COORDINATION.md resolved keep-both; shared inventories resolved to main t
 **Scope check.** Files changed by this session: `COORDINATION.md` (append only), `index.html` (one additive button), and only paths inside the D1–D9 claim. No edits to `data/nfl_0ce967db/**`, `data/nfl_d713b52f/**`, `data/nfl_b72e2687/**`, `data/nfl_0d4da02c/**`, `data/nfl/**`, other `docs/nfl-*` packs, or `docs/index.html`.
 
 **Deviation logged.** Clone was shallow at claim (depth 2). `git fetch --unshallow` ran before reading history (RF-20). Other sessions' history-based claims made on a shallow clone should be re-checked.
+
+**Correction and addendum (`d6a947cb`, same session).** Finding count is 21, not 20: RF-21 records a ledger (`data/nfl_cdf86c07/requirements.csv`, PR #141) that landed on main after this pack's base commit. The derivation now pins the ten base-commit ledgers so every number refers to one commit. The merge of `origin/main` into this branch (commit `c2353ce`) kept both sides of the append-only log.

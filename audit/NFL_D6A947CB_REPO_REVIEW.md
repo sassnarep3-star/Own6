@@ -11,7 +11,7 @@ Scope: the repository at base commit `e9185b3` (origin/main at claim time). Meth
 | Audit files | 38 | `git ls-tree --name-only e9185b3 audit/ \| wc -l` |
 | docs/ directories | 44 (26 NFL-named) | `git ls-tree -d --name-only e9185b3 docs/` |
 | Workflow files | 34 | `git ls-tree --name-only e9185b3 .github/workflows/` |
-| Requirement ledgers (requirements.csv) | 10, status words 35 | `data/nfl_d6a947cb/ledger_comparison.csv` |
+| Requirement ledgers (requirements.csv) at base | 10, status words 35 (11 on main now; see RF-21) | `data/nfl_d6a947cb/ledger_comparison.csv` |
 | COORDINATION.md | 4,234 lines, 486,966 bytes | `git show e9185b3:COORDINATION.md \| wc -lc` |
 | Files citing the 404 schedule URL | 9 | `git grep -l operations.nfl.com/gameday/nfl-schedule e9185b3` |
 | Files citing the unreadable 2017 policy PDF | 50 | `git grep -l 2017-nfl-injury-report-policy e9185b3` |
@@ -28,7 +28,7 @@ Scope: the repository at base commit `e9185b3` (origin/main at claim time). Meth
 5. Sha256 hashes were computed for all seven raw excerpt files (`data/nfl_d6a947cb/capture_log.csv`). The hash covers the excerpt file, not the live page.
 6. The pre-registration history was read after unshallowing the clone (539 commits). The first commit is 56cc9b5; amendment A1 is 3dd2913.
 
-## Irregularities (20 findings; none blocks the merge)
+## Irregularities (21 findings; none blocks the merge)
 
 The full list with source links is in `data/nfl_d6a947cb/repo_findings.csv` and on the site's Flagged for Review page. In summary:
 
@@ -52,6 +52,7 @@ The full list with source links is in `data/nfl_d6a947cb/repo_findings.csv` and 
 - RF-18 Pages publishes from main path /; no build step runs on it.
 - RF-19 Pre-registration amendment A1 (3dd2913), made after the owner had seen the data, changes the prospective family from 7 to 8. It is disclosed.
 - RF-20 The clone was shallow at claim time; history-based audits must unshallow first.
+- RF-21 A later requirement ledger (data/nfl_cdf86c07, 82 rows, PR #141) landed on main after the base. It is not in this snapshot; the pack pins the ten ledgers at e9185b3.
 
 ## Not done in this session (stated, not hidden)
 
