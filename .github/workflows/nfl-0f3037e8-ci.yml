@@ -1,0 +1,55 @@
+name: NFL decision-review register freshness
+
+on:
+  push:
+    branches: [main, 'arena/**']
+    paths:
+      - 'index.html'
+      - 'docs/index.html'
+      - 'README.md'
+      - 'COORDINATION.md'
+      - 'docs/nfl-dfc0c1bc/index.html'
+      - 'data/nfl_dfc0c1bc/README.md'
+      - 'data/nfl_dfc0c1bc/suggestions_inventory.csv'
+      - 'data/nfl_dfc0c1bc/suggestions_master.csv'
+      - 'data/nfl_dfc0c1bc/questions_master.csv'
+      - 'data/nfl_dfc0c1bc/information_gaps.csv'
+      - 'data/nfl_dfc0c1bc/decision_paths.csv'
+      - 'NFL_DFC0C1BC_EXECUTIVE_SUMMARY.md'
+      - 'scripts/check_nfl_0f3037e8.py'
+      - 'tests/test_nfl_0f3037e8.py'
+      - '.github/workflows/nfl-0f3037e8-ci.yml'
+  pull_request:
+    paths:
+      - 'index.html'
+      - 'docs/index.html'
+      - 'README.md'
+      - 'COORDINATION.md'
+      - 'docs/nfl-dfc0c1bc/index.html'
+      - 'data/nfl_dfc0c1bc/README.md'
+      - 'data/nfl_dfc0c1bc/suggestions_inventory.csv'
+      - 'data/nfl_dfc0c1bc/suggestions_master.csv'
+      - 'data/nfl_dfc0c1bc/questions_master.csv'
+      - 'data/nfl_dfc0c1bc/information_gaps.csv'
+      - 'data/nfl_dfc0c1bc/decision_paths.csv'
+      - 'NFL_DFC0C1BC_EXECUTIVE_SUMMARY.md'
+      - 'scripts/check_nfl_0f3037e8.py'
+      - 'tests/test_nfl_0f3037e8.py'
+      - '.github/workflows/nfl-0f3037e8-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check DFC0 register counts and direct review links (no network)
+        run: python3 scripts/check_nfl_0f3037e8.py
+      - name: Regression tests
+        run: python3 -m unittest discover -s tests -p 'test_nfl_0f3037e8.py' -v
