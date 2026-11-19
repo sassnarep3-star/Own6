@@ -1,0 +1,3 @@
+URL: https://operations.nfl.com/gameday/nfl-schedule/
+Returned: "404 - FLAG ON THE PLAY" with link BACK TO NFL.COM
+Status: NOT READABLE (404). Cited by data/nfl/requirements.csv (R02) and by generated files listed in repo_findings.csv (RF-03).

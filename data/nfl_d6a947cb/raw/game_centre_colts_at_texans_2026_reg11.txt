@@ -1,0 +1,5 @@
+URL: https://www.nfl.com/games/colts-at-texans-2026-reg-11?tab=overview
+Page title (as returned): Indianapolis Colts at Houston Texans 2026 REG 11 - Game Center
+Date/time shown: Nov 19, 8:15PM ; Network: Prime Video
+Game Info: Location: HOUSTON, TX ; Stadium: RELIANT STADIUM
+Note: the schedule page (schedule_wk11_thursday_2026_11_19.txt) carries a hotel link with destinationAddress.location=NRG+Stadium for the same game.

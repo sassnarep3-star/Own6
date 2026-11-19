@@ -1,0 +1,46 @@
+name: nfl-d6a947cb
+
+on:
+  push:
+    branches: [main, 'arena/**']
+    paths:
+      - 'src/nfl_d6a947cb/**'
+      - 'scripts/build_nfl_d6a947cb.py'
+      - 'scripts/check_nfl_d6a947cb.py'
+      - 'tests/test_nfl_d6a947cb.py'
+      - 'data/nfl_d6a947cb/**'
+      - 'docs/nfl-d6a947cb/**'
+      - 'NFL_D6A947CB_EXECUTIVE_SUMMARY.md'
+      - '.github/workflows/nfl-d6a947cb-ci.yml'
+  pull_request:
+    paths:
+      - 'src/nfl_d6a947cb/**'
+      - 'scripts/build_nfl_d6a947cb.py'
+      - 'scripts/check_nfl_d6a947cb.py'
+      - 'tests/test_nfl_d6a947cb.py'
+      - 'data/nfl_d6a947cb/**'
+      - 'docs/nfl-d6a947cb/**'
+      - 'NFL_D6A947CB_EXECUTIVE_SUMMARY.md'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Rebuild derived registers from the repo's own ledgers (no network)
+        run: python3 src/nfl_d6a947cb/derive.py
+      - name: Rebuild the site from the registers
+        run: python3 scripts/build_nfl_d6a947cb.py
+      - name: Registers and site must be unchanged by the rebuild (determinism)
+        run: git diff --exit-code -- data/nfl_d6a947cb docs/nfl-d6a947cb
+      - name: Verify registers, hashes, links and wording
+        run: python3 scripts/check_nfl_d6a947cb.py
+      - name: Unit tests
+        run: python3 -m unittest tests/test_nfl_d6a947cb.py -v

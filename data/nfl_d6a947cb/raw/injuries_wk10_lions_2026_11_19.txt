@@ -1,0 +1,14 @@
+URL: https://www.nfl.com/injuries/league/2026/reg10
+Page title (as returned): Official Latest NFL Injury Report for Players - Week 11 of the 2026 Season | NFL.com   <-- title says Week 11
+Heading (as returned): ## Injuries - WEEK 10   <-- body says Week 10
+Block: SUNDAY, NOVEMBER 15TH 9:30 AM EST FOX; (5-5) NE Patriots at (7-2) DET Lions
+Lions rows (Player | Position | Injuries | Practice Status | Game Status):
+Brian Branch | S |  | Full Participation in Practice |
+Jared Goff | QB |  | Full Participation in Practice |
+Kerby Joseph | S | Knee | Did Not Participate In Practice | Out
+Cade Mays | C | Ankle | Did Not Participate In Practice | Out
+D.J. Reed | CB | Hip | Did Not Participate In Practice | Out
+Jacob Saylors | RB |  | Full Participation in Practice |
+Amon-Ra St. Brown | WR | Rib | Limited Participation in Practice | Questionable
+Sione Vaki | RB | Ankle | Limited Participation in Practice | Questionable
+DJ Wonnum | DE |  | Full Participation in Practice |

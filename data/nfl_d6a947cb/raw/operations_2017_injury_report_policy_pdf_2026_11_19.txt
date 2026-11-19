@@ -1,0 +1,4 @@
+URL: https://operations.nfl.com/media/2683/2017-nfl-injury-report-policy.pdf
+Returned title: NFL.com | Official Site of the National Football League
+Returned body: "Skip to main content" (1 chunk, hasMore=false). No policy text returned.
+Status: NOT READABLE. Cited by 50 files in the repo as the injury-report policy source (repo_findings.csv RF-04).

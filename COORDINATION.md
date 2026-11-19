@@ -4260,3 +4260,25 @@ stand. COORDINATION.md resolved keep-both; shared inventories resolved to main t
 **Not claimed (other sessions' scope, left untouched):** `data/nfl_0ce967db/**`, `data/nfl_d713b52f/**`, `data/nfl_b72e2687/**`, `data/nfl_0d4da02c/**`, `data/nfl/**`, every other `docs/nfl-*` pack, and the root `docs/index.html`. Fixes to these are logged as requests in the registers, not made here.
 
 **Evidence rule (unchanged).** A value is published as verified only if it was read this session from the official page named in its source link, with a UTC clock. Anything else is carried from an earlier pack with that pack named, or left blank and flagged. No market price exists on any official NFL page read, so price columns stay blank by policy. No profitability claim.
+
+**Completion record (`d6a947cb`, 2026-11-19, before the integration PR).**
+
+| Task | Status | Result |
+|---|---|---|
+| D1 Repo review | done | `audit/NFL_D6A947CB_REPO_REVIEW.md` + `data/nfl_d6a947cb/repo_findings.csv` (20 findings, RF-01..RF-20). Counts read from git at base `e9185b3`. |
+| D2 Official re-reads | done | 12 checks in `data/nfl_d6a947cb/official_reads_2026_11_19.csv` (UTC 12:08–12:11Z). Raw excerpts in `data/nfl_d6a947cb/raw/` with sha256 in `capture_log.csv`. Results: 5 match, 1 match for one fixture, 3 mismatch/conflict, 2 unreadable, 1 partial. |
+| D3 Requirement register | done | `requirements.csv` (96 owner rows, 88 unique; carried from `nfl_0ce967db`; 7 rows re-checked, 2 status changes: R20 → needs_review, R29 → needs_decision). `ledger_comparison.csv` computed from all 10 `requirements.csv` ledgers (35 status words). |
+| D4 Q/I/A | done | `questions.csv` (13 questions; 1 answered for the pages read, 1 partly answered, 11 open or unanswered; each with a discovery path). |
+| D5 Suggestions | done | `suggestions.csv` (14 options, each pending the owner's choice; `implemented=no` for all). |
+| D6 Flagged + sources | done | Flagged = `repo_findings.csv` (all `blocks_merge=no`); `sources.csv` (10 rows: 7 NFL reads/fetches, 3 repo-host rows labelled as not NFL). |
+| D7 Site | done | `docs/nfl-d6a947cb/` (9 pages) from `scripts/build_nfl_d6a947cb.py`; verifier `scripts/check_nfl_d6a947cb.py` (exit 0); `tests/test_nfl_d6a947cb.py` (13 tests OK); CI `.github/workflows/nfl-d6a947cb-ci.yml`. |
+| D8 Executive summary | done | `NFL_D6A947CB_EXECUTIVE_SUMMARY.md` (rendered at `executive-summary.html`). |
+| D9 Integration | in progress | Root `index.html`: one additive hero button (first in the list). `tools/release_gate.py` 0 issues; `tools/check_site.py` 0 errors (run after the edit). PR, merge and Pages check follow. |
+
+**Sources and verification performed.** Official pages read through the fetch tool this session, each stated with its scope in `sources.csv`: `https://www.nfl.com/injuries/` (chunk 0 of 7), `https://www.nfl.com/injuries/league/2026/reg10` (chunk 0 of 8), `https://www.nfl.com/schedules/` (chunk 0 of 3), `https://www.nfl.com/games/colts-at-texans-2026-reg-11` (chunk 0 of 3), `https://www.nfl.com/legal/terms/` (chunk 0 of 9), `https://operations.nfl.com/gameday/nfl-schedule/` (404), `https://operations.nfl.com/media/2683/2017-nfl-injury-report-policy.pdf` (no text). Repo history read after `git fetch --unshallow` (539 commits). `gh api` Pages settings read at claim time.
+
+**Irregularities (none blocks the merge; all on the Flagged for Review page).** The main ones: pre-registration amendment A1 (`3dd2913`, eight minutes after the freeze `56cc9b5`, written after the owner had seen a negative home margin; RF-19); NFL.com Terms s.1.3 restricts systematic retrieval absent written consent (RF-06, counsel review requested); a 404 schedule source cited in 9 repo files and an unreadable policy PDF cited in 50 (RF-03, RF-04); the Week 10 page titled Week 11 (RF-02); a stadium-name conflict for the same game (RF-07); ten ledgers with 35 status words (RF-01).
+
+**Scope check.** Files changed by this session: `COORDINATION.md` (append only), `index.html` (one additive button), and only paths inside the D1–D9 claim. No edits to `data/nfl_0ce967db/**`, `data/nfl_d713b52f/**`, `data/nfl_b72e2687/**`, `data/nfl_0d4da02c/**`, `data/nfl/**`, other `docs/nfl-*` packs, or `docs/index.html`.
+
+**Deviation logged.** Clone was shallow at claim (depth 2). `git fetch --unshallow` ran before reading history (RF-20). Other sessions' history-based claims made on a shallow clone should be re-checked.
