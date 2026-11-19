@@ -4591,3 +4591,21 @@ linked; repository links, hashes, or internal consistency alone will not be pres
 **Issues referred to the integration owner, not fixed here.** PR #135 remains open/`CONFLICTING` at head `5b98902`; a merge-tree comparison to `551f292` reports 34 content-conflict paths. The merged CDF pack remains absent from root/docs-hub/README navigation; root repeats the A67 link; 81/82 CDF requirement rows cite the same standings URL even for unrelated requirements. Full handling and source links are in the report.
 
 **Release disposition.** This is a verification-only close-out. No site merge or deployment is claimed for this session. Do not merge a repo-wide release candidate until the assurance inventory, DFC0 board and source-coverage artifacts are refreshed together and the failed checks pass. The report-only PR will be opened from this branch; its PR number and final check/merge status will be appended after creation. No other session's data, model, pack, or shared landing page was edited.
+
+### Final re-review addendum — after PR #142 merged (current main `188e904`, 2026-11-19 UTC)
+
+Because `main` advanced while the report was being prepared, the earlier `551f292` test failures were rechecked against the current merged tree before close-out. At `188e9042736ccb810d8d63f41dbcec9d733d32f1`, a clean full pytest run is **850 passed / 0 failed / 6 subtests passed**; `tools/run_tests.py` is **201/201**; `check_nfl_dfc0c1bc.py` is 15 rules / 0 failures; the standalone CDF, D6, ADE, and 51698 gates pass; current main Actions are green, and Pages is `built` (run 44525175736). PR #142's merge fixed the earlier CDF test harness and the D6 cross-pack board failure.
+
+**One freshness check remains red locally:** `scripts/source_coverage.py --check` computes 456 pages / 44,860 rows while the committed summary has 445 / 43,642, and reports eight stale coverage artifacts. The current-tree source-coverage workflow passes but does not compare the committed snapshot. PR #146 is still open/conflicting and was prepared against `551f292`; it should be rebased before relying on its outputs.
+
+**Landing/integration findings persist:** `cdf86c07` remains unlinked from root `index.html`, `docs/index.html`, and README; the secondary `docs/index.html` still titles itself as an NBA dashboard; root has the duplicated A67 link. PR #135 remains open/conflicting at its older head; merge-tree against `188e904` reports 34 conflicting paths, including `docs/index.html` and generated shared artifacts. No edits or merge attempts were made to PR #135 or PR #146.
+
+`audit/NFL_FB41A18F_FINAL_REVIEW.md` was updated to use `188e904` as the final reviewed tree, carry the resolved 551f292 failures as historical context, and identify the remaining source-coverage/landing-page findings. The report-only PR and its final check/merge disposition will be recorded in the next append after opening it.
+
+### Final current-main confirmation — PR #139 merged (`68bda5a`, 2026-11-19 UTC)
+
+The re-review was extended once more after PR #139 advanced `main` from `188e904` to `68bda5a`. On a clean worktree at `68bda5a`, `source_coverage.py --check` passes (456 pages / 44,865 rows); `pytest` passes 866 tests + 6 subtests; `tools/run_tests.py` is 201/201; release gate, strict/internal link checks, assurance, DFC0 (15 rules / 0 failures), and the CDF, D6, ADE, 51698 and 0fef pack checkers pass. All 14 main Actions runs listed for this SHA are green, and Pages is built (run 44525910652).
+
+The shared-landing findings are unchanged: CDF remains unlinked from root/docs-hub/README, the root A67 anchor is duplicated, and `docs/index.html` retains its NBA-branded title while linking mixed projects. PR #135 is still open with an older head; merge-tree against `68bda5a` reports 34 conflict paths. PR #146 is also still open from its older `551f292` base. Neither was merged or edited here.
+
+The review report now uses `68bda5a` as the final baseline; resolved red-check history from earlier review cuts remains labeled historical. No NFL pack values, models, shared pages, or generated inventories were changed. A report-only PR remains to be opened; any assurance-inventory freshness effect from adding this report/COORDINATION record must be reviewed before that PR is merged.
