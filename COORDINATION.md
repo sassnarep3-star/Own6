@@ -4198,3 +4198,24 @@ price columns stay blank by written policy. No profitability claim anywhere.
 
 **Branch-rule deviation (logged).** The brief asks for `session-<id>/<task>` branches; the Arena
 session rule fixes this session to `arena/ade166a4-own6` and forbids creating other branches.
+
+---
+
+**Completion record (appended 2026-11-19, before the integration PR).**
+
+| Task | Status | Result |
+|---|---|---|
+| W1 repo review | **done** | `audit/NFL_ADE166A4_REPO_REVIEW.md` — baseline re-run after unshallow: 1,359 files / 136,773 lines / 20,366 records / 17 standing findings; 4 new flags + inherited re-tests recorded; concurrent-work check: `origin/main` moved `ffbbce6 → d7127da` (session `0050c939`, PRs #123/#124/#126, no scope overlap) mid-session; this branch rebases onto it before push |
+| W2 fresh same-day capture | **done** | 5 reads logged (R101–R105) with UTC clocks + artifact sha256: injury hub 253+2 rows (11:07Z), standings 32 clubs 149/149/2 PF=PA=6,923 (11:08Z), week-11 slate 13 games + 6 byes (11:10Z), reserve list 25 rows (11:11Z), trades 12 rows (11:11Z); all identical to the 09:01Z first read |
+| W3 same-day delta register | **done** | `delta_reg11_sameday.csv` (0 rows by observation) + `delta_summary.csv`: 0 added / 0 removed / 0 changed across 253 keys, 13/13 game headers identical, 2.1h window; synthetic added-row and status-change tests prove the delta machinery is not a constant zero; cache caveat published as Q-06 |
+| W4 reverification | **done** | 12 rows, 12 MATCH (row-for-row equality of 32 standings clubs and 253 injury rows between same-day reads asserted in unit tests) |
+| W5 registers | **done** | requirements 37 (gate + clearing number), questions 8, suggestions 6 (all `pending_human_choice=yes`), flagged 5 (all `blocking_merge=no`), sources 7 |
+| W6 site | **done** | `docs/nfl-ade166a4/**` 7 pages + builder + 17-rule checker + 24 unit tests + `nfl-ade166a4-ci.yml` |
+| W7 executive summary | **done** | `NFL_ADE166A4_EXECUTIVE_SUMMARY.md` |
+| W8 integration | **done** | additive hub card + nav link, root index link, README bullet; fixed-point re-settled in the documented order (pack build → dfc0c1bc ×2 → source_coverage → audit_repo → build_assurance); **PR opened; merge result appended by the record PR** |
+
+**New flags published (non-blocking):** ADE-F01 Waddle cross-club presence with no official trade row (both same-day reads; trades register read live this session), ADE-F02/F03 display-name vs URL-slug drift (Jacob Hummel/jake-hummel; Dee Alford/deaundre-ford), ADE-F04 IR-listed Al-Shaair/Carlies still on the hub with blank game status (corroborated at a second clock), ADE-F05 standings H1 renders raw template tokens.
+
+**Cross-pack repair found and applied during the fixed point:** two unquoted-comma rows in this pack's own `questions.csv` had crashed `src/nfl_dfc0c1bc/registers.py::read_table` repo-wide (the builder reads every `questions.*`/`suggestions.*` register); repaired by quoting, and a repo-wide sweep confirmed zero remaining rows with extra columns.
+
+**Gates at close:** pack checker 17/17 · pack tests 24/24 · full pytest 773 passed · `check_nfl_dfc0c1bc` 15 rules / 31 registers / 196 questions · `source_coverage --check` clean · `check_assurance` OK (22,282 rows) · `check_site` OK · `tools/check_site` OK · `tools/run_tests` 194/194 · `release_gate` 0 issues.

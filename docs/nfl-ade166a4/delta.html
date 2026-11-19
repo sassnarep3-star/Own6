@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Same-day injury-hub delta · nfl-ade166a4</title>
+<style>
+:root{--ink:#16232e;--muted:#5d7183;--navy:#0f2433;--teal:#0a7d74;--line:#dbe3e8;--paper:#f5f8f9;
+--white:#fff;--warn:#fff4dc;--warnink:#7a4b00;--ok:#0a6b4f;--bad:#9c2b2b;--soft:#eef4f5}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);line-height:1.55;
+font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:15px}
+a{color:var(--teal);text-underline-offset:.16em}
+header{background:var(--navy);color:#fff}
+.wrap{width:min(1220px,calc(100% - 2rem));margin:0 auto}
+.top{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;align-items:baseline;padding:.95rem 0}
+.top b{letter-spacing:.06em}
+.top span{color:#9fc7c2;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
+nav{display:flex;flex-wrap:wrap;gap:.25rem .9rem;padding:0 0 .7rem}
+nav a{color:#cfe3e0;text-decoration:none;font-size:.86rem;padding:.15rem 0;border-bottom:2px solid transparent}
+nav a:hover{border-bottom-color:#7fd3c6}
+nav a.on{color:#fff;border-bottom-color:#7fd3c6;font-weight:600}
+main{padding:1.4rem 0 3rem}
+h1{font-size:1.5rem;margin:.2rem 0 .4rem}
+h2{font-size:1.12rem;margin:1.9rem 0 .55rem;padding-bottom:.3rem;border-bottom:1px solid var(--line)}
+h3{font-size:.98rem;margin:1.2rem 0 .35rem}
+p{max-width:78ch}
+.lead{color:var(--muted);max-width:82ch}
+.cards{display:grid;gap:.7rem;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin:1rem 0 .4rem}
+.card{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:.8rem .9rem}
+.card .k{font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.card .v{font-size:1.65rem;font-weight:700;line-height:1.15;margin-top:.15rem}
+.card .s{font-size:.78rem;color:var(--muted)}
+.tw{overflow-x:auto;background:var(--white);border:1px solid var(--line);border-radius:10px;margin:.6rem 0 1rem}
+table{border-collapse:collapse;width:100%;font-size:.84rem}
+th,td{padding:.42rem .6rem;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--soft);font-size:.74rem;letter-spacing:.05em;text-transform:uppercase;color:#39505f;
+position:sticky;top:0;white-space:nowrap}
+tbody tr:hover{background:#fbfdfd}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+.pill{display:inline-block;padding:.05rem .42rem;border-radius:999px;font-size:.72rem;font-weight:600}
+.pill.ok{background:#dff3ec;color:var(--ok)}
+.pill.warn{background:var(--warn);color:var(--warnink)}
+.pill.bad{background:#fbe6e6;color:var(--bad)}
+.pill.info{background:#e7eef4;color:#31556e}
+.note{background:var(--warn);border:1px solid #f0dcb2;color:var(--warnink);
+border-radius:8px;padding:.55rem .8rem;font-size:.86rem;margin:.7rem 0}
+.ok-note{background:#e4f4ee;border:1px solid #bfe3d6;color:#0a5c40;
+border-radius:8px;padding:.55rem .8rem;font-size:.86rem;margin:.7rem 0}
+.blank{color:#93a6b3;font-style:italic}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:.8rem;padding:1rem 0 2rem}
+code{background:var(--soft);padding:.05rem .3rem;border-radius:4px;font-size:.85em}
+</style></head>
+<body><header><div class="wrap">
+<div class="top"><b>OWN6 · NFL DESK</b><span>pack nfl-ade166a4 · second same-day read 2026-11-19 UTC</span></div>
+<nav><a href="index.html">Overview</a><a href="delta.html" class=on>Same-day delta</a><a href="captures.html">Captures</a><a href="flags.html">Flagged for review</a><a href="registers.html">Registers</a><a href="reverification.html">Reverification</a><a href="sources.html">Sources</a></nav></div></header>
+<main><div class="wrap">
+<h1>Same-day injury-hub delta</h1>
+
+<p class="lead">The injury hub was read twice on 2026-11-19: once at ~09:01Z by pack
+<code>nfl_a67ddef8</code> and once at ~11:07Z by this pack. Both transcriptions are committed,
+and the delta below is computed mechanically from them by
+<code>src/nfl_ade166a4/build_data.py::compute_delta</code>. Only changes are published — the
+level lives in the captures page.</p>
+<h2>Delta summary (09:01Z → 11:07Z)</h2>
+<div class="tw"><table class=""><thead><tr><th>field</th><th>value</th></tr></thead><tbody><tr><td>first read clock</td><td>2026-11-19T09:01:02Z (a67ddef8 artifact-write clock, upper bound)</td></tr><tr><td>second read clock</td><td>2026-11-19T11:07:00Z (ade166a4 artifact-write clock, upper bound)</td></tr><tr><td>window</td><td>2.1 hours</td></tr><tr><td>player rows first read</td><td><span class="n">253</span></td></tr><tr><td>player rows second read</td><td><span class="n">253</span></td></tr><tr><td>keys added</td><td><span class="n">0</span></td></tr><tr><td>keys removed</td><td><span class="n">0</span></td></tr><tr><td>fields changed</td><td><span class="n">0</span></td></tr><tr><td>keys identical</td><td><span class="n">253</span></td></tr><tr><td>game headers identical</td><td>True</td></tr><tr><td>no-injury markers</td><td>2 → 2</td></tr><tr><td>source</td><td><a href="https://www.nfl.com/injuries/league/2026/reg11" rel="noopener noreferrer" target="_blank">source&nbsp;&#8599;</a></td></tr></tbody></table></div>
+<div class="ok-note"><b>Conclusion.</b> No row-level change between the two same-day reads; the register is empty by observation, not by omission — 253/253 keys unchanged in
+the 2.1-hour window. The register below is empty because no row-level change was observed.</div>
+<h2>Delta register (row-level changes only)</h2>
+<div class="note">No rows — zero deltas observed in this window.</div>
+<h2>Week 11 slate (second read, 11:10Z)</h2>
+<div class="tw"><table class=""><thead><tr><th>date</th><th>kickoff ET</th><th>network</th><th>away</th><th>record</th><th>home</th><th>record</th></tr></thead><tbody><tr><td>2026-11-19</td><td>8:15 PM</td><td>PRIME</td><td>IND</td><td>3-7</td><td>HOU</td><td>3-6</td></tr><tr><td>2026-11-22</td><td>1:00 PM</td><td>CBS</td><td>MIA</td><td>1-8</td><td>BUF</td><td>8-1</td></tr><tr><td>2026-11-22</td><td>1:00 PM</td><td>FOX</td><td>BAL</td><td>4-6</td><td>CAR</td><td>4-5</td></tr><tr><td>2026-11-22</td><td>1:00 PM</td><td>FOX</td><td>NO</td><td>3-6</td><td>CHI</td><td>7-2</td></tr><tr><td>2026-11-22</td><td>1:00 PM</td><td>FOX</td><td>TEN</td><td>1-8</td><td>DAL</td><td>4-6</td></tr><tr><td>2026-11-22</td><td>1:00 PM</td><td>FOX</td><td>TB</td><td>3-6</td><td>DET</td><td>7-2</td></tr><tr><td>2026-11-22</td><td>1:00 PM</td><td>CBS</td><td>AZ</td><td>3-7</td><td>KC</td><td>7-2</td></tr><tr><td>2026-11-22</td><td>1:00 PM</td><td>CBS</td><td>PIT</td><td>6-3</td><td>PHI</td><td>2-7</td></tr><tr><td>2026-11-22</td><td>4:05 PM</td><td>FOX</td><td>NYJ</td><td>2-8</td><td>LAC</td><td>1-8</td></tr><tr><td>2026-11-22</td><td>4:25 PM</td><td>CBS</td><td>JAX</td><td>7-2</td><td>NYG</td><td>5-3-1</td></tr><tr><td>2026-11-22</td><td>4:25 PM</td><td>CBS</td><td>LV</td><td>4-6</td><td>DEN</td><td>7-2</td></tr><tr><td>2026-11-22</td><td>8:20 PM</td><td>NBC (+1)</td><td>MIN</td><td>7-2</td><td>SF</td><td>8-1</td></tr><tr><td>2026-11-23</td><td>8:15 PM</td><td>ESPN (+2)</td><td>CIN</td><td>7-2</td><td>WAS</td><td>3-5-1</td></tr></tbody></table></div>
+<h2>November transactions (11:11Z)</h2>
+<h3>Reserve list — 25 rows, 11/10–11/18</h3>
+<div class="tw"><table class=""><thead><tr><th>date</th><th>player (club)</th><th>transaction</th></tr></thead><tbody><tr><td>11/18</td><td>Mason McCormick (PIT)</td><td>Reserve/Injured</td></tr><tr><td>11/18</td><td>Jared Wiley (KC)</td><td>Reserve/Injured</td></tr><tr><td>11/18</td><td>Aidan Hutchinson (DET)</td><td>Reserve/Injured</td></tr><tr><td>11/18</td><td>Bo Richter (MIN)</td><td>Reserve/Injured</td></tr><tr><td>11/17</td><td>Azeez Al-Shaair (HOU)</td><td>Reserve/Injured</td></tr><tr><td>11/17</td><td>Zeek Biggers (MIA)</td><td>Reserve/Injured</td></tr><tr><td>11/17</td><td>Jordan Phillips (MIA)</td><td>Reserve/Injured</td></tr><tr><td>11/17</td><td>Andrew Wingard (AZ)</td><td>Reserve/Injured</td></tr><tr><td>11/17</td><td>Jordan Burch (AZ)</td><td>Reserve/Injured</td></tr><tr><td>11/17</td><td>Ar&#x27;maj Reed-Adams (BUF)</td><td>Reserve/Injured</td></tr><tr><td>11/17</td><td>Jaylon Carlies (IND)</td><td>Reserve/Injured</td></tr><tr><td>11/17</td><td>Wan&#x27;Dale Robinson (TEN)</td><td>Reserve/Injured</td></tr><tr><td>11/16</td><td>Dylan McMahon (LA)</td><td>Reserve/Injured</td></tr><tr><td>11/16</td><td>Branson Taylor (LAC)</td><td>Reserve/Injured</td></tr><tr><td>11/14</td><td>Christen Miller (NO)</td><td>Reserve/Injured</td></tr><tr><td>11/14</td><td>TreVeyon Henderson (NE)</td><td>Reserve/Injured</td></tr><tr><td>11/14</td><td>Michael Burton (CLE)</td><td>Reserve/Injured</td></tr><tr><td>11/14</td><td>Mo Alie-Cox (IND)</td><td>Reserve/Injured</td></tr><tr><td>11/14</td><td>Akeem Davis-Gaither (IND)</td><td>Reserve/Injured</td></tr><tr><td>11/14</td><td>Peter Skoronski (TEN)</td><td>Reserve/Injured</td></tr><tr><td>11/14</td><td>Tommy Townsend (TEN)</td><td>Reserve/Injured</td></tr><tr><td>11/14</td><td>Tyler Goodson (DAL)</td><td>Reserve/Injured</td></tr><tr><td>11/14</td><td>Josh Whyle (GB)</td><td>Reserve/Injured</td></tr><tr><td>11/12</td><td>Puka Nacua (LA)</td><td>Reserve/Injured</td></tr><tr><td>11/10</td><td>Jordan Whittington (LA)</td><td>Reserve/Injured</td></tr></tbody></table></div>
+<h3>Trades — 12 rows, 11/06–11/10</h3>
+<div class="tw"><table class=""><thead><tr><th>date</th><th>player (from → to)</th><th>transaction</th></tr></thead><tbody><tr><td>11/10</td><td>Jessie Bates (ATL → JAX)</td><td>Traded</td></tr><tr><td>11/10</td><td>Jordan Davis (PHI → JAX)</td><td>Traded</td></tr><tr><td>11/10</td><td>Amani Hooker (TEN → BUF)</td><td>Traded</td></tr><tr><td>11/10</td><td>Keenan Allen (IND → SF)</td><td>Traded</td></tr><tr><td>11/10</td><td>Kirk Cousins (LV → MIN)</td><td>Traded</td></tr><tr><td>11/10</td><td>Daiyan Henley (LAC → DEN)</td><td>Traded</td></tr><tr><td>11/10</td><td>Josh Downs (IND → KC)</td><td>Traded</td></tr><tr><td>11/10</td><td>Ryan Neuzil (ATL → BAL)</td><td>Traded</td></tr><tr><td>11/10</td><td>Andrew Vorhees (BAL → ATL)</td><td>Traded</td></tr><tr><td>11/09</td><td>Andre Cisco (NYJ → DET)</td><td>Traded</td></tr><tr><td>11/09</td><td>Davon Godchaux (NO → JAX)</td><td>Traded</td></tr><tr><td>11/06</td><td>Jacoby Brissett (AZ → BAL)</td><td>Traded</td></tr></tbody></table></div>
+<div class="note"><b>Why the trades page is here.</b> Flag ADE-F01: Jaylen Waddle appears on
+the Broncos Week-11 injury table at both reads, but no November trade row names him and the
+Dolphins table does not list him. Both official pages are linked in the flag; the explanation
+is unverified and nothing is inferred.</div>
+
+</div></main>
+<footer><div class="wrap">Built from committed data by <code>scripts/build_nfl_ade166a4.py</code>.
+No page contains inputs, market prices or picks. Unverified values are blank and flagged.</div>
+</footer></body></html>
