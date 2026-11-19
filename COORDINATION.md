@@ -4090,8 +4090,9 @@ cell stays blank by written policy. No hallucinations; unverified values are bla
 
 **PR record.** PR [#131](https://github.com/sassnarep3-star/Own6/pull/131) —
 "b72e2687: NFL decision desk — captures, flag re-tests, reverification, registers, site" —
-**merged 2026-11-19 11:39:27 UTC** via `gh pr merge 131 --squash` (merged without approval).
-Merge commit: `4c8cf5a6` (squash onto main). GitHub Pages deployment confirmed live at
+**merged 2026-11-19 11:43:44 UTC** via `gh pr merge 131 --squash` (merged without approval).
+Squash merge commit: `5387e18d84441f381e4bc39eaccdc761dfed297a` onto main. GitHub Pages
+deployment confirmed live at
 https://sassnarep3-star.github.io/Own6/docs/nfl-b72e2687/index.html. Flagged/unverified items
 do not block the merge; all 16 flags are published on the "Flagged for Review" page
 (`docs/nfl-b72e2687/flags.html`).
