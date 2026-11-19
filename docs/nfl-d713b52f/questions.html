@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Questions, information and answers — NFL decision desk (d713b52f)</title>
+<style>
+:root{--ink:#14212b;--muted:#5c6f7e;--navy:#0d2231;--teal:#0a7a72;--line:#d7e0e6;--paper:#f4f7f8;
+--white:#fff;--warn:#fff5dc;--warnink:#7a4900;--ok:#0a684c;--bad:#98292a;--soft:#ecf3f4}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);line-height:1.55;
+font:15px/1.55 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--teal);text-underline-offset:.16em}
+header{background:var(--navy);color:#fff}
+.wrap{width:min(1240px,calc(100% - 2rem));margin:0 auto}
+.top{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;align-items:baseline;padding:.9rem 0 .3rem}
+.top b{letter-spacing:.05em;font-size:.98rem}
+.top span{color:#9fc7c2;font-size:.76rem;letter-spacing:.09em;text-transform:uppercase}
+nav{display:flex;flex-wrap:wrap;gap:.2rem 1rem;padding:.2rem 0 .7rem}
+nav a{color:#cfe3e0;text-decoration:none;font-size:.85rem;padding:.12rem 0;border-bottom:2px solid transparent}
+nav a:hover{border-bottom-color:#7fd3c6}
+nav a.on{color:#fff;border-bottom-color:#7fd3c6;font-weight:600}
+main{padding:1.3rem 0 3rem}
+h1{font-size:1.45rem;margin:.2rem 0 .35rem}
+h2{font-size:1.08rem;margin:1.8rem 0 .5rem;padding-bottom:.28rem;border-bottom:1px solid var(--line)}
+h3{font-size:.96rem;margin:1.1rem 0 .3rem}
+p{max-width:80ch}
+.lead{color:var(--muted);max-width:84ch}
+.cards{display:grid;gap:.65rem;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));margin:.9rem 0 .3rem}
+.card{background:var(--white);border:1px solid var(--line);border-radius:9px;padding:.7rem .85rem}
+.card .k{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.card .v{font-size:1.5rem;font-weight:700;line-height:1.15;margin-top:.12rem}
+.card .s{font-size:.76rem;color:var(--muted)}
+.tw{overflow-x:auto;background:var(--white);border:1px solid var(--line);border-radius:9px;margin:.55rem 0 1rem}
+table{border-collapse:collapse;width:100%;font-size:.83rem}
+th,td{padding:.4rem .55rem;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--soft);font-size:.71rem;letter-spacing:.04em;text-transform:uppercase;color:#37505e;
+position:sticky;top:0;white-space:nowrap}
+tbody tr:hover{background:#fbfdfd}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+.pill{display:inline-block;padding:.04rem .4rem;border-radius:999px;font-size:.7rem;font-weight:600;white-space:nowrap}
+.pill.ok{background:#dcf2ea;color:var(--ok)}
+.pill.warn{background:var(--warn);color:var(--warnink)}
+.pill.bad{background:#fae4e4;color:var(--bad)}
+.pill.info{background:#e6eef4;color:#2f556e}
+.pill.paper{background:#eef0f2;color:#4a5b66}
+.note{background:var(--white);border-left:3px solid var(--teal);padding:.55rem .8rem;margin:.6rem 0 1rem;
+border-radius:0 7px 7px 0;font-size:.87rem;color:#31434f}
+.note.warn{border-left-color:#c98a00;background:var(--warn)}
+.note.bad{border-left-color:var(--bad);background:#fdf0f0}
+.small{font-size:.78rem;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:1.1rem 0 2rem;color:var(--muted);font-size:.78rem}
+code{background:#eef2f4;padding:.05rem .28rem;border-radius:4px;font-size:.86em}
+.blank{color:#9aaab4}
+</style></head>
+<body>
+<header><div class="wrap">
+<div class="top"><b>NFL DECISION DESK</b><span>session d713b52f · read 2026-11-19 UTC · official sources only</span></div>
+<nav><a href="index.html">Readiness</a><a href="evidence.html">Evidence</a><a href="model.html">Model</a><a href="availability.html">Availability</a><a href="questions.html" class="on">Questions</a><a href="suggestions.html">Suggestions</a><a href="flagged.html">Flagged</a><a href="../index.html">All packs</a></nav>
+</div></header>
+<main><div class="wrap">
+<h1>Questions, information and answers</h1>
+<p class="lead">What must be answered before a decision can reasonably be made, what is missing, and the route to discovering it.</p>
+
+<div class="note"><b>How to read this page.</b> A question is not answered by an opinion. Each row names what we
+already hold, what is genuinely missing, the concrete route to get it, and what becomes possible once it is answered.
+The last column stays <b>open</b> until a source has been read or the owner has recorded a decision.</div>
+<h2>18 open questions</h2>
+<div class="tw"><table class="">
+<thead><tr>
+<th>ID</th>
+<th>Theme</th>
+<th>Question that must be answered</th>
+<th>What we already have</th>
+<th>What is missing</th>
+<th>How to discover it</th>
+<th>What changes when it is answered</th>
+<th>Status</th>
+</tr></thead><tbody>
+<tr>
+<td><code>Q01</code></td>
+<td>Price</td>
+<td>Where will the price archive come from, and is it licensed for backtesting and publication of a residual?</td>
+<td>No price exists anywhere in the repo. Every residual and ROI cell is blank by policy.</td>
+<td>One operator or licensed archive, with the licence covering archived and derived publication.</td>
+<td>Ask the owner which operator(s) they hold accounts with; ask each for historical odds export terms.</td>
+<td>Turns on R01, R04, R05, R18, R58, R59 and the whole staking half of the leaderboard.</td>
+<td><span class="pill warn">open</span></td>
+</tr>
+<tr>
+<td><code>Q02</code></td>
+<td>Price</td>
+<td>If prices can never be archived, should the project drop ROI entirely and compete on proper scores only?</td>
+<td>The leaderboard already ranks on proper scores; ROI is empty.</td>
+<td>An owner decision, recorded in the repo.</td>
+<td>Owner decision; no source can answer it.</td>
+<td>Either closes R05 and R58 by removing them, or keeps them blocked.</td>
+<td><span class="pill warn">open</span></td>
+</tr>
+<tr>
+<td><code>Q03</code></td>
+<td>Snap counts</td>
+<td>Will the project accept the NFL&#x27;s own &#x27;(Unofficial)&#x27; playtime table as the participation measure?</td>
+<td>The table exists, is published per game by the NFL, and is captioned Unofficial.</td>
+<td>An owner decision, because the brief says &#x27;officially sourced numbers&#x27;.</td>
+<td>Owner decision; the alternative is a certified feed, which no official page read here offers.</td>
+<td>Unblocks R06, R11, R30, R55 and the replacement-depth work; without it they stay partial.</td>
+<td><span class="pill warn">open</span></td>
+</tr>
+<tr>
+<td><code>Q04</code></td>
+<td>Snap counts</td>
+<td>Does a certified snap-count feed exist at a price the project would pay?</td>
+<td>No official page read publishes a 2026 snap-count leaderboard; the category URL 404s.</td>
+<td>A vendor quote and a sample week, checked against one game book by hand.</td>
+<td>Ask each major vendor for one free historical week and reconcile it to the LAC@BAL book.</td>
+<td>If yes, the Unofficial table becomes a check rather than the source.</td>
+<td><span class="pill warn">open</span></td>
+</tr>
+<tr>
+<td><code>Q05</code></td>
+<td>Inactives</td>
+<td>Is there an official pre-kickoff inactive list page, or only the post-game book?</td>
+<td>Books publish &#x27;Not Active&#x27;; no pre-kickoff page was located.</td>
+<td>A located official page, read before kickoff.</td>
+<td>Search nfl.com game centre 90 minutes before a kickoff during Week 12.</td>
+<td>Makes point-in-time replacement certainty possible (R46, R86).</td>
+<td><span class="pill warn">open</span></td>
+</tr>
+<tr>
+<td><code>Q06</code></td>
+<td>Designations</td>
+<td>What does &#x27;Questionable&#x27; actually mean in play rate, and does it differ by position?</td>
+<td>30 Questionable rows read across 4 games; none was on a Not Active list; 23 had a playtime row.</td>
+<td>n of several hundred per designation over 3+ seasons, with intervals.</td>
+<td>Archive official reports weekly for past seasons (R65), then join to books.</td>
+<td>Turns designation from a label into a calibrated probability (R43, R52).</td>
+<td><span class="pill warn">open</span></td>
+</tr>
+<tr>
+<td><code>Q07</code></td>
+<td>Depth</td>
+<td>Which source will define depth order: club pages or playing time?</td>
+<td>Club depth pages were not verified in this session; playing time exists but is Unofficial.</td>
+<td>Either 32 verified club pages or the Q03 decision.</td>
+<td>Verify one club page per week against its book&#x27;s Lineups block.</td>
+<td>Unblocks R31, R42, R44 and the 1st-4th string matrix.</td>
+<td><span class="pill warn">open</span></td>
+</tr>
+<tr>
+<td><code>Q08</code></td>
+<td>Depth</td>
+<td>Should the project ever publish a rank the club has not published?</td>
+<td>No official source read publishes a rank.</td>
+<td>An owner decision. The pack&#x27;s position is that inventing a rank is a hallucination.</td>
+<td>Owner decision.</td>
+<td>If no, R44 stays permanently blocked and is removed from the site.</td>
+<td><span class="pill warn">open</span></td>
+</tr>
+<tr>
+<td><code>Q09</code></td>
+<td>Weather</td>
+<td>Is a pre-kickoff roof-state call published officially, and where?</td>
+<td>The book gives roof design and post-game weather only.</td>
+<td>An official page stating whether the roof was open or closed before kickoff.</td>
+<td>Read the game centre during the 90 minutes before a domed-game kickoff.</td>
+<td>Makes the roof/wind overlay a feature rather than a post-hoc note (R57).</td>
+<td><span class="pill warn">open</span></td>
+</tr>
+<tr>
+<td><code>Q10</code></td>
+<td>Legal</td>
+<td>Do the NFL Terms permit scheduled automated capture of injury and roster pages?</td>
+<td>Inherited packs raise the written-consent question and do not automate.</td>
+<td>Written consent or legal advice, recorded.</td>
+<td>Read the NFL Terms section on automated collection; ask the league for written consent.</td>
+<td>Unblocks R28, R29, R53 and the whole snapshot cadence.</td>
+<td><span class="pill warn">open</span></td>
+</tr>
+<tr>
+<td><code>Q11</code></td>
+<td>Legal</td>
+<td>What row-level data may be republished publicly?</td>
+<td>The public site carries derived analysis and official links only.</td>
+<td>An owner decision recorded in the repo.</td>
+<td>Owner decision, informed by Q10.</td>
+<td>Determines whether the private layer can become public (R39).</td>
+<td><span class="pill warn">open</span></td>
+</tr>
+<tr>
+<td><code>Q12</code></td>
+<td>Competition</td>
+<td>What is the reward for a top strategy?</td>
+<td>The owner asks for a competition with rewards; no reward is described.</td>
+<td>An owner decision: money, a badge, a promotion to live staking, or nothing.</td>
+<td>Owner decision.</td>
+<td>Defines what the leaderboard is for (R73).</td>
+<td><span class="pill warn">open</span></td>
+</tr>
+<tr>
+<td><code>Q13</code></td>
+<td>Competition</td>
+<td>How many strategies may the family hold before the multiplicity threshold stops being meaningful?</td>
+<td>The family is frozen at 7; the Bonferroni threshold scales with it.</td>
+<td>A cap written into the registration template.</td>
+<td>Arithmetic: at 50 strategies the per-test threshold is 0.001, which needs a very large sample.</td>
+<td>Limits how many ideas can be tested (R37, R66).</td>
+<td><span class="pill warn">open</span></td>
+</tr>
+<tr>
+<td><code>Q14</code></td>
+<td>Corpus</td>
+<td>Is 150 games enough to separate a 3% Brier-skill edge from noise, given the backtest sample, the holdout and the promotion threshold all depend on it?</td>
+<td>The week-cluster lower bound on the best backtest strategy is below zero at n=121.</td>
+<td>A power calculation at the effect size the project would act on.</td>
+<td>Arithmetic on the existing scores; no new data needed.</td>
+<td>Sets the sample the prospective board must reach (R03, R34).</td>
+<td><span class="pill warn">open</span></td>
+</tr>
+<tr>
+<td><code>Q15</code></td>
+<td>Corpus</td>
+<td>Do we have more than one season of results available anywhere, so that calibration, a validation split and a holdout season become possible?</td>
+<td>The corpus is 2026 only; a holdout season is therefore impossible.</td>
+<td>A second and third season of finals, read and hashed.</td>
+<td>nfl.com schedules for 2024 and 2025 are published; a read is cheap.</td>
+<td>Unblocks R69 and makes calibration possible (R43, R65).</td>
+<td><span class="pill warn">open</span></td>
+</tr>
+<tr>
+<td><code>Q16</code></td>
+<td>Governance</td>
+<td>Who executes the demotion, and how fast?</td>
+<td>The rule is numeric and states &#x27;automatic&#x27;, but nothing runs on a clock.</td>
+<td>A runner and a named owner.</td>
+<td>Owner decision plus a scheduler (which depends on Q10).</td>
+<td>Makes the demotion gate real rather than described (R08).</td>
+<td><span class="pill warn">open</span></td>
+</tr>
+<tr>
+<td><code>Q17</code></td>
+<td>Site</td>
+<td>Should flags that time has closed be removed from the Flagged page or kept as history?</td>
+<td>This pack closes one flag (R47) and keeps the row.</td>
+<td>An owner preference.</td>
+<td>Owner decision.</td>
+<td>Affects how the Flagged page ages.</td>
+<td><span class="pill warn">open</span></td>
+</tr>
+<tr>
+<td><code>Q18</code></td>
+<td>Snap counts</td>
+<td>If playtime is Unofficial, can it still be called &#x27;verified&#x27; when it is read from the official PDF?</td>
+<td>The value is published by the NFL in an official book, and labelled Unofficial by the same publisher.</td>
+<td>A house rule for what &#x27;verified&#x27; means: verified as transcribed, or verified as certified.</td>
+<td>Owner decision; the pack&#x27;s rule is stated in the verification page.</td>
+<td>Changes the label on every snap row (R06, R30, R55).</td>
+<td><span class="pill warn">open</span></td>
+</tr>
+</tbody></table></div>
+<h2>Gate register — the same information as a checklist</h2>
+<p class="lead">10 of 39 gates are closed. A closed gate is
+one whose clearing condition has been met and can be re-checked by anyone from the repository alone.</p>
+<div class="tw"><table class="">
+<thead><tr>
+<th>Gate</th>
+<th>What it is</th>
+<th>What clears it</th>
+<th>State</th>
+</tr></thead><tbody>
+<tr>
+<td><code>G-PRICE</code></td>
+<td>No market price exists on any official page. Every residual, ROI, CLV and staking column stays blank.</td>
+<td>An operator or licensed archive of timestamped prices; 1 row per market per week for 18 weeks.</td>
+<td><span class="pill bad">open</span></td>
+</tr>
+<tr>
+<td><code>G-SCORE</code></td>
+<td>Backtest numbers cannot promote a strategy. Promotion needs 100 scored prospective singles.</td>
+<td>100 prospective singles with an official final and a positive week-cluster Brier-skill lower bound.</td>
+<td><span class="pill bad">open</span></td>
+</tr>
+<tr>
+<td><code>G-SNAPS</code></td>
+<td>The only 2026 &#x27;snap count&#x27; the NFL publishes is the Game Book&#x27;s Playtime Percentage, captioned &#x27;(Unofficial)&#x27;.</td>
+<td>Either an owner decision to accept the Unofficial table as a proxy (recorded in the repo) or a certified source.</td>
+<td><span class="pill bad">open</span></td>
+</tr>
+<tr>
+<td><code>G-GAMEBOOK</code></td>
+<td>The Game Book route is verified (4 of 13 Week 10 books parsed, PDF host reachable). Coverage is 4 games.</td>
+<td>13 of 13 Week 10 books and 13 of 13 Week 11 books parsed with hashes.</td>
+<td><span class="pill bad">open</span></td>
+</tr>
+<tr>
+<td><code>G-DEPTH-SRC</code></td>
+<td>No official source read publishes a depth rank. Club depth pages were not verified.</td>
+<td>32 club depth pages parsed with a stored raw string, or the book route for every game.</td>
+<td><span class="pill bad">open</span></td>
+</tr>
+<tr>
+<td><code>G-CORR</code></td>
+<td>A correlation may only be published with n and an interval, from official numbers.</td>
+<td>Met for the 6 inherited rows; enforced for any new row.</td>
+<td><span class="pill ok">closed</span></td>
+</tr>
+<tr>
+<td><code>G-REGISTER</code></td>
+<td>A strategy may only be scored if its text was committed before the scoring run.</td>
+<td>Commit ordering, verified in git log.</td>
+<td><span class="pill ok">closed</span></td>
+</tr>
+<tr>
+<td><code>G-PROSPECTIVE</code></td>
+<td>A demotion gate needs a trailing window of prospective scores.</td>
+<td>10 scored prospective weeks.</td>
+<td><span class="pill bad">open</span></td>
+</tr>
+<tr>
+<td><code>G-PRICE-POLICY</code></td>
+<td>No price column is ever populated from a non-official source.</td>
+<td>Owner decision recorded in the repo.</td>
+<td><span class="pill ok">closed</span></td>
+</tr>
+<tr>
+<td><code>G-CADENCE</code></td>
+<td>An injury series needs at least daily reads from Wednesday to kickoff.</td>
+<td>A scheduler plus an owner decision on automated collection (NFL Terms).</td>
+<td><span class="pill bad">open</span></td>
+</tr>
+<tr>
+<td><code>G-STORAGE</code></td>
+<td>Hashes prove the transcript, not the page, and the store is inside the published site.</td>
+<td>A versioned store outside the site.</td>
+<td><span class="pill bad">open</span></td>
+</tr>
+<tr>
+<td><code>G-WEATHER</code></td>
+<td>Weather read here is post-game; it cannot be a pre-kickoff feature.</td>
+<td>An NWS hourly forecast grid plus an official roof-state call before kickoff.</td>
+<td><span class="pill bad">open</span></td>
+</tr>
+<tr>
+<td><code>G-CALIBRATE</code></td>
+<td>A designation calibration needs n per designation over several seasons.</td>
+<td>Play rate per designation with an interval, 3+ seasons.</td>
+<td><span class="pill bad">open</span></td>
+</tr>
+<tr>
+<td><code>G-COMBO</code></td>
+<td>Marginal probabilities cannot be multiplied for a combo.</td>
+<td>A directly validated joint probability for the exact leg set plus operator void/push rules.</td>
+<td><span class="pill bad">open</span></td>
+</tr>
+<tr>
+<td><code>G-HOLDOUT</code></td>
+<td>A holdout season needs more than one season.</td>
+<td>A multi-season corpus.</td>
+<td><span class="pill bad">open</span></td>
+</tr>
+<tr>
+<td><code>G-ABLATE</code></td>
+<td>An ablation needs the feature present in the evaluation window.</td>
+<td>Availability features for every game in the window. Now: 4 of 150.</td>
+<td><span class="pill bad">open</span></td>
+</tr>
+<tr>
+<td><code>G-RESERVE</code></td>
+<td>&#x27;Not listed&#x27; must never be read as &#x27;available&#x27;.</td>
+<td>A dated reserve-list read joined to the report.</td>
+<td><span class="pill bad">open</span></td>
+</tr>
+<tr>
+<td><code>G-ARCHIVE</code></td>
+<td>Calibration over seasons needs archived reports.</td>
+<td>Official reports for 3+ prior seasons.</td>
+<td><span class="pill bad">open</span></td>
+</tr>
+<tr>
+<td><code>G-RULE</code></td>
+<td>Fixture priors need the official 2026 rule text.</td>
+<td>The official rulebook section, read and cited.</td>
+<td><span class="pill bad">open</span></td>
+</tr>
+<tr>
+<td><code>G-REWARD</code></td>
+<td>A competition needs a defined reward.</td>
+<td>An owner decision on the reward.</td>
+<td><span class="pill bad">open</span></td>
+</tr>
+<tr>
+<td><code>G-SITE</code></td>
+<td>The site must build, link-check and refuse inputs.</td>
+<td>The pack verifier&#x27;s 18 rules pass.</td>
+<td><span class="pill ok">closed</span></td>
+</tr>
+<tr>
+<td><code>G-QIA</code></td>
+<td>A question is only answered by a source read or an owner decision.</td>
+<td>All 18 question rows closed.</td>
+<td><span class="pill bad">open</span></td>
+</tr>
+<tr>
+<td><code>G-DRIFT</code></td>
+<td>A parser must fail loudly on drift.</td>
+<td>Pinned row counts and headers; the verifier enforces them.</td>
+<td><span class="pill ok">closed</span></td>
+</tr>
+<tr>
+<td><code>G-VENUE</code></td>
+<td>Venue transcription must come from the official game centre.</td>
+<td>13 of 13 Week 10 and 13 of 13 Week 11 fixtures read.</td>
+<td><span class="pill bad">open</span></td>
+</tr>
+<tr>
+<td><code>G-ANNOUNCE</code></td>
+<td>The dated schedule announcement must be read.</td>
+<td>An official dated release URL.</td>
+<td><span class="pill bad">open</span></td>
+</tr>
+<tr>
+<td><code>G-ROSTER</code></td>
+<td>Roster turnover must be versioned against the official transactions log.</td>
+<td>A dated transactions read joined to depth and availability.</td>
+<td><span class="pill bad">open</span></td>
+</tr>
+<tr>
+<td><code>G-SWEEP</code></td>
+<td>A team-level model needs the full 32-club roster/IR sweep.</td>
+<td>32 club reads with a stable section parse.</td>
+<td><span class="pill bad">open</span></td>
+</tr>
+<tr>
+<td><code>G-INACTIVE</code></td>
+<td>A pre-kickoff inactive feed is needed for point-in-time certainty.</td>
+<td>An official pre-kickoff inactive page.</td>
+<td><span class="pill bad">open</span></td>
+</tr>
+<tr>
+<td><code>G-EXPECTED</code></td>
+<td>A surprise needs an ex-ante expectation.</td>
+<td>A pre-kickoff expectation source for every club&#x27;s starters.</td>
+<td><span class="pill bad">open</span></td>
+</tr>
+<tr>
+<td><code>G-RATING</code></td>
+<td>Opponent-aware ratings need an opponent term, registered first.</td>
+<td>A registered model with an opponent term and a walk-forward comparison.</td>
+<td><span class="pill bad">open</span></td>
+</tr>
+<tr>
+<td><code>G-SPLIT</code></td>
+<td>The public layer may carry derived analysis only.</td>
+<td>An owner decision recorded in the repo.</td>
+<td><span class="pill ok">closed</span></td>
+</tr>
+<tr>
+<td><code>G-RESULTS</code></td>
+<td>referenced by R02: the gate named on that row</td>
+<td>Settlement source cited per game row: 121 of 121 rows carry an official URL and a read clock.</td>
+<td><span class="pill ok">closed</span></td>
+</tr>
+<tr>
+<td><code>G-GRAPH</code></td>
+<td>referenced by R10: the gate named on that row</td>
+<td>The &#x27;expected&#x27; side needs a pre-kickoff starter source. The books give &#x27;actual&#x27;; the Week 10 report gives designation only, so &#x27;expected&#x27; is only available where the book&#x27;s own Lineups block is the first naming.</td>
+<td><span class="pill bad">open</span></td>
+</tr>
+<tr>
+<td><code>G-PROB</code></td>
+<td>referenced by R15: the gate named on that row</td>
+<td>A schema check that refuses a row without its inputs. Enforced now by the pack verifier.</td>
+<td><span class="pill ok">closed</span></td>
+</tr>
+<tr>
+<td><code>G-CORPUS</code></td>
+<td>referenced by R19: the gate named on that row</td>
+<td>The count identities below hold and are recomputed on every build: 150 games, 32x records, PF=PA.</td>
+<td><span class="pill ok">closed</span></td>
+</tr>
+<tr>
+<td><code>G-CAPTURE</code></td>
+<td>referenced by R28: the gate named on that row</td>
+<td>An owner decision on the NFL Terms (written consent for automated collection) plus a scheduler.</td>
+<td><span class="pill bad">open</span></td>
+</tr>
+<tr>
+<td><code>G-SNAPSHOT</code></td>
+<td>referenced by R46: the gate named on that row</td>
+<td>Daily points from the start of the season (&gt;=100 points).</td>
+<td><span class="pill bad">open</span></td>
+</tr>
+<tr>
+<td><code>none</code></td>
+<td>referenced by R47: the gate named on that row</td>
+<td>Closed by the official pages on 2026-11-19.</td>
+<td><span class="pill ok">closed</span></td>
+</tr>
+<tr>
+<td><code>G-CONTROL</code></td>
+<td>referenced by R56: the gate named on that row</td>
+<td>A favourites control needs a market price; it stays absent by policy.</td>
+<td><span class="pill bad">open</span></td>
+</tr>
+</tbody></table></div>
+
+</div></main>
+<footer><div class="wrap">
+Every value on this page was read from the official NFL page linked beside it on 2026-11-19 UTC, or is
+arithmetic on such values with the derivation shown. No market price exists on any official page, so price, ROI and
+CLV columns are blank by policy. No profitability claim is made anywhere. Blank is not zero and blank is not healthy.
+</div></footer>
+</body></html>

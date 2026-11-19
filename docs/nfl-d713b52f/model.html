@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Model and proper scores — NFL decision desk (d713b52f)</title>
+<style>
+:root{--ink:#14212b;--muted:#5c6f7e;--navy:#0d2231;--teal:#0a7a72;--line:#d7e0e6;--paper:#f4f7f8;
+--white:#fff;--warn:#fff5dc;--warnink:#7a4900;--ok:#0a684c;--bad:#98292a;--soft:#ecf3f4}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);line-height:1.55;
+font:15px/1.55 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--teal);text-underline-offset:.16em}
+header{background:var(--navy);color:#fff}
+.wrap{width:min(1240px,calc(100% - 2rem));margin:0 auto}
+.top{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;align-items:baseline;padding:.9rem 0 .3rem}
+.top b{letter-spacing:.05em;font-size:.98rem}
+.top span{color:#9fc7c2;font-size:.76rem;letter-spacing:.09em;text-transform:uppercase}
+nav{display:flex;flex-wrap:wrap;gap:.2rem 1rem;padding:.2rem 0 .7rem}
+nav a{color:#cfe3e0;text-decoration:none;font-size:.85rem;padding:.12rem 0;border-bottom:2px solid transparent}
+nav a:hover{border-bottom-color:#7fd3c6}
+nav a.on{color:#fff;border-bottom-color:#7fd3c6;font-weight:600}
+main{padding:1.3rem 0 3rem}
+h1{font-size:1.45rem;margin:.2rem 0 .35rem}
+h2{font-size:1.08rem;margin:1.8rem 0 .5rem;padding-bottom:.28rem;border-bottom:1px solid var(--line)}
+h3{font-size:.96rem;margin:1.1rem 0 .3rem}
+p{max-width:80ch}
+.lead{color:var(--muted);max-width:84ch}
+.cards{display:grid;gap:.65rem;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));margin:.9rem 0 .3rem}
+.card{background:var(--white);border:1px solid var(--line);border-radius:9px;padding:.7rem .85rem}
+.card .k{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.card .v{font-size:1.5rem;font-weight:700;line-height:1.15;margin-top:.12rem}
+.card .s{font-size:.76rem;color:var(--muted)}
+.tw{overflow-x:auto;background:var(--white);border:1px solid var(--line);border-radius:9px;margin:.55rem 0 1rem}
+table{border-collapse:collapse;width:100%;font-size:.83rem}
+th,td{padding:.4rem .55rem;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--soft);font-size:.71rem;letter-spacing:.04em;text-transform:uppercase;color:#37505e;
+position:sticky;top:0;white-space:nowrap}
+tbody tr:hover{background:#fbfdfd}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+.pill{display:inline-block;padding:.04rem .4rem;border-radius:999px;font-size:.7rem;font-weight:600;white-space:nowrap}
+.pill.ok{background:#dcf2ea;color:var(--ok)}
+.pill.warn{background:var(--warn);color:var(--warnink)}
+.pill.bad{background:#fae4e4;color:var(--bad)}
+.pill.info{background:#e6eef4;color:#2f556e}
+.pill.paper{background:#eef0f2;color:#4a5b66}
+.note{background:var(--white);border-left:3px solid var(--teal);padding:.55rem .8rem;margin:.6rem 0 1rem;
+border-radius:0 7px 7px 0;font-size:.87rem;color:#31434f}
+.note.warn{border-left-color:#c98a00;background:var(--warn)}
+.note.bad{border-left-color:var(--bad);background:#fdf0f0}
+.small{font-size:.78rem;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:1.1rem 0 2rem;color:var(--muted);font-size:.78rem}
+code{background:#eef2f4;padding:.05rem .28rem;border-radius:4px;font-size:.86em}
+.blank{color:#9aaab4}
+</style></head>
+<body>
+<header><div class="wrap">
+<div class="top"><b>NFL DECISION DESK</b><span>session d713b52f · read 2026-11-19 UTC · official sources only</span></div>
+<nav><a href="index.html">Readiness</a><a href="evidence.html">Evidence</a><a href="model.html" class="on">Model</a><a href="availability.html">Availability</a><a href="questions.html">Questions</a><a href="suggestions.html">Suggestions</a><a href="flagged.html">Flagged</a><a href="../index.html">All packs</a></nav>
+</div></header>
+<main><div class="wrap">
+<h1>Model and proper scores</h1>
+<p class="lead">The frozen baseline re-run from its pre-registered text, scored on official finals, with the interval that decides whether the score means anything.</p>
+
+<div class="cards">
+<div class="card"><div class="k">Games scored</div><div class="v">134</div><div class="s">of 150; 16 refused, 9 weeks</div></div>
+<div class="card"><div class="k">Brier</div><div class="v">0.2448</div><div class="s">climatology 0.2480</div></div>
+<div class="card"><div class="k">Brier skill</div><div class="v">+0.0131</div><div class="s">vs the base-rate control</div></div>
+<div class="card"><div class="k">95% week-cluster</div><div class="v">-0.175</div><div class="s">to +0.152 — includes zero</div></div>
+<div class="card"><div class="k">Totals MAE</div><div class="v">12.02</div><div class="s">points, RMSE 15.18</div></div>
+<div class="card"><div class="k">Promoted</div><div class="v">0</div><div class="s">backtest can never promote</div></div>
+</div>
+<div class="note bad"><b>Reading the score honestly.</b> the week-cluster lower bound is below zero, so this model cannot be shown to be better than guessing the base rate; it must not be promoted on this sample. The bootstrap resamples whole weeks
+(2000 resamples, seed 20261119), because games inside a week share a
+league environment and are not independent draws. A lower bound that includes zero is not a small edge; it is the
+absence of evidence for one.</div>
+<h2>The 16 games the model refuses to score, and why</h2>
+<p class="lead">A margin model cannot forecast a club's first game without borrowing a number from a game played
+inside the same week. That is same-week information, so those games are refused rather than scored. Publishing the
+refusal is the difference between a 150-game claim and an honest one: <b>150 corpus = 134 scored + 16 refused for same-week information</b>.</p>
+<div class="tw"><table class="">
+<thead><tr>
+<th>Game</th>
+<th class="n">Week</th>
+<th>Away</th>
+<th>Home</th>
+<th class="n">Home prior games</th>
+<th class="n">Away prior games</th>
+<th>Why refused</th>
+</tr></thead><tbody>
+<tr>
+<td>2026-W01-01</td>
+<td class="n">1</td>
+<td>NE</td>
+<td>SEA</td>
+<td class="n">0</td>
+<td class="n">0</td>
+<td>no game had been played, so no league mean existed</td>
+</tr>
+<tr>
+<td>2026-W01-02</td>
+<td class="n">1</td>
+<td>SF</td>
+<td>LA</td>
+<td class="n">0</td>
+<td class="n">0</td>
+<td>no prior game for this club; a same-week number would be used instead</td>
+</tr>
+<tr>
+<td>2026-W01-03</td>
+<td class="n">1</td>
+<td>CHI</td>
+<td>CAR</td>
+<td class="n">0</td>
+<td class="n">0</td>
+<td>no prior game for this club; a same-week number would be used instead</td>
+</tr>
+<tr>
+<td>2026-W01-04</td>
+<td class="n">1</td>
+<td>TB</td>
+<td>CIN</td>
+<td class="n">0</td>
+<td class="n">0</td>
+<td>no prior game for this club; a same-week number would be used instead</td>
+</tr>
+<tr>
+<td>2026-W01-05</td>
+<td class="n">1</td>
+<td>NO</td>
+<td>DET</td>
+<td class="n">0</td>
+<td class="n">0</td>
+<td>no prior game for this club; a same-week number would be used instead</td>
+</tr>
+<tr>
+<td>2026-W01-06</td>
+<td class="n">1</td>
+<td>BUF</td>
+<td>HOU</td>
+<td class="n">0</td>
+<td class="n">0</td>
+<td>no prior game for this club; a same-week number would be used instead</td>
+</tr>
+<tr>
+<td>2026-W01-07</td>
+<td class="n">1</td>
+<td>BAL</td>
+<td>IND</td>
+<td class="n">0</td>
+<td class="n">0</td>
+<td>no prior game for this club; a same-week number would be used instead</td>
+</tr>
+<tr>
+<td>2026-W01-08</td>
+<td class="n">1</td>
+<td>CLE</td>
+<td>JAX</td>
+<td class="n">0</td>
+<td class="n">0</td>
+<td>no prior game for this club; a same-week number would be used instead</td>
+</tr>
+<tr>
+<td>2026-W01-09</td>
+<td class="n">1</td>
+<td>ATL</td>
+<td>PIT</td>
+<td class="n">0</td>
+<td class="n">0</td>
+<td>no prior game for this club; a same-week number would be used instead</td>
+</tr>
+<tr>
+<td>2026-W01-10</td>
+<td class="n">1</td>
+<td>NYJ</td>
+<td>TEN</td>
+<td class="n">0</td>
+<td class="n">0</td>
+<td>no prior game for this club; a same-week number would be used instead</td>
+</tr>
+<tr>
+<td>2026-W01-11</td>
+<td class="n">1</td>
+<td>AZ</td>
+<td>LAC</td>
+<td class="n">0</td>
+<td class="n">0</td>
+<td>no prior game for this club; a same-week number would be used instead</td>
+</tr>
+<tr>
+<td>2026-W01-12</td>
+<td class="n">1</td>
+<td>MIA</td>
+<td>LV</td>
+<td class="n">0</td>
+<td class="n">0</td>
+<td>no prior game for this club; a same-week number would be used instead</td>
+</tr>
+<tr>
+<td>2026-W01-13</td>
+<td class="n">1</td>
+<td>GB</td>
+<td>MIN</td>
+<td class="n">0</td>
+<td class="n">0</td>
+<td>no prior game for this club; a same-week number would be used instead</td>
+</tr>
+<tr>
+<td>2026-W01-14</td>
+<td class="n">1</td>
+<td>WAS</td>
+<td>PHI</td>
+<td class="n">0</td>
+<td class="n">0</td>
+<td>no prior game for this club; a same-week number would be used instead</td>
+</tr>
+<tr>
+<td>2026-W01-15</td>
+<td class="n">1</td>
+<td>DAL</td>
+<td>NYG</td>
+<td class="n">0</td>
+<td class="n">0</td>
+<td>no prior game for this club; a same-week number would be used instead</td>
+</tr>
+<tr>
+<td>2026-W01-16</td>
+<td class="n">1</td>
+<td>DEN</td>
+<td>KC</td>
+<td class="n">0</td>
+<td class="n">0</td>
+<td>no prior game for this club; a same-week number would be used instead</td>
+</tr>
+</tbody></table></div>
+<h2>Strategies and controls</h2>
+<p class="lead">Every entry carries both directions of "what would change our mind", as the brief requires. The two
+controls exist so that a model has something to lose to.</p>
+<div class="tw"><table class="">
+<thead><tr>
+<th>ID</th>
+<th>Strategy</th>
+<th>Division</th>
+<th>Frozen definition</th>
+<th class="n">Backtest n</th>
+<th>Backtest BSS</th>
+<th>BSS lower bound</th>
+<th class="n">Prospective n</th>
+<th>State</th>
+<th>What would change our mind — up</th>
+<th>What would change our mind — down</th>
+</tr></thead><tbody>
+<tr>
+<td>S01</td>
+<td>ML-FROZEN-MARGIN</td>
+<td>singles-moneyline</td>
+<td>P(home win) = Phi(((strength_home - strength_away) + 2.5) / sigma); strength is the shrunk mean margin</td>
+<td class="n">134</td>
+<td>0.013059</td>
+<td>-0.175423</td>
+<td class="n">0</td>
+<td><span class="pill paper">paper</span></td>
+<td>a prospective BSS lower bound above 0 over 100+ games</td>
+<td>a negative trailing-50 prospective BSS</td>
+</tr>
+<tr>
+<td>S02</td>
+<td>TOT-FROZEN</td>
+<td>singles-total</td>
+<td>expected total = league mean + both offences&#x27; shrunk deviations - both defences&#x27; shrunk deviations</td>
+<td class="n">134</td>
+<td></td>
+<td></td>
+<td class="n">0</td>
+<td><span class="pill paper">paper</span></td>
+<td>a prospective MAE advantage with an interval excluding zero</td>
+<td>a prospective MAE worse than the league mean over 50 games</td>
+</tr>
+<tr>
+<td>C01</td>
+<td>CONTROL-CLIMATOLOGY</td>
+<td>control-moneyline</td>
+<td>the training-window home-win rate for every game; no club information</td>
+<td class="n">134</td>
+<td>0.000000</td>
+<td></td>
+<td class="n">0</td>
+<td><span class="pill info">control</span></td>
+<td>a control beating the models would say the models are worse than nothing</td>
+<td></td>
+</tr>
+<tr>
+<td>C02</td>
+<td>CONTROL-HOME-ALWAYS</td>
+<td>control-moneyline</td>
+<td>probability 1.0 for the home club, 0.0 away</td>
+<td class="n">134</td>
+<td></td>
+<td></td>
+<td class="n">0</td>
+<td><span class="pill info">control</span></td>
+<td>a model losing to &#x27;always home&#x27; is worse than a coin</td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2>The removal-of-luck panel</h2>
+<p class="lead">Reliability is the part of the Brier score the model could remove by being better calibrated.
+Resolution is the part it earns by saying different things on different games. When reliability dominates the score,
+most of what is left is calibration work rather than edge.</p>
+<div class="tw"><table class="">
+<thead><tr>
+<th>Quantity</th>
+<th>Value</th>
+</tr></thead><tbody>
+<tr>
+<td>n</td>
+<td>134</td>
+</tr>
+<tr>
+<td>base_rate</td>
+<td>0.455224</td>
+</tr>
+<tr>
+<td>brier</td>
+<td>0.244756</td>
+</tr>
+<tr>
+<td>reliability</td>
+<td>0.244756</td>
+</tr>
+<tr>
+<td>resolution</td>
+<td>0.247995</td>
+</tr>
+<tr>
+<td>uncertainty</td>
+<td>0.247995</td>
+</tr>
+<tr>
+<td>identity_residual</td>
+<td>0.000e+00</td>
+</tr>
+<tr>
+<td>luck_share_reliability_over_brier</td>
+<td>1.000000</td>
+</tr>
+<tr>
+<td>games_better_than_climatology</td>
+<td>75</td>
+</tr>
+<tr>
+<td>games_worse_than_climatology</td>
+<td>59</td>
+</tr>
+<tr>
+<td>games_tied</td>
+<td>0</td>
+</tr>
+</tbody></table></div>
+<p class="small">reliability is the part of the score the model could remove by being better calibrated; resolution is the part it earns by saying different things on different games. A high reliability share means most of the score is calibration work, not edge.</p>
+<h2>Week 11 forecasts — published before kickoff, market columns blank by policy</h2>
+<p class="lead">Three fixtures, because three fixtures were read from the official schedule. The other ten Week 11
+games are not forecast here; inventing them would be the exact failure the brief forbids. Each row carries our fair
+number, and the market and residual columns are blank:</p>
+<div class="note">no official NFL page publishes a price. A residual needs a price. The column exists, is empty, and
+says so — that is the price-data policy, applied rather than described.</div>
+<div class="tw"><table class="">
+<thead><tr>
+<th>Game</th>
+<th>Date</th>
+<th>Away</th>
+<th>Home</th>
+<th>Kickoff ET</th>
+<th>Our side (fair margin)</th>
+<th>Our total</th>
+<th>P(home win)</th>
+<th>Market side</th>
+<th>Market total</th>
+<th>Residual</th>
+<th>State</th>
+<th>Source</th>
+</tr></thead><tbody>
+<tr>
+<td>2026-W11-01</td>
+<td>2026-11-19</td>
+<td>IND</td>
+<td>HOU</td>
+<td>8:15 PM</td>
+<td>home 9.63</td>
+<td>41.83</td>
+<td>0.752374</td>
+<td><span class="blank">blank</span></td>
+<td><span class="blank">blank</span></td>
+<td><span class="blank">blank</span></td>
+<td><span class="pill paper">paper</span></td>
+<td><a href="https://www.nfl.com/schedules/" rel="noreferrer" target="_blank">schedule</a></td>
+</tr>
+<tr>
+<td>2026-W11-02</td>
+<td>2026-11-22</td>
+<td>MIA</td>
+<td>BUF</td>
+<td>1:00 PM</td>
+<td>home 18.90</td>
+<td>47.35</td>
+<td>0.909689</td>
+<td><span class="blank">blank</span></td>
+<td><span class="blank">blank</span></td>
+<td><span class="blank">blank</span></td>
+<td><span class="pill paper">paper</span></td>
+<td><a href="https://www.nfl.com/schedules/" rel="noreferrer" target="_blank">schedule</a></td>
+</tr>
+<tr>
+<td>2026-W11-03</td>
+<td>2026-11-22</td>
+<td>BAL</td>
+<td>CAR</td>
+<td>1:00 PM</td>
+<td>home 5.35</td>
+<td>39.91</td>
+<td>0.647531</td>
+<td><span class="blank">blank</span></td>
+<td><span class="blank">blank</span></td>
+<td><span class="blank">blank</span></td>
+<td><span class="pill paper">paper</span></td>
+<td><a href="https://www.nfl.com/schedules/" rel="noreferrer" target="_blank">schedule</a></td>
+</tr>
+</tbody></table></div>
+<h2>Implementation comparison</h2>
+<div class="note warn">the gap between two honest implementations is 71% of the measured skill; on this sample the score cannot be separated from the implementation, let alone from noise<br><br>
+Inherited pack: Brier 0.235543. This pack: 0.244756.
+Difference 0.009213, on 118 identical games. Sources:
+<code>data/nfl_0ce967db/model_outputs.csv (S01 rows)</code> and <code>data/nfl_d713b52f/model_outputs.csv (S01 rows, n=134)</code>.</div>
+<h2>What is deliberately absent</h2>
+<p>Parlay and prop-combo scores (no validated joint probability exists), ROI and CLV (no price), promotion (no
+prospective sample), and any injury or personnel term in the model (the ablation is registered but coverage is
+4 games). Each absence has a gate on the readiness page.</p>
+
+</div></main>
+<footer><div class="wrap">
+Every value on this page was read from the official NFL page linked beside it on 2026-11-19 UTC, or is
+arithmetic on such values with the derivation shown. No market price exists on any official page, so price, ROI and
+CLV columns are blank by policy. No profitability claim is made anywhere. Blank is not zero and blank is not healthy.
+</div></footer>
+</body></html>

@@ -1,0 +1,47 @@
+name: nfl-d713b52f
+
+on:
+  push:
+    branches: [main, 'arena/**']
+    paths:
+      - 'src/nfl_d713b52f/**'
+      - 'scripts/build_nfl_d713b52f.py'
+      - 'scripts/build_nfl_d713b52f_data.py'
+      - 'scripts/check_nfl_d713b52f.py'
+      - 'tests/test_nfl_d713b52f.py'
+      - 'data/nfl_d713b52f/**'
+      - 'docs/nfl-d713b52f/**'
+  pull_request:
+    paths:
+      - 'src/nfl_d713b52f/**'
+      - 'scripts/build_nfl_d713b52f.py'
+      - 'scripts/build_nfl_d713b52f_data.py'
+      - 'scripts/check_nfl_d713b52f.py'
+      - 'tests/test_nfl_d713b52f.py'
+      - 'data/nfl_d713b52f/**'
+      - 'docs/nfl-d713b52f/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Rebuild the data tables (no network)
+        run: python3 scripts/build_nfl_d713b52f_data.py
+      - name: Determinism — the data tree must not change
+        run: git diff --exit-code -- data/nfl_d713b52f
+      - name: Build the pack site
+        run: python3 scripts/build_nfl_d713b52f.py
+      - name: Determinism — the docs tree must not change
+        run: git diff --exit-code -- docs/nfl-d713b52f
+      - name: Run the 20-rule verifier
+        run: python3 scripts/check_nfl_d713b52f.py
+      - name: Run the pack tests
+        run: python3 tests/test_nfl_d713b52f.py

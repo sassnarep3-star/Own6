@@ -110,7 +110,9 @@ def main():
         bss_lo_week_cluster=f"{s['bss_lo']:.6f}", bss_hi_week_cluster=f"{s['bss_hi']:.6f}",
         bootstrap_resamples=str(s["bootstrap"]), bootstrap_seed=str(s["seed"]),
         totals_mae_points=f"{s['mae']:.6f}", totals_rmse_points=f"{s['rmse']:.6f}",
-        separates_from_zero=("no" if s["bss_lo"] <= 0 else "yes"),
+        separate_from_zero=("no" if s["bss_lo"] <= 0 else "yes"),
+        corpus_games="150", refused=str(len(model.REFUSED)),
+        reconciliation=f"150 corpus = {s['n']} scored + {len(model.REFUSED)} refused for same-week information",
         state="paper",
         reading=("the week-cluster lower bound is below zero, so this model cannot be shown to be "
                  "better than guessing the base rate; it must not be promoted on this sample"))])
@@ -119,23 +121,31 @@ def main():
     import csv as _csv
     inh = list(_csv.DictReader(open(os.path.join(REPO, "data", "nfl_0ce967db", "model_outputs.csv"), newline="")))
     inh_s1 = [r for r in inh if r["strategy_id"] == "S01"]
-    sub = [r for r in bt if int(r["week"]) >= 3]
+    scored_ids = {r["game_id"] for r in bt}
+    sub = [r for r in bt]
     b_sub = sum((float(r["p_home_win"]) - int(r["home_win"])) ** 2 for r in sub) / len(sub)
-    b_inh = sum((float(r["p_home_win"]) - int(r["home_win"])) ** 2 for r in inh_s1) / len(inh_s1)
+    inh_same = [r for r in inh_s1 if r["game_id"] in scored_ids]
+    b_inh = (sum((float(r["p_home_win"]) - int(r["home_win"])) ** 2 for r in inh_same) / len(inh_same)
+             if inh_same else float("nan"))
     clim_sub = None
     rate = sum(int(r["home_win"]) for r in sub) / len(sub)
     clim_sub = sum((rate - int(r["home_win"])) ** 2 for r in sub) / len(sub)
     write("implementation_comparison.csv", [dict(
-        comparison="same frozen rule, two independent implementations, same 118 games (weeks 3-10)",
-        games=str(len(sub)),
+        comparison=("same frozen rule, two independent implementations, the "
+                    f"{len(sub)} games this pack could score and the inherited pack also scored"),
+        games=str(len(inh_same)),
         brier_inherited_pack=f"{b_inh:.6f}", brier_this_pack=f"{b_sub:.6f}",
         difference=f"{abs(b_sub - b_inh):.6f}",
         measured_skill_full_run_bss=f"{s['bss']:.6f}",
-        finding=("the gap between two honest implementations is larger than the measured skill; "
-                 "on this sample the score cannot be separated from the implementation, let alone from noise"),
+        gap_ratio=f"{abs(b_sub - b_inh) / max(1e-12, abs(s['bss'])):.3f}",
+        finding=(f"the gap between two honest implementations is {100 * abs(b_sub - b_inh) / max(1e-12, abs(s['bss'])):.0f}% "
+                 "of the measured skill; on this sample the score cannot be separated from the implementation, "
+                 "let alone from noise"),
         inherited_source="data/nfl_0ce967db/model_outputs.csv (S01 rows)",
-        this_source="data/nfl_d713b52f/model_outputs.csv (S01 rows, weeks>=3)")])
+        this_source=f"data/nfl_d713b52f/model_outputs.csv (S01 rows, n={len(sub)})")])
 
+    write("unscored.csv", model.REFUSED,
+          ["game_id", "week", "home", "away", "n_home_prior", "n_away_prior", "reason"])
     write("luck_panel.csv", [model.luck_panel(bt)])
     write("week11_forecasts.csv", model.week11_forecasts())
 
@@ -192,7 +202,16 @@ def main():
 
     # --- registers ---------------------------------------------------------
     write("requirements.csv", derive.requirement_rows())
-    write("gates.csv", derive.gate_rows())
+    gate_rows = derive.gate_rows()
+    declared = {g["gate"] for g in gate_rows}
+    for r in derive.requirement_rows():
+        if r["gate"] not in declared:
+            gate_rows.append(dict(
+                gate=r["gate"],
+                states=(f"referenced by {r['rid']}: the gate named on that row"),
+                clears=r["clears_it"], state=("closed" if r["status"] == "done" else "open")))
+            declared.add(r["gate"])
+    write("gates.csv", gate_rows)
     write("questions.csv", derive.question_rows())
     write("suggestions.csv", derive.suggestion_rows())
     write("flagged.csv", derive.flagged_rows())

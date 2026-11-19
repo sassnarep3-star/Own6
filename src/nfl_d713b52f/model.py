@@ -101,8 +101,12 @@ def league_mean_total(state):
     return (sum(state.pf.values()) + sum(state.pa.values())) / (2.0 * games)
 
 
+REFUSED: list = []
+
+
 def run_backtest():
     """Chronological walk. Each row carries the full input vector and a hash of it."""
+    REFUSED.clear()
     finals = load_finals()
     state = TeamState()
     residuals = []           # (actual margin - expected margin) from games already scored
@@ -114,8 +118,17 @@ def run_backtest():
         if g["week"] != current_week:
             current_week = g["week"]
         lm = league_mean_total(state)
-        if lm is None:
-            # no prior game anywhere: nothing can be forecast; the row is still recorded
+        if lm is None or state.n.get(g["home"], 0) == 0 or state.n.get(g["away"], 0) == 0:
+            # Refused, not forecast. Two reasons, both same-week-information reasons:
+            #  (a) no game has been played yet, so there is no league mean; or
+            #  (b) one club has no prior game, so the only number available for it comes
+            #      from games played earlier in the SAME week.
+            # A refused game is recorded in unscored.csv with that reason.
+            REFUSED.append(dict(
+                game_id=g["game_id"], week=str(g["week"]), home=g["home"], away=g["away"],
+                n_home_prior=str(state.n.get(g["home"], 0)), n_away_prior=str(state.n.get(g["away"], 0)),
+                reason=("no prior game for this club; a same-week number would be used instead"
+                        if lm is not None else "no game had been played, so no league mean existed")))
             state.add(g["home"], g["home_score"], g["away_score"])
             state.add(g["away"], g["away_score"], g["home_score"])
             continue

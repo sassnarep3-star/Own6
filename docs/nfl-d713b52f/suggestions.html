@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suggestions — NFL decision desk (d713b52f)</title>
+<style>
+:root{--ink:#14212b;--muted:#5c6f7e;--navy:#0d2231;--teal:#0a7a72;--line:#d7e0e6;--paper:#f4f7f8;
+--white:#fff;--warn:#fff5dc;--warnink:#7a4900;--ok:#0a684c;--bad:#98292a;--soft:#ecf3f4}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);line-height:1.55;
+font:15px/1.55 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--teal);text-underline-offset:.16em}
+header{background:var(--navy);color:#fff}
+.wrap{width:min(1240px,calc(100% - 2rem));margin:0 auto}
+.top{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;align-items:baseline;padding:.9rem 0 .3rem}
+.top b{letter-spacing:.05em;font-size:.98rem}
+.top span{color:#9fc7c2;font-size:.76rem;letter-spacing:.09em;text-transform:uppercase}
+nav{display:flex;flex-wrap:wrap;gap:.2rem 1rem;padding:.2rem 0 .7rem}
+nav a{color:#cfe3e0;text-decoration:none;font-size:.85rem;padding:.12rem 0;border-bottom:2px solid transparent}
+nav a:hover{border-bottom-color:#7fd3c6}
+nav a.on{color:#fff;border-bottom-color:#7fd3c6;font-weight:600}
+main{padding:1.3rem 0 3rem}
+h1{font-size:1.45rem;margin:.2rem 0 .35rem}
+h2{font-size:1.08rem;margin:1.8rem 0 .5rem;padding-bottom:.28rem;border-bottom:1px solid var(--line)}
+h3{font-size:.96rem;margin:1.1rem 0 .3rem}
+p{max-width:80ch}
+.lead{color:var(--muted);max-width:84ch}
+.cards{display:grid;gap:.65rem;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));margin:.9rem 0 .3rem}
+.card{background:var(--white);border:1px solid var(--line);border-radius:9px;padding:.7rem .85rem}
+.card .k{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.card .v{font-size:1.5rem;font-weight:700;line-height:1.15;margin-top:.12rem}
+.card .s{font-size:.76rem;color:var(--muted)}
+.tw{overflow-x:auto;background:var(--white);border:1px solid var(--line);border-radius:9px;margin:.55rem 0 1rem}
+table{border-collapse:collapse;width:100%;font-size:.83rem}
+th,td{padding:.4rem .55rem;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--soft);font-size:.71rem;letter-spacing:.04em;text-transform:uppercase;color:#37505e;
+position:sticky;top:0;white-space:nowrap}
+tbody tr:hover{background:#fbfdfd}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+.pill{display:inline-block;padding:.04rem .4rem;border-radius:999px;font-size:.7rem;font-weight:600;white-space:nowrap}
+.pill.ok{background:#dcf2ea;color:var(--ok)}
+.pill.warn{background:var(--warn);color:var(--warnink)}
+.pill.bad{background:#fae4e4;color:var(--bad)}
+.pill.info{background:#e6eef4;color:#2f556e}
+.pill.paper{background:#eef0f2;color:#4a5b66}
+.note{background:var(--white);border-left:3px solid var(--teal);padding:.55rem .8rem;margin:.6rem 0 1rem;
+border-radius:0 7px 7px 0;font-size:.87rem;color:#31434f}
+.note.warn{border-left-color:#c98a00;background:var(--warn)}
+.note.bad{border-left-color:var(--bad);background:#fdf0f0}
+.small{font-size:.78rem;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:1.1rem 0 2rem;color:var(--muted);font-size:.78rem}
+code{background:#eef2f4;padding:.05rem .28rem;border-radius:4px;font-size:.86em}
+.blank{color:#9aaab4}
+</style></head>
+<body>
+<header><div class="wrap">
+<div class="top"><b>NFL DECISION DESK</b><span>session d713b52f · read 2026-11-19 UTC · official sources only</span></div>
+<nav><a href="index.html">Readiness</a><a href="evidence.html">Evidence</a><a href="model.html">Model</a><a href="availability.html">Availability</a><a href="questions.html">Questions</a><a href="suggestions.html" class="on">Suggestions</a><a href="flagged.html">Flagged</a><a href="../index.html">All packs</a></nav>
+</div></header>
+<main><div class="wrap">
+<h1>Suggestions</h1>
+<p class="lead">Twelve proposals to improve decision quality, each with its evidence, cost, risk and build route. Decisions are left to the owner.</p>
+
+<div class="note"><b>Nothing here is implemented.</b> These are proposals, ordered by expected value on decision
+quality rather than by effort. Each carries the evidence for it, the cost, the risk, and an empty decision field so
+the owner can accept, reject or defer one at a time without reading the rest.</div>
+<h2>12 suggestions awaiting a decision</h2>
+<div class="tw"><table class="">
+<thead><tr>
+<th>ID</th>
+<th>Proposal</th>
+<th>Why it improves decisions</th>
+<th>Evidence in this repo</th>
+<th>Gain</th>
+<th>Cost</th>
+<th>Risk</th>
+<th>How it would be built</th>
+<th>Decision</th>
+</tr></thead><tbody>
+<tr>
+<td><code>S01</code></td>
+<td>Publish one number per week that the model got wrong most, with the book page: Error review is where calibration actually improves; the current board publishes aggregates only.</td>
+<td>Error review is where calibration actually improves; the current board publishes aggregates only.</td>
+<td>The best backtest strategy&#x27;s week-cluster interval still straddles zero at n=121.</td>
+<td><span class="pill info">medium</span></td>
+<td><span class="pill info">low</span></td>
+<td><span class="pill ok">low</span></td>
+<td>Add a per-week worst-error row to the leaderboard page.</td>
+<td><span class="blank">owner decision pending</span></td>
+</tr>
+<tr>
+<td><code>S02</code></td>
+<td>Make the Flagged page the site&#x27;s front door until the flag count is under 10: Twelve open irregularities matter more to a decision than a leaderboard with no prospective sample.</td>
+<td>Twelve open irregularities matter more to a decision than a leaderboard with no prospective sample.</td>
+<td>0 prospective scores; 12 open flags.</td>
+<td><span class="pill ok">high</span></td>
+<td><span class="pill info">low</span></td>
+<td><span class="pill ok">low</span></td>
+<td>Reorder the landing page cards.</td>
+<td><span class="blank">owner decision pending</span></td>
+</tr>
+<tr>
+<td><code>S03</code></td>
+<td>Adopt a house definition of &#x27;verified&#x27; with three levels: &#x27;Unofficial&#x27; playtime read from an official PDF is not the same as a certified snapshot of the line; the site currently uses one word for both, which is a provenance and definition problem before it is a presentation problem.</td>
+<td>&#x27;Unofficial&#x27; playtime read from an official PDF is not the same as a certified snapshot of the line; the site currently uses one word for both, which is a provenance and definition problem before it is a presentation problem.</td>
+<td>Q18; the Game Book caption &#x27;(Unofficial)&#x27;.</td>
+<td><span class="pill ok">high</span></td>
+<td><span class="pill info">low</span></td>
+<td><span class="pill ok">low</span></td>
+<td>Add a legend to every table: certified / published-by-league-labelled-unofficial / derived.</td>
+<td><span class="blank">owner decision pending</span></td>
+</tr>
+<tr>
+<td><code>S04</code></td>
+<td>Replace the 1st-4th string matrix with a &#x27;declared out, and who played&#x27; table: The rank does not exist officially; the join does, and it answers the same question without inventing data.</td>
+<td>The rank does not exist officially; the join does, and it answers the same question without inventing data.</td>
+<td>R44 is blocked; R77 is answerable today for 8 clubs.</td>
+<td><span class="pill ok">high</span></td>
+<td><span class="pill info">low</span></td>
+<td><span class="pill ok">low</span></td>
+<td>Build on replacement.csv.</td>
+<td><span class="blank">owner decision pending</span></td>
+</tr>
+<tr>
+<td><code>S05</code></td>
+<td>Read 2024 and 2025 finals next: One season cannot produce a holdout and calibration needs several seasons, so the corpus is capped until more results are read; the weekly cadence of results feeds makes this the highest-value read available.</td>
+<td>One season cannot produce a holdout and calibration needs several seasons, so the corpus is capped until more results are read; the weekly cadence of results feeds makes this the highest-value read available.</td>
+<td>Q15; R69 blocked.</td>
+<td><span class="pill ok">high</span></td>
+<td><span class="pill info">low</span></td>
+<td><span class="pill ok">low</span></td>
+<td>Read the nfl.com by-week schedule pages for 2024 and 2025, hash each read.</td>
+<td><span class="blank">owner decision pending</span></td>
+</tr>
+<tr>
+<td><code>S06</code></td>
+<td>Ask the owner for a written price-policy decision before any more pricing work: Nine requirement rows are blocked on a single missing input.</td>
+<td>Nine requirement rows are blocked on a single missing input.</td>
+<td>R01, R04, R05, R18, R58, R59, Q01, Q02.</td>
+<td><span class="pill ok">high</span></td>
+<td><span class="pill info">low</span></td>
+<td><span class="pill ok">low</span></td>
+<td>One question on the questions page, one decision field.</td>
+<td><span class="blank">owner decision pending</span></td>
+</tr>
+<tr>
+<td><code>S07</code></td>
+<td>Publish a &#x27;what we would need to see&#x27; line on every page: A reader should never have to hunt for the number that would change the page.</td>
+<td>A reader should never have to hunt for the number that would change the page.</td>
+<td>The readiness table does this for requirements; the other pages do not.</td>
+<td><span class="pill info">medium</span></td>
+<td><span class="pill info">low</span></td>
+<td><span class="pill ok">low</span></td>
+<td>Add one line to the page footer generator.</td>
+<td><span class="blank">owner decision pending</span></td>
+</tr>
+<tr>
+<td><code>S08</code></td>
+<td>Stop publishing aggregate leaderboards until the prospective sample is non-zero: A backtest league table invites exactly the result-chasing the registration forbids.</td>
+<td>A backtest league table invites exactly the result-chasing the registration forbids.</td>
+<td>Every strategy state is &#x27;paper&#x27;; prospective n=0.</td>
+<td><span class="pill info">medium</span></td>
+<td><span class="pill info">low</span></td>
+<td><span class="pill warn">medium</span></td>
+<td>Gate the leaderboard page behind a sample counter.</td>
+<td><span class="blank">owner decision pending</span></td>
+</tr>
+<tr>
+<td><code>S09</code></td>
+<td>Record a decision log with dates on the site: Suggestions and questions currently have empty decision fields and no owner timeline.</td>
+<td>Suggestions and questions currently have empty decision fields and no owner timeline.</td>
+<td>All 12 suggestions have decision=&#x27;&#x27;.</td>
+<td><span class="pill info">medium</span></td>
+<td><span class="pill info">low</span></td>
+<td><span class="pill ok">low</span></td>
+<td>A dated table on the suggestions page.</td>
+<td><span class="blank">owner decision pending</span></td>
+</tr>
+<tr>
+<td><code>S10</code></td>
+<td>Use the 4 parsed books as a regression suite for the fetch route: The route was the repo&#x27;s most-cited blocker for three weeks; a fixture set keeps it working.</td>
+<td>The route was the repo&#x27;s most-cited blocker for three weeks; a fixture set keeps it working.</td>
+<td>FLAG-07 / G-GAMEBOOK recorded the PDF host as unreachable; it is reachable now.</td>
+<td><span class="pill info">medium</span></td>
+<td><span class="pill info">low</span></td>
+<td><span class="pill ok">low</span></td>
+<td>Pin the four book URLs and their sha256 of the transcription in CI.</td>
+<td><span class="blank">owner decision pending</span></td>
+</tr>
+<tr>
+<td><code>S11</code></td>
+<td>Split the site by audience: decision page, evidence page, archive: The site has grown to 20 packs; a decision-maker needs one page, not twenty.</td>
+<td>The site has grown to 20 packs; a decision-maker needs one page, not twenty.</td>
+<td>19 prior NFL pack directories under docs/.</td>
+<td><span class="pill ok">high</span></td>
+<td><span class="pill warn">medium</span></td>
+<td><span class="pill ok">low</span></td>
+<td>A single top-level decision page that links into each pack&#x27;s evidence.</td>
+<td><span class="blank">owner decision pending</span></td>
+</tr>
+<tr>
+<td><code>S12</code></td>
+<td>Add a &#x27;last verified&#x27; clock to every published number: Some numbers are inherited with an inherited read clock; a reader cannot tell today&#x27;s read from last week&#x27;s.</td>
+<td>Some numbers are inherited with an inherited read clock; a reader cannot tell today&#x27;s read from last week&#x27;s.</td>
+<td>The inherited results feed carries &#x27;2026-11-17T01:26:00Z (inherited read clock)&#x27;.</td>
+<td><span class="pill info">medium</span></td>
+<td><span class="pill info">low</span></td>
+<td><span class="pill ok">low</span></td>
+<td>One column, generated from the row&#x27;s read_at_utc.</td>
+<td><span class="blank">owner decision pending</span></td>
+</tr>
+</tbody></table></div>
+<h2>The three that matter most, in one paragraph each</h2>
+<h3>S06 — get a written price-policy decision before any more pricing work</h3>
+<p>Nine requirement rows are blocked on one missing input and no amount of engineering can clear them. Either the
+owner supplies a licensed price archive or the project formally drops ROI, CLV and every residual column. Both are
+defensible; continuing to build plumbing around an input that will never arrive is not.</p>
+<h3>S03 — adopt a three-level definition of "verified"</h3>
+<p>The site currently uses one word for a certified count, a number the league itself labels Unofficial, and a
+number the pack derived. That is the single easiest way for a careful site to mislead a reader. A legend on every
+table fixes it in an afternoon.</p>
+<h3>S05 — read the 2024 and 2025 finals next</h3>
+<p>One season cannot produce a holdout, and a holdout is what turns a backtest into a decision. The pages are
+published, the read is cheap, and it unblocks calibration, designation scoring and the ablation at the same time.</p>
+
+</div></main>
+<footer><div class="wrap">
+Every value on this page was read from the official NFL page linked beside it on 2026-11-19 UTC, or is
+arithmetic on such values with the derivation shown. No market price exists on any official page, so price, ROI and
+CLV columns are blank by policy. No profitability claim is made anywhere. Blank is not zero and blank is not healthy.
+</div></footer>
+</body></html>

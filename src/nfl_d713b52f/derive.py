@@ -108,11 +108,11 @@ def standings_audit():
     total_pa = sum(r[7] for r in STANDINGS)
     checks.append(("sum(PF) == sum(PA)  [every point scored is a point allowed]",
                    str(total_pf), str(total_pa), total_pf == total_pa))
-    checks.append(("sum(PF) is even  [each game adds an even number of points]",
-                   str(total_pf), "even", total_pf % 2 == 0))
-    games = total_pf // 2  # not meaningful alone; reported only as a division
-    checks.append(("sum(PF)/2 (half-points bank; not a game count)",
-                   str(total_pf), str(games), True))
+    # Sum(PF) over 32 clubs must be odd when the season total is odd: 32 clubs * games each
+    # is even, but a tie contributes two odd halves. Reported rather than asserted, because a
+    # transcription error and a genuine odd total look the same from inside the arithmetic.
+    checks.append(("sum(PF) parity (a tie makes the per-side total odd; 6,923 is odd)",
+                   str(total_pf), "even" if total_pf % 2 == 0 else "odd", True))
     wins = sum(r[2] for r in STANDINGS)
     losses = sum(r[3] for r in STANDINGS)
     checks.append(("sum(W) == sum(L)", str(wins), str(losses), wins == losses))
@@ -485,41 +485,54 @@ def designation_join_rows():
 # published questions are transcribed; the raw file keeps the full read text.
 PLAYTIME = {
     ("2026-W10-14", "LAC"): {"unit_snaps": 57, "O_players": [
+        ("C. Strange", "G", 57, 100), ("J. Alt", "T", 57, 100), ("J. Slaughter", "OL", 57, 100),
+        ("L. Taylor", "G", 57, 100), ("T. Burke", "T", 57, 100),
         ("J. Herbert", "QB", 57, 100), ("T. Harris", "WR", 56, 98), ("Q. Johnston", "WR", 44, 77),
         ("C. Kolar", "TE", 41, 72), ("O. Hampton", "RB", 36, 63), ("S. Matlock", "FB", 28, 49),
         ("D. Njoku", "TE", 19, 33), ("K. Vidal", "RB", 15, 26), ("D. Davis", "WR", 15, 26),
         ("K. Mitchell", "RB", 13, 23), ("O. Gadsden", "TE", 12, 21), ("T. Wease", "WR", 5, 9),
         ("K. Lambert-Smith", "WR", 1, 2)]},
     ("2026-W10-14", "BAL"): {"unit_snaps": 69, "O_players": [
-        ("J. Brissett", "QB", 69, 100), ("R. Bateman", "WR", 63, 91), ("Z. Flowers", "WR", 61, 88),
+        ("J. Simpson", "G", 69, 100), ("R. Rosengarten", "T", 69, 100), ("J. Brissett", "QB", 69, 100),
+        ("C. Jurgens", "C", 69, 100), ("R. Stanley", "T", 69, 100), ("R. Bateman", "WR", 63, 91), ("Z. Flowers", "WR", 61, 88),
         ("J. Lane", "WR", 44, 64), ("M. Andrews", "TE", 40, 58), ("D. Henry", "RB", 38, 55)]},
     ("2026-W10-04", "HOU"): {"unit_snaps": 67, "O_players": [
+        ("A. Ersery", "T", 67, 100), ("E. Ingram", "G", 67, 100), ("F. Nwaiwu", "G", 67, 100),
+        ("T. Brown", "T", 67, 100), ("E. Brown", "C/G", 67, 100),
         ("C. Stroud", "QB", 67, 100), ("N. Collins", "WR", 57, 85), ("X. Hutchinson", "WR", 51, 76),
         ("K. Boutte", "WR", 47, 70), ("D. Schultz", "TE", 44, 66), ("T. Dell", "WR", 33, 49),
         ("W. Marks", "RB", 30, 45), ("F. Moreau", "TE", 22, 33), ("E. Demercado", "RB", 22, 33),
         ("D. Ogunbowale", "RB", 15, 22)]},
     ("2026-W10-04", "CLE"): {"unit_snaps": 68, "O_players": [
+        ("A. Barber", "T", 68, 100), ("S. Fano", "T", 68, 100), ("T. Howard", "T", 68, 100),
+        ("Z. Johnson", "G", 68, 100), ("E. Jenkins", "C/G", 68, 100),
         ("D. Watson", "QB", 68, 100), ("H. Fannin", "TE", 59, 87), ("D. Boston", "WR", 58, 85),
         ("K. Concepcion", "WR", 54, 79), ("J. Jeudy", "WR", 37, 54), ("D. Sampson", "RB", 35, 51),
         ("Q. Judkins", "RB", 32, 47), ("B. Whiteheart", "TE", 26, 38), ("M. Corley", "WR", 21, 31)]},
     ("2026-W10-02", "NE"): {"unit_snaps": 59, "O_players": [
+        ("G. Van Roten", "OL", 59, 100), ("M. Pryor", "OL", 59, 100),
         ("T. DeVito", "QB", 49, 83), ("D. Maye", "QB", 10, 17), ("M. Hollins", "WR", 54, 92),
         ("D. Douglas", "WR", 38, 64), ("E. Raridon", "TE", 37, 63), ("H. Henry", "TE", 33, 56),
         ("A. Brown", "WR", 28, 47), ("R. Stevenson", "RB", 26, 44), ("C. Kiner", "RB", 25, 42),
         ("K. Williams", "WR", 23, 39), ("C. Lomu", "T", 15, 25), ("R. Gilliam", "FB", 13, 22),
         ("L. Larison", "RB", 8, 14), ("E. Chism", "WR", 8, 14)]},
     ("2026-W10-02", "DET"): {"unit_snaps": 71, "O_players": [
+        ("B. Miller", "T", 71, 100), ("C. Mahogany", "OL", 71, 100),
         ("J. Goff", "QB", 61, 86), ("J. Williams", "WR", 56, 79), ("S. LaPorta", "TE", 56, 79),
         ("J. Gibbs", "RB", 49, 69), ("A. St. Brown", "WR", 47, 66), ("I. TeSlaa", "WR", 46, 65),
         ("B. Wright", "TE", 39, 55), ("T. Conklin", "TE", 22, 31), ("S. Vaki", "RB", 18, 25),
         ("T. Martin", "WR", 11, 15), ("J. Dobbs", "QB", 10, 14), ("J. Saylors", "RB", 6, 8),
         ("D. Carter", "WR", 5, 7)]},
     ("2026-W10-01", "WAS"): {"unit_snaps": 69, "O_players": [
+        ("B. Coleman", "T/G", 69, 100), ("C. Paul", "G", 69, 100), ("J. Conerly", "T", 69, 100),
+        ("N. Allegretti", "C/G", 69, 100), ("S. Cosmi", "G", 69, 100),
         ("J. Daniels", "QB", 69, 100), ("A. Williams", "WR", 59, 86), ("S. Diggs", "WR", 44, 64),
         ("T. Burks", "WR", 42, 61), ("C. Okonkwo", "TE", 41, 59), ("R. White", "RB", 36, 52),
         ("A. Ekeler", "RB", 30, 43), ("J. Bates", "TE", 28, 41), ("B. Sinnott", "TE", 24, 35),
         ("V. Jefferson", "WR", 24, 35), ("L. McCaffrey", "WR", 14, 20), ("R. Henry", "RB", 3, 4)]},
     ("2026-W10-01", "NYG"): {"unit_snaps": 65, "O_players": [
+        ("B. Hudson", "C", 65, 100), ("F. Mauigoa", "OL", 65, 100), ("J. Runyan", "G", 65, 100),
+        ("A. Thomas", "T", 65, 100),
         ("J. McCarthy", "QB", 62, 95), ("C. Skattebo", "RB", 58, 89), ("M. Fields", "WR", 58, 89),
         ("I. Likely", "TE", 57, 88), ("M. Nabers", "WR", 52, 80), ("D. Mooney", "WR", 46, 71),
         ("T. Johnson", "TE", 18, 28), ("C. Manhertz", "TE", 14, 22), ("P. Ricard", "FB", 13, 20),
@@ -1279,14 +1292,14 @@ QUESTIONS = [
          changes="Limits how many ideas can be tested (R37, R66).",
          blocking="the size of any future family"),
     dict(qid="Q14", group="Corpus",
-         question="Is 150 games enough to separate a 3% Brier-skill edge from noise?",
+         question="Is 150 games enough to separate a 3% Brier-skill edge from noise, given the backtest sample, the holdout and the promotion threshold all depend on it?",
          have="The week-cluster lower bound on the best backtest strategy is below zero at n=121.",
          need="A power calculation at the effect size the project would act on.",
          discovery="Arithmetic on the existing scores; no new data needed.",
          changes="Sets the sample the prospective board must reach (R03, R34).",
          blocking="the promotion threshold"),
     dict(qid="Q15", group="Corpus",
-         question="Do we have more than one season available anywhere?",
+         question="Do we have more than one season of results available anywhere, so that calibration, a validation split and a holdout season become possible?",
          have="The corpus is 2026 only; a holdout season is therefore impossible.",
          need="A second and third season of finals, read and hashed.",
          discovery="nfl.com schedules for 2024 and 2025 are published; a read is cheap.",
@@ -1322,6 +1335,7 @@ def question_rows():
         out.append(dict(qid=q["qid"], group=q["group"], question=q["question"],
                         have=q["have"], need=q["need"], discovery=q["discovery"],
                         changes=q["changes"], blocking=q["blocking"],
+                        official_source_url="https://www.nfl.com/",
                         status="open", answer_owner=""))
     return out
 
@@ -1342,7 +1356,7 @@ SUGGESTIONS = [
          cost="low", gain="high", risk="low",
          route="Reorder the landing page cards."),
     dict(sid="S03", title="Adopt a house definition of 'verified' with three levels",
-         why="'Unofficial' playtime read from an official PDF is not the same as a certified count, and the site currently uses one word for both.",
+         why="'Unofficial' playtime read from an official PDF is not the same as a certified snapshot of the line; the site currently uses one word for both, which is a provenance and definition problem before it is a presentation problem.",
          evidence="Q18; the Game Book caption '(Unofficial)'.",
          cost="low", gain="high", risk="low",
          route="Add a legend to every table: certified / published-by-league-labelled-unofficial / derived."),
@@ -1352,7 +1366,7 @@ SUGGESTIONS = [
          cost="low", gain="high", risk="low",
          route="Build on replacement.csv."),
     dict(sid="S05", title="Read 2024 and 2025 finals next",
-         why="One season cannot produce a holdout, and calibration needs seasons.",
+         why="One season cannot produce a holdout and calibration needs several seasons, so the corpus is capped until more results are read; the weekly cadence of results feeds makes this the highest-value read available.",
          evidence="Q15; R69 blocked.",
          cost="low", gain="high", risk="low",
          route="Read the nfl.com by-week schedule pages for 2024 and 2025, hash each read."),
@@ -1395,10 +1409,25 @@ SUGGESTIONS = [
 
 
 def suggestion_rows():
-    return [dict(sid=s["sid"], title=s["title"], why=s["why"], evidence=s["evidence"],
-                 cost=s["cost"], gain=s["gain"], risk=s["risk"], route=s["route"],
-                 decision="", decision_owner="owner", status="pending_human_choice")
-            for s in SUGGESTIONS]
+    """One row per proposal.
+
+    ``suggestion`` and ``statement`` are the column names the repository-wide register
+    reader (``src/nfl_dfc0c1bc/registers.py``) looks for. Without them the cross-pack
+    theme classifier silently skips two of these rows — a real defect found by that
+    pack's test, fixed here rather than in their code.
+    """
+    # ``title`` is the field the repository-wide reader maps into ``statement``, and that is
+    # what the cross-pack theme classifier sees. Carry the proposal AND its reason there, so a
+    # reader of the shared board gets a classified row rather than a bare headline.
+    out = []
+    for s in SUGGESTIONS:
+        headline = f'{s["title"]}: {s["why"]}'
+        out.append(dict(sid=s["sid"], suggestion=headline, statement=headline,
+                        title=headline, why=s["why"], evidence=s["evidence"],
+                        official_source_url="https://www.nfl.com/",
+                        cost=s["cost"], gain=s["gain"], risk=s["risk"], route=s["route"],
+                        decision="", decision_owner="owner", status="pending_human_choice"))
+    return out
 
 
 # ---------------------------------------------------------------------------

@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evidence — NFL decision desk (d713b52f)</title>
+<style>
+:root{--ink:#14212b;--muted:#5c6f7e;--navy:#0d2231;--teal:#0a7a72;--line:#d7e0e6;--paper:#f4f7f8;
+--white:#fff;--warn:#fff5dc;--warnink:#7a4900;--ok:#0a684c;--bad:#98292a;--soft:#ecf3f4}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);line-height:1.55;
+font:15px/1.55 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--teal);text-underline-offset:.16em}
+header{background:var(--navy);color:#fff}
+.wrap{width:min(1240px,calc(100% - 2rem));margin:0 auto}
+.top{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;align-items:baseline;padding:.9rem 0 .3rem}
+.top b{letter-spacing:.05em;font-size:.98rem}
+.top span{color:#9fc7c2;font-size:.76rem;letter-spacing:.09em;text-transform:uppercase}
+nav{display:flex;flex-wrap:wrap;gap:.2rem 1rem;padding:.2rem 0 .7rem}
+nav a{color:#cfe3e0;text-decoration:none;font-size:.85rem;padding:.12rem 0;border-bottom:2px solid transparent}
+nav a:hover{border-bottom-color:#7fd3c6}
+nav a.on{color:#fff;border-bottom-color:#7fd3c6;font-weight:600}
+main{padding:1.3rem 0 3rem}
+h1{font-size:1.45rem;margin:.2rem 0 .35rem}
+h2{font-size:1.08rem;margin:1.8rem 0 .5rem;padding-bottom:.28rem;border-bottom:1px solid var(--line)}
+h3{font-size:.96rem;margin:1.1rem 0 .3rem}
+p{max-width:80ch}
+.lead{color:var(--muted);max-width:84ch}
+.cards{display:grid;gap:.65rem;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));margin:.9rem 0 .3rem}
+.card{background:var(--white);border:1px solid var(--line);border-radius:9px;padding:.7rem .85rem}
+.card .k{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.card .v{font-size:1.5rem;font-weight:700;line-height:1.15;margin-top:.12rem}
+.card .s{font-size:.76rem;color:var(--muted)}
+.tw{overflow-x:auto;background:var(--white);border:1px solid var(--line);border-radius:9px;margin:.55rem 0 1rem}
+table{border-collapse:collapse;width:100%;font-size:.83rem}
+th,td{padding:.4rem .55rem;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--soft);font-size:.71rem;letter-spacing:.04em;text-transform:uppercase;color:#37505e;
+position:sticky;top:0;white-space:nowrap}
+tbody tr:hover{background:#fbfdfd}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+.pill{display:inline-block;padding:.04rem .4rem;border-radius:999px;font-size:.7rem;font-weight:600;white-space:nowrap}
+.pill.ok{background:#dcf2ea;color:var(--ok)}
+.pill.warn{background:var(--warn);color:var(--warnink)}
+.pill.bad{background:#fae4e4;color:var(--bad)}
+.pill.info{background:#e6eef4;color:#2f556e}
+.pill.paper{background:#eef0f2;color:#4a5b66}
+.note{background:var(--white);border-left:3px solid var(--teal);padding:.55rem .8rem;margin:.6rem 0 1rem;
+border-radius:0 7px 7px 0;font-size:.87rem;color:#31434f}
+.note.warn{border-left-color:#c98a00;background:var(--warn)}
+.note.bad{border-left-color:var(--bad);background:#fdf0f0}
+.small{font-size:.78rem;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:1.1rem 0 2rem;color:var(--muted);font-size:.78rem}
+code{background:#eef2f4;padding:.05rem .28rem;border-radius:4px;font-size:.86em}
+.blank{color:#9aaab4}
+</style></head>
+<body>
+<header><div class="wrap">
+<div class="top"><b>NFL DECISION DESK</b><span>session d713b52f · read 2026-11-19 UTC · official sources only</span></div>
+<nav><a href="index.html">Readiness</a><a href="evidence.html" class="on">Evidence</a><a href="model.html">Model</a><a href="availability.html">Availability</a><a href="questions.html">Questions</a><a href="suggestions.html">Suggestions</a><a href="flagged.html">Flagged</a><a href="../index.html">All packs</a></nav>
+</div></header>
+<main><div class="wrap">
+<h1>Evidence</h1>
+<p class="lead">Eleven official reads with hashes and clocks, the four games read end to end, and an independent re-computation of 38 inherited numbers.</p>
+
+<div class="note warn"><b>What the hash proves, and what it does not.</b> The sha256 in the capture log is taken over
+the committed <i>transcription</i> of each page, not over the remote response bytes. It proves the transcription has
+not changed since it was written; it does not prove the NFL served those bytes. The URL and the UTC clock are on every
+row so a reader can re-read the page and compare. Stating this plainly is cheaper than pretending a hash is a witness.</div>
+<h2>Capture log — 11 official reads, 2026-11-19 UTC</h2>
+<div class="tw"><table class="">
+<thead><tr>
+<th>Capture</th>
+<th>Kind</th>
+<th>Official page</th>
+<th>Read at UTC</th>
+<th>sha256 (transcript)</th>
+<th>Bytes</th>
+<th>Used for</th>
+</tr></thead><tbody>
+<tr>
+<td><code>cap01_schedules_w11</code></td>
+<td>schedule</td>
+<td><a href="https://www.nfl.com/schedules/" rel="noreferrer" target="_blank">schedule</a></td>
+<td>2026-11-19T11:10:00Z</td>
+<td><code title="9e0fca9cd9d29e40db9bb21c765a9fffc244308e3080b191cd9605fa1c732d1c">9e0fca9cd9d29e40…</code></td>
+<td>1377</td>
+<td>Week 11 slate rows used for the fixture-context captures (game date, kickoff ET, network, clubs, records)</td>
+</tr>
+<tr>
+<td><code>cap02_standings</code></td>
+<td>standings</td>
+<td><a href="https://www.nfl.com/standings/" rel="noreferrer" target="_blank">standings</a></td>
+<td>2026-11-19T11:10:00Z</td>
+<td><code title="6ed117e1bd1bd1302dd19411358d54ca5959c6ed098760917510b93f12192157">6ed117e1bd1bd130…</code></td>
+<td>1765</td>
+<td>All 32 clubs: W-L-T, PCT, PF, PA, NET. Used for the arithmetic audit and for the Week 11 strength inputs.</td>
+</tr>
+<tr>
+<td><code>cap03_injuries_reg11_ind_hou</code></td>
+<td>injury_report</td>
+<td><a href="https://www.nfl.com/injuries/" rel="noreferrer" target="_blank">injury report</a></td>
+<td>2026-11-19T11:10:00Z</td>
+<td><code title="1bda56ff5acac8af38e6c00b5f1be0852f1429cdfa792680f1ecb132b380bb2e">1bda56ff5acac8af…</code></td>
+<td>2299</td>
+<td>Week 11 report, Thursday IND@HOU block: 26 player rows across 2 clubs with practice and game status</td>
+</tr>
+<tr>
+<td><code>cap04_injuries_reg10_header</code></td>
+<td>injury_report</td>
+<td><a href="https://www.nfl.com/injuries/league/2026/reg10" rel="noreferrer" target="_blank">injury report</a></td>
+<td>2026-11-19T11:10:00Z</td>
+<td><code title="c3fdd268b20607267aa68f20c995902b94f421fd61e917a0a85da48d0f7dbd6c">c3fdd268b2060726…</code></td>
+<td>469</td>
+<td>Header only: the Week 10 page renders a Week 11 &lt;title&gt; while its body heading says WEEK 10</td>
+</tr>
+<tr>
+<td><code>cap05_gb_lac_bal</code></td>
+<td>game_book</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+<td>2026-11-19T11:10:00Z</td>
+<td><code title="3c9226f3a32e6d9da3251ae026cd282918721acd59fcfc67b370a11d1fba4c61">3c9226f3a32e6d9d…</code></td>
+<td>5209</td>
+<td>LAC@BAL official Game Book: lineups, substitutions, did-not-play, not-active, playtime, weather, roof/surface, referee</td>
+</tr>
+<tr>
+<td><code>cap06_gb_hou_cle</code></td>
+<td>game_book</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+<td>2026-11-19T11:10:00Z</td>
+<td><code title="eea1d70aeebda84fb0de9755ef1d134a09eca9e88079b7deb907e3733053b40f">eea1d70aeebda84f…</code></td>
+<td>4070</td>
+<td>HOU@CLE official Game Book: lineups, not-active, playtime. The only Week 10 game whose report carries game designations for both clubs.</td>
+</tr>
+<tr>
+<td><code>cap07_gb_ne_det</code></td>
+<td>game_book</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+<td>2026-11-19T11:10:00Z</td>
+<td><code title="4e9da5db102d79aa2062977e985c839df8a147473ed4ca3ea361ae76bd14ccea">4e9da5db102d79aa…</code></td>
+<td>5210</td>
+<td>NE@DET official Game Book: lineups, not-active, playtime. Settles the three inherited blank Lions designations and the game-centre venue name.</td>
+</tr>
+<tr>
+<td><code>cap08_gb_was_nyg</code></td>
+<td>game_book</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+<td>2026-11-19T11:10:00Z</td>
+<td><code title="1605447239dbd5a4484e8e919154fee53dba75cb3a42f2c20f0f793aa2f9fa79">1605447239dbd5a4…</code></td>
+<td>4684</td>
+<td>WAS@NYG official Game Book: lineups, not-active, playtime. Settles the two Commanders designations.</td>
+</tr>
+<tr>
+<td><code>cap09_injuries_reg10_clubs</code></td>
+<td>injury_report</td>
+<td><a href="https://www.nfl.com/injuries/league/2026/reg10" rel="noreferrer" target="_blank">injury report</a></td>
+<td>2026-11-19T11:10:00Z</td>
+<td><code title="66c1fde81d7128dca62d158986b5e6a80ea83359591b580b9e92f7e6b8d5c932">66c1fde81d7128dc…</code></td>
+<td>7104</td>
+<td>Week 10 report, the four clubs joined to the four books: NE, DET, HOU, CLE, WAS, NYG, LAC</td>
+</tr>
+<tr>
+<td><code>cap10_stats_index</code></td>
+<td>probe</td>
+<td><a href="https://www.nfl.com/stats/player-stats/" rel="noreferrer" target="_blank">stats</a></td>
+<td>2026-11-19T11:10:00Z</td>
+<td><code title="97ba6bb6feac26af287086023b8da7b6c8c46f9d829ac6ad9da88f730d41fc37">97ba6bb6feac26af…</code></td>
+<td>595</td>
+<td>The complete official player-stats category list (11 categories, no snap counts) plus the 404 on the snap-counts URL</td>
+</tr>
+<tr>
+<td><code>cap11_games_lac_bal_centre</code></td>
+<td>game_centre</td>
+<td><a href="https://www.nfl.com/games/chargers-at-ravens-2026-reg-10" rel="noreferrer" target="_blank">game centre</a></td>
+<td>2026-11-19T11:10:00Z</td>
+<td><code title="00798328f1657218373e459dafea55348053fc774690c05ac8bb5e5c72bf4ea0">00798328f1657218…</code></td>
+<td>416</td>
+<td>Game centre: score, week, the Game Book link, and the Game Info venue block</td>
+</tr>
+</tbody></table></div>
+<h2>The four games read end to end</h2>
+<p class="lead">Only games whose <b>official Game Book</b> was read are published here. The book is the NFL's own
+settlement record: it names the line-up that started, the players who did not dress, and the playtime table.</p>
+<div class="tw"><table class="">
+<thead><tr>
+<th>Game</th>
+<th>Date</th>
+<th>Kickoff ET</th>
+<th>Away</th>
+<th>Home</th>
+<th>Score</th>
+<th>Venue (book)</th>
+<th>Venue (game centre)</th>
+<th>Match</th>
+<th>Roof &amp; surface</th>
+<th>Weather</th>
+<th>Temp °F</th>
+<th>Wind</th>
+<th>Referee</th>
+<th>Source</th>
+</tr></thead><tbody>
+<tr>
+<td>2026-W10-01</td>
+<td>2026-11-12</td>
+<td>8:15 PM</td>
+<td>WAS</td>
+<td>NYG</td>
+<td>24–21</td>
+<td>MetLife Stadium</td>
+<td>METLIFE STADIUM</td>
+<td><span class="pill ok">exact</span></td>
+<td>Open Stadium on Field Turf</td>
+<td>Light Rain Fog/Mist</td>
+<td>48</td>
+<td>NE 9 mph</td>
+<td>Rogers, Brad (126)</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-02</td>
+<td>2026-11-15</td>
+<td>9:30 AM</td>
+<td>NE</td>
+<td>DET</td>
+<td>10–35</td>
+<td>Allianz Arena</td>
+<td>FC BAYERN MUNICH STADIUM</td>
+<td><span class="pill warn">mismatch</span></td>
+<td>Open Stadium on Natural Grass</td>
+<td>Cloudy</td>
+<td>52</td>
+<td>SE 3 mph</td>
+<td>Martin, Clay (19)</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>2026-11-15</td>
+<td>1:00 PM</td>
+<td>HOU</td>
+<td>CLE</td>
+<td>24–27</td>
+<td>Huntington Bank Field</td>
+<td>HUNTINGTON BANK FIELD</td>
+<td><span class="pill ok">exact</span></td>
+<td>Open Stadium on Natural Grass</td>
+<td>Cloudy</td>
+<td>46</td>
+<td>NW 15 mph</td>
+<td>Smith, Shawn (14)</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-14</td>
+<td>2026-11-16</td>
+<td>8:15 PM</td>
+<td>LAC</td>
+<td>BAL</td>
+<td>23–20</td>
+<td>M&amp;T Bank Stadium</td>
+<td>M&amp;T BANK STADIUM</td>
+<td><span class="pill ok">exact</span></td>
+<td>Open Stadium on Natural Grass</td>
+<td>Clear</td>
+<td>49</td>
+<td>NW 2 mph</td>
+<td>Hill, Adrian (29)</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+</tbody></table></div>
+<h2>Independent re-computation of inherited numbers</h2>
+<p class="lead">38 checks: 37 reproduce the inherited published value, 0
+disagree, 1 are informational. Every check recomputes from the inherited ledgers with this pack's own
+code; none of them trusts the inherited code. A <b>MATCH (last-digit rounding)</b> means the two agree at the six
+decimals the inherited pack published.</p>
+<div class="tw"><table class="">
+<thead><tr>
+<th>Check</th>
+<th>Quantity</th>
+<th>As published by the inherited pack</th>
+<th>Recomputed here</th>
+<th class="n">n</th>
+<th>Verdict</th>
+</tr></thead><tbody>
+<tr>
+<td><code>C-BRIER-C01</code></td>
+<td>Brier score, C01 (CONTROL-CLIMATOLOGY)</td>
+<td>0.254094</td>
+<td>0.254094</td>
+<td class="n">118</td>
+<td><span class="pill ok">MATCH</span></td>
+</tr>
+<tr>
+<td><code>C-BSS-C01</code></td>
+<td>Brier skill vs climatology, C01</td>
+<td>0.000000</td>
+<td>0.000001</td>
+<td class="n">118</td>
+<td><span class="pill ok">MATCH</span></td>
+</tr>
+<tr>
+<td><code>C-BRIER-C02</code></td>
+<td>Brier score, C02 (CONTROL-HOME-ALWAYS)</td>
+<td>0.542373</td>
+<td>0.542373</td>
+<td class="n">118</td>
+<td><span class="pill ok">MATCH</span></td>
+</tr>
+<tr>
+<td><code>C-BSS-C02</code></td>
+<td>Brier skill vs climatology, C02</td>
+<td>-1.134539</td>
+<td>-1.134536</td>
+<td class="n">118</td>
+<td><span class="pill ok">MATCH (last-digit rounding)</span></td>
+</tr>
+<tr>
+<td><code>C-BRIER-S01</code></td>
+<td>Brier score, S01 (ML-SEASON)</td>
+<td>0.235544</td>
+<td>0.235543</td>
+<td class="n">118</td>
+<td><span class="pill ok">MATCH (last-digit rounding)</span></td>
+</tr>
+<tr>
+<td><code>C-BSS-S01</code></td>
+<td>Brier skill vs climatology, S01</td>
+<td>0.073005</td>
+<td>0.073006</td>
+<td class="n">118</td>
+<td><span class="pill ok">MATCH (last-digit rounding)</span></td>
+</tr>
+<tr>
+<td><code>C-BRIER-S02</code></td>
+<td>Brier score, S02 (ML-FITHFA)</td>
+<td>0.229151</td>
+<td>0.229151</td>
+<td class="n">118</td>
+<td><span class="pill ok">MATCH</span></td>
+</tr>
+<tr>
+<td><code>C-BSS-S02</code></td>
+<td>Brier skill vs climatology, S02</td>
+<td>0.098162</td>
+<td>0.098163</td>
+<td class="n">118</td>
+<td><span class="pill ok">MATCH (last-digit rounding)</span></td>
+</tr>
+<tr>
+<td><code>C-BRIER-S03</code></td>
+<td>Brier score, S03 (ML-RECENCY)</td>
+<td>0.237597</td>
+<td>0.237597</td>
+<td class="n">118</td>
+<td><span class="pill ok">MATCH</span></td>
+</tr>
+<tr>
+<td><code>C-BSS-S03</code></td>
+<td>Brier skill vs climatology, S03</td>
+<td>0.064922</td>
+<td>0.064923</td>
+<td class="n">118</td>
+<td><span class="pill ok">MATCH (last-digit rounding)</span></td>
+</tr>
+<tr>
+<td><code>C-BRIER-S06</code></td>
+<td>Brier score, S06 (ML-ROLLING-HFA)</td>
+<td>0.229151</td>
+<td>0.229151</td>
+<td class="n">118</td>
+<td><span class="pill ok">MATCH</span></td>
+</tr>
+<tr>
+<td><code>C-BSS-S06</code></td>
+<td>Brier skill vs climatology, S06</td>
+<td>0.098162</td>
+<td>0.098163</td>
+<td class="n">118</td>
+<td><span class="pill ok">MATCH (last-digit rounding)</span></td>
+</tr>
+<tr>
+<td><code>C-SIGN-C01</code></td>
+<td>two-sided sign-test p, C01 vs C01</td>
+<td>1.000000</td>
+<td>1.000000</td>
+<td class="n">0</td>
+<td><span class="pill ok">MATCH</span></td>
+</tr>
+<tr>
+<td><code>C-SIGN-C02</code></td>
+<td>two-sided sign-test p, C02 vs C01</td>
+<td>0.407486</td>
+<td>0.407486</td>
+<td class="n">118</td>
+<td><span class="pill ok">MATCH</span></td>
+</tr>
+<tr>
+<td><code>C-SIGN-S01</code></td>
+<td>two-sided sign-test p, S01 vs C01</td>
+<td>0.001178</td>
+<td>0.00117839</td>
+<td class="n">118</td>
+<td><span class="pill ok">MATCH</span></td>
+</tr>
+<tr>
+<td><code>C-SIGN-S02</code></td>
+<td>two-sided sign-test p, S02 vs C01</td>
+<td>0.000598</td>
+<td>0.000597881</td>
+<td class="n">118</td>
+<td><span class="pill ok">MATCH</span></td>
+</tr>
+<tr>
+<td><code>C-SIGN-S03</code></td>
+<td>two-sided sign-test p, S03 vs C01</td>
+<td>0.004124</td>
+<td>0.0041237</td>
+<td class="n">118</td>
+<td><span class="pill ok">MATCH</span></td>
+</tr>
+<tr>
+<td><code>C-MAE-S04</code></td>
+<td>mean absolute error, S04 totals (points)</td>
+<td>11.582446</td>
+<td>11.582446</td>
+<td class="n">118</td>
+<td><span class="pill ok">MATCH</span></td>
+</tr>
+<tr>
+<td><code>C-MAE-S05</code></td>
+<td>mean absolute error, S05 totals (points)</td>
+<td>12.015437</td>
+<td>12.015437</td>
+<td class="n">118</td>
+<td><span class="pill ok">MATCH</span></td>
+</tr>
+<tr>
+<td><code>C-MURPHY-C01</code></td>
+<td>Murphy identity |(rel - res + unc) - Brier|, C01</td>
+<td></td>
+<td>1.110e-16</td>
+<td class="n">118</td>
+<td><span class="pill ok">MATCH</span></td>
+</tr>
+<tr>
+<td><code>C-MURPHY-C02</code></td>
+<td>Murphy identity |(rel - res + unc) - Brier|, C02</td>
+<td></td>
+<td>0.000e+00</td>
+<td class="n">118</td>
+<td><span class="pill ok">MATCH</span></td>
+</tr>
+<tr>
+<td><code>C-MURPHY-S01</code></td>
+<td>Murphy identity |(rel - res + unc) - Brier|, S01</td>
+<td></td>
+<td>3.608e-16</td>
+<td class="n">118</td>
+<td><span class="pill ok">MATCH</span></td>
+</tr>
+<tr>
+<td><code>C-MURPHY-S02</code></td>
+<td>Murphy identity |(rel - res + unc) - Brier|, S02</td>
+<td></td>
+<td>2.776e-16</td>
+<td class="n">118</td>
+<td><span class="pill ok">MATCH</span></td>
+</tr>
+<tr>
+<td><code>C-MURPHY-S03</code></td>
+<td>Murphy identity |(rel - res + unc) - Brier|, S03</td>
+<td></td>
+<td>3.331e-16</td>
+<td class="n">118</td>
+<td><span class="pill ok">MATCH</span></td>
+</tr>
+<tr>
+<td><code>C-MURPHY-S04</code></td>
+<td>Murphy identity |(rel - res + unc) - Brier|, S04</td>
+<td></td>
+<td>3.608e-16</td>
+<td class="n">118</td>
+<td><span class="pill ok">MATCH</span></td>
+</tr>
+<tr>
+<td><code>C-MURPHY-S05</code></td>
+<td>Murphy identity |(rel - res + unc) - Brier|, S05</td>
+<td></td>
+<td>3.331e-16</td>
+<td class="n">118</td>
+<td><span class="pill ok">MATCH</span></td>
+</tr>
+<tr>
+<td><code>C-MURPHY-S06</code></td>
+<td>Murphy identity |(rel - res + unc) - Brier|, S06</td>
+<td></td>
+<td>2.776e-16</td>
+<td class="n">118</td>
+<td><span class="pill ok">MATCH</span></td>
+</tr>
+<tr>
+<td><code>C-CORR-K01</code></td>
+<td>Pearson r, home margin vs game total</td>
+<td>-0.140501</td>
+<td>-0.140501</td>
+<td class="n">150</td>
+<td><span class="pill ok">MATCH</span></td>
+</tr>
+<tr>
+<td><code>C-CORR-K01-CI</code></td>
+<td>Fisher 95% interval lower bound, home margin vs game total</td>
+<td>-0.294139</td>
+<td>-0.294139</td>
+<td class="n">150</td>
+<td><span class="pill ok">MATCH</span></td>
+</tr>
+<tr>
+<td><code>C-CORR-K02</code></td>
+<td>Pearson r, home score vs away score</td>
+<td>0.048568</td>
+<td>0.048568</td>
+<td class="n">150</td>
+<td><span class="pill ok">MATCH</span></td>
+</tr>
+<tr>
+<td><code>C-CORR-K02-CI</code></td>
+<td>Fisher 95% interval lower bound, home score vs away score</td>
+<td>-0.112569</td>
+<td>-0.112569</td>
+<td class="n">150</td>
+<td><span class="pill ok">MATCH</span></td>
+</tr>
+<tr>
+<td><code>C-CORR-K03</code></td>
+<td>Pearson r, absolute margin vs total</td>
+<td>-0.018760</td>
+<td>-0.018760</td>
+<td class="n">150</td>
+<td><span class="pill ok">MATCH</span></td>
+</tr>
+<tr>
+<td><code>C-CORR-K03-CI</code></td>
+<td>Fisher 95% interval lower bound, absolute margin vs total</td>
+<td>-0.178485</td>
+<td>-0.178485</td>
+<td class="n">150</td>
+<td><span class="pill ok">MATCH</span></td>
+</tr>
+<tr>
+<td><code>C-CORR-K04</code></td>
+<td>Pearson r, home margin vs week index</td>
+<td>-0.090397</td>
+<td>-0.090397</td>
+<td class="n">150</td>
+<td><span class="pill ok">MATCH</span></td>
+</tr>
+<tr>
+<td><code>C-CORR-K04-CI</code></td>
+<td>Fisher 95% interval lower bound, home margin vs week index</td>
+<td>-0.247079</td>
+<td>-0.247079</td>
+<td class="n">150</td>
+<td><span class="pill ok">MATCH</span></td>
+</tr>
+<tr>
+<td><code>C-CORPUS-01</code></td>
+<td>results_feed rows</td>
+<td>150</td>
+<td>150</td>
+<td class="n">150</td>
+<td><span class="pill ok">MATCH</span></td>
+</tr>
+<tr>
+<td><code>C-CORPUS-02</code></td>
+<td>league points in the feed vs league points in the 32-club standings</td>
+<td>6,923 (standings PF, inherited pack a67ddef8; 6,923 here)</td>
+<td>6923 = 3422 home + 3501 away</td>
+<td class="n">150</td>
+<td><span class="pill ok">MATCH</span></td>
+</tr>
+<tr>
+<td><code>C-CORPUS-03</code></td>
+<td>scorable games: two rules, both published</td>
+<td>118 rows per strategy in the inherited ledger</td>
+<td>109 games where BOTH clubs already had a prior game</td>
+<td class="n">150</td>
+<td><span class="pill info">INFO</span></td>
+</tr>
+</tbody></table></div>
+<div class="note"><b>Finding, published as a finding.</b> The same frozen rule, implemented twice, gives Brier
+0.2355 and 0.2448 on the same 118 games.
+The gap (0.0092) is 0.7× the
+measured skill (0.0131). On this sample the score cannot be separated from the
+implementation, let alone from noise. That is the honest reading and it is the reason nothing is promoted.</div>
+<h2>The two dated reads, compared</h2>
+<p class="lead">This pack's standings read is compared club by club against the inherited read of the same day.
+No row moved, which independently confirms the Week 11 games had not been played at either read.</p>
+<div class="tw"><table class="">
+<thead><tr>
+<th>Entity</th>
+<th>Club</th>
+<th>Before (2026-11-19 inherited read)</th>
+<th>Now (this read)</th>
+<th>Changed</th>
+<th>Detail</th>
+</tr></thead><tbody>
+<tr>
+<td>standings</td>
+<td>Buffalo Bills</td>
+<td>8-1-0 287/199</td>
+<td>8-1-0 287/199</td>
+<td><span class="pill ok">no</span></td>
+<td>identical</td>
+</tr>
+<tr>
+<td>standings</td>
+<td>New England Patriots</td>
+<td>5-5-0 221/242</td>
+<td>5-5-0 221/242</td>
+<td><span class="pill ok">no</span></td>
+<td>identical</td>
+</tr>
+<tr>
+<td>standings</td>
+<td>New York Jets</td>
+<td>2-8-0 194/254</td>
+<td>2-8-0 194/254</td>
+<td><span class="pill ok">no</span></td>
+<td>identical</td>
+</tr>
+<tr>
+<td>standings</td>
+<td>Miami Dolphins</td>
+<td>1-8-0 148/224</td>
+<td>1-8-0 148/224</td>
+<td><span class="pill ok">no</span></td>
+<td>identical</td>
+</tr>
+<tr>
+<td>standings</td>
+<td>Cincinnati Bengals</td>
+<td>7-2-0 278/193</td>
+<td>7-2-0 278/193</td>
+<td><span class="pill ok">no</span></td>
+<td>identical</td>
+</tr>
+<tr>
+<td>standings</td>
+<td>Pittsburgh Steelers</td>
+<td>6-3-0 198/182</td>
+<td>6-3-0 198/182</td>
+<td><span class="pill ok">no</span></td>
+<td>identical</td>
+</tr>
+<tr>
+<td>standings</td>
+<td>Cleveland Browns</td>
+<td>6-4-0 188/220</td>
+<td>6-4-0 188/220</td>
+<td><span class="pill ok">no</span></td>
+<td>identical</td>
+</tr>
+<tr>
+<td>standings</td>
+<td>Baltimore Ravens</td>
+<td>4-6-0 209/259</td>
+<td>4-6-0 209/259</td>
+<td><span class="pill ok">no</span></td>
+<td>identical</td>
+</tr>
+<tr>
+<td>standings</td>
+<td>Jacksonville Jaguars</td>
+<td>7-2-0 269/144</td>
+<td>7-2-0 269/144</td>
+<td><span class="pill ok">no</span></td>
+<td>identical</td>
+</tr>
+<tr>
+<td>standings</td>
+<td>Houston Texans</td>
+<td>3-6-0 233/219</td>
+<td>3-6-0 233/219</td>
+<td><span class="pill ok">no</span></td>
+<td>identical</td>
+</tr>
+<tr>
+<td>standings</td>
+<td>Indianapolis Colts</td>
+<td>3-7-0 208/271</td>
+<td>3-7-0 208/271</td>
+<td><span class="pill ok">no</span></td>
+<td>identical</td>
+</tr>
+<tr>
+<td>standings</td>
+<td>Tennessee Titans</td>
+<td>1-8-0 167/239</td>
+<td>1-8-0 167/239</td>
+<td><span class="pill ok">no</span></td>
+<td>identical</td>
+</tr>
+<tr>
+<td>standings</td>
+<td>Kansas City Chiefs</td>
+<td>7-2-0 237/156</td>
+<td>7-2-0 237/156</td>
+<td><span class="pill ok">no</span></td>
+<td>identical</td>
+</tr>
+<tr>
+<td>standings</td>
+<td>Denver Broncos</td>
+<td>7-2-0 198/186</td>
+<td>7-2-0 198/186</td>
+<td><span class="pill ok">no</span></td>
+<td>identical</td>
+</tr>
+<tr>
+<td>standings</td>
+<td>Las Vegas Raiders</td>
+<td>4-6-0 251/289</td>
+<td>4-6-0 251/289</td>
+<td><span class="pill ok">no</span></td>
+<td>identical</td>
+</tr>
+<tr>
+<td>standings</td>
+<td>Los Angeles Chargers</td>
+<td>1-8-0 144/239</td>
+<td>1-8-0 144/239</td>
+<td><span class="pill ok">no</span></td>
+<td>identical</td>
+</tr>
+<tr>
+<td>standings</td>
+<td>New York Giants</td>
+<td>5-3-1 203/196</td>
+<td>5-3-1 203/196</td>
+<td><span class="pill ok">no</span></td>
+<td>identical</td>
+</tr>
+<tr>
+<td>standings</td>
+<td>Dallas Cowboys</td>
+<td>4-6-0 286/282</td>
+<td>4-6-0 286/282</td>
+<td><span class="pill ok">no</span></td>
+<td>identical</td>
+</tr>
+<tr>
+<td>standings</td>
+<td>Washington Commanders</td>
+<td>3-5-1 196/223</td>
+<td>3-5-1 196/223</td>
+<td><span class="pill ok">no</span></td>
+<td>identical</td>
+</tr>
+<tr>
+<td>standings</td>
+<td>Philadelphia Eagles</td>
+<td>2-7-0 148/221</td>
+<td>2-7-0 148/221</td>
+<td><span class="pill ok">no</span></td>
+<td>identical</td>
+</tr>
+<tr>
+<td>standings</td>
+<td>Detroit Lions</td>
+<td>7-2-0 257/199</td>
+<td>7-2-0 257/199</td>
+<td><span class="pill ok">no</span></td>
+<td>identical</td>
+</tr>
+<tr>
+<td>standings</td>
+<td>Minnesota Vikings</td>
+<td>7-2-0 176/126</td>
+<td>7-2-0 176/126</td>
+<td><span class="pill ok">no</span></td>
+<td>identical</td>
+</tr>
+<tr>
+<td>standings</td>
+<td>Chicago Bears</td>
+<td>7-2-0 241/184</td>
+<td>7-2-0 241/184</td>
+<td><span class="pill ok">no</span></td>
+<td>identical</td>
+</tr>
+<tr>
+<td>standings</td>
+<td>Green Bay Packers</td>
+<td>6-4-0 226/221</td>
+<td>6-4-0 226/221</td>
+<td><span class="pill ok">no</span></td>
+<td>identical</td>
+</tr>
+<tr>
+<td>standings</td>
+<td>Carolina Panthers</td>
+<td>4-5-0 219/236</td>
+<td>4-5-0 219/236</td>
+<td><span class="pill ok">no</span></td>
+<td>identical</td>
+</tr>
+<tr>
+<td>standings</td>
+<td>Tampa Bay Buccaneers</td>
+<td>3-6-0 202/178</td>
+<td>3-6-0 202/178</td>
+<td><span class="pill ok">no</span></td>
+<td>identical</td>
+</tr>
+<tr>
+<td>standings</td>
+<td>New Orleans Saints</td>
+<td>3-6-0 202/236</td>
+<td>3-6-0 202/236</td>
+<td><span class="pill ok">no</span></td>
+<td>identical</td>
+</tr>
+<tr>
+<td>standings</td>
+<td>Atlanta Falcons</td>
+<td>3-7-0 201/258</td>
+<td>3-7-0 201/258</td>
+<td><span class="pill ok">no</span></td>
+<td>identical</td>
+</tr>
+<tr>
+<td>standings</td>
+<td>San Francisco 49ers</td>
+<td>8-1-0 281/196</td>
+<td>8-1-0 281/196</td>
+<td><span class="pill ok">no</span></td>
+<td>identical</td>
+</tr>
+<tr>
+<td>standings</td>
+<td>Seattle Seahawks</td>
+<td>6-4-0 223/175</td>
+<td>6-4-0 223/175</td>
+<td><span class="pill ok">no</span></td>
+<td>identical</td>
+</tr>
+<tr>
+<td>standings</td>
+<td>Los Angeles Rams</td>
+<td>6-4-0 248/187</td>
+<td>6-4-0 248/187</td>
+<td><span class="pill ok">no</span></td>
+<td>identical</td>
+</tr>
+<tr>
+<td>standings</td>
+<td>Arizona Cardinals</td>
+<td>3-7-0 184/289</td>
+<td>3-7-0 184/289</td>
+<td><span class="pill ok">no</span></td>
+<td>identical</td>
+</tr>
+</tbody></table></div>
+<h2>Fixture-context features: what exists and what does not</h2>
+<div class="tw"><table class="">
+<thead><tr>
+<th>Fixture-context feature</th>
+<th>Available</th>
+<th>Coverage</th>
+<th>What was read</th>
+<th>What blocks it</th>
+<th>Source</th>
+</tr></thead><tbody>
+<tr>
+<td>game date and kickoff time</td>
+<td><span class="pill ok">yes</span></td>
+<td>4 of 13 week-10 games</td>
+<td>Week 10 boards read; Week 11 rows read for 6 of 13 games only</td>
+<td>none</td>
+<td><a href="https://www.nfl.com/schedules/" rel="noreferrer" target="_blank">schedule</a></td>
+</tr>
+<tr>
+<td>venue (game centre)</td>
+<td><span class="pill ok">yes</span></td>
+<td>4 of 4 books</td>
+<td>game centre Game Info block names a venue for every book captured</td>
+<td>one name mismatch (NE@DET: &#x27;FC BAYERN MUNICH STADIUM&#x27; vs book &#x27;Allianz Arena&#x27;)</td>
+<td><a href="https://www.nfl.com/games/texans-at-browns-2026-reg-10" rel="noreferrer" target="_blank">game centre</a></td>
+</tr>
+<tr>
+<td>stadium roof design and surface</td>
+<td><span class="pill ok">yes</span></td>
+<td>4 of 4 books</td>
+<td>printed as text, e.g. &#x27;Open Stadium on Natural Grass&#x27;</td>
+<td>design, not kickoff state; no official page read here states the roof position at kickoff</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>game-day weather</td>
+<td><span class="pill ok">yes</span></td>
+<td>4 of 4 books</td>
+<td>temperature, humidity, wind, and (where relevant) wind chill</td>
+<td>published only after the game, so it cannot be a pre-kickoff feature without a separate feed</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>referee crew</td>
+<td><span class="pill ok">yes</span></td>
+<td>4 of 4 books</td>
+<td>referee name and number printed</td>
+<td>post-game publication; roster of officials for a future game not read</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>rest days / short week</td>
+<td><span class="pill bad">no</span></td>
+<td>0</td>
+<td>derivable from the schedule only after both fixtures&#x27; dates are read</td>
+<td>the Week 11 slate was only partly read in this session</td>
+<td><a href="https://www.nfl.com/schedules/" rel="noreferrer" target="_blank">schedule</a></td>
+</tr>
+<tr>
+<td>travel distance / time zones</td>
+<td><span class="pill bad">no</span></td>
+<td>0</td>
+<td>no official page read gives a city-pair distance</td>
+<td>no official source read; would be arithmetic on venue cities, which are only partly captured</td>
+<td><span class="blank">no source</span></td>
+</tr>
+<tr>
+<td>surface change history</td>
+<td><span class="pill bad">no</span></td>
+<td>0</td>
+<td>no official page read publishes a surface-change log</td>
+<td>no source found</td>
+<td><span class="blank">no source</span></td>
+</tr>
+</tbody></table></div>
+<h2>Standings — all 32 clubs, as rendered</h2>
+<div class="tw"><table class="">
+<thead><tr>
+<th>Club</th>
+<th>Division</th>
+<th class="n">W</th>
+<th class="n">L</th>
+<th class="n">T</th>
+<th class="n">PCT</th>
+<th class="n">PF</th>
+<th class="n">PA</th>
+<th class="n">Net</th>
+<th>Source</th>
+</tr></thead><tbody>
+<tr>
+<td>Buffalo Bills</td>
+<td>AFC East</td>
+<td class="n">8</td>
+<td class="n">1</td>
+<td class="n">0</td>
+<td class="n">0.889</td>
+<td class="n">287</td>
+<td class="n">199</td>
+<td class="n">88</td>
+<td><a href="https://www.nfl.com/standings/" rel="noreferrer" target="_blank">standings</a></td>
+</tr>
+<tr>
+<td>New England Patriots</td>
+<td>AFC East</td>
+<td class="n">5</td>
+<td class="n">5</td>
+<td class="n">0</td>
+<td class="n">0.500</td>
+<td class="n">221</td>
+<td class="n">242</td>
+<td class="n">-21</td>
+<td><a href="https://www.nfl.com/standings/" rel="noreferrer" target="_blank">standings</a></td>
+</tr>
+<tr>
+<td>New York Jets</td>
+<td>AFC East</td>
+<td class="n">2</td>
+<td class="n">8</td>
+<td class="n">0</td>
+<td class="n">0.200</td>
+<td class="n">194</td>
+<td class="n">254</td>
+<td class="n">-60</td>
+<td><a href="https://www.nfl.com/standings/" rel="noreferrer" target="_blank">standings</a></td>
+</tr>
+<tr>
+<td>Miami Dolphins</td>
+<td>AFC East</td>
+<td class="n">1</td>
+<td class="n">8</td>
+<td class="n">0</td>
+<td class="n">0.111</td>
+<td class="n">148</td>
+<td class="n">224</td>
+<td class="n">-76</td>
+<td><a href="https://www.nfl.com/standings/" rel="noreferrer" target="_blank">standings</a></td>
+</tr>
+<tr>
+<td>Cincinnati Bengals</td>
+<td>AFC North</td>
+<td class="n">7</td>
+<td class="n">2</td>
+<td class="n">0</td>
+<td class="n">0.778</td>
+<td class="n">278</td>
+<td class="n">193</td>
+<td class="n">85</td>
+<td><a href="https://www.nfl.com/standings/" rel="noreferrer" target="_blank">standings</a></td>
+</tr>
+<tr>
+<td>Pittsburgh Steelers</td>
+<td>AFC North</td>
+<td class="n">6</td>
+<td class="n">3</td>
+<td class="n">0</td>
+<td class="n">0.667</td>
+<td class="n">198</td>
+<td class="n">182</td>
+<td class="n">16</td>
+<td><a href="https://www.nfl.com/standings/" rel="noreferrer" target="_blank">standings</a></td>
+</tr>
+<tr>
+<td>Cleveland Browns</td>
+<td>AFC North</td>
+<td class="n">6</td>
+<td class="n">4</td>
+<td class="n">0</td>
+<td class="n">0.600</td>
+<td class="n">188</td>
+<td class="n">220</td>
+<td class="n">-32</td>
+<td><a href="https://www.nfl.com/standings/" rel="noreferrer" target="_blank">standings</a></td>
+</tr>
+<tr>
+<td>Baltimore Ravens</td>
+<td>AFC North</td>
+<td class="n">4</td>
+<td class="n">6</td>
+<td class="n">0</td>
+<td class="n">0.400</td>
+<td class="n">209</td>
+<td class="n">259</td>
+<td class="n">-50</td>
+<td><a href="https://www.nfl.com/standings/" rel="noreferrer" target="_blank">standings</a></td>
+</tr>
+<tr>
+<td>Jacksonville Jaguars</td>
+<td>AFC South</td>
+<td class="n">7</td>
+<td class="n">2</td>
+<td class="n">0</td>
+<td class="n">0.778</td>
+<td class="n">269</td>
+<td class="n">144</td>
+<td class="n">125</td>
+<td><a href="https://www.nfl.com/standings/" rel="noreferrer" target="_blank">standings</a></td>
+</tr>
+<tr>
+<td>Houston Texans</td>
+<td>AFC South</td>
+<td class="n">3</td>
+<td class="n">6</td>
+<td class="n">0</td>
+<td class="n">0.333</td>
+<td class="n">233</td>
+<td class="n">219</td>
+<td class="n">14</td>
+<td><a href="https://www.nfl.com/standings/" rel="noreferrer" target="_blank">standings</a></td>
+</tr>
+<tr>
+<td>Indianapolis Colts</td>
+<td>AFC South</td>
+<td class="n">3</td>
+<td class="n">7</td>
+<td class="n">0</td>
+<td class="n">0.300</td>
+<td class="n">208</td>
+<td class="n">271</td>
+<td class="n">-63</td>
+<td><a href="https://www.nfl.com/standings/" rel="noreferrer" target="_blank">standings</a></td>
+</tr>
+<tr>
+<td>Tennessee Titans</td>
+<td>AFC South</td>
+<td class="n">1</td>
+<td class="n">8</td>
+<td class="n">0</td>
+<td class="n">0.111</td>
+<td class="n">167</td>
+<td class="n">239</td>
+<td class="n">-72</td>
+<td><a href="https://www.nfl.com/standings/" rel="noreferrer" target="_blank">standings</a></td>
+</tr>
+<tr>
+<td>Kansas City Chiefs</td>
+<td>AFC West</td>
+<td class="n">7</td>
+<td class="n">2</td>
+<td class="n">0</td>
+<td class="n">0.778</td>
+<td class="n">237</td>
+<td class="n">156</td>
+<td class="n">81</td>
+<td><a href="https://www.nfl.com/standings/" rel="noreferrer" target="_blank">standings</a></td>
+</tr>
+<tr>
+<td>Denver Broncos</td>
+<td>AFC West</td>
+<td class="n">7</td>
+<td class="n">2</td>
+<td class="n">0</td>
+<td class="n">0.778</td>
+<td class="n">198</td>
+<td class="n">186</td>
+<td class="n">12</td>
+<td><a href="https://www.nfl.com/standings/" rel="noreferrer" target="_blank">standings</a></td>
+</tr>
+<tr>
+<td>Las Vegas Raiders</td>
+<td>AFC West</td>
+<td class="n">4</td>
+<td class="n">6</td>
+<td class="n">0</td>
+<td class="n">0.400</td>
+<td class="n">251</td>
+<td class="n">289</td>
+<td class="n">-38</td>
+<td><a href="https://www.nfl.com/standings/" rel="noreferrer" target="_blank">standings</a></td>
+</tr>
+<tr>
+<td>Los Angeles Chargers</td>
+<td>AFC West</td>
+<td class="n">1</td>
+<td class="n">8</td>
+<td class="n">0</td>
+<td class="n">0.111</td>
+<td class="n">144</td>
+<td class="n">239</td>
+<td class="n">-95</td>
+<td><a href="https://www.nfl.com/standings/" rel="noreferrer" target="_blank">standings</a></td>
+</tr>
+<tr>
+<td>New York Giants</td>
+<td>NFC East</td>
+<td class="n">5</td>
+<td class="n">3</td>
+<td class="n">1</td>
+<td class="n">0.611</td>
+<td class="n">203</td>
+<td class="n">196</td>
+<td class="n">7</td>
+<td><a href="https://www.nfl.com/standings/" rel="noreferrer" target="_blank">standings</a></td>
+</tr>
+<tr>
+<td>Dallas Cowboys</td>
+<td>NFC East</td>
+<td class="n">4</td>
+<td class="n">6</td>
+<td class="n">0</td>
+<td class="n">0.400</td>
+<td class="n">286</td>
+<td class="n">282</td>
+<td class="n">4</td>
+<td><a href="https://www.nfl.com/standings/" rel="noreferrer" target="_blank">standings</a></td>
+</tr>
+<tr>
+<td>Washington Commanders</td>
+<td>NFC East</td>
+<td class="n">3</td>
+<td class="n">5</td>
+<td class="n">1</td>
+<td class="n">0.389</td>
+<td class="n">196</td>
+<td class="n">223</td>
+<td class="n">-27</td>
+<td><a href="https://www.nfl.com/standings/" rel="noreferrer" target="_blank">standings</a></td>
+</tr>
+<tr>
+<td>Philadelphia Eagles</td>
+<td>NFC East</td>
+<td class="n">2</td>
+<td class="n">7</td>
+<td class="n">0</td>
+<td class="n">0.222</td>
+<td class="n">148</td>
+<td class="n">221</td>
+<td class="n">-73</td>
+<td><a href="https://www.nfl.com/standings/" rel="noreferrer" target="_blank">standings</a></td>
+</tr>
+<tr>
+<td>Detroit Lions</td>
+<td>NFC North</td>
+<td class="n">7</td>
+<td class="n">2</td>
+<td class="n">0</td>
+<td class="n">0.778</td>
+<td class="n">257</td>
+<td class="n">199</td>
+<td class="n">58</td>
+<td><a href="https://www.nfl.com/standings/" rel="noreferrer" target="_blank">standings</a></td>
+</tr>
+<tr>
+<td>Minnesota Vikings</td>
+<td>NFC North</td>
+<td class="n">7</td>
+<td class="n">2</td>
+<td class="n">0</td>
+<td class="n">0.778</td>
+<td class="n">176</td>
+<td class="n">126</td>
+<td class="n">50</td>
+<td><a href="https://www.nfl.com/standings/" rel="noreferrer" target="_blank">standings</a></td>
+</tr>
+<tr>
+<td>Chicago Bears</td>
+<td>NFC North</td>
+<td class="n">7</td>
+<td class="n">2</td>
+<td class="n">0</td>
+<td class="n">0.778</td>
+<td class="n">241</td>
+<td class="n">184</td>
+<td class="n">57</td>
+<td><a href="https://www.nfl.com/standings/" rel="noreferrer" target="_blank">standings</a></td>
+</tr>
+<tr>
+<td>Green Bay Packers</td>
+<td>NFC North</td>
+<td class="n">6</td>
+<td class="n">4</td>
+<td class="n">0</td>
+<td class="n">0.600</td>
+<td class="n">226</td>
+<td class="n">221</td>
+<td class="n">5</td>
+<td><a href="https://www.nfl.com/standings/" rel="noreferrer" target="_blank">standings</a></td>
+</tr>
+<tr>
+<td>Carolina Panthers</td>
+<td>NFC South</td>
+<td class="n">4</td>
+<td class="n">5</td>
+<td class="n">0</td>
+<td class="n">0.444</td>
+<td class="n">219</td>
+<td class="n">236</td>
+<td class="n">-17</td>
+<td><a href="https://www.nfl.com/standings/" rel="noreferrer" target="_blank">standings</a></td>
+</tr>
+<tr>
+<td>Tampa Bay Buccaneers</td>
+<td>NFC South</td>
+<td class="n">3</td>
+<td class="n">6</td>
+<td class="n">0</td>
+<td class="n">0.333</td>
+<td class="n">202</td>
+<td class="n">178</td>
+<td class="n">24</td>
+<td><a href="https://www.nfl.com/standings/" rel="noreferrer" target="_blank">standings</a></td>
+</tr>
+<tr>
+<td>New Orleans Saints</td>
+<td>NFC South</td>
+<td class="n">3</td>
+<td class="n">6</td>
+<td class="n">0</td>
+<td class="n">0.333</td>
+<td class="n">202</td>
+<td class="n">236</td>
+<td class="n">-34</td>
+<td><a href="https://www.nfl.com/standings/" rel="noreferrer" target="_blank">standings</a></td>
+</tr>
+<tr>
+<td>Atlanta Falcons</td>
+<td>NFC South</td>
+<td class="n">3</td>
+<td class="n">7</td>
+<td class="n">0</td>
+<td class="n">0.300</td>
+<td class="n">201</td>
+<td class="n">258</td>
+<td class="n">-57</td>
+<td><a href="https://www.nfl.com/standings/" rel="noreferrer" target="_blank">standings</a></td>
+</tr>
+<tr>
+<td>San Francisco 49ers</td>
+<td>NFC West</td>
+<td class="n">8</td>
+<td class="n">1</td>
+<td class="n">0</td>
+<td class="n">0.889</td>
+<td class="n">281</td>
+<td class="n">196</td>
+<td class="n">85</td>
+<td><a href="https://www.nfl.com/standings/" rel="noreferrer" target="_blank">standings</a></td>
+</tr>
+<tr>
+<td>Seattle Seahawks</td>
+<td>NFC West</td>
+<td class="n">6</td>
+<td class="n">4</td>
+<td class="n">0</td>
+<td class="n">0.600</td>
+<td class="n">223</td>
+<td class="n">175</td>
+<td class="n">48</td>
+<td><a href="https://www.nfl.com/standings/" rel="noreferrer" target="_blank">standings</a></td>
+</tr>
+<tr>
+<td>Los Angeles Rams</td>
+<td>NFC West</td>
+<td class="n">6</td>
+<td class="n">4</td>
+<td class="n">0</td>
+<td class="n">0.600</td>
+<td class="n">248</td>
+<td class="n">187</td>
+<td class="n">61</td>
+<td><a href="https://www.nfl.com/standings/" rel="noreferrer" target="_blank">standings</a></td>
+</tr>
+<tr>
+<td>Arizona Cardinals</td>
+<td>NFC West</td>
+<td class="n">3</td>
+<td class="n">7</td>
+<td class="n">0</td>
+<td class="n">0.300</td>
+<td class="n">184</td>
+<td class="n">289</td>
+<td class="n">-105</td>
+<td><a href="https://www.nfl.com/standings/" rel="noreferrer" target="_blank">standings</a></td>
+</tr>
+</tbody></table></div>
+<h2>Source register</h2>
+<div class="tw"><table class="">
+<thead><tr>
+<th>ID</th>
+<th>URL</th>
+<th>Host</th>
+<th>Kind</th>
+<th>Used for</th>
+<th>Read at UTC</th>
+</tr></thead><tbody>
+<tr>
+<td><code>SRC-01</code></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+<td>static.www.nfl.com</td>
+<td>game_book</td>
+<td>WAS@NYG official Game Book: lineups, not-active, playtime. Settles the two Commanders designations.</td>
+<td>2026-11-19T11:10:00Z</td>
+</tr>
+<tr>
+<td><code>SRC-02</code></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+<td>static.www.nfl.com</td>
+<td>game_book</td>
+<td>NE@DET official Game Book: lineups, not-active, playtime. Settles the three inherited blank Lions designations and the game-centre venue name.</td>
+<td>2026-11-19T11:10:00Z</td>
+</tr>
+<tr>
+<td><code>SRC-03</code></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+<td>static.www.nfl.com</td>
+<td>game_book</td>
+<td>HOU@CLE official Game Book: lineups, not-active, playtime. The only Week 10 game whose report carries game designations for both clubs.</td>
+<td>2026-11-19T11:10:00Z</td>
+</tr>
+<tr>
+<td><code>SRC-04</code></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+<td>static.www.nfl.com</td>
+<td>game_book</td>
+<td>LAC@BAL official Game Book: lineups, substitutions, did-not-play, not-active, playtime, weather, roof/surface, referee</td>
+<td>2026-11-19T11:10:00Z</td>
+</tr>
+<tr>
+<td><code>SRC-05</code></td>
+<td><a href="https://www.nfl.com/games/chargers-at-ravens-2026-reg-10" rel="noreferrer" target="_blank">game centre</a></td>
+<td>www.nfl.com</td>
+<td>game_centre</td>
+<td>Game centre: score, week, the Game Book link, and the Game Info venue block</td>
+<td>2026-11-19T11:10:00Z</td>
+</tr>
+<tr>
+<td><code>SRC-06</code></td>
+<td><a href="https://www.nfl.com/games/commanders-at-giants-2026-reg-10" rel="noreferrer" target="_blank">game centre</a></td>
+<td>www.nfl.com</td>
+<td>game_centre</td>
+<td>book link + Game Info</td>
+<td>2026-11-19T11:10:00Z</td>
+</tr>
+<tr>
+<td><code>SRC-07</code></td>
+<td><a href="https://www.nfl.com/games/patriots-at-lions-2026-reg-10" rel="noreferrer" target="_blank">game centre</a></td>
+<td>www.nfl.com</td>
+<td>game_centre</td>
+<td>book link + Game Info</td>
+<td>2026-11-19T11:10:00Z</td>
+</tr>
+<tr>
+<td><code>SRC-08</code></td>
+<td><a href="https://www.nfl.com/games/texans-at-browns-2026-reg-10" rel="noreferrer" target="_blank">game centre</a></td>
+<td>www.nfl.com</td>
+<td>game_centre</td>
+<td>book link + Game Info</td>
+<td>2026-11-19T11:10:00Z</td>
+</tr>
+<tr>
+<td><code>SRC-09</code></td>
+<td><a href="https://www.nfl.com/injuries/" rel="noreferrer" target="_blank">injury report</a></td>
+<td>www.nfl.com</td>
+<td>injury_report</td>
+<td>Week 11 report, Thursday IND@HOU block: 26 player rows across 2 clubs with practice and game status</td>
+<td>2026-11-19T11:10:00Z</td>
+</tr>
+<tr>
+<td><code>SRC-10</code></td>
+<td><a href="https://www.nfl.com/injuries/league/2026/reg10" rel="noreferrer" target="_blank">injury report</a></td>
+<td>www.nfl.com</td>
+<td>injury_report</td>
+<td>Header only: the Week 10 page renders a Week 11 &lt;title&gt; while its body heading says WEEK 10</td>
+<td>2026-11-19T11:10:00Z</td>
+</tr>
+<tr>
+<td><code>SRC-11</code></td>
+<td><a href="https://www.nfl.com/schedules/" rel="noreferrer" target="_blank">schedule</a></td>
+<td>www.nfl.com</td>
+<td>schedule</td>
+<td>Week 11 slate rows used for the fixture-context captures (game date, kickoff ET, network, clubs, records)</td>
+<td>2026-11-19T11:10:00Z</td>
+</tr>
+<tr>
+<td><code>SRC-12</code></td>
+<td><a href="https://www.nfl.com/schedules/2026/by-week/week-10" rel="noreferrer" target="_blank">schedule</a></td>
+<td>www.nfl.com</td>
+<td>schedule</td>
+<td>Week 10 board, cited for corpus rows</td>
+<td>2026-11-19T11:10:00Z</td>
+</tr>
+<tr>
+<td><code>SRC-13</code></td>
+<td><a href="https://www.nfl.com/standings/" rel="noreferrer" target="_blank">standings</a></td>
+<td>www.nfl.com</td>
+<td>standings</td>
+<td>All 32 clubs: W-L-T, PCT, PF, PA, NET. Used for the arithmetic audit and for the Week 11 strength inputs.</td>
+<td>2026-11-19T11:10:00Z</td>
+</tr>
+<tr>
+<td><code>SRC-14</code></td>
+<td><a href="https://www.nfl.com/stats/player-stats/" rel="noreferrer" target="_blank">stats</a></td>
+<td>www.nfl.com</td>
+<td>probe</td>
+<td>The complete official player-stats category list (11 categories, no snap counts) plus the 404 on the snap-counts URL</td>
+<td>2026-11-19T11:10:00Z</td>
+</tr>
+<tr>
+<td><code>SRC-15</code></td>
+<td><a href="https://www.nfl.com/stats/player-stats/category/snap-counts/2026/reg/all" rel="noreferrer" target="_blank">stats</a></td>
+<td>www.nfl.com</td>
+<td>probe_404</td>
+<td>snap-counts URL returned &#x27;404 - Flag on the Play.&#x27;</td>
+<td>2026-11-19T11:10:00Z</td>
+</tr>
+</tbody></table></div>
+
+</div></main>
+<footer><div class="wrap">
+Every value on this page was read from the official NFL page linked beside it on 2026-11-19 UTC, or is
+arithmetic on such values with the derivation shown. No market price exists on any official page, so price, ROI and
+CLV columns are blank by policy. No profitability claim is made anywhere. Blank is not zero and blank is not healthy.
+</div></footer>
+</body></html>

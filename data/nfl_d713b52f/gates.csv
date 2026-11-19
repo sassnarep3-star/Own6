@@ -30,3 +30,11 @@ G-INACTIVE,A pre-kickoff inactive feed is needed for point-in-time certainty.,An
 G-EXPECTED,A surprise needs an ex-ante expectation.,A pre-kickoff expectation source for every club's starters.,open
 G-RATING,"Opponent-aware ratings need an opponent term, registered first.",A registered model with an opponent term and a walk-forward comparison.,open
 G-SPLIT,The public layer may carry derived analysis only.,An owner decision recorded in the repo.,closed
+G-RESULTS,referenced by R02: the gate named on that row,Settlement source cited per game row: 121 of 121 rows carry an official URL and a read clock.,closed
+G-GRAPH,referenced by R10: the gate named on that row,"The 'expected' side needs a pre-kickoff starter source. The books give 'actual'; the Week 10 report gives designation only, so 'expected' is only available where the book's own Lineups block is the first naming.",open
+G-PROB,referenced by R15: the gate named on that row,A schema check that refuses a row without its inputs. Enforced now by the pack verifier.,closed
+G-CORPUS,referenced by R19: the gate named on that row,"The count identities below hold and are recomputed on every build: 150 games, 32x records, PF=PA.",closed
+G-CAPTURE,referenced by R28: the gate named on that row,An owner decision on the NFL Terms (written consent for automated collection) plus a scheduler.,open
+G-SNAPSHOT,referenced by R46: the gate named on that row,Daily points from the start of the season (>=100 points).,open
+none,referenced by R47: the gate named on that row,Closed by the official pages on 2026-11-19.,closed
+G-CONTROL,referenced by R56: the gate named on that row,A favourites control needs a market price; it stays absent by policy.,open
