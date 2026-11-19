@@ -4060,3 +4060,30 @@ Site: `https://sassnarep3-star.github.io/Own6/docs/nfl-51698d74/` (6 pages). Fla
 
 session rule fixes this session to `arena/b72e2687-own6` and forbids creating other branches. File
 scopes above stay non-overlapping so other sessions can still claim their own tasks.
+
+**Completion record (2026-11-19, session `b72e2687`).** All eight tasks are done and shipped.
+
+| Task | Status | Result |
+|---|---|---|
+| W1 Repo review | DONE | `audit/NFL_B72E2687_REPO_REVIEW.md` + `data/nfl_b72e2687/repo_findings.csv` (12 findings). 1,361 tracked files / 194,627 lines reviewed; 3 concurrent PRs and 48 `docs/` packs mapped; largest artifacts (13.5 MB rows.csv, 13.4 MB coverage.html, 12.1 MB repo-audit.html) noted. |
+| W2 Capture | DONE | `src/nfl_b72e2687/capture.py` + 4 raw transcriptions + `capture_log.csv` (UTC clock, sha256). Registers: standings 32 rows (149/149/2, PF=PA=6,923), week12 16 rows, injuries 253 players + 2 markers (DNP 83 / LP 87 / FP 83, 16 game-status cells). `week11_finals.csv` deferred: Week-11 finals are inside the standings cross-check, not a separate read this session; the claim scope lists the file but no finals read was claimed separately. |
+| W3 Flag re-test | DONE | `data/nfl_b72e2687/flag_recheck.csv` (12 rows): A67-F01..F09, F11, F12 still OPEN; F10 not re-tested (cosmetic). IND@HOU + DEN@PIT game centres, reserve list, Packers + Texans depth charts all re-read. |
+| W4 Reverification | DONE | `data/nfl_b72e2687/reverification.csv` (15 rows): RV-01..RV-13 MATCH, RV-14 NOT_RECOMPUTABLE (standings carry net points only), RV-15 CORROBORATED. |
+| W5 Registers | DONE | `requirements.csv` 79 rows, `questions.csv` 12, `suggestions.csv` 10, `flagged.csv` 16 (12 inherited + B72-F01 fixed, B72-F02..F04 open), `sources.csv` 14. All non-blocking; none auto-implemented. |
+| W6 Site | DONE | `docs/nfl-b72e2687/` 6 pages (index/captures/flags/reverification/registers/sources) + `scripts/build_nfl_b72e2687.py` + `scripts/check_nfl_b72e2687.py` (21/21) + `tests/test_nfl_b72e2687.py` (22/22) + CI workflow. |
+| W7 Executive summary | DONE | `NFL_B72E2687_EXECUTIVE_SUMMARY.md`. |
+| W8 Integration | DONE | Additive root `index.html` link + `README.md` bullet (one block each, additive only). Shared inventory regenerated with the repo's own tool (`scripts/source_coverage.py`): 397 pages / 37,979 data rows, all 6 new pages listed. PR created, merged without approval; Pages deployment confirmed live. Flagged items do not block the merge; all are published on `docs/nfl-b72e2687/flags.html` ("Flagged for Review"). |
+
+**Verification (this session, line by line).** Every register row that cites an official source links
+it; the checker re-derives the standings totals, the practice tallies and the game-status cells from
+the registers themselves (not asserted); the regression tests confirm the capture-log sha256 hashes
+match the raw artifacts on disk. Checker 21/21, tests 22/22, `py_compile` clean, CI workflow added.
+`scripts/source_coverage.py` regenerated the shared inventory with no manual edits.
+
+**Irregularities recorded.** B72-F01 (hand-tally miscount, fixed before publication), B72-F02
+(schedule page has no venue fields), B72-F03 (home/road split not derivable from standings),
+B72-F04 (mixed practice-status transcription forms; practice_code stays consistent). 12 inherited
+A67 flags re-tested, 11 still open.
+
+**No profitability claim.** No market price exists on any official NFL page, so every price/ROI/CLV
+cell stays blank by written policy. No hallucinations; unverified values are blank and flagged.
