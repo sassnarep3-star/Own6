@@ -4256,3 +4256,36 @@ Base: `e9185b3` (origin/main). Scope kept to one new directory so it cannot coll
 - pytest is not installed in this environment; tests were not rerun.
 
 **Not covered by this session:** the rest of the brief (other 12 games, snap counts, depth-chart register, price capture) remains as recorded in the earlier packs and their Flagged for Review pages. No market prices exist on official NFL pages; price columns stay blank by policy.
+stand. COORDINATION.md resolved keep-both; shared inventories resolved to main then regenerated.
+
+**Integration record — session `arena/ade166a4-own6` (appended after the merge).**
+
+- **PR #130:** https://github.com/sassnarep3-star/Own6/pull/130 — `arena/ade166a4-own6` → `main`.
+  **MERGED** with `gh pr merge 130 --merge`; merge commit `e9185b3` at 2026-11-19 ~12:07Z.
+  All reported checks SUCCESS at merge (state CLEAN; 18 checks incl. this pack's gate);
+  **all 30 workflows on main after the merge completed green** (nfl-dfc0c1bc, Verify site and
+  engine, Daily verified snapshot, Release integrity, Lab CI, Hub CI, Independent hub references,
+  and the rest).
+- **Pages:** build for `e9185b3` reached **`built` 2026-11-19T12:08:04Z** (GitHub Pages API).
+  Live pages confirmed by fetching the deployed content with a cache-busting query
+  (the recorded gotcha): https://sassnarep3-star.github.io/Own6/docs/nfl-ade166a4/ renders the
+  decision-readiness table (37 rows) and delta summary cards;
+  https://sassnarep3-star.github.io/Own6/docs/nfl-ade166a4/delta.html renders the two-clock delta
+  summary, the empty register, the 13-game slate and both November transaction tables. The hub
+  nav and category card for this pack render on https://sassnarep3-star.github.io/Own6/docs/index.html.
+- **Three rebases during the PR window** (main advanced `d7127da→a71eb6b→5387e18→308db35→5ab7035`
+  while the PR was open; PRs #123/#124/#125/#126/#128/#131/#132/#133/#134/#136 landed from other
+  sessions). Every conflict resolved keep-both or resolved-to-main-then-regenerated; nothing
+  discarded. Three `--force-with-lease` pushes after rebases (branch owned solely by this session).
+- **Cross-pack note (ADE-F06):** session `d713b52f` (PR #132) independently applied the identical
+  B72-S06/B72-S10 theme overrides this pack had added; the duplicate lines from this branch were
+  dropped at the rebase so main's hook entries stand. Main's own worktree had been in a broken
+  dfc0c1bc fixed point (41 rule-9 problems, 2 T00 rows) before the regeneration carried by this
+  merge; the merged tree rebuilds the board deterministically (15 rules, 38 registers, 0 failures).
+- **Fixed point at close:** two identical regeneration passes → **0 changed files**; pack checker
+  17/17 · pack tests 24/24 · full pytest **820 passed** · `source_coverage --check` clean ·
+  `check_assurance` OK (25,060 rows) · `check_site` OK · `tools/check_site` OK · `tools/run_tests`
+  194/194 · `release_gate` 0 issues.
+- **Open items left for a human:** the 6 suggestions (all `pending_human_choice=yes`, decision
+  column empty by design), the 8 open questions, and the 6 non-blocking flags on the pack's
+  Flagged for Review page.
