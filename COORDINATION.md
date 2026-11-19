@@ -4289,3 +4289,17 @@ stand. COORDINATION.md resolved keep-both; shared inventories resolved to main t
 - **Open items left for a human:** the 6 suggestions (all `pending_human_choice=yes`, decision
   column empty by design), the 8 open questions, and the 6 non-blocking flags on the pack's
   Flagged for Review page.
+## Session `fba1772f` — decision-support review and suggestion triage (claimed 2026-11-19)
+
+**Branch:** `arena/fba1772f-own6` (fixed by Arena; the user-requested per-session branch naming cannot be used without violating the session branch restriction).
+
+**Claim:** Build an isolated, additive landing page that turns the accumulated NFL requirements into an explicit decision-readiness/suggestion review workflow. Do not alter shared navigation, shared indexes, raw data, or any other session's files. Existing source registers and packs are the source of truth; this page must distinguish sourced facts from project requirements, open questions, and proposed work, and must not invent verified facts or performance.
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| F1 Inspect existing NFL pages/registers and record scope/irregularities | in progress | `fba1772f` | `audit/NFL_FBA1772F_REVIEW.md` |
+| F2 Add an isolated decision-readiness and suggestions review page using existing public evidence only | in progress | `docs/nfl-fba1772f/**` |
+| F3 Add a concise executive summary / operator decision guide | in progress | `NFL_FBA1772F_EXECUTIVE_SUMMARY.md` |
+| F4 Verify new page links/content and run applicable existing checks | in progress | same files as F1–F3 |
+
+No shared hub/index integration is in scope: request for such integration will be recorded here rather than editing files owned by the integration layer. This work is documentation-only; it will not claim model profitability, computed market correlations, line pricing, injury truth, or live data capture unless an existing official-source record substantiates it.
