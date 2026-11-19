@@ -1,0 +1,32 @@
+URL: https://www.nfl.com/injuries/
+Page title (as returned): Official Latest NFL Injury Report for Players - Week 11 of the 2026 Season | NFL.com
+Heading: ## Injuries - WEEK 11
+Block: THURSDAY, NOVEMBER 19TH 8:15 PM EST Prime Video; (3-7) IND Colts at (3-6) HOU Texans
+Colts rows (Player | Position | Injuries | Practice Status | Game Status):
+Jaylon Carlies | LB |  | Did Not Participate In Practice |
+Sauce Gardner | CB | Calf | Did Not Participate In Practice | Questionable
+Anthony Gould | WR | Toe | Full Participation in Practice | Questionable
+Charlie Heck | T | Not injury related - personal matter | Did Not Participate In Practice | Questionable
+Will Mallory | TE | Hamstring | Did Not Participate In Practice | Out
+Bernhard Raimann | T | Concussion | Did Not Participate In Practice | Out
+Luke Rhodes | LS | Hamstring | Limited Participation in Practice | Questionable
+Jerry Tillery | DT | Calf | Did Not Participate In Practice | Out
+Jalen Travis | T | Knee | Did Not Participate In Practice | Out
+Dalton Tucker | G |  | Full Participation in Practice |
+Charvarius Ward | CB | Knee | Did Not Participate In Practice | Out
+Texans rows:
+Azeez Al-Shaair | LB |  | Did Not Participate In Practice |
+Reed Blankenship | S |  | Full Participation in Practice |
+Tank Dell | WR |  | Full Participation in Practice |
+Blake Fisher | T |  | Full Participation in Practice |
+Marvin Harrison Jr. | WR | Hamstring | Did Not Participate In Practice | Out
+Jacob Hummel | LB | Groin | Full Participation in Practice | Questionable
+Danielle Hunter | DE | Hamstring | Did Not Participate In Practice | Out
+Brevin Jordan | TE | Foot, Illness | Did Not Participate In Practice | Out
+Kamari Lassiter | CB |  | Full Participation in Practice |
+Woody Marks | RB | Concussion | Did Not Participate In Practice | Out
+David Montgomery | RB |  | Full Participation in Practice |
+Febechi Nwaiwu | G |  | Full Participation in Practice |
+Keylan Rutledge | G |  | Full Participation in Practice |
+Jaylin Smith | CB | Hamstring | Full Participation in Practice | Questionable
+Wyatt Teller | G | Back | Full Participation in Practice | Questionable

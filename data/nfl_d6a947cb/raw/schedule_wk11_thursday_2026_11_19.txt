@@ -1,0 +1,8 @@
+URL: https://www.nfl.com/schedules/
+Page title (as returned): NFL Schedules: Games, Times, Matchups & Tickets
+Heading: SCHEDULE 2026 ; links: By Week (week-11)
+Entry: Thursday Night Football, November 19th
+- Colts at Texans, Thursday, November 19th, 8:15 PM, PRIME  (https://www.nfl.com/games/colts-at-texans-2026-reg-11)
+Entries Sunday, November 22nd: Dolphins at Bills 1:00 PM CBS; Ravens at Panthers 1:00 PM FOX; Saints at Bears 1:00 PM FOX; Titans at Cowboys 1:00 PM FOX; Buccaneers at Lions 1:00 PM FOX
+Note: the Sunday rows in the text returned show no stadium name.
+Note: the Texans hotel link in the same page carries destinationAddress.location=NRG+Stadium (a URL parameter, not a labelled venue field).

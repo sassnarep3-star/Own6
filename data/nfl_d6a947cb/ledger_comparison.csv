@@ -1,0 +1,11 @@
+ledger,rows,status_column,status_counts,distinct_status_values
+data/nfl/requirements.csv,18,status,done=18,1
+data/nfl_0ce967db/requirements.csv,96,state,blocked=19; met=43; not_run=4; out_of_scope=1; partially_met=24; rejected_adopted=5,6
+data/nfl_0d4da02c/requirements.csv,83,status,blocked=32; cleared=17; cleared_repo=5; in progress=1; needs review=1; open=3; partially cleared=4; rejected=2; structural=18,9
+data/nfl_4c8cf5a6/requirements.csv,73,status,blocked=40; cleared=2; cleared_repo=5; rejected=3; structural=23,5
+data/nfl_51698d74/requirements.csv,80,status,blocked=25; partial=15; satisfied-prior=9; satisfied-this-session=31,4
+data/nfl_a67ddef8/requirements.csv,60,status,open-at-writing=5; partial=2; satisfied-before-work=1; satisfied-prior + carried=1; satisfied-prior + this-session addition=1; satisfied-prior-reverified=4; satisfied-prior-verified=21; satisfied-this-session=25,8
+data/nfl_ade166a4/requirements.csv,37,status,advanced-by-prior-pack=1; advanced-this-session=3; open=12; partial=1; satisfied-by-design=1; satisfied-by-prior-pack=9; satisfied-this-session=10,7
+data/nfl_b72e2687/requirements.csv,79,status,needs-review=1; open=13; partial=35; policy-enforced=3; satisfied=27,5
+data/nfl_d713b52f/requirements.csv,86,status,blocked=21; done=33; partial=32,3
+data/nfl_wk/requirements.csv,20,status,blocked=2; done=13; done (hypotheses)=1; done (limited)=1; done (partial)=2; done (with flags)=1,6

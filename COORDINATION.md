@@ -4329,3 +4329,61 @@ stand. COORDINATION.md resolved keep-both; shared inventories resolved to main t
 **Branch rule:** single branch `arena/cdf86c07-own6`; no other branches created.
 
 **Next step:** open PR to `main`, merge (flags do not block), confirm Pages, record PR link and merge result below.
+
+---
+
+## Session `arena/d6a947cb-own6` — NFL repo review, live re-verification, clean landing + subpages, suggestions & Flagged-for-Review (claimed 2026-11-19)
+
+**Session ID:** `d6a947cb` · **Branch:** `arena/d6a947cb-own6` (base `e9185b3` = `origin/main` at claim time, checked with `git fetch` immediately before this claim). Arena fixes this session to that branch and forbids other branches, so the `session-<id>/<task>` naming in the brief is logged as a deviation, as every prior session did. Work is split by exclusive file scope inside this one branch.
+
+**Concurrency check at claim time.** Open PRs #138, #135, #127, #113, #111, #110, #94, #84, #79, #72, #68, #56, #54, #52, #48 belong to other sessions. None claims a `nfl_d6a947cb` scope. No file below is inside another open claim. The >60-minute takeover rule is not exercised.
+
+**Pages facts read at claim time.** `gh api repos/sassnarep3-star/Own6/pages` → `build_type=legacy`, `source={branch: main, path: /}`, `status=built`. The live root therefore serves root `index.html`, not `docs/index.html`.
+
+**Claim (written and pushed before any data was produced)**
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| D1 Repo review, irregularity register (line-by-line counts with file links) | in progress | `d6a947cb` | `audit/NFL_D6A947CB_REPO_REVIEW.md`, `data/nfl_d6a947cb/repo_findings.csv` |
+| D2 Same-day official re-reads, each logged with UTC clock and expected-vs-observed | in progress | `d6a947cb` | `data/nfl_d6a947cb/official_reads_2026_11_19.csv`, `data/nfl_d6a947cb/capture_log.csv`, `data/nfl_d6a947cb/raw/**` |
+| D3 Requirement register (one row per brief bullet; carried states; cross-ledger comparison; re-check flags) | in progress | `d6a947cb` | `data/nfl_d6a947cb/requirements.csv`, `data/nfl_d6a947cb/ledger_comparison.csv` |
+| D4 Question / Information / Answer register with discovery paths | in progress | `d6a947cb` | `data/nfl_d6a947cb/questions.csv` |
+| D5 Suggestions register (site and method; every row `pending_human_choice=yes`, nothing implemented) | in progress | `d6a947cb` | `data/nfl_d6a947cb/suggestions.csv` |
+| D6 Flagged-for-Review register | in progress | `d6a947cb` | `data/nfl_d6a947cb/flagged.csv`, `data/nfl_d6a947cb/sources.csv` |
+| D7 Site: clean landing + category subpages + builder + checker + tests + CI | in progress | `d6a947cb` | `docs/nfl-d6a947cb/**`, `scripts/build_nfl_d6a947cb.py`, `scripts/check_nfl_d6a947cb.py`, `tests/test_nfl_d6a947cb.py`, `.github/workflows/nfl-d6a947cb-ci.yml` |
+| D8 Executive summary | in progress | `d6a947cb` | `NFL_D6A947CB_EXECUTIVE_SUMMARY.md` |
+| D9 Integration: one additive link card in root `index.html`, PR → merge → Pages check → board record | in progress | `d6a947cb` | `index.html` (one additive block), `COORDINATION.md` (append only) |
+
+**Not claimed (other sessions' scope, left untouched):** `data/nfl_0ce967db/**`, `data/nfl_d713b52f/**`, `data/nfl_b72e2687/**`, `data/nfl_0d4da02c/**`, `data/nfl/**`, every other `docs/nfl-*` pack, and the root `docs/index.html`. Fixes to these are logged as requests in the registers, not made here.
+
+**Evidence rule (unchanged).** A value is published as verified only if it was read this session from the official page named in its source link, with a UTC clock. Anything else is carried from an earlier pack with that pack named, or left blank and flagged. No market price exists on any official NFL page read, so price columns stay blank by policy. No profitability claim.
+
+**Completion record (`d6a947cb`, 2026-11-19, before the integration PR).**
+
+| Task | Status | Result |
+|---|---|---|
+| D1 Repo review | done | `audit/NFL_D6A947CB_REPO_REVIEW.md` + `data/nfl_d6a947cb/repo_findings.csv` (20 findings, RF-01..RF-20). Counts read from git at base `e9185b3`. |
+| D2 Official re-reads | done | 12 checks in `data/nfl_d6a947cb/official_reads_2026_11_19.csv` (UTC 12:08–12:11Z). Raw excerpts in `data/nfl_d6a947cb/raw/` with sha256 in `capture_log.csv`. Results: 5 match, 1 match for one fixture, 3 mismatch/conflict, 2 unreadable, 1 partial. |
+| D3 Requirement register | done | `requirements.csv` (96 owner rows, 88 unique; carried from `nfl_0ce967db`; 7 rows re-checked, 2 status changes: R20 → needs_review, R29 → needs_decision). `ledger_comparison.csv` computed from all 10 `requirements.csv` ledgers (35 status words). |
+| D4 Q/I/A | done | `questions.csv` (13 questions; 1 answered for the pages read, 1 partly answered, 11 open or unanswered; each with a discovery path). |
+| D5 Suggestions | done | `suggestions.csv` (14 options, each pending the owner's choice; `implemented=no` for all). |
+| D6 Flagged + sources | done | Flagged = `repo_findings.csv` (all `blocks_merge=no`); `sources.csv` (10 rows: 7 NFL reads/fetches, 3 repo-host rows labelled as not NFL). |
+| D7 Site | done | `docs/nfl-d6a947cb/` (9 pages) from `scripts/build_nfl_d6a947cb.py`; verifier `scripts/check_nfl_d6a947cb.py` (exit 0); `tests/test_nfl_d6a947cb.py` (13 tests OK); CI `.github/workflows/nfl-d6a947cb-ci.yml`. |
+| D8 Executive summary | done | `NFL_D6A947CB_EXECUTIVE_SUMMARY.md` (rendered at `executive-summary.html`). |
+| D9 Integration | in progress | Root `index.html`: one additive hero button (first in the list). `tools/release_gate.py` 0 issues; `tools/check_site.py` 0 errors (run after the edit). PR, merge and Pages check follow. |
+
+**Sources and verification performed.** Official pages read through the fetch tool this session, each stated with its scope in `sources.csv`: `https://www.nfl.com/injuries/` (chunk 0 of 7), `https://www.nfl.com/injuries/league/2026/reg10` (chunk 0 of 8), `https://www.nfl.com/schedules/` (chunk 0 of 3), `https://www.nfl.com/games/colts-at-texans-2026-reg-11` (chunk 0 of 3), `https://www.nfl.com/legal/terms/` (chunk 0 of 9), `https://operations.nfl.com/gameday/nfl-schedule/` (404), `https://operations.nfl.com/media/2683/2017-nfl-injury-report-policy.pdf` (no text). Repo history read after `git fetch --unshallow` (539 commits). `gh api` Pages settings read at claim time.
+
+**Irregularities (none blocks the merge; all on the Flagged for Review page).** The main ones: pre-registration amendment A1 (`3dd2913`, eight minutes after the freeze `56cc9b5`, written after the owner had seen a negative home margin; RF-19); NFL.com Terms s.1.3 restricts systematic retrieval absent written consent (RF-06, counsel review requested); a 404 schedule source cited in 9 repo files and an unreadable policy PDF cited in 50 (RF-03, RF-04); the Week 10 page titled Week 11 (RF-02); a stadium-name conflict for the same game (RF-07); ten ledgers with 35 status words (RF-01).
+
+**Scope check.** Files changed by this session: `COORDINATION.md` (append only), `index.html` (one additive button), and only paths inside the D1–D9 claim. No edits to `data/nfl_0ce967db/**`, `data/nfl_d713b52f/**`, `data/nfl_b72e2687/**`, `data/nfl_0d4da02c/**`, `data/nfl/**`, other `docs/nfl-*` packs, or `docs/index.html`.
+
+**Deviation logged.** Clone was shallow at claim (depth 2). `git fetch --unshallow` ran before reading history (RF-20). Other sessions' history-based claims made on a shallow clone should be re-checked.
+
+**Correction and addendum (`d6a947cb`, same session).** Finding count is 21, not 20: RF-21 records a ledger (`data/nfl_cdf86c07/requirements.csv`, PR #141) that landed on main after this pack's base commit. The derivation now pins the ten base-commit ledgers so every number refers to one commit. The merge of `origin/main` into this branch (commit `c2353ce`) kept both sides of the append-only log.
+
+**PR #144 checks at merge time (`d6a947cb`, 2026-11-19).** Passing: `nfl-d6a947cb` (this pack's CI), `verify-nfl-s11`, `verify-nfl-6cefc476`, `verify-nfl-6ab24751`, `verify-nfl-309921cc`, `verify`, `source-coverage`, `published-html`, `hub-references`, `hub`, `daily`, `build-check-test`, `Verification ledger and published pages`. Failing: `lab`, `Line-by-line verification gates` (workflow "Verify site and engine"), `assurance`, `parlay-safety`, `verify-nfl-origination`. Each of these also fails on `main` at `bb18cec` (GitHub Actions runs on that commit), or reproduces on a clean export of `origin/main`: `tools/run_tests.py` reports 191/195 on both trees. The four failing tests are `test_nfl_cdf86c07.py` (`No module named pytest` in this sandbox) and `test_nfl_dfc0c1bc.py::test_every_row_lands_on_a_defined_theme` / `test_verifier_passes` (`data/nfl_cdf86c07/suggestions.csv#S-01 -> T00`). This PR changes none of those files.
+
+**Requests to owners (logged, not edited).** (1) `nfl_cdf86c07`: classify `S-01` on a theme (or register an override in `src/nfl_dfc0c1bc/themes.py`), and make the pytest dependency optional in its test. (2) Whoever owns `lab`, `assurance` and `parlay-safety`: those failed on `bb18cec` before this PR; their owners should re-run them. (3) `nfl-origination` owner: its gate runs on every pull request to `main` with no path filter, so unrelated packs can turn it red.
+
+**Merge decision.** The merge is allowed by the repository's rules (GitHub reports `MERGEABLE`, not `BLOCKED`). This PR adds no failing check. Its own pack gate and the root release gate are green. The Pages build is verified after the merge.

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sources | Own6 NFL Decision Desk</title>
+<style>
+:root{--ink:#17202a;--muted:#5b6670;--line:#dfe4ea;--bg:#f7f9fb;--ok:#1e7a46;--warn:#9a5b00;--bad:#a12626;--acc:#1d4f91}
+*{box-sizing:border-box} body{margin:0;font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg)}
+header{background:#fff;border-bottom:1px solid var(--line);padding:14px 22px}
+header h1{font-size:18px;margin:0 0 8px} header .sub{color:var(--muted);font-size:13px}
+nav{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px} nav a{padding:5px 10px;border:1px solid var(--line);border-radius:6px;color:var(--acc);text-decoration:none;font-size:13px;background:#fff}
+nav a.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+main{max-width:1200px;margin:0 auto;padding:18px 22px 40px}
+h2{font-size:17px;margin:26px 0 8px} h3{font-size:15px;margin:18px 0 6px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:10px 0}
+.card{background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px}
+.card .n{font-size:24px;font-weight:700} .card .l{color:var(--muted);font-size:12px}
+.wrap{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:8px}
+table{border-collapse:collapse;width:100%;font-size:13px} th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:#eef2f6;position:sticky;top:0} td a{color:var(--acc)}
+.ok{color:var(--ok)} .muted{color:var(--muted)} .flag{color:var(--bad);font-weight:600} .warn{color:var(--warn);font-weight:600}
+.note{background:#fff;border-left:4px solid var(--acc);padding:10px 14px;border-radius:6px;margin:10px 0;color:#2d3742}
+.filter{padding:7px 10px;border:1px solid var(--line);border-radius:6px;width:360px;max-width:100%;margin:8px 0}
+footer{color:var(--muted);font-size:12px;margin-top:30px}
+.pill{display:inline-block;border:1px solid var(--line);border-radius:10px;padding:1px 8px;font-size:12px;background:#fff}
+</style>
+</head>
+<body>
+<header>
+<h1>Own6 NFL Decision Desk</h1>
+<div class="sub">Research framework, not a betting feed or picks service. No profitability claim. Every value is read from an official NFL page with a UTC clock, carried from a named earlier pack, or left blank and flagged.</div>
+<nav><a href="index.html">Overview</a><a href="requirements.html">Requirements</a><a href="questions.html">Questions &amp; answers</a><a href="suggestions.html">Suggestions</a><a href="flagged.html">Flagged for Review</a><a href="verification.html">Official re-reads</a><a href="sources.html" class=on>Sources</a><a href="repo-review.html">Repo review</a><a href="executive-summary.html">Executive summary</a></nav>
+</header>
+<main>
+
+<h2>Sources read or relied on</h2>
+<div class="note">Official NFL sources are on nfl.com and operations.nfl.com. The two GitHub rows are the repo's own commits and Pages settings; they are labelled as not NFL sources. Carried sources from earlier packs are listed in each pack's register and are not re-read here.</div>
+<div class="wrap"><table class="data"><thead><tr><th>ID</th><th>Publisher</th><th>URL</th><th>Result</th><th>Used for</th></tr></thead><tbody><tr><td>SRC-01</td><td>NFL</td><td><a href="https://www.nfl.com/injuries/" rel="noopener">www.nfl.com</a><br><span class="ok">read 2026-11-19T12:08Z (chunk 0 of 7)</span></td><td>Week 11 hub, Thursday block read; blank game-status cells reproduced</td><td>C01; C02; RF-09</td></tr><tr><td>SRC-02</td><td>NFL</td><td><a href="https://www.nfl.com/injuries/league/2026/reg10" rel="noopener">www.nfl.com</a><br><span class="ok">read 2026-11-19T12:10Z (chunk 0 of 8)</span></td><td>Week 10 Lions block read (Out x3); title says Week 11 while heading says WEEK 10</td><td>C03; C04; RF-02; RF-05</td></tr><tr><td>SRC-03</td><td>NFL</td><td><a href="https://www.nfl.com/schedules/" rel="noopener">www.nfl.com</a><br><span class="ok">read 2026-11-19T12:09Z (chunk 0 of 3)</span></td><td>Week 11 Thursday entry read; hotel link names NRG Stadium</td><td>C06; C07; C12</td></tr><tr><td>SRC-04</td><td>NFL</td><td><a href="https://www.nfl.com/games/colts-at-texans-2026-reg-11" rel="noopener">www.nfl.com</a><br><span class="ok">read 2026-11-19T12:11Z (chunk 0 of 3)</span></td><td>Location HOUSTON TX; Stadium RELIANT STADIUM</td><td>C05; RF-07</td></tr><tr><td>SRC-05</td><td>NFL</td><td><a href="https://www.nfl.com/legal/terms/" rel="noopener">www.nfl.com</a><br><span class="ok">read 2026-11-19T12:09Z (chunk 0 of 9)</span></td><td>Updated May 16, 2024; s.1.3 read (no systematic retrieval absent consent)</td><td>C10; C11; RF-06</td></tr><tr><td>SRC-06</td><td>NFL Operations</td><td><a href="https://operations.nfl.com/gameday/nfl-schedule/" rel="noopener">operations.nfl.com</a><br><span class="ok">read 2026-11-19T12:10Z (whole page)</span></td><td>404 FLAG ON THE PLAY</td><td>C08; RF-03</td></tr><tr><td>SRC-07</td><td>NFL Operations</td><td><a href="https://operations.nfl.com/media/2683/2017-nfl-injury-report-policy.pdf" rel="noopener">operations.nfl.com</a><br><span class="ok">read 2026-11-19T12:10Z (whole document)</span></td><td>no policy text returned</td><td>C09; RF-04</td></tr><tr><td>SRC-08</td><td>GitHub (repository host, not an NFL source)</td><td><a href="https://api.github.com/repos/sassnarep3-star/Own6/pages" rel="noopener">api.github.com</a><br><span class="ok">read 2026-11-19 (claim time) (Pages configuration (gh api))</span></td><td>build_type legacy; source main path /; status built</td><td>RF-10; RF-18</td></tr><tr><td>SRC-09</td><td>GitHub (repository host, not an NFL source)</td><td><a href="https://github.com/sassnarep3-star/Own6/commit/3dd2913" rel="noopener">github.com</a><br><span class="ok">read 2026-11-19 (after unshallow) (commit metadata and diff)</span></td><td>Amendment A1 declared after the backtest; prospective family 7 to 8</td><td>RF-19; Q10</td></tr><tr><td>SRC-10</td><td>GitHub (repository host, not an NFL source)</td><td><a href="https://github.com/sassnarep3-star/Own6/commit/56cc9b5" rel="noopener">github.com</a><br><span class="ok">read 2026-11-19 (after unshallow) (commit metadata)</span></td><td>First commit adding preregistration.md, 2026-11-18 03:44:53Z</td><td>Q10</td></tr></tbody></table></div>
+
+<footer>Generated by scripts/build_nfl_d6a947cb.py from data/nfl_d6a947cb/ (session d6a947cb, branch arena/d6a947cb-own6). Rebuild with: python3 scripts/build_nfl_d6a947cb.py</footer>
+</main>
+<script>
+function filt(id, box){var q=box.value.toLowerCase();document.querySelectorAll('#'+id+' tbody tr').forEach(function(r){r.style.display=r.textContent.toLowerCase().indexOf(q)>=0?'':'none';});}
+</script>
+</body>
+</html>
