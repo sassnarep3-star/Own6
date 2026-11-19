@@ -57,7 +57,7 @@ overlay, no weekly diff yet, unestimated kickoff-regime priors.
 
 ## 6. Gates run this session
 
-- `scripts/check_nfl_51698d74.py` — 20 rules OK (559 data rows, 6 pages).
+- `scripts/check_nfl_51698d74.py` — 21 rules OK (559 data rows, 6 pages).
 - `tests/test_nfl_51698d74.py` — 19 tests OK.
 - Determinism: data + registers + recompute + site rebuilds reproduce committed bytes.
 - CI: `.github/workflows/nfl-51698d74-ci.yml` (rebuild → diff → build → diff → verify → tests).

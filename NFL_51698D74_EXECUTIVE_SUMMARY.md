@@ -79,20 +79,20 @@ Full table: [`data/nfl_51698d74/reverification.csv`](data/nfl_51698d74/reverific
 ## 6. Repo review
 
 [`audit/NFL_51698D74_REPO_REVIEW.md`](audit/NFL_51698D74_REPO_REVIEW.md) — no blocking repo
-defect; all findings are upstream data-quality issues. Gates this session: pack checker 20 rules OK,
+defect; all findings are upstream data-quality issues. Gates this session: pack checker 21 rules OK,
 19 unit tests OK, determinism verified (data + registers + recompute + site rebuilds reproduce bytes).
 
 ## 7. Decision-readiness snapshot
 
 - **80 requirements** tracked with blocking gate + clearing number
   ([`requirements.csv`](data/nfl_51698d74/requirements.csv), rendered on the pack landing page).
-- **Satisfied this session:** 30 · **prior packs verified:** 12 · **partial:** 14 · **blocked:** 24.
+- **Satisfied this session:** 31 · **satisfied by prior packs (re-verified here):** 9 · **partial:** 15 · **blocked:** 25.
 - **10 suggestions**, all `pending_human_choice=yes` — nothing implemented without a human decision.
 - **14 questions**, all open (answers need named sources/licenses/terms, not guesses).
 
 ## 8. Honesty rules enforced by the checker
 
-`scripts/check_nfl_51698d74.py` (20 rules): pinned row counts · official-host URLs on every
+`scripts/check_nfl_51698d74.py` (21 rules): pinned row counts · official-host URLs on every
 data row · standings/injuries/slate/reserve arithmetic · all 16 Week-12 venues filled ·
 venue match counts 11/3/2 · no market prices or return claims · no inputs/selects/buttons ·
 no placeholders · internal links resolve · gates+clearing numbers non-empty · suggestions

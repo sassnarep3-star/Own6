@@ -139,11 +139,16 @@ def build_index() -> str:
         if not s or s.startswith("n/a"):
             return f'<span class="blank">{esc(s) if s else "—"}</span>'
         path, _, note = s.partition(" (")
-        is_repo_file = path.endswith((".md", ".csv", ".py", ".html", ".json"))
-        if is_repo_file or path.startswith(("data/", "scripts/", "tests/", "src/", "audit/", "docs/")):
-            link = a(BLOB + path, path)
-            return link + (f' ({esc(note)}' if note else "")
-        return esc(s)
+        parts = [x.strip() for x in path.split(";") if x.strip()]
+        links = []
+        for x in parts:
+            is_repo_file = x.endswith((".md", ".csv", ".py", ".html", ".json"))
+            if is_repo_file or x.startswith(("data/", "scripts/", "tests/", "src/", "audit/", "docs/")):
+                links.append(a(BLOB + x, x))
+            else:
+                links.append(esc(x))
+        out = "; ".join(links)
+        return out + (f" ({esc(note)}" if note else "")
 
     req_rows = [[
         f'<code>{esc(r["req_id"])}</code>', esc(r["requirement"]),
