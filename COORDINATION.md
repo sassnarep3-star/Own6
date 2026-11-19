@@ -3791,3 +3791,13 @@ Session `arena/0050c939-own6` complete (C1-C6 all done).
 **Evidence boundary.** The suggestion/question/gap totals are repository-register counts, not official NFL facts, results, market data, model performance or recommendations. They are read from DFC0 CSVs and checked against its generated board. No external NFL content is newly asserted; official source URLs and dated reads remain in the existing source registers. Owner-choice fields stay blank. Any discrepancy in another pack's files is logged as a request/flag, not silently edited.
 
 **Branch-rule note.** The user brief asks for `session-<id>/<task>` branches; the Arena rule fixes this session to `arena/0f3037e8-own6`. All work stays on that branch and within the assigned scopes.
+
+### U4 scope extension — final shared-inventory regeneration (claimed 2026-11-19)
+
+The root portal, README, checker, workflow, and this coordination claim change the exact repository tree inventoried by the shared assurance/source-coverage artifacts. This final-integration-only regeneration scope was claimed before the work; after rebase, session `0050c939`'s completed C6 owns the current shared-inventory refresh. This session will not edit those shared generated files and instead requests that the owner include this branch's final tree when regenerating them.
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| U4 Regenerate and verify current-tree assurance/source-coverage outputs after the integration edits; converge until a second pass is byte-identical | in progress (handoff requested to `0050c939` C6) | `0f3037e8` | `data/assurance/**`, `docs/assurance/**`, `data/source_coverage/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md` |
+
+**Sequence requested for the final integrator:** `scripts/audit_repo.py` → `scripts/run_lab.py` → `scripts/build_assurance.py` → `scripts/check_assurance.py` → `scripts/source_coverage.py` → `scripts/source_coverage.py --check`, repeated after the final tree. Any DFC0 pack files altered by a DFC0 rebuild remain outside this session's scope and are reported as a request, not committed.
