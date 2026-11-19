@@ -4572,3 +4572,22 @@ correlation, or injury value will be inferred or newly asserted.
 **Evidence rule.** Structural claims in the review will be backed by local file paths and executable
 checks. Any external fact will be reported only when a current official source is directly read and
 linked; repository links, hashes, or internal consistency alone will not be presented as verification.
+
+---
+
+## Completion record — session `arena/fb41a18f-own6` (2026-11-19 UTC)
+
+| Task | Status | Result |
+|---|---|---|
+| F1 Final integration/release review | **done** | `audit/NFL_FB41A18F_FINAL_REVIEW.md` — read-only review at merged `main` commit `551f292` (PR #145); root and hub link scan; direct NFL schedule/standings spot reads; current Pages/PR state; reproducible repo-wide check results and issue list. |
+| F2 Coordination / release disposition | **done** | This append-only record and a report-only PR from `arena/fb41a18f-own6`; no landing page, pack, data, model, or generated shared inventory was edited. No merge/deploy was attempted by this review. |
+
+**Current review baseline and changes since claim.** The branch was rebased with keep-both resolution onto `551f292` after PRs #141, #144 and #145 advanced `main`. PR #145 fixed the then-current CDF S-01 theme classification, but the final merged tree contains the D6 pack from PR #144 while its DFC0/source-coverage generated outputs remain stale against that tree. The report records the final re-run rather than carrying forward the earlier `bb18cec` results.
+
+**Verification performed.** Root `index.html` (146 anchors) and `docs/index.html` (132 anchors) have no missing relative file targets. `tools/release_gate.py`, `tools/check_site.py` (13 strict pages), `scripts/check_site.py` (9 pages), `scripts/audit_integration.py`, `scripts/check_hub.py`, and the standalone CDF, D6, ADE, and 51698 checkers pass their structural scopes. `check_assurance.py` passes its row/link check (25,321 rows), but the pytest inventory-hash test fails for `COORDINATION.md`. A clean-tree pytest run at `551f292` yields 838 passed / 2 failed / 6 subtests; the failures are the assurance hash and DFC0 verifier. `check_nfl_dfc0c1bc.py` reports 46 problems before the builder updates 18 published outputs, including 27 D6 Q/S rows absent from its board. `source_coverage.py --check` reports 8 stale artifacts (454 pages / 43,961 rows calculated vs. 445 / 43,642 committed). Main Actions for Assurance, DFC0, Lab, Verify site and engine, and Legacy parlay safety fail; Release integrity, current-tree source-coverage CI, and Pages build succeed. Pages API is `built` for `551f292` (run 44524378266).
+
+**Official-source boundary.** This review directly read the official NFL Week 11 schedule and compared only the IND–HOU row in `data/nfl_cdf86c07/week11_slate.csv`. It also read the 2026 standings page, which currently renders literal template tokens in its heading. No other NFL values were newly verified; the evidence and limits are detailed in the audit.
+
+**Issues referred to the integration owner, not fixed here.** PR #135 remains open/`CONFLICTING` at head `5b98902`; a merge-tree comparison to `551f292` reports 34 content-conflict paths. The merged CDF pack remains absent from root/docs-hub/README navigation; root repeats the A67 link; 81/82 CDF requirement rows cite the same standings URL even for unrelated requirements. Full handling and source links are in the report.
+
+**Release disposition.** This is a verification-only close-out. No site merge or deployment is claimed for this session. Do not merge a repo-wide release candidate until the assurance inventory, DFC0 board and source-coverage artifacts are refreshed together and the failed checks pass. The report-only PR will be opened from this branch; its PR number and final check/merge status will be appended after creation. No other session's data, model, pack, or shared landing page was edited.
