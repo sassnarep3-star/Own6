@@ -1,6 +1,7 @@
 {
   "baseline_commit": "86eca0f",
 <<<<<<< HEAD
+<<<<<<< HEAD
   "data_records_reviewed": 23135,
   "external_source_policy": "Direct source reads are recorded separately. A URL, checksum or internal consistency check does not verify an external fact or grant rights.",
   "files_inventoried": 1584,
@@ -13,14 +14,18 @@
     "review_ledger": 913,
 =======
   "data_records_reviewed": 23434,
+=======
+  "data_records_reviewed": 23648,
+>>>>>>> 60bab6e (0fef3044: regenerate derived assurance and dfc0c1bc outputs on rebased main)
   "external_source_policy": "Direct source reads are recorded separately. A URL, checksum or internal consistency check does not verify an external fact or grant rights.",
-  "files_inventoried": 1599,
+  "files_inventoried": 1630,
   "findings": 17,
-  "lines_scanned": 164510,
+  "lines_scanned": 166340,
   "open_findings_at_baseline": 4,
   "record_categories": {
-    "legacy_data": 22031,
+    "legacy_data": 22212,
     "project_design": 28,
+<<<<<<< HEAD
     "review_ledger": 918,
 >>>>>>> ab6a98b (0fef3044: regenerate assurance inventory and dfc0c1bc board on the current tree (CI diff gate))
     "source_registry": 457
@@ -35,6 +40,16 @@
     "review_record": 918,
     "unverified": 22031
 >>>>>>> ab6a98b (0fef3044: regenerate assurance inventory and dfc0c1bc board on the current tree (CI diff gate))
+=======
+    "review_ledger": 939,
+    "source_registry": 469
+  },
+  "record_statuses": {
+    "project_design": 28,
+    "registry_record": 469,
+    "review_record": 939,
+    "unverified": 22212
+>>>>>>> 60bab6e (0fef3044: regenerate derived assurance and dfc0c1bc outputs on rebased main)
   },
   "resolved_in_session": 9,
   "resolved_upstream": 4,
