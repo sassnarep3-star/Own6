@@ -1,0 +1,16 @@
+q_id,question,known_state,discovery_path,gates
+Q-01,"Where is a licensed or official NFL price archive, and what are its terms?",No official NFL page publishes betting lines (nfl.com/odds returns 404).,Terms of licensed odds vendors; not NFL pages. Read terms before any price is stored.,"VG-03 · CD-01, CD-04, CD-18, CD-59"
+Q-02,Which official pages show each club's depth order for all 32 clubs?,Texans depth is an image; Packers prefix jersey numbers (prior pack).,Per-club team pages on nfl.com; check each club individually and record the URL.,"CD-06, CD-43, CD-51"
+Q-03,"Are official Game Books published for each game, and where?",No Game Book captured in any pack.,"Game centre for a completed game, look for a Game Book link. Path not yet verified here.","CD-25, CD-31"
+Q-04,"Are inactive lists and snap counts published officially, and at what time?",None captured.,Game centre after kickoff (path unverified). Record the time stamp of each capture.,"CD-31, CD-55"
+Q-05,What does 'Questionable' mean in practice (play rate)?,Official text gives no percentages.,"Archive of prior seasons' injury reports, joined to official inactive lists.","CD-44, CD-52, CD-65"
+Q-06,Which Week-11 venues come from the game centre and which from hotel parameters?,Week 11 venues not captured in this pack.,Each game centre page (links in week11_slate.csv).,CD-23
+Q-07,Is the Week-11 Mexico City header's game the Vikings–49ers game?,The schedule page places the Vikings at 49ers game under an 'International Game' header with a Mexico City logo; no venue is printed in the fetched text.,Vikings at 49ers game centre (link in slate).,"CD-14, CD-23"
+Q-08,Does the reserve list cover the full season or only a render window?,Prior pack: window 11/10–11/18 only.,The reserve-list page with season and month parameters.,CD-63
+Q-09,Which roof and surface designations are official for each stadium?,Not captured.,"Each game-centre page (roof/surface field, if published).",CD-57
+Q-10,What NWS forecast grid applies to each game location?,Not captured; NWS is not in the allowed host list for this sandbox.,Owner to confirm whether NWS may be fetched from this environment.,CD-57
+Q-11,How many finals make the backtest corpus: 136 or 150?,Brief cites 136 games; the 51698d74 pack recomputes 150 from standings (149+149+2)/2.,Reconcile the 136-game log against the official schedule week by week.,CD-19
+Q-12,"Does the NFL publish dated starter changes for Lock, McCord and Brissett?","Brief cites VR-24, VR-25, VQ-05 from a prior review; not re-read here.",Official transactions page and team news pages (paths unverified).,CD-42
+Q-13,Will NFL or partner terms allow publishing raw row-level data?,Terms not read in any pack.,NFL legal terms page (linked from site footer) and data-partner terms.,CD-40
+Q-14,What is the registered commit hash for each pre-registered strategy?,Not recorded per strategy.,git log of the strategy-definition files.,"CD-09, CD-66, CD-67"
+Q-15,What is the season-level sample floor for the leaderboard to qualify any strategy?,Not defined in this pack.,Owner decision; see suggestion S-08.,"CD-38, CD-74"

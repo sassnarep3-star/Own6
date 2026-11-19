@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Flagged for Review · NFL dashboard (cdf86c07)</title><style>
+:root{--ink:#1b2430;--muted:#5b6675;--line:#dfe4ea;--bg:#f7f9fb;--accent:#1f6feb;--warn:#b26a00}
+*{box-sizing:border-box}body{margin:0;font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg)}
+header{background:#fff;border-bottom:1px solid var(--line);padding:14px 22px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+header .brand{font-weight:700;margin-right:auto}
+nav a{margin-right:12px;color:var(--accent);text-decoration:none}nav a:hover{text-decoration:underline}
+main{max-width:1180px;margin:0 auto;padding:22px}
+h1{font-size:24px;margin:0 0 6px}h2{font-size:18px;margin:28px 0 8px}
+p.lede{color:var(--muted);margin:0 0 16px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:16px 0}
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px}
+.card b{display:block;font-size:22px}.card span{color:var(--muted);font-size:13px}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin:8px 0 18px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;font-size:14px}
+th{background:#eef3f8;font-weight:600;position:sticky;top:0}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.tag{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12px;border:1px solid var(--line);background:#fff}
+.st-captured{background:#e6f6ec;border-color:#b7e4c7}.st-partial{background:#fff7e6;border-color:#f5d28a}
+.st-blocked{background:#fdecec;border-color:#f3b4b4}.st-open{background:#eef3f8}.st-decided{background:#f1ecf9}
+.note{background:#fff;border-left:4px solid var(--accent);padding:10px 14px;margin:14px 0;color:var(--muted)}
+.warn{border-left-color:var(--warn)}
+footer{color:var(--muted);font-size:13px;padding:20px 22px;text-align:center}
+</style></head>
+<body><header><div class="brand">NFL dashboard · pack cdf86c07</div><nav><a href="index.html">Overview</a><a href="standings.html">Standings</a><a href="week11.html">Week 11</a><a href="requirements.html">Decision readiness</a><a href="questions.html">Questions</a><a href="suggestions.html">Suggestions (review)</a><a href="flags.html" aria-current=page>Flagged for Review</a><a href="sources.html">Sources</a></nav></header>
+<main><h1>Flagged for Review</h1>
+<p class="lede">Irregularities and unverified items. None blocks the merge. Each row links to its official source.</p>
+<table><thead><tr><th class="">Flag</th><th class="">Finding</th><th class="">Severity</th><th class="">Blocks merge</th><th class="">Source</th></tr></thead><tbody><tr><td class="">CDF-01</td><td class="">Standings page H1 renders raw template tokens (&#x27;$year$ NFL $displayname$ Standings&#x27;) while the &lt;title&gt; reads &#x27;2026 NFL Division Standings&#x27;.</td><td class="">low</td><td class="">no</td><td class=""><a href="https://www.nfl.com/standings/division/2026/reg" rel="noopener">source</a></td></tr><tr><td class="">CDF-02</td><td class="">Week-11 schedule places Vikings at 49ers under an &#x27;International Game, November 22nd&#x27; header with a Mexico City logo; no venue is printed in the fetched text.</td><td class="">low</td><td class="">no</td><td class=""><a href="https://www.nfl.com/schedules/2026/by-week/week-11" rel="noopener">source</a></td></tr><tr><td class="">CDF-03</td><td class="">Week-11 Thursday game (IND at HOU, Nov 19) is dated today; its result is not in this pack.</td><td class="">info</td><td class="">no</td><td class=""><a href="https://www.nfl.com/schedules/2026/by-week/week-11" rel="noopener">source</a></td></tr><tr><td class="">CDF-04</td><td class="">Corpus size disagrees across packs: brief/prior log 136 games; 51698d74 recomputes 150 from standings (149+149+2)/2.</td><td class="">medium</td><td class="">no</td><td class=""><a href="https://www.nfl.com/standings/division/2026/reg" rel="noopener">source</a></td></tr><tr><td class="">CDF-05</td><td class="">Requirement register cites &#x27;nfl_origination&#x27; and &#x27;nfl_51698d74&#x27; outputs that were not re-verified in this session; their status is carried, not re-proven.</td><td class="">low</td><td class="">no</td><td class=""><a href="https://www.nfl.com/standings/division/2026/reg" rel="noopener">source</a></td></tr><tr><td class="">CDF-06</td><td class="">No official NFL page publishes a betting line; market columns are blank by policy, so no edge can be measured.</td><td class="">medium</td><td class="">no</td><td class=""><a href="https://www.nfl.com/legal/terms/" rel="noopener">source</a></td></tr></tbody></table></main>
+<footer>Every row links to its official nfl.com source. Blank = not confirmed from an official source. No market prices, no betting advice, no profitability claim. Read day 2026-11-19 (UTC).</footer>
+</body></html>

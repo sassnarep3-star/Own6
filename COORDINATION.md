@@ -4289,3 +4289,43 @@ stand. COORDINATION.md resolved keep-both; shared inventories resolved to main t
 - **Open items left for a human:** the 6 suggestions (all `pending_human_choice=yes`, decision
   column empty by design), the 8 open questions, and the 6 non-blocking flags on the pack's
   Flagged for Review page.
+
+## Session `arena/cdf86c07-own6` — dashboard brief: official capture (standings + Week-11 slate), requirement register, Flagged-for-Review page (claimed 2026-11-19)
+
+**Branch rule.** Arena fixes this session to `arena/cdf86c07-own6`; the brief's `session-<id>/<task>` naming is not used (logged as a deviation, same as prior sessions). No other branches are created.
+
+**Claimed file scope (non-overlapping; no other session's files edited):**
+- `data/nfl_cdf86c07/**` (new pack data)
+- `docs/nfl-cdf86c07/**` (new pack site)
+- `src/nfl_cdf86c07/**`, `scripts/build_nfl_cdf86c07*.py`, `scripts/check_nfl_cdf86c07.py`
+- `tests/test_nfl_cdf86c07.py`, `.github/workflows/nfl-cdf86c07-ci.yml`
+- `audit/NFL_CDF86C07_REPO_REVIEW.md`, `NFL_CDF86C07_EXECUTIVE_SUMMARY.md`
+- `COORDINATION.md` (append-only, this record)
+
+**Not claimed (shared; changed only by integration):** root `index.html`, `README.md`, `docs/index.html`, shared inventories.
+
+**Scope note.** The brief lists ~80 items. This session captures the official standings and Week-11 slate and registers every brief item with an honest status. Items needing sources not yet captured (venues, injury series, depth charts, Game Books, roof/weather, licensed prices) are logged as blocked, not filled.
+
+### Completion record — session `cdf86c07` (2026-11-19)
+
+| Task | Status | Result |
+|---|---|---|
+| Repo review | **done** | `audit/NFL_CDF86C07_REPO_REVIEW.md` — 5 findings (CDR-01..05), all linked |
+| Official capture | **done** | Standings 32/32 rows, Week-11 slate 13 games, byes 6, dated schedule notices (Weeks 16–18); sources SRC-01, SRC-02 |
+| Cross-check | **done** | 32/32 standings rows match `data/nfl_51698d74/standings_2026_11_19.csv` on W/L/T/PF/PA/net |
+| Requirement register | **done** | 82 brief items with status, blocking gate, clearing number (captured 12 · decided 6 · partial 31 · blocked 21 · open 12) |
+| Questions / suggestions / flags | **done** | 15 questions with discovery paths; 10 suggestions (all pending owner choice, none implemented); 6 flags (all `blocking_merge=no`) |
+| Site | **done** | `docs/nfl-cdf86c07/` — 8 pages: overview + decision-readiness table, standings, Week 11, requirements, questions, suggestions, Flagged for Review, sources |
+| Verifier / tests / CI | **done** | `scripts/check_nfl_cdf86c07.py` OK; `tests/test_nfl_cdf86c07.py` 7 passed (incl. seeded-defect tests); `.github/workflows/nfl-cdf86c07-ci.yml` |
+| Repo site check | **done** | `scripts/check_site.py` OK (no broken internal links) |
+| Executive summary | **done** | `NFL_CDF86C07_EXECUTIVE_SUMMARY.md` |
+
+**Sources used (official):** [nfl.com 2026 standings](https://www.nfl.com/standings/division/2026/reg); [nfl.com Week 11 schedule](https://www.nfl.com/schedules/2026/by-week/week-11). Read 2026-11-19 via page fetch; artifact sha256 in `data/nfl_cdf86c07/capture_log.csv`.
+
+**Irregularities (non-blocking, on the Flagged for Review page):** CDF-01 standings H1 template tokens; CDF-02 Week-11 International Game header with no printed venue; CDF-03 Thursday IND@HOU dated today; CDF-04 corpus 136 vs 150 across packs; CDF-05 cross-pack statuses carried, not re-proven; CDF-06 no official betting line exists (market columns blank by policy).
+
+**Not done in this session (honest scope):** game-centre venues, injury series, depth charts, inactives, snap counts, Game Books, roof/weather, transactions and any market data were not fetched. Those requirements are `blocked` or `partial` with the gate named. Root `index.html` and `README.md` were not edited (outside this session's claimed scope); the pack is reached from its own landing page.
+
+**Branch rule:** single branch `arena/cdf86c07-own6`; no other branches created.
+
+**Next step:** open PR to `main`, merge (flags do not block), confirm Pages, record PR link and merge result below.
