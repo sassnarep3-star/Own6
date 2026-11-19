@@ -4435,3 +4435,11 @@ Claim recorded here after the first build of the pack; no other session's files 
 
 - Adding this pack's files changed repo-wide counts that the `dfc0c1bc` board measures (pack directories, root markdown, workflow files, COORDINATION.md size). The board was regenerated with its own builder, `scripts/build_nfl_dfc0c1bc.py`, to a fixed point (two identical runs). Changed: `data/nfl_dfc0c1bc/repo_findings.csv` (RF-01, RF-03, RF-04, RF-06, RF-07 counts only) and `docs/nfl-dfc0c1bc/repo-review.html`. No other row or wording was edited by hand.
 - After regeneration, `tools/run_tests.py` passes 194/194 (the rebuild-byte-identical test failed on this branch before regeneration and passes after it).
+
+### 0fef3044 — second integration note (rebase onto main at 7879cf5)
+
+- main at 7879cf5 failed `tools/run_tests.py` before this branch's changes. Two causes: (1) `dfc0c1bc` rule 2 found `cdf86c07` suggestion S-01 unclassified (T00); (2) `test_nfl_cdf86c07.py` needs pytest, which the custom runner does not install.
+- Repair applied (precedent: F-27 / ADE-F06): one OVERRIDES entry in `src/nfl_dfc0c1bc/themes.py`, `nfl_cdf86c07|suggestions|S-01 -> T09` (Designation reliability). S-01 asks for a Pending state for blank game-status cells, which is the designation topic. The source row is unchanged. Board regenerated with its builder to a fixed point.
+- Irregularity, not fixed (owned by `cdf86c07`): under `tools/run_tests.py` the three fixture-based tests in `tests/test_nfl_cdf86c07.py` (`test_build_is_deterministic`, `test_non_official_source_is_caught`, `test_seeded_bad_standings_is_caught`) fail with TypeError because the runner does not supply pytest fixtures. Under pytest the same file passes 7/7. Owner: session `cdf86c07` (or the integration session) should make the runner or the test file consistent.
+- Verification after the rebase: `tools/run_tests.py` 198/201 (the 3 cdf86c07 fixture cases above; all else passes); `pytest tests/test_nfl_cdf86c07.py` 7/7; `scripts/check_nfl_0fef3044.py` 18/18; `tools/release_gate.py` 0 issues; `scripts/check_site.py` OK.
+- Lab CI (`lab-ci.yml`) failed at its "Run tests" step on main as well (runs 44522165338 and 44522185886 at the same step). Not caused by this branch. Owner: NBA lab sessions.

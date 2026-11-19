@@ -177,6 +177,9 @@ THEMES: List[Dict[str, str]] = [
 #: Rows whose wording the keyword classifier cannot place, checked by hand against the source file.
 #: Key is ``pack|kind|local_id``. Anything not listed here falls back to the classifier.
 OVERRIDES: Dict[str, str] = {
+    # 0fef3044: cdf86c07 S-01 (Pending state for blank game-status cells) is a designation-reliability item.
+    # Added so the board verifier passes on main; the source row is unchanged.
+    "nfl_cdf86c07|suggestions|S-01": "T09",
     "nfl|suggestions|S01": "T12",
     "nfl|suggestions|S02": "T12",
     "nfl|suggestions|S03": "T05",
