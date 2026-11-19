@@ -4609,3 +4609,11 @@ The re-review was extended once more after PR #139 advanced `main` from `188e904
 The shared-landing findings are unchanged: CDF remains unlinked from root/docs-hub/README, the root A67 anchor is duplicated, and `docs/index.html` retains its NBA-branded title while linking mixed projects. PR #135 is still open with an older head; merge-tree against `68bda5a` reports 34 conflict paths. PR #146 is also still open from its older `551f292` base. Neither was merged or edited here.
 
 The review report now uses `68bda5a` as the final baseline; resolved red-check history from earlier review cuts remains labeled historical. No NFL pack values, models, shared pages, or generated inventories were changed. A report-only PR remains to be opened; any assurance-inventory freshness effect from adding this report/COORDINATION record must be reviewed before that PR is merged.
+
+### Final re-review addendum — capture bot commit `9630683` (2026-11-19 UTC)
+
+After the 68bda5a review cut, the scheduled capture workflow committed `data/nfl_capture/index.csv` as `9630683` (run 44526812258). Pages rebuilt successfully (44526841412); the current HTML/site and source-coverage freshness checks remain green. The capture file itself was not independently re-read as NFL evidence by this session.
+
+A clean pytest run on `9630683` now reports **865 passed / 1 failed / 6 subtests passed**. The sole failure is `test_inventory_hashes_and_line_counts`: `data/assurance/inventory.csv` still records `data/nfl_capture/index.csv` as SHA-256 `6476cec9…`, while the current file is `0692b71c…`. `check_assurance.py`'s structural row/link check still passes; `tools/run_tests.py` is 201/201 because it does not run that assurance subdirectory test. The full Actions matrix passed at `f1b0c16` immediately before the capture commit; the new commit has a successful Pages build but no full CI rerun listed.
+
+The current report `audit/NFL_FB41A18F_FINAL_REVIEW.md` now uses `9630683` as the final reviewed tree and distinguishes the f1b0c16 green matrix from the single latest inventory-hash failure. The navigation/source findings and PR #135 conflict count are unchanged. No capture data, assurance inventory, other pack, or site was modified by this review; regeneration is referred to the integration owner.
