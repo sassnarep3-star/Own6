@@ -3725,3 +3725,53 @@ scopes above stay non-overlapping so other sessions can still claim their own ta
 **New upstream flags published (non-blocking):** A67-F01..F12 — venue-name mismatches (RELIANT/NRG, NORTHWEST/FedEx, ACRISURE/Heinz + GEHA variance), game-centre legacy name on IND@HOU, reserve-list render window, IR players with blank game status (Al-Shaair/Carlies), dual Lamar recovery windows (6-9 vs 6-10), Texans image-only depth, Packers jersey prefixes + stale footer, Week-12 heading/weekday contradictions, week-12 panels not yet available, LAR/LA abbreviation drift, reserve-absence ≠ availability (VQ-06 case 2), blank game statuses = cadence.
 
 **Scope note:** this record is written on `arena/a67ddef8-own6` and shipped to main via a record PR (append-only rule; no direct main push). No other session's files were edited except the additive `docs/index.html` card, root `index.html` link and `README.md` bullet inside V8's claimed scope.
+
+---
+
+## Session `arena/bc96ca1c-own6` — official Game-Book evidence layer + repo-wide requirement readiness board (claimed 2026-11-19)
+
+**Session ID:** `bc96ca1c` · **Branch:** `arena/bc96ca1c-own6` (base `ffbbce6`, equal to `origin/main` HEAD at claim time).
+Arena fixes this session to that branch and forbids creating other branches, so the brief's
+`session-<id>/<task>` naming rule is satisfied by **disjoint file scopes** on the single Arena branch —
+the same deviation every prior session logged.
+
+**Why this scope is free.** The claim was written before any data or code was produced. A repo-wide
+grep for the official Game Book layer (`static.www.nfl.com/.../gamecenter/*.pdf`,
+`Gamebook`, `_GameBook.pdf`) returns **no** file in `data/`, `src/`, `docs/` or `audit/`: no pack has
+read an official NFL Game Book, so no pack has an official *actual-starter* record, an official
+*inactive* list, an official *roof/surface* designation, or an official *game-day participation*
+status. Every prior pack's "actual starter" evidence is inherited or inferred. The only existing
+official game-day status evidence is the injury-report participation widget rendered on the game
+centre page. The file scopes below are therefore unused by any other session.
+
+**Claim (written and pushed before any data or code was produced)**
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| B1 Line-by-line repo review + irregularity register | in progress | `bc96ca1c` | `audit/NFL_BC96CA1C_REPO_REVIEW.md`, `data/nfl_bc96ca1c/repo_findings.csv` |
+| B2 Official Game Book capture layer (week 10 slate) | in progress | `bc96ca1c` | `src/nfl_bc96ca1c/**`, `data/nfl_bc96ca1c/raw/**`, `data/nfl_bc96ca1c/gamebook_*.csv`, `data/nfl_bc96ca1c/capture_log.csv` |
+| B3 Designation → actual game-day participation calibration | in progress | `bc96ca1c` | `data/nfl_bc96ca1c/designation_calibration.csv` |
+| B4 Availability graph: expected vs actual starter, replacement depth | in progress | `bc96ca1c` | `data/nfl_bc96ca1c/availability_graph.csv` |
+| B5 Repo-wide requirement readiness matrix + Q/I/A + suggestions | in progress | `bc96ca1c` | `data/nfl_bc96ca1c/requirements_matrix.csv`, `data/nfl_bc96ca1c/questions.csv`, `data/nfl_bc96ca1c/suggestions.csv`, `data/nfl_bc96ca1c/flagged.csv`, `data/nfl_bc96ca1c/sources.csv` |
+| B6 Pack site + builder + verifier + tests + CI | in progress | `bc96ca1c` | `docs/nfl-bc96ca1c/**`, `scripts/build_nfl_bc96ca1c.py`, `scripts/build_nfl_bc96ca1c_data.py`, `scripts/check_nfl_bc96ca1c.py`, `tests/test_nfl_bc96ca1c.py`, `.github/workflows/nfl-bc96ca1c-ci.yml` |
+| B7 Executive summary | in progress | `bc96ca1c` | `NFL_BC96CA1C_EXECUTIVE_SUMMARY.md` |
+| B8 Integration: additive hub card, repo-inventory regeneration, PR → merge → Pages check → board record | in progress | `bc96ca1c` | `COORDINATION.md` (append only), one additive card in `docs/index.html`, one additive bullet in `README.md`, `data/assurance/**`, `data/source_coverage/**`, `docs/assurance/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md` (tool-regenerated only) |
+
+**Evidence rule.** A published value is either (a) a fact read this session from the official page
+named in its `source_url` (the NFL's own Game Book PDF or game centre, or a club's own page), logged
+in `capture_log.csv` with a UTC clock and the sha256 of the transcription artifact, or (b) arithmetic
+on such values with the derivation shown in the row. Anything else is a blank cell plus a row on
+Flagged for Review. No market price exists on any official NFL page, so price columns stay blank by
+written policy. No profitability claim anywhere. `needs review` never blocks.
+
+**Copyright handling of the Game Book.** The NFL's Game Book prints its own notice: the summary and
+play-by-play are "for the express purpose of assisting media ... any other use ... is prohibited
+without the written permission of the National Football League". This pack therefore publishes
+**factual rows only** (names, jersey numbers, positions, participation status, roof/surface
+designation, weather, attendance, scores) with a link to the official document for manual review.
+**No play-by-play text and no document text is republished.** The parser is tested against a
+synthetic fixture, not against copied league text.
+
+**Branch-rule deviation (logged).** The brief asks for `session-<id>/<task>` branches; the Arena
+session rule fixes this session to `arena/bc96ca1c-own6` and forbids creating other branches. File
+scopes above stay non-overlapping so other sessions can still claim their own tasks.
