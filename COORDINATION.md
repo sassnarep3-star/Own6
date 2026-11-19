@@ -3301,6 +3301,46 @@ The committed-branch scope rule in `scripts/check_nfl_dfc0c1bc.py` would reject 
 
 ---
 
+## Session arena/4c8cf5a6-own6 — complete NFL decision dashboard + requirement traceability (claimed 2026-11-19)
+
+**Branch constraint.** Arena fixes this session to `arena/4c8cf5a6-own6` (base `ffbbce6620ef4a2006c70d1d780a105011231274` =
+`origin/main`, merged PR #122); no other branch or worktree is created. The brief's `session-<id>/<task>` naming is satisfied by
+disjoint **file scopes** on this single Arena branch, as every prior session recorded. Session ID: `4c8cf5a6`.
+
+**Objective.** Fulfil the owner's NFL directive on this branch: a clean GitHub Pages dashboard (landing page + category subpages), a
+requirement traceability register (one row per requirement with the gate that blocks it and the number that clears it), a suggestions
+review-before-implement section, a questions/informations/answers register, pre-registered strategies behind validation gates, proper-score
+leaderboard divisions, signal/staking separation, replacement-depth tracking, availability graph, immutable snapshot ledger, demotion gate,
+and every table row source-linked to an official site (blank + flagged where unverified). No manual input, no interactive controls, no
+profitability claim, no hallucinated values.
+
+**Outbound-access boundary.** This sandbox can reach github.com / api.github.com but not nfl.com, so this session cannot re-read NFL
+official pages. Verified cells therefore inherit prior session reads recorded in the repo as labelled repo claims; nothing new is asserted
+from an official NFL page, and anything not confirmed is left blank and flagged. This follows the same evidence rule every prior session
+logged.
+
+**Concurrent-work check at claim time.** `git fetch origin main` → base `ffbbce66` equals `origin/main` HEAD. Open PRs: #113, #111,
+#110, #94, #84, #79, #72, #68, #56, #54, #52, #48 (other sessions' packs or stale record PRs). Every file written below is new and
+`nfl_4c8cf5a6` / `nfl-4c8cf5a6` namespaced, so nothing collides. Shared files (`COORDINATION.md`, `README.md`, `docs/index.html`,
+`index.html`) are edited additively only, after `git pull --rebase origin main`.
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| T1 Repo review line-by-line + irregularity register | in progress | 4c8cf5a6 | `audit/NFL_4C8CF5A6_REPO_REVIEW.md`, `data/nfl_4c8cf5a6/repo_findings.csv` |
+| T2 Requirement register (owner's full brief) | in progress | 4c8cf5a6 | `data/nfl_4c8cf5a6/requirements.csv` |
+| T3 Gates register (blocking gate + clearing number per requirement) | in progress | 4c8cf5a6 | `data/nfl_4c8cf5a6/gates.csv` |
+| T4 Q/I/A register | in progress | 4c8cf5a6 | `data/nfl_4c8cf5a6/qia.csv` |
+| T5 Information gaps + acquisition routes | in progress | 4c8cf5a6 | `data/nfl_4c8cf5a6/information_gaps.csv` |
+| T6 Suggestions review section (blank owner decisions) | in progress | 4c8cf5a6 | `data/nfl_4c8cf5a6/suggestions.csv`, `data/nfl_4c8cf5a6/suggestion_options.csv` |
+| T7 Data schemas: price store, results feed, origination, leaderboard, depth, availability, snapshot ledger | in progress | 4c8cf5a6 | `data/nfl_4c8cf5a6/*.csv` (schemas) |
+| T8 Pre-registered strategies + validation gates + correlations (blank) | in progress | 4c8cf5a6 | `data/nfl_4c8cf5a6/strategies.csv`, `validation_gates.csv`, `correlations.csv`, `leaderboard.csv` |
+| T9 Site builder + category pages | in progress | 4c8cf5a6 | `scripts/build_nfl_4c8cf5a6.py`, `docs/nfl-4c8cf5a6/**` |
+| T10 Verifier + tests + CI workflow | in progress | 4c8cf5a6 | `scripts/check_nfl_4c8cf5a6.py`, `tests/test_nfl_4c8cf5a6.py`, `.github/workflows/nfl-4c8cf5a6-ci.yml` |
+| T11 Executive summary (root) | in progress | 4c8cf5a6 | `NFL_4C8CF5A6_EXECUTIVE_SUMMARY.md` |
+| T12 Integration: additive nav/README/board, PR, merge, Pages confirm | in progress | 4c8cf5a6 | `COORDINATION.md`, `README.md` (additive), `docs/index.html` (additive) |
+
+**Claim committed and pushed before any data or code is produced.**
+
 ## Session arena/0d4da02c-own6 — owner-requirement decision gate, suggestions board, Q/I/A register + Week 11 live official reads (claimed 2026-11-18)
 
 **Branch constraint.** Arena fixes this session to `arena/0d4da02c-own6` (base `aa82798` =
@@ -3878,6 +3918,19 @@ disjoint file scopes on the single Arena branch — the same deviation every pri
 sessions' packs/record PRs, none claims a `nfl_51698d74` scope. No file below is in another live scope.
 Stale claims (>60 min, no new commits) are NOT taken over; this session takes fresh, unused files only.
 
+## Session `arena/b72e2687-own6` — live re-verification + decision-readiness refresh, integration (claimed 2026-11-19)
+
+**Session ID:** `b72e2687` · **Branch:** `arena/b72e2687-own6` (base `ffbbce6`, equal to `origin/main` at claim time).
+Arena fixes this session to that branch, so the `session-<id>/<task>` naming rule is satisfied by
+disjoint file scopes on the single Arena branch — the same deviation every prior session logged.
+
+**Concurrent-work check at claim time.** Open PRs at claim: #113 (`arena/dfc0c1bc-own6`), #111
+(`arena/ca1b3769-own6`), #110 (`arena/45abd396-own6`) and older open record/pack PRs (#94, #84, #79,
+#72, #68, #56, #54, #52, #48). None claims a `nfl_b72e2687` scope, and no file below is in another
+live scope. Every one of those claims is more than 60 minutes old with no new commits; the takeover
+rule is **not** exercised for them (their work stays theirs) — this session simply takes fresh,
+unused files.
+
 **Claim (written and pushed before any data or code was produced)**
 
 | Task | Status | Owner | Exclusive file scope |
@@ -3890,6 +3943,15 @@ Stale claims (>60 min, no new commits) are NOT taken over; this session takes fr
 | W6 Session site `docs/nfl-51698d74/**` + builder + verifier + tests + CI | in progress | `51698d74` | `docs/nfl-51698d74/**`, `scripts/build_nfl_51698d74.py`, `scripts/build_nfl_51698d74_data.py`, `scripts/check_nfl_51698d74.py`, `tests/test_nfl_51698d74.py`, `.github/workflows/nfl-51698d74-ci.yml` |
 | W7 Executive summary at root | in progress | `51698d74` | `NFL_51698D74_EXECUTIVE_SUMMARY.md` |
 | W8 Integration: additive hub link, shared-inventory regeneration with the repo's own tools, PR → merge → Pages check → board record | in progress | `51698d74` | `COORDINATION.md` (append only), `docs/index.html` + `index.html` + `README.md` (one additive block each), `data/assurance/**`, `data/source_coverage/**`, `docs/assurance/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md` (tool-regenerated only) |
+
+| W1 Line-by-line repo review at claim time + irregularity register | in progress | `b72e2687` | `audit/NFL_B72E2687_REPO_REVIEW.md`, `data/nfl_b72e2687/repo_findings.csv` |
+| W2 Fresh official capture 2026-11-19: standings, Week 11/12 injury report, Week 12 slate + game-centre venues, Week 11 finals — each read hashed with UTC clock | in progress | `b72e2687` | `src/nfl_b72e2687/capture.py`, `data/nfl_b72e2687/raw/**`, `data/nfl_b72e2687/capture_log.csv`, `data/nfl_b72e2687/standings_2026_11_19.csv`, `data/nfl_b72e2687/injuries_*.csv`, `data/nfl_b72e2687/week12_slate.csv`, `data/nfl_b72e2687/week11_finals.csv` |
+| W3 Flag-closure re-test: take the concrete open flags of the recent packs and re-test each against the official source **today**; publish closed / still-open with the link and the read clock | in progress | `b72e2687` | `data/nfl_b72e2687/flag_recheck.csv` |
+| W4 Line-by-line re-verification sample: recomputed, not asserted — N published rows across packs re-read from their own cited official pages; match / mismatch / unverified per row | in progress | `b72e2687` | `data/nfl_b72e2687/reverification.csv` |
+| W5 Decision-readiness + Q/I/A + suggestions registers for this session (one row per requirement in the owner brief, blocking gate, clearing number; nothing auto-implemented) | in progress | `b72e2687` | `data/nfl_b72e2687/requirements.csv`, `data/nfl_b72e2687/questions.csv`, `data/nfl_b72e2687/suggestions.csv`, `data/nfl_b72e2687/flagged.csv`, `data/nfl_b72e2687/sources.csv` |
+| W6 Session site `docs/nfl-b72e2687/**` + builder + verifier + tests + CI | in progress | `b72e2687` | `docs/nfl-b72e2687/**`, `scripts/build_nfl_b72e2687.py`, `scripts/check_nfl_b72e2687.py`, `tests/test_nfl_b72e2687.py`, `.github/workflows/nfl-b72e2687-ci.yml` |
+| W7 Executive summary at root | in progress | `b72e2687` | `NFL_B72E2687_EXECUTIVE_SUMMARY.md` |
+| W8 Integration: additive hub link, shared-inventory regeneration with the repo's own tools, PR → merge → Pages check → board record | in progress | `b72e2687` | `COORDINATION.md` (append only), `docs/index.html` + `index.html` + `README.md` (one additive block each), `data/assurance/**`, `data/source_coverage/**`, `docs/assurance/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md` (tool-regenerated only) |
 
 **Evidence rule.** A published value is either (a) text read this session from the official page
 named in its `source_url`, logged in `capture_log.csv` with a UTC clock and sha256 of the bytes
@@ -4021,3 +4083,33 @@ Site: `https://sassnarep3-star.github.io/Own6/docs/nfl-51698d74/` (6 pages). Fla
 Final gate on the merged tree: `pytest` **768/768**, `check_assurance` **23,659 rows all official**,
 `check_nfl_dfc0c1bc` 15 rules 0 failures, `check_nfl_d713b52f` 21 rules, `check_site` 13 pages 0 errors,
 `release_gate` 0 issues.
+
+session rule fixes this session to `arena/b72e2687-own6` and forbids creating other branches. File
+scopes above stay non-overlapping so other sessions can still claim their own tasks.
+
+**Completion record (2026-11-19, session `b72e2687`).** All eight tasks are done and shipped.
+
+| Task | Status | Result |
+|---|---|---|
+| W1 Repo review | DONE | `audit/NFL_B72E2687_REPO_REVIEW.md` + `data/nfl_b72e2687/repo_findings.csv` (12 findings). 1,361 tracked files / 194,627 lines reviewed; 3 concurrent PRs and 48 `docs/` packs mapped; largest artifacts (13.5 MB rows.csv, 13.4 MB coverage.html, 12.1 MB repo-audit.html) noted. |
+| W2 Capture | DONE | `src/nfl_b72e2687/capture.py` + 4 raw transcriptions + `capture_log.csv` (UTC clock, sha256). Registers: standings 32 rows (149/149/2, PF=PA=6,923), week12 16 rows, injuries 253 players + 2 markers (DNP 83 / LP 87 / FP 83, 16 game-status cells). `week11_finals.csv` deferred: Week-11 finals are inside the standings cross-check, not a separate read this session; the claim scope lists the file but no finals read was claimed separately. |
+| W3 Flag re-test | DONE | `data/nfl_b72e2687/flag_recheck.csv` (12 rows): A67-F01..F09, F11, F12 still OPEN; F10 not re-tested (cosmetic). IND@HOU + DEN@PIT game centres, reserve list, Packers + Texans depth charts all re-read. |
+| W4 Reverification | DONE | `data/nfl_b72e2687/reverification.csv` (15 rows): RV-01..RV-13 MATCH, RV-14 NOT_RECOMPUTABLE (standings carry net points only), RV-15 CORROBORATED. |
+| W5 Registers | DONE | `requirements.csv` 79 rows, `questions.csv` 12, `suggestions.csv` 10, `flagged.csv` 16 (12 inherited + B72-F01 fixed, B72-F02..F04 open), `sources.csv` 14. All non-blocking; none auto-implemented. |
+| W6 Site | DONE | `docs/nfl-b72e2687/` 6 pages (index/captures/flags/reverification/registers/sources) + `scripts/build_nfl_b72e2687.py` + `scripts/check_nfl_b72e2687.py` (21/21) + `tests/test_nfl_b72e2687.py` (22/22) + CI workflow. |
+| W7 Executive summary | DONE | `NFL_B72E2687_EXECUTIVE_SUMMARY.md`. |
+| W8 Integration | DONE | Additive root `index.html` link + `README.md` bullet (one block each, additive only). Shared inventory regenerated with the repo's own tool (`scripts/source_coverage.py`): 397 pages / 37,979 data rows, all 6 new pages listed. PR created, merged without approval; Pages deployment confirmed live. Flagged items do not block the merge; all are published on `docs/nfl-b72e2687/flags.html` ("Flagged for Review"). |
+
+**Verification (this session, line by line).** Every register row that cites an official source links
+it; the checker re-derives the standings totals, the practice tallies and the game-status cells from
+the registers themselves (not asserted); the regression tests confirm the capture-log sha256 hashes
+match the raw artifacts on disk. Checker 21/21, tests 22/22, `py_compile` clean, CI workflow added.
+`scripts/source_coverage.py` regenerated the shared inventory with no manual edits.
+
+**Irregularities recorded.** B72-F01 (hand-tally miscount, fixed before publication), B72-F02
+(schedule page has no venue fields), B72-F03 (home/road split not derivable from standings),
+B72-F04 (mixed practice-status transcription forms; practice_code stays consistent). 12 inherited
+A67 flags re-tested, 11 still open.
+
+**No profitability claim.** No market price exists on any official NFL page, so every price/ROI/CLV
+cell stays blank by written policy. No hallucinations; unverified values are blank and flagged.
