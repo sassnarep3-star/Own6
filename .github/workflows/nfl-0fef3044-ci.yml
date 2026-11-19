@@ -1,0 +1,42 @@
+name: NFL 0FEF3044 Injury Capture Gate
+
+# Owns data/nfl_0fef3044, docs/nfl-0fef3044 and the 0fef3044 builder, checker and tests.
+# Path-filtered so it runs only for this pack; repository-wide gates still run on every PR.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/nfl_0fef3044/**"
+      - "docs/nfl-0fef3044/**"
+      - "scripts/build_nfl_0fef3044.py"
+      - "scripts/check_nfl_0fef3044.py"
+      - "tests/test_nfl_0fef3044.py"
+      - "NFL_0FEF3044_EXECUTIVE_SUMMARY.md"
+      - ".github/workflows/nfl-0fef3044-ci.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "data/nfl_0fef3044/**"
+      - "docs/nfl-0fef3044/**"
+      - "scripts/build_nfl_0fef3044.py"
+      - "scripts/check_nfl_0fef3044.py"
+      - "tests/test_nfl_0fef3044.py"
+      - "NFL_0FEF3044_EXECUTIVE_SUMMARY.md"
+      - ".github/workflows/nfl-0fef3044-ci.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  verify-nfl-0fef3044:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Unit tests (stdlib, no network)
+        run: python3 -m unittest discover -s tests -p "test_nfl_0fef3044.py" -v
+      - name: Regenerate and verify the pack (no network)
+        run: python3 scripts/check_nfl_0fef3044.py

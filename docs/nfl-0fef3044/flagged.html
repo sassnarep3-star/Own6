@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Flagged for Review · Own6 NFL</title>
+<style>
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;color:#1d2330;background:#f7f8fa;line-height:1.45}
+header{background:#14213d;color:#fff;padding:18px 24px}
+header a{color:#ffd166}
+main{max-width:1200px;margin:0 auto;padding:18px 24px 48px}
+h1{font-size:1.5rem;margin:0 0 4px}h2{font-size:1.15rem;margin:26px 0 8px}
+.note{background:#fff;border-left:4px solid #3a86ff;padding:10px 14px;margin:12px 0;border-radius:4px}
+.warn{border-left-color:#e63946}
+.tiles{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}
+.tile{background:#fff;border-radius:6px;padding:10px 14px;min-width:150px;box-shadow:0 1px 2px #0001}
+.tile b{display:block;font-size:1.3rem}
+table{border-collapse:collapse;width:100%;background:#fff;font-size:.88rem}
+th,td{border-bottom:1px solid #e3e6ec;padding:6px 8px;text-align:left;vertical-align:top}
+th{background:#eef1f6;position:sticky;top:0}
+input#f{padding:7px 10px;width:320px;max-width:100%;margin:6px 0;border:1px solid #bbb;border-radius:4px}
+nav a{margin-right:14px}
+.wrap{overflow-x:auto}
+</style></head>
+<body>
+<header><div><strong>Own6 · NFL official injury-hub capture</strong> &nbsp;|&nbsp; session 0fef3044</div>
+<nav style="margin-top:8px"><a href="index.html">Week 11 report</a> <a href="flagged.html">Flagged for Review</a> <a href="../index.html">Repository home</a></nav></header>
+<main>
+
+<h1>Flagged for Review</h1>
+<p>Items below are published with their source links and remain open until the owner decides. They do not block anything.</p>
+<div class="wrap"><table><thead><tr><th>ID</th><th>Severity</th><th>Topic</th><th>Observation</th><th>Status</th><th>Source</th><th>Related</th></tr></thead>
+<tbody><tr><td>0FEF-F01</td><td>medium</td><td>roster-affiliation (carry-forward)</td><td>Jaylen Waddle is listed under DEN (Broncos) on the Week 11 report and is not listed under MIA. This is the same observation as open flag ADE-F01. The read here is independent and matches it.</td><td>open</td><td><a href='https://www.nfl.com/injuries/league/2026/reg11'>source</a></td><td>ADE-F01 (data/nfl_ade166a4/flagged.csv)</td></tr><tr><td>0FEF-F02</td><td>low</td><td>absent clubs</td><td>Six clubs (ATL, CLE, GB, LA, NE, SEA) have no table on the Week 11 report. The schedule read in data/nfl_0ce967db lists the same six as on bye. The injury page itself does not print a bye label, so the bye status is confirmed only by the schedule page.</td><td>reconciled to schedule read; not independently re-read</td><td><a href='https://www.nfl.com/schedules/2026/by-week/week-11'>source</a></td><td>data/nfl_0ce967db/raw/week11_slate_read_2026_11_18.txt</td></tr><tr><td>0FEF-F03</td><td>medium</td><td>Detroit game status blank</td><td>Kerby Joseph (S), Cade Mays (C) and D.J. Reed (CB) appear on the Week 11 report with a blank Game Status. The Week 10 read in data/nfl_0ce967db listed all three as Out. Those are different weeks, so the Week 10 value is not carried forward. A blank game status is left blank here and is not treated as Out or Available.</td><td>open</td><td><a href='https://www.nfl.com/injuries/league/2026/reg11'>source</a></td><td>VR-08/VR-12 (data/nfl_0ce967db/flagged.csv)</td></tr><tr><td>0FEF-F04</td><td>medium</td><td>capture precision</td><td>The fetch tool returns no per-request timestamp and no raw HTML bytes. The read time is recorded as &#x27;after 12:09:34Z&#x27; and the file hash covers this transcription only, not official bytes.</td><td>limitation (recorded)</td><td><a href='https://www.nfl.com/injuries/league/2026/reg11'>source</a></td><td></td></tr><tr><td>0FEF-F05</td><td>low</td><td>name transcription</td><td>Two names differ between the displayed name and the profile link slug on the page: Jacob Hummel (slug jake-hummel) and Dee Alford (slug deaundre-ford). The displayed name is used; the slug is not used as a source.</td><td>recorded</td><td><a href='https://www.nfl.com/injuries/league/2026/reg11'>source</a></td><td></td></tr></tbody></table></div>
+
+</main></body></html>

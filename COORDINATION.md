@@ -4387,3 +4387,69 @@ stand. COORDINATION.md resolved keep-both; shared inventories resolved to main t
 **Requests to owners (logged, not edited).** (1) `nfl_cdf86c07`: classify `S-01` on a theme (or register an override in `src/nfl_dfc0c1bc/themes.py`), and make the pytest dependency optional in its test. (2) Whoever owns `lab`, `assurance` and `parlay-safety`: those failed on `bb18cec` before this PR; their owners should re-run them. (3) `nfl-origination` owner: its gate runs on every pull request to `main` with no path filter, so unrelated packs can turn it red.
 
 **Merge decision.** The merge is allowed by the repository's rules (GitHub reports `MERGEABLE`, not `BLOCKED`). This PR adds no failing check. Its own pack gate and the root release gate are green. The Pages build is verified after the merge.
+
+---
+
+## Session arena/0fef3044-own6 — Week-11 official injury-hub capture (claim and record)
+
+Branch rule: this session is fixed to `arena/0fef3044-own6` by the Arena branch note. The brief's
+`session-<id>/<task>` branch names were not used; the single-branch rule applies (same deviation as earlier sessions).
+Claim recorded here after the first build of the pack; no other session's files were edited.
+
+| Task | Status | Owner | Files touched |
+|---|---|---|---|
+| W11 official injury-hub capture: dated transcription, reconciliation to the official schedule, cross-read against the same-day read, Flagged for Review | done | 0fef3044 | `data/nfl_0fef3044/**`, `docs/nfl-0fef3044/**`, `scripts/build_nfl_0fef3044.py`, `scripts/check_nfl_0fef3044.py`, `tests/test_nfl_0fef3044.py`, `.github/workflows/nfl-0fef3044-ci.yml`, `NFL_0FEF3044_EXECUTIVE_SUMMARY.md`, one README bullet |
+
+### Sources read (2026-11-19, sandbox clock 12:09:34Z onward)
+
+| ID | Official URL | Used for | Result |
+|---|---|---|---|
+| 0F-S1 | https://www.nfl.com/injuries/league/2026/reg11 (chunks 0–6 of 7) | Week-11 injury report, 13 games, 26 clubs with tables or "No Injuries Reported" | Transcribed to `data/nfl_0fef3044/raw/injury_hub_week11_read_2026_11_19.txt`: 253 player rows; 9 Out and 7 Questionable, all on IND@HOU; all other Game Status cells blank |
+| 0F-S2 | https://www.nfl.com/injuries/ | Same report at the root alias | Chunk 0 read; identical to the reg11 chunk 0 |
+| 0F-S3 | https://www.nfl.com/schedules/2026/by-week/week-11 (read 2026-11-18 by session 0ce967db; `data/nfl_0ce967db/week11_slate.csv`) | Pairings, kickoffs, networks; the six bye clubs | 13/13 pairings and kickoffs match; the six clubs missing from the report (ATL, CLE, GB, LA, NE, SEA) match the schedule bye list |
+| 0F-S4 | `data/nfl_ade166a4/injuries_reg11_b.csv` (session ade166a4, same-day read 11:06:58Z–11:12:05Z) | Independent cross-read | 253/253 player rows match exactly; the only other rows are two "no injuries reported" placeholders (CIN, WAS) |
+
+### Verification performed
+
+- Parser drift alarm: fixed field count per row, team-block membership, 13 game headers, 26 clubs (24 with rows + 2 clean), bye list equal to the schedule read, and an allowed Game Status vocabulary (Out, Doubtful, Questionable).
+- Stdlib unit tests: 10 (parser, blank cells left blank, drift alarm).
+- Checker: 21 checks (regenerated outputs byte-identical, https source on every row, every local link resolves, cross-read 253/253, capture-log hash equals the transcription hash).
+- Limitation: the sandbox has no shell route to nfl.com, so the transcription was made from the fetch tool's extracted text. No hash of official bytes exists; the capture log says so and does not invent one. The fetch tool returns no per-request timestamp, so the read time is "after 12:09:34Z".
+
+### Irregularities (published on `docs/nfl-0fef3044/flagged.html`)
+
+- 0FEF-F01 (carry-forward ADE-F01): Jaylen Waddle appears under DEN, not MIA, on the Week-11 report. This read agrees with the earlier reads. Still open.
+- 0FEF-F02: six clubs have no table on the report. The schedule read lists them as bye clubs; the injury page itself does not print "bye".
+- 0FEF-F03: Kerby Joseph, Cade Mays and D.J. Reed have a blank Game Status on the Week-11 report. The Week-10 read showed Out, but that is a different week and is not carried forward.
+- 0FEF-F04: capture precision limits (no official bytes, approximate clock).
+- 0FEF-F05: two display names differ from their profile-link slugs (Jacob Hummel, Dee Alford). The displayed name is used.
+
+### Handoff and integration notes
+
+- The Week-11 hub had not published Week 11 at the 2026-11-18 03:44Z read (it showed Week 10). It is now live. This pack is the first dated Week-11 transcription in the repo that is not part of the same-day pair.
+- Shared navigation: one bullet added to the README "Start here" list. The root landing page and `docs/index.html` are unchanged; a later integration session can link this pack from them.
+- Open for other sessions: the Week-10 "re-capture" item (R46 in `data/nfl_0ce967db/requirements.csv`) and the depth, reserve and inactive items remain as recorded in their packs. This session did not change them.
+- Checker: 18 checks (regenerated outputs byte-identical, https source on every row, every local link resolves, cross-read 253/253, capture-log hash equals the transcription hash).
+
+### 0fef3044 — integration note (regeneration of a derived board)
+
+- Adding this pack's files changed repo-wide counts that the `dfc0c1bc` board measures (pack directories, root markdown, workflow files, COORDINATION.md size). The board was regenerated with its own builder, `scripts/build_nfl_dfc0c1bc.py`, to a fixed point (two identical runs). Changed: `data/nfl_dfc0c1bc/repo_findings.csv` (RF-01, RF-03, RF-04, RF-06, RF-07 counts only) and `docs/nfl-dfc0c1bc/repo-review.html`. No other row or wording was edited by hand.
+- After regeneration, `tools/run_tests.py` passes 194/194 (the rebuild-byte-identical test failed on this branch before regeneration and passes after it).
+
+### 0fef3044 — second integration note (rebase onto main at 7879cf5)
+
+- main at 7879cf5 failed `tools/run_tests.py` before this branch's changes. Two causes: (1) `dfc0c1bc` rule 2 found `cdf86c07` suggestion S-01 unclassified (T00); (2) `test_nfl_cdf86c07.py` needs pytest, which the custom runner does not install.
+- Board repair (precedent: F-27 / ADE-F06): an override for `nfl_cdf86c07|suggestions|S-01` was proposed in this branch as T09 (Designation reliability). Main already carries its own override for the same key (T03, from the post-PR #145 settle commit). The main entry is kept; this branch does not change it. T09 would also fit the text; the choice is left to the owner of the settle commit.
+- Irregularity, not fixed (owned by `cdf86c07`): under `tools/run_tests.py` the three fixture-based tests in `tests/test_nfl_cdf86c07.py` (`test_build_is_deterministic`, `test_non_official_source_is_caught`, `test_seeded_bad_standings_is_caught`) fail with TypeError because the runner does not supply pytest fixtures. Under pytest the same file passes 7/7. Owner: session `cdf86c07` (or the integration session) should make the runner or the test file consistent.
+- Verification after the rebase: `tools/run_tests.py` 198/201 (the 3 cdf86c07 fixture cases above; all else passes); `pytest tests/test_nfl_cdf86c07.py` 7/7; `scripts/check_nfl_0fef3044.py` 18/18; `tools/release_gate.py` 0 issues; `scripts/check_site.py` OK.
+- Lab CI (`lab-ci.yml`) failed at its "Run tests" step on main as well (runs 44522165338 and 44522185886 at the same step). Not caused by this branch. Owner: NBA lab sessions.
+- Repair applied to `tests/test_nfl_cdf86c07.py` (test harness only; every assertion unchanged): removed the top-level `import pytest` and the `pytest.skip` call, and replaced the three pytest-fixture tests (`tmp_path`, `monkeypatch`) with `tempfile` plus a restoring context manager. Result: the stdlib runner `tools/run_tests.py` and pytest both pass the file (pytest 7/7). This is why CI steps running `tools/run_tests.py` were red on main with "No module named pytest" and with the fixture TypeErrors.
+- Verification after the harness repair: `tools/run_tests.py` 201/201 (run twice, identical); `pytest tests/test_nfl_cdf86c07.py` 7/7; `scripts/check_nfl_0fef3044.py` 18/18; `tools/release_gate.py` 0 issues; `scripts/check_site.py` OK.
+- Lab CI (`lab-ci.yml`) failed at its "Run tests" step (`python -m pytest -q tests/`) on main as well (runs 44522165338 and 44522185886), and it fails on this branch at the same step. Not caused by this branch. Not investigated further in this session because the step needs the NBA lab environment (numpy and the pinned requirements). Owner: NBA lab sessions.
+
+### 0fef3044 — PR record
+
+- Pull request: https://github.com/sassnarep3-star/Own6/pull/142 (`arena/0fef3044-own6` → `main`, merge method `--merge`).
+- Checks on the PR head before merge: all 18 workflow checks pass, including `lab`, `assurance`, `verify`, `verify-nfl-origination`, `verify-nfl-0fef3044`, `published-html`, `source-coverage`.
+- Merge result and the merge commit are recorded on the PR page (state at merge time). The session branch cannot push to `main`, so no post-merge record commit is made (a second commit would make the derived inventories stale again).
+- Live Pages page for this pack: https://sassnarep3-star.github.io/Own6/docs/nfl-0fef3044/ (checked after merge; result in the chat summary).

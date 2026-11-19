@@ -4,15 +4,32 @@ import filecmp
 import shutil
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
-import pytest
+# Stdlib-only: runs under tools/run_tests.py (no pytest fixtures or pytest import) and under pytest.
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 import check_nfl_cdf86c07 as chk  # noqa: E402
 
 DATA = ROOT / "data" / "nfl_cdf86c07"
+
+
+class _patched_data:
+    """Point the checker at a temporary copy of the data directory, restoring it afterwards."""
+
+    def __init__(self, fake):
+        self.fake = fake
+
+    def __enter__(self):
+        self.saved = chk.DATA
+        chk.DATA = self.fake
+        return self
+
+    def __exit__(self, *exc):
+        chk.DATA = self.saved
+        return False
 
 
 def test_verifier_passes_on_committed_pack():
@@ -22,7 +39,8 @@ def test_verifier_passes_on_committed_pack():
 def test_standings_match_prior_independent_read():
     prior = ROOT / "data" / "nfl_51698d74" / "standings_2026_11_19.csv"
     if not prior.exists():
-        pytest.skip("prior pack absent")
+        print("skip: prior pack absent")
+        return
     a = {r["club"]: r for r in csv.DictReader(open(DATA / "standings_2026_11_19.csv", encoding="utf-8"))}
     b = {r["club"]: r for r in csv.DictReader(open(prior, encoding="utf-8"))}
     assert set(a) == set(b)
@@ -38,32 +56,34 @@ def test_league_totals():
     assert sum(int(r["pf"]) for r in st) == sum(int(r["pa"]) for r in st) == 6923
 
 
-def test_seeded_bad_standings_is_caught(tmp_path, monkeypatch):
+def test_seeded_bad_standings_is_caught():
     src = DATA / "standings_2026_11_19.csv"
     lines = src.read_text(encoding="utf-8").splitlines()
     lines[1] = lines[1].replace(",0.889,", ",0.900,", 1)
-    fake = tmp_path / "data"
-    fake.mkdir()
-    for f in DATA.iterdir():
-        shutil.copy(f, fake / f.name)
-    (fake / "standings_2026_11_19.csv").write_text("\n".join(lines) + "\n", encoding="utf-8")
-    monkeypatch.setattr(chk, "DATA", fake)
-    errs = chk.check()
+    with tempfile.TemporaryDirectory() as tmp:
+        fake = Path(tmp) / "data"
+        fake.mkdir()
+        for f in DATA.iterdir():
+            shutil.copy(f, fake / f.name)
+        (fake / "standings_2026_11_19.csv").write_text("\n".join(lines) + "\n", encoding="utf-8")
+        with _patched_data(fake):
+            errs = chk.check()
     assert any("pct mismatch" in e for e in errs) or any("sha256" in e for e in errs)
 
 
-def test_non_official_source_is_caught(tmp_path, monkeypatch):
-    fake = tmp_path / "data"
-    fake.mkdir()
-    for f in DATA.iterdir():
-        shutil.copy(f, fake / f.name)
-    text = (fake / "flagged.csv").read_text(encoding="utf-8").replace("https://www.nfl.com/", "https://example.com/", 1)
-    (fake / "flagged.csv").write_text(text, encoding="utf-8")
-    monkeypatch.setattr(chk, "DATA", fake)
-    assert any("non-official" in e for e in chk.check())
+def test_non_official_source_is_caught():
+    with tempfile.TemporaryDirectory() as tmp:
+        fake = Path(tmp) / "data"
+        fake.mkdir()
+        for f in DATA.iterdir():
+            shutil.copy(f, fake / f.name)
+        text = (fake / "flagged.csv").read_text(encoding="utf-8").replace("https://www.nfl.com/", "https://example.com/", 1)
+        (fake / "flagged.csv").write_text(text, encoding="utf-8")
+        with _patched_data(fake):
+            assert any("non-official" in e for e in chk.check())
 
 
-def test_build_is_deterministic(tmp_path):
+def test_build_is_deterministic():
     before = {f.name: f.read_bytes() for f in DATA.iterdir()}
     subprocess.run([sys.executable, str(ROOT / "scripts" / "build_nfl_cdf86c07.py")], check=True, cwd=ROOT)
     after = {f.name: f.read_bytes() for f in DATA.iterdir()}

@@ -1,0 +1,2 @@
+compared_read,this_read_player_rows,other_read_player_rows,exact_row_matches,only_in_this_read,only_in_other_read,other_read_placeholder_rows,unmapped_club_rows_in_other_read,source_url
+data/nfl_ade166a4/injuries_reg11_b.csv (read 2026-11-19T11:06:58Z-11:12:05Z),253,253,253,0,0,2,0,https://www.nfl.com/injuries/league/2026/reg11
