@@ -4289,3 +4289,25 @@ stand. COORDINATION.md resolved keep-both; shared inventories resolved to main t
 - **Open items left for a human:** the 6 suggestions (all `pending_human_choice=yes`, decision
   column empty by design), the 8 open questions, and the 6 non-blocking flags on the pack's
   Flagged for Review page.
+
+---
+
+## Session `arena/dd2af84b-own6` — independent NFL release-readiness and provenance audit (claimed 2026-11-19)
+
+**Session ID:** `dd2af84b` · **Branch:** `arena/dd2af84b-own6` (Arena-fixed branch; no branch creation/switching). The session branch was created at `e9185b304a9e8bc06d88d7204f830b5968f3c18c`; before claiming, `git pull --rebase origin main` fast-forwarded it to `bc854eb` after main advanced through PR #137. Work remains on this branch only.
+
+**Concurrent-work check.** Open PR #135 (`2dd0cbcb`) owns its pack and shared landing/inventory files; PR #138 (`ade166a4`) is a coordination close-out. This session does not edit their files or any existing pack's data, model, site, or shared navigation. The task is a separate, read-only cross-pack audit with new artifacts only. No task already claimed under this session's ID.
+
+### Claim (recorded before producing deliverables)
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| DD1 Read-only repo/release audit: inventory current NFL evidence boundaries, duplicated sources, open gates and concrete irregularities; no edits to another pack | in progress | `dd2af84b` | `audit/NFL_DD2AF84B_REPO_REVIEW.md` |
+| DD2 Cross-pack source-class and provenance register for price/result/correlation/leaderboard claims; distinguish first-party official evidence, third-party feeds, internal derivations, and unsupported claims without filling absent values | in progress | `dd2af84b` | `data/nfl_dd2af84b/**` |
+| DD3 Plain-language decision-readiness, questions/information/answers, suggestions-for-review, and flagged findings page | in progress | `dd2af84b` | `docs/nfl-dd2af84b/**`, `NFL_DD2AF84B_EXECUTIVE_SUMMARY.md` |
+| DD4 Reproducible builder/checker/tests/CI for this pack only | in progress | `dd2af84b` | `scripts/build_nfl_dd2af84b.py`, `scripts/check_nfl_dd2af84b.py`, `tests/test_nfl_dd2af84b.py`, `.github/workflows/nfl-dd2af84b-ci.yml` |
+| DD5 Final integration: branch-only checks, PR from this branch, merge and Pages check; request rather than edit any shared file owned by another open task | in progress | `dd2af84b` | `COORDINATION.md` (append-only); shared-link request only, no `docs/index.html`, root `index.html`, or `README.md` edits while #135 owns them |
+
+**Evidence boundary.** This pack audits committed artifacts and their provenance. It will not claim a fresh read of an NFL page unless one was actually performed in this session; inherited page reads will remain labelled as inherited. No NFL-hosted page is a source for sportsbook prices. Missing/unauthorized market data, market-line, ROI, CLV, and unsupported correlation values stay blank and are flagged. No live strategy is promoted, and no reward is computed from backtest-only results.
+
+**Integration constraint.** The shared hub and README are currently in the scope of open PR #135. This session will keep the new dashboard directly addressable and request a hub link in the coordination log rather than editing shared navigation until that claim is closed.
