@@ -3813,3 +3813,37 @@ blocks. Suggestions are proposals only; the owner chooses the path.
 **Branch-rule deviation (logged).** The brief asks for `session-<id>/<task>` branches; the Arena
 session rule fixes this session to `arena/51698d74-own6` and forbids creating other branches. File
 scopes above stay non-overlapping so other sessions can still claim their own tasks.
+
+---
+
+## DONE — Session `51698d74` · W1–W8 complete (2026-11-19)
+
+**Branch:** `arena/51698d74-own6` (Arena-fixed name; deviation from `session-51698d74/<task>` logged at claim, same as prior sessions).
+
+### Sources used (all read 2026-11-19 via fetch_page; artifacts + sha256 in `data/nfl_51698d74/raw/` and `capture_log.csv`)
+- https://www.nfl.com/standings/division/2026/reg — 32 clubs, W=L=149, T=2, PF=PA=6,923 (identical to the a67ddef8 capture; no Thu game played yet).
+- https://www.nfl.com/schedules/2026/by-week/week-11 — 13-game slate + byes (ATL/CLE/GB/LAR/NE/SEA).
+- https://www.nfl.com/schedules/2026/by-week/week-10 — 14 finals incl. Monday LAC 23–20 BAL (MNF Nov 16).
+- https://www.nfl.com/schedules/2026/by-week/week-12 — 16-game slate + byes (CHI/DEN/PHI/TB).
+- https://www.nfl.com/injuries/league/2026/reg11 — 253 player rows + 2 "No Injuries Reported" markers, 13/13 games; 16 game statuses (Thursday only — Sunday/Monday blank by cadence).
+- 16 Week-12 game centres (`https://www.nfl.com/games/<slug>-2026-reg-12`) — venue Location/Stadium fields for all 16 games.
+- https://www.nfl.com/games/colts-at-texans-2026-reg-11 — IND@HOU venue spot check + final Out lists.
+- https://www.nfl.com/transactions/league/reserve-list/2026/11 — 25 rows, render window 11/10–11/18.
+
+### Verification performed (recomputed, not restated)
+- 150-game corpus rebuilt (149 finished + Monday settlement) and reconciled against fresh standings: league totals and all 32 clubs match.
+- 13/13 Week-11 fair lines re-run with the frozen S01 forecaster (`src/nfl_0ce967db`) — MATCH (max |Δmargin| 0.0045); market/difference columns blank by written price policy.
+- 8/8 leaderboard Brier values recomputed from `model_outputs.csv` — MATCH; 0 qualified strategies; staking never ranks.
+- 4 correlations recomputed, n=150, Fisher 95% CIs, official inputs only.
+- 15 inherited flags re-tested live: 6 closed/confirmed, 6 still open, 3 not retested (no club-depth/news fetch this session — logged as such, not silently dropped).
+- 8 reverifications with arithmetic shown (V-01..V-08).
+- Gates: `scripts/check_nfl_51698d74.py` 20 rules OK · `tests/test_nfl_51698d74.py` 19 tests OK · rebuild determinism (data+registers+recompute+site → clean `git diff`) · `tools/check_site.py` 0 errors · `tools/release_gate.py` 0 issues · source-coverage snapshot regenerated for the new pages and repeatable.
+- Site: 6 pages under `docs/nfl-51698d74/`; per-row links: captures 388/396 official + 8 repository-evidence (leaderboard recomputation), flags 27/27, reverification 8/8, sources 32/32, requirements 80 repository-evidence links.
+
+### Irregularities flagged (12 new, all non-blocking — on `docs/nfl-51698d74/flags.html`)
+Week-12 venue mismatches (DEN@PIT ACRISURE vs Heinz; BAL@HOU RELIANT legacy vs NRG; TEN@JAX EVERBANK vs TIAA); Houston game centres carry legacy RELIANT in both weeks; reserve render window 11/10–11/18 with no pagination control; IR players with blank game status (Al-Shaair, Carlies); Week-12 SNF/TNF heading-vs-line weekday contradictions; depth-order source unresolved (Texans image, Packers jersey prefixes, shared/empty slots); no inactives/snap counts/Game Books captured; raw rows public pending terms review; Questionable uncalibrated (no archive); roof/surface/NWS overlay not captured; no weekly diff yet (single snapshot); kickoff-regime priors unestimated.
+
+### Deliverables
+`data/nfl_51698d74/**` (18 CSVs + 7 raw artifacts) · `src/nfl_51698d74/{capture,recompute}.py` · `scripts/{build_nfl_51698d74_data,build_nfl_51698d74_registers,build_nfl_51698d74,check_nfl_51698d74}.py` · `tests/test_nfl_51698d74.py` · `.github/workflows/nfl-51698d74-ci.yml` · `docs/nfl-51698d74/**` (6 pages) · `NFL_51698D74_EXECUTIVE_SUMMARY.md` · `audit/NFL_51698D74_REPO_REVIEW.md` · additive links in `README.md`, `index.html`, `docs/index.html` (one each) · regenerated `data/source_coverage/**` + `docs/coverage/**`.
+
+No shared/claimed scope of other sessions was edited; hub/root links added additively as integration owner for this pack.
