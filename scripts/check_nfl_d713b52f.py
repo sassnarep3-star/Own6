@@ -303,8 +303,26 @@ def rule15(errors):
 
 
 def rule16(errors):
-    """Rebuild into a temp copy and compare bytes."""
-    import shutil
+    """Rebuild my own trees and compare bytes; never leave a foreign file modified.
+
+    The build scripts here only write ``data/nfl_d713b52f`` and ``docs/nfl-d713b52f``. Later
+    packs' builders enumerate *this* pack's registers, so running this verifier can make a
+    neighbouring pack's generated files stale on disk. The verifier therefore snapshots the
+    git status of everything outside its own scope and restores any file that changed,
+    rather than trusting the builders to stay in their lane.
+    """
+    import subprocess as sp
+    def dirty_outside():
+        out = sp.run(["git", "status", "--porcelain", "--", "data", "docs"],
+                     cwd=REPO, capture_output=True, text=True).stdout
+        keep = []
+        for line in out.splitlines():
+            path = line[3:].strip().strip('"')
+            if path.startswith(("data/nfl_d713b52f/", "docs/nfl-d713b52f/")):
+                continue
+            keep.append(path)
+        return keep
+    foreign_before = set(dirty_outside())
     with tempfile.TemporaryDirectory() as tmp:
         env = dict(os.environ)
         # rebuild data into the real tree, but compare against a saved copy first
@@ -328,7 +346,12 @@ def rule16(errors):
             with open(os.path.join(DOCS, name), "rb") as fh:
                 if fh.read() != saved_docs[name]:
                     errors.append(f"rule16: {name} is not reproducible byte for byte")
-        del tmp, shutil
+        del tmp
+    foreign_after = set(dirty_outside()) - foreign_before
+    if foreign_after:
+        sp.run(["git", "checkout", "HEAD", "--"] + sorted(foreign_after), cwd=REPO, check=False)
+        print(f"   note: restored {len(foreign_after)} file(s) outside this pack's scope: "
+              f"{sorted(foreign_after)[:3]}")
 
 
 def rule17(errors):

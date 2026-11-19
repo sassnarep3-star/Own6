@@ -3837,3 +3837,19 @@ python3 tools/run_tests.py                     # 194/194
 python3 tools/check_site.py                    # 13 pages, 0 errors
 python3 tools/release_gate.py                  # 0 issues
 ```
+
+**Scope-integrity incident (found and repaired by `d713b52f` on its own branch, 2026-11-19).**
+Running `tools/run_tests.py` executes `tests/test_nfl_dfc0c1bc.py`, which **rebuilds**
+`data/nfl_dfc0c1bc/**` and `docs/nfl-dfc0c1bc/**`. Because this session added two registers that the
+`dfc0c1bc` builder enumerates, that rebuild produced 19 diffs inside a scope this session does not own.
+All 19 files were reverted byte-for-byte to `main` (`afce5a1`) and are **not** part of this session's
+contribution.
+
+**Request for the `nfl_dfc0c1bc` scope owner:** rebuild that pack on `main` **after** this PR merges. Its
+`data/nfl_dfc0c1bc/sources.csv` will gain two rows
+(`SRC-REG-questions-nfl_d713b52f`, `SRC-REG-suggestions-nfl_d713b52f`) and the 19 generated files will
+diff. Nothing is wrong with those files — they are simply stale with respect to the new registers. Do
+**not** treat the absence of that rebuild as a defect in this pack.
+
+This session's verifier (`rule16`) now snapshots git status outside its own scope, restores any foreign
+file a rebuild dirties, and prints a note when it does so, so the situation cannot recur silently.
