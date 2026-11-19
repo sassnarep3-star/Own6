@@ -187,6 +187,8 @@ OVERRIDES: Dict[str, str] = {
     "nfl_origination|suggestions|SUG-10": "T14",
     "nfl_origination|suggestions|SUG-12": "T06",
     "nfl_origination|suggestions|SUG-13": "T11",
+    "nfl_b72e2687|suggestions|B72-S06": "T11",
+    "nfl_b72e2687|suggestions|B72-S10": "T11",
     "nfl_origination|suggestions|SUG-14": "T07",
     "nfl_309921cc|suggestions|NFL3-SUG-01": "T12",
     "nfl_309921cc|suggestions|NFL3-SUG-02": "T12",
@@ -260,8 +262,6 @@ OVERRIDES: Dict[str, str] = {
     # Rows from session b72e2687 whose wording the keyword fallback cannot place. Hand-checked
     # 2026-11-19 by d713b52f: S06 publishes the removal-of-luck panel (statistical honesty), S10
     # pre-registers a baseline before it sees data (same theme). Assignment only — no text edited.
-    "nfl_b72e2687|suggestions|B72-S06": "T11",
-    "nfl_b72e2687|suggestions|B72-S10": "T11",
 }
 
 THEME_IDS = [t["theme_id"] for t in THEMES]

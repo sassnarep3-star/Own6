@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Questions and suggestions · nfl-ade166a4</title>
+<style>
+:root{--ink:#16232e;--muted:#5d7183;--navy:#0f2433;--teal:#0a7d74;--line:#dbe3e8;--paper:#f5f8f9;
+--white:#fff;--warn:#fff4dc;--warnink:#7a4b00;--ok:#0a6b4f;--bad:#9c2b2b;--soft:#eef4f5}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);line-height:1.55;
+font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:15px}
+a{color:var(--teal);text-underline-offset:.16em}
+header{background:var(--navy);color:#fff}
+.wrap{width:min(1220px,calc(100% - 2rem));margin:0 auto}
+.top{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;align-items:baseline;padding:.95rem 0}
+.top b{letter-spacing:.06em}
+.top span{color:#9fc7c2;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
+nav{display:flex;flex-wrap:wrap;gap:.25rem .9rem;padding:0 0 .7rem}
+nav a{color:#cfe3e0;text-decoration:none;font-size:.86rem;padding:.15rem 0;border-bottom:2px solid transparent}
+nav a:hover{border-bottom-color:#7fd3c6}
+nav a.on{color:#fff;border-bottom-color:#7fd3c6;font-weight:600}
+main{padding:1.4rem 0 3rem}
+h1{font-size:1.5rem;margin:.2rem 0 .4rem}
+h2{font-size:1.12rem;margin:1.9rem 0 .55rem;padding-bottom:.3rem;border-bottom:1px solid var(--line)}
+h3{font-size:.98rem;margin:1.2rem 0 .35rem}
+p{max-width:78ch}
+.lead{color:var(--muted);max-width:82ch}
+.cards{display:grid;gap:.7rem;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin:1rem 0 .4rem}
+.card{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:.8rem .9rem}
+.card .k{font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.card .v{font-size:1.65rem;font-weight:700;line-height:1.15;margin-top:.15rem}
+.card .s{font-size:.78rem;color:var(--muted)}
+.tw{overflow-x:auto;background:var(--white);border:1px solid var(--line);border-radius:10px;margin:.6rem 0 1rem}
+table{border-collapse:collapse;width:100%;font-size:.84rem}
+th,td{padding:.42rem .6rem;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--soft);font-size:.74rem;letter-spacing:.05em;text-transform:uppercase;color:#39505f;
+position:sticky;top:0;white-space:nowrap}
+tbody tr:hover{background:#fbfdfd}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+.pill{display:inline-block;padding:.05rem .42rem;border-radius:999px;font-size:.72rem;font-weight:600}
+.pill.ok{background:#dff3ec;color:var(--ok)}
+.pill.warn{background:var(--warn);color:var(--warnink)}
+.pill.bad{background:#fbe6e6;color:var(--bad)}
+.pill.info{background:#e7eef4;color:#31556e}
+.note{background:var(--warn);border:1px solid #f0dcb2;color:var(--warnink);
+border-radius:8px;padding:.55rem .8rem;font-size:.86rem;margin:.7rem 0}
+.ok-note{background:#e4f4ee;border:1px solid #bfe3d6;color:#0a5c40;
+border-radius:8px;padding:.55rem .8rem;font-size:.86rem;margin:.7rem 0}
+.blank{color:#93a6b3;font-style:italic}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:.8rem;padding:1rem 0 2rem}
+code{background:var(--soft);padding:.05rem .3rem;border-radius:4px;font-size:.85em}
+</style></head>
+<body><header><div class="wrap">
+<div class="top"><b>OWN6 · NFL DESK</b><span>pack nfl-ade166a4 · second same-day read 2026-11-19 UTC</span></div>
+<nav><a href="index.html">Overview</a><a href="delta.html">Same-day delta</a><a href="captures.html">Captures</a><a href="flags.html">Flagged for review</a><a href="registers.html" class=on>Registers</a><a href="reverification.html">Reverification</a><a href="sources.html">Sources</a></nav></div></header>
+<main><div class="wrap">
+<h1>Questions and suggestions</h1>
+
+<h2>Questions — information needed before a decision</h2>
+<div class="tw"><table class=""><thead><tr><th>id</th><th>question</th><th>information needed</th><th>answer</th><th>status</th><th>impact if unanswered</th></tr></thead><tbody><tr><td><code>Q-01</code></td><td>Why does the Week-11 injury hub list Jaylen Waddle on the Broncos table at both same-day reads while the November trades register contains no Waddle move and the Dolphins table does not list him?</td><td>A transaction row naming Waddle (any month), or an NFL editorial correction of the injury hub</td><td><span class="blank">not published</span></td><td><span class="pill warn">open</span></td><td>ADE-F01 stays open; Waddle&#x27;s club affiliation cannot be published as verified either way</td></tr><tr><td><code>Q-02</code></td><td>Why do players moved to Reserve/Injured (Al-Shaair 11/17, Carlies 11/17) still appear on the Week-11 injury hub with DNP and a blank game status?</td><td>League editorial policy on post-IR listing, or a hub fix that drops them</td><td><span class="blank">not published</span></td><td><span class="pill warn">open</span></td><td>ADE-F04 stays open; &#x27;listed on the report&#x27; must not be read as &#x27;eligible to play&#x27;</td></tr><tr><td><code>Q-03</code></td><td>Does the injury hub publish game-status designations only on game day (only the Thursday game carried statuses at both reads)?</td><td>Reads on Fri/Sat/Sun showing when Sunday designations appear</td><td><span class="blank">not published</span></td><td><span class="pill warn">open</span></td><td>Without the cadence, a Friday read could be mistaken for a settled Sunday report</td></tr><tr><td><code>Q-04</code></td><td>Which is authoritative for player display names — the hub&#x27;s display text (Jacob Hummel, Dee Alford) or the player-page URL slug (jake-hummel, deaundre-ford)?</td><td>A club or player page that names the player both ways, or an NFL style note</td><td><span class="blank">not published</span></td><td><span class="pill warn">open</span></td><td>Name joins across packs could silently miss rows; display text is published verbatim meanwhile</td></tr><tr><td><code>Q-05</code></td><td>Are six simultaneous byes (ATL CLE GB LAR NE SEA) the league&#x27;s plan for Week 11, or a render state of the schedule page?</td><td>The official schedule-release or flex announcement naming Week-11 byes</td><td><span class="blank">not published</span></td><td><span class="pill warn">open</span></td><td>Fixture-context features (rest, opponent) would misfire for 6 clubs if the bye set changes</td></tr><tr><td><code>Q-06</code></td><td>Was the 2.1-hour zero-delta window true page stability or a cached page state?</td><td>A third read from a different fetch path, or the page&#x27;s own last-updated indicator</td><td><span class="blank">not published</span></td><td><span class="pill warn">open</span></td><td>A zero delta is only meaningful evidence of stability if cache can be excluded</td></tr><tr><td><code>Q-07</code></td><td>Should the delta register also diff club-page injury tables, not only the league hub?</td><td>Owner decision on scope; club pages that publish tables in text</td><td><span class="blank">not published</span></td><td><span class="pill warn">open</span></td><td>Hub-only deltas could miss club-side corrections (the Texans image problem shows club pages differ structurally)</td></tr><tr><td><code>Q-08</code></td><td>At what clock does the injury hub actually update (UTC)?</td><td>Repeated reads across the Wed-Sun window with observed change times</td><td><span class="blank">not published</span></td><td><span class="pill warn">open</span></td><td>Capture schedule (Wed/Thu/Fri) cannot be timed to catch the change window until this is known</td></tr></tbody></table></div>
+<h2>Suggestions — review-only, nothing auto-implemented</h2>
+<p class="lead">Every suggestion stays <b>pending human choice</b>; the decision column is
+blank by design until the owner picks a path.</p>
+<div class="tw"><table class=""><thead><tr><th>id</th><th>suggestion</th><th>rationale</th><th>pros</th><th>cons</th><th>effort</th><th>linked req</th><th>decision</th></tr></thead><tbody><tr><td><code>S-01</code></td><td><b>Take the next injury-hub reads on Friday and Saturday to span the designation-change window</b></td><td>The same-day pair showed 0 changes in 2.1h; the informative deltas happen between practice days and game day</td><td>Directly serves the Wed/Thu/Fri snapshot requirement; cheap</td><td>Adds fetches without automation</td><td>low</td><td><code>ADE-R13</code></td><td><span class="blank">not published</span></td></tr><tr><td><code>S-02</code></td><td><b>Add game-status transition rows (Q→Out, DNP→Limited) to the delta register as pairs accumulate</b></td><td>The register currently keys on presence+fields; transitions are the decision-relevant delta</td><td>Captures Q→Out changes that the brief explicitly wants replayable</td><td>More rows per pair to review</td><td>low</td><td><code>ADE-R12</code></td><td><span class="blank">not published</span></td></tr><tr><td><code>S-03</code></td><td><b>Hash-chain delta summaries like the 67233566 ledger</b></td><td>Each delta_summary row would commit to the previous hash, making the series tamper-evident</td><td>Replayable, auditable series</td><td>Regeneration must become append-only, complicating rebuilds</td><td>medium</td><td><code>ADE-R11</code></td><td><span class="blank">not published</span></td></tr><tr><td><code>S-04</code></td><td><b>Re-read the trades register after every injury capture and join moved players to their old/new club rows</b></td><td>Traded players can appear on the wrong club table (ADE-F01) or vanish; a join makes that visible immediately</td><td>Flags affiliation drift early</td><td>One extra read per capture</td><td>low</td><td><code>ADE-R15</code></td><td><span class="blank">not published</span></td></tr><tr><td><code>S-05</code></td><td><b>Extend the delta register to Week 12 once its designations begin publishing</b></td><td>Week-12 game statuses were not yet published at any read; the first publishing week is the natural next corpus</td><td>Keeps the series one week ahead of backtests</td><td>More pages to fetch</td><td>low</td><td><code>ADE-R50</code></td><td><span class="blank">not published</span></td></tr><tr><td><code>S-06</code></td><td><b>Parse the news-rail headlines into a dated register joined to transaction dates</b></td><td>Headlines carry starter announcements (Lock, McCord, Willis IR) that the hub tables lack</td><td>Free announced-starter evidence from pages already being read</td><td>Headlines are editorial, not official depth evidence — needs labeling</td><td>medium</td><td><code>ADE-R54</code></td><td><span class="blank">not published</span></td></tr></tbody></table></div>
+
+</div></main>
+<footer><div class="wrap">Built from committed data by <code>scripts/build_nfl_ade166a4.py</code>.
+No page contains inputs, market prices or picks. Unverified values are blank and flagged.</div>
+</footer></body></html>

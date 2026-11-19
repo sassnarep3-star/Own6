@@ -1,0 +1,47 @@
+name: nfl-ade166a4
+
+on:
+  push:
+    branches: [main, 'arena/**']
+    paths:
+      - 'src/nfl_ade166a4/**'
+      - 'scripts/build_nfl_ade166a4.py'
+      - 'scripts/check_nfl_ade166a4.py'
+      - 'scripts/write_capture_log_ade166a4.py'
+      - 'tests/test_nfl_ade166a4.py'
+      - 'data/nfl_ade166a4/**'
+      - 'docs/nfl-ade166a4/**'
+  pull_request:
+    paths:
+      - 'src/nfl_ade166a4/**'
+      - 'scripts/build_nfl_ade166a4.py'
+      - 'scripts/check_nfl_ade166a4.py'
+      - 'scripts/write_capture_log_ade166a4.py'
+      - 'tests/test_nfl_ade166a4.py'
+      - 'data/nfl_ade166a4/**'
+      - 'docs/nfl-ade166a4/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Rebuild data CSVs from raw transcriptions (no network)
+        run: python3 src/nfl_ade166a4/build_data.py
+      - name: Check the data tree is unchanged by the rebuild (determinism)
+        run: git diff --exit-code -- data/nfl_ade166a4
+      - name: Build the pack site
+        run: python3 scripts/build_nfl_ade166a4.py
+      - name: Check the docs tree is unchanged by the rebuild (determinism)
+        run: git diff --exit-code -- docs/nfl-ade166a4
+      - name: Run the pack verifier (17 rules)
+        run: python3 scripts/check_nfl_ade166a4.py
+      - name: Run pack unit tests
+        run: python3 tests/test_nfl_ade166a4.py

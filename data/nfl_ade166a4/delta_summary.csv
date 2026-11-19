@@ -1,0 +1,2 @@
+first_read_utc,second_read_utc,window_hours,rows_first_read,rows_second_read,added,removed,changed_fields,player_keys_unchanged,games_first,games_second,games_identical,markers_first,markers_second,conclusion,source_url
+"2026-11-19T09:01:02Z (a67ddef8 artifact-write clock, upper bound)","2026-11-19T11:07:00Z (ade166a4 artifact-write clock, upper bound)",2.1,253,253,0,0,0,253,13,13,True,2,2,"No row-level change between the two same-day reads; the register is empty by observation, not by omission",https://www.nfl.com/injuries/league/2026/reg11
