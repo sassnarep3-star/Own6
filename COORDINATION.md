@@ -3771,3 +3771,56 @@ scopes above stay non-overlapping so other sessions can still claim their own ta
 - **Flagged irregularities (non-blocking):** NFL-0050-F01..F05 published on Flagged for Review pages; none blocks publication of the research framework.
 
 Session `arena/0050c939-own6` complete (C1-C6 all done).
+
+---
+
+## Session `arena/0f3037e8-own6` — NFL decision-review entrypoint freshness (claimed 2026-11-19)
+
+**Session ID:** `0f3037e8` · **Branch:** `arena/0f3037e8-own6` (fixed by Arena; based on `ffbbce6` at claim time).
+
+**Concurrent-work check at claim time.** The then-current tree contained the completed A67 integration at `ffbbce6`; the open PR list had no claim for this session's checker, audit or portal-freshness scope. A later main update merged session `0050c939`, whose C3/C6 scopes include shared root landing content and the final shared-inventory regeneration. Those newly visible overlapping files are not edited by this session; requests are logged below.
+
+**Claim (recorded before implementation; claim commit pushed before other work).**
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| U1 Audit the live NFL portal's decision/suggestion route and compare static cross-pack counts with current generated registers; publish a review record and flag inherited stale claims | in progress | `0f3037e8` | `audit/NFL_0F3037E8_SITE_DECISION_REVIEW.md`, append-only `COORDINATION.md` |
+| U2 Make the root Suggestions section a direct review path to consolidated suggestion, question/answer, information-gap and decision-path registers; refresh shared landing summaries | in progress | `0f3037e8` | `index.html`, `docs/index.html`, `README.md` |
+| U3 Add a no-network freshness/link regression check and CI for the decision board; introduce no NFL facts, prices, predictions or model scores | in progress | `0f3037e8` | `scripts/check_nfl_0f3037e8.py`, `tests/test_nfl_0f3037e8.py`, `.github/workflows/nfl-0f3037e8-ci.yml` |
+
+**Evidence boundary.** The suggestion/question/gap totals are repository-register counts, not official NFL facts, results, market data, model performance or recommendations. They are read from DFC0 CSVs and checked against its generated board. No external NFL content is newly asserted; official source URLs and dated reads remain in the existing source registers. Owner-choice fields stay blank. Any discrepancy in another pack's files is logged as a request/flag, not silently edited.
+
+**Branch-rule note.** The user brief asks for `session-<id>/<task>` branches; the Arena rule fixes this session to `arena/0f3037e8-own6`. All work stays on that branch and within the assigned scopes.
+
+### U4 scope extension — final shared-inventory regeneration (claimed 2026-11-19)
+
+The root portal, README, checker, workflow, and this coordination claim change the exact repository tree inventoried by the shared assurance/source-coverage artifacts. This final-integration-only regeneration scope was claimed before the work; after rebase, session `0050c939`'s completed C6 owns the current shared-inventory refresh. This session will not edit those shared generated files and instead requests that the owner include this branch's final tree when regenerating them.
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| U4 Regenerate and verify current-tree assurance/source-coverage outputs after the integration edits; converge until a second pass is byte-identical | in progress (handoff requested to `0050c939` C6) | `0f3037e8` | `data/assurance/**`, `docs/assurance/**`, `data/source_coverage/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md` |
+
+**Sequence requested for the final integrator:** `scripts/audit_repo.py` → `scripts/run_lab.py` → `scripts/build_assurance.py` → `scripts/check_assurance.py` → `scripts/source_coverage.py` → `scripts/source_coverage.py --check`, repeated after the final tree. Any DFC0 pack files altered by a DFC0 rebuild remain outside this session's scope and are reported as a request, not committed.
+
+### U1–U4 disposition and integration handoff (2026-11-19)
+
+**Concurrent integration discovered and resolved.** After this session claimed U1–U3 on base `ffbbce6`, `git fetch` advanced `origin/main` through session `0050c939` PRs #123, #124 and #126. The append-at-end rebase conflicts in `COORDINATION.md` were resolved by retaining the complete upstream 0050c939 claim/completion/integration record and this session's U1/U4 claims; no other session's text or files were dropped. The current open PR #125 (`arena/51698d74-own6`) claims shared root/README/docs-index and source-coverage integration. Its changed-file list includes the exact shared surfaces U2 had initially claimed. This session therefore did not keep or reapply its local edits to `index.html`, `docs/index.html` or `README.md`.
+
+| Task | Final status | Disposition |
+|---|---|---|
+| U1 Portal/count review | done | `audit/NFL_0F3037E8_SITE_DECISION_REVIEW.md`; current row counts independently read from the committed DFC0 CSVs and exposed by the generated board. |
+| U2 Root/README/docs hub link and count refresh | **needs review / handed off** | Request posted to PR #125: https://github.com/sassnarep3-star/Own6/pull/125#issuecomment-7007574833. Please add direct links from the root Suggestions route to DFC0 suggestions/questions/gaps/paths and refresh stale 159/176 totals to the current repository counts. No shared landing file was edited by this session. |
+| U3 DFC0 freshness check | done | `scripts/check_nfl_0f3037e8.py`, tests and workflow check the committed DFC0 counts/page links; root discoverability and stale summaries are warnings, not blocking failures, because their files are owned by the current integration. |
+| U4 Shared assurance/source-coverage regeneration | **handed off to final integration** | Request posted to PR #125: https://github.com/sassnarep3-star/Own6/pull/125#issuecomment-7007581266. This session's COORDINATION lines and files must be included in the final tree before `audit_repo.py` / assurance / source-coverage regeneration. The active integration owns those shared generated files; this session leaves them untouched. |
+
+**Additional non-blocking flags.** `data/nfl_dfc0c1bc/README.md` and `NFL_DFC0C1BC_EXECUTIVE_SUMMARY.md` still report earlier counts; the current source CSVs are 29 inventory, 197 suggestions, 188 questions and 40 sources. Those DFC0-owned files were not edited; request the owner to refresh them. This session's attempted DFC0 rebuild altered four repo-stat-derived files; those local outputs were restored and none are part of this branch. PR #123 separately landed its own generated DFC0 corrections; keep that upstream work intact.
+
+**Push/rebase process note.** The first push attempt for the U4 extension was blocked by other uncommitted in-scope work. It was committed, then the required rebase was performed. Two append-at-EOF conflicts were resolved by keeping both sessions' coordination blocks. No force push to another branch or edits to another session's files were made.
+
+### PR #127 and final verification state (2026-11-19)
+
+- **PR:** https://github.com/sassnarep3-star/Own6/pull/127 — `arena/0f3037e8-own6` → `main`. The PR is open and unmerged; it was opened from head `ade8de6` on rebased base `d7127da`. This coordination/audit correction is included in the next update to the same PR.
+- **Counts:** current CSV row counts independently re-read with Python `csv.DictReader`: 29 inventory, 197 suggestions, 188 questions, 13 information gaps, 16 decision paths, 40 sources. They are repository records only; no NFL facts or market claims were checked.
+- **Scoped checks passed:** `scripts/check_nfl_0f3037e8.py` plus 3/3 targeted tests; `tools/release_gate.py` (0 issues), `scripts/check_site.py` (9 pages, no broken internal links), and `scripts/linkcheck.py` (322 links; 240/240 data rows sourced). GitHub's `verify` freshness job, `published-html` release-integrity job, and `source-coverage` check passed.
+- **Full-suite failures / integration dependency:** `tools/run_tests.py` reports 193/194; full pytest reports 750 passed and 2 failed: the assurance inventory hash for `COORDINATION.md` is stale, and the DFC0 deterministic-rebuild/verifier tests detect four repo-stat-derived outputs changed by the current repository tree. CI on PR #127 likewise has failing aggregate test jobs (`Line-by-line verification gates`, `lab`, `parlay-safety`, `verify-nfl-origination`) and `assurance`'s committed-artifact step. The DFC0-generated changes were restored after checking; none of `data/nfl_dfc0c1bc/**`, `docs/nfl-dfc0c1bc/**`, or shared assurance/source-coverage outputs is included in this branch. Full integration regeneration remains handed off to PR #125 as recorded above; its owner was notified in [the verification comment](https://github.com/sassnarep3-star/Own6/pull/125#issuecomment-7007638505).
+- **Release state:** do not merge while required checks are failing. PR #127 is not merged, and this session has no GitHub Pages deployment confirmation. Re-run the final gates and record the Pages build only after PR #125's integration includes this branch and the shared generated artifacts converge.
