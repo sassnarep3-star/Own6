@@ -3301,6 +3301,46 @@ The committed-branch scope rule in `scripts/check_nfl_dfc0c1bc.py` would reject 
 
 ---
 
+## Session arena/4c8cf5a6-own6 — complete NFL decision dashboard + requirement traceability (claimed 2026-11-19)
+
+**Branch constraint.** Arena fixes this session to `arena/4c8cf5a6-own6` (base `ffbbce6620ef4a2006c70d1d780a105011231274` =
+`origin/main`, merged PR #122); no other branch or worktree is created. The brief's `session-<id>/<task>` naming is satisfied by
+disjoint **file scopes** on this single Arena branch, as every prior session recorded. Session ID: `4c8cf5a6`.
+
+**Objective.** Fulfil the owner's NFL directive on this branch: a clean GitHub Pages dashboard (landing page + category subpages), a
+requirement traceability register (one row per requirement with the gate that blocks it and the number that clears it), a suggestions
+review-before-implement section, a questions/informations/answers register, pre-registered strategies behind validation gates, proper-score
+leaderboard divisions, signal/staking separation, replacement-depth tracking, availability graph, immutable snapshot ledger, demotion gate,
+and every table row source-linked to an official site (blank + flagged where unverified). No manual input, no interactive controls, no
+profitability claim, no hallucinated values.
+
+**Outbound-access boundary.** This sandbox can reach github.com / api.github.com but not nfl.com, so this session cannot re-read NFL
+official pages. Verified cells therefore inherit prior session reads recorded in the repo as labelled repo claims; nothing new is asserted
+from an official NFL page, and anything not confirmed is left blank and flagged. This follows the same evidence rule every prior session
+logged.
+
+**Concurrent-work check at claim time.** `git fetch origin main` → base `ffbbce66` equals `origin/main` HEAD. Open PRs: #113, #111,
+#110, #94, #84, #79, #72, #68, #56, #54, #52, #48 (other sessions' packs or stale record PRs). Every file written below is new and
+`nfl_4c8cf5a6` / `nfl-4c8cf5a6` namespaced, so nothing collides. Shared files (`COORDINATION.md`, `README.md`, `docs/index.html`,
+`index.html`) are edited additively only, after `git pull --rebase origin main`.
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| T1 Repo review line-by-line + irregularity register | in progress | 4c8cf5a6 | `audit/NFL_4C8CF5A6_REPO_REVIEW.md`, `data/nfl_4c8cf5a6/repo_findings.csv` |
+| T2 Requirement register (owner's full brief) | in progress | 4c8cf5a6 | `data/nfl_4c8cf5a6/requirements.csv` |
+| T3 Gates register (blocking gate + clearing number per requirement) | in progress | 4c8cf5a6 | `data/nfl_4c8cf5a6/gates.csv` |
+| T4 Q/I/A register | in progress | 4c8cf5a6 | `data/nfl_4c8cf5a6/qia.csv` |
+| T5 Information gaps + acquisition routes | in progress | 4c8cf5a6 | `data/nfl_4c8cf5a6/information_gaps.csv` |
+| T6 Suggestions review section (blank owner decisions) | in progress | 4c8cf5a6 | `data/nfl_4c8cf5a6/suggestions.csv`, `data/nfl_4c8cf5a6/suggestion_options.csv` |
+| T7 Data schemas: price store, results feed, origination, leaderboard, depth, availability, snapshot ledger | in progress | 4c8cf5a6 | `data/nfl_4c8cf5a6/*.csv` (schemas) |
+| T8 Pre-registered strategies + validation gates + correlations (blank) | in progress | 4c8cf5a6 | `data/nfl_4c8cf5a6/strategies.csv`, `validation_gates.csv`, `correlations.csv`, `leaderboard.csv` |
+| T9 Site builder + category pages | in progress | 4c8cf5a6 | `scripts/build_nfl_4c8cf5a6.py`, `docs/nfl-4c8cf5a6/**` |
+| T10 Verifier + tests + CI workflow | in progress | 4c8cf5a6 | `scripts/check_nfl_4c8cf5a6.py`, `tests/test_nfl_4c8cf5a6.py`, `.github/workflows/nfl-4c8cf5a6-ci.yml` |
+| T11 Executive summary (root) | in progress | 4c8cf5a6 | `NFL_4C8CF5A6_EXECUTIVE_SUMMARY.md` |
+| T12 Integration: additive nav/README/board, PR, merge, Pages confirm | in progress | 4c8cf5a6 | `COORDINATION.md`, `README.md` (additive), `docs/index.html` (additive) |
+
+**Claim committed and pushed before any data or code is produced.**
+
 ## Session arena/0d4da02c-own6 — owner-requirement decision gate, suggestions board, Q/I/A register + Week 11 live official reads (claimed 2026-11-18)
 
 **Branch constraint.** Arena fixes this session to `arena/0d4da02c-own6` (base `aa82798` =
