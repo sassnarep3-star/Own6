@@ -4164,3 +4164,37 @@ session's register to make a test go green, which is the failure mode this pack 
 - Session `51698d74` is **closed**: W1–W8 all `done`, three PRs merged (`#125` → `a71eb6b`,
   `#129` → `077a102`, `#133` → `308db35`). This addendum ships in its own follow-up PR; by the
   append-only convention its own merge SHA is left to the next session's board entry.
+---
+
+## Session `arena/ade166a4-own6` — same-day injury-hub delta read + pack (claimed 2026-11-19)
+
+**Session ID:** `ade166a4` · **Branch:** `arena/ade166a4-own6` (base `ffbbce6`, equal to `origin/main`
+HEAD at claim time — confirmed by `git fetch` + `git log origin/main -1` immediately before this
+claim). Arena fixes this session to that branch; disjoint file scopes keep the `session-<id>/<task>`
+rule satisfied the way every prior session logged.
+
+**Concurrent-work check at claim time.** Open PRs #113, #111, #110, #94, #84, #79, #72, #68, #56,
+#54, #52, #48 are other sessions' packs or record PRs; none claims an `nfl_ade166a4` scope and no
+file listed below is inside another live claim. The >60-minute takeover rule is not exercised.
+
+**Claim (written and pushed before any data or code was produced)**
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| W1 Line-by-line repo review at claim time + irregularity register | in progress | `ade166a4` | `audit/NFL_ADE166A4_REPO_REVIEW.md` |
+| W2 Fresh same-day official re-read at a later clock (≥11:00Z vs the 09:01Z `a67ddef8` read): Week 11 injury hub, standings, Week 11 slate, Week 12 page re-test — each transcribed with its UTC clock and sha256 | in progress | `ade166a4` | `src/nfl_ade166a4/capture.py`, `data/nfl_ade166a4/raw/**`, `data/nfl_ade166a4/capture_log.csv`, `data/nfl_ade166a4/standings_2026_11_19b.csv`, `data/nfl_ade166a4/injuries_reg11_b.csv`, `data/nfl_ade166a4/week11_slate_b.csv` |
+| W3 First same-day two-read delta register for the Week 11 injury hub (09:01Z read vs the fresh later read): row-level changes only, the delta — never the level — plus unchanged count | in progress | `ade166a4` | `data/nfl_ade166a4/delta_reg11_sameday.csv` |
+| W4 Reverification sample: prior-pack published rows re-read from their cited official pages, match/mismatch/unverified per row | in progress | `ade166a4` | `data/nfl_ade166a4/reverification.csv` |
+| W5 Decision-readiness + Q/I/A + suggestions + flagged + sources registers (nothing auto-implemented) | in progress | `ade166a4` | `data/nfl_ade166a4/requirements.csv`, `data/nfl_ade166a4/questions.csv`, `data/nfl_ade166a4/suggestions.csv`, `data/nfl_ade166a4/flagged.csv`, `data/nfl_ade166a4/sources.csv` |
+| W6 Session site + builder + verifier + tests + CI | in progress | `ade166a4` | `docs/nfl-ade166a4/**`, `scripts/build_nfl_ade166a4.py`, `scripts/check_nfl_ade166a4.py`, `tests/test_nfl_ade166a4.py`, `.github/workflows/nfl-ade166a4-ci.yml` |
+| W7 Executive summary at root | in progress | `ade166a4` | `NFL_ADE166A4_EXECUTIVE_SUMMARY.md` |
+| W8 Integration: additive hub link + fixed-point regeneration + PR → merge → Pages check → board record | in progress | `ade166a4` | `COORDINATION.md` (append only), `docs/index.html` + `index.html` + `README.md` (one additive block each), shared inventory regeneration |
+
+**Evidence rule (unchanged).** A published value is either (a) text read this session from the
+official page named in its `source_url`, logged in `capture_log.csv` with a UTC clock and sha256 of
+the transcription artifact, or (b) arithmetic on such values with the derivation shown. Everything
+else stays blank plus a Flagged-for-Review row. No market price exists on any official NFL page, so
+price columns stay blank by written policy. No profitability claim anywhere.
+
+**Branch-rule deviation (logged).** The brief asks for `session-<id>/<task>` branches; the Arena
+session rule fixes this session to `arena/ade166a4-own6` and forbids creating other branches.
