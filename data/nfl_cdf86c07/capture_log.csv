@@ -1,0 +1,4 @@
+capture_id,url,rows,artifact,sha256,read_day,note
+C-01,https://www.nfl.com/standings/division/2026/reg,32,standings_2026_11_19.csv,abcc8681631d45cf61ab1e3210e9d7c8cf0be7730310b4b1a490c3d12aab0d3c,2026-11-19,"transcription of fetched page text; hash covers the CSV artifact, not HTTP bytes"
+C-02,https://www.nfl.com/schedules/2026/by-week/week-11,13,week11_slate.csv,6fa83d13df5fafa1a62e990a5becf19e2b17d49243e1171ff25a49ae55dfb4d7,2026-11-19,"transcription of fetched page text; hash covers the CSV artifact, not HTTP bytes"
+C-03,https://www.nfl.com/schedules/2026/by-week/week-11,6,byes_week11.csv,9668f5c822d0b6389e7dbb20bb057e2a54560b07c23af3aee503873d9b288c68,2026-11-19,"transcription of fetched page text; hash covers the CSV artifact, not HTTP bytes"

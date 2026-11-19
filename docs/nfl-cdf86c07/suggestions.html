@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Suggestions · NFL dashboard (cdf86c07)</title><style>
+:root{--ink:#1b2430;--muted:#5b6675;--line:#dfe4ea;--bg:#f7f9fb;--accent:#1f6feb;--warn:#b26a00}
+*{box-sizing:border-box}body{margin:0;font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg)}
+header{background:#fff;border-bottom:1px solid var(--line);padding:14px 22px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+header .brand{font-weight:700;margin-right:auto}
+nav a{margin-right:12px;color:var(--accent);text-decoration:none}nav a:hover{text-decoration:underline}
+main{max-width:1180px;margin:0 auto;padding:22px}
+h1{font-size:24px;margin:0 0 6px}h2{font-size:18px;margin:28px 0 8px}
+p.lede{color:var(--muted);margin:0 0 16px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:16px 0}
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px}
+.card b{display:block;font-size:22px}.card span{color:var(--muted);font-size:13px}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin:8px 0 18px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;font-size:14px}
+th{background:#eef3f8;font-weight:600;position:sticky;top:0}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.tag{display:inline-block;padding:1px 8px;border-radius:999px;font-size:12px;border:1px solid var(--line);background:#fff}
+.st-captured{background:#e6f6ec;border-color:#b7e4c7}.st-partial{background:#fff7e6;border-color:#f5d28a}
+.st-blocked{background:#fdecec;border-color:#f3b4b4}.st-open{background:#eef3f8}.st-decided{background:#f1ecf9}
+.note{background:#fff;border-left:4px solid var(--accent);padding:10px 14px;margin:14px 0;color:var(--muted)}
+.warn{border-left-color:var(--warn)}
+footer{color:var(--muted);font-size:13px;padding:20px 22px;text-align:center}
+</style></head>
+<body><header><div class="brand">NFL dashboard · pack cdf86c07</div><nav><a href="index.html">Overview</a><a href="standings.html">Standings</a><a href="week11.html">Week 11</a><a href="requirements.html">Decision readiness</a><a href="questions.html">Questions</a><a href="suggestions.html" aria-current=page>Suggestions (review)</a><a href="flags.html">Flagged for Review</a><a href="sources.html">Sources</a></nav></header>
+<main><h1>Suggestions for owner review</h1>
+<div class="note warn"><b>Review only.</b> None of these is implemented. Choose a number (or several) and the next session will act on it.</div>
+<table><thead><tr><th class="">ID</th><th class="">Suggestion</th><th class="">Why</th><th class="">Decision owner</th><th class="">Pending choice</th><th class="">Implemented</th></tr></thead><tbody><tr><td class="">S-01</td><td class="">Add a Pending state for blank game-status cells rather than leaving them blank.</td><td class="">Keeps &#x27;no designation published&#x27; distinct from &#x27;healthy&#x27;.</td><td class="">owner</td><td class="">yes</td><td class="">no</td></tr><tr><td class="">S-02</td><td class="">Capture the Week-11 game-centre venues (13 pages) and publish them beside the slate.</td><td class="">Closes CD-23 for the current week; low cost.</td><td class="">owner</td><td class="">yes</td><td class="">no</td></tr><tr><td class="">S-03</td><td class="">Pick one route for depth order (club pages vs snap counts) and verify it for 32 clubs.</td><td class="">Unblocks CD-06, CD-43, CD-51 and every depth feature.</td><td class="">owner</td><td class="">yes</td><td class="">no</td></tr><tr><td class="">S-04</td><td class="">Start the Wednesday–Friday injury-report snapshot job with hashes and fetch times.</td><td class="">Creates the surprise series required by CD-12 and CD-53.</td><td class="">owner</td><td class="">yes</td><td class="">no</td></tr><tr><td class="">S-05</td><td class="">Ask the owner whether a licensed price archive is in scope before any market column appears.</td><td class="">Market columns stay blank until a licence is confirmed (Q-01).</td><td class="">owner</td><td class="">yes</td><td class="">no</td></tr><tr><td class="">S-06</td><td class="">Read NFL and data-partner terms, then decide the public/private data split.</td><td class="">Needed before raw rows are published (Q-13, CD-40).</td><td class="">owner</td><td class="">yes</td><td class="">no</td></tr><tr><td class="">S-07</td><td class="">Reconcile the 136-game log with the 150 official finals before any backtest is published.</td><td class="">Avoids a corpus that silently differs between packs (Q-11).</td><td class="">owner</td><td class="">yes</td><td class="">no</td></tr><tr><td class="">S-08</td><td class="">Set the leaderboard sample floor and multiplicity method in writing before any strategy is scored.</td><td class="">Prevents post-hoc threshold choice (Q-15).</td><td class="">owner</td><td class="">yes</td><td class="">no</td></tr><tr><td class="">S-09</td><td class="">Add a freshness alert: fail the build when a capture is older than one day during the season.</td><td class="">Makes drift visible (CD-62, CD-39).</td><td class="">owner</td><td class="">yes</td><td class="">no</td></tr><tr><td class="">S-10</td><td class="">Add a per-team view that shows starters out and net injury count, with replacements blank until a depth source is verified.</td><td class="">Quick decision view without inferring replacements (CD-41).</td><td class="">owner</td><td class="">yes</td><td class="">no</td></tr></tbody></table></main>
+<footer>Every row links to its official nfl.com source. Blank = not confirmed from an official source. No market prices, no betting advice, no profitability claim. Read day 2026-11-19 (UTC).</footer>
+</body></html>

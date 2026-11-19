@@ -1,0 +1,7 @@
+flag_id,finding,source_url,severity,blocking_merge
+CDF-01,Standings page H1 renders raw template tokens ('$year$ NFL $displayname$ Standings') while the <title> reads '2026 NFL Division Standings'.,https://www.nfl.com/standings/division/2026/reg,low,no
+CDF-02,"Week-11 schedule places Vikings at 49ers under an 'International Game, November 22nd' header with a Mexico City logo; no venue is printed in the fetched text.",https://www.nfl.com/schedules/2026/by-week/week-11,low,no
+CDF-03,"Week-11 Thursday game (IND at HOU, Nov 19) is dated today; its result is not in this pack.",https://www.nfl.com/schedules/2026/by-week/week-11,info,no
+CDF-04,Corpus size disagrees across packs: brief/prior log 136 games; 51698d74 recomputes 150 from standings (149+149+2)/2.,https://www.nfl.com/standings/division/2026/reg,medium,no
+CDF-05,"Requirement register cites 'nfl_origination' and 'nfl_51698d74' outputs that were not re-verified in this session; their status is carried, not re-proven.",https://www.nfl.com/standings/division/2026/reg,low,no
+CDF-06,"No official NFL page publishes a betting line; market columns are blank by policy, so no edge can be measured.",https://www.nfl.com/legal/terms/,medium,no
