@@ -4232,3 +4232,28 @@ rule-9 staleness. Any session touching `data/nfl_b72e2687/**` should re-check th
 landed while this PR was open. d713b52f independently applied the identical B72-S06/B72-S10 theme
 overrides this pack had added; the duplicate lines from this branch were dropped so main's entries
 stand. COORDINATION.md resolved keep-both; shared inventories resolved to main then regenerated.
+
+---
+
+## Session `arena/63c969c3-own6` — third-clock capture + full-brief decision pack (claimed 2026-11-19)
+
+**Session ID:** `63c969c3` · **Branch:** `arena/63c969c3-own6` (base `e9185b3`, equal to `origin/main` HEAD at claim time). Arena fixes this session to that branch; disjoint file scopes keep the `session-<id>/<task>` rule satisfied the way every prior session logged.
+
+**Concurrent-work check at claim time.** No open claim uses an `nfl_63c969c3` scope. The >60-minute takeover rule is not exercised.
+
+**Claim (written and pushed before any data or code was produced)**
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| W1 Line-by-line repo review at claim time + irregularity register | in progress | `63c969c3` | `audit/NFL_63C969C3_REPO_REVIEW.md` |
+| W2 Fresh third-clock official re-read (≥12:00Z vs 09:01Z/11:07Z reads): Week 11 injury hub, standings, Week 11 slate, Week 12 slate, Week 10 finals, reserve list, trades, odds 404, game-centre venue sample — each transcribed with UTC clock and sha256 | in progress | `63c969c3` | `src/nfl_63c969c3/capture.py`, `data/nfl_63c969c3/raw/**`, `data/nfl_63c969c3/capture_log.csv`, `data/nfl_63c969c3/standings_2026_11_19c.csv`, `data/nfl_63c969c3/injuries_reg11_c.csv`, `data/nfl_63c969c3/week11_slate_c.csv`, `data/nfl_63c969c3/week12_slate_c.csv`, `data/nfl_63c969c3/week10_finals_c.csv` |
+| W3 Three-read delta register for the Week 11 injury hub (09:01Z vs 11:07Z vs third read): row-level changes only, the delta — never the level — plus unchanged count | in progress | `63c969c3` | `data/nfl_63c969c3/delta_reg11_threeread.csv`, `data/nfl_63c969c3/delta_summary.csv` |
+| W4 Reverification sample: prior-pack published rows re-read from cited official pages, match/mismatch/unverified per row | in progress | `63c969c3` | `data/nfl_63c969c3/reverification.csv` |
+| W5 Decision-readiness + Q/I/A + suggestions + flagged + sources + origination/leaderboard/per-team/availability registers (nothing auto-implemented) | in progress | `63c969c3` | `data/nfl_63c969c3/requirements.csv`, `data/nfl_63c969c3/questions.csv`, `data/nfl_63c969c3/suggestions.csv`, `data/nfl_63c969c3/flagged.csv`, `data/nfl_63c969c3/sources.csv`, `data/nfl_63c969c3/originated_lines.csv`, `data/nfl_63c969c3/price_snapshots.csv`, `data/nfl_63c969c3/correlations.csv`, `data/nfl_63c969c3/leaderboard.csv`, `data/nfl_63c969c3/per_team.csv`, `data/nfl_63c969c3/availability_graph.csv` |
+| W6 Session site + builder + verifier + tests + CI | in progress | `63c969c3` | `docs/nfl-63c969c3/**`, `scripts/build_nfl_63c969c3.py`, `scripts/check_nfl_63c969c3.py`, `tests/test_nfl_63c969c3.py`, `.github/workflows/nfl-63c969c3-ci.yml` |
+| W7 Executive summary at root | in progress | `63c969c3` | `NFL_63C969C3_EXECUTIVE_SUMMARY.md` |
+| W8 Integration: additive hub link + fixed-point regeneration + PR → merge → Pages check → board record | in progress | `63c969c3` | `COORDINATION.md` (append only), `docs/index.html` + `index.html` + `README.md` (one additive block each), shared inventory regeneration |
+
+**Evidence rule (unchanged).** A published value is either (a) text read this session from the official page named in its `source_url`, logged in `capture_log.csv` with a UTC clock and sha256 of the transcription artifact, or (b) arithmetic on such values with the derivation shown. Everything else stays blank plus a Flagged-for-Review row. No market price exists on any official NFL page (https://www.nfl.com/odds/ is the NFL 404 page, re-read this session), so price columns stay blank by written policy. No profitability claim anywhere.
+
+**Branch-rule deviation (logged).** The brief asks for `session-<id>/<task>` branches; the Arena session rule fixes this session to `arena/63c969c3-own6` and forbids creating other branches.
