@@ -1,3 +1,27 @@
+# Executive Summary — Own6
+
+## Session arena/0050c939-own6 — NFL consolidation (2026-11-19)
+
+**Bottom line.** The repository now runs an NFL line-origination and validation research program. It has **no validated strategy, no qualifying leaderboard entry (0/10 Origination candidates qualified), no verified market price, no verified odds, and no verified correlation coefficient.** No edge is claimed, no profitability claim is made anywhere, and nothing here is betting advice. Unverifiable values are left blank and flagged; nothing is inferred or filled in.
+
+**Decision-readiness table (live on the landing page):** one row per requirement (RQ-01..RQ-81), each naming the blocking gate and the number that would clear it. Statuses: implemented / implemented-limited / not started / needs review / rejected-policy. Full detail: `docs/nfl-6ab24751/index.html` and the root `index.html` readiness table.
+
+**Official sources read this session (2026-11-19 UTC):**
+- NFL.com 2026 Regular Season Standings (32-club W/L/T/PF/PA table) — https://www.nfl.com/standings/division/2026/reg
+- NFL.com Official Injury Report, Week 11 (Player | Position | Injuries | Practice Status | Game Status) — https://www.nfl.com/injuries/
+- NFL.com Week 10 Schedule (fixtures and finals) — https://www.nfl.com/schedules/2026/by-week/week-10
+- NFL.com Terms and Conditions §1.3 (non-commercial informational use only; systematic retrieval prohibited absent express prior written consent) — https://www.nfl.com/legal/terms/
+
+**Data-rights boundary:** NFL.com Terms §1.3 prohibits systematic retrieval/compilation of data absent express prior written consent. No scheduled or automated NFL capture is enabled; every official read above was a single manual fetch. A licensed timestamped odds archive and written consent (Q-01) are prerequisites before any live pipeline, backtest publication, or price-data policy decision (RQ-21).
+
+**Market prices:** no official NFL page publishes sportsbook spread/total/moneyline prices. Every `market_*` cell stays blank and no edge, CLV or ROI is published until a price-data policy is decided and a licensed feed exists.
+
+**Checks at claim base (all green):** `scripts/check_site.py` OK (9 pages, no broken links); `tools/run_tests.py` 194/194 pass; `tools/release_gate.py` 0 issues.
+
+**Irregularities:** published, non-blocking, in `data/nfl_0050c939/repo_findings.csv` (NFL-0050-F01..F05) and on the Flagged for Review pages. None blocks publication of the research framework.
+
+> The NBA-focused executive summary that follows is preserved archive (session `arena/269a73e2-own6`, 2026-11-03). NBA statistics are not NFL evidence and are not used as NFL inputs.
+
 # Executive Summary — Own6: Originate Your Own NBA Lines
 
 ## Current status — read first (session `arena/269a73e2-own6`, 2026-11-03)
