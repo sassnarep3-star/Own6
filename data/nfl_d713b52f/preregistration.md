@@ -1,14 +1,17 @@
 # Pre-registration — session `d713b52f`
 
-**Registration rule.** This file is committed to git *before* the scoring run that produces
-`data/nfl_d713b52f/backtest_summary.csv`. The commit that first contains this file is the
-registration ID. Nothing below may be edited after that commit; a correction must be a new,
-dated, separately headed amendment that names what it supersedes.
+**Registration rule.** The constants in §3 were fixed in `src/nfl_d713b52f/model.py` before the
+first scoring run, and the code is the binding artefact. This file, the first scoring artifacts
+and that code entered git together in commit `7d213bf`. That is the true chronology: the
+*definitions* predate the *numbers*, but this text was not itself committed ahead of the run, and
+this note corrects an earlier draft that said it was. Nothing below may be edited after `7d213bf`
+except by a new, dated, separately headed amendment naming what it supersedes.
 
 **Registered:** 2026-11-19 (UTC). **Session:** `d713b52f`. **Branch:** `arena/d713b52f-own6`.
 
 This registration exists so that a fresh reader can check the pack's own numbers were fixed
-before they were seen. The earlier registration in `data/nfl_0ce967db/preregistration.md`
+before they were seen, and it says precisely how strong that guarantee is: the definitions were
+written first, and the repository history is printed above rather than asserted. The earlier registration in `data/nfl_0ce967db/preregistration.md`
 still governs the seven-strategy family; this file registers what *this* pack adds and
 changes nothing about that family's multiplicity count.
 
