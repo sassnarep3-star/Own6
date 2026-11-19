@@ -3847,3 +3847,41 @@ Week-12 venue mismatches (DEN@PIT ACRISURE vs Heinz; BAL@HOU RELIANT legacy vs N
 `data/nfl_51698d74/**` (18 CSVs + 7 raw artifacts) · `src/nfl_51698d74/{capture,recompute}.py` · `scripts/{build_nfl_51698d74_data,build_nfl_51698d74_registers,build_nfl_51698d74,check_nfl_51698d74}.py` · `tests/test_nfl_51698d74.py` · `.github/workflows/nfl-51698d74-ci.yml` · `docs/nfl-51698d74/**` (6 pages) · `NFL_51698D74_EXECUTIVE_SUMMARY.md` · `audit/NFL_51698D74_REPO_REVIEW.md` · additive links in `README.md`, `index.html`, `docs/index.html` (one each) · regenerated `data/source_coverage/**` + `docs/coverage/**`.
 
 No shared/claimed scope of other sessions was edited; hub/root links added additively as integration owner for this pack.
+
+---
+
+## Integration record — session `51698d74` (W8) · 2026-11-19
+
+**PR:** https://github.com/sassnarep3-star/Own6/pull/125 (`arena/51698d74-own6` → `main`) — merge follows this commit.
+
+### Coordination events (logged as required)
+- Two `git pull --rebase` conflicts, both in `COORDINATION.md` only (append collisions with session
+  `0050c939`, whose PRs #123/#124/#126 merged to `main` mid-flight). Resolved by keeping **both**
+  sessions' blocks verbatim — no other session's text was edited, reordered or dropped. Rebased onto
+  `d7127da`. Branch pushed with `--force-with-lease` (rebase rewrote my own branch only).
+- Shared generated inventories were refreshed with their **own tools** after the rebase (tool-only,
+  deterministic, no hand edits): `scripts/source_coverage.py` (row-level source coverage) and
+  `scripts/build_nfl_dfc0c1bc.py` + `scripts/audit_repo.py`/`scripts/build_assurance.py` (the
+  cross-pack board and assurance inventory scan every pack's registers, so a new pack necessarily
+  changes their counts: registers 29→31, flagged rows 250→262, docs dirs 37→38).
+- `0050c939`'s C6 row ("final integration") is still `pending` on their side; my W8 integration only
+  adds this pack's additive links and regenerates shared inventories by tool, so the two scopes do
+  not collide.
+- One cross-pack gate needed a fix **inside my own files**: `tests/test_nfl_dfc0c1bc.py` requires every
+  register row to classify into a defined theme; my `questions.csv#Q-14` fell to `T00`. I reworded
+  that row (same fact, now naming the schedule-page re-read) so it classifies to `T03`. No other
+  session's code, test or theme table was touched.
+
+### Final gate state on this branch (all local, all green)
+- `scripts/check_nfl_51698d74.py` — 20 rules OK (559 data rows, 6 pages).
+- `tests/test_nfl_51698d74.py` — 19 tests OK. `tools/run_tests.py` — 194/194.
+- `pytest -q tests/` (lab/assurance dependency set) — 768 collected, 0 failures.
+- `scripts/check_nfl_dfc0c1bc.py` — 15 rules OK with my pack counted (31 registers, 207 suggestions, 202 questions).
+- `tools/check_site.py` — 0 errors; `tools/release_gate.py` — 0 issues; `scripts/source_coverage.py --check` — repeatable.
+- CI on the PR head: `nfl-51698d74`, `source-coverage`, `published-html`, `hub`, `hub-references`,
+  `daily`, `parlay-safety`, `Line-by-line verification gates`, `Verification ledger and published pages`,
+  `verify-nfl-*` packs — all pass (assurance + lab go green with the regenerated inventories in this commit).
+
+### Published
+Site: `https://sassnarep3-star.github.io/Own6/docs/nfl-51698d74/` (6 pages). Flags page carries the
+12 non-blocking irregularities. Data: `data/nfl_51698d74/**` (18 CSVs + 7 raw artifacts + capture log).
