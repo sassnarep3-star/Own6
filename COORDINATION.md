@@ -4256,3 +4256,5 @@ Base: `e9185b3` (origin/main). Scope kept to one new directory so it cannot coll
 - pytest is not installed in this environment; tests were not rerun.
 
 **Not covered by this session:** the rest of the brief (other 12 games, snap counts, depth-chart register, price capture) remains as recorded in the earlier packs and their Flagged for Review pages. No market prices exist on official NFL pages; price columns stay blank by policy.
+
+**PR and merge record — session `c54d6bda` (2026-11-19):** PR #137 (https://github.com/sassnarep3-star/Own6/pull/137), merged with `--merge` into `main`. Pages API after merge: latest build `built` at commit `ff4204a`, overall status `built`. The sandbox cannot reach `sassnarep3-star.github.io` (outbound limited to GitHub/npm/PyPI), so the live URL was not fetched from here; the Pages build status is the verification of deploy.
