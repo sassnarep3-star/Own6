@@ -4227,3 +4227,8 @@ repo-wide. Repair follows the F-27 precedent (repair shared infrastructure, neve
 data): two `OVERRIDES` entries in `src/nfl_dfc0c1bc/themes.py` map both rows to T11; the
 `b72e2687` rows stay verbatim. This pack regenerated the board on the merged tree, closing the
 rule-9 staleness. Any session touching `data/nfl_b72e2687/**` should re-check the classification.
+
+**Rebase note (third rebase, onto 308db35):** sessions d713b52f (PR #132) and 51698d74 (PR #133)
+landed while this PR was open. d713b52f independently applied the identical B72-S06/B72-S10 theme
+overrides this pack had added; the duplicate lines from this branch were dropped so main's entries
+stand. COORDINATION.md resolved keep-both; shared inventories resolved to main then regenerated.
