@@ -10,6 +10,12 @@ on:
     # Monday and Tuesday are skipped on purpose).
     - cron: '0 16 * * 0,3,4,5,6'
   workflow_dispatch:
+  # Also runs when the capture code itself changes on main (a live proof on merge).
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/nfl-official-capture.yml'
+      - 'scripts/capture_nfl_official.py'
 
 permissions:
   contents: write

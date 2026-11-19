@@ -4507,3 +4507,9 @@ Site pages, scoring, strategies and the other NFL packs are **not** touched in t
 - F-79-2 Capture cadence is 5 days a week; Monday and Tuesday are not captured. The NFL may publish mid-week changes outside that window.
 - F-79-3 The unversioned URL behaviour is one observation on one day.
 - F-79-4 The job alert is GitHub's built-in failure notification to the workflow owner. No issue is opened automatically.
+
+### PR and merge record — session `79fd4958` (2026-11-19)
+
+- **PR #139** (`arena/79fd4958-own6` → `main`) **merged** with a merge commit at **2026-11-19T12:39:25Z** (merge commit `68bda5a`). All 13 GitHub checks were green on head `d130682` (lab, verify ×3, assurance, build-check-test, daily, hub, hub-references, parlay-safety, published-html, source-coverage, verify-nfl-309921cc, verification ledger). Mergeable CLEAN. Head of the PR before merge: `d1306820`.
+- **C4 live proof, first attempt:** `gh workflow run nfl-official-capture.yml --ref main` returned **HTTP 403 "Resource not accessible by integration"**. This sandbox token cannot dispatch workflows. Not worked around; no other credential was sought.
+- **Next step (this session, follow-up PR):** add a `push` trigger on `main` for the workflow file and `scripts/capture_nfl_official.py`, so that merging a change to the capture code runs the live capture. The scheduled cron (16:00 UTC Sun/Wed/Thu/Fri/Sat) also remains as the regular cadence. The run result will be appended here once it is read from the Actions run list and from the bot commit on `data/nfl_capture/index.csv`.
