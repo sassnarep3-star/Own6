@@ -4232,7 +4232,6 @@ landed while this PR was open. d713b52f independently applied the identical B72-
 overrides this pack had added; the duplicate lines from this branch were dropped so main's entries
 stand. COORDINATION.md resolved keep-both; shared inventories resolved to main then regenerated.
 
-<<<<<<< HEAD
 ## Session `arena/cdf86c07-own6` — dashboard brief: official capture (standings + Week-11 slate), requirement register, Flagged-for-Review page (claimed 2026-11-19)
 
 **Branch rule.** Arena fixes this session to `arena/cdf86c07-own6`; the brief's `session-<id>/<task>` naming is not used (logged as a deviation, same as prior sessions). No other branches are created.
