@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prior-row reverification · nfl-a67ddef8</title>
+<style>
+:root{--ink:#16232e;--muted:#5d7183;--navy:#0f2433;--teal:#0a7d74;--line:#dbe3e8;--paper:#f5f8f9;
+--white:#fff;--warn:#fff4dc;--warnink:#7a4b00;--ok:#0a6b4f;--bad:#9c2b2b;--soft:#eef4f5}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);line-height:1.55;
+font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:15px}
+a{color:var(--teal);text-underline-offset:.16em}
+header{background:var(--navy);color:#fff}
+.wrap{width:min(1220px,calc(100% - 2rem));margin:0 auto}
+.top{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;align-items:baseline;padding:.95rem 0}
+.top b{letter-spacing:.06em}
+.top span{color:#9fc7c2;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
+nav{display:flex;flex-wrap:wrap;gap:.25rem .9rem;padding:0 0 .7rem}
+nav a{color:#cfe3e0;text-decoration:none;font-size:.86rem;padding:.15rem 0;border-bottom:2px solid transparent}
+nav a:hover{border-bottom-color:#7fd3c6}
+nav a.on{color:#fff;border-bottom-color:#7fd3c6;font-weight:600}
+main{padding:1.4rem 0 3rem}
+h1{font-size:1.5rem;margin:.2rem 0 .4rem}
+h2{font-size:1.12rem;margin:1.9rem 0 .55rem;padding-bottom:.3rem;border-bottom:1px solid var(--line)}
+h3{font-size:.98rem;margin:1.2rem 0 .35rem}
+p{max-width:78ch}
+.lead{color:var(--muted);max-width:82ch}
+.cards{display:grid;gap:.7rem;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin:1rem 0 .4rem}
+.card{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:.8rem .9rem}
+.card .k{font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.card .v{font-size:1.65rem;font-weight:700;line-height:1.15;margin-top:.15rem}
+.card .s{font-size:.78rem;color:var(--muted)}
+.tw{overflow-x:auto;background:var(--white);border:1px solid var(--line);border-radius:10px;margin:.6rem 0 1rem}
+table{border-collapse:collapse;width:100%;font-size:.84rem}
+th,td{padding:.42rem .6rem;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--soft);font-size:.74rem;letter-spacing:.05em;text-transform:uppercase;color:#39505f;
+position:sticky;top:0;white-space:nowrap}
+tbody tr:hover{background:#fbfdfd}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+.pill{display:inline-block;padding:.05rem .42rem;border-radius:999px;font-size:.72rem;font-weight:600}
+.pill.ok{background:#dff3ec;color:var(--ok)}
+.pill.warn{background:var(--warn);color:var(--warnink)}
+.pill.bad{background:#fbe6e6;color:var(--bad)}
+.pill.info{background:#e7eef4;color:#31556e}
+.note{background:var(--warn);border:1px solid #f0dcb2;color:var(--warnink);
+border-radius:8px;padding:.55rem .8rem;font-size:.86rem;margin:.7rem 0}
+.blank{color:#93a6b3;font-style:italic}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:.8rem;padding:1rem 0 2rem}
+code{background:var(--soft);padding:.05rem .3rem;border-radius:4px;font-size:.85em}
+</style></head>
+<body><header><div class="wrap">
+<div class="top"><b>OWN6 · NFL DESK</b><span>pack nfl-a67ddef8 · read 2026-11-19 UTC</span></div>
+<nav><a href="index.html">Overview</a><a href="captures.html">Captures</a><a href="flags.html">Flags</a><a href="reverification.html" class=on>Reverification</a><a href="registers.html">Registers</a><a href="sources.html">Sources</a></nav></div></header>
+<main><div class="wrap">
+<h1>Prior-row reverification</h1>
+
+<p class="lead">Rows published by earlier packs were re-read from their cited sources on
+2026-11-19. 13 matched exactly ·
+1 corroborated ·
+1 partial. Arithmetic columns show the
+recomputation, not a restatement.</p>
+<div class="tw"><table class=""><thead><tr><th>ID</th><th>Target pack</th><th>Row / claim</th><th>As published</th><th>Retest method</th><th>Verdict</th><th>Result</th><th>Arithmetic</th></tr></thead><tbody><tr><td><code>V-01</code></td><td>0ce967db</td><td>standings_2026_11_18.csv all 32 clubs</td><td>32 clubs with W-L-T/PF/PA as of 2026-11-18</td><td>re-read https://www.nfl.com/standings/division/2026/reg</td><td><span class="pill ok">MATCH</span></td><td>All 32 records identical (no games played between the two reads; Week 11 opens Thu 11/19)</td><td><span class="blank">not published</span></td></tr><tr><td><code>V-02</code></td><td>7a59fd89</td><td>corpus_150.csv row count and week span</td><td>150 rows, weeks 1-10, one tie 2026-W05-09, 149 margins</td><td>local recomputation of published CSV</td><td><span class="pill ok">MATCH</span></td><td>150 rows; weeks 1-10; tie row 2026-W05-09 margin 0; 149 non-blank margins</td><td>non-blank=149, blank=W10-14 only</td></tr><tr><td><code>V-03</code></td><td>7a59fd89</td><td>corpus_150 mean home margin</td><td>-0.5101 (149-game mean as published in pack notes)</td><td>local recomputation</td><td><span class="pill ok">MATCH</span></td><td>sum=-76 over 149 = -0.510067</td><td>-76/149 = -0.51007</td></tr><tr><td><code>V-04</code></td><td>0ce967db</td><td>homefield_diagnostic H = -0.53</td><td>H = -0.53 (realised 150-game mean)</td><td>corpus margins + results_feed W10-14 margin</td><td><span class="pill ok">MATCH</span></td><td>(-76 + -3) / 150 = -0.526667 -&gt; rounds to -0.53</td><td>-79/150 = -0.5267</td></tr><tr><td><code>V-05</code></td><td>README</td><td>136 W / 136 L / 2 T, 6291 PF = PA (snapshot 2026-11-13)</td><td>136/136/2 and 6,291 PF=PA through Thursday Week-10 game</td><td>corpus weeks1-9 + W10-01 vs standings totals</td><td><span class="pill ok">MATCH</span></td><td>weeks1-9 = 136 games; + W10-01 (WAS 24 NYG 21) = 137 games = 136 decided + 1 tie; PF through that point = 6,291 exactly; +13 remaining W10 games (+632 pts) = 149/149/2 and 6,923 PF=PA</td><td>6291+632=6923; 136+13=149</td></tr><tr><td><code>V-06</code></td><td>0ce967db</td><td>results_feed.csv 2026-W10-14</td><td>LAC 23 @ BAL 20 settled, margin -3, total 43, read 2026-11-18</td><td>re-read https://www.nfl.com/schedules/2026/by-week/week-10</td><td><span class="pill ok">MATCH</span></td><td>&#x27;Chargers 23, Ravens 20, FINAL, Monday, November 16th&#x27; — scores and finality identical</td><td>23-20=-3; 23+20=43</td></tr><tr><td><code>V-07</code></td><td>corpus_150 vs standings</td><td>league PF identity</td><td>corpus scored PF 6,880 (W10-14 blank) + results_feed 43</td><td>sum vs standings PF</td><td><span class="pill ok">MATCH</span></td><td>6880 + 43 = 6923 = standings PF = standings PA</td><td>6880+43=6923</td></tr><tr><td><code>V-08</code></td><td>0d4da02c</td><td>week11_schedule.csv venue column (13 rows)</td><td>venue strings taken from schedule-page hotel affiliate params</td><td>re-read all 13 game-centre Location/Stadium fields</td><td><span class="pill warn">PARTIAL</span></td><td>9 exact case-insensitive matches; 1 sponsor-prefix variance (GEHA/Arrowhead); 1 city-vs-stadium (Mexico City vs Estadio Banorte); 2 stale hotel names (NRG vs RELIANT game-centre legacy; FedEx vs NORTHWEST)</td><td>9/13 exact; see A67-F01</td></tr><tr><td><code>V-09</code></td><td>0d4da02c</td><td>week11_byes.csv (6 rows)</td><td>ATL CLE GB LAR NE SEA on bye Week 11</td><td>re-read week-11 schedule bye section</td><td><span class="pill ok">MATCH</span></td><td>Bye list renders ATL CLE GB LAR NE SEA with records matching standings</td><td>6 byes + 26 game teams = 32</td></tr><tr><td><code>V-10</code></td><td>0d4da02c</td><td>injury_report_2026_11_18.csv Lions designations</td><td>Kerby Joseph / Cade Mays / D.J. Reed carried blank game status</td><td>re-read https://www.nfl.com/injuries/league/2026/reg10</td><td><span class="pill ok">MATCH-IMPROVED</span></td><td>All three now Out with DNP practice status — prior blanks were a timing artifact, not a data error</td><td><span class="blank">not published</span></td></tr><tr><td><code>V-11</code></td><td>6cefc476</td><td>Ravens depth QB1 claim (N6F-05)</td><td>Brissett QB1, Lamar absent</td><td>re-read baltimoreravens.com/team/depth-chart</td><td><span class="pill ok">MATCH</span></td><td>Brissett still first in QB group; Fagnano and Slovis behind him</td><td><span class="blank">not published</span></td></tr><tr><td><code>V-12</code></td><td>48217a55</td><td>roster_sweep trade notes</td><td>Arizona note: TRC=traded (Brissett, Harrison Jr. out)</td><td>reg11 injury report + Ravens depth read</td><td><span class="pill ok">CORROBORATED</span></td><td>Marvin Harrison Jr. appears on HOUSTON Texans injury report (Out, Hamstring) — consistent with trade away from AZ; Brissett is BAL QB1 — consistent</td><td><span class="blank">not published</span></td></tr><tr><td><code>V-13</code></td><td>0d4da02c</td><td>F-01 claim &#x27;Week 11 report unpublished&#x27;</td><td>Report absent at 2026-11-18 read</td><td>re-read reg11</td><td><span class="pill ok">MATCH-CHANGED</span></td><td>Report now fully published — prior claim was true at its read time and is now closed by time</td><td><span class="blank">not published</span></td></tr><tr><td><code>V-14</code></td><td>7a59fd89</td><td>roster_sweep Ravens depth rows</td><td>Baltimore rows flagged stale (Lamar/Huntley present in prior snapshots)</td><td>re-read Ravens depth chart</td><td><span class="pill ok">MATCH-CHANGED</span></td><td>Chart now Brissett/Fagnano/Slovis — staleness resolved at source</td><td><span class="blank">not published</span></td></tr><tr><td><code>V-15</code></td><td>0ce967db</td><td>capture_log.csv convention</td><td>hash covers transcription artifact; cannot prove page content; UTC read clock on every row</td><td>format comparison with nfl_a67ddef8 capture_log</td><td><span class="pill ok">MATCH</span></td><td>Same column set and honesty semantics adopted by this pack; 13 rows hash-verified locally (capture.verify_capture_log OK)</td><td><span class="blank">not published</span></td></tr></tbody></table></div>
+
+</div></main>
+<footer><div class="wrap">Built from committed data by <code>scripts/build_nfl_a67ddef8.py</code>.
+No page contains inputs, market prices or picks. Unverified values are blank and flagged.</div>
+</footer></body></html>
