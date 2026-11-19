@@ -1,0 +1,2 @@
+n,base_rate,brier,reliability,resolution,uncertainty,identity_residual,luck_share_reliability_over_brier,games_better_than_climatology,games_worse_than_climatology,games_tied,note
+149,0.469799,0.246503,0.242029,0.244614,0.249088,0.000e+00,0.981849,86,63,0,"reliability is the part of the score the model could remove by being better calibrated; resolution is the part it earns by saying different things on different games. A high reliability share means most of the score is calibration work, not edge."

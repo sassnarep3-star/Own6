@@ -1,0 +1,32 @@
+gate,states,clears,state
+G-PRICE,"No market price exists on any official page. Every residual, ROI, CLV and staking column stays blank.",An operator or licensed archive of timestamped prices; 1 row per market per week for 18 weeks.,open
+G-SCORE,Backtest numbers cannot promote a strategy. Promotion needs 100 scored prospective singles.,100 prospective singles with an official final and a positive week-cluster Brier-skill lower bound.,open
+G-SNAPS,"The only 2026 'snap count' the NFL publishes is the Game Book's Playtime Percentage, captioned '(Unofficial)'.",Either an owner decision to accept the Unofficial table as a proxy (recorded in the repo) or a certified source.,open
+G-GAMEBOOK,"The Game Book route is verified (4 of 13 Week 10 books parsed, PDF host reachable). Coverage is 4 games.",13 of 13 Week 10 books and 13 of 13 Week 11 books parsed with hashes.,open
+G-DEPTH-SRC,No official source read publishes a depth rank. Club depth pages were not verified.,"32 club depth pages parsed with a stored raw string, or the book route for every game.",open
+G-CORR,"A correlation may only be published with n and an interval, from official numbers.",Met for the 6 inherited rows; enforced for any new row.,closed
+G-REGISTER,A strategy may only be scored if its text was committed before the scoring run.,"Commit ordering, verified in git log.",closed
+G-PROSPECTIVE,A demotion gate needs a trailing window of prospective scores.,10 scored prospective weeks.,open
+G-PRICE-POLICY,No price column is ever populated from a non-official source.,Owner decision recorded in the repo.,closed
+G-CADENCE,An injury series needs at least daily reads from Wednesday to kickoff.,A scheduler plus an owner decision on automated collection (NFL Terms).,open
+G-STORAGE,"Hashes prove the transcript, not the page, and the store is inside the published site.",A versioned store outside the site.,open
+G-WEATHER,Weather read here is post-game; it cannot be a pre-kickoff feature.,An NWS hourly forecast grid plus an official roof-state call before kickoff.,open
+G-CALIBRATE,A designation calibration needs n per designation over several seasons.,"Play rate per designation with an interval, 3+ seasons.",open
+G-COMBO,Marginal probabilities cannot be multiplied for a combo.,A directly validated joint probability for the exact leg set plus operator void/push rules.,open
+G-HOLDOUT,A holdout season needs more than one season.,A multi-season corpus.,open
+G-ABLATE,An ablation needs the feature present in the evaluation window.,Availability features for every game in the window. Now: 4 of 150.,open
+G-RESERVE,'Not listed' must never be read as 'available'.,A dated reserve-list read joined to the report.,open
+G-ARCHIVE,Calibration over seasons needs archived reports.,Official reports for 3+ prior seasons.,open
+G-RULE,Fixture priors need the official 2026 rule text.,"The official rulebook section, read and cited.",open
+G-REWARD,A competition needs a defined reward.,An owner decision on the reward.,open
+G-SITE,"The site must build, link-check and refuse inputs.",The pack verifier's 18 rules pass.,closed
+G-QIA,A question is only answered by a source read or an owner decision.,All 18 question rows closed.,open
+G-DRIFT,A parser must fail loudly on drift.,Pinned row counts and headers; the verifier enforces them.,closed
+G-VENUE,Venue transcription must come from the official game centre.,13 of 13 Week 10 and 13 of 13 Week 11 fixtures read.,open
+G-ANNOUNCE,The dated schedule announcement must be read.,An official dated release URL.,open
+G-ROSTER,Roster turnover must be versioned against the official transactions log.,A dated transactions read joined to depth and availability.,open
+G-SWEEP,A team-level model needs the full 32-club roster/IR sweep.,32 club reads with a stable section parse.,open
+G-INACTIVE,A pre-kickoff inactive feed is needed for point-in-time certainty.,An official pre-kickoff inactive page.,open
+G-EXPECTED,A surprise needs an ex-ante expectation.,A pre-kickoff expectation source for every club's starters.,open
+G-RATING,"Opponent-aware ratings need an opponent term, registered first.",A registered model with an opponent term and a walk-forward comparison.,open
+G-SPLIT,The public layer may carry derived analysis only.,An owner decision recorded in the repo.,closed

@@ -1,0 +1,39 @@
+check_id,quantity,published,recomputed,n,verdict,method,source
+C-BRIER-C01,"Brier score, C01 (CONTROL-CLIMATOLOGY)",0.254094,0.254094,118,MATCH,mean of (p - y)^2 over the strategy's own rows in the inherited model-output ledger,data/nfl_0ce967db/model_outputs.csv
+C-BSS-C01,"Brier skill vs climatology, C01",0.000000,0.000001,118,MATCH,"1 - brier(strategy) / brier(C01 climatology), both recomputed above",data/nfl_0ce967db/model_outputs.csv
+C-BRIER-C02,"Brier score, C02 (CONTROL-HOME-ALWAYS)",0.542373,0.542373,118,MATCH,mean of (p - y)^2 over the strategy's own rows in the inherited model-output ledger,data/nfl_0ce967db/model_outputs.csv
+C-BSS-C02,"Brier skill vs climatology, C02",-1.134539,-1.134536,118,MATCH (last-digit rounding),"1 - brier(strategy) / brier(C01 climatology), both recomputed above",data/nfl_0ce967db/model_outputs.csv
+C-BRIER-S01,"Brier score, S01 (ML-SEASON)",0.235544,0.235543,118,MATCH (last-digit rounding),mean of (p - y)^2 over the strategy's own rows in the inherited model-output ledger,data/nfl_0ce967db/model_outputs.csv
+C-BSS-S01,"Brier skill vs climatology, S01",0.073005,0.073006,118,MATCH (last-digit rounding),"1 - brier(strategy) / brier(C01 climatology), both recomputed above",data/nfl_0ce967db/model_outputs.csv
+C-BRIER-S02,"Brier score, S02 (ML-FITHFA)",0.229151,0.229151,118,MATCH,mean of (p - y)^2 over the strategy's own rows in the inherited model-output ledger,data/nfl_0ce967db/model_outputs.csv
+C-BSS-S02,"Brier skill vs climatology, S02",0.098162,0.098163,118,MATCH (last-digit rounding),"1 - brier(strategy) / brier(C01 climatology), both recomputed above",data/nfl_0ce967db/model_outputs.csv
+C-BRIER-S03,"Brier score, S03 (ML-RECENCY)",0.237597,0.237597,118,MATCH,mean of (p - y)^2 over the strategy's own rows in the inherited model-output ledger,data/nfl_0ce967db/model_outputs.csv
+C-BSS-S03,"Brier skill vs climatology, S03",0.064922,0.064923,118,MATCH (last-digit rounding),"1 - brier(strategy) / brier(C01 climatology), both recomputed above",data/nfl_0ce967db/model_outputs.csv
+C-BRIER-S06,"Brier score, S06 (ML-ROLLING-HFA)",0.229151,0.229151,118,MATCH,mean of (p - y)^2 over the strategy's own rows in the inherited model-output ledger,data/nfl_0ce967db/model_outputs.csv
+C-BSS-S06,"Brier skill vs climatology, S06",0.098162,0.098163,118,MATCH (last-digit rounding),"1 - brier(strategy) / brier(C01 climatology), both recomputed above",data/nfl_0ce967db/model_outputs.csv
+C-SIGN-C01,"two-sided sign-test p, C01 vs C01",1.000000,1.000000,0,MATCH,"no discordant game exists, so no test is possible; 1.0 is the only honest value",data/nfl_0ce967db/leaderboard.csv
+C-SIGN-C02,"two-sided sign-test p, C02 vs C01",0.407486,0.407486,118,MATCH,"exact two-sided binomial, k = games better, n = better + worse, p = 0.5",data/nfl_0ce967db/leaderboard.csv (counts) recomputed against its own p
+C-SIGN-S01,"two-sided sign-test p, S01 vs C01",0.001178,0.00117839,118,MATCH,"exact two-sided binomial, k = games better, n = better + worse, p = 0.5",data/nfl_0ce967db/leaderboard.csv (counts) recomputed against its own p
+C-SIGN-S02,"two-sided sign-test p, S02 vs C01",0.000598,0.000597881,118,MATCH,"exact two-sided binomial, k = games better, n = better + worse, p = 0.5",data/nfl_0ce967db/leaderboard.csv (counts) recomputed against its own p
+C-SIGN-S03,"two-sided sign-test p, S03 vs C01",0.004124,0.0041237,118,MATCH,"exact two-sided binomial, k = games better, n = better + worse, p = 0.5",data/nfl_0ce967db/leaderboard.csv (counts) recomputed against its own p
+C-MAE-S04,"mean absolute error, S04 totals (points)",11.582446,11.582446,118,MATCH,mean |expected_total - actual_total| over the strategy's own rows,data/nfl_0ce967db/model_outputs.csv
+C-MAE-S05,"mean absolute error, S05 totals (points)",12.015437,12.015437,118,MATCH,mean |expected_total - actual_total| over the strategy's own rows,data/nfl_0ce967db/model_outputs.csv
+C-MURPHY-C01,"Murphy identity |(rel - res + unc) - Brier|, C01",,1.110e-16,118,MATCH,exact per-forecast-value groups; the identity must close to machine precision,data/nfl_0ce967db/model_outputs.csv
+C-MURPHY-C02,"Murphy identity |(rel - res + unc) - Brier|, C02",,0.000e+00,118,MATCH,exact per-forecast-value groups; the identity must close to machine precision,data/nfl_0ce967db/model_outputs.csv
+C-MURPHY-S01,"Murphy identity |(rel - res + unc) - Brier|, S01",,3.608e-16,118,MATCH,exact per-forecast-value groups; the identity must close to machine precision,data/nfl_0ce967db/model_outputs.csv
+C-MURPHY-S02,"Murphy identity |(rel - res + unc) - Brier|, S02",,2.776e-16,118,MATCH,exact per-forecast-value groups; the identity must close to machine precision,data/nfl_0ce967db/model_outputs.csv
+C-MURPHY-S03,"Murphy identity |(rel - res + unc) - Brier|, S03",,3.331e-16,118,MATCH,exact per-forecast-value groups; the identity must close to machine precision,data/nfl_0ce967db/model_outputs.csv
+C-MURPHY-S04,"Murphy identity |(rel - res + unc) - Brier|, S04",,3.608e-16,118,MATCH,exact per-forecast-value groups; the identity must close to machine precision,data/nfl_0ce967db/model_outputs.csv
+C-MURPHY-S05,"Murphy identity |(rel - res + unc) - Brier|, S05",,3.331e-16,118,MATCH,exact per-forecast-value groups; the identity must close to machine precision,data/nfl_0ce967db/model_outputs.csv
+C-MURPHY-S06,"Murphy identity |(rel - res + unc) - Brier|, S06",,2.776e-16,118,MATCH,exact per-forecast-value groups; the identity must close to machine precision,data/nfl_0ce967db/model_outputs.csv
+C-CORR-K01,"Pearson r, home margin vs game total",-0.140501,-0.140501,150,MATCH,Pearson product-moment on the inherited results feed; no resampling,data/nfl_0ce967db/results_feed.csv
+C-CORR-K01-CI,"Fisher 95% interval lower bound, home margin vs game total",-0.294139,-0.294139,150,MATCH,tanh(atanh(r) - 1.96/sqrt(n-3)),data/nfl_0ce967db/results_feed.csv
+C-CORR-K02,"Pearson r, home score vs away score",0.048568,0.048568,150,MATCH,Pearson product-moment on the inherited results feed; no resampling,data/nfl_0ce967db/results_feed.csv
+C-CORR-K02-CI,"Fisher 95% interval lower bound, home score vs away score",-0.112569,-0.112569,150,MATCH,tanh(atanh(r) - 1.96/sqrt(n-3)),data/nfl_0ce967db/results_feed.csv
+C-CORR-K03,"Pearson r, absolute margin vs total",-0.018760,-0.018760,150,MATCH,Pearson product-moment on the inherited results feed; no resampling,data/nfl_0ce967db/results_feed.csv
+C-CORR-K03-CI,"Fisher 95% interval lower bound, absolute margin vs total",-0.178485,-0.178485,150,MATCH,tanh(atanh(r) - 1.96/sqrt(n-3)),data/nfl_0ce967db/results_feed.csv
+C-CORR-K04,"Pearson r, home margin vs week index",-0.090397,-0.090397,150,MATCH,Pearson product-moment on the inherited results feed; no resampling,data/nfl_0ce967db/results_feed.csv
+C-CORR-K04-CI,"Fisher 95% interval lower bound, home margin vs week index",-0.247079,-0.247079,150,MATCH,tanh(atanh(r) - 1.96/sqrt(n-3)),data/nfl_0ce967db/results_feed.csv
+C-CORPUS-01,results_feed rows,150,150,150,MATCH,row count of the inherited feed,data/nfl_0ce967db/results_feed.csv
+C-CORPUS-02,league points in the feed vs league points in the 32-club standings,"6,923 (standings PF, inherited pack a67ddef8; 6,923 here)",6923 = 3422 home + 3501 away,150,MATCH,"sum(home)+sum(away) over every final in the feed; every point scored by one club is a point allowed by another, so this must equal the sum of PF and the sum of PA",data/nfl_0ce967db/results_feed.csv cross-checked to data/nfl_d713b52f/standings.csv
+C-CORPUS-03,"scorable games: two rules, both published",118 rows per strategy in the inherited ledger,109 games where BOTH clubs already had a prior game,150,INFO,chronological walk of the feed. The inherited ledger scores 118 games because a club with no prior game still gets a shrunk probability; this pack also reports the stricter 109. Neither rule uses future information; they differ only in how early-season games are treated.,data/nfl_0ce967db/results_feed.csv + data/nfl_0ce967db/model_outputs.csv

@@ -1,0 +1,2 @@
+checks,match,mismatch,info,pass_rate,note
+38,37,0,1,100.0%,a MATCH means the inherited published number is reproduced from the inherited ledgers by this independent implementation; a MATCH (last-digit rounding) means the two agree at the published six decimals; nothing here validates a value against the official page except where the row's source is an official page

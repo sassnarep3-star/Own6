@@ -1,0 +1,50 @@
+VERBATIM EXCERPT — official Game Book PDF, New England Patriots at Detroit Lions, 2026 REG 10
+URL: https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf
+Linked from: https://www.nfl.com/games/patriots-at-lions-2026-reg-10 ("Download Game Book (PDF)")
+Read 2026-11-19, session d713b52f.
+
+[INFO]
+Date: Sunday, 11/15/2026 New England Patriots at Detroit Lions at Allianz Arena, Munich, Germany | Start Time: 3:33 PM CET
+Game Weather: Cloudy | Temp: 52° F (11.1° C) Humidity: 51%, Wind: SE 3 mph
+Open Stadium on Natural Grass
+Referee: Martin, Clay (19)
+Paid Attendance: 70,225
+Time: 3:04
+VISITOR: New England Patriots 3 0 0 7 0 = 10
+HOME: Detroit Lions 7 14 7 7 0 = 35
+NOTE: the game centre Game Info block for the same game names the stadium "FC BAYERN MUNICH STADIUM", while the official book says "Allianz Arena".
+
+[LINEUPS]
+New England Patriots | Offense | Defense | Detroit Lions | Offense | Defense
+LT | 66 W.Campbell | OLB | 5 Dr.Jones | WR | 18 I.TeSlaa | DE | 97 A.Hutchinson
+LG | 70 G.Van Roten | DT | 97 M.Williams | TE | 87 S.LaPorta | DL | 54 A.McNeill
+C | 55 J.Wilson | DT | 94 C.Durden | LT | 58 P.Sewell | DL | 91 T.Williams
+RG | 65 M.Pryor | OLB | 91 E.Ponder | LG | 73 C.Mahogany | DL | 93 T.Lacy
+RT | 76 M.Moses | LB | 14 R.Spillane | C | 70 J.Scruggs | LB | 53 T.Nowaske
+TE | 85 H.Henry | LB | 53 C.Elliss | RG | 69 T.Ratledge | LB | 44 M.Rodriguez
+TE | 82 E.Raridon | CB | 0 C.Gonzalez | RT | 76 B.Miller | LB | 55 D.Barnes
+QB | 10 D.Maye | CB | 25 M.Jones | WR | 1 J.Williams | DB | 32 B.Branch
+RB | 38 R.Stevenson | CB | 22 C.Woods | WR | 14 A.St. Brown | CB | 23 R.Ya-Sin
+WR | 1 A.Brown | S | 4 C.Woodson | QB | 16 J.Goff | CB | 21 R.McCreary
+WR | 13 M.Hollins | S | 31 K.Byard | RB | 0 J.Gibbs | S | 36 C.Clark
+
+[SUBSTITUTIONS]
+New England Patriots: WR 3 D.Douglas, K 8 A.Borregales, RB 9 C.Kiner, QB 16 T.DeVito, WR 18 K.Williams, P 19 M.Wishnowsky, CB 21 K.Prunty, S 23 J.Reed, CB 29 C.Canada, S 33 M.Brown, RB 34 L.Larison, TE 36 C.Latu, FB 44 R.Gilliam, LS 47 J.Ashby, LB 48 N.Obiazor, LB 49 E.Hunter, LB 50 G.Jacas, T 52 M.Bryant, LB 54 D.Muasau, G 67 A.Rupcich, T 74 C.Lomu, WR 86 E.Chism, DT 90 C.Barmore, DT 92 J.Farmer, DL 93 L.Taylor, DT 99 Da.Jones
+Detroit Lions: CB 2 E.Rakestraw, P 3 J.Fox, DB 5 C.Izien, DE 8 D.Moore, QB 11 J.Dobbs, WR 17 T.Martin, RB 25 J.Saylors, S 28 A.Cisco, CB 30 K.Dorsey, RB 33 S.Vaki, LB 35 J.Bachie, CB 38 N.Whiteside, K 39 J.Bates, LB 40 K.Britt, LS 49 H.Hatten, DL 50 S.Gill-Howard, LB 51 O.Pappoe, C 65 S.McLaughlin, DE 66 E.O'Neill, OL 71 M.Frazier, OL 79 L.Borom, TE 83 T.Conklin, WR 86 D.Carter, TE 89 B.Wright, DL 95 L.Onwuzurike, DE 98 D.Wonnum
+
+[DID NOT PLAY]
+New England Patriots: (no player listed)
+Detroit Lions: (no player listed)
+
+[NOT ACTIVE]
+New England Patriots: CB 7 C.Davis, 3QB 15 B.Morton, S 41 B.Schooler, T 68 D.Crownover, OL 72 W.Rouse, C 77 B.Brown
+Detroit Lions: CB 4 D.Reed, CB 6 K.Abney, LB 57 A.Ogbongbemiga, C 64 C.Mays, DL 94 M.Wingo, DE 99 A.Hassanein
+
+[PLAYTIME_FOCUS]
+G.Van Roten OL 59 100% | B.Miller T 71 100% | M.Pryor OL 59 100% | C.Mahogany OL 71 100% | M.Hollins WR 54 92% | J.Scruggs OL 61 86% | J.Wilson OL 53 90% | T.Ratledge OL 61 86% | W.Campbell T 53 90% | P.Sewell T 61 86% | T.DeVito QB 49 83% | J.Goff QB 61 86% | M.Moses T 45 76% | J.Williams WR 56 79% | D.Douglas WR 38 64% | S.LaPorta TE 56 79% | E.Raridon TE 37 63% | J.Gibbs RB 49 69% | H.Henry TE 33 56% | A.St. Brown WR 47 66% | A.Brown WR 28 47% | I.TeSlaa WR 46 65% | R.Stevenson RB 26 44% | B.Wright TE 39 55% | C.Kiner RB 25 42% | T.Conklin TE 22 31% | K.Williams WR 23 39% | S.Vaki RB 18 25% | C.Lomu T 15 25% | T.Martin WR 11 15% | R.Gilliam FB 13 22% | L.Borom OL 10 14% | D.Maye QB 10 17% | M.Frazier OL 10 14% | L.Larison RB 8 14% | J.Dobbs QB 10 14% | E.Chism WR 8 14% | S.McLaughlin C 10 14% | A.Rupcich G 6 10% | J.Saylors RB 6 8% | M.Bryant T 6 10% | D.Carter WR 5 7% | C.Latu TE 1 2%
+M.Jones CB 64 90% | R.McCreary CB 59 100% | C.Gonzalez CB 64 90% | D.Barnes LB 59 100% | C.Elliss LB 62 87% | B.Branch DB 59 100% | K.Byard S 62 87% | C.Clark S 57 97% | C.Woodson S 57 80% | R.Ya-Sin CB 55 93% | R.Spillane LB 48 68% | D.Wonnum DE 44 75% | M.Williams DT 46 65% | A.McNeill DL 42 71% | E.Ponder LB 45 63% | D.Moore DE 40 68% | G.Jacas LB 44 62% | M.Rodriguez LB 34 58% | Dr.Jones LB 36 51% | T.Nowaske LB 33 56% | C.Woods CB 34 48% | S.Gill-Howard DL 31 53% | C.Durden DT 32 45% | K.Britt LB 22 37% | Da.Jones DT 30 42% | T.Lacy DL 22 37% | J.Farmer DT 27 38% | K.Dorsey CB 21 36% | L.Taylor DL 24 34% | T.Williams DL 19 32% | D.Muasau LB 23 32% | L.Onwuzurike DL 17 29% | C.Barmore DT 22 31% | A.Hutchinson DE 9 15% | J.Reed S 20 28% | E.O'Neill DE 7 12% | M.Brown S 9 13% | N.Whiteside CB 7 12% | N.Obiazor LB 9 13% | E.Rakestraw CB 5 8% | K.Prunty CB 9 13% | A.Cisco S 5 8% | E.Hunter LB 7 10% | J.Bachie LB 1 2% | C.Canada CB 7 10% | C.Izien DB 1 2%
+
+[ADDENDUM — transcribed verbatim from the same PDF on a second read, 2026-11-19]
+The "Playtime Percentage" section carries this caption line:
+Percent of playtime per player on offense, defense and special teams (Unofficial)
+This is the NFL's own label. The table is NFL-published; the NFL calls the measure Unofficial.

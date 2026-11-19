@@ -1,0 +1,7 @@
+VERBATIM EXCERPT — https://www.nfl.com/stats/player-stats/ (read 2026-11-19, session d713b52f). The complete category list as rendered.
+# 2026 Player Stats - Category
+## Passing
+- Passing / Rushing / Receiving / Fumbles / Tackles / Interceptions / Field Goals / Kickoffs / Kickoff Returns / Punting / Punt Returns
+Count of categories rendered: 11.
+RESULT: no snap-count category is published on the official player-stats index.
+Also read: https://www.nfl.com/stats/player-stats/category/snap-counts/2026/reg/all returned "404 - Flag on the Play.", HTTP-level page not found (read 2026-11-19).

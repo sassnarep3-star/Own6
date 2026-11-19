@@ -1,0 +1,22 @@
+VERBATIM EXCERPT — https://www.nfl.com/schedules/ (read 2026-11-19, session d713b52f). Trimmed to the Week 11 blocks.
+### Thursday Night Football, November 19th
+- [Colts at Texans, Thursday, November 19th, 8:15 PM, PRIME](https://www.nfl.com/games/colts-at-texans-2026-reg-11)
+![Indianapolis Colts Team Logo]...COLTS
+3-7
+3 wins, 7 losses, 0 ties
+![Houston Texans Team Logo]...TEXANS
+3-6
+3 wins, 6 losses, 0 ties
+### Sunday, November 22nd
+- [Dolphins at Bills, Sunday, November 22nd, 1:00 PM, CBS](https://www.nfl.com/games/dolphins-at-bills-2026-reg-11)
+MIA 1-8 ; BUF 8-1
+- [Ravens at Panthers, Sunday, November 22nd, 1:00 PM, FOX](https://www.nfl.com/games/ravens-at-panthers-2026-reg-11)
+BAL 4-6 ; CAR 4-5
+- [Saints at Bears, Sunday, November 22nd, 1:00 PM, FOX](https://www.nfl.com/games/saints-at-bears-2026-reg-11)
+NO 3-6 ; CHI 7-2
+- [Titans at Cowboys, Sunday, November 22nd, 1:00 PM, FOX](https://www.nfl.com/games/titans-at-cowboys-2026-reg-11)
+TEN 1-8 ; DAL 4-6
+- [Buccaneers at Lions, Sunday, November 22nd, 1:00 PM, FOX](https://www.nfl.com/games/buccaneers-at-lions-2026-reg-11)
+TB 3-6 ; DET 7-2
+Hotel parameter sample for the TNF game: destinationAddress.location=NRG+Stadium
+NOTE: only the games visible in the first read chunk are transcribed here; the remaining Sunday/Monday games were not transcribed and are therefore NOT published as values by this pack.
