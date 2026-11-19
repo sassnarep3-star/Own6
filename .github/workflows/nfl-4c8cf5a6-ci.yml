@@ -1,0 +1,25 @@
+name: NFL 4c8cf5a6 CI
+
+on:
+  push:
+    branches: [arena/4c8cf5a6-own6]
+  pull_request:
+    branches: [arena/4c8cf5a6-own6, main]
+
+jobs:
+  build-check-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Build pack site
+        run: python3 scripts/build_nfl_4c8cf5a6.py
+      - name: Verify pack site
+        run: python3 scripts/check_nfl_4c8cf5a6.py
+      - name: Run pack tests
+        run: python3 -m unittest tests/test_nfl_4c8cf5a6.py -v

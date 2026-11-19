@@ -1,0 +1,11 @@
+gate_id,gate_name,applies_to,definition,threshold,state,note
+V-01,Pre-registration,all,"Rule text, sample window and gates committed before the first kickoff of the evaluation window.",commit hash predates first kickoff,blocked,"0 strategies registered (G-PREREG)."
+V-02,Train/validation/holdout,all,"Data split into train, validation and final holdout seasons before final evaluation.",three season splits,blocked,"Not implemented (G-HOLDOUT)."
+V-03,Proper-score qualification,singles/parlays/SGP/prop combos,"Brier skill against each event's own base rate with game-cluster lower bound and multiplicity adjustment.",lower bound > 0 after adjustment,blocked,"0 qualified strategies (G-RANK)."
+V-04,Joint-evidence gate,parlays/prop combos,"Directly validated joint probability plus operator void/push rules.",both available,blocked,"Not implemented (G-JOINT)."
+V-05,Signal/staking separation,all,"Signal ranked on proper score; staking reported beside, never used for rank.",staking column present, never used for ordering,cleared,"Schema exists (G-SIGNAL)."
+V-06,Control baseline,all,"Random-picks and favorites-only baselines on every leaderboard run.",baselines reported beside every row,blocked,"Not implemented (G-CONTROL)."
+V-07,Two-stage skill,all,"Proper-score qualification then prospective CLV/ROI escrow over multi-week sample.",Brier skill + CLV,blocked,"Not implemented (G-TWOSTAGE)."
+V-08,Demotion gate,live strategies,"Measurable drift and drawdown thresholds send a live strategy back to paper.",thresholds defined,blocked,"Defined but not wired to live data (G-DEMO)."
+V-09,No backtest numbers on leaderboard,all,"Backtest numbers forbidden from appearing on the leaderboard.",zero backtest rows on leaderboard,cleared,"Policy enforced (G-PREREG)."
+V-10,Correlation sourcing,all,"Correlations computed only from officially sourced numbers; n published.",n>0 with source link,blocked,"No official feed to correlate (G-CORR)."

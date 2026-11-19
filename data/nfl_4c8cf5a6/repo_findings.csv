@@ -1,0 +1,11 @@
+finding_id,severity,path,finding,evidence,status
+FR-01,high,data/source_coverage/rows.csv,"Five committed files exceed 1 MB; largest is 13.5 MB.",largest_file_size=13491323,open
+FR-02,high,data/**,"78 committed data CSVs have no source-like column at all.",data_csvs_no_source_column=78,open
+FR-03,high,docs/**,"13 published pages contain interactive controls (input/select/textarea/button).",pages_with_interactive_controls=13,open
+FR-04,medium,docs/source_coverage/rows.html,"A 13.4 MB coverage HTML page is committed.",largest_file_size among docs=13431576,open
+FR-05,medium,docs/assurance/repo-audit.html,"A 12.1 MB assurance HTML page is committed.",file_size=12087137,open
+FR-06,medium,data/assurance/row_audit.csv,"A 7.8 MB audit CSV is committed.",file_size=7787137,open
+FR-07,low,docs/**,"No broken internal links found in docs/.",broken_internal_links=0,cleared
+FR-08,info,COORDINATION.md,"18 parallel NFL data packs and 18 matching site directories exist, with up to 23 separate files registering the same concept under different vocabularies.",coordination board,open
+FR-09,info,data/nfl_4c8cf5a6/**,"This session cannot reach nfl.com; verified cells inherit prior session reads as labelled repo claims.",outbound-access boundary,open
+FR-10,info,data/nfl_4c8cf5a6/leaderboard.csv,"Leaderboard empty by design: 0 qualified strategies; no rewards yet.",strategies.csv all declared,open

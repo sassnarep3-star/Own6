@@ -1,0 +1,10 @@
+metric,value
+tracked_files,1361
+tracked_lines,194736
+files_over_1mb,5
+largest_file,./data/source_coverage/rows.csv
+largest_file_size,13491323
+data_csvs_no_source_column,78
+pages_with_interactive_controls,13
+broken_internal_links,0
+base_commit,ffbbce6620ef4a2006c70d1d780a105011231274
