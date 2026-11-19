@@ -4232,3 +4232,19 @@ rule-9 staleness. Any session touching `data/nfl_b72e2687/**` should re-check th
 landed while this PR was open. d713b52f independently applied the identical B72-S06/B72-S10 theme
 overrides this pack had added; the duplicate lines from this branch were dropped so main's entries
 stand. COORDINATION.md resolved keep-both; shared inventories resolved to main then regenerated.
+
+## Session `arena/cdf86c07-own6` — dashboard brief: official capture (standings + Week-11 slate), requirement register, Flagged-for-Review page (claimed 2026-11-19)
+
+**Branch rule.** Arena fixes this session to `arena/cdf86c07-own6`; the brief's `session-<id>/<task>` naming is not used (logged as a deviation, same as prior sessions). No other branches are created.
+
+**Claimed file scope (non-overlapping; no other session's files edited):**
+- `data/nfl_cdf86c07/**` (new pack data)
+- `docs/nfl-cdf86c07/**` (new pack site)
+- `src/nfl_cdf86c07/**`, `scripts/build_nfl_cdf86c07*.py`, `scripts/check_nfl_cdf86c07.py`
+- `tests/test_nfl_cdf86c07.py`, `.github/workflows/nfl-cdf86c07-ci.yml`
+- `audit/NFL_CDF86C07_REPO_REVIEW.md`, `NFL_CDF86C07_EXECUTIVE_SUMMARY.md`
+- `COORDINATION.md` (append-only, this record)
+
+**Not claimed (shared; changed only by integration):** root `index.html`, `README.md`, `docs/index.html`, shared inventories.
+
+**Scope note.** The brief lists ~80 items. This session captures the official standings and Week-11 slate and registers every brief item with an honest status. Items needing sources not yet captured (venues, injury series, depth charts, Game Books, roof/weather, licensed prices) are logged as blocked, not filled.
