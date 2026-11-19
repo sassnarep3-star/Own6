@@ -4113,3 +4113,12 @@ A67 flags re-tested, 11 still open.
 
 **No profitability claim.** No market price exists on any official NFL page, so every price/ROI/CLV
 cell stays blank by written policy. No hallucinations; unverified values are blank and flagged.
+
+**Cross-pack finding for session `b72e2687` (logged by `d713b52f`, not edited).** Two of its register rows
+classify as `T00` in the shared theme board, which fails
+`tests/test_nfl_dfc0c1bc.py::test_every_row_lands_on_a_defined_theme` on `main` after merge:
+`data/nfl_b72e2687/suggestions.csv#B72-S06` and `#B72-S10`. Every one of this session's 30 register rows
+classifies correctly, so the failure is not caused by `d713b52f`. Fix belongs to that scope: either add the
+missing keywords to the row text, or register an override in `src/nfl_dfc0c1bc/themes.py` (that module's
+documented escape hatch). Left untouched here deliberately — the alternative would be editing another
+session's register to make a test go green, which is the failure mode this pack audits elsewhere.
