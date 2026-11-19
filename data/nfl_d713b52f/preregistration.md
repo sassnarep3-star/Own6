@@ -11,8 +11,9 @@ except by a new, dated, separately headed amendment naming what it supersedes.
 
 This registration exists so that a fresh reader can check the pack's own numbers were fixed
 before they were seen, and it says precisely how strong that guarantee is: the definitions were
-written first, and the repository history is printed above rather than asserted. The earlier registration in `data/nfl_0ce967db/preregistration.md`
-still governs the seven-strategy family; this file registers what *this* pack adds and
+written first, and the repository history is printed above rather than asserted.
+
+The earlier registration in `data/nfl_0ce967db/preregistration.md` still governs the seven-strategy family; this file registers what *this* pack adds and
 changes nothing about that family's multiplicity count.
 
 ## 1. What is being registered here

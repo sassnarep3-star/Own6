@@ -3764,3 +3764,76 @@ any page.
 **Branch-rule deviation (logged).** The brief asks for `session-<id>/<task>` branches; the Arena
 session rule fixes this session to `arena/d713b52f-own6` and forbids other branches, so scopes are
 kept non-overlapping by file instead.
+
+---
+
+## `d713b52f` — COMPLETION RECORD (2026-11-19)
+
+Status: **all W1–W9 done**. Files committed on `arena/d713b52f-own6`. No other session's file was
+edited, and no other live claim was touched.
+
+### What shipped
+
+| Task | Status | Evidence |
+|---|---|---|
+| W1 repo review + irregularity register | **done** | `audit/NFL_D713B52F_REPO_REVIEW.md` (13 findings, RF-01…RF-13, each with severity and handling) |
+| W2 official capture with UTC clocks + sha256 | **done** | 11 raw transcripts in `data/nfl_d713b52f/raw/`, verified by `capture.verify_capture_log()`; a tampered log is rejected (test) |
+| W3 recompute-not-assert audit | **done** | `recompute.csv` 38 checks → **37 match / 0 mismatch / 1 info**, `recompute_summary.csv` |
+| W4 official-source probe (snap counts, inactives, game books) | **done** | `source_probe.csv`: the Game Book PDF route is **reachable** (clears the inherited FLAG-07 blocker); the player-stats crawl has no snap-counts category (404, recorded, never cited) |
+| W5 one row per brief bullet | **done** | `requirements.csv` **86 rows**, every one with a gate and a clearing number; `gates.csv` declares all 39 gate ids used |
+| W6 Q/I/A + suggestions + flags + sources | **done** | `questions.csv` 18, `suggestions.csv` 12 (all `pending_human_choice`, every `decision` empty), `flagged.csv` 12 (all non-blocking, all with an official link), `sources.csv` 15 |
+| W7 session site + builder + verifier + tests + CI | **done** | 7 pages under `docs/nfl-d713b52f/`; `scripts/check_nfl_d713b52f.py` = **21 rules, 1,066 pinned rows**; `tests/test_nfl_d713b52f.py` green; `.github/workflows/nfl-d713b52f-ci.yml` does rebuild → diff → build → diff → verify → test |
+| W8 executive summary | **done** | `NFL_D713B52F_EXECUTIVE_SUMMARY.md` |
+| W9 integration | **done** | one additive block each in `index.html`, `docs/index.html`, `README.md`; `tools/check_site.py` 13 pages 0 errors; `tools/release_gate.py` 0 issues |
+
+### Headline numbers (all recomputed this session)
+
+| Quantity | Value |
+|---|---|
+| Frozen model corpus | 150 games = **134 scored + 16 refused** (same-week information) |
+| Brier / climatology | 0.244756 / 0.249088 |
+| Brier skill score | **+0.013059**, week-cluster 95% CI **[−0.175423, +0.152370]** → contains zero |
+| Totals | MAE 12.0175, RMSE 15.1788 points |
+| Luck panel (rebuilt) | reliability 0.014506, resolution 0.018332, uncertainty 0.247995, within-bin 0.229663, identity residual **5.6e-17** |
+| Implementation gap | same rule, two implementations, 118 shared games: 0.235543 vs 0.244756 → difference 0.009213 = **71% of measured skill** |
+| Week 11 | HOU 0.752374 / BUF 0.909689 / CAR 0.647531; σ 14.1167; market + residual blank by policy |
+| Game Books | 4 books end to end; 176 starters; 50 Not Active; 121 playtime rows, **all labelled Unofficial** |
+| Designation join | 79 rows: 25 Questionable / 16 Out / 38 blank; 12 of 16 Out confirmed inactive; **4 unresolved, published as unresolved** |
+
+### Defects found inside this session and fixed before publication
+
+1. **Same-week leak (mine, high).** The model scored 16 first-game fixtures with a number derived from
+   games played earlier in the same week. Found by this pack's own verifier rule, not by eye. Fixed by
+   refusing those games; the refusal ledger is published and the corpus reconciles 134 + 16 = 150.
+2. **Degenerate luck panel (mine, high).** Bins keyed on exact forecasts put one game per bin, making
+   reliability identically equal to the Brier score (0.2420 vs 0.2420). Rebuilt on five fixed bands with
+   the Murphy identity asserted at 1e-9 inside the model.
+3. **Phantom designation discrepancies (mine, medium).** Generational suffixes made four `Out` players
+   look absent from inactive lists. Fixed in the matcher; the remaining 4 unresolved rows are genuine.
+4. **Cross-pack register schema (mine, medium).** My suggestion rows lacked the `suggestion`/`statement`
+   columns the shared reader expects, so the cross-pack theme classifier left two rows unclassifiable.
+   Fixed **on my side of the boundary** — `src/nfl_dfc0c1bc/**` was not edited, and that pack's test now
+   passes.
+5. **Pre-registration wording (mine, medium).** An earlier draft claimed this file was committed before
+   the scoring run. Git shows the text and the first artifacts landed in the same commit. Reworded to the
+   true chronology.
+
+### Findings that belong to other sessions (logged, not edited)
+
+| Finding | Owner scope | Why it matters |
+|---|---|---|
+| `data/nfl_0ce967db/luck_panel.csv` row S03 has `brier == reliability` and `resolution == uncertainty` — the same degenerate-binning signature repaired here | `0ce967db` | that pack's removal-of-luck panel currently measures nothing |
+| the shared reader maps `title` into `statement`, so any pack that publishes only a `title` will be silently unclassifiable in the cross-pack theme board | shared tooling (`nfl_dfc0c1bc`) | a schema contract worth documenting in the reader |
+| no shared checker validates cross-pack register schemas; this is how the defect above survived | shared tooling | suggested addition, not made here |
+
+### Verification commands (re-runnable, deterministic)
+
+```
+python3 scripts/build_nfl_d713b52f_data.py     # 30 tables, no network
+python3 scripts/build_nfl_d713b52f.py          # 7 pages
+python3 scripts/check_nfl_d713b52f.py          # 21 rules
+python3 tests/test_nfl_d713b52f.py             # pack tests
+python3 tools/run_tests.py                     # 194/194
+python3 tools/check_site.py                    # 13 pages, 0 errors
+python3 tools/release_gate.py                  # 0 issues
+```
