@@ -4297,10 +4297,10 @@ stand. COORDINATION.md resolved keep-both; shared inventories resolved to main t
 
 | Task | Status | Owner | Exclusive file scope |
 |---|---|---|---|
-| F1 Inspect existing NFL pages/registers and record scope/irregularities | in progress | `fba1772f` | `audit/NFL_FBA1772F_REVIEW.md` |
-| F2 Add an isolated decision-readiness and suggestions review page using existing public evidence only | in progress | `docs/nfl-fba1772f/**` |
-| F3 Add a concise executive summary / operator decision guide | in progress | `NFL_FBA1772F_EXECUTIVE_SUMMARY.md` |
-| F4 Verify new page links/content and run applicable existing checks | in progress | same files as F1–F3 |
+| F1 Inspect existing NFL pages/registers and record scope/irregularities | done | `fba1772f` | `audit/NFL_FBA1772F_REVIEW.md` |
+| F2 Add an isolated decision-readiness and suggestions review page using existing public evidence only | done | `docs/nfl-fba1772f/**` |
+| F3 Add a concise executive summary / operator decision guide | done | `NFL_FBA1772F_EXECUTIVE_SUMMARY.md` |
+| F4 Verify new page links/content and run applicable existing checks | done | same files as F1–F3 |
 
 No shared hub/index integration is in scope: request for such integration will be recorded here rather than editing files owned by the integration layer. This work is documentation-only; it will not claim model profitability, computed market correlations, line pricing, injury truth, or live data capture unless an existing official-source record substantiates it.
 
@@ -4318,3 +4318,5 @@ No shared hub/index integration is in scope: request for such integration will b
 **Sources reviewed locally (not re-fetched):** `data/nfl/sources.csv`, `data/nfl/decision_questions.csv`, `data/nfl/suggestions.csv`, `data/nfl/requirements.csv`, `data/nfl/flagged.csv`, and relevant official NFL URLs already recorded there (NFL legal terms, injury report, schedules, NFL Operations injury-policy endpoint); official operator help URLs and scikit-learn docs are used only with explicit scope limits. Additional local provenance read: `data/nfl_ade166a4/capture_log.csv`, `data/nfl_ade166a4/questions.csv`, `data/nfl_ade166a4/flagged.csv`, `data/nfl_d713b52f/sources.csv`. No live market source was established and no lines, probabilities, ROI, CLV, correlation, or strategy ranking were added.
 
 **Integration request (not edited in this scope):** final integration owner should add an additive link/card from `docs/index.html` and/or `docs/nfl/index.html` to `nfl-fba1772f/index.html`, then reconcile FBA-F01/F02 in the shared source/register and repair FBA-F03 only after re-reading the current official policy. This session's exclusive claim did not include shared index/navigation files. Direct Pages path after publication: `/Own6/docs/nfl-fba1772f/`.
+
+**Rebase note:** while syncing with `origin/main` (`e9185b3 → bc854eb`), the appended coordination claim conflicted with session `c54d6bda`’s new completion record. Resolved keep-both, preserving the complete `c54d6bda` record and this session’s claim; no other session files were edited.
