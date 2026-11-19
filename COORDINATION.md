@@ -4257,3 +4257,13 @@ stand. COORDINATION.md resolved keep-both; shared inventories resolved to main t
 **Evidence rule (unchanged).** A published value is either (a) text read this session from the official page named in its `source_url`, logged in `capture_log.csv` with a UTC clock and sha256 of the transcription artifact, or (b) arithmetic on such values with the derivation shown. Everything else stays blank plus a Flagged-for-Review row. No market price exists on any official NFL page (https://www.nfl.com/odds/ is the NFL 404 page, re-read this session), so price columns stay blank by written policy. No profitability claim anywhere.
 
 **Branch-rule deviation (logged).** The brief asks for `session-<id>/<task>` branches; the Arena session rule fixes this session to `arena/63c969c3-own6` and forbids creating other branches.
+
+### Session `63c969c3` close-out (2026-11-19)
+
+**Status:** W1–W8 delivered on `arena/63c969c3-own6` (claim commit `0d0aa1e`; completion commit pending/pushed). Additive hub links and all owned files listed above. No other session scope edited.
+
+**Evidence and verification:** Fresh official NFL reads recorded in `data/nfl_63c969c3/capture_log.csv` and transcriptions under `data/nfl_63c969c3/raw/`: Week 11 injury hub (7 chunks), standings (2), Week 11 schedule (3), Week 12 schedule (3), Week 10 finals (2), November reserve list (2), November trades (1), IND@HOU game centre (1), and `/odds/` 404. Source URLs are embedded per register row or listed in the source register. Values reconcile to 32 standings clubs / 149W-149L-2T / PF=PA=6,923; 13 Week-11 and 16 Week-12 games; 14 Week-10 finals; 253 injury player rows + 2 markers; 25 reserve rows; 12 trades. Three injury hub reads show no observed changes across 253 player keys. `python3 scripts/check_nfl_63c969c3.py` passes. Pytest could not be run locally because pytest is not installed (`No module named pytest`); workflow runs pytest. No full-repository test suite was run.
+
+**Irregularities:** Waddle on Broncos injury table but no trade record; Al-Shaair/Carlies on IR with blank hub game status; player display-name/slug mismatches Jacob Hummel/Jake Hummel and Dee Alford/Deaundre Ford; standings template tokens; IND@HOU RELIANT STADIUM vs NRG Stadium label mismatch; NFL `/odds/` returns 404. Unresolved values are flagged; price/edge/profitability/correlation rows remain empty. Week 12 game-centre venue transcription remains incomplete. The raw files are transcriptions, not raw HTTP captures; hashes only identify the committed artifact.
+
+**PR / deploy:** To be recorded after merge and Pages checks below.

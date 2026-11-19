@@ -1,0 +1,8 @@
+source_id,url,publisher,what_it_supports,last_read,trust_class
+S-01,https://www.nfl.com/injuries/league/2026/reg11,NFL.com,"Week 11 injury hub: 253 player rows + 2 markers, 16 game statuses, practice statuses, news rail; both same-day reads",2026-11-19,official-primary
+S-02,https://www.nfl.com/standings/division/2026/reg,NFL.com,"32-club standings (W-L-T PCT PF PA NET STRK); 149W/149L/2T, PF=PA=6,923 recomputed",2026-11-19,official-primary
+S-03,https://www.nfl.com/schedules/2026/by-week/week-11,NFL.com,"Week 11 slate: 13 games, times, networks, records, 6 byes, Mexico City marker",2026-11-19,official-primary
+S-04,https://www.nfl.com/transactions/league/reserve-list/2026/11,NFL.com,"November reserve list: 25 rows 11/10-11/18 (Al-Shaair, Carlies, Hutchinson on IR)",2026-11-19,official-primary
+S-05,https://www.nfl.com/transactions/league/trades/2026/11,NFL.com,November trades: 12 rows 11/06-11/10; no Waddle row (basis of ADE-F01),2026-11-19,official-primary
+S-06,in-repo: data/nfl_a67ddef8/raw/injuries_reg11_2026-11-19.md,session a67ddef8,"first same-day read of the injury hub (~09:01Z), the delta register's baseline",2026-11-19,in-repo-verified-artifact
+S-07,https://www.nfl.com/news/nfl-news-roundup-latest-league-updates-from-wednesday-nov-18,NFL.com,top news-rail headline as rendered on the Week-11 hub read (Mayfield sits out; Smith limited),2026-11-19,official-editorial

@@ -1,0 +1,2 @@
+first_read_utc,middle_read_utc,last_read_utc,first_rows,last_rows,added,removed,changed_fields,unchanged_keys,conclusion,source_url,note
+2026-11-19T09:01:02Z,2026-11-19T11:07:00Z,2026-11-19T12:30:00Z,253,253,0,0,0,253,"No observed row-level changes across the three reads; comparison is based on transcribed page reads, not raw HTTP responses",https://www.nfl.com/injuries/league/2026/reg11,"Clocks are session artifact/read completion upper bounds; game markers are excluded from 253 player-key comparison"

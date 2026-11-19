@@ -1,0 +1,16 @@
+name: NFL 63c969c3 evidence pack
+on:
+  push:
+    paths: ['data/nfl_63c969c3/**','src/nfl_63c969c3/**','scripts/*nfl_63c969c3.py','docs/nfl-63c969c3/**','tests/test_nfl_63c969c3.py','.github/workflows/nfl-63c969c3-ci.yml']
+  pull_request:
+    paths: ['data/nfl_63c969c3/**','src/nfl_63c969c3/**','scripts/*nfl_63c969c3.py','docs/nfl-63c969c3/**','tests/test_nfl_63c969c3.py','.github/workflows/nfl-63c969c3-ci.yml']
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python scripts/build_nfl_63c969c3.py
+      - run: python scripts/check_nfl_63c969c3.py
+      - run: python -m pytest -q tests/test_nfl_63c969c3.py

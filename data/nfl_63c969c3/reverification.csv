@@ -1,0 +1,4 @@
+artifact,row_count,result,source_url,read_on_utc,note
+standings_2026_11_19c.csv,32,MATCH,https://www.nfl.com/standings/division/2026/reg,2026-11-19T12:30:00Z,Fresh official page read; agrees with prior in-repo capture.
+injuries_reg11_c.csv,253 player rows + 2 markers,MATCH,https://www.nfl.com/injuries/league/2026/reg11,2026-11-19T12:30:00Z,Fresh official page read; agrees with prior in-repo capture.
+week11_slate_c.csv,13 games,MATCH,https://www.nfl.com/schedules/2026/by-week/week-11,2026-11-19T12:30:00Z,Fresh official page read; agrees with prior in-repo capture.
