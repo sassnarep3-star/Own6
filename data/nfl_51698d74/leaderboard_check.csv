@@ -1,0 +1,9 @@
+strategy_id,strategy,n_scored,recomputed_brier,published_brier,delta_brier,control_brier_recomputed,recomputed_brier_skill_vs_control,published_brier_skill_vs_control,proper_score_qualified,verdict
+S01,ML-SEASON,118,0.235543,0.235544,-0.000001,0.254094,0.073005,0.073005,no,MATCH
+S02,ML-FITHFA,118,0.229151,0.229151,+0.000000,0.254094,0.098162,0.098162,no,MATCH
+S03,ML-RECENCY,118,0.237597,0.237597,+0.000000,0.254094,0.064922,0.064922,no,MATCH
+S04,TOT-SEASON,118,,,,0.254094,,,no,MATCH (totals scored on point error; Brier blank by registration)
+S05,TOT-RECENCY,118,,,,0.254094,,,no,MATCH (totals scored on point error; Brier blank by registration)
+S06,ML-ROLLING-HFA,118,0.229151,0.229151,+0.000000,0.254094,0.098162,0.098162,no,MATCH
+C01,CONTROL-CLIMATOLOGY,118,0.254094,0.254094,-0.000000,0.254094,,0.000000,no,MATCH
+C02,CONTROL-HOME-ALWAYS,118,0.542373,0.542373,-0.000000,0.254094,-1.134539,-1.134539,no,MATCH
