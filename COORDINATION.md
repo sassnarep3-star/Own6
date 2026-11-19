@@ -3667,3 +3667,11 @@ three consecutive fetches of `docs/index.html` still showed two cards, while
 (`?cachebust=9x`) returned the correct single-card page. **Before concluding that a fix failed to
 deploy, re-fetch with a fresh query string and compare against `git show origin/main:<path>`.** Do
 not "fix" a stale-cache artefact by editing the file again.
+
+## Session `arena/6fd08aa5-own6` — independent verification of the decision-readiness pack (2026-11-19)
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| V1 Independently rerun the latest decision-pack verifier/build and audit its source, requirement, suggestion and review-page contracts; report only reproducible repo findings | in progress | `arena/6fd08aa5-own6` | `audit/NFL_6FD08AA5_INDEPENDENT_REVIEW.md`, append-only `COORDINATION.md` |
+
+Scope is deliberately limited to verification and documentation: no shared data, site index/navigation, or other session's source files will be edited. Existing packs already contain the requested decision-readiness table, questions/information/answers register, suggestions review queue, and flagged page; this is an audit of those deliverables, not a duplicate implementation.
