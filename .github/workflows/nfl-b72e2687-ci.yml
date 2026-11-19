@@ -1,0 +1,41 @@
+name: nfl-b72e2687-ci
+
+on:
+  push:
+    paths:
+      - "data/nfl_b72e2687/**"
+      - "src/nfl_b72e2687/**"
+      - "scripts/build_nfl_b72e2687.py"
+      - "scripts/check_nfl_b72e2687.py"
+      - "tests/test_nfl_b72e2687.py"
+      - "docs/nfl-b72e2687/**"
+      - ".github/workflows/nfl-b72e2687-ci.yml"
+  pull_request:
+    paths:
+      - "data/nfl_b72e2687/**"
+      - "src/nfl_b72e2687/**"
+      - "scripts/build_nfl_b72e2687.py"
+      - "scripts/check_nfl_b72e2687.py"
+      - "tests/test_nfl_b72e2687.py"
+      - "docs/nfl-b72e2687/**"
+      - ".github/workflows/nfl-b72e2687-ci.yml"
+
+jobs:
+  verify:
+    name: Verify nfl_b72e2687 pack (checker + regression tests + build)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Rebuild the pack from the registers
+        run: python3 scripts/build_nfl_b72e2687.py
+
+      - name: Run the evidence-rule checker
+        run: python3 scripts/check_nfl_b72e2687.py
+
+      - name: Run the regression tests
+        run: python3 -m unittest tests.test_nfl_b72e2687 -v

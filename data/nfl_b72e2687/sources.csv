@@ -1,0 +1,15 @@
+source_id,source_url,host,title_as_read,used_for,read_on_utc,status
+B72-S01,https://www.nfl.com/standings/division/2026/reg,nfl.com,2026 NFL Division Standings,standings capture (32 clubs),2026-11-19,verified-2026-11-19
+B72-S02,https://www.nfl.com/schedules/2026/by-week/week-12,nfl.com,"NFL Week 12 Schedule 2026: Games, Times, Matchups & Tickets",Week-12 slate capture (16 games),2026-11-19,verified-2026-11-19
+B72-S03,https://www.nfl.com/injuries/league/2026/reg11,nfl.com,Official NFL Injury Report for Players - Week 11 of the 2026 Season | NFL.com,Week-11 injury register (253 rows + 2 markers) and news rail,2026-11-19,verified-2026-11-19
+B72-S04,https://www.nfl.com/games/colts-at-texans-2026-reg-11,nfl.com,Indianapolis Colts at Houston Texans 2026 REG 11 - Game Center,venue transcription + game-centre injury panels + flag re-tests,2026-11-19,verified-2026-11-19
+B72-S05,https://www.nfl.com/games/broncos-at-steelers-2026-reg-12,nfl.com,Denver Broncos at Pittsburgh Steelers 2026 REG 12 - Game Center,venue transcription + injury-panel availability re-test,2026-11-19,verified-2026-11-19
+B72-S06,https://www.nfl.com/transactions/league/reserve-list/2026/11,nfl.com,2026 NFL reserve-list by month | NFL.com,reserve-list capture (25 rows) and flag re-tests,2026-11-19,verified-2026-11-19
+B72-S07,https://www.packers.com/team/depth-chart,packers.com,Packers Depth Chart | Green Bay Packers – packers.com,"depth-chart irregularity re-test (jersey prefixes, stale footer, shared/empty slots)",2026-11-19,verified-2026-11-19
+B72-S08,https://www.houstontexans.com/team/depth-chart,houstontexans.com,Depth Chart | Houston Texans - HoustonTexans.com,depth-chart irregularity re-test (image-only) + venue-name corroboration,2026-11-19,verified-2026-11-19
+B72-S09,https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm,itl.nist.gov,NIST/SEMATECH e-Handbook of Statistical Methods: confidence limits,method reference for uncertainty intervals in ranking (not a sports-betting source),reference-only,reference-only
+B72-S10,https://www.nfl.com/legal/terms/,nfl.com,NFL Terms of Use,data-usage boundary for the public/private layer,reference-only,reference-only
+B72-S11,https://operations.nfl.com/rules-officiating/2026-nfl-rulebook,operations.nfl.com,Official Rules - 2026 NFL Rulebook,rulebook reference for kickoff/onside-kick priors (not read this session),reference-only,reference-only
+B72-S12,https://www.nfl.com/news/nfl-draftkings-fanduel-fanatics-sports-betting-partners,nfl.com,NFL official sports betting partners announcement,operator/data-partner context for the price-data policy question,reference-only,reference-only
+B72-S13,https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site,docs.github.com,GitHub Pages publishing source documentation,site publishing reference,reference-only,reference-only
+B72-S14,https://github.com/sassnarep3-star/Own6,github.com,sassnarep3-star/Own6 repository,"repo review, session coordination and PR records",2026-11-19,verified-2026-11-19
