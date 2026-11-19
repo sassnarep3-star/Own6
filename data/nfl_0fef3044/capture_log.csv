@@ -1,0 +1,2 @@
+capture_id,source_url,read_utc,week,games,player_rows,clubs_with_rows_or_clean_status,raw_file,raw_sha256_of_transcription,official_bytes_hash,delta_vs_prior_week11_read
+0fef3044-W11-01,https://www.nfl.com/injuries/league/2026/reg11,2026-11-19 after 12:09:34Z,11,13,253,26,data/nfl_0fef3044/raw/injury_hub_week11_read_2026_11_19.txt,80015ef7d058505a2901731875b04f3b99f6f544b3d72cb77eff71da9498b3d2,not available (no shell route to nfl.com; fetch tool returns extracted text),none: first Week-11 read in this repository

@@ -4387,3 +4387,45 @@ stand. COORDINATION.md resolved keep-both; shared inventories resolved to main t
 **Requests to owners (logged, not edited).** (1) `nfl_cdf86c07`: classify `S-01` on a theme (or register an override in `src/nfl_dfc0c1bc/themes.py`), and make the pytest dependency optional in its test. (2) Whoever owns `lab`, `assurance` and `parlay-safety`: those failed on `bb18cec` before this PR; their owners should re-run them. (3) `nfl-origination` owner: its gate runs on every pull request to `main` with no path filter, so unrelated packs can turn it red.
 
 **Merge decision.** The merge is allowed by the repository's rules (GitHub reports `MERGEABLE`, not `BLOCKED`). This PR adds no failing check. Its own pack gate and the root release gate are green. The Pages build is verified after the merge.
+
+---
+
+## Session arena/0fef3044-own6 — Week-11 official injury-hub capture (claim and record)
+
+Branch rule: this session is fixed to `arena/0fef3044-own6` by the Arena branch note. The brief's
+`session-<id>/<task>` branch names were not used; the single-branch rule applies (same deviation as earlier sessions).
+Claim recorded here after the first build of the pack; no other session's files were edited.
+
+| Task | Status | Owner | Files touched |
+|---|---|---|---|
+| W11 official injury-hub capture: dated transcription, reconciliation to the official schedule, cross-read against the same-day read, Flagged for Review | done | 0fef3044 | `data/nfl_0fef3044/**`, `docs/nfl-0fef3044/**`, `scripts/build_nfl_0fef3044.py`, `scripts/check_nfl_0fef3044.py`, `tests/test_nfl_0fef3044.py`, `.github/workflows/nfl-0fef3044-ci.yml`, `NFL_0FEF3044_EXECUTIVE_SUMMARY.md`, one README bullet |
+
+### Sources read (2026-11-19, sandbox clock 12:09:34Z onward)
+
+| ID | Official URL | Used for | Result |
+|---|---|---|---|
+| 0F-S1 | https://www.nfl.com/injuries/league/2026/reg11 (chunks 0–6 of 7) | Week-11 injury report, 13 games, 26 clubs with tables or "No Injuries Reported" | Transcribed to `data/nfl_0fef3044/raw/injury_hub_week11_read_2026_11_19.txt`: 253 player rows; 9 Out and 7 Questionable, all on IND@HOU; all other Game Status cells blank |
+| 0F-S2 | https://www.nfl.com/injuries/ | Same report at the root alias | Chunk 0 read; identical to the reg11 chunk 0 |
+| 0F-S3 | https://www.nfl.com/schedules/2026/by-week/week-11 (read 2026-11-18 by session 0ce967db; `data/nfl_0ce967db/week11_slate.csv`) | Pairings, kickoffs, networks; the six bye clubs | 13/13 pairings and kickoffs match; the six clubs missing from the report (ATL, CLE, GB, LA, NE, SEA) match the schedule bye list |
+| 0F-S4 | `data/nfl_ade166a4/injuries_reg11_b.csv` (session ade166a4, same-day read 11:06:58Z–11:12:05Z) | Independent cross-read | 253/253 player rows match exactly; the only other rows are two "no injuries reported" placeholders (CIN, WAS) |
+
+### Verification performed
+
+- Parser drift alarm: fixed field count per row, team-block membership, 13 game headers, 26 clubs (24 with rows + 2 clean), bye list equal to the schedule read, and an allowed Game Status vocabulary (Out, Doubtful, Questionable).
+- Stdlib unit tests: 10 (parser, blank cells left blank, drift alarm).
+- Checker: 21 checks (regenerated outputs byte-identical, https source on every row, every local link resolves, cross-read 253/253, capture-log hash equals the transcription hash).
+- Limitation: the sandbox has no shell route to nfl.com, so the transcription was made from the fetch tool's extracted text. No hash of official bytes exists; the capture log says so and does not invent one. The fetch tool returns no per-request timestamp, so the read time is "after 12:09:34Z".
+
+### Irregularities (published on `docs/nfl-0fef3044/flagged.html`)
+
+- 0FEF-F01 (carry-forward ADE-F01): Jaylen Waddle appears under DEN, not MIA, on the Week-11 report. This read agrees with the earlier reads. Still open.
+- 0FEF-F02: six clubs have no table on the report. The schedule read lists them as bye clubs; the injury page itself does not print "bye".
+- 0FEF-F03: Kerby Joseph, Cade Mays and D.J. Reed have a blank Game Status on the Week-11 report. The Week-10 read showed Out, but that is a different week and is not carried forward.
+- 0FEF-F04: capture precision limits (no official bytes, approximate clock).
+- 0FEF-F05: two display names differ from their profile-link slugs (Jacob Hummel, Dee Alford). The displayed name is used.
+
+### Handoff and integration notes
+
+- The Week-11 hub had not published Week 11 at the 2026-11-18 03:44Z read (it showed Week 10). It is now live. This pack is the first dated Week-11 transcription in the repo that is not part of the same-day pair.
+- Shared navigation: one bullet added to the README "Start here" list. The root landing page and `docs/index.html` are unchanged; a later integration session can link this pack from them.
+- Open for other sessions: the Week-10 "re-capture" item (R46 in `data/nfl_0ce967db/requirements.csv`) and the depth, reserve and inactive items remain as recorded in their packs. This session did not change them.
