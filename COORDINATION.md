@@ -3845,11 +3845,16 @@ Running `tools/run_tests.py` executes `tests/test_nfl_dfc0c1bc.py`, which **rebu
 All 19 files were reverted byte-for-byte to `main` (`afce5a1`) and are **not** part of this session's
 contribution.
 
-**Request for the `nfl_dfc0c1bc` scope owner:** rebuild that pack on `main` **after** this PR merges. Its
-`data/nfl_dfc0c1bc/sources.csv` will gain two rows
-(`SRC-REG-questions-nfl_d713b52f`, `SRC-REG-suggestions-nfl_d713b52f`) and the 19 generated files will
-diff. Nothing is wrong with those files — they are simply stale with respect to the new registers. Do
-**not** treat the absence of that rebuild as a defect in this pack.
+**Resolution (superseding the "request a rebuild" note I first wrote here).** Main's own history settles
+it: `0b25172` (session `0050c939`) already carried 4 auto-regenerated `nfl_dfc0c1bc` files and said so in
+its commit message. That pack's suite asserts a **byte-identical rebuild**
+(`test_nfl_dfc0c1bc.py::test_rebuild_is_byte_identical`), so leaving it stale would have made `main` red
+after this merge. This session therefore includes the **pure rebuild output** of
+`scripts/build_nfl_dfc0c1bc.py` — 19 generated files plus 15 theme rows in `decision_paths.csv` — and
+changed **no hand-written content** in that scope. Verified by diffing: every changed line differs from
+its predecessor only in a counter (29→31 registers, 110→114 board rows, 385→415 rows) or is a generated
+theme row citing the new registers. Executive summary, README and every authored file in `nfl_dfc0c1bc`
+are untouched.
 
 This session's verifier (`rule16`) now snapshots git status outside its own scope, restores any foreign
 file a rebuild dirties, and prints a note when it does so, so the situation cannot recur silently.
