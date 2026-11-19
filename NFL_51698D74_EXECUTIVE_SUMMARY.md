@@ -51,8 +51,8 @@ new transcriptions.
 
 | outcome | count | examples |
 |---|---:|---|
-| **closed / confirmed** | 6 | A67-F01 Week-12 venues now 16/16 · F-01 Week-11 report live · F-13 LAC 23–20 FINAL · A67-F09 Week-12 panels "not available" (cadence) · A67-F11 absence≠availability · A67-F12 blanks=cadence |
-| **still open** | 6 | A67-F02 RELIANT legacy (re-read) · A67-F03 reserve window · A67-F04 IR blank status · A67-F08 Week-12 headings · A67-F10 LAR/LA drift · VR-08 carried closed |
+| **closed / confirmed** | 7 | A67-F01 Week-12 venues now 16/16 (CLOSED) · F-01 Week-11 report live (CLOSED) · F-13 LAC 23–20 FINAL (CLOSED) · VR-08 Lions designations (CLOSED, carried from a67ddef8) · A67-F09 Week-12 panels "not available" (CONFIRMED) · A67-F11 absence≠availability (CONFIRMED) · A67-F12 blanks=cadence (CONFIRMED) |
+| **still open** | 5 | A67-F02 RELIANT legacy (re-read) · A67-F03 reserve window · A67-F04 IR blank status · A67-F08 Week-12 headings · A67-F10 LAR/LA drift |
 | **not retested** | 3 | A67-F05 Lamar windows · A67-F06 Texans image depth · A67-F07 Packers prefixes (no club-depth fetch this session) |
 
 ## 4. New flags this session (12, all `blocking_merge=no`)
