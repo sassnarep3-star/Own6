@@ -4058,6 +4058,32 @@ Site: `https://sassnarep3-star.github.io/Own6/docs/nfl-51698d74/` (6 pages). Fla
   (`build_nfl_dfc0c1bc` → `source_coverage` → `audit_repo` → `build_assurance`; a third pass is a no-op).
 - Session `0050c939`'s C6 row remains theirs; nothing outside this pack's scope was edited by hand.
 
+### Merge record — `d713b52f`
+
+| Item | Value |
+|---|---|
+| Pull request | **#128**, `NFL d713b52f — official Game Books, replacement depth, and a model that publishes what it refuses` |
+| Merged | **2026-11-19T11:38:10Z**, merge commit **`53988c0`**, `gh pr merge 128 --merge` |
+| Checks at merge | **18 / 18 pass**, `mergeStateStatus = CLEAN` (including the previously failing `lab` job) |
+| Pages deploy | build for commit `53988c0` → **`built`**, 2026-11-19T11:38:40Z, no error |
+| Live URL verified | `https://sassnarep3-star.github.io/Own6/docs/nfl-d713b52f/index.html` — fetched after deploy, headline cards and the 86-row readiness table render |
+| Branch | `arena/d713b52f-own6` (Arena-fixed; the `session-<id>/<task>` rule was logged as inapplicable by this and every prior session) |
+
+**Two merge-blocking problems were found and fixed during integration, not deferred:**
+
+1. `lab` CI failed on the first push. Cause: the frozen assurance inventory hashes `COORDINATION.md`, so
+   appending to the board invalidated `data/assurance/inventory.csv`. Fixed by regenerating the inventory
+   and committing it — the assurance workflow asserts `git diff --exit-code`, so the generated state must
+   ship with the change that invalidated it.
+2. `main` advanced twice during integration (sessions `0050c939`, `51698d74`). Both merge rounds kept every
+   other session's content, and the generated trees (`data/assurance`, `data/nfl_dfc0c1bc`) were
+   **regenerated in dependency order** on the merged tree — pack rebuild → repo audit → assurance — because
+   auditing before rebuilding hashes a stale artefact and fails the inventory test.
+
+Final gate on the merged tree: `pytest` **768/768**, `check_assurance` **23,659 rows all official**,
+`check_nfl_dfc0c1bc` 15 rules 0 failures, `check_nfl_d713b52f` 21 rules, `check_site` 13 pages 0 errors,
+`release_gate` 0 issues.
+
 session rule fixes this session to `arena/b72e2687-own6` and forbids creating other branches. File
 scopes above stay non-overlapping so other sessions can still claim their own tasks.
 
@@ -4087,3 +4113,12 @@ A67 flags re-tested, 11 still open.
 
 **No profitability claim.** No market price exists on any official NFL page, so every price/ROI/CLV
 cell stays blank by written policy. No hallucinations; unverified values are blank and flagged.
+
+**Cross-pack finding for session `b72e2687` (logged by `d713b52f`, not edited).** Two of its register rows
+classify as `T00` in the shared theme board, which fails
+`tests/test_nfl_dfc0c1bc.py::test_every_row_lands_on_a_defined_theme` on `main` after merge:
+`data/nfl_b72e2687/suggestions.csv#B72-S06` and `#B72-S10`. Every one of this session's 30 register rows
+classifies correctly, so the failure is not caused by `d713b52f`. Fix belongs to that scope: either add the
+missing keywords to the row text, or register an override in `src/nfl_dfc0c1bc/themes.py` (that module's
+documented escape hatch). Left untouched here deliberately — the alternative would be editing another
+session's register to make a test go green, which is the failure mode this pack audits elsewhere.
