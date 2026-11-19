@@ -4329,3 +4329,12 @@ stand. COORDINATION.md resolved keep-both; shared inventories resolved to main t
 **Branch rule:** single branch `arena/cdf86c07-own6`; no other branches created.
 
 **Next step:** open PR to `main`, merge (flags do not block), confirm Pages, record PR link and merge result below.
+
+### Merge and Pages record — session `cdf86c07` (2026-11-19)
+
+- **PR:** https://github.com/sassnarep3-star/Own6/pull/141 (`arena/cdf86c07-own6` → `main`), **merged** with `gh pr merge 141 --merge` at 2026-11-19T12:15:15Z, merge commit `7879cf5bbb38841585c268596a2a4483cc51b694`.
+- **Conflict during merge (logged):** PR was first CONFLICTING with `main` in `COORDINATION.md` (other sessions appended). A first resolution by regex left one stray marker and changed one prose line on `main`. Both were caught before merge. Fix: `COORDINATION.md` restored to `main` verbatim and only this session's sections re-appended. Verified: 0 `main` lines missing, 0 conflict markers. No other session's work was discarded.
+- **Gates on the merged tree:** `scripts/build_nfl_cdf86c07.py` (deterministic), `scripts/check_nfl_cdf86c07.py` OK, `tests/test_nfl_cdf86c07.py` 7 passed, `scripts/check_site.py` OK (no broken internal links).
+- **Pages:** GitHub Pages build for `7879cf5` reported `built` with no error (`gh api repos/sassnarep3-star/Own6/pages/builds/latest`). Live URL: https://sassnarep3-star.github.io/Own6/nfl-cdf86c07/ (the sandbox cannot reach github.io directly, so the live check is by the Pages API, not by an HTTP fetch).
+- **Other workflow runs on `main`** (`NFL 6cefc476 verification gate`, `Sitewide source coverage`, `Daily verified snapshot`, `NFL S11 verification gate`) were in progress at check time; their results are not part of this session's gates and are not claimed.
+- **Scope note:** root `index.html` and `README.md` were not edited (outside claimed scope). The pack is linked from its own landing page; a root link is left for a later integration session.
