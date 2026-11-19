@@ -3706,3 +3706,22 @@ blocks. Suggestions are proposals only; the owner chooses the path.
 **Branch-rule deviation (logged).** The brief asks for `session-<id>/<task>` branches; the Arena
 session rule fixes this session to `arena/a67ddef8-own6` and forbids creating other branches. File
 scopes above stay non-overlapping so other sessions can still claim their own tasks.
+
+---
+
+**Completion record (appended 2026-11-19, after merge).**
+
+| Task | Status | Result |
+|---|---|---|
+| V1 repo review | **done** | `audit/NFL_A67DDEF8_REPO_REVIEW.md` — 1,338 files / 135,344 lines at final audit; gates re-run green (521 → 749 tests after this pack landed) |
+| V2 official capture 2026-11-19 | **done** | standings 32 clubs (149/149/2, PF=PA=6,923), reg11 injuries 253 rows + 2 markers (13/13 games), week11 slate + all 13 game-centre venues, week10 finals (Monday LAC 23–20 BAL settled), week12 slate 16 games, reserve-list window 11/10–11/18 (25 rows), depth/rulebook re-tests, 13-row `capture_log.csv` (sha256 over artifacts; log states hash cannot prove page content) |
+| V3 flag re-tests | **done** | `data/nfl_a67ddef8/flag_recheck.csv` — 24 inherited flags: 14 closed/confirmed/corroborated, 7 still open, 1 partial, 1 not-retested (B-05), 1 superseded (F-02 → game-centre venues) |
+| V4 reverification | **done** | `data/nfl_a67ddef8/reverification.csv` — 15 rows: 11 MATCH, 1 improved, 2 changed-by-time, 1 corroborated, 1 partial; independent arithmetic 6,246+45+632=6,923 |
+| V5 registers | **done** | requirements 60 (gate + clearing number), questions 12, suggestions 8 (all `pending_human_choice=yes`), flagged 12 (all `blocking_merge=no`), sources 28 |
+| V6 site | **done** | `docs/nfl-a67ddef8/**` 6 pages + builder + 15-rule checker + 19 unit tests + `nfl-a67ddef8-ci.yml` |
+| V7 executive summary | **done** | `NFL_A67DDEF8_EXECUTIVE_SUMMARY.md` |
+| V8 integration | **done** | additive hub card + root/README links; fixed-point sequence re-settled (dfc0c1bc 15 rules / 29 registers / 26 flags, assurance 21,801 rows, coverage manifest current); **PR #121 merged `629b785` 2026-11-19T09:43:59Z** (`gh pr merge 121 --merge`, 17/17 checks green); Pages build for `629b785` **built** 09:44:28Z; live `https://sassnarep3-star.github.io/Own6/docs/nfl-a67ddef8/` |
+
+**New upstream flags published (non-blocking):** A67-F01..F12 — venue-name mismatches (RELIANT/NRG, NORTHWEST/FedEx, ACRISURE/Heinz + GEHA variance), game-centre legacy name on IND@HOU, reserve-list render window, IR players with blank game status (Al-Shaair/Carlies), dual Lamar recovery windows (6-9 vs 6-10), Texans image-only depth, Packers jersey prefixes + stale footer, Week-12 heading/weekday contradictions, week-12 panels not yet available, LAR/LA abbreviation drift, reserve-absence ≠ availability (VQ-06 case 2), blank game statuses = cadence.
+
+**Scope note:** this record is written on `arena/a67ddef8-own6` and shipped to main via a record PR (append-only rule; no direct main push). No other session's files were edited except the additive `docs/index.html` card, root `index.html` link and `README.md` bullet inside V8's claimed scope.
