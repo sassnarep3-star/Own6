@@ -189,6 +189,7 @@ OVERRIDES: Dict[str, str] = {
     "nfl_origination|suggestions|SUG-13": "T11",
     "nfl_b72e2687|suggestions|B72-S06": "T11",
     "nfl_b72e2687|suggestions|B72-S10": "T11",
+    "nfl_cdf86c07|suggestions|S-01": "T03",
     "nfl_origination|suggestions|SUG-14": "T07",
     "nfl_309921cc|suggestions|NFL3-SUG-01": "T12",
     "nfl_309921cc|suggestions|NFL3-SUG-02": "T12",
