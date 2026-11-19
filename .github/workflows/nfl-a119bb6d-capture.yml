@@ -5,12 +5,14 @@ name: NFL a119bb6d capture
 #   Wed/Thu/Fri 21:00 UTC  -> the league's injury-report hub and the weekly
 #                              inactive-list article (practice reports are
 #                              published during the afternoon in the US).
-#   Mon 05:00 UTC          -> the Game Book PDFs for the week just finished.
+#   Mon 05:00 UTC          -> the Game Book PDFs for the week just finished,
+#                              the archived weekly injury reports of the past
+#                              season, and the 32 club roster pages.
 #
 # Every capture writes a manifest with the URL, the read time and the SHA-256
 # of the bytes that were read. The manifest is uploaded as an artifact so the
-# capture is auditable and replayable, and so a reviewer can re-download the
-# same document and confirm the hash.
+# capture is auditable and replayable: a reviewer can re-download the same
+# document and confirm the hash.
 
 on:
   push:
@@ -23,9 +25,23 @@ on:
   workflow_dispatch:
     inputs:
       weeks:
-        description: 'Week numbers to capture (comma separated)'
+        description: 'Week numbers to capture (comma separated, empty for none)'
         required: false
         default: '10'
+      archive_seasons:
+        description: 'Past seasons whose weekly injury reports are archived'
+        required: false
+        default: ''
+      rosters:
+        description: 'Also capture the 32 club roster pages'
+        required: false
+        default: false
+        type: boolean
+      no_gamebooks:
+        description: 'Skip the game centre / Game Book capture'
+        required: false
+        default: false
+        type: boolean
   schedule:
     - cron: '0 21 * * 3,4,5'
     - cron: '0 5 * * 1'
@@ -46,40 +62,55 @@ jobs:
       - name: Install capture dependencies
         run: python3 -m pip install --upgrade pip && python3 -m pip install pypdf
 
-      - name: Decide which weeks this scheduled run captures
+      - name: Decide what this run captures
         id: plan
+        env:
+          EVENT: ${{ github.event_name }}
+          SCHEDULE: ${{ github.event.schedule || '' }}
+          IN_WEEKS: ${{ inputs.weeks || '' }}
+          IN_ARCHIVE: ${{ inputs.archive_seasons || '' }}
+          IN_ROSTERS: ${{ inputs.rosters || '' }}
+          IN_NO_GB: ${{ inputs.no_gamebooks || '' }}
         run: |
           set -euo pipefail
-          day=$(date -u +%u)
-          if [ "$day" = "1" ]; then
-            echo "weeks=10" >> "$GITHUB_OUTPUT"
-            echo "Scheduled Monday run: capturing the Game Books of the week just finished."
+          weeks="$IN_WEEKS"
+          extra=""
+          archive=""
+          rosters=""
+          no_gb=""
+          if [ "$EVENT" = "schedule" ]; then
+            day=$(date -u +%u)
+            if [ "$day" = "1" ]; then
+              weeks="10"
+              archive="2025"
+              rosters="--rosters"
+              echo "Scheduled Monday run: the Game Books of the week just finished, the archived weekly injury reports and the club rosters."
+            else
+              weeks="11"
+              no_gb="--no-gamebooks"
+              echo "Scheduled Wed/Thu/Fri run: this week's injury report and the inactive article."
+            fi
           else
-            echo "weeks=11" >> "$GITHUB_OUTPUT"
-            echo "Scheduled Wed/Thu/Fri run: capturing this week's injury report and inactive article."
+            archive="$IN_ARCHIVE"
+            [ -n "$IN_ROSTERS" = "true" ] && rosters="--rosters"
+            [ -n "$IN_NO_GB" = "true" ] && no_gb="--no-gamebooks"
           fi
+          echo "weeks=$weeks" >> "$GITHUB_OUTPUT"
+          echo "extra=$extra" >> "$GITHUB_OUTPUT"
+          echo "archive=$archive" >> "$GITHUB_OUTPUT"
+          echo "rosters=$rosters" >> "$GITHUB_OUTPUT"
+          echo "no_gb=$no_gb" >> "$GITHUB_OUTPUT"
 
       - name: Run the capture
         run: |
           python3 scripts/capture_nfl_a119bb6d.py \
             --weeks "${{ steps.plan.outputs.weeks }}" \
-            --out "capture"
+            --archive-seasons "${{ steps.plan.outputs.archive }}" \
+            --out "capture" \
+            ${{ steps.plan.outputs.rosters }} ${{ steps.plan.outputs.no_gb }}
 
       - name: Summary
-        run: |
-          echo "### Capture manifest" >> "$GITHUB_STEP_SUMMARY"
-          echo "" >> "$GITHUB_STEP_SUMMARY"
-          {
-            echo "| kind | url | status | bytes | sha256 | read (UTC) |"
-            echo "|---|---|---|---|---|---|"
-            tail -n +2 capture/capture_log.csv | python3 -c "
-          import csv,sys
-          for row in csv.DictReader(sys.stdin):
-              print('| {} | {} | {} | {} | {} | {} |'.format(
-                  row['kind'], row['url'][:90], row['http_status'] or row['error'],
-                  row['bytes'], row['sha256'][:16], row['fetched_at_utc']))
-          "
-          } >> "$GITHUB_STEP_SUMMARY"
+        run: python3 scripts/summarise_capture.py capture/capture_log.csv
 
       - name: Upload the capture
         uses: actions/upload-artifact@v4

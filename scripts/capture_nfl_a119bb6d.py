@@ -54,6 +54,20 @@ GAMEBOOK_RE = re.compile(
 STADIUM_RE = re.compile(r"STADIUM\s*([A-Z0-9 &'\.\-]+?)(?:LOCATION|$)")
 LOCATION_RE = re.compile(r"LOCATION\s*([A-Z0-9 ,'\.\-]+?)(?:STADIUM|$)")
 
+#: The 32 club slugs the league uses in ``/teams/<slug>/`` URLs.
+CLUB_SLUGS = [
+    "arizona-cardinals", "atlanta-falcons", "baltimore-ravens", "buffalo-bills",
+    "carolina-panthers", "chicago-bears", "cincinnati-bengals", "cleveland-browns",
+    "dallas-cowboys", "denver-broncos", "detroit-lions", "green-bay-packers",
+    "houston-texans", "indianapolis-colts", "jacksonville-jaguars",
+    "kansas-city-chiefs", "las-vegas-raiders", "los-angeles-chargers",
+    "los-angeles-rams", "miami-dolphins", "minnesota-vikings",
+    "new-england-patriots", "new-orleans-saints", "new-york-giants", "new-york-jets",
+    "philadelphia-eagles", "pittsburgh-steelers", "san-francisco-49ers",
+    "seattle-seahawks", "tampa-bay-buccaneers", "tennessee-titans",
+    "washington-commanders",
+]
+
 
 def write_text(path: str, text: str) -> None:
     os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -91,6 +105,27 @@ def main() -> int:
     ap.add_argument("--weeks", default="10", help="comma separated week numbers")
     ap.add_argument("--out", required=True, help="output directory for the capture")
     ap.add_argument("--season", type=int, default=SEASON)
+    ap.add_argument(
+        "--archive-seasons",
+        default="",
+        help="comma separated past seasons whose weekly injury reports are archived",
+    )
+    ap.add_argument(
+        "--archive-last-reg",
+        type=int,
+        default=18,
+        help="number of regular-season weeks archived per past season",
+    )
+    ap.add_argument(
+        "--rosters",
+        action="store_true",
+        help="capture the 32 official club roster pages (roster status per player)",
+    )
+    ap.add_argument(
+        "--no-gamebooks",
+        action="store_true",
+        help="skip the game centre and Game Book capture (injury pages only)",
+    )
     args = ap.parse_args()
 
     out = os.path.abspath(args.out)
@@ -148,7 +183,7 @@ def main() -> int:
         print(f"week {week}: {len(slugs)} game centre URLs discovered")
 
         # 2. Game centre page -> Game Book PDF link.
-        for slug in slugs:
+        for slug in (slugs if not args.no_gamebooks else []):
             gc_url = f"https://www.nfl.com/games/{slug}"
             gc = store("gamecenter", f"{slug}.html", gc_url, note="game centre")
             pdfs = sorted(set(GAMEBOOK_RE.findall(gc.text())))
@@ -194,6 +229,37 @@ def main() -> int:
                 break
         else:
             print(f"week {week}: no official inactive-list article found")
+
+    # 3b. The weekly injury reports of past seasons. The archive exists at the
+    #     same /injuries/league/{season}/reg{week} route, which is what makes the
+    #     empirical calibration of a designation possible at all.
+    for season in [s.strip() for s in args.archive_seasons.split(",") if s.strip()]:
+        for reg in range(1, args.archive_last_reg + 1):
+            url = f"https://www.nfl.com/injuries/league/{season}/reg{reg}"
+            result = fetch(url)
+            path = os.path.join(out, "archive", f"injuries-{season}-reg{reg}.html")
+            if result.ok:
+                write_text(path, result.text())
+            else:
+                write_text(path, "")
+            record("archive", url, result, path, f"season={season}; reg={reg}")
+        print(f"season {season}: {args.archive_last_reg} weekly injury reports captured")
+
+    # 3c. The 32 club roster pages. They carry the club's own roster status
+    #     (Active / Reserve / Injured Reserve / Practice Squad), which is the
+    #     only way to stop "not listed on the injury report" from being read
+    #     as "available".
+    if args.rosters:
+        for slug in CLUB_SLUGS:
+            url = f"https://www.nfl.com/teams/{slug}/roster/"
+            result = fetch(url)
+            path = os.path.join(out, "rosters", f"{slug}.html")
+            if result.ok:
+                write_text(path, result.text())
+            else:
+                write_text(path, "")
+            record("roster", url, result, path, f"club={slug}")
+        print(f"rosters: {len(CLUB_SLUGS)} club roster pages captured")
 
     # 4. The league's dated schedule announcements.
     for slug in ("week-11-schedule-change", "week-12-schedule-change"):
