@@ -230,6 +230,96 @@ def build_availability_graph(
 # 2. The designation calibration
 # ---------------------------------------------------------------------------
 
+def build_matchup_matrix(
+    games: list[dict],
+    lineups: list[dict],
+    participation: list[dict],
+) -> tuple[list[dict], list[str]]:
+    """Return the offence-versus-defence personnel matrix and its problems.
+
+    For every game, every position group on the attack is set against the
+    starting defenders at the corresponding group, and the personnel
+    deficiency of each side is read from the Game Book: a starter who was
+    <em>Not Active</em> or <em>Did Not Play</em> leaves the position group
+    without its first-choice player, and the replacement who started there
+    takes the place.
+
+    The string column is a lower bound for the reason given in
+    :func:`build_availability_graph`: the league publishes no depth order and
+    no snap counts.
+    """
+    problems: list[str] = []
+
+    starters: dict[tuple, list[str]] = {}
+    for row in lineups:
+        key = (row["game_slug"], row["side"], row["unit"], row["position"])
+        starters.setdefault(key, []).append(row["player"])
+
+    status: dict[tuple, dict[str, str]] = {}
+    for row in participation:
+        key = (row["game_slug"], row["side"])
+        status.setdefault(key, {})[row["player"]] = row["role"]
+
+    rows: list[dict] = []
+    for game in games:
+        slug = game["game_slug"]
+        week = week_of_game(slug)
+        for attack, defence in (("away", "home"), ("home", "away")):
+            attack_club = club_of(game[f"{attack}_team"])
+            defence_club = club_of(game[f"{defence}_team"])
+            if not attack_club or not defence_club:
+                problems.append(
+                    f"{slug}: club name not recognised in the match-up matrix"
+                )
+                continue
+            positions = sorted(
+                {
+                    pos
+                    for (gslug, gside, unit, pos) in starters
+                    if gslug == slug and gside == attack and unit == "offense"
+                }
+            )
+            for position in positions:
+                offense = sorted(starters.get((slug, attack, "offense", position), []))
+                defense = sorted(starters.get((slug, defence, "defense", position), []))
+                if not offense or not defense:
+                    continue
+                game_status = status.get((slug, attack), {})
+                unavailable = [
+                    p for p in offense
+                    if game_status.get(p) in ("not_active", "did_not_play")
+                ]
+                replacement = [p for p in offense if p not in unavailable]
+                rows.append(
+                    {
+                        "week": week,
+                        "game_slug": slug,
+                        "game_url": game["game_url"],
+                        "offense_club": attack_club,
+                        "defense_club": defence_club,
+                        "position": position,
+                        "offense_starters": "; ".join(offense),
+                        "defense_starters": "; ".join(defense),
+                        "offense_unavailable": "; ".join(unavailable),
+                        "offense_replacement_started": "; ".join(replacement),
+                        "offense_deficiency_count": len(unavailable),
+                        "offense_replacement_string_lower_bound": (
+                            len(unavailable) + 1 if unavailable else ""
+                        ),
+                        "source_url": game["game_url"],
+                        "gamebook_url": game.get("gamebook_url", ""),
+                        "read_at_utc": game.get("read_at_utc", ""),
+                        "note": (
+                            "the deficiency count is the number of the attack's official "
+                            "starters at this position whom the official Game Book shows "
+                            "were inactive or did not play; the string is a lower bound "
+                            "because the league publishes no depth order and no snap counts"
+                        ),
+                    }
+                )
+    return rows, problems
+
+
 def build_designation_calibration(
     injuries: list[dict],
     games: list[dict],

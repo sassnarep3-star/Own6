@@ -22,6 +22,7 @@ sys.path.insert(0, ROOT)
 from src.nfl_a119bb6d.registers import (  # noqa: E402
     build_availability_graph,
     build_designation_calibration,
+    build_matchup_matrix,
     club_of,
     load,
     week_of_game,
@@ -86,6 +87,7 @@ NAV = [
     ("index.html", "Overview"),
     ("game-books.html", "Official Game Books"),
     ("availability.html", "Availability graph"),
+    ("matchup.html", "Match-up matrix"),
     ("calibration.html", "Designation calibration"),
     ("snapshots.html", "Snapshot ledger"),
     ("requirements.html", "Requirements"),
@@ -177,12 +179,16 @@ def main() -> int:
     availability, availability_problems = build_availability_graph(
         games, lineups, participation
     )
+    matchup, matchup_problems = build_matchup_matrix(
+        games, lineups, participation
+    )
     calibration, calibration_problems = build_designation_calibration(
         injuries, games, lineups, participation
     )
     all_problems = (
         [p["problem"] for p in problems]
         + availability_problems
+        + matchup_problems
         + calibration_problems
     )
 
@@ -192,10 +198,10 @@ def main() -> int:
         availability,
         [
             "week", "game_slug", "game_url", "club", "opponent", "side", "unit",
-            "position", "expected_player", "actual_player", "change_type",
-            "previous_game_slug", "replacement_string_lower_bound",
-            "unavailable_ahead", "expected_source", "actual_source", "source_url",
-            "read_at_utc", "note",
+            "position", "expected_starters", "actual_starters", "starters_out",
+            "starters_in", "unavailable_ahead", "pushed_back",
+            "replacement_string_lower_bound", "change_type", "previous_game_slug",
+            "expected_source", "actual_source", "source_url", "read_at_utc", "note",
         ],
     )
     write_csv(
@@ -213,6 +219,17 @@ def main() -> int:
         [{"problem": p} for p in all_problems],
         ["problem"],
     )
+    write_csv(
+        os.path.join(DATA, "matchup_matrix.csv"),
+        matchup,
+        [
+            "week", "game_slug", "game_url", "offense_club", "defense_club",
+            "position", "offense_starters", "defense_starters",
+            "offense_unavailable", "offense_replacement_started",
+            "offense_deficiency_count", "offense_replacement_string_lower_bound",
+            "source_url", "gamebook_url", "read_at_utc", "note",
+        ],
+    )
 
     reads = ""
     if capture_log:
@@ -225,9 +242,10 @@ def main() -> int:
         games_by_week.setdefault(week_of_game(game["game_slug"]), []).append(game)
 
     # ---- pages ------------------------------------------------------------
-    build_index(games, availability, calibration, capture_log, all_problems, reads)
+    build_index(games, availability, matchup, calibration, capture_log, all_problems, reads)
     build_game_books(games, games_by_week, reads)
     build_availability(availability, games, reads)
+    build_matchup(matchup, games, reads)
     build_calibration(calibration, injuries, reads)
     build_snapshots(capture_log, reads)
     build_requirements(games, availability, calibration, all_problems, reads)
@@ -242,15 +260,17 @@ def main() -> int:
 # pages
 # ---------------------------------------------------------------------------
 
-def build_index(games, availability, calibration, capture_log, problems, reads) -> None:
+def build_index(games, availability, matchup, calibration, capture_log, problems, reads) -> None:
     replaced = [r for r in availability if r["change_type"] == "replaced"]
-    deeper = [r for r in replaced if r["replacement_string_lower_bound"] not in ("", "1")]
+    deeper = [r for r in replaced if str(r["replacement_string_lower_bound"]) not in ("", "1")]
     designated = sum(int(c["n"]) for c in calibration)
+    deficient = [r for r in matchup if r["offense_deficiency_count"]]
     cards = [
         ("Official Game Books read", len(games), "each one hashed"),
         ("Availability rows", len(availability), "expected vs actual starters"),
         ("Starter replacements", len(replaced), "official Game Book evidence"),
         ("Replacements at depth 2+", len(deeper), "lower bound, official only"),
+        ("Match-up cells with a deficiency", len(deficient), "offence vs defence"),
         ("Designated players joined", designated, "injury report to Game Book"),
         ("Official reads logged", len(capture_log), "with SHA-256 and clock time"),
     ]
@@ -371,34 +391,43 @@ def build_availability(availability, games, reads) -> None:
             esc(row["club"]),
             esc(row["opponent"]),
             esc(f"{row['unit']} {row['position']}"),
-            esc(row["expected_player"]) or '<span class="mut">no prior Game Book</span>',
-            esc(row["actual_player"]),
+            esc(row["expected_starters"]) or '<span class="mut">no prior Game Book</span>',
+            esc(row["actual_starters"]),
             esc(row["change_type"].replace("_", " ")),
             esc(row["replacement_string_lower_bound"]) or "",
             esc(row["unavailable_ahead"]),
+            esc(row["pushed_back"]) or "",
             link(row["source_url"], "game centre"),
         ])
     changed = [r for r in availability if r["change_type"] != "held_over"]
-    deeper = [r for r in changed if r["replacement_string_lower_bound"] not in ("", "1")]
+    deeper = [r for r in changed if str(r["replacement_string_lower_bound"]) not in ("", "1")]
     body = f"""
 <h1>Availability graph &mdash; expected starter vs actual starter</h1>
-<p class="lead">For every club, unit and position slot, the <em>expected</em> starter is the
-same club's official starter at that slot in its previous game, read from the previous week's
-official Game Book. The <em>actual</em> starter is the official Game Book of the game in hand.
-Rows where the two agree are omitted here and kept in
+<p class="lead">For every club, unit and position group, the <em>expected</em> starters are the
+same club's official starters at that position in its previous game, read from the previous
+week's official Game Book. The <em>actual</em> starters are the official Game Book of the game
+in hand. Rows where the two agree are omitted here and kept in
 <code>data/nfl_a119bb6d/availability_graph.csv</code>.</p>
 
 <div class="cards">
-<div class="card"><div class="k">Slots compared</div><div class="v">{len(availability)}</div><div class="s">across every Game Book read</div></div>
+<div class="card"><div class="k">Position groups compared</div><div class="v">{len(availability)}</div><div class="s">across every Game Book read</div></div>
 <div class="card"><div class="k">Starter changes</div><div class="v">{len(changed)}</div><div class="s">a different player started</div></div>
 <div class="card"><div class="k">Depth 2 or deeper</div><div class="v">{len(deeper)}</div><div class="s">a lower bound from official data</div></div>
 </div>
 
 {table(
-    ["Week", "Club", "Opponent", "Slot", "Expected starter", "Actual starter", "Change",
-     "Replacement string (lower bound)", "Unavailable ahead", "Source"],
+    ["Week", "Club", "Opponent", "Position", "Expected starters", "Actual starters", "Change",
+     "Replacement string (lower bound)", "Unavailable ahead", "Pushed back", "Source"],
     rows,
 )}
+
+<div class="note"><strong>Why this compares position groups and not numbered slots.</strong> The
+Game Book prints the position (<code>WR</code>, <code>TE</code>, <code>DL</code> &hellip;) but it
+does not print a depth rank. Pairing &ldquo;last week's first wide receiver&rdquo; with
+&ldquo;this week's first wide receiver&rdquo; would invent a rank the league never published,
+so the comparison is between the <em>sets</em> of starters at each position. That answers the
+question exactly &mdash; who was expected to start and who actually did &mdash; without
+fabricating a slot.</div>
 
 <div class="note"><strong>How the depth column is built, and why it is a lower bound.</strong> The
 league publishes no depth chart and no snap counts. The only official evidence of who was ahead
@@ -411,6 +440,59 @@ job is not counted, so the true string is never overstated.</div>
 """
     write(os.path.join(DOCS, "availability.html"),
           page("Availability graph", "availability.html", body, reads))
+
+
+def build_matchup(matchup, games, reads) -> None:
+    rows = []
+    for row in sorted(matchup, key=lambda r: (r["week"], r["game_slug"], r["position"])):
+        rows.append([
+            esc(row["week"]),
+            f'{esc(row["offense_club"])} v {esc(row["defense_club"])}',
+            esc(row["position"]),
+            esc(row["offense_starters"]),
+            esc(row["defense_starters"]),
+            esc(row["offense_unavailable"]) or '<span class="mut">none</span>',
+            esc(row["offense_replacement_started"]),
+            esc(row["offense_deficiency_count"]),
+            esc(row["offense_replacement_string_lower_bound"]) or "",
+            link(row["source_url"], "game centre"),
+        ])
+    deficient = [r for r in matchup if r["offense_deficiency_count"]]
+    body = f"""
+<h1>Offence vs defence personnel matrix</h1>
+<p class="lead">For every game, the official starting personnel of each attack is set against
+the official starting personnel of the defence it faced, position group by position group. The
+deficiency column counts the attack's own starters at that position whom the official Game Book
+shows were <em>Not Active</em> or <em>Did Not Play</em>.</p>
+
+<div class="cards">
+<div class="card"><div class="k">Match-up cells</div><div class="v">{len(matchup)}</div><div class="s">position group against position group</div></div>
+<div class="card"><div class="k">Cells with a deficiency</div><div class="v">{len(deficient)}</div><div class="s">an official starter was unavailable</div></div>
+<div class="card"><div class="k">Games covered</div><div class="v">{len({r['game_slug'] for r in matchup})}</div><div class="s">from the official Game Books</div></div>
+</div>
+
+{table(
+    ["Week", "Match-up", "Position", "Offence starters", "Defence starters",
+     "Offence starter unavailable", "Who started instead", "Deficiency", "String (lower bound)",
+     "Source"],
+    rows,
+)}
+
+<div class="note"><strong>What the deficiency column is and is not.</strong> It is a count of
+official Game Book facts: the attack's own starting player at that position was on the
+<em>Not Active</em> list or in the <em>Did Not Play</em> list, so the position was played by
+somebody else. The string column is a <strong>lower bound</strong> on how deep that replacement
+was: the league publishes no depth chart and no snap counts, so the depth of a replacement can
+only be counted from the players the league itself recorded as unavailable. A shared or an empty
+slot is shown as it is &mdash; the matrix never fills a position with an assumed name.</div>
+
+<div class="note">This matrix is the evidence base for the requirement to track
+<em>personnel deficiencies in defences &mdash; second-, third- and fourth-string backups having to
+replace starters, and the same on offence</em>. It is a first-class dataset with the official
+document and hash behind every row, not a note inside another table.</div>
+"""
+    write(os.path.join(DOCS, "matchup.html"),
+          page("Match-up matrix", "matchup.html", body, reads))
 
 
 def build_calibration(calibration, injuries, reads) -> None:
