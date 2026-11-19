@@ -1,0 +1,11 @@
+strategy_id,strategy_type,definition_frozen,rule_text,sample_window,gates,registration_commit,registration_commit_predates_kickoff,evaluation_window,first_kickoff,status,note
+N01,singles,no,,,,,,,,declared,declared
+N02,singles,no,,,,,,,,declared,declared
+N03,singles,no,,,,,,,,declared,declared
+N04,player_prop,no,,,,,,,,declared,declared
+N05,player_prop,no,,,,,,,,declared,declared
+N06,prop_combo,no,,,,,,,,declared,declared
+N07,parlay,no,,,,,,,,declared,declared
+N08,parlay,no,,,,,,,,declared,declared
+N09,meta_clv,no,,,,,,,,declared,declared
+N10,meta_clv,no,,,,,,,,declared,declared

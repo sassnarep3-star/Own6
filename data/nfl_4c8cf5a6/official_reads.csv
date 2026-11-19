@@ -1,0 +1,7 @@
+read_id,source_id,canonical_url,read_date,rows_transcribed,sha256_transcript,hash_scope,note,requested_url
+R01,S-08,/repos/sassnarep3-star/Own6/pages,2026-11-19,1,,,"GitHub Pages publishing source and latest build status; used for deployment confirmation only, not NFL data.",https://api.github.com/repos/sassnarep3-star/Own6/pages
+R02,S-09,/sassnarep3-star/Own6,2026-11-19,0,,,"Repository source of record; used for coordination only, not NFL data.",https://github.com/sassnarep3-star/Own6
+R03,S-10,/docs.github.com/en/pages,2026-11-19,0,,,"GitHub Pages documentation; used for deployment guidance only, not NFL data.",https://docs.github.com/en/pages
+R04,S-01,/injuries/league/2026/reg10,2026-11-18,0,,,"No nfl.com read performed by this session (sandbox cannot reach nfl.com). Inherited repo claim from session 0d4da02c read on 2026-11-18; 347 rows across 28 clubs.",https://www.nfl.com/injuries/
+R05,S-02,/schedules/2026/by-week/week-11,2026-11-18,0,,,"No nfl.com read performed by this session. Inherited repo claim from session 0d4da02c read on 2026-11-18; 13 games, 6 byes.",https://www.nfl.com/schedules/2026/by-week/week-11
+R06,S-04,/legal/terms/,2026-11-14,0,,,"No nfl.com read performed by this session. Inherited repo claim from session d966f630 / nfl-market pack; https://www.nfl.com/odds/ is the NFL 404 page.",https://www.nfl.com/legal/terms/
