@@ -98,8 +98,10 @@ jobs:
             [ -n "$IN_ROSTERS" = "true" ] && rosters="--rosters"
             [ -n "$IN_NO_GB" = "true" ] && no_gb="--no-gamebooks"
             if [ -z "$weeks" ]; then
-              weeks="10"
-              echo "Push-triggered run: capturing week 10 by default."
+              weeks="9,10"
+              archive="2025"
+              rosters="--rosters"
+              echo "Push-triggered run: capturing weeks 9 and 10, the archived 2025 injury reports and the club rosters."
             fi
           fi
           echo "weeks=$weeks" >> "$GITHUB_OUTPUT"
