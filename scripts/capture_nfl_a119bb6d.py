@@ -46,7 +46,7 @@ from src.nfl_a119bb6d.net import fetch  # noqa: E402
 
 SEASON = 2026
 GAME_CENTER_RE = re.compile(
-    r"https://www\.nfl\.com/games/([a-z0-9\-]+-%d-reg-\d+)" % SEASON
+    r"(?:https://www\.nfl\.com)?/games/([a-z0-9\-]+-%d-reg-\d+)" % SEASON
 )
 GAMEBOOK_RE = re.compile(
     r"https://static\.www\.nfl\.com/image/upload/[^\"'\s]+/gamecenter/[0-9a-fA-F\-]+\.pdf"
@@ -176,16 +176,16 @@ def main() -> int:
             f"https://www.nfl.com/schedules/{args.season}/by-week/week-{week}"
         )
         sched = store("schedule", f"week-{week}.html", sched_url, note="schedule page")
-        slugs = sorted({m.group(1) for m in GAME_CENTER_RE.finditer(sched.text())})
-        if not slugs:
-            slugs = sorted(
-                {
-                    m.group(1)
-                    for m in GAME_CENTER_RE.finditer(sched.text())
-                    if f"reg-{week}" in m.group(1)
-                }
-            )
+        slugs = sorted(
+            {
+                m.group(1)
+                for m in GAME_CENTER_RE.finditer(sched.text())
+                if m.group(1).endswith(f"reg-{week}")
+            }
+        )
         print(f"week {week}: {len(slugs)} game centre URLs discovered")
+        if not slugs:
+            print(f"week {week}: no '/games/<slug>-reg-{week}' link found in the page")
 
         # 2. Game centre page -> Game Book PDF link.
         for slug in (slugs if not args.no_gamebooks else []):
@@ -302,12 +302,33 @@ MARKERS = (
 
 def build_diagnostic(out: str, *, head_lines: int = 130) -> str:
     """Return a bounded extract of one captured Game Book's text."""
+    parts: list[str] = []
+
+    # (a) How the schedule page encodes its game links.
+    sched_dir = os.path.join(out, "schedule")
+    if os.path.isdir(sched_dir):
+        for name in sorted(os.listdir(sched_dir)):
+            path = os.path.join(sched_dir, name)
+            if not name.endswith(".html"):
+                continue
+            with open(path, encoding="utf-8") as fh:
+                html = fh.read()
+            parts.append(f"# SCHEDULE PAGE SAMPLE: {name} ({len(html)} bytes)")
+            hits = [m.start() for m in re.finditer(r"/games/", html)]
+            parts.append(f"# occurrences of '/games/': {len(hits)}")
+            for pos in hits[:6]:
+                snippet = html[max(0, pos - 160): pos + 160].replace("\n", " ")
+                parts.append(f"#   ...{snippet}...")
+            parts.append("")
+
+    # (b) The text layout of one captured Game Book.
     book_dir = os.path.join(out, "gamebooks")
-    if not os.path.isdir(book_dir):
-        return "no game books captured"
-    names = sorted(n for n in os.listdir(book_dir) if n.endswith(".txt"))
+    names = []
+    if os.path.isdir(book_dir):
+        names = sorted(n for n in os.listdir(book_dir) if n.endswith(".txt"))
     if not names:
-        return "no game books captured"
+        parts.append("no game books captured")
+        return "\n".join(parts) + "\n"
     path = os.path.join(book_dir, names[0])
     with open(path, encoding="utf-8") as fh:
         lines = fh.read().splitlines()
@@ -316,15 +337,12 @@ def build_diagnostic(out: str, *, head_lines: int = 130) -> str:
         if any(marker in line for marker in MARKERS) and idx not in keep:
             keep.append(idx)
     keep = sorted(set(keep))
-    out_lines = [
-        f"# STRUCTURAL DIAGNOSTIC (bounded extract of one official Game Book)",
-        f"# file: {names[0]}",
-        f"# lines shown: {len(keep)} of {len(lines)}",
-        "",
-    ]
+    parts.append(f"# GAME BOOK SAMPLE: {names[0]}")
+    parts.append(f"# lines shown: {len(keep)} of {len(lines)}")
+    parts.append("")
     for idx in keep:
-        out_lines.append(f"{idx:05d}| {lines[idx]}")
-    return "\n".join(out_lines) + "\n"
+        parts.append(f"{idx:05d}| {lines[idx]}")
+    return "\n".join(parts) + "\n"
 
 
 if __name__ == "__main__":
