@@ -1,0 +1,11 @@
+s_id,suggestion,why,decision_owner,pending_human_choice,implemented
+S-01,Add a Pending state for blank game-status cells rather than leaving them blank.,Keeps 'no designation published' distinct from 'healthy'.,owner,yes,no
+S-02,Capture the Week-11 game-centre venues (13 pages) and publish them beside the slate.,Closes CD-23 for the current week; low cost.,owner,yes,no
+S-03,Pick one route for depth order (club pages vs snap counts) and verify it for 32 clubs.,"Unblocks CD-06, CD-43, CD-51 and every depth feature.",owner,yes,no
+S-04,Start the Wednesday–Friday injury-report snapshot job with hashes and fetch times.,Creates the surprise series required by CD-12 and CD-53.,owner,yes,no
+S-05,Ask the owner whether a licensed price archive is in scope before any market column appears.,Market columns stay blank until a licence is confirmed (Q-01).,owner,yes,no
+S-06,"Read NFL and data-partner terms, then decide the public/private data split.","Needed before raw rows are published (Q-13, CD-40).",owner,yes,no
+S-07,Reconcile the 136-game log with the 150 official finals before any backtest is published.,Avoids a corpus that silently differs between packs (Q-11).,owner,yes,no
+S-08,Set the leaderboard sample floor and multiplicity method in writing before any strategy is scored.,Prevents post-hoc threshold choice (Q-15).,owner,yes,no
+S-09,Add a freshness alert: fail the build when a capture is older than one day during the season.,"Makes drift visible (CD-62, CD-39).",owner,yes,no
+S-10,"Add a per-team view that shows starters out and net injury count, with replacements blank until a depth source is verified.",Quick decision view without inferring replacements (CD-41).,owner,yes,no

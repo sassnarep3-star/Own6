@@ -4235,6 +4235,103 @@ stand. COORDINATION.md resolved keep-both; shared inventories resolved to main t
 
 ---
 
+## Session `arena/c54d6bda-own6` — live reverification of the Thursday IND@HOU injury block (2026-11-19)
+
+Base: `e9185b3` (origin/main). Scope kept to one new directory so it cannot collide with other packs.
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| C1 Live re-read of the Week 11 Thursday injury block against the stored transcription | done | `c54d6bda` | `data/nfl_c54d6bda/**` |
+| C2 Site/data gate re-run on current main | done | `c54d6bda` | read-only |
+
+**Sources (read 2026-11-19 UTC):** https://www.nfl.com/injuries/ (live Week 11 page, Thursday IND @ HOU block, 26 rows); https://www.nfl.com/schedules/2026/W11/ (confirms Thursday Nov 19, 8:15 PM, Prime, Colts at Texans, 3-7 / 3-6).
+
+**Result:** 26 live rows vs. 26 stored rows in `data/nfl_51698d74/raw/injuries_reg11_2026-11-19.md`: 26 MATCH, 0 MISMATCH (`data/nfl_c54d6bda/reverification_thu_ind_hou.csv`, recomputed by `reverify_thu_ind_hou.py`).
+
+**Gates:** `scripts/check_site.py` OK (9 pages, no broken internal links, external links https). `scripts/check_nfl_51698d74.py` OK (21 rules, 559 rows, capture log verified). GitHub Pages API status: `built`.
+
+**Irregularities (non-blocking):**
+- Injury page URL drift: the stored capture cites `https://www.nfl.com/injuries/league/2026/reg11`; the live page resolves at `https://www.nfl.com/injuries/`. Content identical for this block; URL should be treated as an alias until confirmed.
+- Blank game-status cells on Colts rows (Carlies, Tucker) are reproduced as blank, not inferred.
+- pytest is not installed in this environment; tests were not rerun.
+
+**Not covered by this session:** the rest of the brief (other 12 games, snap counts, depth-chart register, price capture) remains as recorded in the earlier packs and their Flagged for Review pages. No market prices exist on official NFL pages; price columns stay blank by policy.
+stand. COORDINATION.md resolved keep-both; shared inventories resolved to main then regenerated.
+
+**Integration record — session `arena/ade166a4-own6` (appended after the merge).**
+
+- **PR #130:** https://github.com/sassnarep3-star/Own6/pull/130 — `arena/ade166a4-own6` → `main`.
+  **MERGED** with `gh pr merge 130 --merge`; merge commit `e9185b3` at 2026-11-19 ~12:07Z.
+  All reported checks SUCCESS at merge (state CLEAN; 18 checks incl. this pack's gate);
+  **all 30 workflows on main after the merge completed green** (nfl-dfc0c1bc, Verify site and
+  engine, Daily verified snapshot, Release integrity, Lab CI, Hub CI, Independent hub references,
+  and the rest).
+- **Pages:** build for `e9185b3` reached **`built` 2026-11-19T12:08:04Z** (GitHub Pages API).
+  Live pages confirmed by fetching the deployed content with a cache-busting query
+  (the recorded gotcha): https://sassnarep3-star.github.io/Own6/docs/nfl-ade166a4/ renders the
+  decision-readiness table (37 rows) and delta summary cards;
+  https://sassnarep3-star.github.io/Own6/docs/nfl-ade166a4/delta.html renders the two-clock delta
+  summary, the empty register, the 13-game slate and both November transaction tables. The hub
+  nav and category card for this pack render on https://sassnarep3-star.github.io/Own6/docs/index.html.
+- **Three rebases during the PR window** (main advanced `d7127da→a71eb6b→5387e18→308db35→5ab7035`
+  while the PR was open; PRs #123/#124/#125/#126/#128/#131/#132/#133/#134/#136 landed from other
+  sessions). Every conflict resolved keep-both or resolved-to-main-then-regenerated; nothing
+  discarded. Three `--force-with-lease` pushes after rebases (branch owned solely by this session).
+- **Cross-pack note (ADE-F06):** session `d713b52f` (PR #132) independently applied the identical
+  B72-S06/B72-S10 theme overrides this pack had added; the duplicate lines from this branch were
+  dropped at the rebase so main's hook entries stand. Main's own worktree had been in a broken
+  dfc0c1bc fixed point (41 rule-9 problems, 2 T00 rows) before the regeneration carried by this
+  merge; the merged tree rebuilds the board deterministically (15 rules, 38 registers, 0 failures).
+- **Fixed point at close:** two identical regeneration passes → **0 changed files**; pack checker
+  17/17 · pack tests 24/24 · full pytest **820 passed** · `source_coverage --check` clean ·
+  `check_assurance` OK (25,060 rows) · `check_site` OK · `tools/check_site` OK · `tools/run_tests`
+  194/194 · `release_gate` 0 issues.
+- **Open items left for a human:** the 6 suggestions (all `pending_human_choice=yes`, decision
+  column empty by design), the 8 open questions, and the 6 non-blocking flags on the pack's
+  Flagged for Review page.
+
+## Session `arena/cdf86c07-own6` — dashboard brief: official capture (standings + Week-11 slate), requirement register, Flagged-for-Review page (claimed 2026-11-19)
+
+**Branch rule.** Arena fixes this session to `arena/cdf86c07-own6`; the brief's `session-<id>/<task>` naming is not used (logged as a deviation, same as prior sessions). No other branches are created.
+
+**Claimed file scope (non-overlapping; no other session's files edited):**
+- `data/nfl_cdf86c07/**` (new pack data)
+- `docs/nfl-cdf86c07/**` (new pack site)
+- `src/nfl_cdf86c07/**`, `scripts/build_nfl_cdf86c07*.py`, `scripts/check_nfl_cdf86c07.py`
+- `tests/test_nfl_cdf86c07.py`, `.github/workflows/nfl-cdf86c07-ci.yml`
+- `audit/NFL_CDF86C07_REPO_REVIEW.md`, `NFL_CDF86C07_EXECUTIVE_SUMMARY.md`
+- `COORDINATION.md` (append-only, this record)
+
+**Not claimed (shared; changed only by integration):** root `index.html`, `README.md`, `docs/index.html`, shared inventories.
+
+**Scope note.** The brief lists ~80 items. This session captures the official standings and Week-11 slate and registers every brief item with an honest status. Items needing sources not yet captured (venues, injury series, depth charts, Game Books, roof/weather, licensed prices) are logged as blocked, not filled.
+
+### Completion record — session `cdf86c07` (2026-11-19)
+
+| Task | Status | Result |
+|---|---|---|
+| Repo review | **done** | `audit/NFL_CDF86C07_REPO_REVIEW.md` — 5 findings (CDR-01..05), all linked |
+| Official capture | **done** | Standings 32/32 rows, Week-11 slate 13 games, byes 6, dated schedule notices (Weeks 16–18); sources SRC-01, SRC-02 |
+| Cross-check | **done** | 32/32 standings rows match `data/nfl_51698d74/standings_2026_11_19.csv` on W/L/T/PF/PA/net |
+| Requirement register | **done** | 82 brief items with status, blocking gate, clearing number (captured 12 · decided 6 · partial 31 · blocked 21 · open 12) |
+| Questions / suggestions / flags | **done** | 15 questions with discovery paths; 10 suggestions (all pending owner choice, none implemented); 6 flags (all `blocking_merge=no`) |
+| Site | **done** | `docs/nfl-cdf86c07/` — 8 pages: overview + decision-readiness table, standings, Week 11, requirements, questions, suggestions, Flagged for Review, sources |
+| Verifier / tests / CI | **done** | `scripts/check_nfl_cdf86c07.py` OK; `tests/test_nfl_cdf86c07.py` 7 passed (incl. seeded-defect tests); `.github/workflows/nfl-cdf86c07-ci.yml` |
+| Repo site check | **done** | `scripts/check_site.py` OK (no broken internal links) |
+| Executive summary | **done** | `NFL_CDF86C07_EXECUTIVE_SUMMARY.md` |
+
+**Sources used (official):** [nfl.com 2026 standings](https://www.nfl.com/standings/division/2026/reg); [nfl.com Week 11 schedule](https://www.nfl.com/schedules/2026/by-week/week-11). Read 2026-11-19 via page fetch; artifact sha256 in `data/nfl_cdf86c07/capture_log.csv`.
+
+**Irregularities (non-blocking, on the Flagged for Review page):** CDF-01 standings H1 template tokens; CDF-02 Week-11 International Game header with no printed venue; CDF-03 Thursday IND@HOU dated today; CDF-04 corpus 136 vs 150 across packs; CDF-05 cross-pack statuses carried, not re-proven; CDF-06 no official betting line exists (market columns blank by policy).
+
+**Not done in this session (honest scope):** game-centre venues, injury series, depth charts, inactives, snap counts, Game Books, roof/weather, transactions and any market data were not fetched. Those requirements are `blocked` or `partial` with the gate named. Root `index.html` and `README.md` were not edited (outside this session's claimed scope); the pack is reached from its own landing page.
+
+**Branch rule:** single branch `arena/cdf86c07-own6`; no other branches created.
+
+**Next step:** open PR to `main`, merge (flags do not block), confirm Pages, record PR link and merge result below.
+
+---
+
 ## Session `arena/d6a947cb-own6` — NFL repo review, live re-verification, clean landing + subpages, suggestions & Flagged-for-Review (claimed 2026-11-19)
 
 **Session ID:** `d6a947cb` · **Branch:** `arena/d6a947cb-own6` (base `e9185b3` = `origin/main` at claim time, checked with `git fetch` immediately before this claim). Arena fixes this session to that branch and forbids other branches, so the `session-<id>/<task>` naming in the brief is logged as a deviation, as every prior session did. Work is split by exclusive file scope inside this one branch.

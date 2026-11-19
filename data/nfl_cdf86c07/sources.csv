@@ -1,0 +1,5 @@
+src_id,title,url,used_for,read_status
+SRC-01,NFL 2026 division standings (regular season),https://www.nfl.com/standings/division/2026/reg,standings_2026_11_19.csv (32 rows),2026-11-19
+SRC-02,"NFL Week 11 2026 schedule (games, times, networks, records, byes, TBD notes)",https://www.nfl.com/schedules/2026/by-week/week-11,"week11_slate.csv (13 games), byes_week11.csv (6)",2026-11-19
+SRC-03,"NFL reserve list, November 2026 (reference only; not re-read this session)",https://www.nfl.com/transactions/league/reserve-list/2026/11,none in this pack,not read
+SRC-04,NFL game pages for Week 11 (linked per row),https://www.nfl.com/games/colts-at-texans-2026-reg-11,game_url column,"link only, not opened"
