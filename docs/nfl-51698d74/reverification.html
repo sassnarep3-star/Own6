@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prior-row reverification · nfl-51698d74</title>
+<style>
+:root{--ink:#16232e;--muted:#5d7183;--navy:#0f2433;--teal:#0a7d74;--line:#dbe3e8;--paper:#f5f8f9;
+--white:#fff;--warn:#fff4dc;--warnink:#7a4b00;--ok:#0a6b4f;--bad:#9c2b2b;--soft:#eef4f5}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);line-height:1.55;
+font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:15px}
+a{color:var(--teal);text-underline-offset:.16em}
+header{background:var(--navy);color:#fff}
+.wrap{width:min(1220px,calc(100% - 2rem));margin:0 auto}
+.top{display:flex;flex-wrap:wrap;gap:.6rem 1.2rem;align-items:baseline;padding:.95rem 0}
+.top b{letter-spacing:.06em}
+.top span{color:#9fc7c2;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase}
+nav{display:flex;flex-wrap:wrap;gap:.25rem .9rem;padding:0 0 .7rem}
+nav a{color:#cfe3e0;text-decoration:none;font-size:.86rem;padding:.15rem 0;border-bottom:2px solid transparent}
+nav a:hover{border-bottom-color:#7fd3c6}
+nav a.on{color:#fff;border-bottom-color:#7fd3c6;font-weight:600}
+main{padding:1.4rem 0 3rem}
+h1{font-size:1.5rem;margin:.2rem 0 .4rem}
+h2{font-size:1.12rem;margin:1.9rem 0 .55rem;padding-bottom:.3rem;border-bottom:1px solid var(--line)}
+h3{font-size:.98rem;margin:1.2rem 0 .35rem}
+p{max-width:78ch}
+.lead{color:var(--muted);max-width:82ch}
+.cards{display:grid;gap:.7rem;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));margin:1rem 0 .4rem}
+.card{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:.8rem .9rem}
+.card .k{font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.card .v{font-size:1.65rem;font-weight:700;line-height:1.15;margin-top:.15rem}
+.card .s{font-size:.78rem;color:var(--muted)}
+.tw{overflow-x:auto;background:var(--white);border:1px solid var(--line);border-radius:10px;margin:.6rem 0 1rem}
+table{border-collapse:collapse;width:100%;font-size:.84rem}
+th,td{padding:.42rem .6rem;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--soft);font-size:.74rem;letter-spacing:.05em;text-transform:uppercase;color:#39505f;
+position:sticky;top:0;white-space:nowrap}
+tbody tr:hover{background:#fbfdfd}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+.pill{display:inline-block;padding:.05rem .42rem;border-radius:999px;font-size:.72rem;font-weight:600}
+.pill.ok{background:#dff3ec;color:var(--ok)}
+.pill.warn{background:var(--warn);color:var(--warnink)}
+.pill.bad{background:#fbe6e6;color:var(--bad)}
+.pill.info{background:#e7eef4;color:#31556e}
+.note{background:var(--warn);border:1px solid #f0dcb2;color:var(--warnink);
+border-radius:8px;padding:.55rem .8rem;font-size:.86rem;margin:.7rem 0}
+.blank{color:#93a6b3;font-style:italic}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:.8rem;padding:1rem 0 2rem}
+code{background:var(--soft);padding:.05rem .3rem;border-radius:4px;font-size:.85em}
+</style></head>
+<body><header><div class="wrap">
+<div class="top"><b>OWN6 · NFL ORIGINATION</b><span>session 51698d74 · 2026-11-19</span></div>
+<nav><a href="index.html" class="">Overview</a><a href="captures.html" class="">Captures</a><a href="flags.html" class="">Flags</a><a href="reverification.html" class="on">Reverification</a><a href="registers.html" class="">Questions &amp; suggestions</a><a href="sources.html" class="">Sources</a></nav></div></header>
+<main><div class="wrap">
+<p class="lead">Prior published rows were recomputed from their own inputs on 2026-11-19.
+Arithmetic columns show the recomputation, not a restatement.</p>
+<div class="tw"><table><thead><tr><th>ID</th><th>Target</th><th>Claim</th><th>Method</th><th>Verdict</th><th>Result</th><th>Arithmetic</th><th>Source</th></tr></thead><tbody><tr><td><code>V-01</code></td><td>standings arithmetic (this session)</td><td>32 clubs, W=L=149, T=2, PF=PA=6,923</td><td>summed this session&#x27;s fresh standings CSV</td><td><span class="pill ok">MATCH</span></td><td>W=149 L=149 T=2 PF=6923 PA=6923</td><td>corpus totals vs official totals: 149/149, 149/149, 2/2, 6923/6923, 6923/6923</td><td><a href="https://www.nfl.com/standings/division/2026/reg">standings</a></td></tr><tr><td><code>V-02</code></td><td>Week-10 Monday settlement</td><td>LAC 23, BAL 20 FINAL (0ce967db results feed)</td><td>re-read official week-10 schedule page 2026-11-19</td><td><span class="pill ok">MATCH</span></td><td>Chargers 23, Ravens 20, FINAL, Monday, November 16th</td><td>margin_home=-3, total=43</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-10">week-10</a></td></tr><tr><td><code>V-03</code></td><td>realised home margin (0ce967db luck panel)</td><td>mean home margin -0.53 over 150 games</td><td>recomputed from corpus margins</td><td><span class="pill ok">MATCH</span></td><td>mean=-0.5267 (sum=-79)</td><td>-79/150 = -0.5267</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-10">settled finals</a></td></tr><tr><td><code>V-04</code></td><td>Week-11 fair lines (0ce967db originated_lines)</td><td>13 fair lines, side-&gt;total-&gt;moneyline, market blank</td><td>re-ran frozen S01 forecaster on corpus</td><td><span class="pill ok">MATCH</span></td><td>13/13 MATCH</td><td>sigma=12.965; max |delta margin|=0.0045</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-11">week-11 slate</a></td></tr><tr><td><code>V-05</code></td><td>leaderboard Brier (0ce967db)</td><td>per-strategy Brier + skill vs control</td><td>recomputed Brier from model_outputs.csv</td><td><span class="pill ok">MATCH</span></td><td>8/8 MATCH</td><td>control Brier=0.254094</td><td><a href="https://www.nfl.com/schedules/2026/by-week/week-10">settled finals</a></td></tr><tr><td><code>V-06</code></td><td>correlations (0ce967db)</td><td>official-only correlations with n</td><td>recomputed Pearson + Fisher CI from results feed</td><td><span class="pill ok">MATCH</span></td><td>4 pairs, n=150 each</td><td>see correlations_check.csv</td><td><a href="https://www.nfl.com/standings/division/2026/reg">standings</a></td></tr><tr><td><code>V-07</code></td><td>Week-12 venues (a67ddef8 gap)</td><td>15 of 16 Week-12 venues blank (not read)</td><td>read all 16 game centres 2026-11-19</td><td><span class="pill ok">MATCH-IMPROVED</span></td><td>16/16 filled; 11 exact, 3 mismatch, 2 variance vs hotel params</td><td>11+3+2=16</td><td><a href="https://www.nfl.com/games/packers-at-rams-2026-reg-12">game centres</a></td></tr><tr><td><code>V-08</code></td><td>reserve-list window (A67-F03)</td><td>renders 11/10-11/18, 25 rows</td><td>re-read reserve list 2026-11-19</td><td><span class="pill ok">MATCH</span></td><td>25 rows, 11/10-11/18, no pagination control</td><td>4+8+2+9+1+1=25 (11/18,11/17,11/16,11/14,11/12,11/10)</td><td><a href="https://www.nfl.com/transactions/league/reserve-list/2026/11">reserve list</a></td></tr></tbody></table></div>
+</div></main>
+<footer><div class="wrap">Research only; no wagers or guarantee of skill. Every value cites an
+official NFL page; blank means unverified, never zero. Flagged items do not block merge.</div></footer>
+</body></html>

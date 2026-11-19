@@ -1,0 +1,9 @@
+rev_id,target,claim,method,result,verdict,arithmetic
+V-01,standings arithmetic (this session),"32 clubs, W=L=149, T=2, PF=PA=6,923",summed this session's fresh standings CSV,W=149 L=149 T=2 PF=6923 PA=6923,MATCH,"corpus totals vs official totals: 149/149, 149/149, 2/2, 6923/6923, 6923/6923"
+V-02,Week-10 Monday settlement,"LAC 23, BAL 20 FINAL (0ce967db results feed)",re-read official week-10 schedule page 2026-11-19,"Chargers 23, Ravens 20, FINAL, Monday, November 16th",MATCH,"margin_home=-3, total=43"
+V-03,realised home margin (0ce967db luck panel),mean home margin -0.53 over 150 games,recomputed from corpus margins,mean=-0.5267 (sum=-79),MATCH,-79/150 = -0.5267
+V-04,Week-11 fair lines (0ce967db originated_lines),"13 fair lines, side->total->moneyline, market blank",re-ran frozen S01 forecaster on corpus,13/13 MATCH,MATCH,sigma=12.965; max |delta margin|=0.0045
+V-05,leaderboard Brier (0ce967db),per-strategy Brier + skill vs control,recomputed Brier from model_outputs.csv,8/8 MATCH,MATCH,control Brier=0.254094
+V-06,correlations (0ce967db),official-only correlations with n,recomputed Pearson + Fisher CI from results feed,"4 pairs, n=150 each",MATCH,see correlations_check.csv
+V-07,Week-12 venues (a67ddef8 gap),15 of 16 Week-12 venues blank (not read),read all 16 game centres 2026-11-19,"16/16 filled; 11 exact, 3 mismatch, 2 variance vs hotel params",MATCH-IMPROVED,11+3+2=16
+V-08,reserve-list window (A67-F03),"renders 11/10-11/18, 25 rows",re-read reserve list 2026-11-19,"25 rows, 11/10-11/18, no pagination control",MATCH,"4+8+2+9+1+1=25 (11/18,11/17,11/16,11/14,11/12,11/10)"

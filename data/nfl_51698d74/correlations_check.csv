@@ -1,0 +1,5 @@
+pair,n,pearson_r,fisher_95_lo,fisher_95_hi,inputs,source_url,note
+home margin vs game total,150,-0.140501,-0.294139,0.020216,"official final scores (results feed, 150 games)",https://www.nfl.com/schedules/2026/by-week/week-10,marginal correlation only; never used to build a joint/parlay probability
+home margin vs home points,150,0.634382,0.527778,0.721310,"official final scores (results feed, 150 games)",https://www.nfl.com/schedules/2026/by-week/week-10,marginal correlation only; never used to build a joint/parlay probability
+game total vs home points,150,0.676221,0.578671,0.754694,"official final scores (results feed, 150 games)",https://www.nfl.com/schedules/2026/by-week/week-10,marginal correlation only; never used to build a joint/parlay probability
+home points vs away points,150,0.048568,-0.112569,0.207217,"official final scores (results feed, 150 games)",https://www.nfl.com/schedules/2026/by-week/week-10,marginal correlation only; never used to build a joint/parlay probability
