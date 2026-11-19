@@ -3725,3 +3725,42 @@ scopes above stay non-overlapping so other sessions can still claim their own ta
 **New upstream flags published (non-blocking):** A67-F01..F12 — venue-name mismatches (RELIANT/NRG, NORTHWEST/FedEx, ACRISURE/Heinz + GEHA variance), game-centre legacy name on IND@HOU, reserve-list render window, IR players with blank game status (Al-Shaair/Carlies), dual Lamar recovery windows (6-9 vs 6-10), Texans image-only depth, Packers jersey prefixes + stale footer, Week-12 heading/weekday contradictions, week-12 panels not yet available, LAR/LA abbreviation drift, reserve-absence ≠ availability (VQ-06 case 2), blank game statuses = cadence.
 
 **Scope note:** this record is written on `arena/a67ddef8-own6` and shipped to main via a record PR (append-only rule; no direct main push). No other session's files were edited except the additive `docs/index.html` card, root `index.html` link and `README.md` bullet inside V8's claimed scope.
+
+---
+
+## Session `arena/d713b52f-own6` — dated independent re-verification, snapshot-ledger entry and requirement closure for the 2026-11-19 brief (claimed 2026-11-19)
+
+**Session ID:** `d713b52f` · **Branch:** `arena/d713b52f-own6` (base `ffbbce66`, = `origin/main` at claim time).
+Arena fixes this session to that branch, so the `session-<id>/<task>` naming rule is satisfied by
+disjoint file scopes on the single Arena branch — the same deviation every prior session logged.
+
+**Concurrent-work check at claim time.** `git fetch` → branch base equals `origin/main` HEAD
+`ffbbce66` (PR #122 merge, the `a67ddef8` completion record). No other branch is live. 12 stale PRs
+(#113, #111, #110, #94, #84, #79, #72, #68, #56, #54, #52, #48) are older than 60 minutes with no
+new commits and none claims a `nfl_d713b52f` scope; the takeover rule is not exercised (their work
+stays theirs). None of the files below is in another live scope.
+
+**Claim (written and pushed before any data, code or HTML was produced)**
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| W1 Line-by-line repo review at claim time + irregularity register | in progress | `d713b52f` | `audit/NFL_D713B52F_REPO_REVIEW.md`, `data/nfl_d713b52f/repo_findings.csv` |
+| W2 Live official capture 2026-11-19 with UTC clocks and sha256 of the bytes read | in progress | `d713b52f` | `src/nfl_d713b52f/capture.py`, `data/nfl_d713b52f/raw/**`, `data/nfl_d713b52f/capture_log.csv` |
+| W3 Recompute-not-assert audit of inherited published numbers (Brier/BSS/MAE from the inherited model-output ledger, correlations from the inherited results feed, standings arithmetic) | in progress | `d713b52f` | `src/nfl_d713b52f/audit.py`, `data/nfl_d713b52f/recompute.csv` |
+| W4 Official-source probe: snap counts / inactives / game books — publish a dated yes or no with the URL read, not an assumption | in progress | `d713b52f` | `data/nfl_d713b52f/source_probe.csv` |
+| W5 One row per bullet of the owner's 2026-11-19 brief: blocking gate + the number that clears it | in progress | `d713b52f` | `data/nfl_d713b52f/requirements.csv` |
+| W6 Questions / information / answers register + suggestions queue (proposals only, owner decides) | in progress | `d713b52f` | `data/nfl_d713b52f/questions.csv`, `data/nfl_d713b52f/suggestions.csv`, `data/nfl_d713b52f/flagged.csv`, `data/nfl_d713b52f/sources.csv` |
+| W7 Session site `docs/nfl-d713b52f/**` + builder + verifier + tests + CI | in progress | `d713b52f` | `docs/nfl-d713b52f/**`, `scripts/build_nfl_d713b52f.py`, `scripts/check_nfl_d713b52f.py`, `tests/test_nfl_d713b52f.py`, `.github/workflows/nfl-d713b52f-ci.yml` |
+| W8 Executive summary at root | in progress | `d713b52f` | `NFL_D713B52F_EXECUTIVE_SUMMARY.md` |
+| W9 Integration: additive hub link, PR → merge → Pages check → board record | in progress | `d713b52f` | `COORDINATION.md` (append only), `docs/index.html` + `index.html` + `README.md` (one additive block each) |
+
+**Evidence rule.** A published value is either (a) text read this session from the official page named
+in its `source_url`, logged in `capture_log.csv` with a UTC clock and the sha256 of the bytes read, or
+(b) arithmetic on such values with the derivation shown in the row. Everything else is a blank cell
+plus a row on Flagged for Review. No market price exists on any official NFL page, so price columns
+stay blank under a written policy. No profitability claim, no staking instruction, no input control on
+any page.
+
+**Branch-rule deviation (logged).** The brief asks for `session-<id>/<task>` branches; the Arena
+session rule fixes this session to `arena/d713b52f-own6` and forbids other branches, so scopes are
+kept non-overlapping by file instead.
