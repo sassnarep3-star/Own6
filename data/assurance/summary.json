@@ -1,5 +1,6 @@
 {
   "baseline_commit": "86eca0f",
+<<<<<<< HEAD
   "data_records_reviewed": 23135,
   "external_source_policy": "Direct source reads are recorded separately. A URL, checksum or internal consistency check does not verify an external fact or grant rights.",
   "files_inventoried": 1584,
@@ -10,13 +11,30 @@
     "legacy_data": 21737,
     "project_design": 28,
     "review_ledger": 913,
+=======
+  "data_records_reviewed": 23434,
+  "external_source_policy": "Direct source reads are recorded separately. A URL, checksum or internal consistency check does not verify an external fact or grant rights.",
+  "files_inventoried": 1599,
+  "findings": 17,
+  "lines_scanned": 164503,
+  "open_findings_at_baseline": 4,
+  "record_categories": {
+    "legacy_data": 22031,
+    "project_design": 28,
+    "review_ledger": 918,
+>>>>>>> ab6a98b (0fef3044: regenerate assurance inventory and dfc0c1bc board on the current tree (CI diff gate))
     "source_registry": 457
   },
   "record_statuses": {
     "project_design": 28,
     "registry_record": 457,
+<<<<<<< HEAD
     "review_record": 913,
     "unverified": 21737
+=======
+    "review_record": 918,
+    "unverified": 22031
+>>>>>>> ab6a98b (0fef3044: regenerate assurance inventory and dfc0c1bc board on the current tree (CI diff gate))
   },
   "resolved_in_session": 9,
   "resolved_upstream": 4,
