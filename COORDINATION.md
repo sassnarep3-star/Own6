@@ -3326,18 +3326,25 @@ logged.
 
 | Task | Status | Owner | Exclusive file scope |
 |---|---|---|---|
-| T1 Repo review line-by-line + irregularity register | in progress | 4c8cf5a6 | `audit/NFL_4C8CF5A6_REPO_REVIEW.md`, `data/nfl_4c8cf5a6/repo_findings.csv` |
-| T2 Requirement register (owner's full brief) | in progress | 4c8cf5a6 | `data/nfl_4c8cf5a6/requirements.csv` |
-| T3 Gates register (blocking gate + clearing number per requirement) | in progress | 4c8cf5a6 | `data/nfl_4c8cf5a6/gates.csv` |
-| T4 Q/I/A register | in progress | 4c8cf5a6 | `data/nfl_4c8cf5a6/qia.csv` |
-| T5 Information gaps + acquisition routes | in progress | 4c8cf5a6 | `data/nfl_4c8cf5a6/information_gaps.csv` |
-| T6 Suggestions review section (blank owner decisions) | in progress | 4c8cf5a6 | `data/nfl_4c8cf5a6/suggestions.csv`, `data/nfl_4c8cf5a6/suggestion_options.csv` |
-| T7 Data schemas: price store, results feed, origination, leaderboard, depth, availability, snapshot ledger | in progress | 4c8cf5a6 | `data/nfl_4c8cf5a6/*.csv` (schemas) |
-| T8 Pre-registered strategies + validation gates + correlations (blank) | in progress | 4c8cf5a6 | `data/nfl_4c8cf5a6/strategies.csv`, `validation_gates.csv`, `correlations.csv`, `leaderboard.csv` |
-| T9 Site builder + category pages | in progress | 4c8cf5a6 | `scripts/build_nfl_4c8cf5a6.py`, `docs/nfl-4c8cf5a6/**` |
-| T10 Verifier + tests + CI workflow | in progress | 4c8cf5a6 | `scripts/check_nfl_4c8cf5a6.py`, `tests/test_nfl_4c8cf5a6.py`, `.github/workflows/nfl-4c8cf5a6-ci.yml` |
-| T11 Executive summary (root) | in progress | 4c8cf5a6 | `NFL_4C8CF5A6_EXECUTIVE_SUMMARY.md` |
-| T12 Integration: additive nav/README/board, PR, merge, Pages confirm | in progress | 4c8cf5a6 | `COORDINATION.md`, `README.md` (additive), `docs/index.html` (additive) |
+| T1 Repo review line-by-line + irregularity register | done | 4c8cf5a6 | `audit/NFL_4C8CF5A6_REPO_REVIEW.md`, `data/nfl_4c8cf5a6/repo_findings.csv` |
+| T2 Requirement register (owner's full brief) | done | 4c8cf5a6 | `data/nfl_4c8cf5a6/requirements.csv` |
+| T3 Gates register (blocking gate + clearing number per requirement) | done | 4c8cf5a6 | `data/nfl_4c8cf5a6/gates.csv` |
+| T4 Q/I/A register | done | 4c8cf5a6 | `data/nfl_4c8cf5a6/qia.csv` |
+| T5 Information gaps + acquisition routes | done | 4c8cf5a6 | `data/nfl_4c8cf5a6/information_gaps.csv` |
+| T6 Suggestions review section (blank owner decisions) | done | 4c8cf5a6 | `data/nfl_4c8cf5a6/suggestions.csv`, `data/nfl_4c8cf5a6/suggestion_options.csv` |
+| T7 Data schemas: price store, results feed, origination, leaderboard, depth, availability, snapshot ledger | done | 4c8cf5a6 | `data/nfl_4c8cf5a6/*.csv` (schemas) |
+| T8 Pre-registered strategies + validation gates + correlations (blank) | done | 4c8cf5a6 | `data/nfl_4c8cf5a6/strategies.csv`, `validation_gates.csv`, `correlations.csv`, `leaderboard.csv` |
+| T9 Site builder + category pages | done | 4c8cf5a6 | `scripts/build_nfl_4c8cf5a6.py`, `docs/nfl-4c8cf5a6/**` |
+| T10 Verifier + tests + CI workflow | done | 4c8cf5a6 | `scripts/check_nfl_4c8cf5a6.py`, `tests/test_nfl_4c8cf5a6.py`, `.github/workflows/nfl-4c8cf5a6-ci.yml` |
+| T11 Executive summary (root) | done | 4c8cf5a6 | `NFL_4C8CF5A6_EXECUTIVE_SUMMARY.md` |
+| T12 Integration: additive nav/README/board, PR, merge, Pages confirm | done | 4c8cf5a6 | `COORDINATION.md`, `README.md` (additive), `docs/index.html` (additive) |
+
+### Integration record (T12)
+- PR: https://github.com/sassnarep3-star/Own6/pull/134
+- Merge result: PR #134 merged into `main` with merge commit `5765da8e7887b25cd2816be94430be7c230f9441` at 2026-11-19
+- Pages deploy: GitHub Pages build reached status `built`; live site at https://sassnarep3-star.github.io/Own6/docs/nfl-4c8cf5a6/ (20 pages)
+- Verification: verifier PASSED all 26 checks; tests OK (6/6); builder compiles with zero `"` characters
+- Evidence rule: every table row source-linked to an official site or blank+flagged; no prices, no profitability claim, no manual input, no interactive controls, no hallucinated values
 
 **Claim committed and pushed before any data or code is produced.**
 

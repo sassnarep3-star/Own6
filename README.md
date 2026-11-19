@@ -338,3 +338,19 @@ Build / check / test: `python3 scripts/build_nfl_0d4da02c.py` ·
 `python3 scripts/check_nfl_0d4da02c.py` (26 checks) ·
 `python3 tests/test_nfl_0d4da02c.py` (24 tests). The builder takes no arguments and touches no
 network, so a re-run reproduces byte-identical files.
+
+
+## NFL Decision Gate — requirement traceability & live Pages site (session `4c8cf5a6`, added 2026-11-19)
+
+[`docs/nfl-4c8cf5a6/index.html`](docs/nfl-4c8cf5a6/index.html) · executive summary:
+[`NFL_4C8CF5A6_EXECUTIVE_SUMMARY.md`](NFL_4C8CF5A6_EXECUTIVE_SUMMARY.md)
+
+20 deterministic GitHub Pages pages: decision-readiness table (73 requirements), gates, questions,
+information gaps, suggestions (blank owner decisions), pre-registered strategies, empty proper-score
+leaderboard, blank price/results/origination stores, depth & availability, injuries, correlations,
+validation gates, snapshot ledger, flagged items, sources & read log, repo review, executive summary.
+Build: `python3 scripts/build_nfl_4c8cf5a6.py` · Check: `python3 scripts/check_nfl_4c8cf5a6.py`
+(26 checks) · Test: `python3 -m unittest tests.test_nfl_4c8cf5a6.py` (6 tests). Zero `"` characters
+in the builder. No prices, no profitability claim, no manual input, no interactive controls.
+
+Live: https://sassnarep3-star.github.io/Own6/docs/nfl-4c8cf5a6/
