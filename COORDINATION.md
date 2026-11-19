@@ -4303,3 +4303,18 @@ stand. COORDINATION.md resolved keep-both; shared inventories resolved to main t
 | F4 Verify new page links/content and run applicable existing checks | in progress | same files as F1–F3 |
 
 No shared hub/index integration is in scope: request for such integration will be recorded here rather than editing files owned by the integration layer. This work is documentation-only; it will not claim model profitability, computed market correlations, line pricing, injury truth, or live data capture unless an existing official-source record substantiates it.
+
+### Completion record — session `fba1772f` (2026-11-19)
+
+| Task | Status | Result |
+|---|---|---|
+| F1 Scoped NFL surface audit | done | `audit/NFL_FBA1772F_REVIEW.md`; inspected core `data/nfl/` registers, `docs/nfl/` pages, related ADE/D713 capture evidence and research suggestions. This is a scoped audit, not a claim to have read every line in the full repository. |
+| F2 Decision guide and suggestion review | done | `docs/nfl-fba1772f/` (overview + suggestions + Q/I/A + flagged + sources). 7 staged recommendations remain `Needs owner review`; 8 questions; 5 local irregularity flags. No user choice inferred and no action auto-implemented. |
+| F3 Executive summary | done | `NFL_FBA1772F_EXECUTIVE_SUMMARY.md`. |
+| F4 Verification | done | `python scripts/check_nfl_fba1772f.py`: 5 pages, 29 table rows, each with HTTPS context/source link, all local links resolve. `python tools/check_site.py`: strict Pages 13, errors 0, advisory 0 (tool report `audit/link_check_report.md`). `git diff --check` clean. `python -m pytest -q` could not run: pytest is not installed (`No module named pytest`). No external web pages were fetched in this tool environment; new source register labels all these links as not fetched/reverified in this session. |
+
+**New flags:** FBA-F01 suggestions count mismatch (12 advertised vs 3 in core CSV/rendered table while research note has 12); FBA-F02 existing recommendation mentions S06/S08, which are not rendered in the three-row table; FBA-F03 core Q02 cites a 2017 policy PDF that F-NFL-03 says returned 404 on 2026-11-13; FBA-F04 some official URLs are generic context and do not substantiate subjective UI proposals; FBA-F05 no complete current external-source/link/Pages re-audit was run. All are visible at `docs/nfl-fba1772f/flagged.html`; none represents an NFL fact. The PDF/current-policy status was not re-fetched here.
+
+**Sources reviewed locally (not re-fetched):** `data/nfl/sources.csv`, `data/nfl/decision_questions.csv`, `data/nfl/suggestions.csv`, `data/nfl/requirements.csv`, `data/nfl/flagged.csv`, and relevant official NFL URLs already recorded there (NFL legal terms, injury report, schedules, NFL Operations injury-policy endpoint); official operator help URLs and scikit-learn docs are used only with explicit scope limits. Additional local provenance read: `data/nfl_ade166a4/capture_log.csv`, `data/nfl_ade166a4/questions.csv`, `data/nfl_ade166a4/flagged.csv`, `data/nfl_d713b52f/sources.csv`. No live market source was established and no lines, probabilities, ROI, CLV, correlation, or strategy ranking were added.
+
+**Integration request (not edited in this scope):** final integration owner should add an additive link/card from `docs/index.html` and/or `docs/nfl/index.html` to `nfl-fba1772f/index.html`, then reconcile FBA-F01/F02 in the shared source/register and repair FBA-F03 only after re-reading the current official policy. This session's exclusive claim did not include shared index/navigation files. Direct Pages path after publication: `/Own6/docs/nfl-fba1772f/`.
