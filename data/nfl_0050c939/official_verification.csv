@@ -1,0 +1,7 @@
+check_id,item,official_source,read_date_utc,result,value_confirmed,blank_reason,flag
+V-01,NFL.com 2026 standings reachable and prints club W/L/T/PF/PA,https://www.nfl.com/standings/division/2026/reg,2026-11-19,verified,Standings table present (chunk 0 of 2); clubs carry W/L/T/PF/PA,—,
+V-02,NFL.com Week 11 injury report reachable with Player/Practice/Game Status columns,https://www.nfl.com/injuries/,2026-11-19,verified,Report published; columns Player | Position | Injuries | Practice Status | Game Status confirmed,—,
+V-03,NFL.com Week 10 schedule reachable with finals,https://www.nfl.com/schedules/2026/by-week/week-10,2026-11-19,verified,14 games shown; Thursday + Sunday finals confirmed; Monday game not re-read (chunk 1),—,
+V-04,NFL.com Terms §1.3 data-use boundary,https://www.nfl.com/legal/terms/,2026-11-19,verified,Non-commercial informational use only; systematic retrieval prohibited absent express prior written consent,—,data-rights boundary (published)
+V-05,Market/odds prices (open/close) for every originated market,nfl.com (no official odds page),2026-11-19,not_found,No official NFL page publishes sportsbook spread/total/moneyline prices,No licensed timestamped odds archive is configured; market cells stay blank by written price-data policy,NFL-F01 (price-data policy)
+V-06,Executive decision: no profitability claim; all unverified market/ROI/CLV values blank,site-wide policy,2026-11-19,policy,No profitability claim anywhere; price/ROI/CLV/correlation cells blank unless verified,No official price source exists,NFL-F01 / NFL-F05
