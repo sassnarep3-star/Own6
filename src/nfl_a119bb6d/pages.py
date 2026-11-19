@@ -20,7 +20,7 @@ from __future__ import annotations
 
 import re
 
-from .htmltext import html_to_lines
+from .htmltext import html_to_lines, split_table_row
 
 #: The league's club nicknames, used to recognise a club heading and to map a
 #: heading to the abbreviation the rest of the repository uses. The
@@ -123,59 +123,75 @@ def parse_inactives_article(html: str, *, url: str, read_at_utc: str) -> dict:
 def parse_injury_report(html: str, *, url: str, read_at_utc: str) -> dict:
     """Parse the league's injury report.
 
-    The report is a table per club per game. Each row is one player with the
-    league's *Practice Status* and *Game Status* designations. The header the
-    league prints above the tables gives the game date and kickoff.
+    The report is one table per club per game, and the columns are the ones
+    the league prints: ``Player``, ``Position``, ``Injuries``, ``Practice
+    Status`` and ``Game Status``. The injury column is empty for most players
+    and the game-status column is empty for a player the league expects to
+    play, so the columns are read by position rather than by searching for a
+    status string: a shifted column would otherwise be read as the wrong
+    designation, which is exactly the kind of quiet error this pack must not
+    publish.
+
+    The club heading above each table is the club's nickname, and the game
+    centre URL of the game is printed next to the two clubs' logos.
     """
     lines = html_to_lines(html)
     rows: list[dict] = []
     problems: list[str] = []
 
-    header_line = ""
     week_line = ""
-    game_date = ""
     club = ""
     current_game_url = ""
-    in_table = False
-    header_cells: list[str] = []
+    columns: list[str] = []
+    expected = ("player", "position", "injuries", "practice status", "game status")
 
     for raw in lines:
         line = raw.strip()
         if not line:
             continue
-        if line.startswith("Injuries - ") or line.startswith("Injuries -"):
+        if line.upper().startswith("INJURIES - WEEK"):
             week_line = line
             continue
-        if line.upper() in NICKNAME_TO_ABBR and len(line) <= 14:
-            club = NICKNAME_TO_ABBR[line.upper()]
-            in_table = False
-            continue
-        mplayers = PLAYER_LINK_RE.findall(line)
-        if mplayers and club:
-            # A table row: the player's name is a link to the player's page.
-            cells = [c.strip() for c in line.split("|")]
-            cells = [c for c in cells if c]
-            if len(cells) < 4:
-                problems.append(f"short injury row: {line[:80]}")
+        mg = GAME_URL_RE.search(line)
+        if mg:
+            current_game_url = f"https://www.nfl.com/games/{mg.group(1)}"
+        if line.startswith("|"):
+            cells = split_table_row(line)
+            if not cells:
                 continue
-            player = mplayers[0]
-            rest = [c for c in cells if PLAYER_LINK_RE.sub("", c).strip() != player]
-            position = rest[0] if rest else ""
-            injury = rest[1] if len(rest) > 1 else ""
-            practice = ""
-            game_status = ""
-            for cell in rest[2:]:
-                cell = PLAYER_LINK_RE.sub("", cell).strip()
-                if cell in PRACTICE_STATUSES and not practice:
-                    practice = cell
-                elif cell in GAME_STATUSES and not game_status:
-                    game_status = cell
+            header = [c.strip().lower() for c in cells]
+            if header[:2] == ["player", "position"]:
+                columns = header
+                continue
+            if header and all(set(c) <= {"-"} and c for c in header):
+                # The markdown separator row the league prints under a header.
+                continue
+            if not columns:
+                problems.append(f"injury row before any header: {line[:80]}")
+                continue
+            if not PLAYER_LINK_RE.search(cells[0]):
+                # A row without a player link is not a player row.
+                continue
+            if len(cells) != len(expected):
+                problems.append(
+                    f"injury row with {len(cells)} columns, expected "
+                    f"{len(expected)}: {line[:80]}"
+                )
+                continue
+            m = PLAYER_LINK_RE.search(cells[0])
+            player = m.group(1).strip() if m else cells[0].strip()
+            practice = cells[3].strip()
+            game_status = cells[4].strip()
+            if practice and practice not in PRACTICE_STATUSES:
+                problems.append(f"unknown practice status: {practice!r}")
+            if game_status and game_status not in GAME_STATUSES:
+                problems.append(f"unknown game status: {game_status!r}")
             rows.append(
                 {
                     "club": club,
                     "player": player,
-                    "position": position,
-                    "injury": injury,
+                    "position": cells[1].strip(),
+                    "injury": cells[2].strip(),
                     "practice_status": practice,
                     "game_status": game_status,
                     "game_url": current_game_url,
@@ -184,22 +200,21 @@ def parse_injury_report(html: str, *, url: str, read_at_utc: str) -> dict:
                 }
             )
             continue
-        if "Player" in line and "Position" in line and "Practice" in line:
-            header_cells = [c.strip() for c in line.split("|") if c.strip()]
-            in_table = True
+        # A heading that names the club. The league prints the nickname alone.
+        stripped = line.strip()
+        if stripped.upper() in NICKNAME_TO_ABBR and len(stripped) <= 14:
+            club = NICKNAME_TO_ABBR[stripped.upper()]
+            columns = []
             continue
-        if line.startswith("|") and header_cells:
-            continue
-        if not header_cells and not PLAYER_LINK_RE.search(line):
-            if re.match(r"^[A-Z]+DAY, [A-Z]+ \d{1,2}(ST|TH)?$", line):
-                header_line = line
-            mg = GAME_URL_RE.search(line)
-            if mg:
-                current_game_url = f"https://www.nfl.com/games/{mg.group(1)}"
-            continue
-        mg = GAME_URL_RE.search(line)
-        if mg:
-            current_game_url = f"https://www.nfl.com/games/{mg.group(1)}"
+        if "Player" in stripped and "Position" in stripped:
+            # The header of a table that was not printed as a pipe row.
+            columns = [
+                c.strip().lower()
+                for c in re.split(r"\s{2,}|\|", stripped)
+                if c.strip()
+            ]
+            if columns[:2] != ["player", "position"]:
+                columns = []
     if not rows:
         problems.append("no injury rows parsed")
     return {

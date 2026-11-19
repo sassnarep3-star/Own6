@@ -45,6 +45,7 @@ sys.path.insert(0, ROOT)
 
 from src.nfl_a119bb6d.net import fetch  # noqa: E402
 from src.nfl_a119bb6d.gamebook import parse_game_book  # noqa: E402
+from src.nfl_a119bb6d.htmltext import html_to_lines  # noqa: E402
 from src.nfl_a119bb6d.pages import (  # noqa: E402
     CLUB_NICKNAME,
     parse_inactives_article,
@@ -235,7 +236,7 @@ def main() -> int:
         record(kind, url, result, path, note)
         return result
 
-    weeks = [w.strip() for w in args.weeks.split(",") if w.strip()]
+    weeks = [int(w.strip()) for w in args.weeks.split(",") if w.strip()]
     problems: list[str] = []
 
     # 1. The league's availability pages.
@@ -526,6 +527,25 @@ def build_diagnostic(out: str, *, head_lines: int = 130) -> str:
             for pos in hits[:6]:
                 snippet = html[max(0, pos - 160): pos + 160].replace("\n", " ")
                 parts.append(f"#   ...{snippet}...")
+            parts.append("")
+
+    # (a2) The line view of one captured availability page. The availability
+    #      parsers work on a line view of the league's HTML, so a bounded
+    #      sample of that view is what makes the parsers reviewable without
+    #      re-running the network capture.
+    pages_dir = os.path.join(out, "pages")
+    if os.path.isdir(pages_dir):
+        for name in sorted(os.listdir(pages_dir)):
+            if not name.startswith("inactives") and not name.startswith("injuries"):
+                continue
+            path = os.path.join(pages_dir, name)
+            with open(path, encoding="utf-8") as fh:
+                html = fh.read()
+            lines = html_to_lines(html)
+            parts.append(f"# AVAILABILITY PAGE LINE VIEW: {name} ({len(html)} bytes)")
+            parts.append(f"#   lines: {len(lines)}")
+            for idx, line in enumerate(lines[:head_lines]):
+                parts.append(f"{idx:05d}| {line}")
             parts.append("")
 
     # (b) The text layout of one captured Game Book.
