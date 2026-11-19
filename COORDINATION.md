@@ -4122,3 +4122,30 @@ classifies correctly, so the failure is not caused by `d713b52f`. Fix belongs to
 missing keywords to the row text, or register an override in `src/nfl_dfc0c1bc/themes.py` (that module's
 documented escape hatch). Left untouched here deliberately — the alternative would be editing another
 session's register to make a test go green, which is the failure mode this pack audits elsewhere.
+---
+
+## Final record — session `51698d74` · 2026-11-19
+
+- **PR #129 merged** (post-merge link/rendering + docs corrections) as
+  **`077a10222d2bfb7cd51aa98493c4f907f2c40382`** at 11:35:06Z; Pages `status=built` for `077a102`
+  at 11:35:08Z, `error=null`; live cache-busted fetches of `docs/index.html` (hub card present) and
+  `docs/nfl-51698d74/flags.html` (all 15 re-test rows + 12 new flags render with official per-row links).
+- Corrections shipped in this record: the executive summary's flag-re-test tally now matches the
+  register exactly (CLOSED 4 · CONFIRMED 3 = 7 resolved; STILL-OPEN 5; NOT-RETESTED 3 — VR-08 was
+  mis-bucketed as open in the first draft and is now listed as closed-carried). Register and site data
+  rows are unchanged; only prose was corrected.
+- **Session state: all claimed scopes W1–W8 `done`.** Deliverables: `data/nfl_51698d74/**` (18 CSVs,
+  7 raw artifacts, capture log), `src/nfl_51698d74/{capture,recompute}.py`,
+  `scripts/{build_nfl_51698d74_data,build_nfl_51698d74_registers,build_nfl_51698d74,check_nfl_51698d74}.py`,
+  `tests/test_nfl_51698d74.py` (19 tests), `.github/workflows/nfl-51698d74-ci.yml`,
+  `docs/nfl-51698d74/**` (6 pages, live), `NFL_51698D74_EXECUTIVE_SUMMARY.md`,
+  `audit/NFL_51698D74_REPO_REVIEW.md`, additive hub/root/README entries, regenerated shared inventories.
+- Gates at final head: 21-rule pack checker OK · 19 unit tests OK · `pytest -q tests/` 768 passed ·
+  `check_nfl_dfc0c1bc.py` OK with this pack counted · `check_assurance.py` OK · `tools/check_site.py`
+  0 errors · `tools/release_gate.py` 0 issues · `source_coverage --check` repeatable · rebuild
+  determinism to a fixed point (third pass no-op).
+- Nothing in this pack asserts an edge: no official NFL page publishes a market price, so all
+  market/difference columns are blank by written policy; no ROI/CLV/units claim is published anywhere
+  (checker rule 6 bans the wording); 0 leaderboard strategies qualify, so no reward is payable.
+- Open items left for a human: the 10 suggestions (all `pending_human_choice=yes`, decision column
+  empty by design), the 14 open questions, and the 12 non-blocking flags on the Flagged for Review page.
