@@ -129,7 +129,7 @@ QS = [
  ("Q-11", "May raw row-level data be published, or must it stay in a private layer until terms are read?", "Terms review conclusion (NFL terms + data-partner terms)", "", "open", "", "", "Blocks 516-R40: public/private split cannot be decided."),
  ("Q-12", "What freshness/SLA and alerting channel should the snapshot store use?", "Owner-chosen SLA + alert destination", "", "open", "", "", "Blocks 516-R39: durable storage + alerts cannot be configured."),
  ("Q-13", "Which suggestion path should be implemented first (see suggestions register)?", "Human choice recorded in the decision column", "", "open", "", "", "Nothing in the suggestions register may be implemented until chosen."),
- ("Q-14", "Are the Week-12 heading/weekday mismatches (SNF/TNF labels) corrected upstream?", "Re-read of week-12 schedule page after correction", "", "open", "", "", "Cosmetic upstream error; slate dates/times unaffected. Re-test next session."),
+ ("Q-14", "Is the Week-12 schedule page corrected upstream (SNF/TNF heading vs kickoff-line weekday mismatch)?", "Re-read of the week-12 schedule page after an upstream correction; capture cadence decides when we notice", "", "open", "", "", "Cosmetic upstream error; slate dates/times unaffected. Re-test next session."),
 ]
 write("questions.csv", Q_FIELDS, [
     {"q_id": q[0], "raised_date": "2026-11-19", "question": q[1], "information_needed": q[2],
