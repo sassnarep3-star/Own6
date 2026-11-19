@@ -4219,3 +4219,11 @@ session rule fixes this session to `arena/ade166a4-own6` and forbids creating ot
 **Cross-pack repair found and applied during the fixed point:** two unquoted-comma rows in this pack's own `questions.csv` had crashed `src/nfl_dfc0c1bc/registers.py::read_table` repo-wide (the builder reads every `questions.*`/`suggestions.*` register); repaired by quoting, and a repo-wide sweep confirmed zero remaining rows with extra columns.
 
 **Gates at close:** pack checker 17/17 · pack tests 24/24 · full pytest 773 passed · `check_nfl_dfc0c1bc` 15 rules / 31 registers / 196 questions · `source_coverage --check` clean · `check_assurance` OK (22,282 rows) · `check_site` OK · `tools/check_site` OK · `tools/run_tests` 194/194 · `release_gate` 0 issues.
+
+**Cross-pack repair logged (appended with the pack):** `ADE-F06` — PR #131 (`b72e2687`) merged without
+regenerating the dfc0c1bc board: on a clean main worktree the board rebuild is non-deterministic
+(41 rule-9 problems) and two foreign suggestion rows (B72-S06, B72-S10) fall to T00, failing rule 2
+repo-wide. Repair follows the F-27 precedent (repair shared infrastructure, never another session's
+data): two `OVERRIDES` entries in `src/nfl_dfc0c1bc/themes.py` map both rows to T11; the
+`b72e2687` rows stay verbatim. This pack regenerated the board on the merged tree, closing the
+rule-9 staleness. Any session touching `data/nfl_b72e2687/**` should re-check the classification.

@@ -307,7 +307,12 @@ def build_flags() -> str:
             f'<span class="pill warn">{esc(r["status"])}</span>' if r["status"] == "open"
             else f'<span class="pill ok">{esc(r["status"])}</span>',
             "yes" if r["blocking_merge"] == "yes" else "no",
-            " · ".join(a(u.strip()) for u in r["source_urls"].split(";")),
+            " · ".join(
+                a(u.strip(), u.strip()[len("in-repo:"):].strip())
+                if u.strip().startswith("http")
+                else f'<code>{esc(u.strip())}</code>'
+                for u in r["source_urls"].split(";")
+            ),
         ])
     body = f"""
 <p class="lead">Irregularities observed this session, published for the owner's review.

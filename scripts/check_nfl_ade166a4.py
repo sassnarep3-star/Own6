@@ -51,7 +51,7 @@ PINNED = {
     "requirements.csv": 37,
     "questions.csv": 8,
     "suggestions.csv": 6,
-    "flagged.csv": 5,
+    "flagged.csv": 6,
     "sources.csv": 7,
     "capture_log.csv": 5,
 }
@@ -101,10 +101,14 @@ def rule2_sources() -> None:
             host = url.split("/", 3)[2] if "://" in url else ""
             if host not in OFFICIAL_HOSTS:
                 fail(2, f"{name} row {i + 1}: non-official host {host}")
-    # flagged rows: every source URL official https
+    # flagged rows: every source URL official https, or an in-repo path that exists
     for i, row in enumerate(read_csv("flagged.csv")):
         for url in row["source_urls"].split(";"):
             url = url.strip()
+            if url.startswith("in-repo:"):
+                if not os.path.exists(os.path.join(REPO, url[len("in-repo:"):].strip())):
+                    fail(2, f"flagged row {i + 1}: in-repo source {url!r} does not exist")
+                continue
             if not url.startswith("https://"):
                 fail(2, f"flagged row {i + 1}: source {url!r} is not https")
             host = url.split("/", 3)[2]
