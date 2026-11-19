@@ -4541,3 +4541,96 @@ Site pages, scoring, strategies and the other NFL packs are **not** touched in t
 - The **scheduled cron** (16:00 UTC, Sun/Wed/Thu/Fri/Sat) has not yet fired in this record. Its first run is the next check; it will show as a bot commit on `data/nfl_capture/index.csv` if it succeeds.
 
 **New flag (non-blocking):** F-79-5 — the capture does not yet record "No Injuries Reported" clubs (CIN and WAS this week). They appear as absent tables, not as a count. Add an explicit per-club record before the team-level model uses these counts.
+## Session `arena/fb41a18f-own6` — final baseline release/integration audit (claimed 2026-11-19)
+
+**Session ID:** `fb41a18f` · **Branch:** `arena/fb41a18f-own6` (fixed by Arena; base
+`e9185b304a9e8bc06d88d7204f830b5968f3c18c`). The current `main` snapshot already contains the
+NFL origination framework, category pages, requirements/Q-I-A/suggestions boards, model and
+availability research packs, and prior verification records. This session claims a disjoint,
+verification-only task rather than duplicating those completed builds.
+
+**Concurrent-work check at claim time (2026-11-19).** `git status` was clean at base `e9185b3`.
+GitHub showed PR #135 open for session `2dd0cbcb` (official Week-12 re-reads and its pack/hub/root
+integration) and PR #127 open for session `0f3037e8` (DFC0 freshness checker); their owned data,
+site, scripts, and review paths are explicitly excluded from this claim. The public Pages API
+reported site `https://sassnarep3-star.github.io/Own6/`, source `main:/`, status `built`; latest
+Pages deployment was successful for `e9185b3` (run 44521056720).
+
+### Claim (written before review work)
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| F1 Final integration/release review of the current merged NFL site: inspect current landing page, navigation targets, documented evidence boundaries and existing repo-wide release checks; record reproducible results and issues without editing another pack's source/data/site | in progress | `fb41a18f` | `audit/NFL_FB41A18F_FINAL_REVIEW.md` |
+| F2 Coordinate/close out this review | in progress | `fb41a18f` | `COORDINATION.md` (append only) |
+
+**Scope boundary.** No changes to `index.html`, `README.md`, `docs/index.html`, any session pack,
+source register, model data, or other owner's files. The open PR #135 owns the shared landing-page
+integration; this session will re-check the merged page after all non-conflicting local checks and
+will record any issues for the integration owner instead of editing its files. No bet, model, line,
+correlation, or injury value will be inferred or newly asserted.
+
+**Evidence rule.** Structural claims in the review will be backed by local file paths and executable
+checks. Any external fact will be reported only when a current official source is directly read and
+linked; repository links, hashes, or internal consistency alone will not be presented as verification.
+
+---
+
+## Completion record — session `arena/fb41a18f-own6` (2026-11-19 UTC)
+
+| Task | Status | Result |
+|---|---|---|
+| F1 Final integration/release review | **done** | `audit/NFL_FB41A18F_FINAL_REVIEW.md` — read-only review at merged `main` commit `551f292` (PR #145); root and hub link scan; direct NFL schedule/standings spot reads; current Pages/PR state; reproducible repo-wide check results and issue list. |
+| F2 Coordination / release disposition | **done** | This append-only record and a report-only PR from `arena/fb41a18f-own6`; no landing page, pack, data, model, or generated shared inventory was edited. No merge/deploy was attempted by this review. |
+
+**Current review baseline and changes since claim.** The branch was rebased with keep-both resolution onto `551f292` after PRs #141, #144 and #145 advanced `main`. PR #145 fixed the then-current CDF S-01 theme classification, but the final merged tree contains the D6 pack from PR #144 while its DFC0/source-coverage generated outputs remain stale against that tree. The report records the final re-run rather than carrying forward the earlier `bb18cec` results.
+
+**Verification performed.** Root `index.html` (146 anchors) and `docs/index.html` (132 anchors) have no missing relative file targets. `tools/release_gate.py`, `tools/check_site.py` (13 strict pages), `scripts/check_site.py` (9 pages), `scripts/audit_integration.py`, `scripts/check_hub.py`, and the standalone CDF, D6, ADE, and 51698 checkers pass their structural scopes. `check_assurance.py` passes its row/link check (25,321 rows), but the pytest inventory-hash test fails for `COORDINATION.md`. A clean-tree pytest run at `551f292` yields 838 passed / 2 failed / 6 subtests; the failures are the assurance hash and DFC0 verifier. `check_nfl_dfc0c1bc.py` reports 46 problems before the builder updates 18 published outputs, including 27 D6 Q/S rows absent from its board. `source_coverage.py --check` reports 8 stale artifacts (454 pages / 43,961 rows calculated vs. 445 / 43,642 committed). Main Actions for Assurance, DFC0, Lab, Verify site and engine, and Legacy parlay safety fail; Release integrity, current-tree source-coverage CI, and Pages build succeed. Pages API is `built` for `551f292` (run 44524378266).
+
+**Official-source boundary.** This review directly read the official NFL Week 11 schedule and compared only the IND–HOU row in `data/nfl_cdf86c07/week11_slate.csv`. It also read the 2026 standings page, which currently renders literal template tokens in its heading. No other NFL values were newly verified; the evidence and limits are detailed in the audit.
+
+**Issues referred to the integration owner, not fixed here.** PR #135 remains open/`CONFLICTING` at head `5b98902`; a merge-tree comparison to `551f292` reports 34 content-conflict paths. The merged CDF pack remains absent from root/docs-hub/README navigation; root repeats the A67 link; 81/82 CDF requirement rows cite the same standings URL even for unrelated requirements. Full handling and source links are in the report.
+
+**Release disposition.** This is a verification-only close-out. No site merge or deployment is claimed for this session. Do not merge a repo-wide release candidate until the assurance inventory, DFC0 board and source-coverage artifacts are refreshed together and the failed checks pass. The report-only PR will be opened from this branch; its PR number and final check/merge status will be appended after creation. No other session's data, model, pack, or shared landing page was edited.
+
+### Final re-review addendum — after PR #142 merged (current main `188e904`, 2026-11-19 UTC)
+
+Because `main` advanced while the report was being prepared, the earlier `551f292` test failures were rechecked against the current merged tree before close-out. At `188e9042736ccb810d8d63f41dbcec9d733d32f1`, a clean full pytest run is **850 passed / 0 failed / 6 subtests passed**; `tools/run_tests.py` is **201/201**; `check_nfl_dfc0c1bc.py` is 15 rules / 0 failures; the standalone CDF, D6, ADE, and 51698 gates pass; current main Actions are green, and Pages is `built` (run 44525175736). PR #142's merge fixed the earlier CDF test harness and the D6 cross-pack board failure.
+
+**One freshness check remains red locally:** `scripts/source_coverage.py --check` computes 456 pages / 44,860 rows while the committed summary has 445 / 43,642, and reports eight stale coverage artifacts. The current-tree source-coverage workflow passes but does not compare the committed snapshot. PR #146 is still open/conflicting and was prepared against `551f292`; it should be rebased before relying on its outputs.
+
+**Landing/integration findings persist:** `cdf86c07` remains unlinked from root `index.html`, `docs/index.html`, and README; the secondary `docs/index.html` still titles itself as an NBA dashboard; root has the duplicated A67 link. PR #135 remains open/conflicting at its older head; merge-tree against `188e904` reports 34 conflicting paths, including `docs/index.html` and generated shared artifacts. No edits or merge attempts were made to PR #135 or PR #146.
+
+`audit/NFL_FB41A18F_FINAL_REVIEW.md` was updated to use `188e904` as the final reviewed tree, carry the resolved 551f292 failures as historical context, and identify the remaining source-coverage/landing-page findings. The report-only PR and its final check/merge disposition will be recorded in the next append after opening it.
+
+### Final current-main confirmation — PR #139 merged (`68bda5a`, 2026-11-19 UTC)
+
+The re-review was extended once more after PR #139 advanced `main` from `188e904` to `68bda5a`. On a clean worktree at `68bda5a`, `source_coverage.py --check` passes (456 pages / 44,865 rows); `pytest` passes 866 tests + 6 subtests; `tools/run_tests.py` is 201/201; release gate, strict/internal link checks, assurance, DFC0 (15 rules / 0 failures), and the CDF, D6, ADE, 51698 and 0fef pack checkers pass. All 14 main Actions runs listed for this SHA are green, and Pages is built (run 44525910652).
+
+The shared-landing findings are unchanged: CDF remains unlinked from root/docs-hub/README, the root A67 anchor is duplicated, and `docs/index.html` retains its NBA-branded title while linking mixed projects. PR #135 is still open with an older head; merge-tree against `68bda5a` reports 34 conflict paths. PR #146 is also still open from its older `551f292` base. Neither was merged or edited here.
+
+The review report now uses `68bda5a` as the final baseline; resolved red-check history from earlier review cuts remains labeled historical. No NFL pack values, models, shared pages, or generated inventories were changed. A report-only PR remains to be opened; any assurance-inventory freshness effect from adding this report/COORDINATION record must be reviewed before that PR is merged.
+
+### Final re-review addendum — capture bot commit `9630683` (2026-11-19 UTC)
+
+After the 68bda5a review cut, the scheduled capture workflow committed `data/nfl_capture/index.csv` as `9630683` (run 44526812258). Pages rebuilt successfully (44526841412); the current HTML/site and source-coverage freshness checks remain green. The capture file itself was not independently re-read as NFL evidence by this session.
+
+A clean pytest run on `9630683` now reports **865 passed / 1 failed / 6 subtests passed**. The sole failure is `test_inventory_hashes_and_line_counts`: `data/assurance/inventory.csv` still records `data/nfl_capture/index.csv` as SHA-256 `6476cec9…`, while the current file is `0692b71c…`. `check_assurance.py`'s structural row/link check still passes; `tools/run_tests.py` is 201/201 because it does not run that assurance subdirectory test. The full Actions matrix passed at `f1b0c16` immediately before the capture commit; the new commit has a successful Pages build but no full CI rerun listed.
+
+The current report `audit/NFL_FB41A18F_FINAL_REVIEW.md` now uses `9630683` as the final reviewed tree and distinguishes the f1b0c16 green matrix from the single latest inventory-hash failure. The navigation/source findings and PR #135 conflict count are unchanged. No capture data, assurance inventory, other pack, or site was modified by this review; regeneration is referred to the integration owner.
+
+### Report PR record — PR #149 (2026-11-19 UTC)
+
+- **PR #149:** https://github.com/sassnarep3-star/Own6/pull/149 (`arena/fb41a18f-own6` → `main`), report + append-only coordination only; **open, not merged**.
+- CI on the report branch is not green: Assurance CI fails its generated-artifacts-committed step (run 44527860223); DFC0 fails its generated-output committer check (run 44527824049); Verify site/engine, Lab, Legacy parlay safety and NFL Origination gates also fail. The branch's clean pytest run has 865 pass / 1 fail (stale COORDINATION hash); source-coverage and published-HTML checks pass. No generated shared inventories were changed because this task remained verification-only.
+- **Merge disposition:** do not merge PR #149 until the integration owner refreshes shared assurance/DFC0 outputs from its final tree and all required checks pass. No site code was changed or deployed by this PR.
+- Integration owner was notified on PR #135: https://github.com/sassnarep3-star/Own6/pull/135#issuecomment-7009675399. The note links the review report and records PR #135's 34 merge-tree conflicts against current `main`.
+
+### Final re-review addendum — after PR #148 merged (current main `400a78b`, 2026-11-19 UTC)
+
+PR #148 recorded the scheduled-capture result and regenerated shared inventories. On a clean worktree at `400a78b`, pytest passes **866/866** (plus 6 subtests), `tools/run_tests.py` passes **201/201**, `source_coverage.py --check` passes (456 pages / 44,867 rows), assurance passes (25,899 source-linked rows), and the DFC0/CDF/D6/ADE/51698/0fef verifiers pass. All current main Actions listed for `400a78b` are green; Pages is `built` (run 44527925554).
+
+**Report PR #149 remains unmerged and red.** The report/COORDINATION append changes inputs to generated shared artifacts; PR CI fails Assurance CI's generated-artifacts-committed step and the DFC0 build/committer check (four generated outputs change), plus dependent test gates. A clean pytest run on that PR branch is 865 passed / 1 failed / 6 subtests, with the COORDINATION inventory hash as the failure. No generated shared artifacts were modified in this verification-only session. PR #149 must remain open until the integration owner settles those outputs and its required checks pass.
+
+**Integration owner notification.** Commented on PR #135 at https://github.com/sassnarep3-star/Own6/pull/135#issuecomment-7009675399 with the report link and the current-tree conflict/navigation findings. PR #135 remains unmerged; no changes were made to its files. The landing-page issues and the CDF row-to-source mismatch remain as documented in the audit.
+
+**PR #149 state update after PR #148 (main `400a78b`).** Main's assurance inventory and full checks are green after PR #148, but PR #149's head is still `2291bf2` (based on `9630683`) and is now marked **DIRTY / CONFLICTING** against `main`. Its previously completed checks remain red on Assurance, DFC0, Verify site/engine, Lab, Legacy parlay safety, and Origination; those failures are for the report branch's stale generated outputs. No merge was attempted. Rebase/resolve and regenerate the generated inputs on the final PR tree before requesting merge.
