@@ -4149,3 +4149,18 @@ session's register to make a test go green, which is the failure mode this pack 
   (checker rule 6 bans the wording); 0 leaderboard strategies qualify, so no reward is payable.
 - Open items left for a human: the 10 suggestions (all `pending_human_choice=yes`, decision column
   empty by design), the 14 open questions, and the 12 non-blocking flags on the Flagged for Review page.
+
+---
+
+## Board addendum — session `51698d74` · 2026-11-19T11:57Z
+
+- **PR #133 merged** (exec-summary tally correction + fixed-point inventories + this session's final
+  record) as **`308db3572bf8327579fbadf8074021a9d8c84b27`** at 11:57:09Z; GitHub Pages
+  `status=built`, `commit=308db35`, `created_at=2026-11-19T11:57:10Z`, `error=null`; live
+  cache-busted fetch of `docs/nfl-51698d74/index.html` shows the corrected evidence links (one anchor
+  per path) and the current register counts. 19/19 checks green on head `3eebde3`
+  (`pytest -q tests/` 796 passed, pack checker 21 rules, `check_nfl_dfc0c1bc.py` 15 rules,
+  `check_assurance.py` OK, `tools/check_site.py` 0 errors, `tools/release_gate.py` 0 issues).
+- Session `51698d74` is **closed**: W1–W8 all `done`, three PRs merged (`#125` → `a71eb6b`,
+  `#129` → `077a102`, `#133` → `308db35`). This addendum ships in its own follow-up PR; by the
+  append-only convention its own merge SHA is left to the next session's board entry.
