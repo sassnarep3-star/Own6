@@ -3667,3 +3667,42 @@ three consecutive fetches of `docs/index.html` still showed two cards, while
 (`?cachebust=9x`) returned the correct single-card page. **Before concluding that a fix failed to
 deploy, re-fetch with a fresh query string and compare against `git show origin/main:<path>`.** Do
 not "fix" a stale-cache artefact by editing the file again.
+
+---
+
+## Session `arena/a67ddef8-own6` — dated freshness re-verification, flag-closure checks, session pack, integration (claimed 2026-11-19)
+
+**Session ID:** `a67ddef8` · **Branch:** `arena/a67ddef8-own6` (base `65ac863`, equal to `origin/main` at claim time).
+Arena fixes this session to that branch, so the `session-<id>/<task>` naming rule is satisfied by
+disjoint file scopes on the single Arena branch — the same deviation every prior session logged.
+
+**Concurrent-work check at claim time.** `git fetch` → branch base equals `origin/main` HEAD
+`65ac863` (PR #120 merge). Open PRs: #113, #111, #110, #94, #84, #79, #72, #68, #56, #54, #52, #48 —
+all are other sessions' packs or record PRs, none claims a `nfl_a67ddef8` scope, and no file below
+is in another live scope. Every one of those claims is more than 60 minutes old with no new commits;
+the takeover rule is **not** exercised for them (their work stays theirs) — this session simply
+takes fresh, unused files.
+
+**Claim (written and pushed before any data or code was produced)**
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| V1 Line-by-line repo review at claim time + irregularity register | in progress | `a67ddef8` | `audit/NFL_A67DDEF8_REPO_REVIEW.md`, `data/nfl_a67ddef8/repo_findings.csv` |
+| V2 Fresh official capture 2026-11-19: standings, Week 11 injury report (re-test of the F-01 "not published" flag), the Week 10 Monday final that prior packs left blank, Week 11 slate, Week 12 schedule page — each read hashed with UTC clock | in progress | `a67ddef8` | `src/nfl_a67ddef8/capture.py`, `data/nfl_a67ddef8/raw/**`, `data/nfl_a67ddef8/capture_log.csv`, `data/nfl_a67ddef8/standings_2026_11_19.csv`, `data/nfl_a67ddef8/injuries_reg11.csv`, `data/nfl_a67ddef8/week10_monday_final.csv`, `data/nfl_a67ddef8/week11_slate.csv` |
+| V3 Flag-closure re-test: take the concrete open flags of the recent packs (unpublished Week 11 injury report, blank Monday final, stale depth rows, missing designations) and re-test each against the official source **today**; publish closed / still-open with the link and the read clock | in progress | `a67ddef8` | `data/nfl_a67ddef8/flag_recheck.csv` |
+| V4 Line-by-line re-verification sample: recomputed, not asserted — N published rows across packs re-read from their own cited official pages; match / mismatch / unverified per row | in progress | `a67ddef8` | `data/nfl_a67ddef8/reverification.csv` |
+| V5 Decision-readiness + Q/I/A + suggestions registers for this session (one row per requirement in the owner brief, blocking gate, clearing number; nothing auto-implemented) | in progress | `a67ddef8` | `data/nfl_a67ddef8/requirements.csv`, `data/nfl_a67ddef8/questions.csv`, `data/nfl_a67ddef8/suggestions.csv`, `data/nfl_a67ddef8/flagged.csv`, `data/nfl_a67ddef8/sources.csv` |
+| V6 Session site `docs/nfl-a67ddef8/**` + builder + verifier + tests + CI | in progress | `a67ddef8` | `docs/nfl-a67ddef8/**`, `scripts/build_nfl_a67ddef8.py`, `scripts/check_nfl_a67ddef8.py`, `tests/test_nfl_a67ddef8.py`, `.github/workflows/nfl-a67ddef8-ci.yml` |
+| V7 Executive summary at root | in progress | `a67ddef8` | `NFL_A67DDEF8_EXECUTIVE_SUMMARY.md` |
+| V8 Integration: additive hub link, shared-inventory regeneration with the repo's own tools, PR → merge → Pages check → board record | in progress | `a67ddef8` | `COORDINATION.md` (append only), `docs/index.html` + `index.html` + `README.md` (one additive block each), `data/assurance/**`, `data/source_coverage/**`, `docs/assurance/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md` (tool-regenerated only) |
+
+**Evidence rule.** A published value is either (a) text read this session from the official page
+named in its `source_url`, logged in `capture_log.csv` with a UTC clock and sha256 of the bytes
+read, or (b) arithmetic on such values with the derivation shown in the row. Everything else is a
+blank cell plus a row on Flagged for Review. No market price exists on any official NFL page, so
+price columns stay blank by written policy. No profitability claim anywhere. `needs review` never
+blocks. Suggestions are proposals only; the owner chooses the path.
+
+**Branch-rule deviation (logged).** The brief asks for `session-<id>/<task>` branches; the Arena
+session rule fixes this session to `arena/a67ddef8-own6` and forbids creating other branches. File
+scopes above stay non-overlapping so other sessions can still claim their own tasks.
