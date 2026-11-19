@@ -1,0 +1,17 @@
+game_id,week,home,away,n_home_prior,n_away_prior,reason
+2026-W01-01,1,SEA,NE,0,0,"no game had been played, so no league mean existed"
+2026-W01-02,1,LA,SF,0,0,no prior game for this club; a same-week number would be used instead
+2026-W01-03,1,CAR,CHI,0,0,no prior game for this club; a same-week number would be used instead
+2026-W01-04,1,CIN,TB,0,0,no prior game for this club; a same-week number would be used instead
+2026-W01-05,1,DET,NO,0,0,no prior game for this club; a same-week number would be used instead
+2026-W01-06,1,HOU,BUF,0,0,no prior game for this club; a same-week number would be used instead
+2026-W01-07,1,IND,BAL,0,0,no prior game for this club; a same-week number would be used instead
+2026-W01-08,1,JAX,CLE,0,0,no prior game for this club; a same-week number would be used instead
+2026-W01-09,1,PIT,ATL,0,0,no prior game for this club; a same-week number would be used instead
+2026-W01-10,1,TEN,NYJ,0,0,no prior game for this club; a same-week number would be used instead
+2026-W01-11,1,LAC,AZ,0,0,no prior game for this club; a same-week number would be used instead
+2026-W01-12,1,LV,MIA,0,0,no prior game for this club; a same-week number would be used instead
+2026-W01-13,1,MIN,GB,0,0,no prior game for this club; a same-week number would be used instead
+2026-W01-14,1,PHI,WAS,0,0,no prior game for this club; a same-week number would be used instead
+2026-W01-15,1,NYG,DAL,0,0,no prior game for this club; a same-week number would be used instead
+2026-W01-16,1,KC,DEN,0,0,no prior game for this club; a same-week number would be used instead

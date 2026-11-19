@@ -1,0 +1,9 @@
+feature,available,n_games_read,source_url,detail,blocker,value_published
+game date and kickoff time,yes,4 of 13 week-10 games,https://www.nfl.com/schedules/,Week 10 boards read; Week 11 rows read for 6 of 13 games only,none,yes
+venue (game centre),yes,4 of 4 books,https://www.nfl.com/games/texans-at-browns-2026-reg-10,game centre Game Info block names a venue for every book captured,one name mismatch (NE@DET: 'FC BAYERN MUNICH STADIUM' vs book 'Allianz Arena'),yes
+stadium roof design and surface,yes,4 of 4 books,https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf,"printed as text, e.g. 'Open Stadium on Natural Grass'","design, not kickoff state; no official page read here states the roof position at kickoff",yes
+game-day weather,yes,4 of 4 books,https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf,"temperature, humidity, wind, and (where relevant) wind chill","published only after the game, so it cannot be a pre-kickoff feature without a separate feed",yes
+referee crew,yes,4 of 4 books,https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf,referee name and number printed,post-game publication; roster of officials for a future game not read,yes
+rest days / short week,no,0,https://www.nfl.com/schedules/,derivable from the schedule only after both fixtures' dates are read,the Week 11 slate was only partly read in this session,no
+travel distance / time zones,no,0,,no official page read gives a city-pair distance,"no official source read; would be arithmetic on venue cities, which are only partly captured",no
+surface change history,no,0,,no official page read publishes a surface-change log,no source found,no

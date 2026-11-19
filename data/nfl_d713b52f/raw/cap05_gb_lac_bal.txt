@@ -1,0 +1,53 @@
+VERBATIM EXCERPT — official Game Book PDF, Los Angeles Chargers at Baltimore Ravens, 2026 REG 10
+URL: https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf
+Linked from: https://www.nfl.com/games/chargers-at-ravens-2026-reg-10 ("Download Game Book (PDF)")
+Read 2026-11-19, session d713b52f.
+
+[INFO]
+Date: Monday, 11/16/2026 | Los Angeles Chargers at Baltimore Ravens at M&T Bank Stadium, Baltimore, MD | Start Time: 8:16 PM EST
+Game Weather: Clear
+Temp: 49° F (9.4° C) Humidity: 58%, Wind: NW 2 mph
+Open Stadium on Natural Grass
+Outdoor Weather: Clear
+Referee: Hill, Adrian (29)
+Paid Attendance: 69,679
+Time: 3:07
+VISITOR: Los Angeles Chargers 1 2 3 4 OT Total = 10 7 3 3 0 23
+HOME: Baltimore Ravens 0 10 3 7 0 20
+
+[LINEUPS]
+Los Angeles Chargers | Offense | Defense | Baltimore Ravens | Offense | Defense
+WR | 1 Q. Johnston | OLB | 45 T.Tupilotu | WR | 4 Z.Flowers | OLB | 91 T.Hendrickson
+WR | 9 T.Harris | DL | 93 T.Tart | TE | 85 J.Cuevas | DL | 96 B.Washington
+TE | 88 C.Kolar | DL | 94 D.Tomlinson | LT | 79 R.Stanley | DL | 98 T.Jones
+LT | 76 J.Alt | OLB | 52 K.Mack | LG | 74 J.Simpson | DL | 92 N.Madubuike
+LG | 65 L.Taylor | LB | 53 D.Phillips | C | 64 C.Jurgens | OLB | 15 M.Green
+C | 66 J.Slaughter | LB | 0 D.Henley | RG | 71 O.Ioane | ILB | 32 T.Simpson
+RG | 69 C.Strange | DB | 2 E.Molden | RT | 70 R.Rosengarten | ILB | 0 R.Smith
+RT | 77 T.Burke | CB | 26 D.Jackson | WR | 6 J.Lane | CB | 2 N.Wiggins
+QB | 10 J.Herbert | CB | 4 T.Still | WR | 7 R.Bateman | CB | 44 M.Humphrey
+FB | 44 S.Matlock | CB | 20 C.Hart | QB | 11 J.Brissett | S | 24 M.Starks
+RB | 8 O.Hampton | S | 23 T.Jefferson | RB | 22 D.Henry | S | 14 K.Hamilton
+
+[SUBSTITUTIONS]
+Los Angeles Chargers: LB 6 D.Perryman, K 11 C.Dicker, WR 12 D.Davis, P 16 J.Scott, S 22 G.Smith, CB 24 R.Shelley, S 27 R.Mickens, RB 28 K.Vidal, DB 33 D.Leonard, RB 34 K.Mitchell, LB 43 T.Dye, LS 47 J.Harris, OLB 50 C.Murphy, LB 58 M.Wax, G 74 K.Awosika, WR 82 T.Wease, TE 83 D.Njoku, WR 84 K.Lambert-Smith, TE 86 O.Gadsden, OLB 90 A.Mesidor, DL 91 N.Barrett, DL 96 M.Adams, DL 99 J.Caldwell
+Baltimore Ravens: CB 3 C.Awuzie, OLB 9 Z.Young, WR 10 L.Wester, WR 17 C.Moore, S 25 K.Wallace, RB 26 R.Ali, CB 27 T.Tampa, P 30 R.Eckley, K 35 R.Patterson, ILB 49 J.Higgins, T 62 C.Edoga, T 76 C.Vinson, WR 81 D.Walker, TE 87 N.Vannett, TE 88 M.Hibner, TE 89 M.Andrews, DL 93 C.Campbell, NT 94
+
+[DID NOT PLAY]
+Los Angeles Chargers: QB 7 D.Uiagalelei, C 60 J.Spomer, G 73 A.Harkey
+Baltimore Ravens: QB 12 J.Fagnano, OL 58 R.Neuzil
+
+[NOT ACTIVE]
+Los Angeles Chargers: WR 15 L.McConkey, S 32 K.Williamson, CB 37 I.Waxter, OLB 48 B.Dupree, WR 89 B.Thompson, DL 92 J.Eboigbe
+Baltimore Ravens: WR 13 E.Sarratt, 3QB 18 K.Slovis, S 21 J.Hawkins, CB 29 C.Rivers, G/T 51 E.Jones, DL 90 A.Peebles
+
+[PLAYTIME_FOCUS]
+Transcribed from the "Playtime Percentage" table. Offense and Defense columns are separate; a blank means the player was not credited on that side.
+C.Strange G 57 100% | J.Simpson G 69 100% | J.Alt T 57 100% | R.Rosengarten T 69 100% | J.Slaughter OL 57 100% | J.Brissett QB 69 100% | L.Taylor G 57 100% | C.Jurgens C 69 100% | T.Burke T 57 100% | R.Stanley T 69 100% | J.Herbert QB 57 100% | R.Bateman WR 63 91% | T.Harris WR 56 98% | Z.Flowers WR 61 88% | Q.Johnston WR 44 77% | J.Lane WR 44 64% | C.Kolar TE 41 72% | M.Andrews TE 40 58% | O.Hampton RB 36 63% | D.Henry RB 38 55% | S.Matlock FB 28 49% | O.Ioane G 36 52% | D.Njoku TE 19 33% | C.Edoga T 33 48% | K.Vidal RB 15 26% | J.Hill RB 33 48% | D.Davis WR 15 26% | M.Hibner TE 22 32% | K.Mitchell RB 13 23% | N.Vannett TE 14 20% | O.Gadsden TE 12 21% | J.Cuevas TE 11 16% | T.Wease WR 5 9% | C.Vinson T 9 13% | K.Lambert-Smith WR 1 2% | C.Moore WR 6 9% | D.Walker WR 3 4% | L.Wester WR 1 1%
+C.Hart CB 69 100% | R.Smith LB 57 100% | E.Molden DB 69 100% | K.Hamilton S 56 98% | T.Still CB 68 99% | M.Starks S 54 95% | T.Tuipulotu LB 61 88% | N.Wiggins CB 53 93% | D.Henley LB 61 88% | T.Simpson LB 47 82% | K.Mack LB 50 72% | M.Green LB 45 79% | T.Jefferson S 46 67% | T.Jones DL 43 75% | A.Mesidor LB 44 64% | M.Humphrey CB 42 74% | D.Tomlinson DL 36 52% | T.Hendrickson LB 41 72% | T.Tart DL 36 52% | B.Washington DL 32 56% | J.Caldwell DL 31 45% | C.Campbell DL 28 49% | D.Jackson CB 31 45% | N.Madubuike DL 28 49% | D.Phillips LB 28 41% | K.Martin CB 18 32% | R.Mickens S 27 39% | C.Awuzie CB 16 28% | G.Smith S 24 35% | Z.Young LB 15 26% | D.Leonard DB 20 29% | E.Burke LB 13 23% | N.Barrett DL 14 20% | K.Wallace S 11 19% | M.Wax LB 12 17% | K.Jackson S 10 18% | C.Murphy LB 11 16% | J.Jenkins NT 10 18% | M.Adams DL 9 13% | T.Buchanan LB 5 9% | D.Perryman LB 8 12% | T.Tampa CB 3 5% | T.Dye LB 2 3% | R.Shelley CB 2 3%
+NOTE: the PDF extraction merges the two clubs' playtime columns; the left-hand name in each pair is the Chargers player and the right-hand name is the Ravens player, exactly as the table is printed.
+
+[ADDENDUM — transcribed verbatim from the same PDF on a second read, 2026-11-19]
+The "Playtime Percentage" section carries this caption line:
+Percent of playtime per player on offense, defense and special teams (Unofficial)
+This is the NFL's own label. The table is NFL-published; the NFL calls the measure Unofficial.

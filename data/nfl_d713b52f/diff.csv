@@ -1,0 +1,34 @@
+entity,key,field,before,after,changed,note
+standings,Buffalo Bills,W/L/T/PF/PA,8-1-0 287/199,8-1-0 287/199,no,identical
+standings,New England Patriots,W/L/T/PF/PA,5-5-0 221/242,5-5-0 221/242,no,identical
+standings,New York Jets,W/L/T/PF/PA,2-8-0 194/254,2-8-0 194/254,no,identical
+standings,Miami Dolphins,W/L/T/PF/PA,1-8-0 148/224,1-8-0 148/224,no,identical
+standings,Cincinnati Bengals,W/L/T/PF/PA,7-2-0 278/193,7-2-0 278/193,no,identical
+standings,Pittsburgh Steelers,W/L/T/PF/PA,6-3-0 198/182,6-3-0 198/182,no,identical
+standings,Cleveland Browns,W/L/T/PF/PA,6-4-0 188/220,6-4-0 188/220,no,identical
+standings,Baltimore Ravens,W/L/T/PF/PA,4-6-0 209/259,4-6-0 209/259,no,identical
+standings,Jacksonville Jaguars,W/L/T/PF/PA,7-2-0 269/144,7-2-0 269/144,no,identical
+standings,Houston Texans,W/L/T/PF/PA,3-6-0 233/219,3-6-0 233/219,no,identical
+standings,Indianapolis Colts,W/L/T/PF/PA,3-7-0 208/271,3-7-0 208/271,no,identical
+standings,Tennessee Titans,W/L/T/PF/PA,1-8-0 167/239,1-8-0 167/239,no,identical
+standings,Kansas City Chiefs,W/L/T/PF/PA,7-2-0 237/156,7-2-0 237/156,no,identical
+standings,Denver Broncos,W/L/T/PF/PA,7-2-0 198/186,7-2-0 198/186,no,identical
+standings,Las Vegas Raiders,W/L/T/PF/PA,4-6-0 251/289,4-6-0 251/289,no,identical
+standings,Los Angeles Chargers,W/L/T/PF/PA,1-8-0 144/239,1-8-0 144/239,no,identical
+standings,New York Giants,W/L/T/PF/PA,5-3-1 203/196,5-3-1 203/196,no,identical
+standings,Dallas Cowboys,W/L/T/PF/PA,4-6-0 286/282,4-6-0 286/282,no,identical
+standings,Washington Commanders,W/L/T/PF/PA,3-5-1 196/223,3-5-1 196/223,no,identical
+standings,Philadelphia Eagles,W/L/T/PF/PA,2-7-0 148/221,2-7-0 148/221,no,identical
+standings,Detroit Lions,W/L/T/PF/PA,7-2-0 257/199,7-2-0 257/199,no,identical
+standings,Minnesota Vikings,W/L/T/PF/PA,7-2-0 176/126,7-2-0 176/126,no,identical
+standings,Chicago Bears,W/L/T/PF/PA,7-2-0 241/184,7-2-0 241/184,no,identical
+standings,Green Bay Packers,W/L/T/PF/PA,6-4-0 226/221,6-4-0 226/221,no,identical
+standings,Carolina Panthers,W/L/T/PF/PA,4-5-0 219/236,4-5-0 219/236,no,identical
+standings,Tampa Bay Buccaneers,W/L/T/PF/PA,3-6-0 202/178,3-6-0 202/178,no,identical
+standings,New Orleans Saints,W/L/T/PF/PA,3-6-0 202/236,3-6-0 202/236,no,identical
+standings,Atlanta Falcons,W/L/T/PF/PA,3-7-0 201/258,3-7-0 201/258,no,identical
+standings,San Francisco 49ers,W/L/T/PF/PA,8-1-0 281/196,8-1-0 281/196,no,identical
+standings,Seattle Seahawks,W/L/T/PF/PA,6-4-0 223/175,6-4-0 223/175,no,identical
+standings,Los Angeles Rams,W/L/T/PF/PA,6-4-0 248/187,6-4-0 248/187,no,identical
+standings,Arizona Cardinals,W/L/T/PF/PA,3-7-0 184/289,3-7-0 184/289,no,identical
+summary,clubs compared,changed,32 prior rows,32 rows now,0,"no standings row moved between the two reads, so the Week 11 games were not yet played at either read"

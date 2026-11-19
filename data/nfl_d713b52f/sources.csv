@@ -1,0 +1,16 @@
+url,kind,used_for,reads,official,source_id,host,read_at_utc
+https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf,game_book,"WAS@NYG official Game Book: lineups, not-active, playtime. Settles the two Commanders designations.",1,yes,SRC-01,static.www.nfl.com,2026-11-19T11:10:00Z
+https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf,game_book,"NE@DET official Game Book: lineups, not-active, playtime. Settles the three inherited blank Lions designations and the game-centre venue name.",1,yes,SRC-02,static.www.nfl.com,2026-11-19T11:10:00Z
+https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf,game_book,"HOU@CLE official Game Book: lineups, not-active, playtime. The only Week 10 game whose report carries game designations for both clubs.",1,yes,SRC-03,static.www.nfl.com,2026-11-19T11:10:00Z
+https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf,game_book,"LAC@BAL official Game Book: lineups, substitutions, did-not-play, not-active, playtime, weather, roof/surface, referee",1,yes,SRC-04,static.www.nfl.com,2026-11-19T11:10:00Z
+https://www.nfl.com/games/chargers-at-ravens-2026-reg-10,game_centre,"Game centre: score, week, the Game Book link, and the Game Info venue block",1,yes,SRC-05,www.nfl.com,2026-11-19T11:10:00Z
+https://www.nfl.com/games/commanders-at-giants-2026-reg-10,game_centre,book link + Game Info,1,yes,SRC-06,www.nfl.com,2026-11-19T11:10:00Z
+https://www.nfl.com/games/patriots-at-lions-2026-reg-10,game_centre,book link + Game Info,1,yes,SRC-07,www.nfl.com,2026-11-19T11:10:00Z
+https://www.nfl.com/games/texans-at-browns-2026-reg-10,game_centre,book link + Game Info,1,yes,SRC-08,www.nfl.com,2026-11-19T11:10:00Z
+https://www.nfl.com/injuries/,injury_report,"Week 11 report, Thursday IND@HOU block: 26 player rows across 2 clubs with practice and game status",1,yes,SRC-09,www.nfl.com,2026-11-19T11:10:00Z
+https://www.nfl.com/injuries/league/2026/reg10,injury_report,Header only: the Week 10 page renders a Week 11 <title> while its body heading says WEEK 10,1,yes,SRC-10,www.nfl.com,2026-11-19T11:10:00Z
+https://www.nfl.com/schedules/,schedule,"Week 11 slate rows used for the fixture-context captures (game date, kickoff ET, network, clubs, records)",1,yes,SRC-11,www.nfl.com,2026-11-19T11:10:00Z
+https://www.nfl.com/schedules/2026/by-week/week-10,schedule,"Week 10 board, cited for corpus rows",1,yes,SRC-12,www.nfl.com,2026-11-19T11:10:00Z
+https://www.nfl.com/standings/,standings,"All 32 clubs: W-L-T, PCT, PF, PA, NET. Used for the arithmetic audit and for the Week 11 strength inputs.",1,yes,SRC-13,www.nfl.com,2026-11-19T11:10:00Z
+https://www.nfl.com/stats/player-stats/,probe,"The complete official player-stats category list (11 categories, no snap counts) plus the 404 on the snap-counts URL",1,yes,SRC-14,www.nfl.com,2026-11-19T11:10:00Z
+https://www.nfl.com/stats/player-stats/category/snap-counts/2026/reg/all,probe_404,snap-counts URL returned '404 - Flag on the Play.',1,yes,SRC-15,www.nfl.com,2026-11-19T11:10:00Z

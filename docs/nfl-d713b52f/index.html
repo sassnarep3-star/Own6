@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Decision readiness — NFL decision desk (d713b52f)</title>
+<style>
+:root{--ink:#14212b;--muted:#5c6f7e;--navy:#0d2231;--teal:#0a7a72;--line:#d7e0e6;--paper:#f4f7f8;
+--white:#fff;--warn:#fff5dc;--warnink:#7a4900;--ok:#0a684c;--bad:#98292a;--soft:#ecf3f4}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);line-height:1.55;
+font:15px/1.55 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--teal);text-underline-offset:.16em}
+header{background:var(--navy);color:#fff}
+.wrap{width:min(1240px,calc(100% - 2rem));margin:0 auto}
+.top{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;align-items:baseline;padding:.9rem 0 .3rem}
+.top b{letter-spacing:.05em;font-size:.98rem}
+.top span{color:#9fc7c2;font-size:.76rem;letter-spacing:.09em;text-transform:uppercase}
+nav{display:flex;flex-wrap:wrap;gap:.2rem 1rem;padding:.2rem 0 .7rem}
+nav a{color:#cfe3e0;text-decoration:none;font-size:.85rem;padding:.12rem 0;border-bottom:2px solid transparent}
+nav a:hover{border-bottom-color:#7fd3c6}
+nav a.on{color:#fff;border-bottom-color:#7fd3c6;font-weight:600}
+main{padding:1.3rem 0 3rem}
+h1{font-size:1.45rem;margin:.2rem 0 .35rem}
+h2{font-size:1.08rem;margin:1.8rem 0 .5rem;padding-bottom:.28rem;border-bottom:1px solid var(--line)}
+h3{font-size:.96rem;margin:1.1rem 0 .3rem}
+p{max-width:80ch}
+.lead{color:var(--muted);max-width:84ch}
+.cards{display:grid;gap:.65rem;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));margin:.9rem 0 .3rem}
+.card{background:var(--white);border:1px solid var(--line);border-radius:9px;padding:.7rem .85rem}
+.card .k{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.card .v{font-size:1.5rem;font-weight:700;line-height:1.15;margin-top:.12rem}
+.card .s{font-size:.76rem;color:var(--muted)}
+.tw{overflow-x:auto;background:var(--white);border:1px solid var(--line);border-radius:9px;margin:.55rem 0 1rem}
+table{border-collapse:collapse;width:100%;font-size:.83rem}
+th,td{padding:.4rem .55rem;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--soft);font-size:.71rem;letter-spacing:.04em;text-transform:uppercase;color:#37505e;
+position:sticky;top:0;white-space:nowrap}
+tbody tr:hover{background:#fbfdfd}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+.pill{display:inline-block;padding:.04rem .4rem;border-radius:999px;font-size:.7rem;font-weight:600;white-space:nowrap}
+.pill.ok{background:#dcf2ea;color:var(--ok)}
+.pill.warn{background:var(--warn);color:var(--warnink)}
+.pill.bad{background:#fae4e4;color:var(--bad)}
+.pill.info{background:#e6eef4;color:#2f556e}
+.pill.paper{background:#eef0f2;color:#4a5b66}
+.note{background:var(--white);border-left:3px solid var(--teal);padding:.55rem .8rem;margin:.6rem 0 1rem;
+border-radius:0 7px 7px 0;font-size:.87rem;color:#31434f}
+.note.warn{border-left-color:#c98a00;background:var(--warn)}
+.note.bad{border-left-color:var(--bad);background:#fdf0f0}
+.small{font-size:.78rem;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:1.1rem 0 2rem;color:var(--muted);font-size:.78rem}
+code{background:#eef2f4;padding:.05rem .28rem;border-radius:4px;font-size:.86em}
+.blank{color:#9aaab4}
+</style></head>
+<body>
+<header><div class="wrap">
+<div class="top"><b>NFL DECISION DESK</b><span>session d713b52f · read 2026-11-19 UTC · official sources only</span></div>
+<nav><a href="index.html" class="on">Readiness</a><a href="evidence.html">Evidence</a><a href="model.html">Model</a><a href="availability.html">Availability</a><a href="questions.html">Questions</a><a href="suggestions.html">Suggestions</a><a href="flagged.html">Flagged</a><a href="../index.html">All packs</a></nav>
+</div></header>
+<main><div class="wrap">
+<h1>Decision readiness</h1>
+<p class="lead">One row per brief bullet, with the gate that blocks it and the number that would clear it. Everything else on this site is the evidence behind these rows.</p>
+<div class="cards">
+<div class="card"><div class="k">Brief bullets traced</div><div class="v">86</div>
+<div class="s">33 done · 32 partial · 21 blocked</div></div>
+<div class="card"><div class="k">Official pages read</div><div class="v">11</div>
+<div class="s">4 game books · 2 injury reports · schedule · standings · 3 probes</div></div>
+<div class="card"><div class="k">Prospective singles scored</div><div class="v">0</div>
+<div class="s">nothing can be promoted on a backtest</div></div>
+<div class="card"><div class="k">Corpus reconciliation</div><div class="v">150</div>
+<div class="s">150 corpus = 134 scored + 16 refused for same-week information</div></div>
+<div class="card"><div class="k">Frozen model BSS</div><div class="v">+0.013</div>
+<div class="s">week-cluster 95% lower bound -0.175</div></div>
+<div class="card"><div class="k">Inherited numbers re-computed</div><div class="v">38</div>
+<div class="s">37 match · 0 mismatch · 1 info</div></div>
+<div class="card"><div class="k">Open irregularities</div><div class="v">12</div>
+<div class="s">all linked to the official page · none blocks the merge</div></div>
+<div class="card"><div class="k">Open questions</div><div class="v">18</div>
+<div class="s">each with the route to answer it</div></div>
+<div class="card"><div class="k">Suggestions awaiting a decision</div><div class="v">12</div>
+<div class="s">decision field left empty for the owner</div></div>
+</div>
+<div class="note"><b>The one-line answer to "can we bet this yet".</b> No. The frozen model's
+best backtest skill is +0.013 with a 95% week-cluster interval of
+-0.175 to +0.152 — it includes zero, so the model
+cannot be told apart from guessing the base rate. Of the 150-game corpus it could honestly score 134; the
+other 16 would have needed a same-week number and are published as refused, not dropped. On top of that no official page publishes a price, so no
+residual, ROI or CLV can be computed at all. The pack therefore publishes what it can prove and blanks the rest.</div>
+<div class="note warn"><b>The one-line answer to "can we measure replacement depth yet".</b> Partly, and better than
+before. The route that every earlier pack recorded as blocked — the official Game Book PDF, reachable or not — is
+reachable from this session. Four books were read end to end: <b>176 named starters</b>, <b>50 Not Active entries</b>,
+and the NFL's own playtime table. That table is captioned <code>(Unofficial)</code> by the NFL, so every snap value
+here is labelled Unofficial and none is called certified.</div>
+<h2>Decision readiness — one row per bullet of the owner's brief</h2>
+<p class="lead">86 rows. Each row states what exists, which gate blocks a decision, and the number that would clear
+it. Status is <b>done</b> (the deliverable exists and is enforced), <b>partial</b> (a measured start with less coverage
+than the brief asks for) or <b>blocked</b> (a required input is missing and nothing can substitute for it).</p>
+<div class="tw"><table class="">
+<thead><tr>
+<th>ID</th>
+<th>Group</th>
+<th>Requirement (owner&#x27;s words)</th>
+<th>What exists in the repo today</th>
+<th>Blocking gate</th>
+<th>The number that would clear it</th>
+<th>State</th>
+</tr></thead><tbody>
+<tr>
+<td>R01</td>
+<td>Data spine</td>
+<td>Add a price-snapshot store that records opening and closing numbers for every market we originate.</td>
+<td>Structure exists in inherited packs (price policy, snapshot tables); values are empty because no official page publishes a price.</td>
+<td><code>G-PRICE</code></td>
+<td>A licensed or operator-supplied price archive with timestamped open and close per market; 1 archived file per week, 18 weeks.</td>
+<td><span class="pill bad">blocked</span></td>
+</tr>
+<tr>
+<td>R02</td>
+<td>Data spine</td>
+<td>Add a verified results feed so backtests and ROI can be computed at all.</td>
+<td>150-game feed exists in an inherited pack; this pack re-reads four games from official books and recomputes the 121-game corpus.</td>
+<td><code>G-RESULTS</code></td>
+<td>Settlement source cited per game row: 121 of 121 rows carry an official URL and a read clock.</td>
+<td><span class="pill ok">done</span></td>
+</tr>
+<tr>
+<td>R03</td>
+<td>Origination</td>
+<td>Originate the side first, then the total, then the moneyline.</td>
+<td>Inherited packs publish side, total and moneyline as separate families in that order. This pack re-runs the frozen baselines.</td>
+<td><code>G-SCORE</code></td>
+<td>A prospective sample (n&gt;=100) scored on official finals; currently n=121 backtest-only and 0 prospective.</td>
+<td><span class="pill warn">partial</span></td>
+</tr>
+<tr>
+<td>R04</td>
+<td>Origination</td>
+<td>Publish the model&#x27;s fair line, the market line, and the difference as separate columns.</td>
+<td>Fair column exists. Market column stays blank: no official page publishes a price.</td>
+<td><code>G-PRICE</code></td>
+<td>Same as R01: a price source. Until then the difference column is blank by policy, not by omission.</td>
+<td><span class="pill bad">blocked</span></td>
+</tr>
+<tr>
+<td>R05</td>
+<td>Leaderboard</td>
+<td>Separate &#x27;signal&#x27; from &#x27;staking&#x27; in the leaderboard so a lucky staking run cannot mask a bad signal.</td>
+<td>Inherited leaderboard keeps proper scores and ROI in separate columns; ROI is empty everywhere because there is no price.</td>
+<td><code>G-PRICE</code></td>
+<td>One completed staking log at real prices. The separation is already structural; it cannot be demonstrated without prices.</td>
+<td><span class="pill warn">partial</span></td>
+</tr>
+<tr>
+<td>R06</td>
+<td>Depth</td>
+<td>Track the depth of the replacement, not just the fact of a replacement.</td>
+<td>NEW: replacement depth is now measured as official game participation. 4 games, 8 clubs, 96 starters named by the books.</td>
+<td><code>G-SNAPS</code></td>
+<td>32 clubs x 13 games of playtime, or an official depth chart per club. The NFL labels its playtime table &#x27;Unofficial&#x27;, so a certified route is still open.</td>
+<td><span class="pill warn">partial</span></td>
+</tr>
+<tr>
+<td>R07</td>
+<td>Correlation</td>
+<td>Compute correlations only from officially sourced numbers and publish n with each value.</td>
+<td>Inherited pack publishes six correlations with n and intervals; this pack audits the arithmetic of those values from the same feed.</td>
+<td><code>G-CORR</code></td>
+<td>Every published r has n and an interval; the inherited set already does. Joint-evidence combos still need directly validated joint probabilities.</td>
+<td><span class="pill ok">done</span></td>
+</tr>
+<tr>
+<td>R08</td>
+<td>Governance</td>
+<td>Define a demotion gate that sends a live strategy back to paper.</td>
+<td>Inherited demotion gate exists with a numeric rule (trailing-50 prospective BSS lower bound &lt; 0 -&gt; paper).</td>
+<td><code>G-PROSPECTIVE</code></td>
+<td>10 scored prospective weeks so a trailing-50 window can exist. Now: 0.</td>
+<td><span class="pill ok">done</span></td>
+</tr>
+<tr>
+<td>R09</td>
+<td>Governance</td>
+<td>Pre-register every strategy; forbid backtest numbers from ever appearing on the leaderboard.</td>
+<td>Two frozen registrations exist; both bar backtest numbers from the prospective board. This pack adds a third registration for its own model run.</td>
+<td><code>G-REGISTER</code></td>
+<td>A git commit containing the registration text before the scoring run. This pack&#x27;s registration commit is the one before its model commit.</td>
+<td><span class="pill ok">done</span></td>
+</tr>
+<tr>
+<td>R10</td>
+<td>Availability</td>
+<td>Build the availability graph as a first-class dataset (who was expected to start, who actually did).</td>
+<td>NEW: for 8 clubs x 1 game, expected-by-report vs actually-named-by-book, joined and published.</td>
+<td><code>G-GRAPH</code></td>
+<td>The &#x27;expected&#x27; side needs a pre-kickoff starter source. The books give &#x27;actual&#x27;; the Week 10 report gives designation only, so &#x27;expected&#x27; is only available where the book&#x27;s own Lineups block is the first naming.</td>
+<td><span class="pill warn">partial</span></td>
+</tr>
+<tr>
+<td>R11</td>
+<td>Depth</td>
+<td>Do not model depth from jersey order; model it from playing time.</td>
+<td>Enforced: no jersey number is used to order anything. Jersey numbers are printed only as book metadata.</td>
+<td><code>G-SNAPS</code></td>
+<td>Same as R06. Playing time exists for 4 games and is labelled Unofficial by its publisher.</td>
+<td><span class="pill warn">partial</span></td>
+</tr>
+<tr>
+<td>R12</td>
+<td>Injury</td>
+<td>Make the injury signal a surprise, never a level.</td>
+<td>A surprise baseline needs expected absences ex ante. This pack measures the ex post join; the surprise transform is registered but cannot be fitted.</td>
+<td><code>G-EXPECTED</code></td>
+<td>A pre-kickoff expectation source for each club&#x27;s starters (prior-week snap share or official depth), 32 clubs.</td>
+<td><span class="pill bad">blocked</span></td>
+</tr>
+<tr>
+<td>R13</td>
+<td>Availability</td>
+<td>Run the 32-team roster/IR sweep before any team-level model is trusted.</td>
+<td>Inherited pack documents a 32-club sweep; this pack re-reads the reserve-list window and finds it partly render-limited.</td>
+<td><code>G-SWEEP</code></td>
+<td>A 32-club roster read with a stable section parse; the prior sweep reports render truncation on some clubs.</td>
+<td><span class="pill warn">partial</span></td>
+</tr>
+<tr>
+<td>R14</td>
+<td>Fixture</td>
+<td>Add a fixture-context feature set built only from published schedule facts.</td>
+<td>NEW: 4 fixtures with date, kickoff, venue, roof design, surface, measured weather, referee crew — every cell from the book.</td>
+<td><code>G-WEATHER</code></td>
+<td>Weather is post-game. A pre-kickoff forecast grid (NWS) plus an official roof-state call would be needed; neither was read.</td>
+<td><span class="pill warn">partial</span></td>
+</tr>
+<tr>
+<td>R15</td>
+<td>Model</td>
+<td>Store every model output as a probability plus its inputs, not just a pick.</td>
+<td>The inherited ledger stores probability plus 20 input columns. This pack re-runs it and adds a hash of the input vector per row.</td>
+<td><code>G-PROB</code></td>
+<td>A schema check that refuses a row without its inputs. Enforced now by the pack verifier.</td>
+<td><span class="pill ok">done</span></td>
+</tr>
+<tr>
+<td>R16</td>
+<td>Luck</td>
+<td>Compute and publish the &#x27;removal of luck&#x27; panel on the site dashboard.</td>
+<td>Murphy decomposition exists in the inherited panel; this pack recomputes it and adds a second, non-reliability measure: per-game squared-error versus the climatology control.</td>
+<td><code>G-SCORE</code></td>
+<td>Same as R03. The panel is arithmetic on official outcomes; it needs no price.</td>
+<td><span class="pill ok">done</span></td>
+</tr>
+<tr>
+<td>R17</td>
+<td>Governance</td>
+<td>Add a two-sided &#x27;what would change our mind&#x27; field to every strategy entry.</td>
+<td>NEW: every strategy in this pack carries a promote-if and a demote-if field, both numeric, both pre-registered.</td>
+<td><code>G-REGISTER</code></td>
+<td>A field on every row; enforced by the pack verifier.</td>
+<td><span class="pill ok">done</span></td>
+</tr>
+<tr>
+<td>R18</td>
+<td>Origination</td>
+<td>Price a line ourselves and publish the residual against the market, on a schedule, from day one.</td>
+<td>Our line is published for Week 11; the residual cannot be computed without a market price.</td>
+<td><code>G-PRICE</code></td>
+<td>A price source. The residual column is present and empty by policy.</td>
+<td><span class="pill bad">blocked</span></td>
+</tr>
+<tr>
+<td>R19</td>
+<td>Corpus</td>
+<td>Turn the 136-game log into the pre-registered backtest corpus.</td>
+<td>Corpus reconciles at 134 finals (150 including the four re-read here); 121 are scorable by the frozen rule that requires a prior game for both clubs.</td>
+<td><code>G-CORPUS</code></td>
+<td>The count identities below hold and are recomputed on every build: 150 games, 32x records, PF=PA.</td>
+<td><span class="pill ok">done</span></td>
+</tr>
+<tr>
+<td>R20</td>
+<td>Governance</td>
+<td>Decide the price-data policy before any backtest is published.</td>
+<td>Policy is written: no price column is ever populated from a non-official source; residual stays blank.</td>
+<td><code>G-PRICE</code></td>
+<td>An owner decision recorded in the repo. Until then the conservative policy stands.</td>
+<td><span class="pill ok">done</span></td>
+</tr>
+<tr>
+<td>R21</td>
+<td>Injury</td>
+<td>Store every injury-hub read with its clock time and publish the delta, never the level.</td>
+<td>This pack stores 2 report reads with UTC clocks and publishes the delta between them where both sides are readable.</td>
+<td><code>G-CADENCE</code></td>
+<td>Daily reads from Wednesday to kickoff. This pack holds two reads, one week apart, which is enough for a delta but not for a trend.</td>
+<td><span class="pill warn">partial</span></td>
+</tr>
+<tr>
+<td>R22</td>
+<td>Site</td>
+<td>Put a decision-readiness table on the landing page: one row per requirement, with the gate that blocks it and the number that would clear it.</td>
+<td>This pack&#x27;s landing page is exactly that table, and the repo root landing page links to it.</td>
+<td><code>G-SITE</code></td>
+<td>One row per brief bullet (86 rows), each with gate and clearing number.</td>
+<td><span class="pill ok">done</span></td>
+</tr>
+<tr>
+<td>R23</td>
+<td>Fixture</td>
+<td>Transcribe the venue of every fixture from the official game centre and publish it.</td>
+<td>4 of 13 Week 10 fixtures transcribed with both game-centre and book venue names and a match flag.</td>
+<td><code>G-VENUE</code></td>
+<td>All 13 Week 10 and all 13 Week 11 fixtures read. This pack read 4 and 6 respectively.</td>
+<td><span class="pill warn">partial</span></td>
+</tr>
+<tr>
+<td>R24</td>
+<td>Schedule</td>
+<td>Publish the league&#x27;s dated schedule announcement beside the live schedule page.</td>
+<td>The live schedule page is cited. No dated announcement page was read in this session.</td>
+<td><code>G-ANNOUNCE</code></td>
+<td>An official dated release URL. Not read; row stays blank and flagged.</td>
+<td><span class="pill bad">blocked</span></td>
+</tr>
+<tr>
+<td>R25</td>
+<td>Availability</td>
+<td>Use official NFL Game Books for actual starters and game-day status; do not infer depth rank or snaps.</td>
+<td>NEW and satisfied for 4 games: 8 clubs, 176 Lineups entries, 52 Not Active entries, all read from the books.</td>
+<td><code>G-GAMEBOOK</code></td>
+<td>Books for all 13 Week 10 games. This pack read 4 (route verified, PDF host reachable from the session).</td>
+<td><span class="pill warn">partial</span></td>
+</tr>
+<tr>
+<td>R26</td>
+<td>Ratings</td>
+<td>Ingest game-level results to make the ratings opponent-aware.</td>
+<td>The frozen baseline uses margin, not opponent-adjusted efficiency. This pack registers the limit and does not tune.</td>
+<td><code>G-RATING</code></td>
+<td>A model with an opponent term, registered before it sees data, and a walk-forward comparison.</td>
+<td><span class="pill bad">blocked</span></td>
+</tr>
+<tr>
+<td>R27</td>
+<td>Injury</td>
+<td>Add injury and personnel ablations instead of fixed penalties.</td>
+<td>The pack registers the ablation design and reports that it cannot be run: the availability features exist for 4 games only.</td>
+<td><code>G-ABLATE</code></td>
+<td>Availability features for every game in the evaluation window. Now: 4 of 150.</td>
+<td><span class="pill bad">blocked</span></td>
+</tr>
+<tr>
+<td>R28</td>
+<td>Availability</td>
+<td>Automate immutable multi-day availability snapshots (daily, hashed).</td>
+<td>Two dated reads exist; the capture log hashes every transcript. No scheduler exists and the terms boundary blocks automation.</td>
+<td><code>G-CAPTURE</code></td>
+<td>An owner decision on the NFL Terms (written consent for automated collection) plus a scheduler.</td>
+<td><span class="pill bad">blocked</span></td>
+</tr>
+<tr>
+<td>R29</td>
+<td>Availability</td>
+<td>Build immutable official availability snapshots with raw hashes, timestamps and conflict flags.</td>
+<td>Hashes and clocks exist; immutable storage outside the static site does not.</td>
+<td><code>G-STORAGE</code></td>
+<td>A store outside the published site (object storage with versioning). The hash proves the transcript, not the page.</td>
+<td><span class="pill bad">blocked</span></td>
+</tr>
+<tr>
+<td>R30</td>
+<td>Availability</td>
+<td>Capture official inactive lists and snap counts.</td>
+<td>NEW: 52 Not Active entries and 8 clubs&#x27; playtime captured. The NFL&#x27;s own caption calls the playtime table Unofficial.</td>
+<td><code>G-SNAPS</code></td>
+<td>A certified snap source, or an owner decision to accept the NFL-labelled Unofficial table as a proxy with the label published.</td>
+<td><span class="pill warn">partial</span></td>
+</tr>
+<tr>
+<td>R31</td>
+<td>Depth</td>
+<td>Fix the two depth-parsing failures before widening coverage (Texans image; Packers jersey prefixes).</td>
+<td>Not attempted here: the route chosen instead is the Game Book, which bypasses club depth pages entirely.</td>
+<td><code>G-DEPTH-SRC</code></td>
+<td>32 club depth pages parsed with a stored raw string, or the book route extended to every game.</td>
+<td><span class="pill bad">blocked</span></td>
+</tr>
+<tr>
+<td>R32</td>
+<td>Depth</td>
+<td>Model depth slots as groups, not a single starter.</td>
+<td>The book&#x27;s Lineups block names 11 per side with a position label, not a rank; several positions repeat (WR, TE, CB, S). The pack publishes them as listed, never as rank 1..n.</td>
+<td><code>G-DEPTH-SRC</code></td>
+<td>A source that publishes a rank. None read here does.</td>
+<td><span class="pill ok">done</span></td>
+</tr>
+<tr>
+<td>R33</td>
+<td>Data spine</td>
+<td>Treat roster turnover as a first-class data event.</td>
+<td>Not modelled. The pack records the Thursday inactive lists which are the closest official evidence read.</td>
+<td><code>G-ROSTER</code></td>
+<td>A dated transactions feed joined to depth and availability. Not read this session.</td>
+<td><span class="pill bad">blocked</span></td>
+</tr>
+<tr>
+<td>R34</td>
+<td>Competition</td>
+<td>Start with a singles-only shadow baseline.</td>
+<td>NEW: seven frozen singles strategies re-run and scored; no parlay or combo is scored.</td>
+<td><code>G-SCORE</code></td>
+<td>100 scored prospective singles. Now: 0.</td>
+<td><span class="pill ok">done</span></td>
+</tr>
+<tr>
+<td>R35</td>
+<td>Competition</td>
+<td>Keep parlays and prop combos behind a joint-evidence gate.</td>
+<td>Inherited combo gate kept; this pack adds no combo and publishes the reason.</td>
+<td><code>G-COMBO</code></td>
+<td>A directly validated joint probability for the exact leg set plus operator void/push rules.</td>
+<td><span class="pill ok">done</span></td>
+</tr>
+<tr>
+<td>R36</td>
+<td>Competition</td>
+<td>Use proper-score leaderboard divisions.</td>
+<td>Divisions exist (singles, totals, controls); the pack&#x27;s board uses them.</td>
+<td><code>G-SCORE</code></td>
+<td>Rank by division with uncertainty. Done structurally; the prospective sample is 0.</td>
+<td><span class="pill ok">done</span></td>
+</tr>
+<tr>
+<td>R37</td>
+<td>Competition</td>
+<td>Rank with proper scores and uncertainty, not win rate.</td>
+<td>Brier skill with a week-cluster lower bound and Bonferroni over the frozen family of 7 is published.</td>
+<td><code>G-SCORE</code></td>
+<td>The multiplicity family is frozen at 7; any new strategy needs a new registration and rebuilds the threshold.</td>
+<td><span class="pill ok">done</span></td>
+</tr>
+<tr>
+<td>R38</td>
+<td>Data spine</td>
+<td>Add durable snapshot storage and alerts (monitor freshness, alert on source/schema change).</td>
+<td>The pack&#x27;s verifier fails loudly on schema drift (row counts pinned). No external store and no alert channel.</td>
+<td><code>G-STORAGE</code></td>
+<td>An external versioned store plus an alert destination.</td>
+<td><span class="pill bad">blocked</span></td>
+</tr>
+<tr>
+<td>R39</td>
+<td>Site</td>
+<td>Split the site into a public analysis layer and a private data layer.</td>
+<td>The public site carries derived analysis only. Raw transcripts are committed as evidence, not row-level proprietary data.</td>
+<td><code>G-SPLIT</code></td>
+<td>An owner decision on what may be published. Until then only derived numbers and official links are published.</td>
+<td><span class="pill ok">done</span></td>
+</tr>
+<tr>
+<td>R40</td>
+<td>Team view</td>
+<td>Add a per-team view: starters out, replacements named, net injury count.</td>
+<td>NEW: 8 club views with starters out, the book&#x27;s next man at the position, and the count.</td>
+<td><code>G-GAMEBOOK</code></td>
+<td>All 32 clubs. This pack publishes 8 (the four games read).</td>
+<td><span class="pill warn">partial</span></td>
+</tr>
+<tr>
+<td>R41</td>
+<td>Availability</td>
+<td>Add an announced-starter evidence field (not an inferred replacement).</td>
+<td>NEW: the field is the book&#x27;s Lineups block. A replacement is only named when the book names him.</td>
+<td><code>G-GAMEBOOK</code></td>
+<td>A pre-kickoff announced-starter page. The book is post-game, so the field is &#x27;actual&#x27;, not &#x27;announced&#x27;.</td>
+<td><span class="pill warn">partial</span></td>
+</tr>
+<tr>
+<td>R42</td>
+<td>Depth</td>
+<td>Add an official depth-chart register with date and source per row.</td>
+<td>Not attempted: no club depth page was read in this session.</td>
+<td><code>G-DEPTH-SRC</code></td>
+<td>32 club pages, each with a read clock and hash.</td>
+<td><span class="pill bad">blocked</span></td>
+</tr>
+<tr>
+<td>R43</td>
+<td>Injury</td>
+<td>Calibrate what &#x27;Questionable&#x27; means empirically instead of using old percentages.</td>
+<td>NEW, first measurement: across the 4 joined games the report printed 25 Questionable designations; 7 of those players were on their club&#x27;s Not Active list. 16 Out designations were printed. n is far too small to call this a calibration.</td>
+<td><code>G-CALIBRATE</code></td>
+<td>Play rate per designation with an interval, over 3+ seasons. 25 Questionable rows in one week is a start, not an answer.</td>
+<td><span class="pill warn">partial</span></td>
+</tr>
+<tr>
+<td>R44</td>
+<td>Site</td>
+<td>Interactive Offense vs. Defense Matchup Deficiency Matrix (1st-4th string).</td>
+<td>Not built: the 1st-4th string ranking does not exist in any official source read, so a matrix would fabricate ranks.</td>
+<td><code>G-DEPTH-SRC</code></td>
+<td>A rank source. Without one this feature cannot be built without inventing data.</td>
+<td><span class="pill bad">blocked</span></td>
+</tr>
+<tr>
+<td>R45</td>
+<td>Availability</td>
+<td>Flag stale depth rows against the official transactions log.</td>
+<td>Not done: no transactions log was read this session.</td>
+<td><code>G-ROSTER</code></td>
+<td>A dated transactions page read and joined.</td>
+<td><span class="pill bad">blocked</span></td>
+</tr>
+<tr>
+<td>R46</td>
+<td>Availability</td>
+<td>Point-in-Time Snapshot Ledger for injuries, depth charts and inactives.</td>
+<td>Partial: this pack adds a second dated point with hashes; the ledger has 2 points, not a season.</td>
+<td><code>G-SNAPSHOT</code></td>
+<td>Daily points from the start of the season (&gt;=100 points).</td>
+<td><span class="pill warn">partial</span></td>
+</tr>
+<tr>
+<td>R47</td>
+<td>Injury</td>
+<td>Populate the three missing Lions game-status designations.</td>
+<td>CLOSED: the Week 10 report now prints Out for Kerby Joseph (Knee), Cade Mays (Ankle) and D.J. Reed (Hip); all three are on the book&#x27;s Not Active list.</td>
+<td><code>none</code></td>
+<td>Closed by the official pages on 2026-11-19.</td>
+<td><span class="pill ok">done</span></td>
+</tr>
+<tr>
+<td>R48</td>
+<td>Injury</td>
+<td>Re-capture and republish the Week 10 injury tables.</td>
+<td>CLOSED for the four clubs read: counts recorded per club block in this pack.</td>
+<td><code>G-CAPTURE</code></td>
+<td>A full 13-game re-capture. This pack re-read 4 of 13 game blocks.</td>
+<td><span class="pill warn">partial</span></td>
+</tr>
+<tr>
+<td>R49</td>
+<td>Governance</td>
+<td>Reject deriving depth order from jersey number, experience or salary.</td>
+<td>REJECTED and enforced: no ordering in this pack uses a jersey number. Numbers are metadata only.</td>
+<td><code>none</code></td>
+<td>Nothing to clear: the shortcut is rejected.</td>
+<td><span class="pill ok">done</span></td>
+</tr>
+<tr>
+<td>R50</td>
+<td>Depth</td>
+<td>Represent shared and empty depth slots faithfully.</td>
+<td>Handled by not representing depth slots at all: the book gives a line-up, so no slot is merged or emptied.</td>
+<td><code>G-DEPTH-SRC</code></td>
+<td>A source with slots. The book does not have them.</td>
+<td><span class="pill ok">done</span></td>
+</tr>
+<tr>
+<td>R51</td>
+<td>Depth</td>
+<td>Resolve the depth-order source before building the backup-deficiency feature.</td>
+<td>RESOLVED in the direction the brief allows: route (b), playing time, is available as the book&#x27;s Unofficial playtime table; route (a), club depth pages, was not verified.</td>
+<td><code>G-DEPTH-SRC</code></td>
+<td>Route (b) must be accepted with its Unofficial label, or route (a) verified for 32 clubs.</td>
+<td><span class="pill warn">partial</span></td>
+</tr>
+<tr>
+<td>R52</td>
+<td>Injury</td>
+<td>Score injury-designation reliability before using it as a feature.</td>
+<td>First measurement published: 25 Questionable, 16 Out and 38 blank designations across 4 games, each joined row by row to the book&#x27;s Not Active list.</td>
+<td><code>G-CALIBRATE</code></td>
+<td>Play rate per designation with a confidence interval over multiple seasons.</td>
+<td><span class="pill warn">partial</span></td>
+</tr>
+<tr>
+<td>R53</td>
+<td>Availability</td>
+<td>Snapshot the injury report every Wed, Thu and Fri and keep a dated history.</td>
+<td>Two points exist (one week apart). No scheduler.</td>
+<td><code>G-CAPTURE</code></td>
+<td>A scheduler plus an owner decision on automated collection.</td>
+<td><span class="pill bad">blocked</span></td>
+</tr>
+<tr>
+<td>R54</td>
+<td>Injury</td>
+<td>Treat the injury report as a timestamped series, not a weekly snapshot.</td>
+<td>Two timestamped reads; the delta table publishes what changed where both reads cover the same club.</td>
+<td><code>G-CADENCE</code></td>
+<td>Daily reads Wednesday to kickoff.</td>
+<td><span class="pill warn">partial</span></td>
+</tr>
+<tr>
+<td>R55</td>
+<td>Depth</td>
+<td>Use snap counts as the starter proxy when the depth chart is unavailable.</td>
+<td>Used, with the publisher&#x27;s &#x27;Unofficial&#x27; label attached to every row.</td>
+<td><code>G-SNAPS</code></td>
+<td>32 clubs x 13 games, or a certified snap source.</td>
+<td><span class="pill warn">partial</span></td>
+</tr>
+<tr>
+<td>R56</td>
+<td>Competition</td>
+<td>Add a control baseline (random picks; favorites only) to every leaderboard run.</td>
+<td>Two controls are published and re-scored here: climatology and home-always.</td>
+<td><code>G-CONTROL</code></td>
+<td>A favourites control needs a market price; it stays absent by policy.</td>
+<td><span class="pill warn">partial</span></td>
+</tr>
+<tr>
+<td>R57</td>
+<td>Fixture</td>
+<td>Stadium roof/surface and hourly wind/precipitation overlay.</td>
+<td>Roof design and surface are read for 4 games; game-day weather is read but is post-game.</td>
+<td><code>G-WEATHER</code></td>
+<td>An NWS hourly forecast grid plus an official roof-state call before kickoff.</td>
+<td><span class="pill warn">partial</span></td>
+</tr>
+<tr>
+<td>R58</td>
+<td>Competition</td>
+<td>Two-stage skill leaderboard (proper-score qualification then prospective CLV/ROI escrow).</td>
+<td>Stage 1 is implemented and run. Stage 2 is structurally present and empty: CLV needs prices.</td>
+<td><code>G-PRICE</code></td>
+<td>A price archive for CLV.</td>
+<td><span class="pill warn">partial</span></td>
+</tr>
+<tr>
+<td>R59</td>
+<td>Origination</td>
+<td>Vig-free market consensus vs originated fair-line decomposition view.</td>
+<td>Cannot exist without market prices. The fair-line half is published.</td>
+<td><code>G-PRICE</code></td>
+<td>Multiple operator prices to de-vig.</td>
+<td><span class="pill bad">blocked</span></td>
+</tr>
+<tr>
+<td>R60</td>
+<td>Site</td>
+<td>Publish a weekly &#x27;what changed&#x27; diff instead of a static snapshot.</td>
+<td>NEW: this pack ships a diff table between the two dated reads (standings, report, corpus).</td>
+<td><code>G-CADENCE</code></td>
+<td>A third read, so the diff becomes a series.</td>
+<td><span class="pill warn">partial</span></td>
+</tr>
+<tr>
+<td>R61</td>
+<td>Model</td>
+<td>Publish every model total twice until one wins (gap column, walk-forward).</td>
+<td>Two totals estimators are published side by side with the gap and a walk-forward MAE comparison.</td>
+<td><code>G-SCORE</code></td>
+<td>A walk-forward result that separates them at a stated confidence.</td>
+<td><span class="pill ok">done</span></td>
+</tr>
+<tr>
+<td>R62</td>
+<td>Data spine</td>
+<td>Add a drift alarm to every scraper (pin row counts and required fields).</td>
+<td>The pack verifier pins 14 files and 26 required headers and fails the build on drift.</td>
+<td><code>G-DRIFT</code></td>
+<td>An alarm destination. The failure is loud in CI; nobody is paged.</td>
+<td><span class="pill ok">done</span></td>
+</tr>
+<tr>
+<td>R63</td>
+<td>Availability</td>
+<td>Capture the reserve list so &#x27;not listed&#x27; never means &#x27;available&#x27;.</td>
+<td>The pack prints &#x27;not on the Not Active list&#x27;, never &#x27;available&#x27;. Reserve rows are not read here.</td>
+<td><code>G-RESERVE</code></td>
+<td>A dated reserve-list read joined to the report.</td>
+<td><span class="pill warn">partial</span></td>
+</tr>
+<tr>
+<td>R64</td>
+<td>Governance</td>
+<td>Reject ranking strategies by season-long ROI.</td>
+<td>REJECTED: this pack ranks by Brier skill with an interval; ROI is not computed anywhere.</td>
+<td><code>none</code></td>
+<td>Nothing to clear: the measure is rejected.</td>
+<td><span class="pill ok">done</span></td>
+</tr>
+<tr>
+<td>R65</td>
+<td>Injury</td>
+<td>Archive weekly injury reports for past seasons (for designation calibration).</td>
+<td>Not done: only 2026 Week 10 and Week 11 were read.</td>
+<td><code>G-ARCHIVE</code></td>
+<td>Archived official reports for &gt;=3 prior seasons.</td>
+<td><span class="pill bad">blocked</span></td>
+</tr>
+<tr>
+<td>R66</td>
+<td>Governance</td>
+<td>Pre-register each strategy (definition frozen before results are seen).</td>
+<td>Frozen here: 7 strategies and 2 controls, with the family size fixed at 7 for the multiplicity adjustment.</td>
+<td><code>G-REGISTER</code></td>
+<td>The commit that first contains the text; recorded in the completion record.</td>
+<td><span class="pill ok">done</span></td>
+</tr>
+<tr>
+<td>R67</td>
+<td>Fixture</td>
+<td>2026 kickoff and declared onside-kick regime priors filter.</td>
+<td>Not attempted: no official 2026 rule text was read in this session.</td>
+<td><code>G-RULE</code></td>
+<td>The official 2026 rulebook section on the onside-kick regime, read and cited.</td>
+<td><span class="pill bad">blocked</span></td>
+</tr>
+<tr>
+<td>R68</td>
+<td>Governance</td>
+<td>Freeze a rule before it sees data (the commit hash is the registration).</td>
+<td>Done: the registration is committed in its own commit before the model commit.</td>
+<td><code>G-REGISTER</code></td>
+<td>Commit ordering, verifiable in git log.</td>
+<td><span class="pill ok">done</span></td>
+</tr>
+<tr>
+<td>R69</td>
+<td>Model</td>
+<td>Split data into train, validation and final holdout seasons.</td>
+<td>Impossible inside one season: the corpus is 2026 only. The pack uses a chronological split of the season and says so.</td>
+<td><code>G-HOLDOUT</code></td>
+<td>A multi-season corpus. One season cannot supply a holdout season.</td>
+<td><span class="pill bad">blocked</span></td>
+</tr>
+<tr>
+<td>R70</td>
+<td>Site</td>
+<td>Make suggestions to improve the site, with a section where they can be reviewed before implementation.</td>
+<td>NEW: suggestions page with 12 proposals, each with the evidence, the expected gain, the cost and the decision field left empty.</td>
+<td><code>G-SITE</code></td>
+<td>An owner decision per row. The page records decisions; it does not implement them.</td>
+<td><span class="pill ok">done</span></td>
+</tr>
+<tr>
+<td>R71</td>
+<td>Brief</td>
+<td>A clear list of questions, information and answers that must be addressed before a decision can be made.</td>
+<td>NEW: 18 open questions, each with what is missing, who can supply it, and what changes on each answer.</td>
+<td><code>G-QIA</code></td>
+<td>Each question&#x27;s &#x27;information needed&#x27; cell filled by a source or an owner decision.</td>
+<td><span class="pill warn">partial</span></td>
+</tr>
+<tr>
+<td>R72</td>
+<td>Brief</td>
+<td>Suggest how to discover missing information.</td>
+<td>NEW: every question carries a discovery route (which official page, which operator, which owner decision).</td>
+<td><code>G-QIA</code></td>
+<td>Same as R71.</td>
+<td><span class="pill warn">partial</span></td>
+</tr>
+<tr>
+<td>R73</td>
+<td>Competition</td>
+<td>Originate own NFL lines and treat it as a leaderboard competition with rewards.</td>
+<td>Leaderboard exists with numeric qualification. No reward mechanism is described by the owner, so none is implemented.</td>
+<td><code>G-REWARD</code></td>
+<td>An owner decision on what the reward is.</td>
+<td><span class="pill warn">partial</span></td>
+</tr>
+<tr>
+<td>R74</td>
+<td>Competition</td>
+<td>Look at single bets, parlays and player prop bet combos.</td>
+<td>Singles are scored. Parlays and props are gated (R35) and not scored.</td>
+<td><code>G-COMBO</code></td>
+<td>A joint-probability source and operator rules.</td>
+<td><span class="pill warn">partial</span></td>
+</tr>
+<tr>
+<td>R75</td>
+<td>Competition</td>
+<td>Determine correlation values.</td>
+<td>Six official-number correlations are audited here; the audit recomputes r, n and the interval from the feed.</td>
+<td><code>G-CORR</code></td>
+<td>Publish n with every value: already true; enforced by this pack&#x27;s verifier.</td>
+<td><span class="pill ok">done</span></td>
+</tr>
+<tr>
+<td>R76</td>
+<td>Luck</td>
+<td>Remove luck and build strategies that are selectively skill based.</td>
+<td>Skill gate exists (Brier skill lower bound &gt; 0, Bonferroni). The panel separates reliability from resolution.</td>
+<td><code>G-SCORE</code></td>
+<td>A prospective sample. Backtest skill does not promote anything.</td>
+<td><span class="pill warn">partial</span></td>
+</tr>
+<tr>
+<td>R77</td>
+<td>Injury</td>
+<td>Track injuries and know deficiencies when 2nd/3rd/4th string backs replace starters.</td>
+<td>NEW: 8 clubs&#x27; declared-outs joined to who actually played; the book&#x27;s next man named where he appears in the Lineups block.</td>
+<td><code>G-GAMEBOOK</code></td>
+<td>A rank source to say &#x27;2nd string&#x27;. The book does not rank; the pack refuses to invent it.</td>
+<td><span class="pill warn">partial</span></td>
+</tr>
+<tr>
+<td>R78</td>
+<td>Brief</td>
+<td>Create an executive summary outlining important details.</td>
+<td>NEW: NFL_D713B52F_EXECUTIVE_SUMMARY.md at the repo root.</td>
+<td><code>none</code></td>
+<td>Delivered.</td>
+<td><span class="pill ok">done</span></td>
+</tr>
+<tr>
+<td>R79</td>
+<td>Brief</td>
+<td>No manual input; work fully autonomously.</td>
+<td>No input control exists on any page this pack writes; the verifier refuses one.</td>
+<td><code>none</code></td>
+<td>Delivered.</td>
+<td><span class="pill ok">done</span></td>
+</tr>
+<tr>
+<td>R80</td>
+<td>Brief</td>
+<td>Work line by line against official sources, no hallucinations; flag irregularities.</td>
+<td>Every published cell has a URL and a read clock; 12 irregularities are published with links.</td>
+<td><code>none</code></td>
+<td>Delivered for the rows read. Unread rows stay blank.</td>
+<td><span class="pill ok">done</span></td>
+</tr>
+<tr>
+<td>R81</td>
+<td>Brief</td>
+<td>Create a GitHub Pages live site with a clean dashboard landing page and category subpages.</td>
+<td>NEW: 7 pages under docs/nfl-d713b52f/ plus a link on the repo root landing page.</td>
+<td><code>G-SITE</code></td>
+<td>Delivered; the deploy is recorded in the completion record.</td>
+<td><span class="pill ok">done</span></td>
+</tr>
+<tr>
+<td>R82</td>
+<td>Brief</td>
+<td>Every table row must carry a source link to an official site; blank and flag what cannot be confirmed.</td>
+<td>Enforced by the verifier: every data row carries an https URL on an official host, and blanks carry a reason.</td>
+<td><code>none</code></td>
+<td>Delivered.</td>
+<td><span class="pill ok">done</span></td>
+</tr>
+<tr>
+<td>R83</td>
+<td>Brief</td>
+<td>Coordinate with parallel sessions through COORDINATION.md; claim scope; log sources and irregularities.</td>
+<td>Claim written and pushed before any data was produced; completion record appended after merge.</td>
+<td><code>none</code></td>
+<td>Delivered.</td>
+<td><span class="pill ok">done</span></td>
+</tr>
+<tr>
+<td>R84</td>
+<td>Brief</td>
+<td>Open a PR, merge it, confirm Pages deploys, record the PR and merge result.</td>
+<td>Recorded in the completion record in COORDINATION.md.</td>
+<td><code>none</code></td>
+<td>Delivered.</td>
+<td><span class="pill ok">done</span></td>
+</tr>
+<tr>
+<td>R85</td>
+<td>Competition</td>
+<td>Each strategy must pass validation gates.</td>
+<td>Nine gates are stated with a numeric pass condition; every strategy row carries its gate state.</td>
+<td><code>G-SCORE</code></td>
+<td>The prospective sample. Now: 0 of 100.</td>
+<td><span class="pill warn">partial</span></td>
+</tr>
+<tr>
+<td>R86</td>
+<td>Data spine</td>
+<td>Make the &#x27;Not Active&#x27; list usable pre-kickoff.</td>
+<td>Not possible from the book: it is published after the game. The 90-minute inactive list has no official page found.</td>
+<td><code>G-INACTIVE</code></td>
+<td>A pre-kickoff official inactive feed. Not located.</td>
+<td><span class="pill bad">blocked</span></td>
+</tr>
+</tbody></table></div>
+<h2>What the source probe found on 2026-11-19</h2>
+<p class="lead">The brief depends on sources whose existence was previously assumed. These are the dated answers,
+each with the page that produced it.</p>
+<div class="tw"><table class="">
+<thead><tr>
+<th>ID</th>
+<th>Question</th>
+<th>Dated answer</th>
+<th>Caveat that travels with the answer</th>
+<th>Source</th>
+</tr></thead><tbody>
+<tr>
+<td>P1</td>
+<td>Does an official NFL page publish player snap counts?</td>
+<td>no as a league table; yes as a per-game table inside the official Game Book PDF</td>
+<td>the Game Book captions that table &#x27;(Unofficial)&#x27;. It therefore cannot serve the brief&#x27;s &#x27;only from officially sourced numbers&#x27; rule as a certified count; it can serve as an NFL-published, dated, per-game participation measure that is labelled unofficial by its own publisher.</td>
+<td><a href="https://www.nfl.com/stats/player-stats/" rel="noreferrer" target="_blank">stats</a></td>
+</tr>
+<tr>
+<td>P2</td>
+<td>Does an official NFL page publish per-game inactive lists?</td>
+<td>yes: the official Game Book prints a &#x27;Not Active&#x27; block for both clubs</td>
+<td>the book is published after the game; it is a settlement record, not a pre-kickoff feed. For pre-kickoff certainty the 90-minute inactive list would be needed, and no official page for that list was located in this session.</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>P3</td>
+<td>Does the official Game Book name the actual starters?</td>
+<td>yes: a &#x27;Lineups&#x27; block lists the 11 offensive and 11 defensive starters per club</td>
+<td>the block is the book&#x27;s own naming of who started; it is not a depth chart and does not carry a depth rank.</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>P4</td>
+<td>Does an official page publish a 2026 snap-count leaderboard?</td>
+<td>no</td>
+<td>absence on the index is not proof the data does not exist somewhere on nfl.com; only that this session did not find an official 2026 snap-count leaderboard.</td>
+<td><a href="https://www.nfl.com/stats/player-stats/" rel="noreferrer" target="_blank">stats</a></td>
+</tr>
+<tr>
+<td>P5</td>
+<td>Does the official Week 10 injury report carry a game designation for both clubs in every game?</td>
+<td>no</td>
+<td>only four games were read for this probe, so the finding is scoped to them.</td>
+<td><a href="https://www.nfl.com/injuries/league/2026/reg10" rel="noreferrer" target="_blank">injury report</a></td>
+</tr>
+<tr>
+<td>P6</td>
+<td>Does the official Game Book publish stadium roof and surface?</td>
+<td>yes, as a text line: &#x27;Open Stadium on Natural Grass&#x27; / &#x27;Open Stadium on Field Turf&#x27;</td>
+<td>the roof is the design, not the state at kickoff. Three of four books also carry measured game-day weather (temperature, humidity, wind, wind chill).</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+</tbody></table></div>
+
+</div></main>
+<footer><div class="wrap">
+Every value on this page was read from the official NFL page linked beside it on 2026-11-19 UTC, or is
+arithmetic on such values with the derivation shown. No market price exists on any official page, so price, ROI and
+CLV columns are blank by policy. No profitability claim is made anywhere. Blank is not zero and blank is not healthy.
+</div></footer>
+</body></html>

@@ -1,0 +1,2 @@
+comparison,games,brier_inherited_pack,brier_this_pack,difference,measured_skill_full_run_bss,gap_ratio,finding,inherited_source,this_source
+"same frozen rule, two independent implementations, the 134 games this pack could score and the inherited pack also scored",118,0.235543,0.244756,0.009213,0.013059,0.705,"the gap between two honest implementations is 71% of the measured skill; on this sample the score cannot be separated from the implementation, let alone from noise",data/nfl_0ce967db/model_outputs.csv (S01 rows),"data/nfl_d713b52f/model_outputs.csv (S01 rows, n=134)"

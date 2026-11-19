@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flagged for review — NFL decision desk (d713b52f)</title>
+<style>
+:root{--ink:#14212b;--muted:#5c6f7e;--navy:#0d2231;--teal:#0a7a72;--line:#d7e0e6;--paper:#f4f7f8;
+--white:#fff;--warn:#fff5dc;--warnink:#7a4900;--ok:#0a684c;--bad:#98292a;--soft:#ecf3f4}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);line-height:1.55;
+font:15px/1.55 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--teal);text-underline-offset:.16em}
+header{background:var(--navy);color:#fff}
+.wrap{width:min(1240px,calc(100% - 2rem));margin:0 auto}
+.top{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;align-items:baseline;padding:.9rem 0 .3rem}
+.top b{letter-spacing:.05em;font-size:.98rem}
+.top span{color:#9fc7c2;font-size:.76rem;letter-spacing:.09em;text-transform:uppercase}
+nav{display:flex;flex-wrap:wrap;gap:.2rem 1rem;padding:.2rem 0 .7rem}
+nav a{color:#cfe3e0;text-decoration:none;font-size:.85rem;padding:.12rem 0;border-bottom:2px solid transparent}
+nav a:hover{border-bottom-color:#7fd3c6}
+nav a.on{color:#fff;border-bottom-color:#7fd3c6;font-weight:600}
+main{padding:1.3rem 0 3rem}
+h1{font-size:1.45rem;margin:.2rem 0 .35rem}
+h2{font-size:1.08rem;margin:1.8rem 0 .5rem;padding-bottom:.28rem;border-bottom:1px solid var(--line)}
+h3{font-size:.96rem;margin:1.1rem 0 .3rem}
+p{max-width:80ch}
+.lead{color:var(--muted);max-width:84ch}
+.cards{display:grid;gap:.65rem;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));margin:.9rem 0 .3rem}
+.card{background:var(--white);border:1px solid var(--line);border-radius:9px;padding:.7rem .85rem}
+.card .k{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.card .v{font-size:1.5rem;font-weight:700;line-height:1.15;margin-top:.12rem}
+.card .s{font-size:.76rem;color:var(--muted)}
+.tw{overflow-x:auto;background:var(--white);border:1px solid var(--line);border-radius:9px;margin:.55rem 0 1rem}
+table{border-collapse:collapse;width:100%;font-size:.83rem}
+th,td{padding:.4rem .55rem;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--soft);font-size:.71rem;letter-spacing:.04em;text-transform:uppercase;color:#37505e;
+position:sticky;top:0;white-space:nowrap}
+tbody tr:hover{background:#fbfdfd}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+.pill{display:inline-block;padding:.04rem .4rem;border-radius:999px;font-size:.7rem;font-weight:600;white-space:nowrap}
+.pill.ok{background:#dcf2ea;color:var(--ok)}
+.pill.warn{background:var(--warn);color:var(--warnink)}
+.pill.bad{background:#fae4e4;color:var(--bad)}
+.pill.info{background:#e6eef4;color:#2f556e}
+.pill.paper{background:#eef0f2;color:#4a5b66}
+.note{background:var(--white);border-left:3px solid var(--teal);padding:.55rem .8rem;margin:.6rem 0 1rem;
+border-radius:0 7px 7px 0;font-size:.87rem;color:#31434f}
+.note.warn{border-left-color:#c98a00;background:var(--warn)}
+.note.bad{border-left-color:var(--bad);background:#fdf0f0}
+.small{font-size:.78rem;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:1.1rem 0 2rem;color:var(--muted);font-size:.78rem}
+code{background:#eef2f4;padding:.05rem .28rem;border-radius:4px;font-size:.86em}
+.blank{color:#9aaab4}
+</style></head>
+<body>
+<header><div class="wrap">
+<div class="top"><b>NFL DECISION DESK</b><span>session d713b52f · read 2026-11-19 UTC · official sources only</span></div>
+<nav><a href="index.html">Readiness</a><a href="evidence.html">Evidence</a><a href="model.html">Model</a><a href="availability.html">Availability</a><a href="questions.html">Questions</a><a href="suggestions.html">Suggestions</a><a href="flagged.html" class="on">Flagged</a><a href="../index.html">All packs</a></nav>
+</div></header>
+<main><div class="wrap">
+<h1>Flagged for review</h1>
+<p class="lead">Twelve irregularities found against the official pages on 2026-11-19, each with the link that produced it. None blocks the merge.</p>
+
+<div class="note warn"><b>These are not blockers and they are not hidden.</b> Each row is something the official
+pages show that a careful reader should not paper over. None of them stops the merge; all of them are published here
+with the link that produced them so they can be checked, disputed or accepted.</div>
+<h2>12 irregularities</h2>
+<div class="tw"><table class="">
+<thead><tr>
+<th>ID</th>
+<th>Severity</th>
+<th>Finding</th>
+<th>Exactly what the pages show</th>
+<th>Why it matters</th>
+<th>What this pack did</th>
+<th>Official source</th>
+<th>Merge</th>
+</tr></thead><tbody>
+<tr>
+<td><code>F-01</code></td>
+<td><span class="pill bad">high</span></td>
+<td>The NFL captions its own Game Book playtime table &#x27;(Unofficial)&#x27;.</td>
+<td>Every snap-count value in this pack comes from that table. The brief requires officially sourced numbers.</td>
+<td>Every snap-derived row is labelled Unofficial; no snap row is called certified.</td>
+<td>Owner decision (Q03/Q18). Nothing is suppressed; the label travels with the value.</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+<td><span class="pill ok">does not block</span></td>
+</tr>
+<tr>
+<td><code>F-02</code></td>
+<td><span class="pill warn">medium</span></td>
+<td>The Week 10 injury page renders a Week 11 &lt;title&gt;.</td>
+<td>https://www.nfl.com/injuries/league/2026/reg10 has browser title &#x27;... Week 11 ...&#x27; while its body heading says &#x27;Injuries - WEEK 10&#x27;.</td>
+<td>A scraper keyed on &lt;title&gt; would file Week 10 rows under Week 11.</td>
+<td>This pack keys on the body heading and records both strings in the raw file.</td>
+<td><a href="https://www.nfl.com/injuries/league/2026/reg10" rel="noreferrer" target="_blank">injury report</a></td>
+<td><span class="pill ok">does not block</span></td>
+</tr>
+<tr>
+<td><code>F-03</code></td>
+<td><span class="pill warn">medium</span></td>
+<td>The game centre and the Game Book disagree on the Munich stadium name.</td>
+<td>Game centre Game Info: &#x27;FC BAYERN MUNICH STADIUM&#x27;. Game Book: &#x27;Allianz Arena&#x27;.</td>
+<td>A venue feature built from the game centre would differ from one built from the book.</td>
+<td>Both strings are published side by side with a mismatch flag; neither is corrected.</td>
+<td><a href="https://www.nfl.com/games/patriots-at-lions-2026-reg-10" rel="noreferrer" target="_blank">game centre</a></td>
+<td><span class="pill ok">does not block</span></td>
+</tr>
+<tr>
+<td><code>F-04</code></td>
+<td><span class="pill warn">medium</span></td>
+<td>Playtime table extraction merges the two clubs&#x27; columns.</td>
+<td>The PDF text extractor interleaves the away and home playtime columns; a naive parse would assign a Ravens snap count to a Chargers player.</td>
+<td>Automated parsing of these PDFs needs column-aware extraction before it can scale to 13 games.</td>
+<td>Only hand-read, cross-checked rows are published; the total stays under the 11-player capacity check.</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+<td><span class="pill ok">does not block</span></td>
+</tr>
+<tr>
+<td><code>F-05</code></td>
+<td><span class="pill bad">high</span></td>
+<td>The playtime table can print the same player twice in one club&#x27;s columns.</td>
+<td>Cleveland lists &#x27;T.Pride CB&#x27; with a 13 39% row and again with a 12 36% row; Detroit lists &#x27;C.Izien DB&#x27; with a 1 2% row and again with a blank row.</td>
+<td>A naive sum of a club&#x27;s playtime rows double-counts and can exceed the 11-player capacity.</td>
+<td>Only hand-read rows are published, and every club&#x27;s transcribed total is checked against unit snaps x 11 in snap_sum.csv.</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+<td><span class="pill ok">does not block</span></td>
+</tr>
+<tr>
+<td><code>F-06</code></td>
+<td><span class="pill bad">high</span></td>
+<td>Four players the Week 10 report marks Out are not on the corresponding Not Active list.</td>
+<td>Of 16 Out designations across the four joined games, 12 appear on the club&#x27;s Not Active block and 4 do not: DET S Kerby Joseph, NE RB TreVeyon Henderson, CLE FB Michael Burton and LAC G Branson Taylor.</td>
+<td>Either the report&#x27;s Out does not always mean inactive, or the book&#x27;s list is incomplete. A model that treats Out as &#x27;did not play&#x27; would be wrong on 4 of 16 cases here.</td>
+<td>Both official values are published side by side and the mismatch is flagged; the pack does not choose between its own sources.</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+<td><span class="pill ok">does not block</span></td>
+</tr>
+<tr>
+<td><code>F-07</code></td>
+<td><span class="pill info">low</span></td>
+<td>The Week 10 report&#x27;s Ravens block was not transcribed within the read window.</td>
+<td>The Chargers block reaches &#x27;Branson Taylor&#x27;; the transcript ends there. The Ravens block was not captured.</td>
+<td>BAL has no designation join in this pack.</td>
+<td>BAL rows are absent, not blank. The absence is recorded here.</td>
+<td><a href="https://www.nfl.com/injuries/league/2026/reg10" rel="noreferrer" target="_blank">injury report</a></td>
+<td><span class="pill ok">does not block</span></td>
+</tr>
+<tr>
+<td><code>F-08</code></td>
+<td><span class="pill bad">high</span></td>
+<td>No official source read publishes a depth rank.</td>
+<td>A 1st-4th string matrix (R44) would require inventing the ranking order.</td>
+<td>The most-requested interactive feature cannot be built from official data as specified.</td>
+<td>Rejected in the pack; replaced by the declared-out/played join (S04).</td>
+<td><a href="https://www.nfl.com/stats/player-stats/" rel="noreferrer" target="_blank">stats</a></td>
+<td><span class="pill ok">does not block</span></td>
+</tr>
+<tr>
+<td><code>F-09</code></td>
+<td><span class="pill warn">medium</span></td>
+<td>The Giants&#x27; Week 10 report carries no game designation at all.</td>
+<td>11 NYG rows were listed; only Malik Harrison carries a designation (Questionable). One further row carries a practice status only.</td>
+<td>Any feature assuming a designation exists per listed player is wrong.</td>
+<td>Blank cells are published as &#x27;blank&#x27;, never read as &#x27;healthy&#x27;.</td>
+<td><a href="https://www.nfl.com/injuries/league/2026/reg10" rel="noreferrer" target="_blank">injury report</a></td>
+<td><span class="pill ok">does not block</span></td>
+</tr>
+<tr>
+<td><code>F-10</code></td>
+<td><span class="pill info">low</span></td>
+<td>One surname and initial appears on two clubs in the same week.</td>
+<td>The WAS@NYG book lists &#x27;G 62 T.Togiai&#x27; on Washington&#x27;s Not Active block; the same week&#x27;s report lists &#x27;Tommy Togiai&#x27; as a Texans defensive tackle. Two different clubs, one printed name form.</td>
+<td>The same surname/initial appears on two clubs in one week.</td>
+<td>The join is club-scoped; the row is flagged rather than resolved.</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+<td><span class="pill ok">does not block</span></td>
+</tr>
+<tr>
+<td><code>F-11</code></td>
+<td><span class="pill info">low</span></td>
+<td>Post-game weather exists, pre-game weather does not.</td>
+<td>All four books carry measured weather. No official pre-kickoff forecast was read.</td>
+<td>The weather feature in the brief cannot be pre-kickoff without a second feed.</td>
+<td>Published as post-game context; the feature row is marked unavailable for modelling (R14, R57).</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+<td><span class="pill ok">does not block</span></td>
+</tr>
+<tr>
+<td><code>F-12</code></td>
+<td><span class="pill warn">medium</span></td>
+<td>The inherited 150-game count includes games that cannot be scored.</td>
+<td>29 rows in the inherited feed have no scorable prior history, and four were re-read here; the scorable backtest set is 121.</td>
+<td>Reporting &#x27;150-game backtest&#x27; overstates the sample by 24%.</td>
+<td>The pack publishes 150 corpus, 121 scorable, and both counts on the landing page.</td>
+<td><a href="https://www.nfl.com/schedules/2026/by-week/week-10" rel="noreferrer" target="_blank">schedule</a></td>
+<td><span class="pill ok">does not block</span></td>
+</tr>
+</tbody></table></div>
+<h2>What was rejected rather than flagged</h2>
+<p>Two shortcuts were available and both were refused: ranking depth from a depth chart that no source read here
+publishes, and reading a blank game-status cell as "healthy". The first would have produced the interactive
+match-up matrix the brief asks for and every number in it would have been invented. The second would have turned
+38 blank cells into 38 implied clearances. Both are recorded on the readiness page as blocked gates.</p>
+
+</div></main>
+<footer><div class="wrap">
+Every value on this page was read from the official NFL page linked beside it on 2026-11-19 UTC, or is
+arithmetic on such values with the derivation shown. No market price exists on any official page, so price, ROI and
+CLV columns are blank by policy. No profitability claim is made anywhere. Blank is not zero and blank is not healthy.
+</div></footer>
+</body></html>

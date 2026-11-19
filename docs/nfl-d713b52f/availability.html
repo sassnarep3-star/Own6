@@ -1,0 +1,2653 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Availability and replacement depth — NFL decision desk (d713b52f)</title>
+<style>
+:root{--ink:#14212b;--muted:#5c6f7e;--navy:#0d2231;--teal:#0a7a72;--line:#d7e0e6;--paper:#f4f7f8;
+--white:#fff;--warn:#fff5dc;--warnink:#7a4900;--ok:#0a684c;--bad:#98292a;--soft:#ecf3f4}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);line-height:1.55;
+font:15px/1.55 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--teal);text-underline-offset:.16em}
+header{background:var(--navy);color:#fff}
+.wrap{width:min(1240px,calc(100% - 2rem));margin:0 auto}
+.top{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem;align-items:baseline;padding:.9rem 0 .3rem}
+.top b{letter-spacing:.05em;font-size:.98rem}
+.top span{color:#9fc7c2;font-size:.76rem;letter-spacing:.09em;text-transform:uppercase}
+nav{display:flex;flex-wrap:wrap;gap:.2rem 1rem;padding:.2rem 0 .7rem}
+nav a{color:#cfe3e0;text-decoration:none;font-size:.85rem;padding:.12rem 0;border-bottom:2px solid transparent}
+nav a:hover{border-bottom-color:#7fd3c6}
+nav a.on{color:#fff;border-bottom-color:#7fd3c6;font-weight:600}
+main{padding:1.3rem 0 3rem}
+h1{font-size:1.45rem;margin:.2rem 0 .35rem}
+h2{font-size:1.08rem;margin:1.8rem 0 .5rem;padding-bottom:.28rem;border-bottom:1px solid var(--line)}
+h3{font-size:.96rem;margin:1.1rem 0 .3rem}
+p{max-width:80ch}
+.lead{color:var(--muted);max-width:84ch}
+.cards{display:grid;gap:.65rem;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));margin:.9rem 0 .3rem}
+.card{background:var(--white);border:1px solid var(--line);border-radius:9px;padding:.7rem .85rem}
+.card .k{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.card .v{font-size:1.5rem;font-weight:700;line-height:1.15;margin-top:.12rem}
+.card .s{font-size:.76rem;color:var(--muted)}
+.tw{overflow-x:auto;background:var(--white);border:1px solid var(--line);border-radius:9px;margin:.55rem 0 1rem}
+table{border-collapse:collapse;width:100%;font-size:.83rem}
+th,td{padding:.4rem .55rem;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--soft);font-size:.71rem;letter-spacing:.04em;text-transform:uppercase;color:#37505e;
+position:sticky;top:0;white-space:nowrap}
+tbody tr:hover{background:#fbfdfd}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+.pill{display:inline-block;padding:.04rem .4rem;border-radius:999px;font-size:.7rem;font-weight:600;white-space:nowrap}
+.pill.ok{background:#dcf2ea;color:var(--ok)}
+.pill.warn{background:var(--warn);color:var(--warnink)}
+.pill.bad{background:#fae4e4;color:var(--bad)}
+.pill.info{background:#e6eef4;color:#2f556e}
+.pill.paper{background:#eef0f2;color:#4a5b66}
+.note{background:var(--white);border-left:3px solid var(--teal);padding:.55rem .8rem;margin:.6rem 0 1rem;
+border-radius:0 7px 7px 0;font-size:.87rem;color:#31434f}
+.note.warn{border-left-color:#c98a00;background:var(--warn)}
+.note.bad{border-left-color:var(--bad);background:#fdf0f0}
+.small{font-size:.78rem;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:1.1rem 0 2rem;color:var(--muted);font-size:.78rem}
+code{background:#eef2f4;padding:.05rem .28rem;border-radius:4px;font-size:.86em}
+.blank{color:#9aaab4}
+</style></head>
+<body>
+<header><div class="wrap">
+<div class="top"><b>NFL DECISION DESK</b><span>session d713b52f · read 2026-11-19 UTC · official sources only</span></div>
+<nav><a href="index.html">Readiness</a><a href="evidence.html">Evidence</a><a href="model.html">Model</a><a href="availability.html" class="on">Availability</a><a href="questions.html">Questions</a><a href="suggestions.html">Suggestions</a><a href="flagged.html">Flagged</a><a href="../index.html">All packs</a></nav>
+</div></header>
+<main><div class="wrap">
+<h1>Availability and replacement depth</h1>
+<p class="lead">Who the official report said would not play, who the official book said did not dress, and how much the club actually played each man.</p>
+
+<div class="note"><b>Order of reliability, stated before any table.</b>
+1. <b>Not Active</b> and <b>Lineups</b> are formal blocks of the NFL's official Game Book.
+2. <b>Playtime Percentage</b> is also in the official book but the NFL captions the table
+<code>(Unofficial)</code>. Every such value here is labelled Unofficial.
+3. Nothing here is inferred from a jersey number, a depth chart, or a club's website.</div>
+<div class="note bad"><b>The finding that matters.</b> Across the four games, 16 players were marked <b>Out</b> by the
+Week 10 report. Twelve appear on their club's Not Active list. Four do not — DET S Kerby Joseph, NE RB TreVeyon
+Henderson, CLE FB Michael Burton and LAC G Branson Taylor. The pack publishes both official values and does not pick a
+winner. A model that maps "Out" to "did not dress" would be wrong on one in four of these rows.</div>
+<h2>Per-club view: starters out, replacements named, net count</h2>
+<div class="tw"><table class="">
+<thead><tr>
+<th>Club</th>
+<th>Opponent</th>
+<th class="n">Declared Out</th>
+<th class="n">Questionable</th>
+<th class="n">Blank status</th>
+<th class="n">Not Active entries (book)</th>
+<th class="n">Out &amp; inactive</th>
+<th class="n">Out but not on inactive</th>
+<th>Report</th>
+<th>Book</th>
+</tr></thead><tbody>
+<tr>
+<td>WAS</td>
+<td>NYG</td>
+<td class="n">2</td>
+<td class="n">0</td>
+<td class="n">7</td>
+<td class="n">6</td>
+<td class="n">2</td>
+<td class="n">0</td>
+<td><a href="https://www.nfl.com/injuries/league/2026/reg10" rel="noreferrer" target="_blank">injury report</a></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NYG</td>
+<td>WAS</td>
+<td class="n">0</td>
+<td class="n">1</td>
+<td class="n">10</td>
+<td class="n">7</td>
+<td class="n">0</td>
+<td class="n">0</td>
+<td><a href="https://www.nfl.com/injuries/league/2026/reg10" rel="noreferrer" target="_blank">injury report</a></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NE</td>
+<td>DET</td>
+<td class="n">3</td>
+<td class="n">9</td>
+<td class="n">3</td>
+<td class="n">6</td>
+<td class="n">2</td>
+<td class="n">1</td>
+<td><a href="https://www.nfl.com/injuries/league/2026/reg10" rel="noreferrer" target="_blank">injury report</a></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>DET</td>
+<td>NE</td>
+<td class="n">3</td>
+<td class="n">2</td>
+<td class="n">4</td>
+<td class="n">6</td>
+<td class="n">2</td>
+<td class="n">1</td>
+<td><a href="https://www.nfl.com/injuries/league/2026/reg10" rel="noreferrer" target="_blank">injury report</a></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>HOU</td>
+<td>CLE</td>
+<td class="n">5</td>
+<td class="n">6</td>
+<td class="n">5</td>
+<td class="n">7</td>
+<td class="n">5</td>
+<td class="n">0</td>
+<td><a href="https://www.nfl.com/injuries/league/2026/reg10" rel="noreferrer" target="_blank">injury report</a></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>CLE</td>
+<td>HOU</td>
+<td class="n">2</td>
+<td class="n">1</td>
+<td class="n">9</td>
+<td class="n">6</td>
+<td class="n">1</td>
+<td class="n">1</td>
+<td><a href="https://www.nfl.com/injuries/league/2026/reg10" rel="noreferrer" target="_blank">injury report</a></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>LAC</td>
+<td>BAL</td>
+<td class="n">1</td>
+<td class="n">6</td>
+<td class="n">0</td>
+<td class="n">6</td>
+<td class="n">0</td>
+<td class="n">1</td>
+<td><a href="https://www.nfl.com/injuries/league/2026/reg10" rel="noreferrer" target="_blank">injury report</a></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>BAL</td>
+<td>LAC</td>
+<td class="n">0</td>
+<td class="n">0</td>
+<td class="n">0</td>
+<td class="n">6</td>
+<td class="n">0</td>
+<td class="n">0</td>
+<td><a href="https://www.nfl.com/injuries/league/2026/reg10" rel="noreferrer" target="_blank">injury report</a></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+</tbody></table></div>
+<h2>Every Out designation, joined to the official inactive list</h2>
+<p class="lead">Match rule, fixed before the join ran: printed surname equal <i>and</i> printed first initial equal,
+ignoring generational suffixes. No fuzzy matching, no manual pairing.</p>
+<div class="tw"><table class="">
+<thead><tr>
+<th>Club</th>
+<th>Player</th>
+<th>Pos</th>
+<th>Week 10 report</th>
+<th>Book Not Active</th>
+<th>Agree</th>
+<th>Action taken</th>
+<th>Report</th>
+<th>Book</th>
+</tr></thead><tbody>
+<tr>
+<td>WAS</td>
+<td>Colson Yankoff</td>
+<td>TE</td>
+<td>Out</td>
+<td>yes: TE 80 C. Yankoff</td>
+<td><span class="pill ok">yes</span></td>
+<td>none needed: both official pages agree the player did not dress</td>
+<td><a href="https://www.nfl.com/injuries/league/2026/reg10" rel="noreferrer" target="_blank">injury report</a></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>WAS</td>
+<td>Lucas Patrick</td>
+<td>C</td>
+<td>Out</td>
+<td>yes: G 63 L. Patrick</td>
+<td><span class="pill ok">yes</span></td>
+<td>none needed: both official pages agree the player did not dress</td>
+<td><a href="https://www.nfl.com/injuries/league/2026/reg10" rel="noreferrer" target="_blank">injury report</a></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>DET</td>
+<td>Cade Mays</td>
+<td>C</td>
+<td>Out</td>
+<td>yes: C 64 C. Mays</td>
+<td><span class="pill ok">yes</span></td>
+<td>none needed: both official pages agree the player did not dress</td>
+<td><a href="https://www.nfl.com/injuries/league/2026/reg10" rel="noreferrer" target="_blank">injury report</a></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>DET</td>
+<td>D.J. Reed</td>
+<td>CB</td>
+<td>Out</td>
+<td>yes: CB 4 D. Reed</td>
+<td><span class="pill ok">yes</span></td>
+<td>none needed: both official pages agree the player did not dress</td>
+<td><a href="https://www.nfl.com/injuries/league/2026/reg10" rel="noreferrer" target="_blank">injury report</a></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>DET</td>
+<td>Kerby Joseph</td>
+<td>S</td>
+<td>Out</td>
+<td>no</td>
+<td><span class="pill bad">no</span></td>
+<td>LOG: two official pages disagree; value left blank, row flagged</td>
+<td><a href="https://www.nfl.com/injuries/league/2026/reg10" rel="noreferrer" target="_blank">injury report</a></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NE</td>
+<td>Ben Brown</td>
+<td>C</td>
+<td>Out</td>
+<td>yes: C 77 B. Brown</td>
+<td><span class="pill ok">yes</span></td>
+<td>none needed: both official pages agree the player did not dress</td>
+<td><a href="https://www.nfl.com/injuries/league/2026/reg10" rel="noreferrer" target="_blank">injury report</a></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NE</td>
+<td>Carlton Davis III</td>
+<td>CB</td>
+<td>Out</td>
+<td>yes: CB 7 C. Davis</td>
+<td><span class="pill ok">yes</span></td>
+<td>none needed: both official pages agree the player did not dress</td>
+<td><a href="https://www.nfl.com/injuries/league/2026/reg10" rel="noreferrer" target="_blank">injury report</a></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NE</td>
+<td>TreVeyon Henderson</td>
+<td>RB</td>
+<td>Out</td>
+<td>no</td>
+<td><span class="pill bad">no</span></td>
+<td>LOG: two official pages disagree; value left blank, row flagged</td>
+<td><a href="https://www.nfl.com/injuries/league/2026/reg10" rel="noreferrer" target="_blank">injury report</a></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>CLE</td>
+<td>Michael Burton</td>
+<td>FB</td>
+<td>Out</td>
+<td>no</td>
+<td><span class="pill bad">no</span></td>
+<td>LOG: two official pages disagree; value left blank, row flagged</td>
+<td><a href="https://www.nfl.com/injuries/league/2026/reg10" rel="noreferrer" target="_blank">injury report</a></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>CLE</td>
+<td>Ronnie Hickman Jr.</td>
+<td>S</td>
+<td>Out</td>
+<td>yes: S 33 R. Hickman</td>
+<td><span class="pill ok">yes</span></td>
+<td>none needed: both official pages agree the player did not dress</td>
+<td><a href="https://www.nfl.com/injuries/league/2026/reg10" rel="noreferrer" target="_blank">injury report</a></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>HOU</td>
+<td>Azeez Al-Shaair</td>
+<td>LB</td>
+<td>Out</td>
+<td>yes: LB 0 A. Al-Shaair</td>
+<td><span class="pill ok">yes</span></td>
+<td>none needed: both official pages agree the player did not dress</td>
+<td><a href="https://www.nfl.com/injuries/league/2026/reg10" rel="noreferrer" target="_blank">injury report</a></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>HOU</td>
+<td>Brevin Jordan</td>
+<td>TE</td>
+<td>Out</td>
+<td>yes: TE 9 B. Jordan</td>
+<td><span class="pill ok">yes</span></td>
+<td>none needed: both official pages agree the player did not dress</td>
+<td><a href="https://www.nfl.com/injuries/league/2026/reg10" rel="noreferrer" target="_blank">injury report</a></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>HOU</td>
+<td>Danielle Hunter</td>
+<td>DE</td>
+<td>Out</td>
+<td>yes: DE 55 D. Hunter</td>
+<td><span class="pill ok">yes</span></td>
+<td>none needed: both official pages agree the player did not dress</td>
+<td><a href="https://www.nfl.com/injuries/league/2026/reg10" rel="noreferrer" target="_blank">injury report</a></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>HOU</td>
+<td>Keylan Rutledge</td>
+<td>G</td>
+<td>Out</td>
+<td>yes: C/G 66 K. Rutledge</td>
+<td><span class="pill ok">yes</span></td>
+<td>none needed: both official pages agree the player did not dress</td>
+<td><a href="https://www.nfl.com/injuries/league/2026/reg10" rel="noreferrer" target="_blank">injury report</a></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>HOU</td>
+<td>Marvin Harrison Jr.</td>
+<td>WR</td>
+<td>Out</td>
+<td>yes: WR 18 M. Harrison</td>
+<td><span class="pill ok">yes</span></td>
+<td>none needed: both official pages agree the player did not dress</td>
+<td><a href="https://www.nfl.com/injuries/league/2026/reg10" rel="noreferrer" target="_blank">injury report</a></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>LAC</td>
+<td>Branson Taylor</td>
+<td>G</td>
+<td>Out</td>
+<td>no</td>
+<td><span class="pill bad">no</span></td>
+<td>LOG: two official pages disagree; value left blank, row flagged</td>
+<td><a href="https://www.nfl.com/injuries/league/2026/reg10" rel="noreferrer" target="_blank">injury report</a></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+</tbody></table></div>
+<h2>Not Active — as the books print it</h2>
+<p class="lead">These are settlement records: the book is published after the game. They are the best official evidence
+of who did not dress, not a pre-kickoff feed. A pre-kickoff inactive page was searched for and not found
+(<code>Q05</code>).</p>
+<div class="tw"><table class="">
+<thead><tr>
+<th>Game</th>
+<th>Club</th>
+<th>Position as printed</th>
+<th>Jersey as printed</th>
+<th>Player as printed</th>
+<th>Source</th>
+</tr></thead><tbody>
+<tr>
+<td>2026-W10-01</td>
+<td>WAS</td>
+<td>3QB</td>
+<td>16</td>
+<td>A. Kaliakmanis</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-01</td>
+<td>WAS</td>
+<td>CB</td>
+<td>37</td>
+<td>I. Yiadom</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-01</td>
+<td>WAS</td>
+<td>DT</td>
+<td>50</td>
+<td>R. Barber</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-01</td>
+<td>WAS</td>
+<td>G</td>
+<td>62</td>
+<td>T. Toggiai</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-01</td>
+<td>WAS</td>
+<td>G</td>
+<td>63</td>
+<td>L. Patrick</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-01</td>
+<td>WAS</td>
+<td>TE</td>
+<td>80</td>
+<td>C. Yankoff</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-01</td>
+<td>NYG</td>
+<td>CB</td>
+<td>21</td>
+<td>P. Adebo</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-01</td>
+<td>NYG</td>
+<td>CB</td>
+<td>35</td>
+<td>N. Reed</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-01</td>
+<td>NYG</td>
+<td>LB</td>
+<td>54</td>
+<td>M. Harrison</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-01</td>
+<td>NYG</td>
+<td>OL</td>
+<td>67</td>
+<td>J. Sills</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-01</td>
+<td>NYG</td>
+<td>OL</td>
+<td>74</td>
+<td>J. Davis</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-01</td>
+<td>NYG</td>
+<td>TE</td>
+<td>86</td>
+<td>T. Fidone</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-01</td>
+<td>NYG</td>
+<td>DL</td>
+<td>99</td>
+<td>B. Okoye</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-02</td>
+<td>NE</td>
+<td>CB</td>
+<td>7</td>
+<td>C. Davis</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-02</td>
+<td>NE</td>
+<td>3QB</td>
+<td>15</td>
+<td>B. Morton</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-02</td>
+<td>NE</td>
+<td>S</td>
+<td>41</td>
+<td>B. Schooler</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-02</td>
+<td>NE</td>
+<td>T</td>
+<td>68</td>
+<td>D. Crownover</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-02</td>
+<td>NE</td>
+<td>OL</td>
+<td>72</td>
+<td>W. Rouse</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-02</td>
+<td>NE</td>
+<td>C</td>
+<td>77</td>
+<td>B. Brown</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-02</td>
+<td>DET</td>
+<td>CB</td>
+<td>4</td>
+<td>D. Reed</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-02</td>
+<td>DET</td>
+<td>CB</td>
+<td>6</td>
+<td>K. Abney</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-02</td>
+<td>DET</td>
+<td>LB</td>
+<td>57</td>
+<td>A. Ogbongbemiga</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-02</td>
+<td>DET</td>
+<td>C</td>
+<td>64</td>
+<td>C. Mays</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-02</td>
+<td>DET</td>
+<td>DL</td>
+<td>94</td>
+<td>M. Wingo</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-02</td>
+<td>DET</td>
+<td>DE</td>
+<td>99</td>
+<td>A. Hassanein</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>HOU</td>
+<td>LB</td>
+<td>0</td>
+<td>A. Al-Shaair</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>HOU</td>
+<td>TE</td>
+<td>9</td>
+<td>B. Jordan</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>HOU</td>
+<td>WR</td>
+<td>18</td>
+<td>M. Harrison</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>HOU</td>
+<td>RB</td>
+<td>32</td>
+<td>D. Montgomery</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>HOU</td>
+<td>DE</td>
+<td>55</td>
+<td>D. Hunter</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>HOU</td>
+<td>C/G</td>
+<td>66</td>
+<td>K. Rutledge</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>HOU</td>
+<td>G</td>
+<td>75</td>
+<td>W. Teller</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>CLE</td>
+<td>3QB</td>
+<td>6</td>
+<td>D. Gabriel</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>CLE</td>
+<td>QB</td>
+<td>15</td>
+<td>T. Green</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>CLE</td>
+<td>LB</td>
+<td>17</td>
+<td>J. Jefferson</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>CLE</td>
+<td>CB</td>
+<td>20</td>
+<td>N. Igbinoghene</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>CLE</td>
+<td>S</td>
+<td>33</td>
+<td>R. Hickman</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>CLE</td>
+<td>C</td>
+<td>52</td>
+<td>P. Brailsford</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-14</td>
+<td>LAC</td>
+<td>WR</td>
+<td>15</td>
+<td>L. McConkey</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-14</td>
+<td>LAC</td>
+<td>S</td>
+<td>32</td>
+<td>K. Williamson</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-14</td>
+<td>LAC</td>
+<td>CB</td>
+<td>37</td>
+<td>I. Waxter</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-14</td>
+<td>LAC</td>
+<td>OLB</td>
+<td>48</td>
+<td>B. Dupree</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-14</td>
+<td>LAC</td>
+<td>WR</td>
+<td>89</td>
+<td>B. Thompson</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-14</td>
+<td>LAC</td>
+<td>DL</td>
+<td>92</td>
+<td>J. Eboigbe</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-14</td>
+<td>BAL</td>
+<td>WR</td>
+<td>13</td>
+<td>E. Sarratt</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-14</td>
+<td>BAL</td>
+<td>3QB</td>
+<td>18</td>
+<td>K. Slovis</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-14</td>
+<td>BAL</td>
+<td>S</td>
+<td>21</td>
+<td>J. Hawkins</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-14</td>
+<td>BAL</td>
+<td>CB</td>
+<td>29</td>
+<td>C. Rivers</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-14</td>
+<td>BAL</td>
+<td>G/T</td>
+<td>51</td>
+<td>E. Jones</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-14</td>
+<td>BAL</td>
+<td>DL</td>
+<td>90</td>
+<td>A. Peebles</td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+</tbody></table></div>
+<h2>Playing time, with the publisher's own label attached</h2>
+<p class="lead">Only offence is transcribed. Defence is not, and is therefore absent rather than zero.</p>
+<div class="tw"><table class="">
+<thead><tr>
+<th>Club</th>
+<th>Player as printed</th>
+<th>Pos</th>
+<th class="n">Offense snaps</th>
+<th>% of unit snaps</th>
+<th>Publisher&#x27;s label</th>
+<th>Source</th>
+</tr></thead><tbody>
+<tr>
+<td>BAL</td>
+<td>J. Simpson</td>
+<td>G</td>
+<td class="n">69</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>BAL</td>
+<td>R. Rosengarten</td>
+<td>T</td>
+<td class="n">69</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>BAL</td>
+<td>J. Brissett</td>
+<td>QB</td>
+<td class="n">69</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>BAL</td>
+<td>C. Jurgens</td>
+<td>C</td>
+<td class="n">69</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>BAL</td>
+<td>R. Stanley</td>
+<td>T</td>
+<td class="n">69</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>BAL</td>
+<td>R. Bateman</td>
+<td>WR</td>
+<td class="n">63</td>
+<td>91%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>BAL</td>
+<td>Z. Flowers</td>
+<td>WR</td>
+<td class="n">61</td>
+<td>88%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>BAL</td>
+<td>J. Lane</td>
+<td>WR</td>
+<td class="n">44</td>
+<td>64%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>BAL</td>
+<td>M. Andrews</td>
+<td>TE</td>
+<td class="n">40</td>
+<td>58%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>BAL</td>
+<td>D. Henry</td>
+<td>RB</td>
+<td class="n">38</td>
+<td>55%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>CLE</td>
+<td>A. Barber</td>
+<td>T</td>
+<td class="n">68</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>CLE</td>
+<td>S. Fano</td>
+<td>T</td>
+<td class="n">68</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>CLE</td>
+<td>T. Howard</td>
+<td>T</td>
+<td class="n">68</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>CLE</td>
+<td>Z. Johnson</td>
+<td>G</td>
+<td class="n">68</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>CLE</td>
+<td>E. Jenkins</td>
+<td>C/G</td>
+<td class="n">68</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>CLE</td>
+<td>D. Watson</td>
+<td>QB</td>
+<td class="n">68</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>CLE</td>
+<td>H. Fannin</td>
+<td>TE</td>
+<td class="n">59</td>
+<td>87%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>CLE</td>
+<td>D. Boston</td>
+<td>WR</td>
+<td class="n">58</td>
+<td>85%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>CLE</td>
+<td>K. Concepcion</td>
+<td>WR</td>
+<td class="n">54</td>
+<td>79%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>CLE</td>
+<td>J. Jeudy</td>
+<td>WR</td>
+<td class="n">37</td>
+<td>54%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>CLE</td>
+<td>D. Sampson</td>
+<td>RB</td>
+<td class="n">35</td>
+<td>51%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>CLE</td>
+<td>Q. Judkins</td>
+<td>RB</td>
+<td class="n">32</td>
+<td>47%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>CLE</td>
+<td>B. Whiteheart</td>
+<td>TE</td>
+<td class="n">26</td>
+<td>38%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>CLE</td>
+<td>M. Corley</td>
+<td>WR</td>
+<td class="n">21</td>
+<td>31%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>DET</td>
+<td>B. Miller</td>
+<td>T</td>
+<td class="n">71</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>DET</td>
+<td>C. Mahogany</td>
+<td>OL</td>
+<td class="n">71</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>DET</td>
+<td>J. Goff</td>
+<td>QB</td>
+<td class="n">61</td>
+<td>86%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>DET</td>
+<td>J. Williams</td>
+<td>WR</td>
+<td class="n">56</td>
+<td>79%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>DET</td>
+<td>S. LaPorta</td>
+<td>TE</td>
+<td class="n">56</td>
+<td>79%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>DET</td>
+<td>J. Gibbs</td>
+<td>RB</td>
+<td class="n">49</td>
+<td>69%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>DET</td>
+<td>A. St. Brown</td>
+<td>WR</td>
+<td class="n">47</td>
+<td>66%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>DET</td>
+<td>I. TeSlaa</td>
+<td>WR</td>
+<td class="n">46</td>
+<td>65%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>DET</td>
+<td>B. Wright</td>
+<td>TE</td>
+<td class="n">39</td>
+<td>55%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>DET</td>
+<td>T. Conklin</td>
+<td>TE</td>
+<td class="n">22</td>
+<td>31%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>DET</td>
+<td>S. Vaki</td>
+<td>RB</td>
+<td class="n">18</td>
+<td>25%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>DET</td>
+<td>T. Martin</td>
+<td>WR</td>
+<td class="n">11</td>
+<td>15%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>DET</td>
+<td>J. Dobbs</td>
+<td>QB</td>
+<td class="n">10</td>
+<td>14%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>DET</td>
+<td>J. Saylors</td>
+<td>RB</td>
+<td class="n">6</td>
+<td>8%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>DET</td>
+<td>D. Carter</td>
+<td>WR</td>
+<td class="n">5</td>
+<td>7%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>HOU</td>
+<td>A. Ersery</td>
+<td>T</td>
+<td class="n">67</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>HOU</td>
+<td>E. Ingram</td>
+<td>G</td>
+<td class="n">67</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>HOU</td>
+<td>F. Nwaiwu</td>
+<td>G</td>
+<td class="n">67</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>HOU</td>
+<td>T. Brown</td>
+<td>T</td>
+<td class="n">67</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>HOU</td>
+<td>E. Brown</td>
+<td>C/G</td>
+<td class="n">67</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>HOU</td>
+<td>C. Stroud</td>
+<td>QB</td>
+<td class="n">67</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>HOU</td>
+<td>N. Collins</td>
+<td>WR</td>
+<td class="n">57</td>
+<td>85%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>HOU</td>
+<td>X. Hutchinson</td>
+<td>WR</td>
+<td class="n">51</td>
+<td>76%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>HOU</td>
+<td>K. Boutte</td>
+<td>WR</td>
+<td class="n">47</td>
+<td>70%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>HOU</td>
+<td>D. Schultz</td>
+<td>TE</td>
+<td class="n">44</td>
+<td>66%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>HOU</td>
+<td>T. Dell</td>
+<td>WR</td>
+<td class="n">33</td>
+<td>49%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>HOU</td>
+<td>W. Marks</td>
+<td>RB</td>
+<td class="n">30</td>
+<td>45%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>HOU</td>
+<td>F. Moreau</td>
+<td>TE</td>
+<td class="n">22</td>
+<td>33%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>HOU</td>
+<td>E. Demercado</td>
+<td>RB</td>
+<td class="n">22</td>
+<td>33%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>HOU</td>
+<td>D. Ogunbowale</td>
+<td>RB</td>
+<td class="n">15</td>
+<td>22%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>LAC</td>
+<td>C. Strange</td>
+<td>G</td>
+<td class="n">57</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>LAC</td>
+<td>J. Alt</td>
+<td>T</td>
+<td class="n">57</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>LAC</td>
+<td>J. Slaughter</td>
+<td>OL</td>
+<td class="n">57</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>LAC</td>
+<td>L. Taylor</td>
+<td>G</td>
+<td class="n">57</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>LAC</td>
+<td>T. Burke</td>
+<td>T</td>
+<td class="n">57</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>LAC</td>
+<td>J. Herbert</td>
+<td>QB</td>
+<td class="n">57</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>LAC</td>
+<td>T. Harris</td>
+<td>WR</td>
+<td class="n">56</td>
+<td>98%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>LAC</td>
+<td>Q. Johnston</td>
+<td>WR</td>
+<td class="n">44</td>
+<td>77%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>LAC</td>
+<td>C. Kolar</td>
+<td>TE</td>
+<td class="n">41</td>
+<td>72%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>LAC</td>
+<td>O. Hampton</td>
+<td>RB</td>
+<td class="n">36</td>
+<td>63%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>LAC</td>
+<td>S. Matlock</td>
+<td>FB</td>
+<td class="n">28</td>
+<td>49%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>LAC</td>
+<td>D. Njoku</td>
+<td>TE</td>
+<td class="n">19</td>
+<td>33%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>LAC</td>
+<td>K. Vidal</td>
+<td>RB</td>
+<td class="n">15</td>
+<td>26%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>LAC</td>
+<td>D. Davis</td>
+<td>WR</td>
+<td class="n">15</td>
+<td>26%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>LAC</td>
+<td>K. Mitchell</td>
+<td>RB</td>
+<td class="n">13</td>
+<td>23%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>LAC</td>
+<td>O. Gadsden</td>
+<td>TE</td>
+<td class="n">12</td>
+<td>21%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>LAC</td>
+<td>T. Wease</td>
+<td>WR</td>
+<td class="n">5</td>
+<td>9%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>LAC</td>
+<td>K. Lambert-Smith</td>
+<td>WR</td>
+<td class="n">1</td>
+<td>2%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NE</td>
+<td>G. Van Roten</td>
+<td>OL</td>
+<td class="n">59</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NE</td>
+<td>M. Pryor</td>
+<td>OL</td>
+<td class="n">59</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NE</td>
+<td>M. Hollins</td>
+<td>WR</td>
+<td class="n">54</td>
+<td>92%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NE</td>
+<td>T. DeVito</td>
+<td>QB</td>
+<td class="n">49</td>
+<td>83%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NE</td>
+<td>D. Douglas</td>
+<td>WR</td>
+<td class="n">38</td>
+<td>64%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NE</td>
+<td>E. Raridon</td>
+<td>TE</td>
+<td class="n">37</td>
+<td>63%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NE</td>
+<td>H. Henry</td>
+<td>TE</td>
+<td class="n">33</td>
+<td>56%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NE</td>
+<td>A. Brown</td>
+<td>WR</td>
+<td class="n">28</td>
+<td>47%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NE</td>
+<td>R. Stevenson</td>
+<td>RB</td>
+<td class="n">26</td>
+<td>44%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NE</td>
+<td>C. Kiner</td>
+<td>RB</td>
+<td class="n">25</td>
+<td>42%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NE</td>
+<td>K. Williams</td>
+<td>WR</td>
+<td class="n">23</td>
+<td>39%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NE</td>
+<td>C. Lomu</td>
+<td>T</td>
+<td class="n">15</td>
+<td>25%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NE</td>
+<td>R. Gilliam</td>
+<td>FB</td>
+<td class="n">13</td>
+<td>22%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NE</td>
+<td>D. Maye</td>
+<td>QB</td>
+<td class="n">10</td>
+<td>17%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NE</td>
+<td>L. Larison</td>
+<td>RB</td>
+<td class="n">8</td>
+<td>14%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NE</td>
+<td>E. Chism</td>
+<td>WR</td>
+<td class="n">8</td>
+<td>14%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NYG</td>
+<td>B. Hudson</td>
+<td>C</td>
+<td class="n">65</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NYG</td>
+<td>F. Mauigoa</td>
+<td>OL</td>
+<td class="n">65</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NYG</td>
+<td>J. Runyan</td>
+<td>G</td>
+<td class="n">65</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NYG</td>
+<td>A. Thomas</td>
+<td>T</td>
+<td class="n">65</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NYG</td>
+<td>J. McCarthy</td>
+<td>QB</td>
+<td class="n">62</td>
+<td>95%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NYG</td>
+<td>C. Skattebo</td>
+<td>RB</td>
+<td class="n">58</td>
+<td>89%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NYG</td>
+<td>M. Fields</td>
+<td>WR</td>
+<td class="n">58</td>
+<td>89%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NYG</td>
+<td>I. Likely</td>
+<td>TE</td>
+<td class="n">57</td>
+<td>88%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NYG</td>
+<td>M. Nabers</td>
+<td>WR</td>
+<td class="n">52</td>
+<td>80%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NYG</td>
+<td>D. Mooney</td>
+<td>WR</td>
+<td class="n">46</td>
+<td>71%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NYG</td>
+<td>T. Johnson</td>
+<td>TE</td>
+<td class="n">18</td>
+<td>28%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NYG</td>
+<td>C. Manhertz</td>
+<td>TE</td>
+<td class="n">14</td>
+<td>22%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NYG</td>
+<td>P. Ricard</td>
+<td>FB</td>
+<td class="n">13</td>
+<td>20%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NYG</td>
+<td>D. Singletary</td>
+<td>RB</td>
+<td class="n">5</td>
+<td>8%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NYG</td>
+<td>J. Hyatt</td>
+<td>WR</td>
+<td class="n">3</td>
+<td>5%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>NYG</td>
+<td>J. Winston</td>
+<td>QB</td>
+<td class="n">3</td>
+<td>5%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>WAS</td>
+<td>B. Coleman</td>
+<td>T/G</td>
+<td class="n">69</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>WAS</td>
+<td>C. Paul</td>
+<td>G</td>
+<td class="n">69</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>WAS</td>
+<td>J. Conerly</td>
+<td>T</td>
+<td class="n">69</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>WAS</td>
+<td>N. Allegretti</td>
+<td>C/G</td>
+<td class="n">69</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>WAS</td>
+<td>S. Cosmi</td>
+<td>G</td>
+<td class="n">69</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>WAS</td>
+<td>J. Daniels</td>
+<td>QB</td>
+<td class="n">69</td>
+<td>100%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>WAS</td>
+<td>A. Williams</td>
+<td>WR</td>
+<td class="n">59</td>
+<td>86%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>WAS</td>
+<td>S. Diggs</td>
+<td>WR</td>
+<td class="n">44</td>
+<td>64%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>WAS</td>
+<td>T. Burks</td>
+<td>WR</td>
+<td class="n">42</td>
+<td>61%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>WAS</td>
+<td>C. Okonkwo</td>
+<td>TE</td>
+<td class="n">41</td>
+<td>59%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>WAS</td>
+<td>R. White</td>
+<td>RB</td>
+<td class="n">36</td>
+<td>52%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>WAS</td>
+<td>A. Ekeler</td>
+<td>RB</td>
+<td class="n">30</td>
+<td>43%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>WAS</td>
+<td>J. Bates</td>
+<td>TE</td>
+<td class="n">28</td>
+<td>41%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>WAS</td>
+<td>B. Sinnott</td>
+<td>TE</td>
+<td class="n">24</td>
+<td>35%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>WAS</td>
+<td>V. Jefferson</td>
+<td>WR</td>
+<td class="n">24</td>
+<td>35%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>WAS</td>
+<td>L. McCaffrey</td>
+<td>WR</td>
+<td class="n">14</td>
+<td>20%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>WAS</td>
+<td>R. Henry</td>
+<td>RB</td>
+<td class="n">3</td>
+<td>4%</td>
+<td><span class="pill warn">Unofficial</span></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+</tbody></table></div>
+<h3>Capacity check</h3>
+<p class="lead">A club's offensive player-snaps can never exceed unit snaps × 11. The transcribed subset is checked
+against that ceiling, which catches the double-printed rows the books contain (CLE lists T. Pride twice, DET lists
+C. Izien twice).</p>
+<div class="tw"><table class="">
+<thead><tr>
+<th>Club</th>
+<th class="n">Unit snaps</th>
+<th class="n">Players transcribed</th>
+<th class="n">Player-snaps transcribed</th>
+<th class="n">Capacity (snaps × 11)</th>
+<th>% of capacity</th>
+<th>Within capacity</th>
+</tr></thead><tbody>
+<tr>
+<td>LAC</td>
+<td class="n">57</td>
+<td class="n">18</td>
+<td class="n">627</td>
+<td class="n">627</td>
+<td>100.0%</td>
+<td><span class="pill ok">yes</span></td>
+</tr>
+<tr>
+<td>BAL</td>
+<td class="n">69</td>
+<td class="n">10</td>
+<td class="n">591</td>
+<td class="n">759</td>
+<td>77.9%</td>
+<td><span class="pill ok">yes</span></td>
+</tr>
+<tr>
+<td>HOU</td>
+<td class="n">67</td>
+<td class="n">15</td>
+<td class="n">723</td>
+<td class="n">737</td>
+<td>98.1%</td>
+<td><span class="pill ok">yes</span></td>
+</tr>
+<tr>
+<td>CLE</td>
+<td class="n">68</td>
+<td class="n">14</td>
+<td class="n">730</td>
+<td class="n">748</td>
+<td>97.6%</td>
+<td><span class="pill ok">yes</span></td>
+</tr>
+<tr>
+<td>NE</td>
+<td class="n">59</td>
+<td class="n">16</td>
+<td class="n">485</td>
+<td class="n">649</td>
+<td>74.7%</td>
+<td><span class="pill ok">yes</span></td>
+</tr>
+<tr>
+<td>DET</td>
+<td class="n">71</td>
+<td class="n">15</td>
+<td class="n">568</td>
+<td class="n">781</td>
+<td>72.7%</td>
+<td><span class="pill ok">yes</span></td>
+</tr>
+<tr>
+<td>WAS</td>
+<td class="n">69</td>
+<td class="n">17</td>
+<td class="n">759</td>
+<td class="n">759</td>
+<td>100.0%</td>
+<td><span class="pill ok">yes</span></td>
+</tr>
+<tr>
+<td>NYG</td>
+<td class="n">65</td>
+<td class="n">16</td>
+<td class="n">649</td>
+<td class="n">715</td>
+<td>90.8%</td>
+<td><span class="pill ok">yes</span></td>
+</tr>
+</tbody></table></div>
+<h2>Declared out, and what the club actually played</h2>
+<div class="tw"><table class="">
+<thead><tr>
+<th>Game</th>
+<th>Club</th>
+<th>Player</th>
+<th>Pos</th>
+<th>Report said</th>
+<th>Named starter in this game</th>
+<th>On Not Active</th>
+<th>Offense snaps</th>
+<th>Book</th>
+</tr></thead><tbody>
+<tr>
+<td>2026-W10-01</td>
+<td>NYG</td>
+<td>Abdul Carter</td>
+<td>LB</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-01</td>
+<td>NYG</td>
+<td>Andrew Thomas</td>
+<td>T</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-01</td>
+<td>NYG</td>
+<td>Cam Skattebo</td>
+<td>RB</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-01</td>
+<td>NYG</td>
+<td>Charlie Jones</td>
+<td>WR</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-01</td>
+<td>NYG</td>
+<td>Colton Hood</td>
+<td>CB</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-01</td>
+<td>NYG</td>
+<td>Darnell Mooney</td>
+<td>WR</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-01</td>
+<td>NYG</td>
+<td>J.J. McCarthy</td>
+<td>QB</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-01</td>
+<td>NYG</td>
+<td>Jermaine Eluemunor</td>
+<td>T</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-01</td>
+<td>NYG</td>
+<td>Malik Nabers</td>
+<td>WR</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-01</td>
+<td>NYG</td>
+<td>Theo Johnson</td>
+<td>TE</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-01</td>
+<td>WAS</td>
+<td>Colson Yankoff</td>
+<td>TE</td>
+<td>Out</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-01</td>
+<td>WAS</td>
+<td>Lucas Patrick</td>
+<td>C</td>
+<td>Out</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-01</td>
+<td>WAS</td>
+<td>Amik Robertson</td>
+<td>CB</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-01</td>
+<td>WAS</td>
+<td>Chig Okonkwo</td>
+<td>TE</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-01</td>
+<td>WAS</td>
+<td>Jayden Daniels</td>
+<td>QB</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-01</td>
+<td>WAS</td>
+<td>John Bates</td>
+<td>TE</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-01</td>
+<td>WAS</td>
+<td>Matt Gulbin</td>
+<td>C</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-01</td>
+<td>WAS</td>
+<td>Shy Tuttle</td>
+<td>DT</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-01</td>
+<td>WAS</td>
+<td>Treylon Burks</td>
+<td>WR</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794570519/gamecenter/ab5828d9-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-02</td>
+<td>DET</td>
+<td>Cade Mays</td>
+<td>C</td>
+<td>Out</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-02</td>
+<td>DET</td>
+<td>D.J. Reed</td>
+<td>CB</td>
+<td>Out</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-02</td>
+<td>DET</td>
+<td>Kerby Joseph</td>
+<td>S</td>
+<td>Out</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-02</td>
+<td>DET</td>
+<td>Brian Branch</td>
+<td>S</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-02</td>
+<td>DET</td>
+<td>DJ Wonnum</td>
+<td>DE</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-02</td>
+<td>DET</td>
+<td>Jacob Saylors</td>
+<td>RB</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-02</td>
+<td>DET</td>
+<td>Jared Goff</td>
+<td>QB</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-02</td>
+<td>NE</td>
+<td>Ben Brown</td>
+<td>C</td>
+<td>Out</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-02</td>
+<td>NE</td>
+<td>Carlton Davis III</td>
+<td>CB</td>
+<td>Out</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-02</td>
+<td>NE</td>
+<td>TreVeyon Henderson</td>
+<td>RB</td>
+<td>Out</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-02</td>
+<td>NE</td>
+<td>Drake Maye</td>
+<td>QB</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-02</td>
+<td>NE</td>
+<td>Hunter Henry</td>
+<td>TE</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-02</td>
+<td>NE</td>
+<td>Morgan Moses</td>
+<td>T</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829721/gamecenter/ab582c2f-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>CLE</td>
+<td>Michael Burton</td>
+<td>FB</td>
+<td>Out</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>CLE</td>
+<td>Ronnie Hickman Jr.</td>
+<td>S</td>
+<td>Out</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>CLE</td>
+<td>Austin Barber</td>
+<td>T</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>CLE</td>
+<td>Carson Schwesinger</td>
+<td>LB</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>CLE</td>
+<td>Denzel Ward</td>
+<td>CB</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>CLE</td>
+<td>Donovan McMillon</td>
+<td>S</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>CLE</td>
+<td>Elgton Jenkins</td>
+<td>C</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>CLE</td>
+<td>Harold Fannin Jr.</td>
+<td>TE</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>CLE</td>
+<td>Maliek Collins</td>
+<td>DT</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>CLE</td>
+<td>Quincy Williams</td>
+<td>LB</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>CLE</td>
+<td>Tytus Howard</td>
+<td>T</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>HOU</td>
+<td>Azeez Al-Shaair</td>
+<td>LB</td>
+<td>Out</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>HOU</td>
+<td>Brevin Jordan</td>
+<td>TE</td>
+<td>Out</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>HOU</td>
+<td>Danielle Hunter</td>
+<td>DE</td>
+<td>Out</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>HOU</td>
+<td>Keylan Rutledge</td>
+<td>G</td>
+<td>Out</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>HOU</td>
+<td>Marvin Harrison Jr.</td>
+<td>WR</td>
+<td>Out</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>HOU</td>
+<td>Blake Fisher</td>
+<td>T</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>HOU</td>
+<td>Reed Blankenship</td>
+<td>S</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>HOU</td>
+<td>Tank Dell</td>
+<td>WR</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>HOU</td>
+<td>Tommy Togiai</td>
+<td>DT</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>HOU</td>
+<td>Woody Marks</td>
+<td>RB</td>
+<td>(blank)</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+<tr>
+<td>2026-W10-14</td>
+<td>LAC</td>
+<td>Branson Taylor</td>
+<td>G</td>
+<td>Out</td>
+<td>no (not in the book&#x27;s Lineups block)</td>
+<td>no</td>
+<td></td>
+<td><a href="https://static.www.nfl.com/image/upload/v1794916121/gamecenter/ab78ad5a-4feb-11f1-abca-2c54536568a9.pdf" rel="noreferrer" target="_blank">Game Book (PDF)</a></td>
+</tr>
+</tbody></table></div>
+<h2>The 176 starters the books name</h2>
+<p class="lead">Listed in the order the book prints them. Several positions repeat — three receivers, three
+cornerbacks — which is exactly why the pack refuses to convert this into a depth rank: the book names a line-up,
+not a ranking.</p>
+<div class="tw"><table class="">
+<thead><tr>
+<th>Game</th>
+<th>Club</th>
+<th>Offense as the book lists it</th>
+<th>Defense as the book lists it</th>
+</tr></thead><tbody>
+<tr>
+<td>2026-W10-01</td>
+<td>NYG</td>
+<td>WR D. Mooney<br>TE T. Johnson<br>LT A. Thomas<br>LG J. Runyan<br>C B. Hudson<br>RG F. Mauigoa<br>RT J. Eluemunor<br>WR M. Nabers<br>TE I. Likely<br>QB J. McCarthy<br>RB C. Skattebo</td>
+<td>OLB K. Thibodeaux<br>DL S. Harris<br>DL B. Jamison-Travis<br>DL D. Reader<br>OLB A. Carter<br>LB M. McFadden<br>LB A. Reese<br>CB G. Newsome<br>CB D. Banks<br>S J. Holland<br>S A. Washington</td>
+</tr>
+<tr>
+<td>2026-W10-01</td>
+<td>WAS</td>
+<td>WR A. Williams<br>TE J. Bates<br>LT B. Coleman<br>LG C. Paul<br>C N. Allegretti<br>RG S. Cosmi<br>RT J. Conerly<br>TE B. Sinnott<br>WR T. Burks<br>QB J. Daniels<br>RB R. White</td>
+<td>OLB O. Oweh<br>DT T. Settle<br>DT S. Tuttle<br>OLB K. Chaisson<br>LB S. Styles<br>LB F. Luvu<br>CB T. Amos<br>CB A. Robertson<br>S J. Reaves<br>S N. Cross<br>S Q. Martin</td>
+</tr>
+<tr>
+<td>2026-W10-02</td>
+<td>DET</td>
+<td>WR I. TeSlaa<br>TE S. LaPorta<br>LT P. Sewell<br>LG C. Mahogany<br>C J. Scruggs<br>RG T. Ratledge<br>RT B. Miller<br>WR J. Williams<br>WR A. St. Brown<br>QB J. Goff<br>RB J. Gibbs</td>
+<td>DE A. Hutchinson<br>DL A. McNeill<br>DL T. Williams<br>DL T. Lacy<br>LB T. Nowaske<br>LB M. Rodriguez<br>LB D. Barnes<br>DB B. Branch<br>CB R. Ya-Sin<br>CB R. McCreary<br>S C. Clark</td>
+</tr>
+<tr>
+<td>2026-W10-02</td>
+<td>NE</td>
+<td>LT W. Campbell<br>LG G. Van Roten<br>C J. Wilson<br>RG M. Pryor<br>RT M. Moses<br>TE H. Henry<br>TE E. Raridon<br>QB D. Maye<br>RB R. Stevenson<br>WR A. Brown<br>WR M. Hollins</td>
+<td>OLB Dr. Jones<br>DT M. Williams<br>DT C. Durden<br>OLB E. Ponder<br>LB R. Spillane<br>LB C. Elliss<br>CB C. Gonzalez<br>CB M. Jones<br>CB C. Woods<br>S C. Woodson<br>S K. Byard</td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>CLE</td>
+<td>TE H. Fannin<br>LT S. Fano<br>LG Z. Johnson<br>C E. Jenkins<br>RG A. Barber<br>RT T. Howard<br>TE B. Whiteheart<br>WR K. Concepcion<br>WR D. Boston<br>QB D. Watson<br>RB Q. Judkins</td>
+<td>DE J. Verse<br>DT M. Graham<br>DT M. Collins<br>DE I. McGuire<br>LB Q. Williams<br>LB C. Schwesinger<br>CB M. Harden<br>CB D. Ward<br>CB T. Campbell<br>S E. McNeil-Warren<br>S G. Delpit</td>
+</tr>
+<tr>
+<td>2026-W10-04</td>
+<td>HOU</td>
+<td>WR N. Collins<br>LT A. Ersery<br>LG F. Nwaiwu<br>C E. Brown<br>RG E. Ingram<br>RT T. Brown<br>TE D. Schultz<br>WR K. Boutte<br>WR X. Hutchinson<br>QB C. Stroud<br>RB W. Marks</td>
+<td>DE J. Clowney<br>DT T. Togiai<br>DT S. Rankins<br>DE W. Anderson<br>CB D. Stingley<br>CB K. Lassiter<br>LB J. Hansen<br>LB H. To&#x27;oTo&#x27;o<br>S C. Bullock<br>S J. Pitre<br>S M. Stewart</td>
+</tr>
+<tr>
+<td>2026-W10-14</td>
+<td>BAL</td>
+<td>WR Z. Flowers<br>TE J. Cuevas<br>LT R. Stanley<br>LG J. Simpson<br>C C. Jurgens<br>RG O. Ioane<br>RT R. Rosengarten<br>WR J. Lane<br>WR R. Bateman<br>QB J. Brissett<br>RB D. Henry</td>
+<td>OLB T. Hendrickson<br>DL B. Washington<br>DL T. Jones<br>DL N. Madubuike<br>OLB M. Green<br>ILB T. Simpson<br>ILB R. Smith<br>CB N. Wiggins<br>CB M. Humphrey<br>S M. Starks<br>S K. Hamilton</td>
+</tr>
+<tr>
+<td>2026-W10-14</td>
+<td>LAC</td>
+<td>WR Q. Johnston<br>WR T. Harris<br>TE C. Kolar<br>LT J. Alt<br>LG L. Taylor<br>C J. Slaughter<br>RG C. Strange<br>RT T. Burke<br>QB J. Herbert<br>FB S. Matlock<br>RB O. Hampton</td>
+<td>OLB T. Tuipulotu<br>DL T. Tart<br>DL D. Tomlinson<br>OLB K. Mack<br>LB D. Phillips<br>LB D. Henley<br>DB E. Molden<br>CB D. Jackson<br>CB T. Still<br>CB C. Hart<br>S T. Jefferson</td>
+</tr>
+</tbody></table></div>
+
+</div></main>
+<footer><div class="wrap">
+Every value on this page was read from the official NFL page linked beside it on 2026-11-19 UTC, or is
+arithmetic on such values with the derivation shown. No market price exists on any official page, so price, ROI and
+CLV columns are blank by policy. No profitability claim is made anywhere. Blank is not zero and blank is not healthy.
+</div></footer>
+</body></html>

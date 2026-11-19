@@ -1,0 +1,49 @@
+VERBATIM EXCERPT — official Game Book PDF, Houston Texans at Cleveland Browns, 2026 REG 10
+URL: https://static.www.nfl.com/image/upload/v1794829724/gamecenter/ab583279-4feb-11f1-abca-2c54536568a9.pdf
+Linked from: https://www.nfl.com/games/texans-at-browns-2026-reg-10 ("Download Game Book (PDF)")
+Read 2026-11-19, session d713b52f.
+
+[INFO]
+Date: Sunday, 11/15/2026 | Houston Texans at Cleveland Browns at Huntington Bank Field, Cleveland, OH | Start Time: 1:02 PM EST
+Game Weather: Cloudy Open Stadium on Natural Grass
+Temp: 46° F (7.8° C) Humidity: 75%, Wind: NW 15 mph | Wind Chill: 40
+Referee: Smith, Shawn (14)
+Paid Attendance: 58,342
+Time: 3:12
+VISITOR: Houston Texans 10 7 0 7 0 = 24
+HOME: Cleveland Browns 0 10 10 7 0 = 27
+
+[LINEUPS]
+Houston Texans | Offense | Defense | Cleveland Browns | Offense | Defense
+WR | 12 N.Collins | DE | 90 J.Clowney | TE | 44 H.Fannin | DE | 8 J.Verse
+LT | 79 A.Ersery | DT | 72 T.Togiai | LT | 55 S.Fano | DT | 94 M.Graham
+LG | 64 F.Nwaiwu | DT | 98 S.Rankins | LG | 77 Z.Johnson | DT | 96 M.Collins
+C | 63 E.Brown | DE | 51 W.Anderson | C | 74 E.Jenkins | DE | 57 I.McGuire
+RG | 69 E.Ingram | CB | 24 D.Stingley | RG | 58 A.Barber | LB | 5 Q.Williams
+RT | 77 T.Brown | CB | 3 K.Lassiter | RT | 71 T.Howard | LB | 49 C.Schwesinger
+TE | 86 D.Schultz | LB | 35 J.Hansen | TE | 86 B.Whiteheart | CB | 26 M.Harden
+WR | 14 K.Boutte | LB | 39 H.To'oTo'o | WR | 1 K.Concepcion | CB | 21 D.Ward
+WR | 19 X.Hutchinson | S | 2 C.Bullock | WR | 12 D.Boston | CB | 7 T.Campbell
+QB | 7 C.Stroud | S | 5 J.Pitre | QB | 4 D.Watson | S | 28 E.McNeil-Warren
+RB | 4 W.Marks | S | 29 M.Stewart | RB | 10 Q.Judkins | S | 9 G.Delpit
+
+[SUBSTITUTIONS]
+Houston Texans: WR 1 T.Dell, S 6 R.Blankenship, TE 8 C.Stover, CB 11 T.Smith, K 15 K.Fairbairn, S 20 J.Ingram, RB 21 E.Demercado, RB 23 D.Ogunbowale, S 27 K.Ramsey, LB 30 W.Woodaz, LB 33 J.Hummel, P 38 K.Kroeger, LS 40 A.Brinkman, LB 49 C.Muma, T 57 B.Fisher, C 60 J.Andrews, T 78 N.Thomas, TE 83 M.Klein, TE 87 F.Moreau, WR 88 N.Remigio, DT 91 N.Jones, DT 93 K.McDonald, DE 94 D.Robinson, DT 96 L.Hall
+Cleveland Browns: WR 0 I.Bond, WR 3 J.Jeudy, WR 11 M.Corley, P 13 C.Bojorquez, WR 16 T.Wallace, RB 22 D.Sampson, S 24 D.Thomas, K 25 A.Szmyt, CB 29 M.Blackmon, S 31 D.McMillon, CB 35 T.Pride, RB 38 J.McLaughlin, LB 42 E.Mascarenas-Arnold, TE 48 C.Ryan, LS 50 R.Sunahara, DT 51 M.Hall, DE 54 S.Williams, C 56 L.Wypler, LB 59 W.Reid, G 70 Z.Zinter, T 79 D.Jones, TE 80 Z.Mitchell-Paden, DT 92 S.Kamara, DE 97 D.Barnett, DT 98 A.Huntington
+
+[DID NOT PLAY]
+Houston Texans: QB 10 D.Mills, T 71 B.Smith
+Cleveland Browns: QB 2 S.Sanders
+
+[NOT ACTIVE]
+Houston Texans: LB 0 A.Al-Shaair, TE 9 B.Jordan, WR 18 M.Harrison, RB 32 D.Montgomery, DE 55 D.Hunter, C/G 66 K.Rutledge, G 75 W.Teller
+Cleveland Browns: 3QB 6 D.Gabriel, QB 15 T.Green, LB 17 J.Jefferson, CB 20 N.Igbinoghene, S 33 R.Hickman, C 52 P.Brailsford
+
+[PLAYTIME_FOCUS]
+H.To'oTo'o LB 68 100% | D.Stingley CB 68 100% | K.Lassiter CB 68 100% | J.Pitre S 68 100% | C.Bullock S 68 100% | J.Hansen LB 66 97% | M.Stewart S 65 96% | W.Anderson DE 54 79% | J.Clowney DE 52 76% | S.Rankins DT 45 66% | T.Togiai DT 44 65% | L.Hall DT 28 41% | D.Robinson DE 22 32% | N.Jones DT 15 22% | K.McDonald DT 14 21% | R.Blankenship S 2 3% | J.Ingram S 1 1% | T.Smith CB 0 0% | W.Woodaz LB 0 0%
+E.McNeil-Warren S 67 100% | G.Delpit S 67 100% | C.Schwesinger LB 67 100% | D.Ward CB 67 100% | T.Campbell CB 64 96% | Q.Williams LB 62 93% | M.Harden CB 53 79% | M.Graham DT 48 72% | I.McGuire DE 46 69% | J.Verse DE 42 63% | M.Collins DT 41 61% | S.Kamara DT 25 37% | D.Barnett DE 20 30% | S.Williams DE 19 28% | M.Hall DT 14 21% | A.Huntington DT 12 18% | D.Thomas S 11 16% | E.Mascarenas-Arnold LB 8 12% | M.Blackmon CB 3 4% | D.McMillon S 1 1%
+
+[ADDENDUM — transcribed verbatim from the same PDF on a second read, 2026-11-19]
+The "Playtime Percentage" section carries this caption line:
+Percent of playtime per player on offense, defense and special teams (Unofficial)
+This is the NFL's own label. The table is NFL-published; the NFL calls the measure Unofficial.
