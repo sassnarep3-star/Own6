@@ -37,6 +37,7 @@ import csv
 import io
 import os
 import re
+import subprocess
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -98,6 +99,27 @@ def pdf_text(data: bytes) -> tuple[str, int]:
         return "\n".join(pages), len(reader.pages)
     except Exception:
         return "", 0
+
+
+def pdf_layout_text(path: str) -> str:
+    """Return the PDF text with its column layout preserved.
+
+    ``pdftotext -layout`` keeps the visual columns of the game book's lineups
+    table, which is what makes a column-per-team parse deterministic instead of
+    a guess. It is used when poppler is installed (the capture workflow installs
+    it); otherwise the caller falls back to the plain pypdf text.
+    """
+    try:
+        proc = subprocess.run(
+            ["pdftotext", "-layout", "-q", path, "-"],
+            capture_output=True,
+            timeout=180,
+        )
+    except Exception:
+        return ""
+    if proc.returncode != 0:
+        return ""
+    return proc.stdout.decode("utf-8", "replace")
 
 
 def main() -> int:
@@ -169,23 +191,40 @@ def main() -> int:
         record(kind, url, result, path, note)
         return result
 
-    # 1. Discover the official game centre URLs from the league's schedule page.
+    # 1. Discover the official game centre URLs for each week.
+    #
+    #    The league's schedule page is a client-rendered application: the
+    #    ``/schedules/<season>/by-week/week-<n>`` route returns the *current*
+    #    week's card, so it cannot be used to enumerate a completed week. The
+    #    candidates below are tried in order and the first one that actually
+    #    contains links for the requested week wins. Whichever page is used, the
+    #    URL that produced the links is recorded in the capture log.
     weeks = [w.strip() for w in args.weeks.split(",") if w.strip()]
     for week in weeks:
-        sched_url = (
-            f"https://www.nfl.com/schedules/{args.season}/by-week/week-{week}"
-        )
-        sched = store("schedule", f"week-{week}.html", sched_url, note="schedule page")
-        slugs = sorted(
-            {
-                m.group(1)
-                for m in GAME_CENTER_RE.finditer(sched.text())
-                if m.group(1).endswith(f"reg-{week}")
-            }
-        )
-        print(f"week {week}: {len(slugs)} game centre URLs discovered")
+        slugs = []
+        used_url = ""
+        candidates = [
+            f"https://www.nfl.com/schedules/{args.season}/by-week/week-{week}",
+            f"https://www.nfl.com/schedules/{args.season}/REG{week}/scores",
+            f"https://www.nfl.com/ways-to-watch/by-week/week-{week}",
+            f"https://www.nfl.com/schedules/{args.season}/by-week/week-{week}?week={week}",
+        ]
+        for cand in candidates:
+            sched = store("schedule", f"week-{week}.html", cand, note="schedule page")
+            found = sorted(
+                {
+                    m.group(1)
+                    for m in GAME_CENTER_RE.finditer(sched.text())
+                    if m.group(1).endswith(f"reg-{week}")
+                }
+            )
+            if found:
+                slugs = found
+                used_url = cand
+                break
+        print(f"week {week}: {len(slugs)} game centre URLs discovered from {used_url}")
         if not slugs:
-            print(f"week {week}: no '/games/<slug>-reg-{week}' link found in the page")
+            print(f"week {week}: no '/games/<slug>-reg-{week}' link found in any candidate")
 
         # 2. Game centre page -> Game Book PDF link.
         for slug in (slugs if not args.no_gamebooks else []):
@@ -202,10 +241,16 @@ def main() -> int:
                 write_bytes(pdf_path, pdf.body)
                 text, pages = pdf_text(pdf.body)
                 write_text(os.path.join(out, "gamebooks", f"{slug}.txt"), text)
-                print(f"  {slug}: game book {len(pdf.body)} bytes, {pages} pages")
+                layout = pdf_layout_text(pdf_path)
+                write_text(os.path.join(out, "gamebooks", f"{slug}.layout.txt"), layout)
+                print(
+                    f"  {slug}: game book {len(pdf.body)} bytes, {pages} pages, "
+                    f"layout {'yes' if layout else 'no'}"
+                )
             else:
                 text, pages = "", 0
                 write_text(os.path.join(out, "gamebooks", f"{slug}.txt"), "")
+                write_text(os.path.join(out, "gamebooks", f"{slug}.layout.txt"), "")
                 print(f"  {slug}: GAME BOOK FETCH FAILED {pdf.error}")
             record("gamebook", pdf_url, pdf, pdf_path, f"slug={slug}; pages={pages}")
 
@@ -325,7 +370,9 @@ def build_diagnostic(out: str, *, head_lines: int = 130) -> str:
     book_dir = os.path.join(out, "gamebooks")
     names = []
     if os.path.isdir(book_dir):
-        names = sorted(n for n in os.listdir(book_dir) if n.endswith(".txt"))
+        names = sorted(n for n in os.listdir(book_dir) if n.endswith(".layout.txt"))
+        if not names:
+            names = sorted(n for n in os.listdir(book_dir) if n.endswith(".txt"))
     if not names:
         parts.append("no game books captured")
         return "\n".join(parts) + "\n"
@@ -342,6 +389,18 @@ def build_diagnostic(out: str, *, head_lines: int = 130) -> str:
     parts.append("")
     for idx in keep:
         parts.append(f"{idx:05d}| {lines[idx]}")
+
+    # (c) Does the Game Book carry playing-time information at all?
+    keywords = ("Snap", "Participation", "Plays", "Involved", "Snaps Played")
+    hits = {kw: [] for kw in keywords}
+    for idx, line in enumerate(lines):
+        for kw in keywords:
+            if kw in line:
+                hits[kw].append(idx)
+    parts.append("")
+    parts.append("# KEYWORD SCAN (whole document)")
+    for kw, idxs in hits.items():
+        parts.append(f"#   {kw}: {len(idxs)} lines" + (f" -> {idxs[:12]}" if idxs else ""))
     return "\n".join(parts) + "\n"
 
 
