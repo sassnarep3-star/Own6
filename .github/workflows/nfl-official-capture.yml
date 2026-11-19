@@ -1,0 +1,57 @@
+name: Official injury-report capture
+
+# Session 79fd4958. Captures the official NFL injury report on a timer.
+# Raw page bytes go to a PRIVATE workflow artifact (90 days). Only derived
+# metadata is committed (data/nfl_capture/index.csv). A failed capture fails
+# this job, which triggers GitHub's workflow-failure notification.
+on:
+  schedule:
+    # 16:00 UTC on Sun, Wed, Thu, Fri, Sat (the report is published Wed-Fri;
+    # Monday and Tuesday are skipped on purpose).
+    - cron: '0 16 * * 0,3,4,5,6'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nfl-official-capture
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Capture official injury report (fail loudly on drift)
+        run: python3 scripts/capture_nfl_official.py
+      - name: Upload raw bytes as a private artifact (90 days)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nfl-official-raw-${{ github.run_id }}
+          path: data/nfl_capture/raw/
+          retention-days: 90
+          if-no-files-found: ignore
+      - name: Commit the metadata index row
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/nfl_capture/index.csv
+          if git diff --cached --quiet; then
+            echo "no index change"
+            exit 0
+          fi
+          git commit -m "capture: official injury report index row (run ${GITHUB_RUN_ID})"
+          git pull --rebase -q origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+      - name: Job summary
+        if: always()
+        run: |
+          echo "### Official injury-report capture" >> "$GITHUB_STEP_SUMMARY"
+          tail -n 1 data/nfl_capture/index.csv >> "$GITHUB_STEP_SUMMARY" || true

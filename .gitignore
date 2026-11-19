@@ -2,3 +2,6 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 .venv/
+
+# Session 79fd4958: raw official page bytes stay out of git (private artifact only)
+data/nfl_capture/raw/
