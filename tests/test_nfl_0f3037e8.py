@@ -1,9 +1,16 @@
 """Regression tests for the consolidated decision-review registers (metadata only)."""
 from __future__ import annotations
 
+import importlib.util
 import unittest
+from pathlib import Path
 
-import scripts.check_nfl_0f3037e8 as gate
+MODULE_PATH = Path(__file__).resolve().parents[1] / "scripts" / "check_nfl_0f3037e8.py"
+SPEC = importlib.util.spec_from_file_location("check_nfl_0f3037e8", MODULE_PATH)
+if SPEC is None or SPEC.loader is None:
+    raise ImportError(f"cannot load checker from {MODULE_PATH}")
+gate = importlib.util.module_from_spec(SPEC)
+SPEC.loader.exec_module(gate)
 
 
 class DecisionReviewFreshnessTests(unittest.TestCase):
