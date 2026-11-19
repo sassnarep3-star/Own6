@@ -16,7 +16,7 @@
   "external_source_policy": "Direct source reads are recorded separately. A URL, checksum or internal consistency check does not verify an external fact or grant rights.",
   "files_inventoried": 1599,
   "findings": 17,
-  "lines_scanned": 164503,
+  "lines_scanned": 164510,
   "open_findings_at_baseline": 4,
   "record_categories": {
     "legacy_data": 22031,

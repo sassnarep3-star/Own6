@@ -4446,3 +4446,10 @@ Claim recorded here after the first build of the pack; no other session's files 
 - Repair applied to `tests/test_nfl_cdf86c07.py` (test harness only; every assertion unchanged): removed the top-level `import pytest` and the `pytest.skip` call, and replaced the three pytest-fixture tests (`tmp_path`, `monkeypatch`) with `tempfile` plus a restoring context manager. Result: the stdlib runner `tools/run_tests.py` and pytest both pass the file (pytest 7/7). This is why CI steps running `tools/run_tests.py` were red on main with "No module named pytest" and with the fixture TypeErrors.
 - Verification after the harness repair: `tools/run_tests.py` 201/201 (run twice, identical); `pytest tests/test_nfl_cdf86c07.py` 7/7; `scripts/check_nfl_0fef3044.py` 18/18; `tools/release_gate.py` 0 issues; `scripts/check_site.py` OK.
 - Lab CI (`lab-ci.yml`) failed at its "Run tests" step (`python -m pytest -q tests/`) on main as well (runs 44522165338 and 44522185886), and it fails on this branch at the same step. Not caused by this branch. Not investigated further in this session because the step needs the NBA lab environment (numpy and the pinned requirements). Owner: NBA lab sessions.
+
+### 0fef3044 — PR record
+
+- Pull request: https://github.com/sassnarep3-star/Own6/pull/142 (`arena/0fef3044-own6` → `main`, merge method `--merge`).
+- Checks on the PR head before merge: all 18 workflow checks pass, including `lab`, `assurance`, `verify`, `verify-nfl-origination`, `verify-nfl-0fef3044`, `published-html`, `source-coverage`.
+- Merge result and the merge commit are recorded on the PR page (state at merge time). The session branch cannot push to `main`, so no post-merge record commit is made (a second commit would make the derived inventories stale again).
+- Live Pages page for this pack: https://sassnarep3-star.github.io/Own6/docs/nfl-0fef3044/ (checked after merge; result in the chat summary).
