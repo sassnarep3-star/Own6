@@ -4232,3 +4232,27 @@ rule-9 staleness. Any session touching `data/nfl_b72e2687/**` should re-check th
 landed while this PR was open. d713b52f independently applied the identical B72-S06/B72-S10 theme
 overrides this pack had added; the duplicate lines from this branch were dropped so main's entries
 stand. COORDINATION.md resolved keep-both; shared inventories resolved to main then regenerated.
+
+---
+
+## Session `arena/c54d6bda-own6` — live reverification of the Thursday IND@HOU injury block (2026-11-19)
+
+Base: `e9185b3` (origin/main). Scope kept to one new directory so it cannot collide with other packs.
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| C1 Live re-read of the Week 11 Thursday injury block against the stored transcription | done | `c54d6bda` | `data/nfl_c54d6bda/**` |
+| C2 Site/data gate re-run on current main | done | `c54d6bda` | read-only |
+
+**Sources (read 2026-11-19 UTC):** https://www.nfl.com/injuries/ (live Week 11 page, Thursday IND @ HOU block, 26 rows); https://www.nfl.com/schedules/2026/W11/ (confirms Thursday Nov 19, 8:15 PM, Prime, Colts at Texans, 3-7 / 3-6).
+
+**Result:** 26 live rows vs. 26 stored rows in `data/nfl_51698d74/raw/injuries_reg11_2026-11-19.md`: 26 MATCH, 0 MISMATCH (`data/nfl_c54d6bda/reverification_thu_ind_hou.csv`, recomputed by `reverify_thu_ind_hou.py`).
+
+**Gates:** `scripts/check_site.py` OK (9 pages, no broken internal links, external links https). `scripts/check_nfl_51698d74.py` OK (21 rules, 559 rows, capture log verified). GitHub Pages API status: `built`.
+
+**Irregularities (non-blocking):**
+- Injury page URL drift: the stored capture cites `https://www.nfl.com/injuries/league/2026/reg11`; the live page resolves at `https://www.nfl.com/injuries/`. Content identical for this block; URL should be treated as an alias until confirmed.
+- Blank game-status cells on Colts rows (Carlies, Tucker) are reproduced as blank, not inferred.
+- pytest is not installed in this environment; tests were not rerun.
+
+**Not covered by this session:** the rest of the brief (other 12 games, snap counts, depth-chart register, price capture) remains as recorded in the earlier packs and their Flagged for Review pages. No market prices exist on official NFL pages; price columns stay blank by policy.
