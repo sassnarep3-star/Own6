@@ -1,0 +1,89 @@
+name: NFL a119bb6d capture
+
+# Scheduled capture of the official NFL availability pages and Game Books.
+#
+#   Wed/Thu/Fri 21:00 UTC  -> the league's injury-report hub and the weekly
+#                              inactive-list article (practice reports are
+#                              published during the afternoon in the US).
+#   Mon 05:00 UTC          -> the Game Book PDFs for the week just finished.
+#
+# Every capture writes a manifest with the URL, the read time and the SHA-256
+# of the bytes that were read. The manifest is uploaded as an artifact so the
+# capture is auditable and replayable, and so a reviewer can re-download the
+# same document and confirm the hash.
+
+on:
+  push:
+    branches:
+      - 'arena/a119bb6d-own6'
+    paths:
+      - 'scripts/capture_nfl_a119bb6d.py'
+      - 'src/nfl_a119bb6d/net.py'
+      - '.github/workflows/nfl-a119bb6d-capture.yml'
+  workflow_dispatch:
+    inputs:
+      weeks:
+        description: 'Week numbers to capture (comma separated)'
+        required: false
+        default: '10'
+  schedule:
+    - cron: '0 21 * * 3,4,5'
+    - cron: '0 5 * * 1'
+
+permissions:
+  contents: read
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install capture dependencies
+        run: python3 -m pip install --upgrade pip && python3 -m pip install pypdf
+
+      - name: Decide which weeks this scheduled run captures
+        id: plan
+        run: |
+          set -euo pipefail
+          day=$(date -u +%u)
+          if [ "$day" = "1" ]; then
+            echo "weeks=10" >> "$GITHUB_OUTPUT"
+            echo "Scheduled Monday run: capturing the Game Books of the week just finished."
+          else
+            echo "weeks=11" >> "$GITHUB_OUTPUT"
+            echo "Scheduled Wed/Thu/Fri run: capturing this week's injury report and inactive article."
+          fi
+
+      - name: Run the capture
+        run: |
+          python3 scripts/capture_nfl_a119bb6d.py \
+            --weeks "${{ steps.plan.outputs.weeks }}" \
+            --out "capture"
+
+      - name: Summary
+        run: |
+          echo "### Capture manifest" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          {
+            echo "| kind | url | status | bytes | sha256 | read (UTC) |"
+            echo "|---|---|---|---|---|---|"
+            tail -n +2 capture/capture_log.csv | python3 -c "
+          import csv,sys
+          for row in csv.DictReader(sys.stdin):
+              print('| {} | {} | {} | {} | {} | {} |'.format(
+                  row['kind'], row['url'][:90], row['http_status'] or row['error'],
+                  row['bytes'], row['sha256'][:16], row['fetched_at_utc']))
+          "
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload the capture
+        uses: actions/upload-artifact@v4
+        with:
+          name: nfl-a119bb6d-capture-${{ github.run_id }}
+          path: capture/
+          retention-days: 90
