@@ -4232,3 +4232,31 @@ rule-9 staleness. Any session touching `data/nfl_b72e2687/**` should re-check th
 landed while this PR was open. d713b52f independently applied the identical B72-S06/B72-S10 theme
 overrides this pack had added; the duplicate lines from this branch were dropped so main's entries
 stand. COORDINATION.md resolved keep-both; shared inventories resolved to main then regenerated.
+
+---
+
+## Session `arena/d6a947cb-own6` — NFL repo review, live re-verification, clean landing + subpages, suggestions & Flagged-for-Review (claimed 2026-11-19)
+
+**Session ID:** `d6a947cb` · **Branch:** `arena/d6a947cb-own6` (base `e9185b3` = `origin/main` at claim time, checked with `git fetch` immediately before this claim). Arena fixes this session to that branch and forbids other branches, so the `session-<id>/<task>` naming in the brief is logged as a deviation, as every prior session did. Work is split by exclusive file scope inside this one branch.
+
+**Concurrency check at claim time.** Open PRs #138, #135, #127, #113, #111, #110, #94, #84, #79, #72, #68, #56, #54, #52, #48 belong to other sessions. None claims a `nfl_d6a947cb` scope. No file below is inside another open claim. The >60-minute takeover rule is not exercised.
+
+**Pages facts read at claim time.** `gh api repos/sassnarep3-star/Own6/pages` → `build_type=legacy`, `source={branch: main, path: /}`, `status=built`. The live root therefore serves root `index.html`, not `docs/index.html`.
+
+**Claim (written and pushed before any data was produced)**
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| D1 Repo review, irregularity register (line-by-line counts with file links) | in progress | `d6a947cb` | `audit/NFL_D6A947CB_REPO_REVIEW.md`, `data/nfl_d6a947cb/repo_findings.csv` |
+| D2 Same-day official re-reads, each logged with UTC clock and expected-vs-observed | in progress | `d6a947cb` | `data/nfl_d6a947cb/official_reads_2026_11_19.csv`, `data/nfl_d6a947cb/capture_log.csv`, `data/nfl_d6a947cb/raw/**` |
+| D3 Requirement register (one row per brief bullet; carried states; cross-ledger comparison; re-check flags) | in progress | `d6a947cb` | `data/nfl_d6a947cb/requirements.csv`, `data/nfl_d6a947cb/ledger_comparison.csv` |
+| D4 Question / Information / Answer register with discovery paths | in progress | `d6a947cb` | `data/nfl_d6a947cb/questions.csv` |
+| D5 Suggestions register (site and method; every row `pending_human_choice=yes`, nothing implemented) | in progress | `d6a947cb` | `data/nfl_d6a947cb/suggestions.csv` |
+| D6 Flagged-for-Review register | in progress | `d6a947cb` | `data/nfl_d6a947cb/flagged.csv`, `data/nfl_d6a947cb/sources.csv` |
+| D7 Site: clean landing + category subpages + builder + checker + tests + CI | in progress | `d6a947cb` | `docs/nfl-d6a947cb/**`, `scripts/build_nfl_d6a947cb.py`, `scripts/check_nfl_d6a947cb.py`, `tests/test_nfl_d6a947cb.py`, `.github/workflows/nfl-d6a947cb-ci.yml` |
+| D8 Executive summary | in progress | `d6a947cb` | `NFL_D6A947CB_EXECUTIVE_SUMMARY.md` |
+| D9 Integration: one additive link card in root `index.html`, PR → merge → Pages check → board record | in progress | `d6a947cb` | `index.html` (one additive block), `COORDINATION.md` (append only) |
+
+**Not claimed (other sessions' scope, left untouched):** `data/nfl_0ce967db/**`, `data/nfl_d713b52f/**`, `data/nfl_b72e2687/**`, `data/nfl_0d4da02c/**`, `data/nfl/**`, every other `docs/nfl-*` pack, and the root `docs/index.html`. Fixes to these are logged as requests in the registers, not made here.
+
+**Evidence rule (unchanged).** A value is published as verified only if it was read this session from the official page named in its source link, with a UTC clock. Anything else is carried from an earlier pack with that pack named, or left blank and flagged. No market price exists on any official NFL page read, so price columns stay blank by policy. No profitability claim.
