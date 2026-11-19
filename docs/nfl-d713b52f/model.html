@@ -302,9 +302,11 @@ controls exist so that a model has something to lose to.</p>
 </tr>
 </tbody></table></div>
 <h2>The removal-of-luck panel</h2>
-<p class="lead">Reliability is the part of the Brier score the model could remove by being better calibrated.
-Resolution is the part it earns by saying different things on different games. When reliability dominates the score,
-most of what is left is calibration work rather than edge.</p>
+<p class="lead">The score is split the only way that means anything: the part the model could remove by being
+better calibrated (reliability), the part it earns by saying different things on different games (resolution), and
+the part nobody can remove because football is football (uncertainty). The split is computed on five fixed
+probability bands, not on the exact forecast values — an exact-value split puts one game in each band, makes
+reliability equal the Brier score and would look tidy while measuring nothing.</p>
 <div class="tw"><table class="">
 <thead><tr>
 <th>Quantity</th>
@@ -323,12 +325,20 @@ most of what is left is calibration work rather than edge.</p>
 <td>0.244756</td>
 </tr>
 <tr>
+<td>brier_binned</td>
+<td>0.244169</td>
+</tr>
+<tr>
+<td>brier_shift_from_binning</td>
+<td>0.000587</td>
+</tr>
+<tr>
 <td>reliability</td>
-<td>0.244756</td>
+<td>0.014506</td>
 </tr>
 <tr>
 <td>resolution</td>
-<td>0.247995</td>
+<td>0.018332</td>
 </tr>
 <tr>
 <td>uncertainty</td>
@@ -336,11 +346,31 @@ most of what is left is calibration work rather than edge.</p>
 </tr>
 <tr>
 <td>identity_residual</td>
-<td>0.000e+00</td>
+<td>5.551e-17</td>
+</tr>
+<tr>
+<td>within_bin_term</td>
+<td>0.229663</td>
+</tr>
+<tr>
+<td>exact_identity</td>
+<td>brier_binned = reliability - resolution + uncertainty, exact to 1e-9; brier (unbinned) differs from brier_binned only by the within-bin spread of the forecasts, which is reported as brier_shift_from_binning</td>
+</tr>
+<tr>
+<td>bins_used</td>
+<td>5</td>
+</tr>
+<tr>
+<td>bin_edges</td>
+<td>0.00-0.40 | 0.40-0.50 | 0.50-0.60 | 0.60-0.70 | 0.70-1.01</td>
+</tr>
+<tr>
+<td>mean_p_in_bin</td>
+<td>0.00-0.40:0.305/0.312(n=32); 0.40-0.50:0.447/0.320(n=25); 0.50-0.60:0.558/0.440(n=25); 0.60-0.70:0.646/0.632(n=19); 0.70-1.01:0.796/0.606(n=33)</td>
 </tr>
 <tr>
 <td>luck_share_reliability_over_brier</td>
-<td>1.000000</td>
+<td>0.059268</td>
 </tr>
 <tr>
 <td>games_better_than_climatology</td>
@@ -354,8 +384,18 @@ most of what is left is calibration work rather than edge.</p>
 <td>games_tied</td>
 <td>0</td>
 </tr>
+<tr>
+<td>interval_note</td>
+<td>for the interval on this skill score see backtest_summary.csv; it is not reprinted here</td>
+</tr>
 </tbody></table></div>
-<p class="small">reliability is the part of the score the model could remove by being better calibrated; resolution is the part it earns by saying different things on different games. A high reliability share means most of the score is calibration work, not edge.</p>
+<div class="note warn">The panel says the model is <b>not over-fit to luck</b>: reliability is only
+<b>5.9%</b> of the score, so almost none of it can be
+recovered by recalibration alone. What it does say is worse for the model — the bands are badly ordered in the
+middle. Where the model says a game is close to a coin flip (0.40&ndash;0.50), home clubs actually won
+<b>32.0%</b> of the time; where it says 0.50&ndash;0.60, they won <b>44.0%</b>. The model is confident in the wrong
+direction in the games it should be least sure about.</div>
+<p class="small">reliability is the part of the score the model could remove by being better calibrated; resolution is the part it earns by saying different things on different games. Bins are fixed probability ranges, not exact values: an exact-value split puts one game in each bin and makes reliability equal the Brier score, which measures nothing. If bins_used equals n, the panel is degenerate and must not be quoted. The bootstrap resamples whole weeks.</p>
 <h2>Week 11 forecasts — published before kickoff, market columns blank by policy</h2>
 <p class="lead">Three fixtures, because three fixtures were read from the official schedule. The other ten Week 11
 games are not forecast here; inventing them would be the exact failure the brief forbids. Each row carries our fair

@@ -158,7 +158,15 @@ check("skill lower bound is below the upper bound", s["bss_lo"] < s["bss_hi"])
 check("the interval includes zero, and the pack must say so",
       s["bss_lo"] <= 0 <= s["bss_hi"], f"{s['bss_lo']} to {s['bss_hi']}")
 lp = model.luck_panel(bt)
-check("Murphy identity closes", float(lp["identity_residual"]) < 1e-9)
+check("Murphy identity closes", float(lp["identity_residual"]) < 1e-9, lp["identity_residual"])
+check("the luck panel is not degenerate (more than one game per bin)",
+      lp["bins_used"] != lp["n"], f"{lp['bins_used']} bins for {lp['n']} games")
+check("binning does not distort the score",
+      abs(float(lp["brier"]) - float(lp["brier_binned"])) < 0.02)
+check("reliability is not silently equal to the Brier score",
+      abs(float(lp["reliability"]) - float(lp["brier"])) > 1e-6)
+check("the bin table reports observed frequency beside mean forecast",
+      all("/" in part and "n=" in part for part in lp["mean_p_in_bin"].split("; ")))
 check("better + worse + tied equals n",
       int(lp["games_better_than_climatology"]) + int(lp["games_worse_than_climatology"])
       + int(lp["games_tied"]) == int(lp["n"]))

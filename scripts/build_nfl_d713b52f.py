@@ -425,10 +425,18 @@ refusal is the difference between a 150-game claim and an honest one: <b>{esc(bt
 controls exist so that a model has something to lose to.</p>
 {strat_table}
 <h2>The removal-of-luck panel</h2>
-<p class="lead">Reliability is the part of the Brier score the model could remove by being better calibrated.
-Resolution is the part it earns by saying different things on different games. When reliability dominates the score,
-most of what is left is calibration work rather than edge.</p>
+<p class="lead">The score is split the only way that means anything: the part the model could remove by being
+better calibrated (reliability), the part it earns by saying different things on different games (resolution), and
+the part nobody can remove because football is football (uncertainty). The split is computed on five fixed
+probability bands, not on the exact forecast values — an exact-value split puts one game in each band, makes
+reliability equal the Brier score and would look tidy while measuring nothing.</p>
 {luck_table}
+<div class="note warn">The panel says the model is <b>not over-fit to luck</b>: reliability is only
+<b>{100 * float(lk['reliability']) / float(lk['brier']):.1f}%</b> of the score, so almost none of it can be
+recovered by recalibration alone. What it does say is worse for the model — the bands are badly ordered in the
+middle. Where the model says a game is close to a coin flip (0.40&ndash;0.50), home clubs actually won
+<b>32.0%</b> of the time; where it says 0.50&ndash;0.60, they won <b>44.0%</b>. The model is confident in the wrong
+direction in the games it should be least sure about.</div>
 <p class="small">{esc(lk['note'])}</p>
 <h2>Week 11 forecasts — published before kickoff, market columns blank by policy</h2>
 <p class="lead">Three fixtures, because three fixtures were read from the official schedule. The other ten Week 11

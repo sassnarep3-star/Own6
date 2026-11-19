@@ -274,6 +274,17 @@ def rule14(errors):
             errors.append(f"rule14: {s['club']} marked outside capacity")
 
 
+def rule15b(errors):
+    """The luck panel must not be degenerate, and its published identity must close."""
+    lp = rows("luck_panel.csv")[0]
+    if lp["bins_used"] == lp["n"]:
+        errors.append("rule15b: one game per bin — the decomposition is degenerate and must not be quoted")
+    if float(lp["identity_residual"]) > 1e-9:
+        errors.append(f"rule15b: the Murphy identity does not close ({lp['identity_residual']})")
+    if abs(float(lp["brier"]) - float(lp["brier_binned"])) > 0.02:
+        errors.append("rule15b: binning moved the Brier score by more than 0.02; the bins are too coarse")
+
+
 def rule15(errors):
     for r in rows("model_outputs.csv"):
         p = float(r["p_home_win"])
@@ -375,6 +386,7 @@ def main():
     rule13(errors)
     rule14(errors)
     rule15(errors)
+    rule15b(errors)
     rule17(errors)
     rule18(errors)
     rule19(errors)
@@ -388,7 +400,7 @@ def main():
         if len(errors) > 80:
             print(f"   … and {len(errors) - 80} more")
         sys.exit(1)
-    print(f"OK — 20 rules, {sum(PINNED.values()):,} pinned data rows, {len(EXPECTED_PAGES)} pages")
+    print(f"OK — 21 rules, {sum(PINNED.values()):,} pinned data rows, {len(EXPECTED_PAGES)} pages")
 
 
 if __name__ == "__main__":
