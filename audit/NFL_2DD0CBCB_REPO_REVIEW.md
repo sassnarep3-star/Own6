@@ -13,7 +13,7 @@ this PR existed; the same figures are recorded in `data/assurance/summary.json`)
 | metric | value |
 |---|---|
 | files scanned | 1,371 |
-| lines scanned | 139,193 |
+| lines scanned | 139,194 |
 | structured records | 20,201 |
 | standing findings | 17 (4 open) |
 | audit verdict | OK |
@@ -41,8 +41,9 @@ records — kept here because it documents what the tree looked like before this
 
 | gate | command | result |
 |---|---|---|
-| repo audit | `python3 scripts/audit_repo.py` | OK — 1,371 files, 139,193 lines, 20,201 records, 17 findings |
+| repo audit | `python3 scripts/audit_repo.py` | OK — 1,371 files, 139,194 lines, 20,201 records, 17 findings |
 | unit harness | `python3 tools/run_tests.py` | **194/194** (four separate runs) |
+| pytest (venv with numpy/scipy installed this session) | `pytest -q tests/` | **776 passed**, 6 subtests — and 720 passed with 3 collection errors without the scientific deps, which is why the environment is named (RF2-06) |
 | site structure | `python3 scripts/check_site.py` | OK: data rules pass; 9 pages, no broken internal links, all external links https |
 | nfl pack | `python3 scripts/check_nfl.py` | nfl: 13 pages, 0 issues |
 | release gate | `python3 tools/release_gate.py` | 0 issues across published HTML and tracked text |
