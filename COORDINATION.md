@@ -3725,3 +3725,42 @@ scopes above stay non-overlapping so other sessions can still claim their own ta
 **New upstream flags published (non-blocking):** A67-F01..F12 — venue-name mismatches (RELIANT/NRG, NORTHWEST/FedEx, ACRISURE/Heinz + GEHA variance), game-centre legacy name on IND@HOU, reserve-list render window, IR players with blank game status (Al-Shaair/Carlies), dual Lamar recovery windows (6-9 vs 6-10), Texans image-only depth, Packers jersey prefixes + stale footer, Week-12 heading/weekday contradictions, week-12 panels not yet available, LAR/LA abbreviation drift, reserve-absence ≠ availability (VQ-06 case 2), blank game statuses = cadence.
 
 **Scope note:** this record is written on `arena/a67ddef8-own6` and shipped to main via a record PR (append-only rule; no direct main push). No other session's files were edited except the additive `docs/index.html` card, root `index.html` link and `README.md` bullet inside V8's claimed scope.
+
+---
+
+## Session `arena/2dd0cbcb-own6` — official-capture follow-through, consolidated owner decision queue, decision-readiness re-baseline (claimed 2026-11-19)
+
+**Session ID:** `2dd0cbcb` · **Branch:** `arena/2dd0cbcb-own6` (base `ffbbce6` = PR #122 merge, the a67ddef8 pack).
+Arena fixes this session to that branch, so the `session-<id>/<task>` naming rule is satisfied by
+disjoint file scopes on the single Arena branch — the same deviation every prior session logged.
+
+**Concurrent-work check at claim time.** `git fetch` → base equals `origin/main` HEAD `ffbbce6`.
+Open PRs: #113, #111, #110, #94, #84, #79, #72, #68, #56, #54, #52, #48 — all other sessions' packs
+or record PRs, none claims a `nfl_2dd0cbcb` scope, no file below is in another live scope. All claims
+older than 60 min without commits; the takeover rule is **not** exercised — this session takes fresh,
+unused files only.
+
+**Claim**
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| W1 Line-by-line repo review at claim time + irregularity register | in progress | `2dd0cbcb` | `audit/NFL_2DD0CBCB_REPO_REVIEW.md`, `data/nfl_2dd0cbcb/repo_findings.csv` |
+| W2 Fresh official capture 2026-11-19 (hours after the a67ddef8 read): Week-12 injury report state, Week-12 schedule page state, all 16 Week-12 game-centre venues (closes a67ddef8 S-02/Q-08), reserve-list render-window probe (closes a67ddef8 S-03/Q-01), AZ/Texans/Packers depth re-tests (closes S-08/B-05, re-tests Q-03 and the Packers footer), each read logged with UTC clock and sha256 | in progress | `2dd0cbcb` | `src/nfl_2dd0cbcb/capture.py`, `data/nfl_2dd0cbcb/raw/**`, `data/nfl_2dd0cbcb/capture_log.csv`, `data/nfl_2dd0cbcb/week12_slate.csv`, `data/nfl_2dd0cbcb/injuries_reg12.csv`, `data/nfl_2dd0cbcb/reserve_window.csv` |
+| W3 Flag-closure re-test of still-open flags (the 7 open + 1 not-retested from a67ddef8 flag_recheck, plus A67-F flags) against the official source today; closed/still-open published with read clock | in progress | `2dd0cbcb` | `data/nfl_2dd0cbcb/flag_recheck.csv` |
+| W4 Decision-readiness re-baseline at `ffbbce6`: one row per requirement line of the owner brief (78 lines), status from evidence present in the tree with pointer, blocking gate + clearing number | in progress | `2dd0cbcb` | `data/nfl_2dd0cbcb/requirements.csv` |
+| W5 Consolidated Q/I/A + suggestions queue: dedupe the open questions and human-pending suggestions across every pack register in the repo into one owner decision queue; new captures may answer some — answer with evidence pointer where they do, keep open otherwise; all suggestions `pending_human_choice=yes`, decision columns blank | in progress | `2dd0cbcb` | `data/nfl_2dd0cbcb/questions.csv`, `data/nfl_2dd0cbcb/suggestions.csv`, `data/nfl_2dd0cbcb/flagged.csv`, `data/nfl_2dd0cbcb/sources.csv`, `scripts/consolidate_2dd0cbcb.py` |
+| W6 Session site `docs/nfl-2dd0cbcb/**` + builder + verifier + tests + CI | in progress | `2dd0cbcb` | `docs/nfl-2dd0cbcb/**`, `scripts/build_nfl_2dd0cbcb.py`, `scripts/check_nfl_2dd0cbcb.py`, `tests/test_nfl_2dd0cbcb.py`, `.github/workflows/nfl-2dd0cbcb-ci.yml` |
+| W7 Executive summary at root | in progress | `2dd0cbcb` | `NFL_2DD0CBCB_EXECUTIVE_SUMMARY.md` |
+| W8 Integration: additive hub link, shared-inventory regeneration with the repo's own tools (build_nfl_dfc0c1bc ×2 → source_coverage → audit_repo → build_assurance → build_review, until fixed point), PR → merge → Pages check → board record | in progress | `2dd0cbcb` | `COORDINATION.md` (append only), `docs/index.html` + `index.html` + `README.md` (one additive block each), `data/assurance/**`, `data/source_coverage/**`, `docs/assurance/**`, `docs/coverage/**`, `audit/SOURCE_COVERAGE.md`, `data/nfl_dfc0c1bc/**`, `docs/nfl-dfc0c1bc/**` (tool-regenerated only) |
+
+**Evidence rule.** A published value is either (a) text read this session from the official page named
+in its `source_url`, logged in `capture_log.csv` with a UTC clock and sha256 of the transcription
+artifact, or (b) arithmetic on such values with the derivation shown, or (c) a repo-internal pointer
+(a file that exists at `ffbbce6`) for cross-pack consolidation rows — never an outside summary.
+Everything else is a blank cell plus a row on Flagged for Review. No market price exists on any
+official NFL page, so price columns stay blank by written policy. No profitability claim anywhere.
+`needs review` never blocks. Suggestions are proposals only; the owner chooses the path.
+
+**Known caveats honored:** shallow-clone repair (`git fetch --unshallow`) run at claim time for
+`audit_repo.py`; dfc0c1bc register-count regeneration done at this session's integration step per the
+standing note from 0d4da02c; Pages cache-busting re-fetch per the a67ddef8/0d4da02c note.
