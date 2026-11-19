@@ -126,6 +126,11 @@ def main() -> int:
         action="store_true",
         help="skip the game centre and Game Book capture (injury pages only)",
     )
+    ap.add_argument(
+        "--diagnostic",
+        default="",
+        help="write a bounded structural diagnostic of one Game Book to this path",
+    )
     args = ap.parse_args()
 
     out = os.path.abspath(args.out)
@@ -278,7 +283,48 @@ def main() -> int:
         writer.writeheader()
         writer.writerows(log_rows)
     print(f"capture log: {log_path} ({len(log_rows)} rows)")
+
+    # 5. A bounded structural diagnostic. It exists so the parser can be written
+    #    and tested against the real text layout of the PDF without anyone
+    #    having to eyeball a fifty-page document. It is a short extract of one
+    #    document, not a redistribution of the league's file.
+    if args.diagnostic:
+        write_text(args.diagnostic, build_diagnostic(out))
+        print(f"diagnostic: {args.diagnostic}")
     return 0
+
+
+MARKERS = (
+    "Lineups", "Substitutions", "Did Not Play", "Not Active",
+    "Field Goals", "Scoring Plays", "Paid Attendance", "Final Individual",
+)
+
+
+def build_diagnostic(out: str, *, head_lines: int = 130) -> str:
+    """Return a bounded extract of one captured Game Book's text."""
+    book_dir = os.path.join(out, "gamebooks")
+    if not os.path.isdir(book_dir):
+        return "no game books captured"
+    names = sorted(n for n in os.listdir(book_dir) if n.endswith(".txt"))
+    if not names:
+        return "no game books captured"
+    path = os.path.join(book_dir, names[0])
+    with open(path, encoding="utf-8") as fh:
+        lines = fh.read().splitlines()
+    keep = list(range(min(head_lines, len(lines))))
+    for idx, line in enumerate(lines):
+        if any(marker in line for marker in MARKERS) and idx not in keep:
+            keep.append(idx)
+    keep = sorted(set(keep))
+    out_lines = [
+        f"# STRUCTURAL DIAGNOSTIC (bounded extract of one official Game Book)",
+        f"# file: {names[0]}",
+        f"# lines shown: {len(keep)} of {len(lines)}",
+        "",
+    ]
+    for idx in keep:
+        out_lines.append(f"{idx:05d}| {lines[idx]}")
+    return "\n".join(out_lines) + "\n"
 
 
 if __name__ == "__main__":

@@ -47,7 +47,7 @@ on:
     - cron: '0 5 * * 1'
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   capture:
@@ -111,10 +111,29 @@ jobs:
             --weeks "${{ steps.plan.outputs.weeks }}" \
             --archive-seasons "${{ steps.plan.outputs.archive }}" \
             --out "capture" \
+            --diagnostic capture/diagnostic.txt \
             ${{ steps.plan.outputs.rosters }} ${{ steps.plan.outputs.no_gb }}
 
       - name: Summary
         run: python3 scripts/summarise_capture.py capture/capture_log.csv
+
+      - name: Commit the capture manifest
+        run: |
+          set -euo pipefail
+          mkdir -p data/nfl_a119bb6d/_capture
+          cp capture/capture_log.csv data/nfl_a119bb6d/_capture/capture_log.csv
+          if [ -f capture/diagnostic.txt ]; then
+            cp capture/diagnostic.txt data/nfl_a119bb6d/_capture/diagnostic.txt
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/nfl_a119bb6d/_capture
+          if git diff --cached --quiet; then
+            echo "no capture output to commit"
+            exit 0
+          fi
+          git commit -m "capture: official NFL read at $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git push origin "HEAD:${{ github.ref_name }}"
 
       - name: Upload the capture
         uses: actions/upload-artifact@v4
