@@ -4541,3 +4541,34 @@ Site pages, scoring, strategies and the other NFL packs are **not** touched in t
 - The **scheduled cron** (16:00 UTC, Sun/Wed/Thu/Fri/Sat) has not yet fired in this record. Its first run is the next check; it will show as a bot commit on `data/nfl_capture/index.csv` if it succeeds.
 
 **New flag (non-blocking):** F-79-5 — the capture does not yet record "No Injuries Reported" clubs (CIN and WAS this week). They appear as absent tables, not as a count. Add an explicit per-club record before the team-level model uses these counts.
+## Session `arena/fb41a18f-own6` — final baseline release/integration audit (claimed 2026-11-19)
+
+**Session ID:** `fb41a18f` · **Branch:** `arena/fb41a18f-own6` (fixed by Arena; base
+`e9185b304a9e8bc06d88d7204f830b5968f3c18c`). The current `main` snapshot already contains the
+NFL origination framework, category pages, requirements/Q-I-A/suggestions boards, model and
+availability research packs, and prior verification records. This session claims a disjoint,
+verification-only task rather than duplicating those completed builds.
+
+**Concurrent-work check at claim time (2026-11-19).** `git status` was clean at base `e9185b3`.
+GitHub showed PR #135 open for session `2dd0cbcb` (official Week-12 re-reads and its pack/hub/root
+integration) and PR #127 open for session `0f3037e8` (DFC0 freshness checker); their owned data,
+site, scripts, and review paths are explicitly excluded from this claim. The public Pages API
+reported site `https://sassnarep3-star.github.io/Own6/`, source `main:/`, status `built`; latest
+Pages deployment was successful for `e9185b3` (run 44521056720).
+
+### Claim (written before review work)
+
+| Task | Status | Owner | Exclusive file scope |
+|---|---|---|---|
+| F1 Final integration/release review of the current merged NFL site: inspect current landing page, navigation targets, documented evidence boundaries and existing repo-wide release checks; record reproducible results and issues without editing another pack's source/data/site | in progress | `fb41a18f` | `audit/NFL_FB41A18F_FINAL_REVIEW.md` |
+| F2 Coordinate/close out this review | in progress | `fb41a18f` | `COORDINATION.md` (append only) |
+
+**Scope boundary.** No changes to `index.html`, `README.md`, `docs/index.html`, any session pack,
+source register, model data, or other owner's files. The open PR #135 owns the shared landing-page
+integration; this session will re-check the merged page after all non-conflicting local checks and
+will record any issues for the integration owner instead of editing its files. No bet, model, line,
+correlation, or injury value will be inferred or newly asserted.
+
+**Evidence rule.** Structural claims in the review will be backed by local file paths and executable
+checks. Any external fact will be reported only when a current official source is directly read and
+linked; repository links, hashes, or internal consistency alone will not be presented as verification.
