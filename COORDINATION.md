@@ -4513,3 +4513,31 @@ Site pages, scoring, strategies and the other NFL packs are **not** touched in t
 - **PR #139** (`arena/79fd4958-own6` → `main`) **merged** with a merge commit at **2026-11-19T12:39:25Z** (merge commit `68bda5a`). All 13 GitHub checks were green on head `d130682` (lab, verify ×3, assurance, build-check-test, daily, hub, hub-references, parlay-safety, published-html, source-coverage, verify-nfl-309921cc, verification ledger). Mergeable CLEAN. Head of the PR before merge: `d1306820`.
 - **C4 live proof, first attempt:** `gh workflow run nfl-official-capture.yml --ref main` returned **HTTP 403 "Resource not accessible by integration"**. This sandbox token cannot dispatch workflows. Not worked around; no other credential was sought.
 - **Next step (this session, follow-up PR):** add a `push` trigger on `main` for the workflow file and `scripts/capture_nfl_official.py`, so that merging a change to the capture code runs the live capture. The scheduled cron (16:00 UTC Sun/Wed/Thu/Fri/Sat) also remains as the regular cadence. The run result will be appended here once it is read from the Actions run list and from the bot commit on `data/nfl_capture/index.csv`.
+
+### C4 live proof — session `79fd4958` (2026-11-19, record PR)
+
+**Result: the live capture ran on `main` and passed.**
+
+| Item | Value (as recorded by the workflow) |
+|---|---|
+| Trigger | `push` to `main` from the merge of PR #147 (merge commit `f1b0c16`, 2026-11-19T12:45:10Z); run `44526812258`, event `push` |
+| Job conclusion | `success`; steps 1–7 and post steps all `success` |
+| `capture_utc` | 2026-11-19T12:45:19Z |
+| `requested_url` / `final_url` | `https://www.nfl.com/injuries/` / `https://www.nfl.com/injuries/` (no redirect) |
+| `http_status` / `bytes` | 200 / 373,969 |
+| `sha256` (raw bytes) | `341ae3e494eb7f57b9dc1552c6ed6f388f482cf8e1ed126b491e495b918b6b53` |
+| `page_title` | "Official Latest NFL Injury Report for Players - Week 11 of the 2026 Season \| NFL.com" |
+| `week_label` | Week 11 of the 2026 Season |
+| `injury_tables` / `player_rows` / `blank_game_status_rows` | 24 / 253 / 237 |
+| `changed_vs_previous` / `status` | first / ok |
+| Index commit | `9630683` by `github-actions[bot]` on `main` (`data/nfl_capture/index.csv`, one row) |
+| Raw artifact | `nfl-official-raw-44526812258`, 63,451 bytes (zip), expires 2027-02-17 |
+
+**Cross-check against the same-day transcription** (`data/nfl_ade166a4/raw/injuries_reg11_2026-11-19_b.md`, read 11:07Z, footer counts): 253 player rows; 24 teams with tables; 2 teams (CIN, WAS) printed "No Injuries Reported"; 16 rows with a non-blank game status (all Thursday IND@HOU). Live capture: 253 / 24 / 237 blank (= 253 − 16). **Match on every count.** A naive count of 26 distinct team labels (my first check) included the two "No Injuries Reported" placeholders and is not a discrepancy.
+
+**What this does not prove.**
+- The raw artifact could not be downloaded from this sandbox (the artifact blob host returned EOF, the same limit that blocks Actions logs). So the 373,969-byte hash is recorded by the workflow but not re-hashed here.
+- The `dispatch` path returned HTTP 403 from this token. The push-trigger path was used instead.
+- The **scheduled cron** (16:00 UTC, Sun/Wed/Thu/Fri/Sat) has not yet fired in this record. Its first run is the next check; it will show as a bot commit on `data/nfl_capture/index.csv` if it succeeds.
+
+**New flag (non-blocking):** F-79-5 — the capture does not yet record "No Injuries Reported" clubs (CIN and WAS this week). They appear as absent tables, not as a count. Add an explicit per-club record before the team-level model uses these counts.
