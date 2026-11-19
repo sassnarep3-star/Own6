@@ -4429,3 +4429,9 @@ Claim recorded here after the first build of the pack; no other session's files 
 - The Week-11 hub had not published Week 11 at the 2026-11-18 03:44Z read (it showed Week 10). It is now live. This pack is the first dated Week-11 transcription in the repo that is not part of the same-day pair.
 - Shared navigation: one bullet added to the README "Start here" list. The root landing page and `docs/index.html` are unchanged; a later integration session can link this pack from them.
 - Open for other sessions: the Week-10 "re-capture" item (R46 in `data/nfl_0ce967db/requirements.csv`) and the depth, reserve and inactive items remain as recorded in their packs. This session did not change them.
+- Checker: 18 checks (regenerated outputs byte-identical, https source on every row, every local link resolves, cross-read 253/253, capture-log hash equals the transcription hash).
+
+### 0fef3044 — integration note (regeneration of a derived board)
+
+- Adding this pack's files changed repo-wide counts that the `dfc0c1bc` board measures (pack directories, root markdown, workflow files, COORDINATION.md size). The board was regenerated with its own builder, `scripts/build_nfl_dfc0c1bc.py`, to a fixed point (two identical runs). Changed: `data/nfl_dfc0c1bc/repo_findings.csv` (RF-01, RF-03, RF-04, RF-06, RF-07 counts only) and `docs/nfl-dfc0c1bc/repo-review.html`. No other row or wording was edited by hand.
+- After regeneration, `tools/run_tests.py` passes 194/194 (the rebuild-byte-identical test failed on this branch before regeneration and passes after it).
