@@ -1,0 +1,53 @@
+name: nfl-51698d74
+
+on:
+  push:
+    branches: [main, 'arena/**']
+    paths:
+      - 'src/nfl_51698d74/**'
+      - 'scripts/build_nfl_51698d74.py'
+      - 'scripts/build_nfl_51698d74_data.py'
+      - 'scripts/build_nfl_51698d74_registers.py'
+      - 'scripts/check_nfl_51698d74.py'
+      - 'tests/test_nfl_51698d74.py'
+      - 'data/nfl_51698d74/**'
+      - 'docs/nfl-51698d74/**'
+  pull_request:
+    paths:
+      - 'src/nfl_51698d74/**'
+      - 'scripts/build_nfl_51698d74.py'
+      - 'scripts/build_nfl_51698d74_data.py'
+      - 'scripts/build_nfl_51698d74_registers.py'
+      - 'scripts/check_nfl_51698d74.py'
+      - 'tests/test_nfl_51698d74.py'
+      - 'data/nfl_51698d74/**'
+      - 'docs/nfl-51698d74/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Rebuild data CSVs from raw transcriptions (no network)
+        run: python3 scripts/build_nfl_51698d74_data.py
+      - name: Rebuild registers (determinism)
+        run: python3 scripts/build_nfl_51698d74_registers.py
+      - name: Recompute origination checks (no network)
+        run: python3 src/nfl_51698d74/recompute.py
+      - name: Check the data tree is unchanged by the rebuild (determinism)
+        run: git diff --exit-code -- data/nfl_51698d74
+      - name: Build the pack site
+        run: python3 scripts/build_nfl_51698d74.py
+      - name: Check the docs tree is unchanged by the rebuild (determinism)
+        run: git diff --exit-code -- docs/nfl-51698d74
+      - name: Run the pack verifier (20 rules)
+        run: python3 scripts/check_nfl_51698d74.py
+      - name: Run pack unit tests
+        run: python3 tests/test_nfl_51698d74.py

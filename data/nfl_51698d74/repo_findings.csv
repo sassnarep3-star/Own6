@@ -1,0 +1,9 @@
+finding_id,severity,category,summary,detail,source_urls
+516-RF01,info,repo,No blocking repo defect found at claim time,"Branch base equals origin/main ffbbce6; prior pack gates green (749 tests). All findings are upstream data-quality issues, published as flags.",https://github.com/sassnarep3-star/Own6
+516-RF02,low,repo,Many overlapping session packs with similar scopes,15+ NFL packs coexist with separate evidence boundaries; README warns they are not independent performance records. This pack adds no new overlap beyond the established pattern.,https://github.com/sassnarep3-star/Own6
+516-RF03,low,repo,"Open PRs from other sessions (#113, #111, #110, #94, #84) are stale",All >60 min without new commits. Takeover rule not exercised; their work stays theirs. This session takes fresh files only.,https://github.com/sassnarep3-star/Own6/pulls
+516-RF04,medium,data,No market price exists on any official NFL page,Price columns blank by written policy across all packs. Any future market source needs a license + terms read first.,https://www.nfl.com/legal/terms/
+516-RF05,medium,data,Depth-order source unresolved for all 32 clubs,Blocks the backup-deficiency feature. Route (a) club pages unverified; route (b) snap source unknown. Feature explicitly not built.,https://www.nfl.com/teams/houston-texans/
+516-RF06,low,data,Game-centre venue names use legacy names for Houston (RELIANT),Both Week-11 and Week-12 Houston game centres render RELIANT STADIUM. Hotel params use NRG Stadium. Both values published; game centre wins.,https://www.nfl.com/games/colts-at-texans-2026-reg-11
+516-RF07,low,data,Week-12 schedule headings contradict game lines,SNF/TNF labels over wrong weekdays. Slate dates/times unaffected.,https://www.nfl.com/schedules/2026/by-week/week-12
+516-RF08,info,repo,Shared inventories (assurance/coverage) regenerate at integration,Tool-regenerated only; this session does not hand-edit them.,https://github.com/sassnarep3-star/Own6
